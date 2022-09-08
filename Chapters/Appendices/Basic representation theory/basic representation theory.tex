@@ -1,6 +1,6 @@
-\section{Modules and representations}
-    \subsection{Filtrations in abelian categories}
-        \subsubsection{(Semi)-simplicity and the Jordan-H\"older Theorem}
+\section{Basic representation theory}
+    \subsection{(Semi-)simplicity and (in)decomposability}
+        \subsubsection{(Semi)-simplicity and the Jordan-H\"older Theorem; (locally) finite (Artinian) abelian categories}
             \begin{definition}[(Semi-)simple objects] \label{def: (semi)_simple_objects}
                 Let $\C$ be a category with enough monomorphisms and epimorphisms and zero objects. A \textit{non-zero} object $X \in \Ob(\C)$ is said to be \textbf{simple} if and only if any monomorphism $\iota: X' \to X$ and any epimorphism $\pi: X \to X''$ is either zero (i.e. it factors through a zero object) or the identity $\id_X$. If $\C$ additionally has enough direct sums, and if a (non-zero) object $X$ admits a direct sum decomposition:
                     $$X \cong \bigoplus_{i \in I} X_i$$
@@ -71,15 +71,51 @@
             \begin{remark}
                 Semi-simple objects are decomposable, while simple objects are always indecomposable. There can - however - be indecomposable objects which are not simple (e.g. any non-field commutative ring as a module over itself). 
             \end{remark}
+            \begin{definition}[Local associative algebras] \label{def: local_associative_algebras}
+                
+            \end{definition}
+            \begin{proposition}
+                Let $\C$ be a category with enough products and let $Z$ be an indecomposable object. Then $\C(Z, Z)$ 
+            \end{proposition}
+                \begin{proof}
+                    
+                \end{proof}
+            \begin{definition}[Krull-Schmidt categories] \label{def: krull_schmidt_categories}
+                Let $k$ be a commutative ring. A \textbf{$k$-linear Krull-Schmidt category} is a category is a $k$-linear category in which every object is decomposable into \textit{finitely many} indecomposable factors.
+            \end{definition}
+            
             \begin{theorem}[Krull-Schmidt Decomposition Theorem] \label{theorem: krull_schmidt_theorem}
-                Suppose that $\C$ is a category with enough (co)kernels and products, and that $X \in \Ob(\C)$ is an object of some finite length $n \geq 0$. Then, there exists a \textit{finite} product decomposition:
+                Suppose that $\C$ is a category with enough (co)kernels and products, and that $X \in \Ob(\C)$ is an object of finite length. Then, there exists a (necessarily finite) product decomposition:
                     $$X \cong \prod_{i \in I} X_i$$
                 of $X$ into indecomposable sub-objects $X_i \subseteq X$, which is unique up to isomorphisms.
             \end{theorem}
                 \begin{proof}
-                    
+                    Suppose to the contrary that there exists a finite-length object $X \in \Ob(\C)$ which does not admit a (finite) product decomposition into indecomposable sub-objects. Particularly, this means that $X$ is not indecomposable (because if so $X$ would just be its own unary product decomposition into indecomposable subobjects), meaning that by definition, $X$ is decomposable. Let:
+                        $$X \cong \prod_{j \in J^{(1)}} Z_j^{(1)}$$
+                    be a (necessarily finite) product decomposition of $X$ into sub-objects $Z_j^{(1)} \subseteq X$; the sub-objects $Z_j^{(1)}$ can not be simultaneously indecomposable, so there must exist at least one $j_1 \in J^{(1)}$ such that $Z_{j_1}^{(1)}$ is decomposable. By repeating this argument, one obtains the a (finite) product decomposition of $X$ as follows:
+                        $$X \cong \left( \prod_{j \in J^{(1)} \setminus j_1} Z_j^{(1)} \right) \x Z_{j_1}^{(1)} \cong \left( \prod_{j \in J^{(1)} \setminus j_1} Z_j^{(1)} \right) \x \left( \prod_{j \in J^{(2)} \setminus j_2} Z_j^{(2)} \right) \x Z_{j_2}^{(2)} \cong ...$$
+                    which yields the following \textit{infinite} filtration on $X$:
+                        $$X \supseteq Z_{j_1}^{(1)} \supseteq Z_{j_2}^{(2)} \supseteq ...$$
+                    This contradicts the hypothesis that $X$ is of finite length, and therefore $X$ is decomposable into finitely many indecomposable factors.
                 \end{proof}
-    
-        \subsubsection{(Locally) finite (Artinian) abelian categories}
-    
-    \subsection{Coalgebras}
+            \begin{example}
+                The Krull-Schmidt Decomposition Theorem is, particularly, applicable within the category of groups and any category of modules over an arbitrarily given associative ring. More specifically (and perhaps more pertinent to our needs), the theorem is holds within categories of representations (e.g. of groups, Lie algebras, Hopf algebras, and even of monoids\footnote{Observe that all such objects admit universally defined }). 
+            \end{example}
+            \begin{example}[Cyclic decomposition of finitely generated modules over PIDs]
+                An enhanced specialisation of the Krull-Schmidt Decomposition Theorem is the Cyclic Decomposition Theorem for finitely generated modules over PIDs $R$. Such modules are certainly of finite length (which are equal to the cardinalities of their generating sets) and as such - per the Krull-Schmidt Decomposition Theorem - admits a finite product (in fact, direct sum) decomposition into indecomposable modules. The additional lemma to prove for the Cyclic Decomposition Theorem is that over PIDs, indecomposable modules are always cyclic\footnote{Though the converse is not necessarily true (e.g. $\Z/6\Z \cong \Z/2\Z \oplus \Z/3\Z$ as a $\Z$-module).}; more particularly, one has:
+                    \begin{enumerate}
+                        \item a finitely generated module over a given PID is torsion-free if and only if it is free, and 
+                        \item finitely generated torsion modules over PIDs $R$ can be decomposed as:
+                            $$\bigoplus_{\p \in \Spec R} (R/\p)^{\oplus e_{\p}}$$
+                        for some finitely supported set of powers $\{e_{\p} \in \N \mid \p \in \Spec R\}$.
+                    \end{enumerate}
+                
+                A trivial yet interesting corollary of the Cyclic Decomposition Theorem is that over a given PID $R$, the canonical short exact sequence:
+                    $$0 \to \Tor_R(M) \to M \to M/\Tor_R(M) \to 0$$
+                splits for any finitely generated $R$-module $M$ (here, $\Tor_R(M)$ denotes the torsion $R$-submodules of $M$).
+                
+                In turn, the Cyclic Decomposition Theorem admits its own special case, that being the Chinese Remainder Theorem: given any integer $N$ and a fixed prime factorsiation $N := \prod_{i \in I} p_i^{e_i}$ thereof, one has an isomorphism of abelian groups as follows:
+                    $$\Z/N\Z \cong \bigoplus_{i \in I} (\Z/p_i\Z)^{e_i}$$
+            \end{example}
+        
+    \subsection{Finite algebras and representations of finite groups}
