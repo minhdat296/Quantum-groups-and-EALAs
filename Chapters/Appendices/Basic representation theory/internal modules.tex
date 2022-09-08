@@ -1,0 +1,85 @@
+\section{Modules and representations}
+    \subsection{Filtrations in abelian categories}
+        \subsubsection{(Semi)-simplicity and the Jordan-H\"older Theorem}
+            \begin{definition}[(Semi-)simple objects] \label{def: (semi)_simple_objects}
+                Let $\C$ be a category with enough monomorphisms and epimorphisms and zero objects. A \textit{non-zero} object $X \in \Ob(\C)$ is said to be \textbf{simple} if and only if any monomorphism $\iota: X' \to X$ and any epimorphism $\pi: X \to X''$ is either zero (i.e. it factors through a zero object) or the identity $\id_X$. If $\C$ additionally has enough direct sums, and if a (non-zero) object $X$ admits a direct sum decomposition:
+                    $$X \cong \bigoplus_{i \in I} X_i$$
+                into simple sub-objects $X_i \subseteq X$, then $X$ will be said to be \textbf{semi-simple}; a category wherein all objects are semi-simple is itself called \textbf{semi-simple}.
+            \end{definition}
+            \begin{remark}[(Semi-)simple objects in abelian categories]
+                If $\calA$ is an abelian category, then because $f: M \to N$ is a kernel (respectively, a cokernel) if and only if it is a monomorphism (respectively, an epimorphism), one might characterise simple objects of $\calA$ as those such that the kernel of any morphism:
+                    $$\iota: M' \to M$$
+                and and the cokernel of any morphism:
+                    $$\pi: M \to M''$$
+                are identically zero. 
+            \end{remark}
+            \begin{lemma}[Schur's Lemma] \label{lemma: schur_lemma}
+                Let $\calA$ be an abelian category and $f: M \to N$ be a non-zero morphism between two simple objects $M$ and $N$. Such a morphism must then be an isomorphism.
+            \end{lemma}
+                \begin{proof}
+                    Since both $M$ and $N$ are simple objects of $\calA$ and since $\calA$ is abelian, the lemma comes from consideration of the following commutative diagram and from the assumption that $f: M \to N$ is a non-zero morphism:
+                        $$
+                            \begin{tikzcd}
+                            	0 & M & 0 \\
+                            	0 & N & 0
+                            	\arrow["f", from=1-2, to=2-2]
+                            	\arrow[from=1-1, to=2-1]
+                            	\arrow[from=2-1, to=2-2]
+                            	\arrow["{\ker f}", from=1-1, to=1-2]
+                            	\arrow[from=1-2, to=1-3]
+                            	\arrow["{\coker f}", from=2-2, to=2-3]
+                            	\arrow[from=1-3, to=2-3]
+                            	\arrow["\lrcorner"{anchor=center, pos=0.125, rotate=180}, draw=none, from=2-3, to=1-2]
+                            	\arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
+                            \end{tikzcd}
+                        $$
+                \end{proof}
+            \begin{corollary}[Endomorphism algebras of simple objects] \label{coro: endomorphisms_algebras_of_simple_objects}
+                Let $\calA$ be an abelian category and let $M$ be a simple object. Then $\calA(M, M)$ will be a division ring (with respect to compositions of endomorphisms on $M$), and if $N \not \cong M$ is another simply object, then $\calA(M, N) \cong 0$. 
+            \end{corollary}
+                \begin{proof}
+                    Both assertions are direct consequences of lemma \ref{lemma: schur_lemma}.
+                \end{proof}
+            \begin{example}[Irreducible complex representations]
+                Let $k$ be a commutative ring, let $A$ be an associative $k$-algebra (e.g. one might consider the group algebra $A := k\<G\>$ of some abstract group $G$), and let $V$ and $W$ be two irreducible $k$-linear representations of $A$, viewed as simple (left-)$A$-modules. Then, any $A$-linear map $f: M \to N$ (or equivalently, any map of $k$-linear representations of $A$) will either be zero or an isomorphism; when $k$ is an algebraically closed field of characteristic $0$ (e.g. $k \cong \bbC$), such an isomorphism will also have to be given by (left-)multiplication by a scalar $a \in k$ (the scalar $1_k$ corresponds to the identity map).
+            \end{example}
+                
+            \begin{definition}[Lengths and Jordan-H\"older series] \label{def: lengths_of_objects_and_jordan_holder_series}
+                Let $\C$ be a category with enough kernels and cokernels. An object $X \in \Ob(\C)$ is then said to be of \textbf{length} $n$ (for some $n \in \N$) if and only if there exists a so-called \textbf{Jordan-H\"older filtration} of \textit{normal} monomorphisms:
+                    $$0 =: X_0 \subseteq X_1 \subseteq X_2 \subseteq ... \subseteq X_n \subseteq X$$
+                such that the quotients (i.e. cokernels) $X_{i + 1}/X_i$ are simple for all $0 \leq i \leq n - 1$; these quotients are commonly called \textbf{Jordan-H\"older factors}. Such a filtration is said to be of \textbf{multiplicity} $m \geq 0$ if and only if the number of isomorphic factors is $m$. 
+            \end{definition}
+            \begin{convention}
+                Zero objects are of length $0$.
+            \end{convention}
+            \begin{theorem}[Uniqueness of Jordan-H\"older filtrations] \label{theorem: jordan_holder_theorem}
+                Let $\C$ be a category with kernels and cokernels; assume also that $\C$ has enough cokernels. Next, consider an object $X \in \Ob(\C)$ that is of some finite length $n \geq 0$. Then, any Jordan-H\"older filtration of $X$ must be of length $n$.
+            \end{theorem}
+                \begin{proof}
+                    Let $X_{\bullet} := \{X_i\}_{0 \leq i \leq n}$ and $Y_{\bullet} := \{Y_j\}_{0 \leq j \leq m}$ be two Jordan-H\"older filtrations of $X$ and consider some $f_{\bullet} \in \C^{\N}(X_{\bullet}, Y_{\bullet})$. Taking cokernels is functorial, so let us consider the resulting map between factors $\coker f_{\bullet} \in \C^{\N}(X_{\bullet + 1}/X_{\bullet}, Y_{\bullet + 1}/Y_{\bullet})$. By Schur's Lemma (cf. lemma \ref{lemma: schur_lemma}), this is either zero or an isomorphism term-wise, which tells us that $m = n$. 
+                \end{proof}
+            \begin{example}
+                The Jordan-H\"older theorem holds in any semi-abelian category (such as that of groups) and more particularly, any abelian category (such as categories of modules over rings or categories of linear representations).
+            \end{example}
+        
+        \subsubsection{Decomposability and the Krull-Schmidt Theorem}
+            \begin{definition}[(In)decomposable objects] \label{def: (in)decomposable_objects}
+                An object $X$ of a category $\C$ with enough products is said to be \textbf{decomposable} if there exists a family $\{X_i\}_{i \in I}$ of sub-objects $X_i \subseteq X$ such that:
+                    $$X \cong \prod_{i \in I} X_i$$
+                Otherwise, $X$ is said to be \textbf{indecomposable}.
+            \end{definition}
+            \begin{remark}
+                Semi-simple objects are decomposable, while simple objects are always indecomposable. There can - however - be indecomposable objects which are not simple (e.g. any non-field commutative ring as a module over itself). 
+            \end{remark}
+            \begin{theorem}[Krull-Schmidt Decomposition Theorem] \label{theorem: krull_schmidt_theorem}
+                Suppose that $\C$ is a category with enough (co)kernels and products, and that $X \in \Ob(\C)$ is an object of some finite length $n \geq 0$. Then, there exists a \textit{finite} product decomposition:
+                    $$X \cong \prod_{i \in I} X_i$$
+                of $X$ into indecomposable sub-objects $X_i \subseteq X$, which is unique up to isomorphisms.
+            \end{theorem}
+                \begin{proof}
+                    
+                \end{proof}
+    
+        \subsubsection{(Locally) finite (Artinian) abelian categories}
+    
+    \subsection{Coalgebras}
