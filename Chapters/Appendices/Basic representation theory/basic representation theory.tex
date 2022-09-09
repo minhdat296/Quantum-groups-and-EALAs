@@ -1,5 +1,7 @@
 \section{Basic representation theory}
     \subsection{(Semi-)simplicity and (in)decomposability}
+        In this subsection, we recall and attempt to re-conceptualise the notions of (semi-)simplicity and (in)decomposability. Our approach is categorical, as our goal is to establish the fact that certain classical results on (semi-)simple and (in)decomposable modules/representations are actually just special cases of some basic categorical patterns. 
+    
         \subsubsection{(Semi)-simplicity and the Jordan-H\"older Theorem}
             \begin{definition}[(Semi-)simple objects] \label{def: (semi)_simple_objects}
                 Let $\C$ be a category with enough monomorphisms and epimorphisms and zero objects. A \textit{non-zero} object $X \in \Ob(\C)$ is said to be \textbf{simple} if and only if any monomorphism $\iota: X' \to X$ and any epimorphism $\pi: X \to X''$ is either zero (i.e. it factors through a zero object) or the identity $\id_X$. If $\C$ additionally has enough direct sums, and if a (non-zero) object $X$ admits a direct sum decomposition:
@@ -147,13 +149,13 @@
                 Let $k$ be a commutative and $\E$ be a locally finite $k$-linear abelian category. Then $\E(Z, Z)$ will be a division $k$-algebra for all simple objects $Z \in \Ob(\E)$ and in particular, when $k$ is an algebraically closed field, one has $\E(Z, Z) \cong k$.
             \end{proposition}
                 \begin{proof}
-                    The first assertion is just from corollary \ref{coro: endomorphism_algebras_of_simple_objects_in_abelian_categories}. The second comes from the fact if $D$ is a division algebra which is finite-dimensional over some algebraically closed field $k$, then in fact $D \cong k$ (to prove this, suppose that there exists an element $\alpha \in D \setminus k$ and then consider the field extension\footnote{Note that because $k$ is a $k$-subalgebra of the centre $\rmZ(D) \subseteq D$ per the definition of algebras over a ring, the element $\alpha$ must commute with all elements of $k$, and therefore $k(\alpha)$ is actually a $k$-algebra that is a field by construction.} $k(\alpha)/k$, which is \textit{a priori} algebraic\footnote{Since $k(\alpha)$ is finite-dimensional as a $k$-vector space, by virtue of being a $k$-vector subspace of $D$ (which is finite-dimensional over $k$ by assumption).}: since $k$ is algebraically closed, the minimal polynomial of $\alpha$ must be $f_{\alpha}(x) := x - \alpha \in k[x]$, but this in turn implies - via the hypothesis that $k$ is algebraically closed and the fact that the extension $k(\alpha)/k$ is algebraic - that $\alpha \in k$, which is clearly a contradiction, and thus $D \cong k$).
+                    The first assertion is just from corollary \ref{coro: endomorphism_algebras_of_simple_objects_in_abelian_categories}. The second comes from the fact if $D$ is a division algebra which is finite-dimensional over some algebraically closed field $k$, then in fact $D \cong k$ (to prove this, suppose that there exists an element $\alpha \in D \setminus k$ and then consider the field extension\footnote{Note that because $k$ is a $k$-subalgebra of the centre $\rmZ(D) \subseteq D$ per the definition of algebras over a ring, the element $\alpha$ must commute with all elements of $k$, and therefore $k(\alpha)$ is actually a $k$-algebra that is a field by construction.} $k(\alpha)/k$, which is \textit{a priori} algebraic\footnote{Since $k(\alpha)$ is finite-dimensional as a $k$-vector space, by virtue of being a $k$-vector subspace of $D$ (which is finite-dimensional over $k$ by assumption).}: since $k$ is algebraically closed, the minimal polynomial of $\alpha$ must be $(x - \alpha) \in k[x]$, but this in turn implies - via the hypothesis that $k$ is algebraically closed and the fact that the extension $k(\alpha)/k$ is algebraic - that $\alpha \in k$, which is clearly a contradiction, and thus $D \cong k$).
                 \end{proof}
                 
             \begin{definition}[Finite linear categories] \label{def: finite_linear_categories}
                 For any commutative ring $k$, a $k$-linear (abelian) category $\E$ is said to be \textbf{finite} if and only if there exists an \textit{exact} equivalence:
                     $$F: \E \to {}^lA\mod^{\fin}$$
-                to the category $A\mod^{\fin}$ of finitely generated left-modules over some finite $k$-algebra $A$. 
+                to the category $A\mod^{\fin}$ of finitely generated left-modules over some finite $k$-algebra $A$, which we shall call the algebra of \textbf{coefficients} of $\E$.
             \end{definition}
             \begin{proposition}[Finite linear categories are locally finite] \label{prop: finite_linear_categories_are_locally_finite}
                 Let $k$ be a commutative ring. Then, any finite $k$-linear category will also be locally finite. 
@@ -167,11 +169,28 @@
                 \begin{proof}
                     This is tautologically obvious because every left-module $M$ over a ring $A$ admits a free (hence projective) resolution $\e_{\bullet}: P_{\bullet} \to M$; the existence of the two-term complex $\e_1: P_1 \to M \to 0$ then tells us that indeed, finite linear categories have enough projectives. 
                 \end{proof}
-            \begin{proposition}[Simple objects in finite linear categories] \label{prop: simple_objects_in_finite_linear_categories}
-                Let $k$ be a commutative ring. Every finite $k$-linear category has finitely many isomorphism classes of simple objects. 
-            \end{proposition}
+            
+             \begin{lemma}[Simple modules over Jacobson quotients] \label{lemma: simple_modules_over_jacobson_quotients}
+                Let $R$ be an associative ring and let $\rad(R)$ denote its Jacobson radical. An $R/\rad(R)$-module $M$ is then simple if it is simple as an $R$-module.
+            \end{lemma}
                 \begin{proof}
                     
                 \end{proof}
+            \begin{lemma}[Simple modules over semi-simple rings] \label{lemma: simple_modules_over_semi_simple_rings}
+                Let $R$ be a semi-simple associative ring. Then there are only finitely many isomorphism classes of simple left-$R$-modules. 
+            \end{lemma}
+                \begin{proof}
+                    
+                \end{proof}
+            \begin{remark}
+                The assumption that $k$ is a field (as opposed to being any commutative ring) is crucial to validity of the following proposition. This is because we need the algebra of coefficient $A$ to be semi-simple. 
+            \end{remark}
+            \begin{proposition}[Simple objects in finite linear categories] \label{prop: simple_objects_in_finite_linear_categories}
+                Let $k$ be a field. Every finite $k$-linear category has finitely many isomorphism classes of simple objects. 
+            \end{proposition}
+                \begin{proof}
+                    Our task boils down to proving that for any finite-dimensional $k$-algebra $A$, there are only finitely many isomorphism classes of left-$A$-modules. This, however, is nothing but lemma \ref{lemma: simple_modules_over_semi_simple_rings}, since $A$ is semi-simple as a $k$-algebra by virtue of being finite-dimensional as a $k$-vector space. 
+                \end{proof}
         
     \subsection{Finite algebras and representations of finite groups}
+        In this subsection, we turn our focus to representations of finite groups, which we view as modules over group algebras. Our goal is to tabulate a list of important properties, as well as to give a guide on how one might perform explicit computations on these representations.  
