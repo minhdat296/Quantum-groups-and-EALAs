@@ -1,6 +1,6 @@
 \section{Basic representation theory}
     \subsection{(Semi-)simplicity and (in)decomposability}
-        \subsubsection{(Semi)-simplicity and the Jordan-H\"older Theorem; (locally) finite (Artinian) abelian categories}
+        \subsubsection{(Semi)-simplicity and the Jordan-H\"older Theorem}
             \begin{definition}[(Semi-)simple objects] \label{def: (semi)_simple_objects}
                 Let $\C$ be a category with enough monomorphisms and epimorphisms and zero objects. A \textit{non-zero} object $X \in \Ob(\C)$ is said to be \textbf{simple} if and only if any monomorphism $\iota: X' \to X$ and any epimorphism $\pi: X \to X''$ is either zero (i.e. it factors through a zero object) or the identity $\id_X$. If $\C$ additionally has enough direct sums, and if a (non-zero) object $X$ admits a direct sum decomposition:
                     $$X \cong \bigoplus_{i \in I} X_i$$
@@ -13,7 +13,7 @@
                     $$\pi: M \to M''$$
                 are identically zero. 
             \end{remark}
-            \begin{lemma}[Schur's Lemma] \label{lemma: schur_lemma}
+            \begin{lemma}[Schur's Lemma for abelian categories] \label{lemma: schur_lemma_for_abelian_categories}
                 Let $\calA$ be an abelian category and $f: M \to N$ be a non-zero morphism between two simple objects $M$ and $N$. Such a morphism must then be an isomorphism.
             \end{lemma}
                 \begin{proof}
@@ -34,14 +34,14 @@
                             \end{tikzcd}
                         $$
                 \end{proof}
-            \begin{corollary}[Endomorphism algebras of simple objects] \label{coro: endomorphisms_algebras_of_simple_objects}
+            \begin{corollary}[Endomorphism algebras of simple objects] \label{coro: endomorphism_algebras_of_simple_objects_in_abelian_categories}
                 Let $\calA$ be an abelian category and let $M$ be a simple object. Then $\calA(M, M)$ will be a division ring (with respect to compositions of endomorphisms on $M$), and if $N \not \cong M$ is another simply object, then $\calA(M, N) \cong 0$. 
             \end{corollary}
                 \begin{proof}
-                    Both assertions are direct consequences of lemma \ref{lemma: schur_lemma}.
+                    Both assertions are direct consequences of lemma \ref{lemma: schur_lemma_for_abelian_categories}.
                 \end{proof}
             \begin{example}[Irreducible complex representations]
-                Let $k$ be a commutative ring, let $A$ be an associative $k$-algebra (e.g. one might consider the group algebra $A := k\<G\>$ of some abstract group $G$), and let $V$ and $W$ be two irreducible $k$-linear representations of $A$, viewed as simple (left-)$A$-modules. Then, any $A$-linear map $f: M \to N$ (or equivalently, any map of $k$-linear representations of $A$) will either be zero or an isomorphism; when $k$ is an algebraically closed field of characteristic $0$ (e.g. $k \cong \bbC$), such an isomorphism will also have to be given by (left-)multiplication by a scalar $a \in k$ (the scalar $1_k$ corresponds to the identity map).
+                Let $k$ be a commutative ring, let $A$ be an associative $k$-algebra (e.g. one might consider the group algebra $A := k\<G\>$ of some abstract group $G$), and let $V$ and $W$ be two irreducible $k$-linear representations of $A$, viewed as simple (left-)$A$-modules. Then, any $A$-linear map $f: M \to N$ (or equivalently, any map of $k$-linear representations of $A$) will either be zero or an isomorphism; when $k$ is an algebraically closed field of characteristic $0$ (e.g. $k \cong \bbC$), such an isomorphism will also have to be given by (left-)multiplication by a scalar $a \in k$ (the scalar $1_k$ corresponds to the identity map)\footnote{For more details, see remark \ref{prop: endomorphism_algebras_of_simple_objects_in_locally_finite_linear_categories}}.
             \end{example}
                 
             \begin{definition}[Lengths and Jordan-H\"older series] \label{def: lengths_of_objects_and_jordan_holder_series}
@@ -56,11 +56,14 @@
                 Let $\C$ be a category with kernels and cokernels; assume also that $\C$ has enough cokernels. Next, consider an object $X \in \Ob(\C)$ that is of some finite length $n \geq 0$. Then, any Jordan-H\"older filtration of $X$ must be of length $n$.
             \end{theorem}
                 \begin{proof}
-                    Let $X_{\bullet} := \{X_i\}_{0 \leq i \leq n}$ and $Y_{\bullet} := \{Y_j\}_{0 \leq j \leq m}$ be two Jordan-H\"older filtrations of $X$ and consider some $f_{\bullet} \in \C^{\N}(X_{\bullet}, Y_{\bullet})$. Taking cokernels is functorial, so let us consider the resulting map between factors $\coker f_{\bullet} \in \C^{\N}(X_{\bullet + 1}/X_{\bullet}, Y_{\bullet + 1}/Y_{\bullet})$. By Schur's Lemma (cf. lemma \ref{lemma: schur_lemma}), this is either zero or an isomorphism term-wise, which tells us that $m = n$. 
+                    Let $X_{\bullet} := \{X_i\}_{0 \leq i \leq n}$ and $Y_{\bullet} := \{Y_j\}_{0 \leq j \leq m}$ be two Jordan-H\"older filtrations of $X$ and consider some $f_{\bullet} \in \C^{\N}(X_{\bullet}, Y_{\bullet})$. Taking cokernels is functorial, so let us consider the resulting map between factors $\coker f_{\bullet} \in \C^{\N}(X_{\bullet + 1}/X_{\bullet}, Y_{\bullet + 1}/Y_{\bullet})$. By Schur's Lemma (cf. lemma \ref{lemma: schur_lemma_for_abelian_categories}), this is either zero or an isomorphism term-wise, which tells us that $m = n$. 
                 \end{proof}
             \begin{example}
                 The Jordan-H\"older theorem holds in any semi-abelian category (such as that of groups) and more particularly, any abelian category (such as categories of modules over rings or categories of linear representations).
             \end{example}
+            \begin{definition}[Jordan-H\"older categories] \label{def: jordan_holder_categories}
+                A \textbf{Jordan-H\"older category} is one wherein every object is of finite length.
+            \end{definition}
         
         \subsubsection{Decomposability and the Krull-Schmidt Theorem}
             \begin{definition}[(In)decomposable objects] \label{def: (in)decomposable_objects}
@@ -71,11 +74,22 @@
             \begin{remark}
                 Semi-simple objects are decomposable, while simple objects are always indecomposable. There can - however - be indecomposable objects which are not simple (e.g. any non-field commutative ring as a module over itself). 
             \end{remark}
+            \begin{lemma}[Characterisations of local associative algebras] \label{lemma: characterisations_of_local_associative_algebras}
+                \cite[Theorem 19.1]{lam_first_course_in_noncommutative_rings} Let $k$ be a commutative ring. The following are equivalent for any non-zero associative $k$-algebra $(A, +, \cdot)$:
+                    \noindent
+                    \begin{enumerate}
+                        \item $A$ has a unique maximal left-ideal.
+                        \item $A$ has a unique maximal right-ideal. 
+                        \item $A/\rad(A)$ is a division $k$-algebra (with $\rad(A)$ denoting the Jacobson radical of $A$).
+                        \item $A \setminus A^{\x}$ is an $A$-ideal.
+                        \item $(A \setminus A^{\x}, +)$ is a group. 
+                    \end{enumerate}
+            \end{lemma}
             \begin{definition}[Local associative algebras] \label{def: local_associative_algebras}
-                
+                An associative algebra $A$ over a commutative ring $k$ is said to be \textbf{local} if and only if it satisfies one of the equivalent conditions of lemma \ref{lemma: characterisations_of_local_associative_algebras}.
             \end{definition}
-            \begin{proposition}
-                Let $\C$ be a category with enough products and let $Z$ be an indecomposable object. Then $\C(Z, Z)$ 
+            \begin{proposition}[Endormophism algebras of indecomposable objects] \label{prop: endomorphism_algebras_of_indecomposable_objects}
+                For some commutative ring $k$, let $\C$ be a $k$-linear category with enough products and let $Z$ be an indecomposable object. Then $\C(Z, Z)$ will be a local associative $k$-algebra. 
             \end{proposition}
                 \begin{proof}
                     
@@ -101,7 +115,7 @@
             \begin{example}
                 The Krull-Schmidt Decomposition Theorem is, particularly, applicable within the category of groups and any category of modules over an arbitrarily given associative ring. More specifically (and perhaps more pertinent to our needs), the theorem is holds within categories of representations (e.g. of groups, Lie algebras, Hopf algebras, and even of monoids\footnote{Observe that all such objects admit universally defined }). 
             \end{example}
-            \begin{example}[Cyclic decomposition of finitely generated modules over PIDs]
+            \begin{example}[Cyclic decomposition of finitely generated modules over PIDs] \label{example: cyclic_decomposition_theorem_for_finitely_generated_modules_over_PIDs}
                 An enhanced specialisation of the Krull-Schmidt Decomposition Theorem is the Cyclic Decomposition Theorem for finitely generated modules over PIDs $R$. Such modules are certainly of finite length (which are equal to the cardinalities of their generating sets) and as such - per the Krull-Schmidt Decomposition Theorem - admits a finite product (in fact, direct sum) decomposition into indecomposable modules. The additional lemma to prove for the Cyclic Decomposition Theorem is that over PIDs, indecomposable modules are always cyclic\footnote{Though the converse is not necessarily true (e.g. $\Z/6\Z \cong \Z/2\Z \oplus \Z/3\Z$ as a $\Z$-module).}; more particularly, one has:
                     \begin{enumerate}
                         \item a finitely generated module over a given PID is torsion-free if and only if it is free, and 
@@ -117,5 +131,47 @@
                 In turn, the Cyclic Decomposition Theorem admits its own special case, that being the Chinese Remainder Theorem: given any integer $N$ and a fixed prime factorsiation $N := \prod_{i \in I} p_i^{e_i}$ thereof, one has an isomorphism of abelian groups as follows:
                     $$\Z/N\Z \cong \bigoplus_{i \in I} (\Z/p_i\Z)^{e_i}$$
             \end{example}
+            
+        \subsubsection{(Locally) finite abelian categories}
+            \begin{definition}[Locally finite linear categories] \label{def: locally_finite_linear_categories}
+                Let $k$ be a commutative ring. A $k$-linear category $\E$ is said to be \textbf{locally finite}\footnote{Also called \textbf{Artinian}.} if:
+                    \begin{enumerate}
+                        \item for all objects $X, Y \in \Ob(\C)$, the hom-space $\E(X, Y)$ is finitely generated as a $k$-module, and
+                        \item every object of $\E$ is of finite-length.
+                    \end{enumerate}
+            \end{definition}
+            \begin{remark}[Locally finite categories are Jordan-H\"older and Krull-Schmidt]
+                Clearly, every locally finite linear category is simultaneously Jordan-H\"older (this is tautological) and Krull-Schmidt (because otherwise, there would exist objects of infinite length; cf. the proof of theorem \ref{theorem: krull_schmidt_theorem}).
+            \end{remark}
+            \begin{proposition}[Endomorphism algebras of simple objects in locally finite linear categories] \label{prop: endomorphism_algebras_of_simple_objects_in_locally_finite_linear_categories}
+                Let $k$ be a commutative and $\E$ be a locally finite $k$-linear abelian category. Then $\E(Z, Z)$ will be a division $k$-algebra for all simple objects $Z \in \Ob(\E)$ and in particular, when $k$ is an algebraically closed field, one has $\E(Z, Z) \cong k$.
+            \end{proposition}
+                \begin{proof}
+                    The first assertion is just from corollary \ref{coro: endomorphism_algebras_of_simple_objects_in_abelian_categories}. The second comes from the fact if $D$ is a division algebra which is finite-dimensional over some algebraically closed field $k$, then in fact $D \cong k$ (to prove this, suppose that there exists an element $\alpha \in D \setminus k$ and then consider the field extension\footnote{Note that because $k$ is a $k$-subalgebra of the centre $\rmZ(D) \subseteq D$ per the definition of algebras over a ring, the element $\alpha$ must commute with all elements of $k$, and therefore $k(\alpha)$ is actually a $k$-algebra that is a field by construction.} $k(\alpha)/k$, which is \textit{a priori} algebraic\footnote{Since $k(\alpha)$ is finite-dimensional as a $k$-vector space, by virtue of being a $k$-vector subspace of $D$ (which is finite-dimensional over $k$ by assumption).}: since $k$ is algebraically closed, the minimal polynomial of $\alpha$ must be $f_{\alpha}(x) := x - \alpha \in k[x]$, but this in turn implies - via the hypothesis that $k$ is algebraically closed and the fact that the extension $k(\alpha)/k$ is algebraic - that $\alpha \in k$, which is clearly a contradiction, and thus $D \cong k$).
+                \end{proof}
+                
+            \begin{definition}[Finite linear categories] \label{def: finite_linear_categories}
+                For any commutative ring $k$, a $k$-linear (abelian) category $\E$ is said to be \textbf{finite} if and only if there exists an \textit{exact} equivalence:
+                    $$F: \E \to {}^lA\mod^{\fin}$$
+                to the category $A\mod^{\fin}$ of finitely generated left-modules over some finite $k$-algebra $A$. 
+            \end{definition}
+            \begin{proposition}[Finite linear categories are locally finite] \label{prop: finite_linear_categories_are_locally_finite}
+                Let $k$ be a commutative ring. Then, any finite $k$-linear category will also be locally finite. 
+            \end{proposition}
+                \begin{proof}
+                    Combine definitions \ref{def: locally_finite_linear_categories} and \ref{def: finite_linear_categories}, and note that categories of finitely generated modules over finite $k$-algebras are indeed locally finite as $k$-linear categories. 
+                \end{proof}
+            \begin{proposition}[Finite linear categories have enough projectives] \label{prop: finite_linear_categories_have_enough_projectives}
+                Let $k$ be a commutative ring. Every finite $k$-linear category has enough projectives.
+            \end{proposition}
+                \begin{proof}
+                    This is tautologically obvious because every left-module $M$ over a ring $A$ admits a free (hence projective) resolution $\e_{\bullet}: P_{\bullet} \to M$; the existence of the two-term complex $\e_1: P_1 \to M \to 0$ then tells us that indeed, finite linear categories have enough projectives. 
+                \end{proof}
+            \begin{proposition}[Simple objects in finite linear categories] \label{prop: simple_objects_in_finite_linear_categories}
+                Let $k$ be a commutative ring. Every finite $k$-linear category has finitely many isomorphism classes of simple objects. 
+            \end{proposition}
+                \begin{proof}
+                    
+                \end{proof}
         
     \subsection{Finite algebras and representations of finite groups}
