@@ -4,10 +4,13 @@
     
         \subsubsection{(Semi)-simplicity and the Jordan-H\"older Theorem}
             \begin{definition}[(Semi-)simple objects] \label{def: (semi)_simple_objects}
-                Let $\C$ be a category with enough monomorphisms and epimorphisms and zero objects. A \textit{non-zero} object $X \in \Ob(\C)$ is said to be \textbf{simple} if and only if any monomorphism $\iota: X' \to X$ and any epimorphism $\pi: X \to X''$ is either zero (i.e. it factors through a zero object) or the identity $\id_X$. If $\C$ additionally has enough direct sums, and if a (non-zero) object $X$ admits a direct sum decomposition:
-                    $$X \cong \bigoplus_{i \in I} X_i$$
+                Let $\C$ be a category with enough monomorphisms and epimorphisms and zero objects. A \textit{non-zero} object $X \in \Ob(\C)$ is said to be \textbf{simple} if and only if any monomorphism $\iota: X' \to X$ and any epimorphism $\pi: X \to X''$ is either zero (i.e. it factors through a zero object) or the identity $\id_X$. If $\C$ additionally has enough products, and if a (non-zero) object $X$ admits a product decomposition:
+                    $$X \cong \prod_{i \in I} X_i$$
                 into simple sub-objects $X_i \subseteq X$, then $X$ will be said to be \textbf{semi-simple}; a category wherein all objects are semi-simple is itself called \textbf{semi-simple}.
             \end{definition}
+            \begin{example}[Irreducible representations]
+                (Semi-)simplicity is not a relative notion, i.e. it does not behave well under base-change. For instance, if $A$ is an associative algebra over a field $k$, then there can be irreducible $k$-linear representations $V$ which, while being finitely generated as an $A$-module, is of infinite dimension as a $k$-vector space at the same time.
+            \end{example}
             \begin{remark}[(Semi-)simple objects in abelian categories]
                 If $\calA$ is an abelian category, then because $f: M \to N$ is a kernel (respectively, a cokernel) if and only if it is a monomorphism (respectively, an epimorphism), one might characterise simple objects of $\calA$ as those such that the kernel of any morphism:
                     $$\iota: M' \to M$$
@@ -15,6 +18,17 @@
                     $$\pi: M \to M''$$
                 are identically zero. 
             \end{remark}
+            \begin{example}[Modules over semi-simple rings] \label{example: modules_over_semi_simple_rings}
+                \cite[Theorem 2.5]{lam_first_course_in_noncommutative_rings} For $R$ any left/right-semi-simple ring, the following are equivalent:
+                    \noindent
+                    \begin{enumerate}
+                        \item All shorts exact sequences of left/right-$R$-modules split.
+                        \item All left/right-$R$-modules are semi-simple.
+                        \item All finitely generated left/right-$R$-modules are semi-simple\footnote{In fact, the category ${}^lR\mod^{\fin}$ (respectively $R^r\mod^{\fin}$) of finitely generated left/right-$R$-modules is - by definition (cf. definition \ref{def: finite_linear_categories}) - an instance of a finite (abelian) $\Z$-linear category, meaning that it is Jordan-H\"older (cf. definition \ref{def: jordan_holder_categories}) and Krull-Schmidt (cf. definition \ref{def: krull_schmidt_categories}).}. 
+                        \item All cyclic left/right-$R$-modules are semi-simple. 
+                    \end{enumerate}
+                Furthermore, an associative ring is left-semi-simple if and only if it is right-semi-simple.  
+            \end{example}
             \begin{lemma}[Schur's Lemma for abelian categories] \label{lemma: schur_lemma_for_abelian_categories}
                 Let $\calA$ be an abelian category and $f: M \to N$ be a non-zero morphism between two simple objects $M$ and $N$. Such a morphism must then be an isomorphism.
             \end{lemma}
@@ -54,6 +68,9 @@
             \begin{convention}
                 Zero objects are of length $0$.
             \end{convention}
+            \begin{remark}
+                Obviously, semi-simple objects are of finite lengths. 
+            \end{remark}
             \begin{theorem}[Uniqueness of Jordan-H\"older filtrations] \label{theorem: jordan_holder_theorem}
                 Let $\C$ be a category with kernels and cokernels; assume also that $\C$ has enough cokernels. Next, consider an object $X \in \Ob(\C)$ that is of some finite length $n \geq 0$. Then, any Jordan-H\"older filtration of $X$ must be of length $n$.
             \end{theorem}
@@ -66,6 +83,27 @@
             \begin{definition}[Jordan-H\"older categories] \label{def: jordan_holder_categories}
                 A \textbf{Jordan-H\"older category} is one wherein every object is of finite length.
             \end{definition}
+            
+            Let us now take a break from the abstract nonsense and recall some important structural theorems for semi-simple algebras, notable among which is the Artin-Wedderburn Theorem. 
+            
+            We begin with the following result, which can be interpreted as a ring-theoretic generalisation of the classical Jordan-Chevalley Decomposition for linear operators, which tells us that any linear operator on a finite-dimensional vector space can be broken down into the sum of its semi-simple component and its nilpotent component\footnote{A special case of this is the Jordan Decomposition for finite-dimensional matrices with coefficients in either $\R$ or $\bbC$.}. 
+            \begin{lemma}[The Jordan-Chevalley Decomposition for semi-simple rings] \label{lemma: jordan_chevalley_decomposition_for_semi_simple_rings} 
+                \cite[Theorem 14.19]{rowen_graduate_noncommutative_algebra} An associative ring $R$ is semi-simple if and only if it admits a \textit{finite} product decomposition (wherein the product is taken in the category of rings) as follows:
+                    $$R \cong \prod_{i \in I} \Mat_{n_i}(D_i)$$
+                wherein $D_i$ are division rings and $n_i \geq 1$ are positive integers for all $i \in I$. 
+            \end{lemma}
+            \begin{theorem}[Artin-Wedderburn] \label{theorem: artin_wedderburn}
+                \cite[Theorem 14.24]{rowen_graduate_noncommutative_algebra} For any commutative ring $k$ and any associative $k$-algebra $A$, the following are equivalent:
+                    \begin{enumerate}
+                        \item There exists a $k$-algebra isomorphism $A \cong \Mat_n(D)$ for some division $k$-algebra $D$ and some $n \geq 1$.
+                        \item $A$ is simple and left/right-Artinian.
+                        \item $A$ is simple and left/right-Noetherian.
+                        \item $R$ is simple.
+                    \end{enumerate}
+            \end{theorem}
+                \begin{proof}
+                    
+                \end{proof}
         
         \subsubsection{Decomposability and the Krull-Schmidt Theorem}
             \begin{definition}[(In)decomposable objects] \label{def: (in)decomposable_objects}
@@ -174,8 +212,20 @@
                 Let $R$ be a semi-simple associative ring. Then there are only finitely many isomorphism classes of simple left-$R$-modules. 
             \end{lemma}
                 \begin{proof}
+                    For the sake of simplicity (and not at the expense of generality), suppose that the given semi-simple ring $R$ admits a product decomposition (in the category of rings) as follows:
+                        $$R \cong A \x B$$
+                    (wherein, of course, $A$ and $B$ are simple). It is then easy to see that every left-$R$-module $M$ decomposes as:
+                        $$M \cong P \oplus N$$
+                    wherein $P := (1_A, 0_B)M$ is a left-$A$-module and $N := (0_A, 1_B)M$ is a left-$B$-module. It then follows that $M$ is simple if either $P$ is simple and $N \cong 0$, or \textit{vice versa}.; this means that the number of simple left-$R$-modules is the sum of the number of simple left-modules over $A$ and those over $B$.
                     
+                    From here, our task becomes to prove that there are only finitely many isomorphism classes of simple left-modules over a given simple ring $R$. For this, recall first of all that because $R$ is simple (hence semi-simple), every simple left-$R$-module must be left-cyclic (cf. example \ref{example: modules_over_semi_simple_rings}). In other words, simple left-$R$-modules are precisely the left-ideals of $R$, and since $R$ is simple, the only isomorphism class of such modules is that of ${}_R(0)$. Thus we are done. 
                 \end{proof}
+            \begin{example}[$1$-dimensional vector spaces]
+                There is exactly one isomorphism class of simple vector spaces over a fixed field $k$ (which is indeed semi-simple, since fields do not admit any non-zero proper ideal), which is precisely the isomorphism class of $1$-dimensional $k$-vector spaces. 
+            \end{example}
+            \begin{example}[Irreducible representations]
+                If $A$ is an associative algebra over a commutative ring $k$, then there will only be finitely many isomorphism classes of irreducible $k$-linear representations on $A$. 
+            \end{example}
             \begin{remark}
                 The assumption that $k$ is a field (as opposed to being any commutative ring) is crucial to validity of the following proposition. This is because we need the algebra of coefficient $A$ to be semi-simple. 
             \end{remark}
@@ -188,10 +238,7 @@
         
     \subsection{Finite algebras and representations of finite groups}
         In this subsection, we turn our focus to representations of finite groups, which we view as modules over group algebras. Our goal is to tabulate a list of important properties, as well as to give a guide on how one might perform explicit computations on these representations.  
-        
-        \subsubsection{Structure of semi-simple algebras; modules over finite algebras}
             
-        
         \subsubsection{Maschke's Theoremn and characters}
         
         \subsubsection{Classification of irreducible representations of finite groups}
