@@ -107,7 +107,8 @@
 \newcommand{\Alg}{\mathrm{Alg}}
 \newcommand{\Leib}{\mathrm{Leib}} %leibniz algebras
 \newcommand{\Fld}{\mathrm{Fld}}
-\newcommand{\Sets}{\mathrm{Sets}}
+\newcommand{\Sets}{\mathrm{Set}}
+\newcommand{\Equiv}{\mathrm{Equiv}} %equivalence relations
 \newcommand{\Cat}{\mathrm{Cat}}
 \newcommand{\Grp}{\mathrm{Grp}}
 \newcommand{\Ab}{\mathrm{Ab}}
@@ -218,6 +219,7 @@
 \newcommand{\Inf}{\mathrm{Inf}}
 \newcommand{\LPar}{\mathrm{LPar}} %Langlands parameters
 \newcommand{\ORig}{\mathrm{ORig}} %overconvergent sites
+\newcommand{\Quiv}{\mathrm{Quiv}} %quivers
 
 \newcommand{\Aut}{\mathrm{Aut}}
 \newcommand{\Inn}{\mathrm{Inn}}
@@ -265,6 +267,12 @@
     \IfValueT{#2}{^{#2}}
   }%
 }
+\NewDocumentCommand{\singtensor}{e{_^}}{%
+  \mathbin{\mathop{\odot}\displaylimits
+    \IfValueT{#1}{_{#1}}
+    \IfValueT{#2}{^{#2}}
+  }%
+}
 \NewDocumentCommand{\hattensor}{e{_^}}{%
   \mathbin{\mathop{\hat{\otimes}}\displaylimits
     \IfValueT{#1}{_{#1}}
@@ -289,7 +297,7 @@
 \newcommand{\LKE}{\operatorname{LKE}}
 \newcommand{\oblv}{\mathrm{oblv}}
 \newcommand{\const}{\mathrm{const}}
-%\newcommand{\forget}{\mathrm{forget}}
+\newcommand{\free}{\mathrm{free}}
 \newcommand{\adrep}{\mathrm{ad}} %adjoint representation
 \newcommand{\NL}{\mathbb{NL}} %naive cotangent complex
 \newcommand{\pr}{\operatorname{pr}}

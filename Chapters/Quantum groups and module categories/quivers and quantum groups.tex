@@ -1,2 +1,140 @@
 \section{Quivers and quantum groups}
-    
+    \subsection{Moduli spaces of quiver representations}
+        \subsubsection{Algebraic properties of quivers and their representations}
+            We begin by introducing so-called \say{quivers}, which is more-or-less a relaxed version of directed graphs which turn out to be rather important within representation-theoretic contexts. Our approach is that quivers are certain very simple categories, and as such their representations ought to be viewed as particular instances of representations of categories. Specifically, this means we shall be studying the various algebraic properties of quiver representations via modules over their so-called \say{category algebras}, so that notions of say, finite-type-ness of quivers, could be discussed using purely ring-theoretic arguments.
+        
+            \begin{definition}[Quivers] \label{def: quivers}
+                For any category $\C$, a \textbf{$\C$-valued quiver} $Q$ is a diagram in $\C$ of the following form:
+                    $$
+                        \begin{tikzcd}
+                            Q_1 \arrow[r, "t"', shift right=2] \arrow[r, "s", shift left=2] \arrow["\id_{Q_1}"', loop, distance=2em, in=215, out=145] & Q_0 \arrow["\id_{Q_0}"', loop, distance=2em, in=35, out=325]
+                        \end{tikzcd}
+                    $$
+                wherein $Q_1, Q_0 \in \Ob(\C)$ respectively are known as the objects of \textbf{arrows/vertices} and \textbf{objects/edges}, and the arrows $s, t: Q_1 \toto Q_0$ are known as the \textbf{source} and \textbf{target} morphisms. 
+            \end{definition}
+            \begin{remark}[The category of quivers]
+                Equivalently, one might think of $\C$-valued quivers as $\C$-valued presheaves on the category:
+                    $$
+                        \begin{tikzcd}
+                            {\1} \arrow[r, "t"', shift right=2] \arrow[r, "s", shift left=2] \arrow["\id_{\1}"', loop, distance=2em, in=215, out=145] & {\0} \arrow["\id_{\0}"', loop, distance=2em, in=35, out=325]
+                        \end{tikzcd}
+                    $$
+                As such, for an arbitrarily fixed target category $\C$, one obtains a category $\Quiv(\C)$ of $\C$-valued quivers and natural transformations between them. In particular, when $\C \cong \Sets$, one obtains the presheaf topos $\Quiv$ of $\Sets$-valued quivers. 
+            \end{remark}
+            \begin{example}[Quivers internal to $\Sets$]
+                A $\Sets$-valued quiver is actually nothing but a so-called \textbf{directed graph}: such a quiver is a quadruple $(Q_1, Q_0, s, t)$ wherein $Q_1$ is a set of directed edges, $Q_0$ is the set of vertices of those direct edges, and $s, t: Q_1 \toto Q_0$ are the assignments of the sources and targets vertices (i.e. beginning and endpoints) to the aforementioned directed edges. One important detail to note here is that between two given vertices, there may be many directed edges, and there might also be loops onto the same vertex, as follows:
+                    $$
+                        \begin{tikzcd}
+                                                                                                                                           &         & \bullet \arrow[loop, distance=2em, in=125, out=55]             &                                                        & \bullet \\
+                            \bullet \arrow[r, shift right=2] \arrow[r, shift left=2] \arrow[loop, distance=2em, in=215, out=145] \arrow[r] & \bullet & \bullet \arrow[r, shift right=2] \arrow[l] \arrow[u] \arrow[d] & \bullet \arrow[ru] \arrow[rd] \arrow[l, shift right=2] &         \\
+                                                                                                                                           &         & \bullet \arrow[loop, distance=2em, in=305, out=235]            &                                                        & \bullet
+                        \end{tikzcd}
+                    $$
+                These diagrams of sets and functions, however, need not be commutative: as such, one is usually interested in the free categories associated to quivers, which are nothing but those quivers with compositions and identities added on (cf. proposition \ref{prop: free_quivers}).
+                
+                To be very specific, Dynkin diagrams are examples of $\Sets$-valued quivers (cf. definition \ref{def: dynkin_quivers}). 
+            \end{example}
+            \begin{proposition}[Sub-object classifier for $\Quiv$] \label{prop: sub_object_classifier_for_topos_of_quivers}
+                
+            \end{proposition}
+                \begin{proof}
+                    
+                \end{proof}
+            \begin{definition}[The double negation topology]
+                
+            \end{definition}
+            \begin{proposition}[A separatedness criterion for quivers] \label{prop: separatedness_criterion_for_quivers}
+                
+            \end{proposition}
+                \begin{proof}
+                    
+                \end{proof}
+                
+            \begin{proposition}[Free quivers] \label{prop: free_quivers}
+                The evident forgetful functor:
+                    $$\oblv: 1\-\Cat_1 \to \Quiv$$
+                (which forgets compositions and the associativity of said compositions) admits a left-adjoint:
+                    $$[-]: \Quiv \to 1\-\Cat_1$$
+                which shall be known as the \textbf{free quiver} functor. Explicitly, this functor assigns to each ($\Sets$-valued) quiver its associated free category.
+            \end{proposition}
+                \begin{proof}
+                    
+                \end{proof}
+            \begin{definition}[Quiver representations] \label{def: quiver_representations}
+                Given a quiver $Q \in \Ob(\Quiv)$, a commutative ring $\Lambda$, and a $\Lambda$-linear tensor category\footnote{Aside from the obvious example of $\Lambda\mod^{\heart}$ (and $\Lambda$-linear tensor subcategories thereof, like $(\Lambda\mod^{\fin})^{\heart}$), one might also consider categories such as the derived category of $\Lambda$-modules $\Lambda\mod$.} $\calV$, its category of $\Lambda$-linear representations, denoted by $\Rep_{\calV}(Q)$, is the functor category $\Func([Q], \calV)$.
+            \end{definition}
+            \begin{remark}[Basic properties of quiver representations]
+                Given a quiver $Q \in \Ob(\Quiv)$, a commutative ring $\Lambda$, and a $\Lambda$-linear tensor category $\calV$, its category of $\Lambda$-linear representations $\Rep_{\calV}(Q)$ will also be a $\Lambda$-linear tensor category.
+                
+                Of course, one could consider representations with values in categories of a more general kind than linear tensor $1$-categories, such as symmetric monoidal stable $\infty$-categories. 
+            \end{remark}
+            
+            Let us now move on to the notion of so-called \say{quiver algebras} and discuss the roles that they play in the representation theory of $\Sets$-valued quivers. 
+            \begin{definition}[Category algebras] \label{def: category_algebras}
+                Let $\Lambda$ be an associative ring and $\C$ be a category. Then, the \textbf{category $\Lambda$-algebra} $\Lambda\<\C\>$ of the given category $\C$ shall be the free $\Lambda$-algebra:
+                    $$\Lambda\<\C_1\> := \Lambda\<\Mor(\C)\>$$
+                on the set $\C_1 := \Mor(\C)$ of morphisms of $\C$: here, the multiplicative structure is given by compositions of morphisms in $\C$.
+            \end{definition}
+            \begin{example}[Category algebras of groupoids]
+                Fix a ring $\Lambda$. Category $\Lambda$-algebras of sets $I$ (viewed as a discrete category, wherein the only morphisms are the identities\footnote{... and as such the set of morphisms is precisely $I$.}) are nothing but noncommutative polynomial algebras:
+                    $$\Lambda\<\{x_i\}_{i \in I}\>$$
+                Category algebras of groupoids $\calG := (\calG_1, \calG_0, s, t)$ - since morphisms in such categories are all invertible by definition - are then the two-sided localisations:
+                    $$\Lambda\<\{x_{\gamma}\}_{\gamma \in \calG_1}\>[\{1/x_\gamma\}_{\gamma \in \calG_1}] := \Lambda\<\{x_\gamma\}_{\gamma \in \calG_1}\>/\<\forall \gamma \in \calG_1: x_{\gamma} x_{\gamma}^{-1} = x_{\gamma}^{-1} x_{\gamma} = 1\>$$
+            \end{example}
+            \begin{example}[Category algebras of quivers] \label{example: category_algebras_of_quivers}
+                Fix a ring $\Lambda$ along with a $\Sets$-valued quiver $Q$. The \textbf{quiver $\Lambda$-algebra} $\Lambda\<Q\>$ associated to said quiver is then the category $\Lambda$-algebra $\Lambda\<[Q]\>$ of the free quiver $[Q]$ (cf. proposition \ref{prop: free_quivers}). 
+                
+                Due to this definition, one obtains the following diagram of $1$-categories and functors, wherein the left-adjoints $[-]$ and $\Lambda\<-\>$ along with the horizontal arrows form a commutative square, and the unlabelled arrows are the obvious forgetful functors:
+                    $$
+                        \begin{tikzcd}
+                        	\Quiv & {\Lambda\-\Assoc\Alg} \\
+                        	\\
+                        	{1\-\Cat_1} & \Sets
+                        	\arrow["{(-)_1}"', from=3-1, to=3-2]
+                        	\arrow[""{name=0, anchor=center, inner sep=0}, bend right, from=3-1, to=1-1]
+                        	\arrow[""{name=1, anchor=center, inner sep=0}, "{[-]}"', bend right, from=1-1, to=3-1]
+                        	\arrow[""{name=2, anchor=center, inner sep=0}, "{\Lambda\<-\>}", bend left, from=3-2, to=1-2]
+                        	\arrow[""{name=3, anchor=center, inner sep=0}, bend left, from=1-2, to=3-2]
+                        	\arrow["{\Lambda\<[-]_1\>}", dashed, from=1-1, to=1-2]
+                        	\arrow["\dashv"{anchor=center}, draw=none, from=1, to=0]
+                        	\arrow["\dashv"{anchor=center}, draw=none, from=2, to=3]
+                        \end{tikzcd}
+                    $$
+                $[-]$ and $\Lambda\<-\>$ are left-adjoint and hence preserves all colimits, and it is easy to see that the functor:
+                    $$(-)_1: 1\-\Cat_1 \to \Sets$$
+                assigning to each $1$-category $\C$ its set of morphisms $\C_1$ preserves all coproducts. As such, the formation of quiver algebras preserves coproducts that exist in $\Quiv$ (and indeed, they all exist, since $\Quiv$ is a topos); this will become relevant once we would like to discuss representation-theoretic consequences of a quiver being \say{connected} (cf. definition \ref{def: connected_quivers}).
+            \end{example}
+            \begin{proposition}[Quiver representations are modules over quiver algebras] \label{prop: quiver_representations_are_modules_over_quiver_algebras}
+                Let $\Lambda$ be a commutative ring. Then, there is an equivalence of $\Lambda$-linear categories (fibred over $\Lambda\mod$):
+                    $$\Rep_{\Lambda}(Q) \to {}^l\Lambda\<Q\>\mod$$
+            \end{proposition}
+                \begin{proof}
+                    
+                \end{proof}
+            \begin{convention}
+                A $\Sets$-valued quiver is said to have a ring-theoretic property $\calP$ over some base ring $\Lambda$ (e.g. being of finite type) if and only if its quiver $\Lambda$-algebra has property $\calP$.
+            \end{convention}
+            \begin{definition}[Connected quivers] \label{def: connected_quivers}
+                A $\Sets$-valued quiver $Q: \{\1, \0, s, t\}^{\op} \to \Sets$ is said to be \textbf{connected} if and only if for all $v, w \in Q(\0)$, there exists $f \in Q(\1)$ such that $s(f) = v$ and $t(f) = w$ (i.e. it has no isolated vertices).
+            \end{definition}
+            \begin{remark}
+                Equivalently, one can say that a $\Sets$-valued (or maybe with values in any category $\C$ with enough coproducts and sub-objects) quiver is connected if and only if it can not be written as the disjoint union of two sub-quivers. 
+            \end{remark}
+            \begin{definition}[Adjacency matrices] \label{def: adjacency_matrices}
+                Let $Q := (Q_1, Q_0, s, t)$ be a finite quiver\footnote{With value in any category} and suppose that $n := |Q_0|$; also, let us enumerate the set $Q_0$ of vertices as $\{v_1, ..., v_n\}$ To it, one can associate a so-called \textbf{adjacency matrix}:
+                    $$A_{\Gamma} \in \Mat_n(\Z)$$
+                given by:
+                    $$A_{\Gamma} := (a_{ij} := |\{f \in Q_1 \mid s(f) = v_i, t(f) = v_j\}|)_{1 \leq i, j \leq n}$$
+                (that is, the number of directed edges )
+            \end{definition}
+            \begin{definition}[Dynkin quivers] \label{def: dynkin_quivers}
+                
+            \end{definition}
+        
+        \subsubsection{Moduli space of quiver representations}
+        
+        \subsubsection{Framings}
+        
+        \subsubsection{Hamiltonian reductions}
+        
+    \subsection{Quantum affine Lie algebras}
