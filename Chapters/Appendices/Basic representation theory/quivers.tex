@@ -1,6 +1,6 @@
 \section{Quivers and quantum groups}
-    \subsection{Moduli spaces of quiver representations}
-        \subsubsection{Algebraic properties of quivers and their representations}
+    \subsection{Representations of quivers}
+        \subsubsection{What are quivers ?}
             We begin by introducing so-called \say{quivers}, which is more-or-less a relaxed version of directed graphs which turn out to be rather important within representation-theoretic contexts. Our approach is that quivers are certain very simple categories, and as such their representations ought to be viewed as particular instances of representations of categories. Specifically, this means we shall be studying the various algebraic properties of quiver representations via modules over their so-called \say{category algebras}, so that notions of say, finite-type-ness of quivers, could be discussed using purely ring-theoretic arguments.
         
             \begin{definition}[Quivers] \label{def: quivers}
@@ -73,7 +73,7 @@
             \begin{definition}[Category algebras] \label{def: category_algebras}
                 Let $\Lambda$ be an associative ring and $\C$ be a category. Then, the \textbf{category $\Lambda$-algebra} $\Lambda\<\C\>$ of the given category $\C$ shall be the free $\Lambda$-algebra:
                     $$\Lambda\<\C_1\> := \Lambda\<\Mor(\C)\>$$
-                on the set $\C_1 := \Mor(\C)$ of morphisms of $\C$: here, the multiplicative structure is given by compositions of morphisms in $\C$.
+                on the set $\C_1 := \Mor(\C)$ of morphisms of $\C$: here, the multiplicative structure is given by compositions of morphisms in $\C$ (if $f\in \Mor(\C)$ can not be post-composed with $g \in \Mor(\C)$ then we set $fg = 0$).
             \end{definition}
             \begin{example}[Category algebras of groupoids]
                 Fix a ring $\Lambda$. Category $\Lambda$-algebras of sets $I$ (viewed as a discrete category, wherein the only morphisms are the identities\footnote{... and as such the set of morphisms is precisely $I$.}) are nothing but noncommutative polynomial algebras:
@@ -81,6 +81,9 @@
                 Category algebras of groupoids $\calG := (\calG_1, \calG_0, s, t)$ - since morphisms in such categories are all invertible by definition - are then the two-sided localisations:
                     $$\Lambda\<\{x_{\gamma}\}_{\gamma \in \calG_1}\>[\{1/x_\gamma\}_{\gamma \in \calG_1}] := \Lambda\<\{x_\gamma\}_{\gamma \in \calG_1}\>/\<\forall \gamma \in \calG_1: x_{\gamma} x_{\gamma}^{-1} = x_{\gamma}^{-1} x_{\gamma} = 1\>$$
             \end{example}
+            \begin{convention}[Path algebras ?]
+                Sometimes the category algebra of the free category associated to a given $\Sets$-valued quiver is also called the path algebra of that quiver.
+            \end{convention}
             \begin{example}[Category algebras of quivers] \label{example: category_algebras_of_quivers}
                 Fix a ring $\Lambda$ along with a $\Sets$-valued quiver $Q$. The \textbf{quiver $\Lambda$-algebra} $\Lambda\<Q\>$ associated to said quiver is then the category $\Lambda$-algebra $\Lambda\<[Q]\>$ of the free quiver $[Q]$ (cf. proposition \ref{prop: free_quivers}). 
                 
@@ -103,38 +106,101 @@
                 $[-]$ and $\Lambda\<-\>$ are left-adjoint and hence preserves all colimits, and it is easy to see that the functor:
                     $$(-)_1: 1\-\Cat_1 \to \Sets$$
                 assigning to each $1$-category $\C$ its set of morphisms $\C_1$ preserves all coproducts. As such, the formation of quiver algebras preserves coproducts that exist in $\Quiv$ (and indeed, they all exist, since $\Quiv$ is a topos); this will become relevant once we would like to discuss representation-theoretic consequences of a quiver being \say{connected} (cf. definition \ref{def: connected_quivers}).
+                
+                For a simple example of quiver algebras, consider the following quiver:
+                    $$
+                        \begin{tikzcd}
+                            \bullet \arrow["\id"', loop, distance=2em, in=215, out=145] \arrow[r] & \bullet \arrow["\id"', loop, distance=2em, in=35, out=325]
+                        \end{tikzcd}
+                    $$
+                which has a rather small path algebra, isomorphic to:
+                    $$\Lambda\<e_1, e_2, x\>/\<e_i^2 = e_i, x^2 = 0, e_i x = x e_i = x\>$$
+                This is of finite presentation as a $\Lambda$-algebra. In fact, every quiver of so-called \say{finite type} has path algebras which are of finite presentations.
             \end{example}
             \begin{proposition}[Quiver representations are modules over quiver algebras] \label{prop: quiver_representations_are_modules_over_quiver_algebras}
-                Let $\Lambda$ be a commutative ring. Then, there is an equivalence of $\Lambda$-linear categories (fibred over $\Lambda\mod$):
+                Let $\Lambda$ be a commutative ring. Then, there is an exact and monoidal equivalence of $\Lambda$-linear categories (fibred over $\Lambda\mod$):
                     $$\Rep_{\Lambda}(Q) \to {}^l\Lambda\<Q\>\mod$$
             \end{proposition}
                 \begin{proof}
                     
                 \end{proof}
-            \begin{convention}
-                A $\Sets$-valued quiver is said to have a ring-theoretic property $\calP$ over some base ring $\Lambda$ (e.g. being of finite type) if and only if its quiver $\Lambda$-algebra has property $\calP$.
-            \end{convention}
+            \begin{remark}
+                The equivalence of categories:
+                    $$\Rep_{\Lambda}(Q) \to {}^l\Lambda\<Q\>\mod$$
+                from proposition \ref{prop: quiver_representations_are_modules_over_quiver_algebras} has many important further properties, which all come from the very definition of linear representations of associative algebras (in this case, path algebras of quivers) themselves. For instance, this functor preserves (semi-)simplicity and (in)decomposability.
+                
+                As for further properties coming not from the definition of representations themselves, but rather from the basic property of this equivalence of categories, one has that the functor also preserves lengths and more generally, ascending and descending chains of objects, as a consequence of being exact. In particular, this means that should a representation of a given quiver $Q$ is finitely generated as a $\Lambda$-module (i.e. \say{finite-dimensional}), then the same would also be true for the corresponding left-$\Lambda\<Q\>$-module.
+            \end{remark}
+                
+            Let us now move on to a more in-depth discussion of connected quivers and in particular, those of \say{finite type}, which can be shown to precisely be the so-called \say{Dynkin quivers} (cf. definition \ref{def: dynkin_quivers}), which are simply laced connected quivers of a certain kind. 
+            \begin{definition}
+                A $\Sets$-valued quiver is said to have a ring-theoretic property $\calP$ over some base ring $\Lambda$ if and only if its quiver $\Lambda$-algebra has property $\calP$. 
+            \end{definition}
+            \begin{example}[Quivers of finite type]
+                A quiver $Q$ is said to be of finite type over some ring $\Lambda$ if and only if its path $\Lambda$-algebra $\Lambda\<Q\>$ is of finite type as a $\Lambda$-algebra.
+            \end{example}
+            \begin{proposition}[Quivers of finite type are of finite presentations] \label{prop: quivers_of_finite_type_are_of_finite_presentations}
+                Let $\Lambda$ be a ring and $Q$ be a $\Sets$-valued quiver. Then $Q$ is of finite type if and only if it is of finite presentation over $\Lambda$.
+            \end{proposition}
+                \begin{proof}
+                    If $\Lambda\<Q\>$ is of finite presentation then obviously it is of fintie type. Conversely, if $\Lambda\<Q\>$ is of finite presentation, then by definition the set $[Q]_1$ of morphisms of the free category $[Q]$ on $Q$ will have to be finite. These finitely many morphisms will generate finitely many relations on the noncommutative free $\Lambda$-algebra $\Lambda\<\{v_i\}_{1 \leq i \leq |Q_1|}\>$ (which we note to be of finite type over $\Lambda$), thereby making the algebra $\Lambda\<Q\>$ finitely presented over $\Lambda$.
+                \end{proof}
+            \begin{definition}[Simply laced quivers] \label{def: simply_laced_quivers}
+                A $\Sets$-valued quiver $Q := (Q_1, Q_0, s, t)$ is \textbf{simply laced} if and only if none of its vertices has self-loops: that is, for all $v \in Q_0$, one has:
+                    $$\{f \in Q_1 \mid s(f) = t(f) = v\} = \{\id_v\}$$
+            \end{definition}
+            \begin{remark}
+                Equivalently, one might characterise the simply laced quivers $Q := (Q_1, Q_0, s, t)$ as those wherein all non-identity paths $f \in Q_1$ generate square-free elements $f \in \Lambda\<Q\>$ (i.e. elements such that $f^2 = 0$). This is because the lack of non-identity loops implies that there is no non-identity path that can be composed with itself. 
+            \end{remark}
             \begin{definition}[Connected quivers] \label{def: connected_quivers}
                 A $\Sets$-valued quiver $Q: \{\1, \0, s, t\}^{\op} \to \Sets$ is said to be \textbf{connected} if and only if for all $v, w \in Q(\0)$, there exists $f \in Q(\1)$ such that $s(f) = v$ and $t(f) = w$ (i.e. it has no isolated vertices).
             \end{definition}
             \begin{remark}
                 Equivalently, one can say that a $\Sets$-valued (or maybe with values in any category $\C$ with enough coproducts and sub-objects) quiver is connected if and only if it can not be written as the disjoint union of two sub-quivers. 
             \end{remark}
-            \begin{definition}[Adjacency matrices] \label{def: adjacency_matrices}
-                Let $Q := (Q_1, Q_0, s, t)$ be a finite quiver\footnote{With value in any category} and suppose that $n := |Q_0|$; also, let us enumerate the set $Q_0$ of vertices as $\{v_1, ..., v_n\}$ To it, one can associate a so-called \textbf{adjacency matrix}:
-                    $$A_{\Gamma} \in \Mat_n(\Z)$$
+            
+        \subsubsection{Dynkin quivers, roots, and Gabriel's Theorem}
+            \begin{definition}[Adjacency and Cartan matrices] \label{def: adjacency_and_cartan_matrices}
+                Let $Q := (Q_1, Q_0, s, t)$ be a finite quiver\footnote{With value in any category} and suppose that $n := |Q_0|$; also, let us give the set $Q_0$ of vertices a \textit{fixed} enumeration $\{v_1, ..., v_n\}$. To such a quiver, one can associate a so-called \textbf{adjacency matrix}:
+                    $$R_Q \in \Mat_n(\Z)$$
                 given by:
-                    $$A_{\Gamma} := (a_{ij} := |\{f \in Q_1 \mid s(f) = v_i, t(f) = v_j\}|)_{1 \leq i, j \leq n}$$
-                (that is, the number of directed edges )
+                    $$R_Q := (r_{ij} := |\{f \in Q_1 \mid s(f) = v_i, t(f) = v_j\}|)_{1 \leq i, j \leq n}$$
+                (that is, the entries $r_{ij}$ of $R_Q$ are the numbers of \textit{undirected} edges from the vertex $v_i$ to the vertex $v_j$). From this matrix, one can define the \textbf{Cartan matrix} of $Q$:
+                    $$A_Q := 2I_n - R_Q$$
+                along with a $\Z$-bilinear form, which we shall call the \textbf{Cartan form}:
+                    $$B_Q: \Z^{\oplus n} \x \Z^{\oplus} \to \Z$$
+                    $$(x, y) \mapsto x^{\top} A_Q y$$                
             \end{definition}
             \begin{definition}[Dynkin quivers] \label{def: dynkin_quivers}
-                
+                A \textbf{Dynkin quiver} is a \textit{connected} and \textit{simply laced} finite quiver whose Cartan form is positive-definite.
+            \end{definition}
+            \begin{proposition}[Evenness of Cartan forms of Dynkin quivers]
+                Let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a Dynkin quiver and consider its Cartan matrix $A_{\Gamma}$. Then for all $x \in \Z^{\oplus n}$, $B_{\Gamma}(x, x)$ is even.  
+            \end{proposition}
+                \begin{proof}
+                    Let $n := |\Gamma_0|$ and pick a basis for $\Z^{\oplus n}$ in order to write:
+                        $$
+                            \begin{aligned}
+                                B_{\Gamma}(x, x) & = x^{\top} A_{\Gamma} x
+                                \\
+                                & = \sum_{1 \leq i, j \leq n} x_i a_{ij} x_j
+                                \\
+                                & = \sum_{1 \leq i, j \leq n} x_i (2\delta_{ij} - r_{ij}) x_j \text{(wherein $\delta_{ij}$ is the Kronecker delta)}
+                                \\
+                                & = 2\sum_{1 \leq i, j \leq n} x_i \delta_{ij} x_j - \sum_{1 \leq i, j \leq n} x_i (1 - \delta_{ij}) r_{ij} x_j \text{($r_{ij}$ are the entries the adjacency matrix of $\Gamma$)}
+                                \\
+                                & = 2\sum_{1 \leq i \leq n} x_i^2 - 2\sum_{1 \leq i < j \leq n} x_i r_{ij} x_j
+                            \end{aligned}
+                        $$
+                    for all $x \in \Z^{\oplus n}$, wherein the last line is due to the fact that the number of undirected edges from a vertex $v_i$ to another $v_j$ is equal to the number of undirected directed edges from $v_j$ to $v_i$, which in turn is a result of the assumption that by virtue of being a Dynkin quiver, $\Gamma$ is connected and simply laced\footnote{Note how this argument fails if $\Gamma$ is either not simply laced or not connected.}. Clearly, $B_{\Gamma}(v, v)$ is even for all $x \in \Z^{\oplus}$.
+                \end{proof}
+            \begin{definition}[Roots] \label{def: roots_of_dynkin_quivers}
+                A root of a \textit{Dynkin} quiver $\Gamma : (\Gamma_1, \Gamma_0, s, t)$ is a vector $x \in \Z^{\oplus n}$ (where $n := |\Gamma_0|$) such that $B_{\Gamma}(x, x) = 2$.
             \end{definition}
         
-        \subsubsection{Moduli space of quiver representations}
+    \subsection{Quivers in noncommutative geometry}
+        \subsubsection{Moduli space of quiver representations and Beilinson's Theorem}
         
         \subsubsection{Framings}
         
         \subsubsection{Hamiltonian reductions}
-        
-    \subsection{Quantum affine Lie algebras}
