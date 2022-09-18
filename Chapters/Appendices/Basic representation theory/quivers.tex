@@ -195,8 +195,33 @@
                     for all $x \in \Z^{\oplus n}$, wherein the last line is due to the fact that the number of undirected edges from a vertex $v_i$ to another $v_j$ is equal to the number of undirected directed edges from $v_j$ to $v_i$, which in turn is a result of the assumption that by virtue of being a Dynkin quiver, $\Gamma$ is connected and simply laced\footnote{Note how this argument fails if $\Gamma$ is either not simply laced or not connected.}. Clearly, $B_{\Gamma}(v, v)$ is even for all $x \in \Z^{\oplus}$.
                 \end{proof}
             \begin{definition}[Roots] \label{def: roots_of_dynkin_quivers}
-                A root of a \textit{Dynkin} quiver $\Gamma : (\Gamma_1, \Gamma_0, s, t)$ is a vector $x \in \Z^{\oplus n}$ (where $n := |\Gamma_0|$) such that $B_{\Gamma}(x, x) = 2$.
+                A root of a \textit{Dynkin} quiver $\Gamma : (\Gamma_1, \Gamma_0, s, t)$ is a vector:
+                    $$\alpha \in \Z^{\oplus n}$$
+                (where $n := |\Gamma_0|$) such that:
+                    $$B_{\Gamma}(\alpha, \alpha) = 2$$
+                The set of all roots of $\Gamma$ is denoted by $\Phi(\Gamma)$, and often called the \textbf{root system} of $\Gamma$.
             \end{definition}
+            \begin{example}[Simple roots] \label{example: simple_roots}
+                Let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a Dynkin quiver and set $n := \Gamma_0$. Also, pick a basis $\{e_1, ..., e_n\}$ for $\Z^{\oplus n}$. Then the vectors of the form:
+                    $$\alpha_i := \delta_{ij} e_j$$
+                (for $1 \leq i, j \leq n$) are in fact roots of $\Gamma$ and furthermore, they form a basis for $\Z^{\oplus n}$.
+            \end{example}
+            \begin{lemma}[Roots are exclusively either negative or positive] \label{lemma: roots_are_exclusively_either_negative_or_positive}
+                Let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a Dynkin quiver and set $n := \Gamma_0$. Also, pick a basis $\{e_1, ..., e_n\}$ for $\Z^{\oplus n}$ and choose a root $\alpha$ and write it in terms of the simple roots $\{\alpha_i\}_{1 \leq i \leq n}$ as:
+                    $$\alpha := \sum_{1 \leq i \leq n} c_i \alpha_i$$
+                Then either $c_i \geq 0$ or $c_i \leq 0$ for all $1 \leq i \leq n$ simultaneously.
+            \end{lemma}
+                \begin{proof}
+                    
+                \end{proof}
+            \begin{definition}[Positive and negative roots] \label{def: negative_and_positive_roots}
+                Let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a Dynkin quiver and set $n := \Gamma_0$. Also, pick a basis $\{e_1, ..., e_n\}$ for $\Z^{\oplus n}$ and choose a root $\alpha$ and write it in terms of the simple roots $\{\alpha_i\}_{1 \leq i \leq n}$ as:
+                    $$\alpha := \sum_{1 \leq i \leq n} c_i \alpha_i$$
+                Then we say that $\alpha$ is \textbf{positive} if and only if $c_i \geq 0$ for all $1 \leq i \leq n$ and \textbf{negative} if and only if $c_i \leq 0$ for all $1 \leq i \leq n$.
+            \end{definition}
+            \begin{example}
+                
+            \end{example}
         
     \subsection{Quivers in noncommutative geometry}
         \subsubsection{Moduli space of quiver representations and Beilinson's Theorem}
