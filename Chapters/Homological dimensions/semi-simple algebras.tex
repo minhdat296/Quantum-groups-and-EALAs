@@ -1,4 +1,4 @@
-\section{Basic representation theory}
+\section{Homological dimension \texorpdfstring{$0$}{} and semi-simple rings}
     \subsection{(Semi-)simplicity and (in)decomposability}
         In this subsection, we recall and attempt to re-conceptualise the notions of (semi-)simplicity and (in)decomposability. Our approach is categorical, as our goal is to establish the fact that certain classical results on (semi-)simple and (in)decomposable modules/representations are actually just special cases of some basic categorical patterns. 
     
@@ -19,9 +19,10 @@
                 are identically zero. 
             \end{remark}
             \begin{example}[Modules over semi-simple rings] \label{example: modules_over_semi_simple_rings}
-                \cite[Theorem 2.5]{lam_first_course_in_noncommutative_rings} For $R$ any left/right-semi-simple ring, the following are equivalent:
+                \cite[Theorem 2.5]{lam_first_course_in_noncommutative_rings} The following are equivalent are equivalent for any associative ring $R$:
                     \noindent
                     \begin{enumerate}
+                        \item $R$ is left/right-semi-simple (as a left/right-module over itself).
                         \item All shorts exact sequences of left/right-$R$-modules split.
                         \item All left/right-$R$-modules are semi-simple.
                         \item All finitely generated left/right-$R$-modules are semi-simple\footnote{In fact, the category ${}^lR\mod^{\fin}$ (respectively $R^r\mod^{\fin}$) of finitely generated left/right-$R$-modules is - by definition (cf. definition \ref{def: finite_linear_categories}) - an instance of a finite (abelian) $\Z$-linear category, meaning that it is Jordan-H\"older (cf. definition \ref{def: jordan_holder_categories}) and Krull-Schmidt (cf. definition \ref{def: krull_schmidt_categories}).}. 
@@ -83,27 +84,6 @@
             \begin{definition}[Jordan-H\"older categories] \label{def: jordan_holder_categories}
                 A \textbf{Jordan-H\"older category} is one wherein every object is of finite length.
             \end{definition}
-            
-            Let us now take a break from the abstract nonsense and recall some important structural theorems for semi-simple algebras, notable among which is the Artin-Wedderburn Theorem. 
-            
-            We begin with the following result, which can be interpreted as a ring-theoretic generalisation of the classical Jordan-Chevalley Decomposition for linear operators, which tells us that any linear operator on a finite-dimensional vector space can be broken down into the sum of its semi-simple component and its nilpotent component\footnote{A special case of this is the Jordan Decomposition for finite-dimensional matrices with coefficients in either $\R$ or $\bbC$.}. 
-            \begin{lemma}[The Jordan-Chevalley Decomposition for semi-simple rings] \label{lemma: jordan_chevalley_decomposition_for_semi_simple_rings} 
-                \cite[Theorem 14.19]{rowen_graduate_noncommutative_algebra} An associative ring $R$ is semi-simple if and only if it admits a \textit{finite} product decomposition (wherein the product is taken in the category of rings) as follows:
-                    $$R \cong \prod_{i \in I} \Mat_{n_i}(D_i)$$
-                wherein $D_i$ are division rings and $n_i \geq 1$ are positive integers for all $i \in I$. 
-            \end{lemma}
-            \begin{theorem}[Artin-Wedderburn] \label{theorem: artin_wedderburn}
-                \cite[Theorem 14.24]{rowen_graduate_noncommutative_algebra} For any commutative ring $k$ and any associative $k$-algebra $A$, the following are equivalent:
-                    \begin{enumerate}
-                        \item There exists a $k$-algebra isomorphism $A \cong \Mat_n(D)$ for some division $k$-algebra $D$ and some $n \geq 1$.
-                        \item $A$ is simple and left/right-Artinian.
-                        \item $A$ is simple and left/right-Noetherian.
-                        \item $R$ is simple.
-                    \end{enumerate}
-            \end{theorem}
-                \begin{proof}
-                    
-                \end{proof}
         
         \subsubsection{Decomposability and the Krull-Schmidt Theorem}
             \begin{definition}[(In)decomposable objects] \label{def: (in)decomposable_objects}
@@ -236,12 +216,209 @@
                     Our task boils down to proving that for any finite-dimensional $k$-algebra $A$, there are only finitely many isomorphism classes of left-$A$-modules. This, however, is nothing but lemma \ref{lemma: simple_modules_over_semi_simple_rings}, since $A$ is semi-simple as a $k$-algebra by virtue of being finite-dimensional as a $k$-vector space. 
                 \end{proof}
         
-    \subsection{Finite algebras and representations of finite groups}
-        In this subsection, we turn our focus to representations of finite groups, which we view as modules over group algebras. Our goal is to tabulate a list of important properties, as well as to give a guide on how one might perform explicit computations on these representations.  
+    \subsection{Homological dimensions}
+        \subsubsection{Projective and injective dimensions; global dimensions}
+            \begin{lemma}[Schaunel's Lemma] \label{lemma: schaunel_lemma}
+                \cite[\href{https://stacks.math.columbia.edu/tag/00O3}{Tag 00O3}]{stacks}
+            \end{lemma}
+                \begin{proof}
+                    
+                \end{proof}
+        
+            \begin{definition}[Projective and injective dimensions] \label{def: projective_and_injective_dimensions}
+                Let $\calA$ be an abelian category and $M \in \Ob(\calA)$ some arbitrary object therein. $M$ is said to be of \textbf{projective/injective dimension} $d \in \N \cup \{\infty\}$ if and only if any projective/injective resolution of $M$ is quasi-isomorphic to a projective/injective resolution of length $d$.
+            \end{definition}
+            \begin{example}
+                Projective/injective modules are of projective/dimension $0$.
+            \end{example}
+            \begin{remark}
+                Note that an object $M \in \Ob(\calA)$ of an abelian category $\calA$ is of injective dimension $d$ if and only if it is of projective dimension $d$ in $\calA^{\op}$. For this reason, the results below will only be stated in terms of projectives instead of projectives and injectives respectively.
+            \end{remark}
+            \begin{convention}[Resolutions]
+                Let $\calA$ be an abelian category and $M \in \Ob(\calA)$ some arbitrary object therein. Then, whenever we want to consider a resolution of $M$ by projectives (supposing that such a resolution exists), we shall mean a long exact sequence of the form:
+                    $$
+                        M_{\bullet} :=
+                        \left\{
+                            \begin{tikzcd}
+                            	\cdots & {M_2} & {M_1} & M & 0
+                            	\arrow[from=1-1, to=1-2]
+                            	\arrow["{\del_2}", from=1-2, to=1-3]
+                            	\arrow["{\del_1}", from=1-3, to=1-4]
+                            	\arrow[from=1-4, to=1-5]
+                            \end{tikzcd}
+                        \right\}
+                    $$
+                In particular, note that $M$ is placed in degree $0$, so usually, we will write:
+                    $$M_{\bullet}[0] := M$$
+                Also, note the \textit{homological} indexing.
+            \end{convention}
+            \begin{lemma}
+                (Cf. \cite[\href{https://stacks.math.columbia.edu/tag/00O5}{Tag 00O5}]{stacks}) Let $\calA$ be an abelian category with enough projectives and let $(M_{\bullet}, \del_{\bullet}) \in \Ob(\rmD_{[0, e]}^{\proj}(\calA))$ be a projective resolution. Suppose also that the $M_{\bullet}[0]$ is of some finite projective dimension $d \in \N$. Then, the kernel $\ker(\del_e: M_e \to M_{e - 1})$ will be a projective object of $\calA$.
+            \end{lemma}
+                \begin{proof}
+                    
+                \end{proof}
+            \begin{proposition}
+                (Cf. \cite[\href{https://stacks.math.columbia.edu/tag/0CXC}{Tag 0CXC}]{stacks}) Let $\calA$ be an abelian category with enough projectives and let $M \in \Ob(\calA)$ be an object; also let $d \in \N$ be a fixed natural number. Then, the following are equivalent:
+                    \begin{enumerate}
+                        \item $\projdim M \leq d$.
+                        \item $M$ admits a projective resolution of length $d$.
+                        \item 
+                        \item 
+                    \end{enumerate}
+            \end{proposition}
+                \begin{proof}
+                    
+                \end{proof}
+            \begin{proposition}[Computing projective dimensions using $\Ext^*$] \label{prop: computing_projective_dimensions_using_Ext}
+                Let $\calA$ be an abelian category with enough projectives and $M \in \Ob(\calA)$ be an arbitrary object thereof. Also, fix a natural number $d \in \N$. Then, the following are equivalent:
+                    \begin{enumerate}
+                        \item $\projdim M \leq d$.
+                        \item $\Ext_{\calA}^i(M, N) \cong 0$ for all $N \in \Ob(\calA)$ and all $i \geq d + 1$.
+                        \item $\Ext_{\calA}^{d + 1}(M, N) \cong 0$ for all $N \in \Ob(\calA)$.
+                    \end{enumerate}
+            \end{proposition}
+                \begin{proof}
+                    
+                \end{proof}
+            \begin{proposition}[Projective dimensions and short exact sequences] \label{prop: projective_dimensions_and_short_exact_sequences}
+                
+            \end{proposition}
+                \begin{proof}
+                    
+                \end{proof}
+                
+            \begin{definition}[Global dimensions] \label{def: global_dimensions}
+                The \textbf{global dimension} of an abelian category $\calA$ (often assumed to have enough projectives), denoted by $\globdim \calA$, is given by:
+                    $$\globdim \calA := \sup_{M \in \Ob(\calA)} \projdim M$$
+            \end{definition}
+            \begin{convention}[Global dimensions of rings] \label{conv: global_dimensions_of_rings}
+                When $\calA$ is the category of left/right-module over some ring $R$, one might speak instead of the \textbf{left/right-global dimension} of the ring $R$ itself instead of the global dimension of the abelian category of left/right-$R$-modules. 
+            \end{convention}
+    
+        \subsubsection{Flat dimensions, weak dimensions, and the Artin-Wedderburn Theorem}
+            \begin{remark}
+                Some other results that could also be included here are lemma \ref{lemma: simple_modules_over_semi_simple_rings} and example \ref{example: modules_over_semi_simple_rings} (which in particular informs us of the trivial fact that left/right-semi-simple algebras are left/right Noetherian and left/right Artinian; cf. \cite[Corollary 2.6]{lam_first_course_in_noncommutative_rings}).
+            \end{remark}
             
+            We begin by recalling the following lemma, which helps simplifies homological analyses of modules over semi-simple rings considerably (cf. corollary \ref{coro: (co)homology_of_modules_over_semi_simple_rings}).
+            \begin{lemma}[Projective and injective modules over semi-simple rings] \label{lemma: projective_and_injective_modules_over_semi_simple_rings}
+                \cite[Theorem 2.8]{lam_first_course_in_noncommutative_rings} The following are equivalent for any given associative ring $R$:
+                    \begin{enumerate}
+                        \item $R$ is left/right semi-simple.
+                        \item Left/right-$R$-modules are projective (respectively, injective).
+                        \item Finitely generated left/right-$R$-modules are projective (respectively, injective).
+                        \item Cyclic left/right-$R$-modules are projective (respectively, injective).
+                    \end{enumerate}
+            \end{lemma}
+            \begin{corollary}
+                The category of left/right modules over a semi-simple ring has enough projectives and injectives.
+            \end{corollary}
+            \begin{corollary}[(Co)homology of modules over semi-simple rings] \label{coro: (co)homology_of_modules_over_semi_simple_rings}
+                Let $R$ be a semi-simple associative ring and let $M$ be an arbitrary right-$R$-module. Then:
+                    \begin{enumerate}
+                        \item $\Ext_R^i(M, N) \cong 0$ for all right-$R$-modules $N$ and all indices $i > 0$. 
+                        \item $\Tor^R_i(M, P) \cong 0$ for all left-$R$-modules $P$ and all indices $i > 0$. 
+                    \end{enumerate}
+            \end{corollary}
+            \begin{definition}[Jacobson radicals] \label{def: jacobson_radicals}
+                The \textbf{Jacobson radical} of an associative ring $R$ is the two-sided $R$-ideal, denoted by $\rad(R)$, that is maximal among two-sided $R$-ideal whose elements all act as $0$ on simple $R$-modules.
+            \end{definition}
+            \begin{remark}[Jacobson radicals as intersections of kernels] \label{remark: jacobson_radicals_as_intersections_of_kernels}
+                Another way to view the Jacobson radical of a given associative $k$-algebra $A$ (for any commutative ring $k$) is that:
+                    $$\rad(A) \cong \bigcap_{(\rho, V) \in \Ob(\Rep_k^{\irr}(A))} \ker \rho$$
+                The kernels $\ker \rho$ are two-sided $A$-ideals, which ensures that $\rad(A)$ is also a two-sided $A$-ideal.
+            \end{remark}
+            \begin{proposition}[Jacobson radicals are nilpotent] \label{prop: jacobson_radicals_are_nilpotent} 
+                The Jacobson radical is maximal among nilpotent two-sided ideals. 
+            \end{proposition}
+                \begin{proof}
+                    
+                \end{proof}
+            \begin{example}[Two-sided ideals in semi-simple rings are trivial] \label{example: two_sided_ideals_in_semi_simple_rings_are_trivial}
+                Let $R$ be a semi-simple associative ring and let $M$ be an arbitrary right-$R$-module. Because $\Tor^R_i(M, P) \cong 0$ for all left-$R$-modules $P$ and all indices $i > 0$, take $P \cong {}_RR/I$ for any two-sided $R$-ideal $I$ (e.g. the Jacobson radical $\rad(R)$) to see that:
+                    $$\Tor^R_1(M, {}_RR/I) \cong \{x \in M \mid \forall a \in I: xa = 0\} \cong 0$$
+                In particular, one has:
+                    $$\Tor_1^R(R_R, {}_RR/I) \cong I \cong 0$$
+                which tells us that semi-simple rings do not admit any non-trivial two-sided ideals (so for instance, $\rad(R) = 0$ when $R$ is semi-simple). 
+                
+                The converse statement is true by definition, so we have obtained a characterisation of semi-simple rings via their two-sided ideals (or rather, the lack thereof). This will be used in our proof of Maschke's Theorem (cf. theorem \ref{theorem: maschke_theorem}).
+            \end{example}
+            \begin{example}[Ideals in matrix rings and semi-simplicity of matrix rings]
+                If $R$ is an associative ring and $n > 0$ is any positive integer then there are bijective functions:
+                    $$\Mat_n(-): \{\text{left/right/two-sided ideals of $R$}\} \to \{\text{left/right/two-sided ideals of $\Mat_n(R)$}\}$$
+                In particular, this tells us that $\Mat_n(R)$ is (semi-)simple if and only if $R$ is (semi-)simple, e.g. $R$ is a product of division rings (so in particular, fields and products thereof).
+                
+                We should also note that this is actually a very special case of something much more general and much deeper, called \say{Morita equivalence}: essentially, two associative rings $R$ and $S$ are Morita-equivalent if and only if there is an (adjoint and additive) equivalence\footnote{An equivalent version holds for right-modules.}:
+                    $$
+                        \begin{tikzcd}
+                        	{{}^lR\mod} & {{}^lS\mod}
+                        	\arrow[""{name=0, anchor=center, inner sep=0}, "{\Hom_S(P, -)}"', bend right, from=1-1, to=1-2]
+                        	\arrow[""{name=1, anchor=center, inner sep=0}, "{P \tensor_R -}"', bend right, from=1-2, to=1-1]
+                        	\arrow["\dashv"{anchor=center, rotate=-90}, draw=none, from=1, to=0]
+                        \end{tikzcd}
+                    $$
+                wherein $P$ is an $(S, R)$-bimodule which is a finitely generated projective generator of the category of left/right-$R$-modules, such that $S \cong \End_R(P)$. For $n \x n$ matrices, one takes:
+                    $$P := R^{\oplus n}$$
+                so that:
+                    $$S \cong \End_R(R^{\oplus n}) \cong \Mat_n(R)$$
+            \end{example}
+            \todo[inline]{Write something about left/right-global dimensions of semi-simple rings here}
+            \begin{theorem}[Artin-Wedderburn] \label{theorem: artin_wedderburn}
+                Let $k$ be a commutative ring and $A$ be a left/right-semi-simple associative $k$-algebra. Then, $A$ admits a finite product decomposition as follows, indexed by the (finitely many) irreducible $k$-linear representations of $A$:
+                    $$A \cong \prod_{V \in \Ob(\Rep_k^{\irr}(A))} \End_k(V)$$
+            \end{theorem}
+                \begin{proof}
+                    
+                \end{proof}
+            \begin{corollary}[The Artin-Wedderburn Theorem over fields] \label{coro: artin_wedderburn_over_fields}
+                
+            \end{corollary}
+                \begin{proof}
+                    
+                \end{proof}
+            \begin{proposition}[Quotients by Jacobson radicals are semi-simple] \label{prop: quotients_by_jacobson_radicals_are_semi_simple}
+                The quotient $R/\rad(R)$ of any associative ring $R$ by its Jacobson radical $\rad(R)$ is semi-simple.
+            \end{proposition}
+                \begin{proof}
+                    
+                \end{proof}
+            \begin{corollary}[The Sum-Of-Squares Formula for semi-simple algebras] \label{coro: sum_of_squares_formula_for_semi_simple_algebras}
+                Let $A$ be an associative algebra over some field $k$. Then:
+                    $$\dim_k(A) \geq \sum_{V \in \Ob(\Rep_k^{\irr}(A))} (\dim_k V)^2$$
+                and equality occurs if and only if $A$ is semi-simple.
+            \end{corollary}
+        
+    \subsection{Representations of finite groups}
+        In this subsection, we turn our focus to representations of finite groups, which we view as modules over group algebras. Our goal is to tabulate a list of important properties, as well as to give a guide on how one might perform explicit computations on these representations.
+        
+        \subsubsection{Induced and restricted representations; group cohomology}
+        
         \subsubsection{Maschke's Theorem and characters}
-            
+            \begin{theorem}[Maschke's Theorem] \label{theorem: maschke_theorem}
+                Let $G$ be group and $k$ be a ring. Then the group $k$-algebra $k\<G\>$ will be semi-simple as a module over itself if and only if:
+                    \begin{enumerate}
+                        \item $k$ is semi-simple as a module over itself,
+                        \item $G$ is finite, and
+                        \item $n$ is invertible in $k$.
+                    \end{enumerate}
+            \end{theorem}
+                \begin{proof}
+                    
+                \end{proof}
+            \begin{example}[What happens when $|G| \mid \chara k$ ?]
+                
+            \end{example}
+            \begin{corollary}[The Sum-Of-Squares Formula for finite groups] \label{coro: sum_of_squares_formula_for_finite_groups}
+                Let $G$ be a finite group and $k$ is a field wherein $|G|$ is invertible. Then there are finitely many irreducible $k$-linear representations of $G$ (i.e. simple left-$k\<G\>$-modules), and:
+                    $$|G| = \sum_{V \in \Ob(\Rep_k^{\irr}(G))} (\dim_k V)^2$$
+            \end{corollary}
+                \begin{proof}
+                    Note that $|G| = \dim_k k\<G\>$ when $\chara k$ does not divide $|G|$, so one can simply apply the Artin-Wedderburn Theorem (cf. theorem \ref{theorem: artin_wedderburn}) to the semi-simple $k$-algebra $k\<G\>$.
+                \end{proof}
+                
+        \subsubsection{Characters and the classification of irreducible representations of finite groups}
         
-        \subsubsection{Classification of irreducible representations of finite groups}
+        \subsubsection{Representations of finite flat group schemes}
         
-        \subsubsection{Induction and restriction}
+    \subsection{Nakayama rings}

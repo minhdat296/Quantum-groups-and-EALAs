@@ -1,6 +1,6 @@
-\section{Quivers and quantum groups}
-    \subsection{Representations of quivers}
-        \subsubsection{What are quivers ?}
+\section{Hereditary algebras and quivers}
+    \subsection{Quivers and their representations}
+        \subsubsection{Quivers}
             We begin by introducing so-called \say{quivers}, which is more-or-less a relaxed version of directed graphs which turn out to be rather important within representation-theoretic contexts. Our approach is that quivers are certain very simple categories, and as such their representations ought to be viewed as particular instances of representations of categories. Specifically, this means we shall be studying the various algebraic properties of quiver representations via modules over their so-called \say{category algebras}, so that notions of say, finite-type-ness of quivers, could be discussed using purely ring-theoretic arguments.
         
             \begin{definition}[Quivers] \label{def: quivers}
@@ -61,49 +61,49 @@
                     
                 \end{proof}
             \begin{definition}[Quiver representations] \label{def: quiver_representations}
-                Given a quiver $Q \in \Ob(\Quiv)$, a commutative ring $\Lambda$, and a $\Lambda$-linear tensor category\footnote{Aside from the obvious example of $\Lambda\mod^{\heart}$ (and $\Lambda$-linear tensor subcategories thereof, like $(\Lambda\mod^{\fin})^{\heart}$), one might also consider categories such as the derived category of $\Lambda$-modules $\Lambda\mod$.} $\calV$, its category of $\Lambda$-linear representations, denoted by $\Rep_{\calV}(Q)$, is the functor category $\Func([Q], \calV)$.
+                Given a quiver $Q \in \Ob(\Quiv)$, a commutative ring $k$, and a $k$-linear tensor category\footnote{Aside from the obvious example of $k\mod^{\heart}$ (and $k$-linear tensor subcategories thereof, like $(k\mod^{\fin})^{\heart}$), one might also consider categories such as the derived category of $k$-modules $k\mod$.} $\calV$, its category of $k$-linear representations, denoted by $\Rep_{\calV}(Q)$, is the functor category $\Func([Q], \calV)$.
             \end{definition}
             \begin{remark}[Basic properties of quiver representations]
-                Given a quiver $Q \in \Ob(\Quiv)$, a commutative ring $\Lambda$, and a $\Lambda$-linear tensor category $\calV$, its category of $\Lambda$-linear representations $\Rep_{\calV}(Q)$ will also be a $\Lambda$-linear tensor category.
+                Given a quiver $Q \in \Ob(\Quiv)$, a commutative ring $k$, and a $k$-linear tensor category $\calV$, its category of $k$-linear representations $\Rep_{\calV}(Q)$ will also be a $k$-linear tensor category.
                 
                 Of course, one could consider representations with values in categories of a more general kind than linear tensor $1$-categories, such as symmetric monoidal stable $\infty$-categories. 
             \end{remark}
             
             Let us now move on to the notion of so-called \say{quiver algebras} and discuss the roles that they play in the representation theory of $\Sets$-valued quivers. 
             \begin{definition}[Category algebras] \label{def: category_algebras}
-                Let $\Lambda$ be an associative ring and $\C$ be a category. Then, the \textbf{category $\Lambda$-algebra} $\Lambda\<\C\>$ of the given category $\C$ shall be the free $\Lambda$-algebra:
-                    $$\Lambda\<\C_1\> := \Lambda\<\Mor(\C)\>$$
+                Let $k$ be an associative ring and $\C$ be a category. Then, the \textbf{category $k$-algebra} $k\<\C\>$ of the given category $\C$ shall be the free $k$-algebra:
+                    $$k\<\C_1\> := k\<\Mor(\C)\>$$
                 on the set $\C_1 := \Mor(\C)$ of morphisms of $\C$: here, the multiplicative structure is given by compositions of morphisms in $\C$ (if $f\in \Mor(\C)$ can not be post-composed with $g \in \Mor(\C)$ then we set $fg = 0$).
             \end{definition}
             \begin{example}[Category algebras of groupoids]
-                Fix a ring $\Lambda$. Category $\Lambda$-algebras of sets $I$ (viewed as a discrete category, wherein the only morphisms are the identities\footnote{... and as such the set of morphisms is precisely $I$.}) are nothing but noncommutative polynomial algebras:
-                    $$\Lambda\<\{x_i\}_{i \in I}\>$$
+                Fix a ring $k$. Category $k$-algebras of sets $I$ (viewed as a discrete category, wherein the only morphisms are the identities\footnote{... and as such the set of morphisms is precisely $I$.}) are nothing but noncommutative polynomial algebras:
+                    $$k\<\{x_i\}_{i \in I}\>$$
                 Category algebras of groupoids $\calG := (\calG_1, \calG_0, s, t)$ - since morphisms in such categories are all invertible by definition - are then the two-sided localisations:
-                    $$\Lambda\<\{x_{\gamma}\}_{\gamma \in \calG_1}\>[\{1/x_\gamma\}_{\gamma \in \calG_1}] := \Lambda\<\{x_\gamma\}_{\gamma \in \calG_1}\>/\<\forall \gamma \in \calG_1: x_{\gamma} x_{\gamma}^{-1} = x_{\gamma}^{-1} x_{\gamma} = 1\>$$
+                    $$k\<\{x_{\gamma}\}_{\gamma \in \calG_1}\>[\{1/x_\gamma\}_{\gamma \in \calG_1}] := k\<\{x_\gamma\}_{\gamma \in \calG_1}\>/\<\forall \gamma \in \calG_1: x_{\gamma} x_{\gamma}^{-1} = x_{\gamma}^{-1} x_{\gamma} = 1\>$$
             \end{example}
             \begin{convention}[Path algebras ?]
                 Sometimes the category algebra of the free category associated to a given $\Sets$-valued quiver is also called the path algebra of that quiver.
             \end{convention}
             \begin{example}[Category algebras of quivers] \label{example: category_algebras_of_quivers}
-                Fix a ring $\Lambda$ along with a $\Sets$-valued quiver $Q$. The \textbf{quiver $\Lambda$-algebra} $\Lambda\<Q\>$ associated to said quiver is then the category $\Lambda$-algebra $\Lambda\<[Q]\>$ of the free quiver $[Q]$ (cf. proposition \ref{prop: free_quivers}). 
+                Fix a ring $k$ along with a $\Sets$-valued quiver $Q$. The \textbf{quiver $k$-algebra} $k\<Q\>$ associated to said quiver is then the category $k$-algebra $k\<[Q]\>$ of the free quiver $[Q]$ (cf. proposition \ref{prop: free_quivers}). 
                 
-                Due to this definition, one obtains the following diagram of $1$-categories and functors, wherein the left-adjoints $[-]$ and $\Lambda\<-\>$ along with the horizontal arrows form a commutative square, and the unlabelled arrows are the obvious forgetful functors:
+                Due to this definition, one obtains the following diagram of $1$-categories and functors, wherein the left-adjoints $[-]$ and $k\<-\>$ along with the horizontal arrows form a commutative square, and the unlabelled arrows are the obvious forgetful functors:
                     $$
                         \begin{tikzcd}
-                        	\Quiv & {\Lambda\-\Assoc\Alg} \\
+                        	\Quiv & {k\-\Assoc\Alg} \\
                         	\\
                         	{1\-\Cat_1} & \Sets
                         	\arrow["{(-)_1}"', from=3-1, to=3-2]
                         	\arrow[""{name=0, anchor=center, inner sep=0}, bend right, from=3-1, to=1-1]
                         	\arrow[""{name=1, anchor=center, inner sep=0}, "{[-]}"', bend right, from=1-1, to=3-1]
-                        	\arrow[""{name=2, anchor=center, inner sep=0}, "{\Lambda\<-\>}", bend left, from=3-2, to=1-2]
+                        	\arrow[""{name=2, anchor=center, inner sep=0}, "{k\<-\>}", bend left, from=3-2, to=1-2]
                         	\arrow[""{name=3, anchor=center, inner sep=0}, bend left, from=1-2, to=3-2]
-                        	\arrow["{\Lambda\<[-]_1\>}", dashed, from=1-1, to=1-2]
+                        	\arrow["{k\<[-]_1\>}", dashed, from=1-1, to=1-2]
                         	\arrow["\dashv"{anchor=center}, draw=none, from=1, to=0]
                         	\arrow["\dashv"{anchor=center}, draw=none, from=2, to=3]
                         \end{tikzcd}
                     $$
-                $[-]$ and $\Lambda\<-\>$ are left-adjoint and hence preserves all colimits, and it is easy to see that the functor:
+                $[-]$ and $k\<-\>$ are left-adjoint and hence preserves all colimits, and it is easy to see that the functor:
                     $$(-)_1: 1\-\Cat_1 \to \Sets$$
                 assigning to each $1$-category $\C$ its set of morphisms $\C_1$ preserves all coproducts. As such, the formation of quiver algebras preserves coproducts that exist in $\Quiv$ (and indeed, they all exist, since $\Quiv$ is a topos); this will become relevant once we would like to discuss representation-theoretic consequences of a quiver being \say{connected} (cf. definition \ref{def: connected_quivers}).
                 
@@ -114,43 +114,43 @@
                         \end{tikzcd}
                     $$
                 which has a rather small path algebra, isomorphic to:
-                    $$\Lambda\<e_1, e_2, x\>/\<e_i^2 = e_i, x^2 = 0, e_i x = x e_i = x\>$$
-                This is of finite presentation as a $\Lambda$-algebra. In fact, every quiver of so-called \say{finite type} has path algebras which are of finite presentations.
+                    $$k\<e_1, e_2, x\>/\<e_i^2 = e_i, x^2 = 0, e_i x = x e_i = x\>$$
+                This is of finite presentation as a $k$-algebra. In fact, every quiver of so-called \say{finite type} has path algebras which are of finite presentations.
             \end{example}
             \begin{proposition}[Quiver representations are modules over quiver algebras] \label{prop: quiver_representations_are_modules_over_quiver_algebras}
-                Let $\Lambda$ be a commutative ring. Then, there is an exact and monoidal equivalence of $\Lambda$-linear categories (fibred over $\Lambda\mod$):
-                    $$\Rep_{\Lambda}(Q) \to {}^l\Lambda\<Q\>\mod$$
+                Let $k$ be a commutative ring. Then, there is an exact and monoidal equivalence of $k$-linear categories (fibred over $k\mod$):
+                    $$\Rep_{k}(Q) \to {}^lk\<Q\>\mod$$
             \end{proposition}
                 \begin{proof}
                     
                 \end{proof}
             \begin{remark}
                 The equivalence of categories:
-                    $$\Rep_{\Lambda}(Q) \to {}^l\Lambda\<Q\>\mod$$
+                    $$\Rep_{k}(Q) \to {}^lk\<Q\>\mod$$
                 from proposition \ref{prop: quiver_representations_are_modules_over_quiver_algebras} has many important further properties, which all come from the very definition of linear representations of associative algebras (in this case, path algebras of quivers) themselves. For instance, this functor preserves (semi-)simplicity and (in)decomposability.
                 
-                As for further properties coming not from the definition of representations themselves, but rather from the basic property of this equivalence of categories, one has that the functor also preserves lengths and more generally, ascending and descending chains of objects, as a consequence of being exact. In particular, this means that should a representation of a given quiver $Q$ is finitely generated as a $\Lambda$-module (i.e. \say{finite-dimensional}), then the same would also be true for the corresponding left-$\Lambda\<Q\>$-module.
+                As for further properties coming not from the definition of representations themselves, but rather from the basic property of this equivalence of categories, one has that the functor also preserves lengths and more generally, ascending and descending chains of objects, as a consequence of being exact. In particular, this means that should a representation of a given quiver $Q$ is finitely generated as a $k$-module (i.e. \say{finite-dimensional}), then the same would also be true for the corresponding left-$k\<Q\>$-module.
             \end{remark}
                 
             Let us now move on to a more in-depth discussion of connected quivers and in particular, those of \say{finite type}, which can be shown to precisely be the so-called \say{Dynkin quivers} (cf. definition \ref{def: dynkin_quivers}), which are simply laced connected quivers of a certain kind. 
             \begin{definition}
-                A $\Sets$-valued quiver is said to have a ring-theoretic property $\calP$ over some base ring $\Lambda$ if and only if its quiver $\Lambda$-algebra has property $\calP$. 
+                A $\Sets$-valued quiver is said to have a ring-theoretic property $\calP$ over some base ring $k$ if and only if its quiver $k$-algebra has property $\calP$. 
             \end{definition}
             \begin{example}[Quivers of finite type]
-                A quiver $Q$ is said to be of finite type over some ring $\Lambda$ if and only if its path $\Lambda$-algebra $\Lambda\<Q\>$ is of finite type as a $\Lambda$-algebra.
+                A quiver $Q$ is said to be of finite type over some ring $k$ if and only if its path $k$-algebra $k\<Q\>$ is of finite type as a $k$-algebra.
             \end{example}
             \begin{proposition}[Quivers of finite type are of finite presentations] \label{prop: quivers_of_finite_type_are_of_finite_presentations}
-                Let $\Lambda$ be a ring and $Q$ be a $\Sets$-valued quiver. Then $Q$ is of finite type if and only if it is of finite presentation over $\Lambda$.
+                Let $k$ be a ring and $Q$ be a $\Sets$-valued quiver. Then $Q$ is of finite type if and only if it is of finite presentation over $k$.
             \end{proposition}
                 \begin{proof}
-                    If $\Lambda\<Q\>$ is of finite presentation then obviously it is of fintie type. Conversely, if $\Lambda\<Q\>$ is of finite presentation, then by definition the set $[Q]_1$ of morphisms of the free category $[Q]$ on $Q$ will have to be finite. These finitely many morphisms will generate finitely many relations on the noncommutative free $\Lambda$-algebra $\Lambda\<\{v_i\}_{1 \leq i \leq |Q_1|}\>$ (which we note to be of finite type over $\Lambda$), thereby making the algebra $\Lambda\<Q\>$ finitely presented over $\Lambda$.
+                    If $k\<Q\>$ is of finite presentation then obviously it is of fintie type. Conversely, if $k\<Q\>$ is of finite presentation, then by definition the set $[Q]_1$ of morphisms of the free category $[Q]$ on $Q$ will have to be finite. These finitely many morphisms will generate finitely many relations on the noncommutative free $k$-algebra $k\<\{v_i\}_{1 \leq i \leq |Q_1|}\>$ (which we note to be of finite type over $k$), thereby making the algebra $k\<Q\>$ finitely presented over $k$.
                 \end{proof}
             \begin{definition}[Simply laced quivers] \label{def: simply_laced_quivers}
                 A $\Sets$-valued quiver $Q := (Q_1, Q_0, s, t)$ is \textbf{simply laced} if and only if none of its vertices has self-loops: that is, for all $v \in Q_0$, one has:
                     $$\{f \in Q_1 \mid s(f) = t(f) = v\} = \{\id_v\}$$
             \end{definition}
             \begin{remark}
-                Equivalently, one might characterise the simply laced quivers $Q := (Q_1, Q_0, s, t)$ as those wherein all non-identity paths $f \in Q_1$ generate square-free elements $f \in \Lambda\<Q\>$ (i.e. elements such that $f^2 = 0$). This is because the lack of non-identity loops implies that there is no non-identity path that can be composed with itself. 
+                Equivalently, one might characterise the simply laced quivers $Q := (Q_1, Q_0, s, t)$ as those wherein all non-identity paths $f \in Q_1$ generate square-free elements $f \in k\<Q\>$ (i.e. elements such that $f^2 = 0$). This is because the lack of non-identity loops implies that there is no non-identity path that can be composed with itself. 
             \end{remark}
             \begin{definition}[Connected quivers] \label{def: connected_quivers}
                 A $\Sets$-valued quiver $Q: \{\1, \0, s, t\}^{\op} \to \Sets$ is said to be \textbf{connected} if and only if for all $v, w \in Q(\0)$, there exists $f \in Q(\1)$ such that $s(f) = v$ and $t(f) = w$ (i.e. it has no isolated vertices).
@@ -159,7 +159,7 @@
                 Equivalently, one can say that a $\Sets$-valued (or maybe with values in any category $\C$ with enough coproducts and sub-objects) quiver is connected if and only if it can not be written as the disjoint union of two sub-quivers. 
             \end{remark}
             
-        \subsubsection{Dynkin quivers, roots, and Gabriel's Theorem}
+        \subsubsection{Roots and quadratic forms of quivers; Dykin quivers}
             \begin{definition}[Adjacency and Cartan matrices] \label{def: adjacency_and_cartan_matrices}
                 Let $Q := (Q_1, Q_0, s, t)$ be a finite quiver\footnote{With value in any category} and suppose that $n := |Q_0|$; also, let us give the set $Q_0$ of vertices a \textit{fixed} enumeration $\{v_1, ..., v_n\}$. To such a quiver, one can associate a so-called \textbf{adjacency matrix}:
                     $$R_Q \in \Mat_n(\Z)$$
@@ -222,6 +222,16 @@
             \begin{example}
                 
             \end{example}
+            
+        \subsubsection{\textit{Interlude}: Hereditary algebras and hereditary categories}
+            \begin{definition}[Hereditary abelian categories] \label{def: hereditary_abelian_categories}
+                An abelian category $\calA$ is said to be \textbf{hereditary} if and only if $\globdim \calA \leq 1$.
+            \end{definition}
+            \begin{convention}[Left/right-hereditary rings] \label{conv: left/right_hereditary_rings}
+                When $\calA$ is the category of left/right-module over some ring $R$, one might say that the ring $R$ itself is \textbf{left/right-hereditary}
+            \end{convention}
+            
+        \subsubsection{Reflection functors and Gabriel's Theorem}
         
     \subsection{Quivers in noncommutative geometry}
         \subsubsection{Moduli space of quiver representations and Beilinson's Theorem}
