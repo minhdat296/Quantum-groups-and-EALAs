@@ -1,6 +1,6 @@
-\section{Hereditary algebras and quivers}
-    \subsection{Quivers and their representations}
-        \subsubsection{Quivers}
+\section{Hereditary rings, homological dimension \texorpdfstring{$\leq 1$}{}, and quivers}
+    \subsection{Quivers}
+        \subsubsection{Generalities about quivers and their representations}
             We begin by introducing so-called \say{quivers}, which is more-or-less a relaxed version of directed graphs which turn out to be rather important within representation-theoretic contexts. Our approach is that quivers are certain very simple categories, and as such their representations ought to be viewed as particular instances of representations of categories. Specifically, this means we shall be studying the various algebraic properties of quiver representations via modules over their so-called \say{category algebras}, so that notions of say, finite-type-ness of quivers, could be discussed using purely ring-theoretic arguments.
         
             \begin{definition}[Quivers] \label{def: quivers}
@@ -73,49 +73,168 @@
             \begin{definition}[Category algebras] \label{def: category_algebras}
                 Let $k$ be an associative ring and $\C$ be a category. Then, the \textbf{category $k$-algebra} $k\<\C\>$ of the given category $\C$ shall be the free $k$-algebra:
                     $$k\<\C_1\> := k\<\Mor(\C)\>$$
-                on the set $\C_1 := \Mor(\C)$ of morphisms of $\C$: here, the multiplicative structure is given by compositions of morphisms in $\C$ (if $f\in \Mor(\C)$ can not be post-composed with $g \in \Mor(\C)$ then we set $fg = 0$).
+                whose underlying (left-)$k$-module is the free (left-)$k$-module on the set $\C_1 := \Mor(\C)$ of morphisms of $\C$ and whose (associative and unital) multiplication is given by compositions of arrows in $\C_1$ (if two arrows are not composable then their product will be $0$).
             \end{definition}
-            \begin{example}[Category algebras of groupoids]
-                Fix a ring $k$. Category $k$-algebras of sets $I$ (viewed as a discrete category, wherein the only morphisms are the identities\footnote{... and as such the set of morphisms is precisely $I$.}) are nothing but noncommutative polynomial algebras:
-                    $$k\<\{x_i\}_{i \in I}\>$$
-                Category algebras of groupoids $\calG := (\calG_1, \calG_0, s, t)$ - since morphisms in such categories are all invertible by definition - are then the two-sided localisations:
-                    $$k\<\{x_{\gamma}\}_{\gamma \in \calG_1}\>[\{1/x_\gamma\}_{\gamma \in \calG_1}] := k\<\{x_\gamma\}_{\gamma \in \calG_1}\>/\<\forall \gamma \in \calG_1: x_{\gamma} x_{\gamma}^{-1} = x_{\gamma}^{-1} x_{\gamma} = 1\>$$
-            \end{example}
             \begin{convention}[Path algebras ?]
-                Sometimes the category algebra of the free category associated to a given $\Sets$-valued quiver is also called the path algebra of that quiver.
+                Sometimes the category $k$-algebra (for some ring $k$) of the free category associated to a given $\Sets$-valued quiver $Q$ is also called the path algebra of that quiver. It is commonly denoted simply by $k\<Q\>$ as opposed to $k\<[Q]\>$.
             \end{convention}
-            \begin{example}[Category algebras of quivers] \label{example: category_algebras_of_quivers}
-                Fix a ring $k$ along with a $\Sets$-valued quiver $Q$. The \textbf{quiver $k$-algebra} $k\<Q\>$ associated to said quiver is then the category $k$-algebra $k\<[Q]\>$ of the free quiver $[Q]$ (cf. proposition \ref{prop: free_quivers}). 
-                
-                Due to this definition, one obtains the following diagram of $1$-categories and functors, wherein the left-adjoints $[-]$ and $k\<-\>$ along with the horizontal arrows form a commutative square, and the unlabelled arrows are the obvious forgetful functors:
+            \begin{remark}[A path algebra functor] \label{remark: path_algebra_functor}
+                When $k$ is commutative, one has a tautological equivalence of categories:
+                    $$k\bimod \cong k\mod$$
+                which gives us access to the tensor $k$-algebra construction, which is \textit{a priori} a left-adjoint:
                     $$
                         \begin{tikzcd}
-                        	\Quiv & {k\-\Assoc\Alg} \\
+                        	{k\-\Assoc\Alg} & k\mod
+                        	\arrow[""{name=0, anchor=center, inner sep=0}, "{(-)^{\tensor}}"', bend right, from=1-2, to=1-1]
+                        	\arrow[""{name=1, anchor=center, inner sep=0}, "\oblv"', bend right, from=1-1, to=1-2]
+                        	\arrow["\dashv"{anchor=center, rotate=-90}, draw=none, from=0, to=1]
+                        \end{tikzcd}
+                    $$
+                Using this, one sees that category $k$-algebras arise functorially in the following manner:
+                    $$
+                        \begin{tikzcd}
+                        	{k\-\Assoc\Alg} && k\mod \\
                         	\\
-                        	{1\-\Cat_1} & \Sets
-                        	\arrow["{(-)_1}"', from=3-1, to=3-2]
-                        	\arrow[""{name=0, anchor=center, inner sep=0}, bend right, from=3-1, to=1-1]
-                        	\arrow[""{name=1, anchor=center, inner sep=0}, "{[-]}"', bend right, from=1-1, to=3-1]
-                        	\arrow[""{name=2, anchor=center, inner sep=0}, "{k\<-\>}", bend left, from=3-2, to=1-2]
-                        	\arrow[""{name=3, anchor=center, inner sep=0}, bend left, from=1-2, to=3-2]
-                        	\arrow["{k\<[-]_1\>}", dashed, from=1-1, to=1-2]
-                        	\arrow["\dashv"{anchor=center}, draw=none, from=1, to=0]
+                        	{1\-\Cat_1} && \Sets
+                        	\arrow[""{name=0, anchor=center, inner sep=0}, "{(-)^{\tensor}}"', bend right, from=1-3, to=1-1]
+                        	\arrow[""{name=1, anchor=center, inner sep=0}, "\oblv"', bend right, from=1-1, to=1-3]
+                        	\arrow["{(-)_1}", from=3-1, to=3-3]
+                        	\arrow["{k\<-\> := ( k^{\oplus (-)_1} )^{\tensor}}", dashed, from=3-1, to=1-1]
+                        	\arrow[""{name=2, anchor=center, inner sep=0}, "{k^{\oplus (-)}}", bend left, from=3-3, to=1-3]
+                        	\arrow[""{name=3, anchor=center, inner sep=0}, "\oblv", bend left, from=1-3, to=3-3]
+                        	\arrow["\dashv"{anchor=center, rotate=-90}, draw=none, from=0, to=1]
                         	\arrow["\dashv"{anchor=center}, draw=none, from=2, to=3]
                         \end{tikzcd}
                     $$
-                $[-]$ and $k\<-\>$ are left-adjoint and hence preserves all colimits, and it is easy to see that the functor:
+                Now, since the functors:
+                    $$(-)^{\tensor}: k\mod \to k\-\Assoc\Alg$$
+                and:
+                    $$k^{\oplus (-)}: \Sets \to k\mod$$
+                are left-adjoints, and because:
                     $$(-)_1: 1\-\Cat_1 \to \Sets$$
-                assigning to each $1$-category $\C$ its set of morphisms $\C_1$ preserves all coproducts. As such, the formation of quiver algebras preserves coproducts that exist in $\Quiv$ (and indeed, they all exist, since $\Quiv$ is a topos); this will become relevant once we would like to discuss representation-theoretic consequences of a quiver being \say{connected} (cf. definition \ref{def: connected_quivers}).
-                
-                For a simple example of quiver algebras, consider the following quiver:
+                preserves coproducts and pushouts, one sees that given any pair of categories $\C, \C'$ (which need not be disjoint), one has:
+                    $$k\<\C \cup \C'\> \cong k\<\C\> \tensor_k k\<\C'\>$$
+                Since the construction of free categories on (small) quivers also comes from a left-adjoint, namely:
+                    $$[-]: \Quiv \to 1\-\Cat$$
+                (cf. proposition \ref{prop: free_quivers}), one also has\footnote{One does not have to worry about the formal existence of $Q \cup Q'$ within the category $\Quiv$ of $\Sets$-valued quivers, since it is a topos by construction.}:
+                    $$k\<Q \cup Q'\> \cong k\<Q\> \tensor_k k\<Q'\>$$
+            \end{remark}
+            \begin{example}[Path algebras of discrete quivers]
+                The simplest example of a quiver is the trivial loop:
                     $$
                         \begin{tikzcd}
-                            \bullet \arrow["\id"', loop, distance=2em, in=215, out=145] \arrow[r] & \bullet \arrow["\id"', loop, distance=2em, in=35, out=325]
+                            \bullet \arrow["\id"', loop, distance=2em, in=35, out=325]
+                        \end{tikzcd}
+                    $$
+                It is easy to see that the path algebra of this quiver (over some fixed ring $k$) is:
+                    $$k\<e\>/\<e^2 = e\> \cong k$$
+                (the isomorphism with $k$ as associative $k$-algebras is due to the fact that by construction, $k\<e\>/\<e^2 = e\>$ is of rank $1$ as a $k$-module), with one small note on the side being that the generator $e$ is not \textit{a priori} invertible, since formally, there does not exist a morphism $\id^{-1}$ in the free category generated by the given quiver, and one is only permitted to compose \say{forwardly}, i.e. to consider the compositions $\id, \id^2, \id^3, ...$. 
+                    
+                Going off in a different direction\footnote{Pun may or may not have been intended.}, consider the following quiver $Q := (Q_1, Q_0, s, t)$ (i.e. a discrete category\footnote{Let's ignore potential set-theoretic issues for now!}):
+                    $$
+                        \begin{tikzcd}
+                            \cdots & \bullet_i \arrow["\id_{\bullet_i}"', loop, distance=2em, in=125, out=55] & \bullet_j \arrow["\id_{\bullet_j}"', loop, distance=2em, in=125, out=55] & \bullet_k \arrow["\id_{\bullet_k}"', loop, distance=2em, in=125, out=55] & \cdots
+                        \end{tikzcd}
+                    $$
+                Its path algebra is:
+                    $$k\<\{e_i\}_{i \in Q_0}\>\/\<\forall i \in Q_0: e_i^2 = e_i, \forall i, j \in Q_0: e_i e_j = e_j e_i = \delta_{ij}\>$$
+                (where $\delta_{ij}$ is the Kronecker delta), which we recognise as being isomorphic to the product:
+                    $$\prod_{i \in Q_0} k$$
+                taken in the category of associative $k$-algebras.
+            \end{example}
+            \begin{example}[Path algebras of $\sfA_n$ quivers] \label{example: path_algebras_of_A_n_quivers}
+                For a simple yet non-trivial example of quiver algebras, consider the following quiver, commonly known as the \say{$\sfA_2$ quiver}:
+                    $$
+                        \begin{tikzcd}
+                            {\bullet_1} \arrow["\id_{\bullet_1}"', loop, distance=2em, in=215, out=145] \arrow[r] & {\bullet_2} \arrow["\id_{\bullet_2}"', loop, distance=2em, in=35, out=325]
                         \end{tikzcd}
                     $$
                 which has a rather small path algebra, isomorphic to:
-                    $$k\<e_1, e_2, x\>/\<e_i^2 = e_i, x^2 = 0, e_i x = x e_i = x\>$$
-                This is of finite presentation as a $k$-algebra. In fact, every quiver of so-called \say{finite type} has path algebras which are of finite presentations.
+                    $$k\<e_1, e_2, x\>/\<e_i^2 = e_i, e_i e_j = e_j e_i = \delta_{ij}, x^2 = 0, e_2 x = x e_1 = x\>$$
+                One observation to make is that there is an associative $k$-algebra isomorphism given by:
+                    $$e_1 \mapsto \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}$$
+                    $$e_2 \mapsto \begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix}$$
+                    $$x \mapsto \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix}$$
+                between this path $k$-algebra and the $k$-algebra:
+                    $$\b_2^-(k) := \left\{ \begin{pmatrix} * & 0 \\ * & * \end{pmatrix} \in \Mat_2(k) \right\}$$
+                of lower-triangular $2 \x 2$ matrices with entries in $k$.
+                    
+                Next, consider the general $\sfA_n$ quiver\footnote{Henceforth we shall start omiting the identity paths from depictions of quivers.} (for some finite positive integer $n$):
+                    $$
+                        \begin{tikzcd}
+                        	{\bullet_1} & {\bullet_2} & {\bullet_3} & \cdots
+                        	\arrow["{x_{12}}", from=1-1, to=1-2]
+                        	\arrow["{x_{23}}", from=1-2, to=1-3]
+                        	\arrow["{x_{34}}", from=1-3, to=1-4]
+                        \end{tikzcd}
+                    $$
+                Observe that the set of morphisms $[\sfA_n]_1$ of the free category $[\sfA_n]$ on $\sfA_n$ is nothing but $\{x_{ij}\}_{1 \leq i \leq j \leq n}$ (also, note that $e_i = x_{ii}$ for all $1 \leq i \leq n$). Now, by letting $\1_{ij}$ denote the $n \x n$ matrix with $1$ at the $ij^{th}$ entry and $0$ everywhere else, and consider the map:
+                    $$k\<\sfA_n\> \to \Mat_n(k)$$
+                    $$x_{ij} \mapsto \1_{ij}$$
+                one then sees that $k\<\sfA_n\>$ is isomorphic to the $k$-algebra:
+                    $$\b_n^-(k)$$
+                of lower-triangular $n \x n$ matrices with entries in $k$.
+            \end{example}
+            \begin{example}[Path algebras of quivers with loops]
+                If we were to add a non-trivial loop $x: \bullet \to \bullet$ to the trivial quiver $(\{\bullet\}, \{\id\})$ to yield:
+                    $$
+                        \begin{tikzcd}
+                            \bullet \arrow["x"', loop, distance=2em, in=35, out=325]
+                        \end{tikzcd}
+                    $$
+                then the resulting path algebra will be:
+                    $$k\<e, x\>/\<e^2 = e, ex = xe = x\> \cong k\<x\>$$
+                Of course, when $k$ is a commutative ring, then we have a tautological isomorphism $k\<x\> \cong k[x]$, but this does not really help us flesh out the nature of the path algebra of this loop quiver.
+                    
+                More generally, we can consider the quiver with one vertex and a set $\{x_i\}_{i \in I}$ of (possibly infinitely) many loops on that vertex:
+                    $$
+                        \begin{tikzcd}
+                            \bullet \arrow["x_1"', loop, distance=2em, in=305, out=235] \arrow["x_2"', loop, distance=2em, in=35, out=325] \arrow["x_3"', loop, distance=2em, in=125, out=55] \arrow["\cdots"', loop, distance=2em, in=215, out=145]
+                        \end{tikzcd}
+                    $$
+                then the resulting path algebra will be:
+                    $$k\<\{x_i\}_{i \in I}\>$$
+                because while one can free form compositions $x_j \circ x_i \circ ...$ of the endomorphisms/loops $x_i \in \End(\bullet)$, there is not a reason to expect that $x_j x_i = x_i x_j$. 
+            \end{example}
+            \begin{example}[Path algebras of non-simply-laced quivers]
+                Consider the so-called \say{Kronecker quiver}:
+                    $$
+                        \begin{tikzcd}
+                        	{\bullet_1} & {\bullet_2}
+                        	\arrow["x_2"', shift right=1, from=1-1, to=1-2]
+                        	\arrow["x_1", shift left=1, from=1-1, to=1-2]
+                        \end{tikzcd}
+                    $$
+                which is easily recognisable as the (non-disjoint) union of two copies of the $\sfA_2$ quiver (cf. example \ref{example: path_algebras_of_A_n_quivers}). One sees that its path $k$-algebra is:
+                    $$k\<e_1, e_2, x_1, x_2\>/\<e_i^2 = e_i, e_i e_j = e_j e_i = \delta_{ij}, x_m x_n = 0, e_2 x_m = x_m e_1 = x_m\>$$
+                which can be shown to be isomorphic to the $k$-algebra\footnote{$\b_2^-(k)$ is the $k$-algebra of lower-triangular $2 \x 2$ matrices with entries in $k$; cf. example \ref{example: path_algebras_of_A_n_quivers}.}:
+                    $$k\<\sfA_2 \cup \sfA_2\> \cong k\<\sfA_2\> \tensor_k k\<\sfA_2\> \cong \b_2^-(k) \tensor_k \b_2^-(k)$$
+                using the fact that the path $k$-algebra functor:
+                    $$k\<-\>: \Quiv \to k\-\Assoc\Alg$$
+                preserves pushouts\footnote{In $\Quiv$, these are nothing but unions of quivers} (cf. remark \ref{remark: path_algebra_functor}) whenever $k$ is commutative; when $k$ is noncommutative, one can still show that the isomorphism holds using the fact that $\b_2^-(k)$ is a $k$-bimodule.
+            \end{example}
+            \begin{example}[Path algebras of $\sfD_n$ quivers]
+                For any $n \geq 2$, the so-called \say{$\sfD_n$ quiver} is of the form:
+                    $$
+                        \begin{tikzcd}
+                        	&&&& {\bullet_n} \\
+                        	{\bullet_1} & {\bullet_2} & \cdots & {\bullet_{n - 2}} \\
+                        	&&&& {\bullet_{n - 1}}
+                        	\arrow["{x_{12}}", from=2-1, to=2-2]
+                        	\arrow["{x_{23}}", from=2-2, to=2-3]
+                        	\arrow["{x_{n - 2, n - 3}}", from=2-3, to=2-4]
+                        	\arrow["{x_{n, n - 2}}", from=2-4, to=1-5]
+                        	\arrow["{x_{n - 1, n - 2}}", from=2-4, to=3-5]
+                        \end{tikzcd}
+                    $$
+                (when $n = 2, 3$, note that $\sfD_n = \sfA_n$, so there is nothing new in those cases, and we shall assume hereonafter that $n \geq 3$). Observe that for all $n \geq 3$, the $\sfD_n$ quiver is the union of the $\sfA_{n - 2}$ quiver with two copies of the $\sfA_2$ quiver, both at the $(n - 2)^{th}$ vertex and in such a manner that:
+                    $$x_{n - 1, n - 2} x_{n - 2, n - 3} \not = 0$$
+                    $$x_{n, n - 2} x_{n - 2, n - 3} \not = 0$$
+                and with this observation in mind, one sees that:
+                    $$k\<\sfD_n\> \cong k\<\sfA_{n - 2}\> \tensor_k k\<\sfA_2\> \tensor_k k\<\sfA_2\> \tensor_k k\<\sfA_3\>/$$
+            \end{example}
+            \begin{example}[Path algebras of $\sfE_n$ quivers]
+                
             \end{example}
             \begin{proposition}[Quiver representations are modules over quiver algebras] \label{prop: quiver_representations_are_modules_over_quiver_algebras}
                 Let $k$ be a commutative ring. Then, there is an exact and monoidal equivalence of $k$-linear categories (fibred over $k\mod$):
@@ -134,7 +253,7 @@
                 
             Let us now move on to a more in-depth discussion of connected quivers and in particular, those of \say{finite type}, which can be shown to precisely be the so-called \say{Dynkin quivers} (cf. definition \ref{def: dynkin_quivers}), which are simply laced connected quivers of a certain kind. 
             \begin{definition}
-                A $\Sets$-valued quiver is said to have a ring-theoretic property $\calP$ over some base ring $k$ if and only if its quiver $k$-algebra has property $\calP$. 
+                A $\Sets$-valued quiver is said to have a ring-theoretic property $\calP$ over some base ring $k$ if and only if its quiver $k$-algebra has property $\calP$.
             \end{definition}
             \begin{example}[Quivers of finite type]
                 A quiver $Q$ is said to be of finite type over some ring $k$ if and only if its path $k$-algebra $k\<Q\>$ is of finite type as a $k$-algebra.
@@ -158,6 +277,58 @@
             \begin{remark}
                 Equivalently, one can say that a $\Sets$-valued (or maybe with values in any category $\C$ with enough coproducts and sub-objects) quiver is connected if and only if it can not be written as the disjoint union of two sub-quivers. 
             \end{remark}
+            
+        \subsubsection{Admissible ideals; quivers with relations}
+            \begin{convention}
+                From now on, all quivers shall be $\Sets$-valued and therefore we shall simply say \say{quiver} for brevity.
+            \end{convention}
+            \begin{convention}
+                Let us henceforth assume that $k$ is field (i.e. a simple commutative ring). For the most part, this assumption is made so that given any quiver $Q := (Q_1, Q_0, s, t)$, the corresponding path $k$-algebra $k\<Q\>$ will admit $\<Q\> := \<[Q]_1\>$ as a maximal two-sided ideal, commonly referred to as the \say{arrow ideal} of $Q$.
+            \end{convention}
+            
+            \begin{definition}[Admissible ideals of path algebras] \label{def: admissible_ideals_of_path_algebras}
+                The path $k$-algebra of any given quiver is said to be \textbf{admissible} if and only if it is admissible in the sense of definition \ref{def: pre_admissible_and_pre_adic_rings}, and said to be \textbf{bounded} if and only if its ideal of definition is a finite power of the arrow ideal.
+            \end{definition}
+            
+        \subsubsection{Quivers associated to finite-dimensional algebra}
+        
+        \subsubsection{Auslander-Reiten theory}
+        
+    \subsection{Tiltings}
+        \subsubsection{Torsion in abelian categories}
+            \begin{definition}[Torsion pairs] \label{def: torsion_pairs}
+                Let $\calA$ be an abelian category. A \textbf{torsion pair} or \textbf{torsion theory} in $\calA$ is then a pair of full subcategories $(\calT^{\flat}, \calT^{\sharp})$ such that the $\Z$-modules $\calT^{\flat}(M, N)$ and $\calT^{\sharp}(M, N)$ are zero if and only if $M \in \Ob(\calT^{\flat})$ and $N \in \Ob(\calT^{\sharp})$.
+            \end{definition}
+            \begin{example}[Torsion and torsion-free abelian groups]
+                It is well known that there are no non-zero homomorphism from a torsion abelian group to a torsion-free one. Furthermore, abelian group homomorphisms preserve torsion (or equivalently, torsion-free-ness). As such, an example of a torsion pair on the (abelian) category of abelian groups is the pair consisting of the full subcategory $\calT^{\flat}_{\Ob(\Tor(\Z\mod))} := \Tor(\Z\mod)$ of torsion abelian groups and that of torsion-free abelian groups (serving as $\calT^{\sharp}$). 
+            \end{example}
+            \begin{example}[Torsion pairs generated by classes of objects]
+                Let $\calA$ be an abelian category and suppose that $\C_0 \subseteq \Ob(\calA)$ is a class of objects therein. Then, a torsion pair $(\calT^{\flat}_{\C_0}, \calT^{\sharp}_{\C_0})$ induced by $\C$ can be constructed in the following fashion:
+                    $$\calT^{\sharp}_{\C_0} := \{N \in \Ob(\calA) \mid \forall M \in \C_0 : \calA(M, N) \cong 0\}$$
+                    $$\calT^{\flat}_{\C_0} := \calA \setminus \calT^{\sharp}_{\C_0}$$
+                where in the second line, the complement is taken at both the level of objects and morphisms. Observe that $\Ob(\T^{\flat}_{\C_0})$ is minimal among the subclasses of $\Ob(\calA)$ containing $\C_0$.
+                
+                To be concrete, consider once more the category of abelian groups, but this time, instead of consider the class of all torsion abelian groups, let us fix a prime $p$ and consider the class of $p$-torsion abelian groups (these are abelian groups $M$ such that for all $x \in M$, $px = 0$). The full subcategory spanned by the so-called \say{$p$-torsion-free} abelian groups can then be given by:
+                    $$\T^{\sharp}_{\Ob(p\-\Tor(\Z\mod))} := \{N \in \Ob(\Z\mod) \mid \forall M \in \Ob(p\-\Tor(\Z\mod)): \Hom_{\Z}(M, N) \cong 0\}$$
+                which indeed yields
+                    $$p\-\Tor(\Z\mod) = \Z\mod \setminus \T^{\sharp}_{\Ob(p\-\Tor(\Z\mod))}$$
+            \end{example}
+            
+        
+        \subsubsection{Tilting objects}
+        
+        \subsubsection{Separating and splitting tilting objects}
+        
+        \subsubsection{Torsion induced by tilting objects}
+        
+    \subsection{Hereditary rings}    
+        \subsubsection{Hereditary algebras and hereditary categories}
+            \begin{definition}[Hereditary abelian categories] \label{def: hereditary_abelian_categories}
+                An abelian category $\calA$ is said to be \textbf{hereditary} if and only if $\globdim \calA \leq 1$.
+            \end{definition}
+            \begin{convention}[Left/right-hereditary rings] \label{conv: left/right_hereditary_rings}
+                When $\calA$ is the category of left/right-module over some ring $R$, one might say that the ring $R$ itself is \textbf{left/right-hereditary}
+            \end{convention}
             
         \subsubsection{Roots and quadratic forms of quivers; Dykin quivers}
             \begin{definition}[Adjacency and Cartan matrices] \label{def: adjacency_and_cartan_matrices}
@@ -223,19 +394,4 @@
                 
             \end{example}
             
-        \subsubsection{\textit{Interlude}: Hereditary algebras and hereditary categories}
-            \begin{definition}[Hereditary abelian categories] \label{def: hereditary_abelian_categories}
-                An abelian category $\calA$ is said to be \textbf{hereditary} if and only if $\globdim \calA \leq 1$.
-            \end{definition}
-            \begin{convention}[Left/right-hereditary rings] \label{conv: left/right_hereditary_rings}
-                When $\calA$ is the category of left/right-module over some ring $R$, one might say that the ring $R$ itself is \textbf{left/right-hereditary}
-            \end{convention}
-            
         \subsubsection{Reflection functors and Gabriel's Theorem}
-        
-    \subsection{Quivers in noncommutative geometry}
-        \subsubsection{Moduli space of quiver representations and Beilinson's Theorem}
-        
-        \subsubsection{Framings}
-        
-        \subsubsection{Hamiltonian reductions}
