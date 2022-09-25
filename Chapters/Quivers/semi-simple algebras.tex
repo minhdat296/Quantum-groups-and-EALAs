@@ -240,7 +240,7 @@
                         M_{\bullet} :=
                         \left\{
                             \begin{tikzcd}
-                            	\cdots & {M_2} & {M_1} & M & 0
+                            	\cdots & {M_{-2}} & {M_{-1}} & M & 0
                             	\arrow[from=1-1, to=1-2]
                             	\arrow["{\del_2}", from=1-2, to=1-3]
                             	\arrow["{\del_1}", from=1-3, to=1-4]
@@ -250,10 +250,10 @@
                     $$
                 In particular, note that $M$ is placed in degree $0$, so usually, we will write:
                     $$M_{\bullet}[0] := M$$
-                Also, note the \textit{homological} indexing.
+                Also, note the \textit{cohomological} indexing.
             \end{convention}
             \begin{lemma}
-                (Cf. \cite[\href{https://stacks.math.columbia.edu/tag/00O5}{Tag 00O5}]{stacks}) Let $\calA$ be an abelian category with enough projectives and let $(M_{\bullet}, \del_{\bullet}) \in \Ob(\rmD_{[0, e]}^{\proj}(\calA))$ be a projective resolution. Suppose also that the $M_{\bullet}[0]$ is of some finite projective dimension $d \in \N$. Then, the kernel $\ker(\del_e: M_e \to M_{e - 1})$ will be a projective object of $\calA$.
+                (Cf. \cite[\href{https://stacks.math.columbia.edu/tag/00O5}{Tag 00O5}]{stacks}) Let $\calA$ be an abelian category with enough projectives and let $(M_{\bullet}, \del_{\bullet}) \in \Ob(\rmD^{[-e, 0]}_{\proj}(\calA))$ be a projective resolution. Suppose also that the $M_{\bullet}[0]$ is of some finite projective dimension $d \in \N$. Then, the kernel $\ker(\del_{-e}: M_{-e} \to M_{-(e - 1)})$ will be a projective object of $\calA$.
             \end{lemma}
                 \begin{proof}
                     
@@ -295,13 +295,7 @@
             \begin{convention}[Global dimensions of rings] \label{conv: global_dimensions_of_rings}
                 When $\calA$ is the category of left/right-module over some ring $R$, one might speak instead of the \textbf{left/right-global dimension} of the ring $R$ itself instead of the global dimension of the abelian category of left/right-$R$-modules. 
             \end{convention}
-    
-        \subsubsection{Flat dimensions, weak dimensions, and the Artin-Wedderburn Theorem}
-            \begin{remark}
-                Some other results that could also be included here are lemma \ref{lemma: simple_modules_over_semi_simple_rings} and example \ref{example: modules_over_semi_simple_rings} (which in particular informs us of the trivial fact that left/right-semi-simple algebras are left/right Noetherian and left/right Artinian; cf. \cite[Corollary 2.6]{lam_first_course_in_noncommutative_rings}).
-            \end{remark}
             
-            We begin by recalling the following lemma, which helps simplifies homological analyses of modules over semi-simple rings considerably (cf. corollary \ref{coro: (co)homology_of_modules_over_semi_simple_rings}).
             \begin{lemma}[Projective and injective modules over semi-simple rings] \label{lemma: projective_and_injective_modules_over_semi_simple_rings}
                 \cite[Theorem 2.8]{lam_first_course_in_noncommutative_rings} The following are equivalent for any given associative ring $R$:
                     \begin{enumerate}
@@ -364,6 +358,12 @@
                     $$S \cong \End_R(R^{\oplus n}) \cong \Mat_n(R)$$
             \end{example}
             \todo[inline]{Write something about left/right-global dimensions of semi-simple rings here}
+    
+        \subsubsection{Flat dimensions, weak dimensions, and the Artin-Wedderburn Theorem}
+            \begin{remark}
+                Some other results that could also be included here are lemma \ref{lemma: simple_modules_over_semi_simple_rings} and example \ref{example: modules_over_semi_simple_rings} (which in particular informs us of the trivial fact that left/right-semi-simple algebras are left/right Noetherian and left/right Artinian; cf. \cite[Corollary 2.6]{lam_first_course_in_noncommutative_rings}).
+            \end{remark}
+            
             \begin{theorem}[Artin-Wedderburn] \label{theorem: artin_wedderburn}
                 Let $k$ be a commutative ring and $A$ be a left/right-semi-simple associative $k$-algebra. Then, $A$ admits a finite product decomposition as follows, indexed by the (finitely many) irreducible $k$-linear representations of $A$:
                     $$A \cong \prod_{V \in \Ob(\Rep_k^{\irr}(A))} \End_k(V)$$
@@ -392,19 +392,83 @@
     \subsection{Representations of finite groups}
         In this subsection, we turn our focus to representations of finite groups, which we view as modules over group algebras. Our goal is to tabulate a list of important properties, as well as to give a guide on how one might perform explicit computations on these representations.
         
-        \subsubsection{Induced and restricted representations; group cohomology}
+        \subsubsection{Group cohomology; induced and restricted representations}
+            \begin{definition}[Group cohomology] \label{def: group_cohomology}
+                Let $\E$ be a topos wherein the category $\Ab(\E)$ of internal abelian groups has enough projectives; recall that $\Ab(\E)$ is \textit{a priori} an infinite $\Z_{\E}$-linear tensor category\footnote{This is like \cite[Definition 4.1.1]{EGNO}, but without the local finiteness condition.}, so let us denote its monoidal unit by $\Z_{\E}$. Simultaneously, fix a group object $G \in \Ob(\Grp(\E))$. Then, the functor of \textbf{$\Ab(\E)$-valued group cohomology} of $G$, denoted by:
+                    $$H^*_{\Grp(\E)}(G, -)$$
+                shall be nothing but:
+                    $$\Ext^*_{\Z_{\E}\<G\>}(\Z_{\E}, -)$$
+                wherein we view $\Z_{\E}$ as a left-$\Z_{\E}\<G\>$-module via augmentation.
+            \end{definition}
+            \begin{remark}[How to compute group cohomologies ?]
+                The reason that we have insisted in definition \ref{def: group_cohomology} that $\Ab(\E)$ must have enough enough projectives is that in order to compute the cohomology groups:
+                    $$H^i_{\Grp(\E)}(G, M) := \Ext^i_{\Z_{\E}\<G\>}(\Z_{\E}, M)$$
+                (for any abelian group $M \in \Ob(\Ab(\E))$), one shall have to choose some projective resolution $(P_{\bullet}, \e_{\bullet})$ for $\Z_{\E} \in \Ob(\Ab(\E))$ (which really ought to be viewed as an injective resolution in $\Ab(\E)^{\op}$) and then calculate:
+                    $$\Ext^i_{\Z_{\E}\<G\>}(\Z_{\E}, M) := H^i\left( \R\Hom_{\Z_{\E}\<G\>}(P_{\bullet}, M) \right)$$
+                Since by definition, one views $\Z_{\E}$ as a left-$\Z_{\E}\<G\>$-module in this context via the augmentation map:
+                    $$\e: \Z_{\E}\<G\> \to \Z_{\E}$$
+                (given by $\e(f) := f(1)$ for all sections $f \in \Z_{\E}\<G\>$), and because this map is \textit{a priori} surjective (hence an epimorphism, since we are in an abelian category), a good choice of projective resolution $(P_{\bullet}, \e_{\bullet})$ for $\Z_{\E} \in \Ob(\Ab(\E))$ is:
+                    $$
+                        \begin{tikzcd}
+                        	\cdots & {P_{-2}} & {P_{-1} := \Z_{\E}\<G\>} & {P_0 := \Z_{\E}} & 0
+                        	\arrow["{\e_0}", from=1-4, to=1-5]
+                        	\arrow["{\e := \e_{-1}}", from=1-3, to=1-4]
+                        	\arrow["{\e_{-2}}", from=1-2, to=1-3]
+                        	\arrow["{\e_{-3}}", from=1-1, to=1-2]
+                        \end{tikzcd}
+                    $$
+                wherein $P_{-n}$ can be conveniently taken to be the free cover\footnote{Which always exists and is projective as an object of $\Ab(\E)$ should one assume the Axiom of Choice.} of $\ker \e_{-(n - 1)}$ for all $n \geq 2$.
+            \end{remark}
+            \begin{remark}[Group cohomology with coefficients in modules over general rings]
+                
+            \end{remark}
+            \begin{proposition}[Low-dimensional group cohomologies] \label{prop: low_dimensional_group_cohomologies}
+                Let $G$ be a group internal to a topos $\E$ wherein the infinite tensor category $(\Ab(\E), \tensor_{\Z_{\E}}, \Z_{\E})$ of internal abelian groups has enough projectives. Then, we have the following results for the low-dimensional $\Ab(\E)$-valued cohomologies of $G$:
+                    \begin{enumerate}
+                        \item $H^0_{\Grp(\E)}(G, -) \cong (-)^G$ is the functor of $G$-fixed points.
+                        \item $H^1_{\Grp(\E)}(G, -) \cong $
+                        \item $H^2_{\Grp(\E)}(G, M) \cong \{ \text{isomorphism classes of \textit{central} extensions of $G$ by $M$} \}$ for all $M \in \Ob(\Ab(\E))$.
+                    \end{enumerate}
+            \end{proposition}
+                \begin{proof}
+                    
+                \end{proof}
+            \begin{corollary}[Criteria for being semi-simple and hereditary] \label{coro: criteria_for_being_semi_simeple_and_hereditary}
+                Let $G$ be a group internal to a topos $\E$ wherein the infinite tensor category $(\Ab(\E), \tensor_{\Z_{\E}}, \Z_{\E})$ of internal abelian groups has enough projectives. Also, let $k$ be an associative algebra internal to $\Ab(\E)$ (i.e. an associative $\Z_{\E}$-algebra).
+                    \begin{enumerate}
+                        \item The category ${}^lk\<G\>\mod^{\fin}$ of finitely generated left-$\Z_{\E}\<G\>$-modules\footnote{... or equivalently, the category $\Rep_k^{\fin}(G)$ of finite-rank $k$-linear $G$-representations.} is semi-simple (i.e. $\globdim {}^lk\<G\>\mod^{\fin} = 0$) if and only if the fixed-point functor $(-)^G$ is exact.
+                        \item The category ${}^lk\<G\>\mod^{\fin}$ of finitely generated left-$\Z_{\E}\<G\>$-modules is hereditary (i.e. $\globdim {}^lk\<G\>\mod^{\fin} \leq 1$) if and only if there are no non-trivial central extensions of $G$ by any $M \in \Ob(k\mod)$.
+                    \end{enumerate}
+            \end{corollary}
+                \begin{proof}
+                    \noindent
+                    \begin{enumerate}
+                        \item Combine lemma \ref{lemma: projective_and_injective_modules_over_semi_simple_rings} with proposition \ref{prop: computing_projective_dimensions_using_Ext}.
+                        \item Apply proposition \ref{prop: computing_projective_dimensions_using_Ext} directly to definition \ref{def: hereditary_abelian_categories}.
+                    \end{enumerate}
+                \end{proof}
         
         \subsubsection{Maschke's Theorem and characters}
+            \begin{lemma}[Projectivity and restriction of scalars] \label{lemma: projectivity_and_restriction_of_scalars}
+                Let $R$ be a ring, $S$ be a semi-simple associative $R$-algebra of finite presentation that is also an $R$-coalgebra\footnote{E.g. over some base ring $k$, one can take $S := k\<G\>$ for some abstract group $G$ and $R := k\<H\>$ for some subgroup $H \leq G$; for a concrete example, take $R := k\<1\> \cong k$ and suppose that the associative $S$-algebra structure thereon is given by the augmentation map $\e: k\<G\> \to k$.}, so that $R$ will carry an $(S, R)$-bimodule. Then, the restriction-of-scalars functor:
+                    $$\Hom_S(R, -): {}^lS\mod \to {}^lR\mod$$
+                will preserve projective objects.
+            \end{lemma}
+                \begin{proof}
+                    
+                \end{proof}
             \begin{theorem}[Maschke's Theorem] \label{theorem: maschke_theorem}
-                Let $G$ be group and $k$ be a ring. Then the group $k$-algebra $k\<G\>$ will be semi-simple as a module over itself if and only if:
+                Let $G$ be group and $k$ be a ring. Then the group $k$-algebra $k\<G\>$ will be semi-simple as a $k$-algebra (not just as a $k$-module!) if and only if:
                     \begin{enumerate}
-                        \item $k$ is semi-simple as a module over itself,
+                        \item $k$ is semi-simple ring,
                         \item $G$ is finite, and
                         \item $n$ is invertible in $k$.
                     \end{enumerate}
             \end{theorem}
                 \begin{proof}
+                    Assume first of all that $k\<G\>$ is semi-simple as an associative $k$-algebra; note that via the augmentation map $\e: k\<G\> \to k$ defined by $\e(f) := f(1)$ for all $f \in k\<G\>$, $k$ is also an associative $k\<G\>$-algebra. Then, by lemma \ref{lemma: projectivity_and_restriction_of_scalars}, projective left-$k\<G\>$-modules will be projective as left-$k$-modules as well. However, since $k\<G\>$ is a semi-simple ring, all left-modules over it are projective (cf. lemma \ref{lemma: simple_modules_over_semi_simple_rings}) and therefore all left-$k$-modules will be projective thanks to the restriction-of-scalars functor $\Res^G_1 := \Hom_{k\<G\>}(k, -)$ being essentially surjective. This, in turn, implies that $\Hom_{k\<G\>}(k, -)$ is right-exact, and by corollary \ref{coro: criteria_for_being_semi_simeple_and_hereditary}, this means that 
                     
+                    Conversely, assume that the three listed conditions hold. Then, using corollary \ref{coro: criteria_for_being_semi_simeple_and_hereditary}, we shall aim to show that the fixed-point functor $(-)^G$ is exact; in fact, it shall suffice to only show that $(-)^G$ is right-exact, since it is \textit{a priori} left-exact by virtue of being a corepresentable on an abelian category, namely ${}^lk\<G\>\mod$ (according to proposition \ref{prop: low_dimensional_group_cohomologies}, $(-)^G \cong \Hom_{k\<G\>}(k, -)$).  
                 \end{proof}
             \begin{example}[What happens when $|G| \mid \chara k$ ?]
                 
