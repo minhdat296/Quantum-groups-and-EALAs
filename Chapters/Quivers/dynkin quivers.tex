@@ -121,11 +121,16 @@
             \end{remark}
             \begin{example}[Path algebras of discrete quivers]
                 The simplest example of a quiver is the trivial loop:
-                    $$
-                        \begin{tikzcd}
-                            \bullet \arrow["\id"', loop, distance=2em, in=35, out=325]
-                        \end{tikzcd}
-                    $$
+                    \begin{figure}[H]
+                        \centering
+                            $$
+                                \begin{tikzcd}
+                                    \bullet \arrow["\id"', loop, distance=2em, in=35, out=325]
+                                \end{tikzcd}
+                            $$
+                        \caption{The trivial quiver}
+                        \label{fig: trivial_quiver}
+                    \end{figure}
                 It is easy to see that the path algebra of this quiver (over some fixed ring $k$) is:
                     $$k\<e\>/\<e^2 = e\> \cong k$$
                     
@@ -143,11 +148,16 @@
             \end{example}
             \begin{example}[Path algebras of $\sfA_n$ quivers] \label{example: path_algebras_of_A_n_quivers}
                 For a simple yet non-trivial example of quiver algebras, consider the following quiver, commonly known as the \say{$\sfA_2$ quiver}:
-                    $$
-                        \begin{tikzcd}
-                            {\bullet_1} \arrow["\id_{\bullet_1}"', loop, distance=2em, in=215, out=145] \arrow[r] & {\bullet_2} \arrow["\id_{\bullet_2}"', loop, distance=2em, in=35, out=325]
-                        \end{tikzcd}
-                    $$
+                    \begin{figure}[H]
+                        \centering
+                        $$
+                            \begin{tikzcd}
+                                {\bullet_1} \arrow["\id_{\bullet_1}"', loop, distance=2em, in=215, out=145] \arrow[r] & {\bullet_2} \arrow["\id_{\bullet_2}"', loop, distance=2em, in=35, out=325]
+                            \end{tikzcd}
+                        $$
+                        \caption{The $\sfA_2$ quiver}
+                        \label{fig: A_2_quiver}
+                    \end{figure}
                 which has a rather small path algebra, isomorphic to:
                     $$k\<e_1, e_2, x\>/\<e_i^2 = e_i, e_i e_j = e_j e_i = \delta_{ij}, x^2 = 0, e_2 x = x e_1 = x\>$$
                 One observation to make is that there is an associative $k$-algebra isomorphism given by:
@@ -159,14 +169,19 @@
                 of lower-triangular $2 \x 2$ matrices with entries in $k$.
                     
                 Next, consider the general $\sfA_n$ quiver\footnote{Henceforth we shall start omiting the identity paths from depictions of quivers.} (for some finite positive integer $n$):
-                    $$
-                        \begin{tikzcd}
-                        	{\bullet_1} & {\bullet_2} & {\bullet_3} & \cdots
-                        	\arrow["{x_{12}}", from=1-1, to=1-2]
-                        	\arrow["{x_{23}}", from=1-2, to=1-3]
-                        	\arrow["{x_{34}}", from=1-3, to=1-4]
-                        \end{tikzcd}
-                    $$
+                    \begin{figure}[H]
+                        \centering
+                            $$
+                                \begin{tikzcd}
+                                	{\bullet_1} & {\bullet_2} & {\bullet_3} & \cdots
+                                	\arrow["{x_{12}}", from=1-1, to=1-2]
+                                	\arrow["{x_{23}}", from=1-2, to=1-3]
+                                	\arrow["{x_{34}}", from=1-3, to=1-4]
+                                \end{tikzcd}
+                            $$
+                        \caption{The $\sfA_n$ quiver}
+                        \label{fig: A_n_quiver}
+                    \end{figure}
                 Observe that the set of morphisms $[\sfA_n]_1$ of the free category $[\sfA_n]$ on $\sfA_n$ is nothing but $\{x_{ij}\}_{1 \leq i \leq j \leq n}$ (also, note that $e_i = x_{ii}$ for all $1 \leq i \leq n$). Now, by letting $\1_{ij}$ denote the $n \x n$ matrix with $1$ at the $ij^{th}$ entry and $0$ everywhere else, and consider the map:
                     $$k\<\sfA_n\> \to \Mat_n(k)$$
                     $$x_{ij} \mapsto \1_{ij}$$
@@ -197,13 +212,18 @@
             \end{example}
             \begin{example}[Path algebras of non-simply-laced quivers]
                 Consider the so-called \say{Kronecker quiver}:
-                    $$
-                        \begin{tikzcd}
-                        	{\bullet_1} & {\bullet_2}
-                        	\arrow["x_2"', shift right=1, from=1-1, to=1-2]
-                        	\arrow["x_1", shift left=1, from=1-1, to=1-2]
-                        \end{tikzcd}
-                    $$
+                    \begin{figure}[H]
+                        \centering
+                            $$
+                                \begin{tikzcd}
+                                	{\bullet_1} & {\bullet_2}
+                                	\arrow["x_2"', shift right=1, from=1-1, to=1-2]
+                                	\arrow["x_1", shift left=1, from=1-1, to=1-2]
+                                \end{tikzcd}
+                            $$
+                        \caption{The Kronecker quiver}
+                        \label{fig: kronecker_quiver}
+                    \end{figure}
                 which is easily recognisable as the (non-disjoint) union of two copies of the $\sfA_2$ quiver (cf. example \ref{example: path_algebras_of_A_n_quivers}). One sees that its path $k$-algebra is:
                     $$k\<e_1, e_2, x_1, x_2\>/\<e_i^2 = e_i, e_i e_j = e_j e_i = \delta_{ij}, x_m x_n = 0, e_2 x_m = x_m e_1 = x_m\>$$
                 which can be shown to be isomorphic to the $k$-algebra\footnote{$\b_2^-(k)$ is the $k$-algebra of lower-triangular $2 \x 2$ matrices with entries in $k$; cf. example \ref{example: path_algebras_of_A_n_quivers}.}:
@@ -214,18 +234,23 @@
             \end{example}
             \begin{example}[Path algebras of $\sfD_n$ quivers]
                 For any $n \geq 2$, the so-called \say{$\sfD_n$ quiver} is of the form:
-                    $$
-                        \begin{tikzcd}
-                        	&&&& {\bullet_n} \\
-                        	{\bullet_1} & {\bullet_2} & \cdots & {\bullet_{n - 2}} \\
-                        	&&&& {\bullet_{n - 1}}
-                        	\arrow["{x_{12}}", from=2-1, to=2-2]
-                        	\arrow["{x_{23}}", from=2-2, to=2-3]
-                        	\arrow["{x_{n - 2, n - 3}}", from=2-3, to=2-4]
-                        	\arrow["{x_{n, n - 2}}", from=2-4, to=1-5]
-                        	\arrow["{x_{n - 1, n - 2}}", from=2-4, to=3-5]
-                        \end{tikzcd}
-                    $$
+                    \begin{figure}[H]
+                        \centering
+                            $$
+                                \begin{tikzcd}
+                                	&&&& {\bullet_n} \\
+                                	{\bullet_1} & {\bullet_2} & \cdots & {\bullet_{n - 2}} \\
+                                	&&&& {\bullet_{n - 1}}
+                                	\arrow["{x_{12}}", from=2-1, to=2-2]
+                                	\arrow["{x_{23}}", from=2-2, to=2-3]
+                                	\arrow["{x_{n - 2, n - 3}}", from=2-3, to=2-4]
+                                	\arrow["{x_{n, n - 2}}", from=2-4, to=1-5]
+                                	\arrow["{x_{n - 1, n - 2}}"', from=2-4, to=3-5]
+                                \end{tikzcd}
+                            $$
+                        \caption{The $\sfD_n$ quiver}
+                        \label{fig: D_n_quiver}
+                    \end{figure}
                 (when $n = 2, 3$, note that $\sfD_n = \sfA_n$, so there is nothing new in those cases, and we shall assume hereonafter that $n \geq 3$). Observe that for all $n \geq 3$, the $\sfD_n$ quiver is the union of the $\sfA_{n - 2}$ quiver with two copies of the $\sfA_2$ quiver, both at the $(n - 2)^{th}$ vertex and in such a manner that:
                     $$x_{n - 1, n - 2} x_{n - 2, n - 3} \not = 0$$
                     $$x_{n, n - 2} x_{n - 2, n - 3} \not = 0$$
@@ -323,13 +348,27 @@
     \subsection{Hereditary rings}    
         \subsubsection{Hereditary algebras and hereditary categories}
             \begin{definition}[Hereditary abelian categories] \label{def: hereditary_abelian_categories}
-                An abelian category $\calA$ is said to be \textbf{hereditary} if and only if $\globdim \calA \leq 1$.
+                An abelian category $\calA$ is said to be \textbf{hereditary}\footnote{If only the full subcategory $\calA^{\fin}$ of finite-length objects is of global dimension $\leq 1$ (i.e. if $\calA^{\fin}$ is hereditary) then one says that the larger abelian category $\calA$ is \textbf{semi-hereditary}.} if and only if $\globdim \calA \leq 1$.
             \end{definition}
             \begin{convention}[Left/right-hereditary rings] \label{conv: left/right_hereditary_rings}
-                When $\calA$ is the category of left/right-module over some ring $R$, one might say that the ring $R$ itself is \textbf{left/right-hereditary}
+                When $\calA$ is the category of left/right-module over some ring $R$, one might say that the ring $R$ itself is \textbf{left/right-hereditary}\footnote{A ring is left/right semi-hereditary if and only if all finitely generated modules over it are of projective dimension $\leq 1$.} whenever $\calA$ itself is hereditary.
             \end{convention}
+            \begin{proposition}[Kernels in hereditary abelian categories are projective] \label{prop: kernels_in_hereditary_abelian_categories_are_projective}
+                Let $\calA$ be a hereditary abelian category. Then, every kernel (i.e. sub-object) therein will be projective.
+            \end{proposition}
+                \begin{proof}
+                    
+                \end{proof}
+            \begin{corollary}[Kaplansky's Theorem] \label{coro: kaplansky_theorem}
+                If $R$ is a left/right-hereditary ring then every submodule of a free left/right-$R$-module will be a direct sum of left/right-$R$-ideals. As a direct result of this, every submodule of a projective left/right-$R$-module is also projective\footnote{Hence the terminology \say{hereditary}.}.
+            \end{corollary}
+            \begin{example}
+                Any left/right-semi-simple category (hence any semi-simple algebra) is left/right-hereditary. Concrete examples of hereditary algebras include finite-dimensional matrix rings over division rings (cf. theorem \ref{theorem: artin_wedderburn}) and group algebras $k\<G\>$ of finite groups $G$ over semi-simple rings $k$ such that $\chara k \nmid |G|$ (cf. theorem \ref{theorem: maschke_theorem}).
+                
+                As for algebras which are strictly left/right-hereditary and not left/right-semi-simple, consider the algebra $\b_2^-(k)$ of lower-triangular $2 \x 2$ matrices over a field $k$.
+            \end{example}
             
-        \subsubsection{Roots and quadratic forms of quivers; Dykin quivers}
+        \subsubsection{Roots and quadratic forms of quivers; Dynkin quivers}
             \begin{definition}[Adjacency and Cartan matrices] \label{def: adjacency_and_cartan_matrices}
                 Let $Q := (Q_1, Q_0, s, t)$ be a finite quiver\footnote{With value in any category} and suppose that $n := |Q_0|$; also, let us give the set $Q_0$ of vertices a \textit{fixed} enumeration $\{v_1, ..., v_n\}$. To such a quiver, one can associate a so-called \textbf{adjacency matrix}:
                     $$R_Q \in \Mat_n(\Z)$$
@@ -394,3 +433,59 @@
             \end{example}
             
         \subsubsection{Reflection functors and Gabriel's Theorem}
+            \begin{definition}[(Co)sinks] \label{def: (co)sinks}
+                Let $Q := (Q_1, Q_0, s, t)$ be a quiver with values in any category. A \textbf{(co)sink} into/out of a vertex $v \in Q_0$ is then a subclass of $\Ob(Q_{/v})$ (respectively, a subclass of $\Ob({}^{v/}Q)$).
+                    \begin{figure}[H]
+                        \centering
+                            $$
+                                \begin{tikzcd}
+                                	& \bullet \\
+                                	\bullet & v & \bullet \\
+                                	& \bullet
+                                	\arrow[from=3-2, to=2-2]
+                                	\arrow[from=2-1, to=2-2]
+                                	\arrow[from=2-3, to=2-2]
+                                	\arrow[from=1-2, to=2-2]
+                                \end{tikzcd}
+                            $$
+                        \caption{A sink}
+                        \label{fig: sink}
+                    \end{figure}
+                    \begin{figure}[H]
+                        \centering
+                            $$
+                                \begin{tikzcd}
+                                	& \bullet \\
+                                	\bullet & v & \bullet \\
+                                	& \bullet
+                                	\arrow[from=2-2, to=3-2]
+                                	\arrow[from=2-2, to=2-1]
+                                	\arrow[from=2-2, to=2-3]
+                                	\arrow[from=2-2, to=1-2]
+                                \end{tikzcd}
+                            $$
+                        \caption{A cosink}
+                        \label{fig: cosink}
+                    \end{figure}
+            \end{definition}
+            \begin{remark}
+                Observe that (co)sinks are specific instances of quivers. 
+            \end{remark}
+            \begin{convention}
+                Often, one shall usually refer to (co)sinks by their peak vertices.
+            \end{convention}
+            \begin{convention}
+                Let $Q := (Q_1, Q_0, s, t)$ be a quiver with value in any category and $v \in Q_0$ a fixed object therein. If $\Sigma_{/v} \subseteq \Ob(Q_{/v})$ (respectively, ${}^{v/}\Sigma \subseteq \Ob({}^{v/}Q)$) is a (co)sink in $Q$ then by $(Q, \Sigma_{/v})^{\op}$ (respectively, $(Q, {}^{v/}\Sigma)^{\op}$) we shall mean the quiver $(Q \setminus \Sigma_{/v}) \cup \Sigma_{/v}^{\op}$ (respectively, $(Q \setminus {}^{v/}\Sigma) \cup {}^{v/}\Sigma^{\op}$).
+                
+                If $\Sigma_{/v} = \Ob(Q_{/v})$ (respectively, ${}^{v/}\Sigma = \Ob({}^{v/}Q)$) and if it had previously been made clear as to whether $v$ is a sink or a cosink, then we shall simply write $(Q, v)^{\op}$.
+            \end{convention}
+            \begin{definition}[Reflection functors] \label{def: reflection_functors}
+                Let 
+            \end{definition}
+            
+            \begin{lemma}[Path algebras of Dynkin quivers are hereditary] \label{lemma: path_algebras_of_dynkin_quivers_are_hereditary}
+                Let $Q$ be a quiver and $k$ be a hereditary ring\footnote{For all purposes, one might assume that $k$ is semi-simple or perhaps even a field.}. Then the path $k$-algebra $k\<Q\>$ will be a hereditary if and only if $Q$ is a Dynkin quiver.
+            \end{lemma}
+                \begin{proof}
+                    
+                \end{proof}
