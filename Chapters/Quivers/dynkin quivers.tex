@@ -274,16 +274,76 @@
                 
                 As for further properties coming not from the definition of representations themselves, but rather from the basic property of this equivalence of categories, one has that the functor also preserves lengths and more generally, ascending and descending chains of objects, as a consequence of being exact. In particular, this means that should a representation of a given quiver $Q$ is finitely generated as a $k$-module (i.e. \say{finite-dimensional}), then the same would also be true for the corresponding left-$k\<Q\>$-module.
             \end{remark}
-                
-            Let us now move on to a more in-depth discussion of connected quivers and in particular, those of \say{finite type}, which can be shown to precisely be the so-called \say{Dynkin quivers} (cf. definition \ref{def: dynkin_quivers}), which are simply laced connected quivers of a certain kind. 
-            \begin{definition}
-                A $\Sets$-valued quiver is said to have a ring-theoretic property $\calP$ over some base ring $k$ if and only if its quiver $k$-algebra has property $\calP$.
+            
+        \subsubsection{Admissible ideals; quivers with relations}
+            \begin{convention}
+                From now on, all quivers shall be $\Sets$-valued and therefore we shall simply say \say{quiver} for brevity.
+            \end{convention}
+            \begin{convention}
+                Let us henceforth assume that $k$ is field (i.e. a simple commutative ring). For the most part, this assumption is made so that given any quiver $Q := (Q_1, Q_0, s, t)$, the corresponding path $k$-algebra $k\<Q\>$ will admit $\<Q\> := \<[Q]_1\>$ as a maximal two-sided ideal, commonly referred to as the \say{arrow ideal} of $Q$.
+            \end{convention}
+            
+            \begin{definition}[Admissible ideals of path algebras] \label{def: admissible_ideals_of_path_algebras}
+                The path $k$-algebra of any given quiver is said to be \textbf{admissible} if and only if it is admissible in the sense of definition \ref{def: pre_admissible_and_pre_adic_rings}, and said to be \textbf{bounded} if and only if its ideal of definition is a finite power of the arrow ideal.
             \end{definition}
-            \begin{example}[Quivers of finite type]
+            
+        \subsubsection{Quivers associated to finite-dimensional algebra}
+            \begin{definition}[Basic algebras] \label{def: basic_algebras}
+                An associative algebra $A$ over some commutative ring $k$ is said to be \textbf{basic} if and only if the semi-simple\footnote{Cf. proposition \ref{prop: quotients_by_jacobson_radicals_are_semi_simple}} $k$-algebra $A/\rad(A)$ admits an Artin-Wedderburn Decomposition (cf. theorem \ref{theorem: artin_wedderburn}) into finitely many copies of $k$, i.e.:
+                    $$A/\rad(A) \cong \prod_{i = 1}^d k$$
+                wherein the product is taken in the category of associative $k$-algebras.
+            \end{definition}
+            \begin{remark}
+                Obviously, if $A$ is a basic algebra over some commutative ring $k$ then $A$ will be of finite rank as a $k$-module, which is equal to the number of copies of $k$ in the Artin-Wedderburn Decomposition of $A/\rad(A)$; that is to say, if:
+                    $$A/\rad(A) \cong \prod_{i = 1}^d k$$
+                then:
+                    $$\rank_k A = d$$
+            \end{remark}
+            \begin{remark}[Simple modules over basic algebras are $1$-dimensional] \label{remark: simple_modules_over_basic_algebras_are_one_dimensional}
+                Let $k$ be a commutative ring and $A$ be a basic $k$-algebra. By the Artin-Wedderburn Theorem (cf. theorem \ref{theorem: artin_wedderburn}), one sees that every simple (left/right-)$A$-modules are of rank $1$ as $k$-modules. Among other things, this means that in order to compute $\rad(A)$, which by definition contains all elements $a \in A$ which act as $0$ on simple (left/right-)$A$-modules, one needs to only check whether or not said elements act as $0$ on the underlying ring $k$.
+            \end{remark}
+            \begin{definition}[Primitive idempotents] \label{def: primitive_idempotents}
+                An idempotent ring element $e \in R$ (i.e. $e^2 = e$) is said to be \textbf{primitive} if and only if the left-$R$-ideal ${}_R\<e\>$ ((or equivalently, the right-$R$-ideal $\<e\>_R$) is an indecomposable left/right-$R$-module.
+            \end{definition}
+            \begin{proposition}[Primitive idempotents are indecomposable] \label{prop: primitive_idempotents_are_indecomposable}
+                \cite[Proposition 21.8]{lam_first_course_in_noncommutative_rings} Let $R$ be an associative ring and $e \in R$ be an idempotent element therein. Then the following are equivalent:
+                    \begin{enumerate}
+                        \item $e$ is primitive.
+                        \item The ring $eRe$ has no non idempotent elements aside from $0$ and $1$.
+                        \item There does not exist a decomposition $e := \alpha + \beta$ of $e$ into non-zero orthogonal (i.e. $\alpha \beta = \beta \alpha = 0$) idempotents $\alpha, \beta \in R$.
+                    \end{enumerate}
+            \end{proposition}
+            \begin{example}
+                Consider the matrix ring $\Mat_2(k)$ over some field $k$ of characteristic $0$. The element $\begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}$ is first of all idempotent, but moreoever, primitive, as the ring $\begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix} \Mat_2(k) \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}$ has no idempotents aside from the additive and multiplicative identities: one can easily show via some obvious computations that:
+                    $$\begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix} \Mat_2(k) \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix} = \left\{ \begin{pmatrix} a & 0 \\ 0 & 0 \end{pmatrix} \: \bigg| \: \forall a \in k: a^2 = a\right\}$$
+                but since $k$ is a field of characteristic $0$, there are no elements $a \in k$ such that $a^2 = a$ aside from $0$ and $1$. On the other hand, the identity matrix $\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$ (which is also idempotent) is \textit{not} primitive, since one can easily write:
+                    $$\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix} + \begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix}$$
+                and it is trivial to check that the two summands are idempotent and orthogonal to one another.
+            \end{example}
+            \begin{remark}[Idempotents split] \label{remark: idempotents_split}
+                
+            \end{remark}
+            \begin{definition}[Associated basic algebras] \label{def: associative_basic_algebras}
+                Let $A$ be a finite algebra over a commutative ring $k$. To such a $k$-algebra, one can construct a basic one, denoted by ${}^bA$, which is given by:
+                    $${}^bA := e_A A e_A$$
+                wherein:
+                    $$e_A := \sum_{e \in E} e$$
+                for some set $E$ of pair-wise orthogonal\footnote{For all $e, e' \in E$, one has $ee' = e'e = 0$ whenever $e \not = e'$} primitive idempotents such that $|E| \leq \rank A$ and for all $e, e' \in E$, one has ${}_A\<e\> \not \cong {}_A\<e'\>$ (or $\<e\>_A \not \cong \<e'\>_A$) if $e \not = e'$. For the sake of brevity, let us call $E$ a \textbf{over-basis} of $A$ as a $k$-module.
+            \end{definition}
+            \begin{example}
+                Let $k$ be a field of characteristic $0$ and consider the $k$-algebra $\Mat_2(k)$ of $2 \x 2$ matrices with entries in $k$; within this algebra, consider the over-basis\footnote{We will let the reader check that the elements herein are pair-wise orthogonal idempotents.}:
+                    $$E := \left\{ \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix}, \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}, \begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix}, \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \right\}$$
+                
+            \end{example}
+            
+            \begin{definition}
+                A quiver is said to have a ring-theoretic property $\calP$ over some base ring $k$ if and only if its quiver $k$-algebra has property $\calP$.
+            \end{definition}
+            \begin{example}[Quivers of finite type] \label{example: quivers_of_finite_type}
                 A quiver $Q$ is said to be of finite type over some ring $k$ if and only if its path $k$-algebra $k\<Q\>$ is of finite type as a $k$-algebra.
             \end{example}
             \begin{proposition}[Quivers of finite type are of finite presentations] \label{prop: quivers_of_finite_type_are_of_finite_presentations}
-                Let $k$ be a ring and $Q$ be a $\Sets$-valued quiver. Then $Q$ is of finite type if and only if it is of finite presentation over $k$.
+                Let $k$ be a ring and $Q$ be a quiver. Then $Q$ is of finite type if and only if it is of finite presentation over $k$.
             \end{proposition}
                 \begin{proof}
                     If $k\<Q\>$ is of finite presentation then obviously it is of fintie type. Conversely, if $k\<Q\>$ is of finite presentation, then by definition the set $[Q]_1$ of morphisms of the free category $[Q]$ on $Q$ will have to be finite. These finitely many morphisms will generate finitely many relations on the noncommutative free $k$-algebra $k\<\{v_i\}_{1 \leq i \leq |Q_1|}\>$ (which we note to be of finite type over $k$), thereby making the algebra $k\<Q\>$ finitely presented over $k$.
@@ -301,22 +361,6 @@
             \begin{remark}
                 Equivalently, one can say that a $\Sets$-valued (or maybe with values in any category $\C$ with enough coproducts and sub-objects) quiver is connected if and only if it can not be written as the disjoint union of two sub-quivers. 
             \end{remark}
-            
-        \subsubsection{Admissible ideals; quivers with relations}
-            \begin{convention}
-                From now on, all quivers shall be $\Sets$-valued and therefore we shall simply say \say{quiver} for brevity.
-            \end{convention}
-            \begin{convention}
-                Let us henceforth assume that $k$ is field (i.e. a simple commutative ring). For the most part, this assumption is made so that given any quiver $Q := (Q_1, Q_0, s, t)$, the corresponding path $k$-algebra $k\<Q\>$ will admit $\<Q\> := \<[Q]_1\>$ as a maximal two-sided ideal, commonly referred to as the \say{arrow ideal} of $Q$.
-            \end{convention}
-            
-            \begin{definition}[Admissible ideals of path algebras] \label{def: admissible_ideals_of_path_algebras}
-                The path $k$-algebra of any given quiver is said to be \textbf{admissible} if and only if it is admissible in the sense of definition \ref{def: pre_admissible_and_pre_adic_rings}, and said to be \textbf{bounded} if and only if its ideal of definition is a finite power of the arrow ideal.
-            \end{definition}
-            
-        \subsubsection{Quivers associated to finite-dimensional algebra}
-        
-        \subsubsection{Auslander-Reiten theory}
         
     \subsection{Tiltings}
         \subsubsection{Torsion in abelian categories}
