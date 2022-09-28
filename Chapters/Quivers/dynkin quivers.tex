@@ -1,4 +1,4 @@
-\section{Hereditary rings, homological dimension \texorpdfstring{$\leq 1$}{}, and quivers}
+\section{Quivers, hereditary rings, and homological dimension \texorpdfstring{$\leq 1$}{}}
     \subsection{Quivers}
         \subsubsection{Generalities about quivers and their representations}
             We begin by introducing so-called \say{quivers}, which is more-or-less a relaxed version of directed graphs which turn out to be rather important within representation-theoretic contexts. Our approach is that quivers are certain very simple categories, and as such their representations ought to be viewed as particular instances of representations of categories. Specifically, this means we shall be studying the various algebraic properties of quiver representations via modules over their so-called \say{category algebras}, so that notions of say, finite-type-ness of quivers, could be discussed using purely ring-theoretic arguments.
@@ -68,6 +68,13 @@
                 
                 Of course, one could consider representations with values in categories of a more general kind than linear tensor $1$-categories, such as symmetric monoidal stable $\infty$-categories. 
             \end{remark}
+            \begin{convention}
+                Often, we will consider the case $\calV \cong k\mod$ for some commutative ring $k$, and in which case, we shall write $\Rep_k(Q)$ for the category of $k$-linear representations of $Q$. Some important subcategories therein are:
+                    $$\Rep_k^{\fin}(Q)$$
+                    $$\Rep_k^{\irr}(Q)$$
+                    $$\Rep_k^{\red}(Q)$$
+                which are the categories of finite-rank $k$-linear representations of $Q$, of irreducible representations, and that of indecomposable representations.
+            \end{convention}
             
             Let us now move on to the notion of so-called \say{quiver algebras} and discuss the roles that they play in the representation theory of $\Sets$-valued quivers. 
             \begin{definition}[Category algebras] \label{def: category_algebras}
@@ -287,6 +294,171 @@
                 The path $k$-algebra of any given quiver is said to be \textbf{admissible} if and only if it is admissible in the sense of definition \ref{def: pre_admissible_and_pre_adic_rings}, and said to be \textbf{bounded} if and only if its ideal of definition is a finite power of the arrow ideal.
             \end{definition}
             
+        \subsubsection{Roots and quadratic forms of quivers; Dynkin quivers}
+            \begin{definition}[Adjacency and Cartan matrices] \label{def: adjacency_and_cartan_matrices}
+                Let $Q := (Q_1, Q_0, s, t)$ be a finite quiver\footnote{With value in any category} and suppose that $n := |Q_0|$; also, let us give the set $Q_0$ of vertices a \textit{fixed} enumeration $\{v_1, ..., v_n\}$. To such a quiver, one can associate a so-called \textbf{adjacency matrix}:
+                    $$R_Q \in \Mat_n(\Z)$$
+                given by:
+                    $$R_Q := (r_{ij} := |\{f \in Q_1 \mid s(f) = v_i, t(f) = v_j\}|)_{1 \leq i, j \leq n}$$
+                (that is, the entries $r_{ij}$ of $R_Q$ are the numbers of \textit{undirected} edges from the vertex $v_i$ to the vertex $v_j$). From this matrix, one can define the \textbf{Cartan matrix} of $Q$:
+                    $$A_Q := 2I_n - R_Q$$
+                along with a $\Z$-bilinear form, which we shall call the \textbf{Cartan-Tits form}:
+                    $$B_Q: \Z^{\oplus n} \x \Z^{\oplus} \to \Z$$
+                    $$(x, y) \mapsto x^{\top} A_Q y$$                
+            \end{definition}
+            \begin{definition}[Dynkin quivers] \label{def: dynkin_quivers}
+                A \textbf{Dynkin quiver} is a \textit{connected} and \textit{simply laced} finite quiver whose Cartan-Tits form is positive-definite.
+            \end{definition}
+            \begin{proposition}[Evenness of Cartan-Tits forms of Dynkin quivers]
+                Let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a Dynkin quiver and consider its Cartan matrix $A_{\Gamma}$. Then for all $x \in \Z^{\oplus n}$, $B_{\Gamma}(x, x)$ is even.  
+            \end{proposition}
+                \begin{proof}
+                    Let $n := |\Gamma_0|$ and pick a basis for $\Z^{\oplus n}$ in order to write:
+                        $$
+                            \begin{aligned}
+                                B_{\Gamma}(x, x) & = x^{\top} A_{\Gamma} x
+                                \\
+                                & = \sum_{1 \leq i, j \leq n} x_i a_{ij} x_j
+                                \\
+                                & = \sum_{1 \leq i, j \leq n} x_i (2\delta_{ij} - r_{ij}) x_j \text{(wherein $\delta_{ij}$ is the Kronecker delta)}
+                                \\
+                                & = 2\sum_{1 \leq i, j \leq n} x_i \delta_{ij} x_j - \sum_{1 \leq i, j \leq n} x_i (1 - \delta_{ij}) r_{ij} x_j \text{($r_{ij}$ are the entries the adjacency matrix of $\Gamma$)}
+                                \\
+                                & = 2\sum_{1 \leq i \leq n} x_i^2 - 2\sum_{1 \leq i < j \leq n} x_i r_{ij} x_j
+                            \end{aligned}
+                        $$
+                    for all $x \in \Z^{\oplus n}$, wherein the last line is due to the fact that the number of undirected edges from a vertex $v_i$ to another $v_j$ is equal to the number of undirected directed edges from $v_j$ to $v_i$, which in turn is a result of the assumption that by virtue of being a Dynkin quiver, $\Gamma$ is connected and simply laced\footnote{Note how this argument fails if $\Gamma$ is either not simply laced or not connected.}. Clearly, $B_{\Gamma}(v, v)$ is even for all $x \in \Z^{\oplus}$.
+                \end{proof}
+            \begin{definition}[Roots] \label{def: roots_of_dynkin_quivers}
+                A root of a \textit{Dynkin} quiver $\Gamma : (\Gamma_1, \Gamma_0, s, t)$ is a vector:
+                    $$\alpha \in \Z^{\oplus n}$$
+                (where $n := |\Gamma_0|$) such that:
+                    $$B_{\Gamma}(\alpha, \alpha) = 2$$
+                The set of all roots of $\Gamma$ is denoted by $\Phi(\Gamma)$, and often called the \textbf{root system} of $\Gamma$.
+            \end{definition}
+            \begin{example}[Simple roots] \label{example: simple_roots}
+                Let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a Dynkin quiver and set $n := \Gamma_0$. Also, pick a basis $\{e_1, ..., e_n\}$ for $\Z^{\oplus n}$. Then the vectors of the form:
+                    $$\alpha_i := \delta_{ij} e_j$$
+                (for $1 \leq i, j \leq n$) are in fact roots of $\Gamma$ and furthermore, they form a basis for $\Z^{\oplus n}$.
+            \end{example}
+            \begin{lemma}[Roots are exclusively either negative or positive] \label{lemma: roots_are_exclusively_either_negative_or_positive}
+                Let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a Dynkin quiver and set $n := \Gamma_0$. Also, pick a basis $\{e_1, ..., e_n\}$ for $\Z^{\oplus n}$ and choose a root $\alpha$ and write it in terms of the simple roots $\{\alpha_i\}_{1 \leq i \leq n}$ as:
+                    $$\alpha := \sum_{1 \leq i \leq n} c_i \alpha_i$$
+                Then either $c_i \geq 0$ or $c_i \leq 0$ for all $1 \leq i \leq n$ simultaneously.
+            \end{lemma}
+                \begin{proof}
+                    
+                \end{proof}
+            \begin{definition}[Positive and negative roots] \label{def: negative_and_positive_roots}
+                Let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a Dynkin quiver and set $n := \Gamma_0$. Also, pick a basis $\{e_1, ..., e_n\}$ for $\Z^{\oplus n}$ and choose a root $\alpha$ and write it in terms of the simple roots $\{\alpha_i\}_{1 \leq i \leq n}$ as:
+                    $$\alpha := \sum_{1 \leq i \leq n} c_i \alpha_i$$
+                Then we say that $\alpha$ is \textbf{positive} if and only if $c_i \geq 0$ for all $1 \leq i \leq n$ and \textbf{negative} if and only if $c_i \leq 0$ for all $1 \leq i \leq n$.
+            \end{definition}
+            \begin{example}
+                
+            \end{example}
+            
+        \subsubsection{(Co)reflection functors and Gabriel's Theorem}
+            We have now come to Gabriel's Theorem. The proof thereof relies heavily on constructions known as \say{(co)reflection functors} (cf. definition \ref{def: (co)reflection_functors}) which can be thought of as gadgets that help us ensure that the representation theory of a quiver is independent of its orientation\footnote{So for instance, once we have proven Gabriel's Theorem, we can simply think of Dynkin quivers as those whose underlying undirected graph is a Dynkin diagram, and this notion is completely captured by the Cartan-Tits quadratic forms associated to these undirected graphs.}. 
+            \begin{convention}
+                From now on, we shall be working over a commutative ring $k$.
+            \end{convention}
+            \begin{definition}[(Co)reflection functors] \label{def: (co)reflection_functors}
+                Let $Q := (Q_1, Q_0, s, t)$ be a quiver and $\sigma \in Q_0$ be a fixed vertex. 
+                    \begin{itemize}
+                        \item If $v$ is a sink, then one can define the so-called \textbf{reflection functor}:
+                            $$\Refl_{\sigma}: \Rep_k(Q) \to \Rep_k(Q)$$
+                            $$(\calF: [Q] \to k\mod) \mapsto \underset{v \in [Q]_{/\sigma}}{\lim} \calF(v)$$
+                        \item If $v$ is a cosink, then one can instead define the \textbf{coreflection functor}:
+                            $$\co\Refl_{\sigma}: \Rep_k(Q) \to \Rep_k(Q)$$
+                            $$(\calF: [Q] \to k\mod) \mapsto \underset{v \in {}^{\sigma/}[Q]}{\colim} \calF(v)$$
+                    \end{itemize}
+            \end{definition}
+            \begin{remark}[Categorical properties of (co)reflection functors]
+                Immediately, one sees that (co)reflection functors preserve (co)limits of representations. More specifically, if $Q := (Q_1, Q_0, s, t)$ is a quiver and $\sigma \in Q_0$ is a fixed vertex, and if:
+                    $$I \to \Rep_k(Q)$$
+                    $$i \mapsto \calF_i$$
+                is a diagram of $k$-linear representations of $Q$, then clearly:
+                    $$\Refl_{\sigma}\left( \underset{i \in I^{\op}}{\lim} \calF_i \right) \cong \underset{i \in I}{\lim} \Refl_{\sigma}(\calF)$$
+                and:
+                    $$\co\Refl_{\sigma}\left( \underset{i \in I}{\colim} F_i \right) \cong \underset{i \in I}{\colim} \co\Refl_{\sigma}(F)$$
+                as a result of (co)limits commuting with one another. Of course, all the (co)limits at play here do indeed exist, since $\Rep_k(Q)$ is both complete and cocomplete as a result of $k\mod$ being so.
+            \end{remark}
+            \begin{remark}[Successive compositions of (co)reflection functors and the directionality of Dynkin quivers] \label{remark: dynkin_quivers_are_unique_up_to_orientations}
+                Let $Q := (Q_1, Q_0, s, t)$ be a Dynkin quiver whose vertices are enumerated by:
+                    $$Q_0 := \{\sigma_1, ..., \sigma_n\}$$
+                is that when given any representation:
+                    $$\calF \in \Ob(\Rep_k(Q))$$
+                one can act upon it with the following composition of reflection and coreflection functors (or indeed, any permutation thereof):
+                    $$\co\Refl_{\sigma_n} \circ \Refl_{\sigma_n} \circ ... \circ \co\Refl_{\sigma_1} \circ \Refl_{\sigma_1}: \Rep_k(Q) \to \Rep_k(Q)$$
+                in order to obtain a filtered diagram of $k$-modules:
+                    $$\left(\co\Refl_{\sigma_n} \circ \Refl_{\sigma_n} \circ ... \circ \co\Refl_{\sigma_1} \circ \Refl_{\sigma_1}\right)(\calF): [Q] \to k\mod$$
+                From this, one infers that the representation theory of Dynkin quivers would actually be \textit{independent} of their orientations, in the sense that the category of representations $\Rep_k(Q)$ of a Dynkin quiver $Q := (Q_1, Q_0, s, t)$ is unique up to different direction of the directed edges $x \in Q_1$, \textit{should we be able to show that the (co)reflection functors are auto-equivalences of $\Rep_k(Q)$}.
+            \end{remark}
+            \begin{remark}[(Co)reflection functors for finite quivers are exact] \label{remark: (co)reflection_functors_for_finite_quivers_are_exact}
+                If $Q := (Q_1, Q_0, s, t)$ is a finite quiver with a fixed vertex $\sigma \in Q_0$ then the corresponding (co)reflection functors:
+                    $$\Refl_{\sigma}, \co\Refl_{\sigma}: \Rep_k(Q) \to \Rep_k(Q)$$
+                will obviously be defined via finite (co)limits. Because there is an exact equivalence of abelian categories as follows (cf. proposition \ref{prop: quiver_representations_are_modules_over_quiver_algebras}):
+                    $$\Rep_k(Q) \to {}^lk\<Q\>\mod$$
+                the aforementioned reflection functor $\Refl_{\sigma}$ and coreflection functor $\co\Refl_{\sigma}$ are, respectively, left-exact and right-exact. If, additionally, the diagram $[Q]_{/\sigma}$ is cofiltered (respectively, if ${}^{\sigma/}[Q]$ is filtered), such as when $Q$ is a Dynkin quiver\footnote{Cf. figures \ref{fig: A_n_quiver} and \ref{fig: D_n_quiver}.}, then one will be able to use the fact that (co)filtered limits are right-exact (respectively, filtered colimits are left-exact) in categories of modules over rings in order to see that in such a situation, both $\Refl_{\sigma}$ and $\co\Refl_{\sigma}$ are simultaneously left and right-exact (i.e. exact), and hence will \textit{preserve simple objects} (i.e. irreducible representations).
+                
+                Now, should $Q$ be a Dynkin quiver whose vertices are enumrated by:
+                    $$Q_0 := \{\sigma_1, ..., \sigma_n\}$$
+                then we have seen (cf. remark \ref{remark: dynkin_quivers_are_unique_up_to_orientations}) that by acting open any representation:
+                    $$\calF \in \Ob(\Rep_k(Q))$$
+                with any permutation of the composition:
+                    $$\co\Refl_{\sigma_n} \circ \Refl_{\sigma_n} \circ ... \circ \co\Refl_{\sigma_1} \circ \Refl_{\sigma_1}$$
+                we would obtain a filtered diagram of $k$-modules:
+                    $$(\co\Refl_{\sigma_n} \circ \Refl_{\sigma_n} \circ ... \circ \co\Refl_{\sigma_1} \circ \Refl_{\sigma_1})(\calF): [Q] \to k\mod$$
+                and therefore we might as well assume that Dynkin quivers are filtered. Since Dynkin quivers are finite, we thus gather from the discussion in the previous paragraph that in fact, the (co)reflection functors:
+                    $$\Refl_{\sigma}, \co\Refl_{\sigma}: \Rep_k(Q) \to \Rep_k(Q)$$
+                are \textit{exact}. As such, if $Q := (Q_1, Q_0, s, t)$ is a Dynkin quiver and $\sigma \in Q_0$ is a fixed vertex, then the coreflection functors $\Refl_{\sigma}$ and $\co\Refl_{\sigma}$ will admit restrictions:
+                    $$\Refl_{\sigma}^{\irr}, \co\Refl_{\sigma}^{\irr}: \Rep_k^{\irr}(Q) \to \Rep_k^{\irr}(Q)$$
+                down onto the full subcategory $\Rep_k^{\irr}(Q) \subseteq \Rep_k(Q)$ spanned by the irreducible $k$-linear representations of $Q$.
+            \end{remark}
+            \begin{lemma}[Projective indecomposable objects are simple] \label{lemma: projective_indecomposable_objects_are_simple}
+                
+            \end{lemma}
+                \begin{proof}
+                    
+                \end{proof}
+            \begin{theorem}[Gabriel's theorem on Dynkin quivers] \label{theorem: gabriel_theorem_on_dynkin_quivers}
+                Let $k$ be a field and $Q$ be a quiver. $Q$ is then a Dynkin quiver if and only if $\Rep_k(Q)$ has finitely many isomorphism classes of indecomposable objects.
+            \end{theorem}
+                \begin{proof}
+                    
+                \end{proof}
+        
+    \subsection{Tilting modules and (derived) Morita equivalences}
+        \subsubsection{(Partial) tilting objects}
+        
+        \subsubsection{Separating and splitting tilting objects}
+        
+        \subsubsection{Torsion induced by tilting objects}
+        
+    \subsection{Hereditary rings}    
+        \subsubsection{Hereditary algebras and hereditary categories}
+            \begin{definition}[Hereditary abelian categories] \label{def: hereditary_abelian_categories}
+                An abelian category $\calA$ is said to be \textbf{hereditary}\footnote{If only the full subcategory $\calA^{\fin}$ of finite-length objects is of global dimension $\leq 1$ (i.e. if $\calA^{\fin}$ is hereditary) then one says that the larger abelian category $\calA$ is \textbf{semi-hereditary}.} if and only if $\globdim \calA \leq 1$.
+            \end{definition}
+            \begin{convention}[Left/right-hereditary rings] \label{conv: left/right_hereditary_rings}
+                When $\calA$ is the category of left/right-module over some ring $R$, one might say that the ring $R$ itself is \textbf{left/right-hereditary}\footnote{A ring is left/right semi-hereditary if and only if all finitely generated modules over it are of projective dimension $\leq 1$.} whenever $\calA$ itself is hereditary.
+            \end{convention}
+            \begin{proposition}[Kernels in hereditary abelian categories are projective] \label{prop: kernels_in_hereditary_abelian_categories_are_projective}
+                Let $\calA$ be a hereditary abelian category. Then, every kernel (i.e. sub-object) therein will be projective.
+            \end{proposition}
+                \begin{proof}
+                    
+                \end{proof}
+            \begin{corollary}[Kaplansky's Theorem] \label{coro: kaplansky_theorem}
+                If $R$ is a left/right-hereditary ring then every submodule of a free left/right-$R$-module will be a direct sum of left/right-$R$-ideals. As a direct result of this, every submodule of a projective left/right-$R$-module is also projective\footnote{Hence the terminology \say{hereditary}.}.
+            \end{corollary}
+            \begin{example}
+                Any left/right-semi-simple category (hence any semi-simple algebra) is left/right-hereditary. Concrete examples of hereditary algebras include finite-dimensional matrix rings over division rings (cf. theorem \ref{theorem: artin_wedderburn}) and group algebras $k\<G\>$ of finite groups $G$ over semi-simple rings $k$ such that $\chara k \nmid |G|$ (cf. theorem \ref{theorem: maschke_theorem}).
+                
+                As for algebras which are strictly left/right-hereditary and not left/right-semi-simple, consider the algebra $\b_2^-(k)$ of lower-triangular $2 \x 2$ matrices over a field $k$.
+            \end{example}
+            
         \subsubsection{Quivers associated to finite-dimensional algebra}
             \begin{definition}[Basic algebras] \label{def: basic_algebras}
                 An associative algebra $A$ over some commutative ring $k$ is said to be \textbf{basic} if and only if the semi-simple\footnote{Cf. proposition \ref{prop: quotients_by_jacobson_radicals_are_semi_simple}} $k$-algebra $A/\rad(A)$ admits an Artin-Wedderburn Decomposition (cf. theorem \ref{theorem: artin_wedderburn}) into finitely many copies of $k$, i.e.:
@@ -361,175 +533,5 @@
             \begin{remark}
                 Equivalently, one can say that a $\Sets$-valued (or maybe with values in any category $\C$ with enough coproducts and sub-objects) quiver is connected if and only if it can not be written as the disjoint union of two sub-quivers. 
             \end{remark}
-        
-    \subsection{Tiltings}
-        \subsubsection{Torsion in abelian categories}
-            \begin{definition}[Torsion pairs] \label{def: torsion_pairs}
-                Let $\calA$ be an abelian category. A \textbf{torsion pair} or \textbf{torsion theory} in $\calA$ is then a pair of full subcategories $(\calT^{\flat}, \calT^{\sharp})$ such that the $\Z$-modules $\calT^{\flat}(M, N)$ and $\calT^{\sharp}(M, N)$ are zero if and only if $M \in \Ob(\calT^{\flat})$ and $N \in \Ob(\calT^{\sharp})$.
-            \end{definition}
-            \begin{example}[Torsion and torsion-free abelian groups]
-                It is well known that there are no non-zero homomorphism from a torsion abelian group to a torsion-free one. Furthermore, abelian group homomorphisms preserve torsion (or equivalently, torsion-free-ness). As such, an example of a torsion pair on the (abelian) category of abelian groups is the pair consisting of the full subcategory $\calT^{\flat}_{\Ob(\Tor(\Z\mod))} := \Tor(\Z\mod)$ of torsion abelian groups and that of torsion-free abelian groups (serving as $\calT^{\sharp}$). 
-            \end{example}
-            \begin{example}[Torsion pairs generated by classes of objects]
-                Let $\calA$ be an abelian category and suppose that $\C_0 \subseteq \Ob(\calA)$ is a class of objects therein. Then, a torsion pair $(\calT^{\flat}_{\C_0}, \calT^{\sharp}_{\C_0})$ induced by $\C$ can be constructed in the following fashion:
-                    $$\calT^{\sharp}_{\C_0} := \{N \in \Ob(\calA) \mid \forall M \in \C_0 : \calA(M, N) \cong 0\}$$
-                    $$\calT^{\flat}_{\C_0} := \calA \setminus \calT^{\sharp}_{\C_0}$$
-                where in the second line, the complement is taken at both the level of objects and morphisms. Observe that $\Ob(\T^{\flat}_{\C_0})$ is minimal among the subclasses of $\Ob(\calA)$ containing $\C_0$.
-                
-                To be concrete, consider once more the category of abelian groups, but this time, instead of consider the class of all torsion abelian groups, let us fix a prime $p$ and consider the class of $p$-torsion abelian groups (these are abelian groups $M$ such that for all $x \in M$, $px = 0$). The full subcategory spanned by the so-called \say{$p$-torsion-free} abelian groups can then be given by:
-                    $$\T^{\sharp}_{\Ob(p\-\Tor(\Z\mod))} := \{N \in \Ob(\Z\mod) \mid \forall M \in \Ob(p\-\Tor(\Z\mod)): \Hom_{\Z}(M, N) \cong 0\}$$
-                which indeed yields
-                    $$p\-\Tor(\Z\mod) = \Z\mod \setminus \T^{\sharp}_{\Ob(p\-\Tor(\Z\mod))}$$
-            \end{example}
             
-        
-        \subsubsection{Tilting objects}
-        
-        \subsubsection{Separating and splitting tilting objects}
-        
-        \subsubsection{Torsion induced by tilting objects}
-        
-    \subsection{Hereditary rings}    
-        \subsubsection{Hereditary algebras and hereditary categories}
-            \begin{definition}[Hereditary abelian categories] \label{def: hereditary_abelian_categories}
-                An abelian category $\calA$ is said to be \textbf{hereditary}\footnote{If only the full subcategory $\calA^{\fin}$ of finite-length objects is of global dimension $\leq 1$ (i.e. if $\calA^{\fin}$ is hereditary) then one says that the larger abelian category $\calA$ is \textbf{semi-hereditary}.} if and only if $\globdim \calA \leq 1$.
-            \end{definition}
-            \begin{convention}[Left/right-hereditary rings] \label{conv: left/right_hereditary_rings}
-                When $\calA$ is the category of left/right-module over some ring $R$, one might say that the ring $R$ itself is \textbf{left/right-hereditary}\footnote{A ring is left/right semi-hereditary if and only if all finitely generated modules over it are of projective dimension $\leq 1$.} whenever $\calA$ itself is hereditary.
-            \end{convention}
-            \begin{proposition}[Kernels in hereditary abelian categories are projective] \label{prop: kernels_in_hereditary_abelian_categories_are_projective}
-                Let $\calA$ be a hereditary abelian category. Then, every kernel (i.e. sub-object) therein will be projective.
-            \end{proposition}
-                \begin{proof}
-                    
-                \end{proof}
-            \begin{corollary}[Kaplansky's Theorem] \label{coro: kaplansky_theorem}
-                If $R$ is a left/right-hereditary ring then every submodule of a free left/right-$R$-module will be a direct sum of left/right-$R$-ideals. As a direct result of this, every submodule of a projective left/right-$R$-module is also projective\footnote{Hence the terminology \say{hereditary}.}.
-            \end{corollary}
-            \begin{example}
-                Any left/right-semi-simple category (hence any semi-simple algebra) is left/right-hereditary. Concrete examples of hereditary algebras include finite-dimensional matrix rings over division rings (cf. theorem \ref{theorem: artin_wedderburn}) and group algebras $k\<G\>$ of finite groups $G$ over semi-simple rings $k$ such that $\chara k \nmid |G|$ (cf. theorem \ref{theorem: maschke_theorem}).
-                
-                As for algebras which are strictly left/right-hereditary and not left/right-semi-simple, consider the algebra $\b_2^-(k)$ of lower-triangular $2 \x 2$ matrices over a field $k$.
-            \end{example}
-            
-        \subsubsection{Roots and quadratic forms of quivers; Dynkin quivers}
-            \begin{definition}[Adjacency and Cartan matrices] \label{def: adjacency_and_cartan_matrices}
-                Let $Q := (Q_1, Q_0, s, t)$ be a finite quiver\footnote{With value in any category} and suppose that $n := |Q_0|$; also, let us give the set $Q_0$ of vertices a \textit{fixed} enumeration $\{v_1, ..., v_n\}$. To such a quiver, one can associate a so-called \textbf{adjacency matrix}:
-                    $$R_Q \in \Mat_n(\Z)$$
-                given by:
-                    $$R_Q := (r_{ij} := |\{f \in Q_1 \mid s(f) = v_i, t(f) = v_j\}|)_{1 \leq i, j \leq n}$$
-                (that is, the entries $r_{ij}$ of $R_Q$ are the numbers of \textit{undirected} edges from the vertex $v_i$ to the vertex $v_j$). From this matrix, one can define the \textbf{Cartan matrix} of $Q$:
-                    $$A_Q := 2I_n - R_Q$$
-                along with a $\Z$-bilinear form, which we shall call the \textbf{Cartan form}:
-                    $$B_Q: \Z^{\oplus n} \x \Z^{\oplus} \to \Z$$
-                    $$(x, y) \mapsto x^{\top} A_Q y$$                
-            \end{definition}
-            \begin{definition}[Dynkin quivers] \label{def: dynkin_quivers}
-                A \textbf{Dynkin quiver} is a \textit{connected} and \textit{simply laced} finite quiver whose Cartan form is positive-definite.
-            \end{definition}
-            \begin{proposition}[Evenness of Cartan forms of Dynkin quivers]
-                Let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a Dynkin quiver and consider its Cartan matrix $A_{\Gamma}$. Then for all $x \in \Z^{\oplus n}$, $B_{\Gamma}(x, x)$ is even.  
-            \end{proposition}
-                \begin{proof}
-                    Let $n := |\Gamma_0|$ and pick a basis for $\Z^{\oplus n}$ in order to write:
-                        $$
-                            \begin{aligned}
-                                B_{\Gamma}(x, x) & = x^{\top} A_{\Gamma} x
-                                \\
-                                & = \sum_{1 \leq i, j \leq n} x_i a_{ij} x_j
-                                \\
-                                & = \sum_{1 \leq i, j \leq n} x_i (2\delta_{ij} - r_{ij}) x_j \text{(wherein $\delta_{ij}$ is the Kronecker delta)}
-                                \\
-                                & = 2\sum_{1 \leq i, j \leq n} x_i \delta_{ij} x_j - \sum_{1 \leq i, j \leq n} x_i (1 - \delta_{ij}) r_{ij} x_j \text{($r_{ij}$ are the entries the adjacency matrix of $\Gamma$)}
-                                \\
-                                & = 2\sum_{1 \leq i \leq n} x_i^2 - 2\sum_{1 \leq i < j \leq n} x_i r_{ij} x_j
-                            \end{aligned}
-                        $$
-                    for all $x \in \Z^{\oplus n}$, wherein the last line is due to the fact that the number of undirected edges from a vertex $v_i$ to another $v_j$ is equal to the number of undirected directed edges from $v_j$ to $v_i$, which in turn is a result of the assumption that by virtue of being a Dynkin quiver, $\Gamma$ is connected and simply laced\footnote{Note how this argument fails if $\Gamma$ is either not simply laced or not connected.}. Clearly, $B_{\Gamma}(v, v)$ is even for all $x \in \Z^{\oplus}$.
-                \end{proof}
-            \begin{definition}[Roots] \label{def: roots_of_dynkin_quivers}
-                A root of a \textit{Dynkin} quiver $\Gamma : (\Gamma_1, \Gamma_0, s, t)$ is a vector:
-                    $$\alpha \in \Z^{\oplus n}$$
-                (where $n := |\Gamma_0|$) such that:
-                    $$B_{\Gamma}(\alpha, \alpha) = 2$$
-                The set of all roots of $\Gamma$ is denoted by $\Phi(\Gamma)$, and often called the \textbf{root system} of $\Gamma$.
-            \end{definition}
-            \begin{example}[Simple roots] \label{example: simple_roots}
-                Let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a Dynkin quiver and set $n := \Gamma_0$. Also, pick a basis $\{e_1, ..., e_n\}$ for $\Z^{\oplus n}$. Then the vectors of the form:
-                    $$\alpha_i := \delta_{ij} e_j$$
-                (for $1 \leq i, j \leq n$) are in fact roots of $\Gamma$ and furthermore, they form a basis for $\Z^{\oplus n}$.
-            \end{example}
-            \begin{lemma}[Roots are exclusively either negative or positive] \label{lemma: roots_are_exclusively_either_negative_or_positive}
-                Let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a Dynkin quiver and set $n := \Gamma_0$. Also, pick a basis $\{e_1, ..., e_n\}$ for $\Z^{\oplus n}$ and choose a root $\alpha$ and write it in terms of the simple roots $\{\alpha_i\}_{1 \leq i \leq n}$ as:
-                    $$\alpha := \sum_{1 \leq i \leq n} c_i \alpha_i$$
-                Then either $c_i \geq 0$ or $c_i \leq 0$ for all $1 \leq i \leq n$ simultaneously.
-            \end{lemma}
-                \begin{proof}
-                    
-                \end{proof}
-            \begin{definition}[Positive and negative roots] \label{def: negative_and_positive_roots}
-                Let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a Dynkin quiver and set $n := \Gamma_0$. Also, pick a basis $\{e_1, ..., e_n\}$ for $\Z^{\oplus n}$ and choose a root $\alpha$ and write it in terms of the simple roots $\{\alpha_i\}_{1 \leq i \leq n}$ as:
-                    $$\alpha := \sum_{1 \leq i \leq n} c_i \alpha_i$$
-                Then we say that $\alpha$ is \textbf{positive} if and only if $c_i \geq 0$ for all $1 \leq i \leq n$ and \textbf{negative} if and only if $c_i \leq 0$ for all $1 \leq i \leq n$.
-            \end{definition}
-            \begin{example}
-                
-            \end{example}
-            
-        \subsubsection{Reflection functors and Gabriel's Theorem}
-            \begin{definition}[(Co)sinks] \label{def: (co)sinks}
-                Let $Q := (Q_1, Q_0, s, t)$ be a quiver with values in any category. A \textbf{(co)sink} into/out of a vertex $v \in Q_0$ is then a subclass of $\Ob(Q_{/v})$ (respectively, a subclass of $\Ob({}^{v/}Q)$).
-                    \begin{figure}[H]
-                        \centering
-                            $$
-                                \begin{tikzcd}
-                                	& \bullet \\
-                                	\bullet & v & \bullet \\
-                                	& \bullet
-                                	\arrow[from=3-2, to=2-2]
-                                	\arrow[from=2-1, to=2-2]
-                                	\arrow[from=2-3, to=2-2]
-                                	\arrow[from=1-2, to=2-2]
-                                \end{tikzcd}
-                            $$
-                        \caption{A sink}
-                        \label{fig: sink}
-                    \end{figure}
-                    \begin{figure}[H]
-                        \centering
-                            $$
-                                \begin{tikzcd}
-                                	& \bullet \\
-                                	\bullet & v & \bullet \\
-                                	& \bullet
-                                	\arrow[from=2-2, to=3-2]
-                                	\arrow[from=2-2, to=2-1]
-                                	\arrow[from=2-2, to=2-3]
-                                	\arrow[from=2-2, to=1-2]
-                                \end{tikzcd}
-                            $$
-                        \caption{A cosink}
-                        \label{fig: cosink}
-                    \end{figure}
-            \end{definition}
-            \begin{remark}
-                Observe that (co)sinks are specific instances of quivers. 
-            \end{remark}
-            \begin{convention}
-                Often, one shall usually refer to (co)sinks by their peak vertices.
-            \end{convention}
-            \begin{convention}
-                Let $Q := (Q_1, Q_0, s, t)$ be a quiver with value in any category and $v \in Q_0$ a fixed object therein. If $\Sigma_{/v} \subseteq \Ob(Q_{/v})$ (respectively, ${}^{v/}\Sigma \subseteq \Ob({}^{v/}Q)$) is a (co)sink in $Q$ then by $(Q, \Sigma_{/v})^{\op}$ (respectively, $(Q, {}^{v/}\Sigma)^{\op}$) we shall mean the quiver $(Q \setminus \Sigma_{/v}) \cup \Sigma_{/v}^{\op}$ (respectively, $(Q \setminus {}^{v/}\Sigma) \cup {}^{v/}\Sigma^{\op}$).
-                
-                If $\Sigma_{/v} = \Ob(Q_{/v})$ (respectively, ${}^{v/}\Sigma = \Ob({}^{v/}Q)$) and if it had previously been made clear as to whether $v$ is a sink or a cosink, then we shall simply write $(Q, v)^{\op}$.
-            \end{convention}
-            \begin{definition}[Reflection functors] \label{def: reflection_functors}
-                Let 
-            \end{definition}
-            
-            \begin{lemma}[Path algebras of Dynkin quivers are hereditary] \label{lemma: path_algebras_of_dynkin_quivers_are_hereditary}
-                Let $Q$ be a quiver and $k$ be a hereditary ring\footnote{For all purposes, one might assume that $k$ is semi-simple or perhaps even a field.}. Then the path $k$-algebra $k\<Q\>$ will be a hereditary if and only if $Q$ is a Dynkin quiver.
-            \end{lemma}
-                \begin{proof}
-                    
-                \end{proof}
+        \subsubsection{Revisiting Gabriel's Theorem}
