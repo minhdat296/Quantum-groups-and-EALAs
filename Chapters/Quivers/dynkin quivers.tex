@@ -361,23 +361,23 @@
         \subsubsection{(Co)reflection functors and Gabriel's Theorem}
             We have now come to Gabriel's Theorem. The proof thereof relies heavily on constructions known as \say{(co)reflection functors} (cf. definition \ref{def: (co)reflection_functors}) which can be thought of as gadgets that help us ensure that the representation theory of a quiver is independent of its orientation\footnote{So for instance, once we have proven Gabriel's Theorem, we can simply think of Dynkin quivers as those whose underlying undirected graph is a Dynkin diagram, and this notion is completely captured by the Cartan-Tits quadratic forms associated to these undirected graphs.}. 
             \begin{convention}
-                From now on, we shall be working over a commutative ring $k$.
+                From now on, we shall be working over a field $k$. \todo[inline]{Explain why working over a field is necessary.}
             \end{convention}
             \begin{definition}[(Co)reflection functors] \label{def: (co)reflection_functors}
                 Let $Q := (Q_1, Q_0, s, t)$ be a quiver and $\sigma \in Q_0$ be a fixed vertex. 
                     \begin{itemize}
                         \item If $v$ is a sink, then one can define the so-called \textbf{reflection functor}:
-                            $$\Refl_{\sigma}: \Rep_k(Q) \to \Rep_k(Q)$$
-                            $$(\calF: [Q] \to k\mod) \mapsto \left( \Refl_{\sigma}(\calF): [Q] \to k\mod: v \mapsto \begin{cases} \text{$\calF(v)$ if $v \in Q_0 \setminus \{\sigma\}$} \\ \text{$\underset{v \in [Q]_{/\sigma}}{\lim} \calF(v)$ if $v = \sigma$} \end{cases} \right)$$
+                            $$\Refl_{Q, \sigma}: \Rep_k(Q) \to \Rep_k(Q)$$
+                            $$(\calF: [Q] \to k\mod) \mapsto \left( \Refl_{Q, \sigma}(\calF): [Q] \to k\mod: v \mapsto \begin{cases} \text{$\calF(v)$ if $v \in Q_0 \setminus \{\sigma\}$} \\ \text{$\underset{v \in [Q]_{/\sigma}}{\lim} \calF(v)$ if $v = \sigma$} \end{cases} \right)$$
                         \item If $v$ is a cosink, then one can instead define the \textbf{coreflection functor}:
-                            $$\co\Refl_{\sigma}: \Rep_k(Q) \to \Rep_k(Q)$$
-                            $$(\calF: [Q] \to k\mod) \mapsto \left( \Refl_{\sigma}(\calF): [Q] \to k\mod: v \mapsto \begin{cases} \text{$\calF(v)$ if $v \in Q_0 \setminus \{\sigma\}$} \\ \text{$\underset{v \in {}^{\sigma/}[Q]}{\colim} \calF(v)$ if $v = \sigma$} \end{cases} \right)$$
+                            $$\co\Refl_{Q, \sigma}: \Rep_k(Q) \to \Rep_k(Q)$$
+                            $$(\calF: [Q] \to k\mod) \mapsto \left( \Refl_{Q, \sigma}(\calF): [Q] \to k\mod: v \mapsto \begin{cases} \text{$\calF(v)$ if $v \in Q_0 \setminus \{\sigma\}$} \\ \text{$\underset{v \in {}^{\sigma/}[Q]}{\colim} \calF(v)$ if $v = \sigma$} \end{cases} \right)$$
                     \end{itemize}
             \end{definition}
             \begin{convention}
                 Let $Q := (Q_1, Q_0, s, t)$ be a quiver and $\sigma \in Q_0$ be a fixed vertex. Then, for all $\calF \in \Ob(\Rep_k(Q))$, we shall abuse notations slightly and write:
-                    $$\Refl_{\sigma}(\calF) := \underset{v \in [Q]_{/\sigma}}{\lim} \calF(v)$$
-                    $$\co\Refl_{\sigma}(\calF) := \underset{v \in {}^{\sigma/}[Q]}{\colim} \calF(v)$$
+                    $$\Refl_{Q, \sigma}(\calF) := \underset{v \in [Q]_{/\sigma}}{\lim} \calF(v)$$
+                    $$\co\Refl_{Q, \sigma}(\calF) := \underset{v \in {}^{\sigma/}[Q]}{\colim} \calF(v)$$
                 when there is no risk of confusion. Keep in mind, over the remarks to come, that this abuse of notations of ours actually does not obscure any important categorical properties of the (co)reflection functors such as exactness.
             \end{convention}
             \begin{remark}[Categorical properties of (co)reflection functors]
@@ -385,21 +385,23 @@
                     $$I \to \Rep_k(Q)$$
                     $$i \mapsto \calF_i$$
                 is a diagram of $k$-linear representations of $Q$, then clearly:
-                    $$\Refl_{\sigma}\left( \underset{i \in I^{\op}}{\lim} \calF_i \right) \cong \underset{i \in I}{\lim} \Refl_{\sigma}(\calF)$$
+                    $$\Refl_{Q, \sigma}\left( \underset{i \in I^{\op}}{\lim} \calF_i \right) \cong \underset{i \in I}{\lim} \Refl_{Q, \sigma}(\calF)$$
                 and:
-                    $$\co\Refl_{\sigma}\left( \underset{i \in I}{\colim} F_i \right) \cong \underset{i \in I}{\colim} \co\Refl_{\sigma}(F)$$
+                    $$\co\Refl_{Q, \sigma}\left( \underset{i \in I}{\colim} F_i \right) \cong \underset{i \in I}{\colim} \co\Refl_{Q, \sigma}(F)$$
                 as a result of (co)limits commuting with one another. Of course, all the (co)limits at play here do indeed exist, since $\Rep_k(Q)$ is both complete and cocomplete as a result of $k\mod$ being so.
             \end{remark}
-            \begin{remark}[Successive compositions of (co)reflection functors and the directionality of Dynkin quivers] \label{remark: dynkin_quivers_are_unique_up_to_orientations}
+            \begin{remark}[Dynkin quivers are unique up to orientations] \label{remark: dynkin_quivers_are_unique_up_to_orientations}
                 Let $Q := (Q_1, Q_0, s, t)$ be a Dynkin quiver whose vertices are enumerated by:
                     $$Q_0 := \{\sigma_1, ..., \sigma_n\}$$
                 is that when given any representation:
                     $$\calF \in \Ob(\Rep_k(Q))$$
                 one can act upon it with the following composition of reflection and coreflection functors (or indeed, any permutation thereof):
-                    $$\co\Refl_{\sigma_n} \circ \Refl_{\sigma_n} \circ ... \circ \co\Refl_{\sigma_1} \circ \Refl_{\sigma_1}: \Rep_k(Q) \to \Rep_k(Q)$$
+                    $$\co\Refl_{Q, \sigma_n} \circ \Refl_{Q, \sigma_n} \circ ... \circ \co\Refl_{Q, \sigma_1} \circ \Refl_{Q, \sigma_1}: \Rep_k(Q) \to \Rep_k(Q)$$
                 in order to obtain a filtered diagram of $k$-modules:
-                    $$\left(\co\Refl_{\sigma_n} \circ \Refl_{\sigma_n} \circ ... \circ \co\Refl_{\sigma_1} \circ \Refl_{\sigma_1}\right)(\calF): [Q] \to k\mod$$
-                From this, one infers that the representation theory of Dynkin quivers would actually be \textit{independent} of their orientations, in the sense that the category of representations $\Rep_k(Q)$ of a Dynkin quiver $Q := (Q_1, Q_0, s, t)$ is unique up to different direction of the directed edges $x \in Q_1$, \textit{should we be able to show that the (co)reflection functors are auto-equivalences of $\Rep_k(Q)$}.
+                    $$\left(\co\Refl_{Q, \sigma_n} \circ \Refl_{Q, \sigma_n} \circ ... \circ \co\Refl_{Q, \sigma_1} \circ \Refl_{Q, \sigma_1}\right)(\calF): [Q] \to k\mod$$
+                One therefore has reasons to \textit{suspect} that the representation theory of Dynkin quivers might actually be \textit{independent} of their orientations, in the sense that the category of representations $\Rep_k(Q)$ of a Dynkin quiver $Q := (Q_1, Q_0, s, t)$ might be unique up to different direction of the directed edges $x \in Q_1$.
+                
+                In the strict sense that $\Rep_k(Q)$ (or some interesting full subcategory thereof, such as $\Rep_k^{\red}(Q)$) is auto-equivalent via the (co)reflection functors $\Refl_{Q, \sigma}$ and $\co\Refl_{Q, \sigma}$, this turns out to be \textit{false}. The (co)reflection functors, however, do still induce self-bijections on the set of isomorphism classes of objects of $\Rep_k^{\irr}(\Gamma)$ (cf. lemma \ref{lemma: (co)reflections_of_irreducible_representations_of_dynkin_quivers_are_self_bijections_on_isomorphism_classes_of_objects}); as a consequence, they also induce a self-bijection on the set of isomorphism classes of objects of $\Rep_k^{\red}(\Gamma)$ (cf. corollary \ref{coro: (co)reflections_of_indecomposable_representations_of_dynkin_quivers_are_self_bijections_on_isomorphism_classes_of_objects}) via ind-completion (cf. proposition \ref{prop: compact_indecomposable_objects_are_simple}).
             \end{remark}
             \begin{remark}[(Co)reflection functors of finite quivers are exact] \label{remark: (co)reflection_functors_of_finite_quivers_are_exact}
                 \noindent
@@ -407,10 +409,10 @@
                     \item \textbf{((Co)reflection functors for finite quivers are left/right exact):} If:
                         $$Q := (Q_1, Q_0, s, t)$$
                     is a \textit{finite} quiver with a fixed vertex $\sigma \in Q_0$ then the corresponding (co)reflection functors:
-                        $$\Refl_{\sigma}, \co\Refl_{\sigma}: \Rep_k(Q) \to \Rep_k(Q)$$
+                        $$\Refl_{Q, \sigma}, \co\Refl_{Q, \sigma}: \Rep_k(Q) \to \Rep_k(Q)$$
                     will obviously be defined via finite (co)limits. Because there is an exact equivalence of abelian categories as follows (cf. proposition \ref{prop: quiver_representations_are_modules_over_quiver_algebras}):
                         $$\Rep_k(Q) \to {}^lk\<Q\>\mod$$
-                    the aforementioned reflection functor $\Refl_{\sigma}$ and coreflection functor $\co\Refl_{\sigma}$ are, respectively, left-exact and right-exact. If, additionally, the diagram $[Q]_{/\sigma}$ is cofiltered (respectively, if ${}^{\sigma/}[Q]$ is filtered), such as when $Q$ is a Dynkin quiver\footnote{Cf. figures \ref{fig: A_n_quiver} and \ref{fig: D_n_quiver}.}, then one will be able to use the fact that (co)filtered limits are right-exact (respectively, filtered colimits are left-exact) in categories of modules over rings in order to see that in such a situation, both $\Refl_{\sigma}$ and $\co\Refl_{\sigma}$ are simultaneously left and right-exact (i.e. exact), and hence will \textit{preserve simple objects} (i.e. irreducible representations).
+                    the aforementioned reflection functor $\Refl_{Q, \sigma}$ and coreflection functor $\co\Refl_{Q, \sigma}$ are, respectively, left-exact and right-exact. If, additionally, the diagram $[Q]_{/\sigma}$ is cofiltered (respectively, if ${}^{\sigma/}[Q]$ is filtered), such as when $Q$ is a Dynkin quiver\footnote{Cf. figures \ref{fig: A_n_quiver} and \ref{fig: D_n_quiver}.}, then one will be able to use the fact that (co)filtered limits are right-exact (respectively, filtered colimits are left-exact) in categories of modules over rings in order to see that in such a situation, both $\Refl_{Q, \sigma}$ and $\co\Refl_{Q, \sigma}$ are simultaneously left and right-exact (i.e. exact), and hence will \textit{preserve simple objects} (i.e. irreducible representations).
                     \item \textbf{((Co)reflection functors of Dynkin quivers are exact):} Now, should:
                         $$\Gamma := (\Gamma_1, \Gamma_0, s, t)$$
                     be a \textit{Dynkin} quiver whose vertices are enumrated by:
@@ -418,65 +420,112 @@
                     then we have seen (cf. remark \ref{remark: dynkin_quivers_are_unique_up_to_orientations}) that by acting open any representation:
                         $$\calF \in \Ob(\Rep_k(\Gamma))$$
                     with any permutation of the composition:
-                        $$\co\Refl_{\sigma_n} \circ \Refl_{\sigma_n} \circ ... \circ \co\Refl_{\sigma_1} \circ \Refl_{\sigma_1}$$
+                        $$\co\Refl_{\Gamma, \sigma_n} \circ \Refl_{\Gamma, \sigma_n} \circ ... \circ \co\Refl_{\Gamma, \sigma_1} \circ \Refl_{\Gamma, \sigma_1}$$
                     we would obtain a filtered diagram of $k$-modules:
-                        $$(\co\Refl_{\sigma_n} \circ \Refl_{\sigma_n} \circ ... \circ \co\Refl_{\sigma_1} \circ \Refl_{\sigma_1})(\calF): [\Gamma] \to k\mod$$
+                        $$(\co\Refl_{\Gamma, \sigma_n} \circ \Refl_{\Gamma, \sigma_n} \circ ... \circ \co\Refl_{\Gamma, \sigma_1} \circ \Refl_{\Gamma, \sigma_1})(\calF): [\Gamma] \to k\mod$$
                     and therefore we might as well assume that Dynkin quivers are filtered. Since Dynkin quivers are finite, we thus gather from the discussion in the previous paragraph that in fact, the (co)reflection functors:
-                        $$\Refl_{\sigma}, \co\Refl_{\sigma}: \Rep_k(\Gamma) \to \Rep_k(\Gamma)$$
-                    are \textit{exact} and will preserve simple objects (i.e. irreducibility $k$-linear representations of $\Gamma$). As such, if $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ is a Dynkin quiver and $\sigma \in \Gamma_0$ is a fixed vertex, then the coreflection functors $\Refl_{\sigma}$ and $\co\Refl_{\sigma}$ will admit restrictions:
-                        $$\Refl_{\sigma}^{\irr} := \Refl_{\sigma}|_{\Rep_k^{\irr}(\Gamma)}$$
-                        $$\co\Refl_{\sigma}^{\irr} := \co\Refl_{\sigma}|_{\Rep_k^{\irr}(\Gamma)}$$
-                    down onto the full subcategory $\Rep_k^{\irr}(\Gamma) \subseteq \Rep_k(\Gamma)$ spanned by the irreducible $k$-linear representations of $Q$. Since morphisms between irreducible representations (i.e. simple objects of $\Rep_k(\Gamma)$) are known to either be zero or invertible by Schur's Lemma (cf. lemma \ref{lemma: schur_lemma_for_abelian_categories}), \textit{the restricted (co)reflection functors $\Refl_{\sigma}^{\irr}$ and $\co\Refl_{\sigma}^{\irr}$ are also exact.}
+                        $$\Refl_{\Gamma, \sigma}, \co\Refl_{\Gamma, \sigma}: \Rep_k(\Gamma) \to \Rep_k(\Gamma)$$
+                    are \textit{exact} and will preserve simple objects (i.e. irreducibility $k$-linear representations of $\Gamma$). As such, if $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ is a Dynkin quiver and $\sigma \in \Gamma_0$ is a fixed vertex, then the coreflection functors $\Refl_{\Gamma, \sigma}$ and $\co\Refl_{\Gamma, \sigma}$ will admit restrictions:
+                        $$\Refl_{\Gamma, \sigma}^{\irr} := \Refl_{\Gamma, \sigma}|_{\Rep_k^{\irr}(\Gamma)}$$
+                        $$\co\Refl_{\Gamma, \sigma}^{\irr} := \co\Refl_{\Gamma, \sigma}|_{\Rep_k^{\irr}(\Gamma)}$$
+                    down onto the full subcategory $\Rep_k^{\irr}(\Gamma) \subseteq \Rep_k(\Gamma)$ spanned by the irreducible $k$-linear representations of $Q$. Since morphisms between irreducible representations (i.e. simple objects of $\Rep_k(\Gamma)$) are known to either be zero or invertible by Schur's Lemma (cf. lemma \ref{lemma: schur_lemma_for_abelian_categories}), \textit{the restricted (co)reflection functors $\Refl_{\Gamma, \sigma}^{\irr}$ and $\co\Refl_{\Gamma, \sigma}^{\irr}$ are also exact.}
                 \end{enumerate}
             \end{remark}
             
-            Let us now recall the following classical result from the representation theory of finite-dimensional algebras over fields.  
-            \begin{lemma}[Projective indecomposable modules over finite algebras are simple] \label{lemma: projective_indecomposable_modules_over_finite_algebras_are_simple}
-                \cite[Theorem 7.1]{leinster_projective_indecomposable_modules_are_simple}\footnote{One interesting consequence of this lemma (which is not too relevant to the current discussion about Dynkin quivers, as path algebras of quivers are generally not semi-simple, only hereditary) is that it implies via lemma \ref{lemma: projective_and_injective_modules_over_semi_simple_rings} that over a semi-simple ring, a module is indecomposable if and only if it is simple.} Let $k$ be a field and $A$ be a finite-dimensional $k$-algebra. Then, there exists a bijection:
-                    $$
-                        \left\{\text{simple left/right-$A$-modules}\right\}
-                        \to
-                        \left\{\text{projective indecomposable left/right-$A$-modules}\right\}
-                    $$
-                sending each simple left/right-$A$-module $M$ to a choice of projective cover $\e: P \to M$.
-            \end{lemma}
+            \begin{definition}[Compact objects] \label{def: compact_objects}
+                An object $c \in \Ob(\C)$ of a locally small category $\C$ is said to be \textbf{compact} if and only if the representable copresheaf:
+                    $$\C(c, -): \C \to \Sets$$
+                preserves all small filtered colimits that exist in $\C$. The (\textit{a priori} full) subcategory of $\C$ spanned by such objects is denoted by $\C^{\comp}$ (or sometimes $\C^{\omega}$) and shall be known as the \textbf{maximal compact subcategory} of $\C$. 
+            \end{definition}
+            \begin{remark}[Compact objects in full subcategories] \label{remark: compact_objects_in_full_subcategories}
+                Suppsoe that $\C$ is a category and $\C_0 \subseteq \C$ is a full subcategory thereof. Then, should $c \in \Ob(\C_0)$ be any object of $\C_0$ that is compact as an object of the larger ambient category $\C$, then it is clear from definition \ref{def: compact_objects} that it would also be compact as an object of $\C_0$; that is:
+                    $$\C_0 \cap \C^{\comp} = \C_0^{\comp}$$
+            \end{remark}
+            \begin{proposition}[Compact objects in ind-completions] \label{prop: compact_objects_in_ind_completions}
+                Let $\C$ be any locally small category. Then $\C$ itself will be the maximal compact subcategory of its ind-completion $\Ind(\C)$, i.e.:
+                    $$\C \cong \Ind(\C)^{\comp}$$
+            \end{proposition}
                 \begin{proof}
-                    For details, we refer the reader to \cite[Propositions 5.5 and 6.2]{leinster_projective_indecomposable_modules_are_simple}, but let us nevertheless recall the steps involved in the proof of this result.
-                    
-                    First of all, in order to show that for each simple left/right-$A$-module, there exists some , start by recalling that simple left/right-modules are cyclic\footnote{The proof is simple (pun not intended!): if we were to suppose to the contrary that there existed a simple module $M$ with $\geq 1$ generators, then said module will admit non-zero (cyclic) proper submodules generated by the generators, and therefore $M$ can not be simple, contradicting our initial assumption.}. This tells us that every simple left/right-$A$-module admits a projective cover by a free\footnote{We assume the Axiom of Choice, so that free module would be projective.} left/right-$A$-module on $1$ generator, which is of course unique up to isomorphisms, per the universal property of left-adjoints.
-                    
-                    On the other hand, 
+                    Let $c \in \Ob(\C)$ be an arbitrary object of $\C$ and $\underset{j \in \calJ}{\colim} d_j \in \Ob(\Ind(\C))$ be an object of $\Ind(\C)$. Then, simple consider the following, which holds per the definition of ind-completions:
+                        $$\Ind(\C)\left(c, \underset{j \in \calJ}{\colim} d_j\right) \cong \underset{j \in \calJ}{\colim} \Ind(\C)(c, d_j)$$
+                    This tells us directly that we indeed have:
+                        $$\C \cong \Ind(\C)^{\comp}$$
+                \end{proof}
+            \begin{corollary}[Finite-length objects are compact] \label{coro: finite_length_objects_are_compact}
+                In any abelian category $\calA$, an object is of finite length (cf. definition \ref{def: lengths_of_objects_and_jordan_holder_series}) if and only if it is compact\footnote{We should note that within the context of the theory of (locally small) additive or triangulated categories $\calA$, compact objects $X \in \Ob(\calA)$ are usually defined to be those such that the representable copresheaf $\calA(X, -): \calA \to \Sets$ preserves only arbitrary coproducts that exist in $\calA$. If that is the definition of compactness that one adopts, then corollary \ref{coro: finite_length_objects_are_compact} shall have to state that an object of an abelian category is of finite length if and only if it is compact and \textit{projective}.}. 
+            \end{corollary}
+                \begin{proof}
+                    Obvious from definition \ref{def: lengths_of_objects_and_jordan_holder_series}.
+                \end{proof}
+            \begin{proposition}[Compact indecomposable objects are simple] \label{prop: compact_indecomposable_objects_are_simple}
+                Let $\calA$ be a locally small abelian category. Then, an indecomposable object is compact if and only if it is simple.
+            \end{proposition}
+                \begin{proof}
+                    Straightforward from the fact that simple objects are precisely those indecomposable objects which are of finite lengths (one can then simply apply corollary \ref{coro: finite_length_objects_are_compact}). 
                 \end{proof}
             \begin{corollary}
-                Let $k$ be a field and $Q$ be a finite quiver. Then, a $k$-linear representation of $Q$ is irreducible if and only if it is indecomposable and projective.
-            \end{corollary}
-            \begin{lemma}[Filtered colimits of simple objects are indecomposable] \label{lemma: filtered_colimits_of_simple_objects_are_indecomposable}
-                Let $\calA$ be an abelian category. Then, the ind-completion\footnote{Let us ignore set-theoretic issues here.} of the full-subcategory $\calA^{\simple}$ of simple objects is $\calA^{\indecomp}$, the full subcategory of indecomposable objects:
+                Let $\calA$ be a locally small abelian category. Then:
                     $$\calA^{\indecomp} \cong \Ind(\calA^{\simple})$$
-            \end{lemma}
+            \end{corollary}
                 \begin{proof}
-                    
+                    Apply proposition \ref{prop: compact_objects_in_ind_completions} to proposition \ref{prop: compact_indecomposable_objects_are_simple}.
                 \end{proof}
-            \begin{corollary}[(Co)reflections of indecomposable representations of quivers] \label{coro: (co)reflections_of_indecomposable_representations_of_quivers}
-                Let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a Dynkin quiver\footnote{So that the (co)reflection functors will be exact and therefore will preserve irreducibility of representations (cf. remark \ref{remark: (co)reflection_functors_of_finite_quivers_are_exact}).} with a fixed vertex $\sigma \in \Gamma_0$ and let $k$ be a commutative ring. Then:
+            \begin{corollary}[(Co)reflections of indecomposable representations of Dynkin quivers] \label{coro: (co)reflections_of_indecomposable_representations_of_dynkin_quivers}
+                Let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a Dynkin quiver\footnote{So that the (co)reflection functors will be exact and therefore will preserve irreducibility of representations (cf. remark \ref{remark: (co)reflection_functors_of_finite_quivers_are_exact}).} with a fixed vertex $\sigma \in \Gamma_0$ and let $k$ be a field. Then:
                     $$\Rep_k^{\red}(\Gamma) \cong \Ind( \Rep_k^{\irr}(\Gamma) )$$
                 which gives rise to restrictions:
-                    $$\Refl_{\sigma}^{\red} := \Ind(\Refl_{\sigma}^{\irr}) = \Refl_{\sigma}|_{\Rep_k^{\red}(\Gamma)}$$
-                    $$\co\Refl_{\sigma}^{\red} := \Ind(\co\Refl_{\sigma}^{\irr}) = \co\Refl_{\sigma}|_{\Rep_k^{\red}(\Gamma)}$$
-                of the (co)reflection functors $\Refl_{\sigma}$ and $\co\Refl_{\sigma}$ based at some fixed vertex $\sigma \in \Gamma_0$ down onto the full subcategory $\Rep_k^{\red}(\Gamma)$ of indecomposable $k$-linear representations of $\Gamma$. 
+                    $$\Refl_{\Gamma, \sigma}^{\red} := \Ind(\Refl_{\Gamma, \sigma}^{\irr}) = \Refl_{\Gamma, \sigma}|_{\Rep_k^{\red}(\Gamma)}$$
+                    $$\co\Refl_{\Gamma, \sigma}^{\red} := \Ind(\co\Refl_{\Gamma, \sigma}^{\irr}) = \co\Refl_{\Gamma, \sigma}|_{\Rep_k^{\red}(\Gamma)}$$
+                of the (co)reflection functors $\Refl_{\Gamma, \sigma}$ and $\co\Refl_{\Gamma, \sigma}$ based at some fixed vertex $\sigma \in \Gamma_0$ down onto the full subcategory $\Rep_k^{\red}(\Gamma)$ of indecomposable $k$-linear representations of $\Gamma$. 
                 
                 In particular, this means that should:
                     $$\calF \in \Ob(\Rep_k^{\red}(\Gamma))$$
-                be any indecomposable $k$-linear representations of $Q$ then $\Refl_{\sigma}(\calF)$ and $\co\Refl_{\sigma}(\calF)$ will either be zero (which also means that it is indecomposable according to definition \ref{def: (in)decomposable_objects}) or, in the event that it is non-zero, also indecomposable.
+                be any indecomposable $k$-linear representations of $Q$ then $\Refl_{\Gamma, \sigma}(\calF)$ and $\co\Refl_{\Gamma, \sigma}(\calF)$ will either be zero (which also means that it is indecomposable according to definition \ref{def: (in)decomposable_objects}) or, in the event that it is non-zero, also indecomposable.
             \end{corollary}
                 \begin{proof}
-                    The first part is self-evident. For the second, simply apply Schur's Lemma (cf. lemma \ref{lemma: schur_lemma_for_abelian_categories}) followed by lemma \ref{lemma: filtered_colimits_of_simple_objects_are_indecomposable}.
+                    The first part is self-evident. For the second, simply apply Schur's Lemma (cf. lemma \ref{lemma: schur_lemma_for_abelian_categories}) followed by proposition \ref{prop: compact_indecomposable_objects_are_simple}.
+                \end{proof}
+                
+            The following lemma is a crucial step in our proof of Gabriel's Theorem. In essence, it - along with the accompanying corollary \ref{coro: (co)reflections_of_indecomposable_representations_of_dynkin_quivers} - tells us that in the event that we restrict our attention to only indecomposable $k$-linear representations of a Dynkin quiver $\Gamma$ (for some field $k$), then the orientation of said Dynkin quiver shall actually not impact the properties of $\Rep_k^{\red}(\Gamma)$, provided that we perform sufficiently many (co)reflections beforehand; see remark \ref{remark: dynkin_quivers_are_unique_up_to_orientations} for more details.
+            \begin{convention}[Isomorphism classes of objects]
+                If $\C$ is a category, then we shall write $|\C|$ for the set of isomorphism classes of objects of $\C$. If:
+                    $$F: \C \to \D$$
+                is a functor, then we shall write:
+                    $$|F|: |\C| \to |\D|$$
+                for the corresponding function between the sets of isomorphism classes of objects of $|\C|$ and $|\D|$.
+            \end{convention}
+            \begin{remark}[(Co)reflection functors as adjoints to the constant functor] \label{remark: (co)reflection_functors_as_adjoints_to_the_constant_functor}
+                
+            \end{remark}
+            \begin{lemma}[(Co)reflections of irreducible representations of Dynkin quivers] \label{lemma: (co)reflections_of_irreducible_representations_of_dynkin_quivers_are_self_bijections_on_isomorphism_classes_of_objects}
+                Let $k$ be a field and $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a Dynkin quiver with a fixed vertex $\sigma \in \Gamma_0$. Then, the restricted (co)reflection functors\footnote{Cf. remark \ref{remark: (co)reflection_functors_of_finite_quivers_are_exact}.}:
+                    $$\Refl_{\Gamma, \sigma}^{\irr}, \co\Refl_{\Gamma, \sigma}^{\irr}$$
+                give rise to self-bijections:
+                    $$|\Refl_{\Gamma, \sigma}^{\irr}|, |\co\Refl_{\Gamma, \sigma}^{\irr}|$$
+                on $|\Rep_k^{\irr}(\Gamma)|$.
+            \end{lemma}
+                \begin{proof}
+                    For all irreducible representations $\calF, \calF' \in \Ob(\Rep_k^{\irr}(\Gamma))$, consider the induced map of hom-sets:
+                        $$\Hom(\calF, \calF') \to \Hom(\Refl_{\Gamma, \sigma}^{\irr}(\calF), \Refl_{\Gamma, \sigma}^{\irr}(\calF'))$$
+                    By Schur's Lemma (cf. lemma \ref{lemma: schur_lemma_for_abelian_categories}), morphisms between simple objects are either invertible or zero, so modulo isomorphisms, the above hom-sets are both in bijection with the singleton set and therefore in bijection with one another. The lemma then follows. 
+                \end{proof}
+            \begin{corollary}[(Co)reflections of indecomposable representations of Dynkin quivers] \label{coro: (co)reflections_of_indecomposable_representations_of_dynkin_quivers_are_self_bijections_on_isomorphism_classes_of_objects}
+                Let $k$ be a field and $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a Dynkin quiver with a fixed vertex $\sigma \in \Gamma_0$. Then, the restricted (co)reflection functors\footnote{Cf. \ref{coro: (co)reflections_of_indecomposable_representations_of_dynkin_quivers}.}:
+                    $$\Refl_{\Gamma, \sigma}^{\red}, \co\Refl_{\Gamma, \sigma}^{\red}$$
+                give rise to self-bijections:
+                    $$|\Refl_{\Gamma, \sigma}^{\red}|, |\co\Refl_{\Gamma, \sigma}^{\red}|$$
+                on $|\Rep_k^{\red}(\Gamma)|$.
+            \end{corollary}
+                \begin{proof}
+                    Combine lemma \ref{lemma: (co)reflections_of_irreducible_representations_of_dynkin_quivers_are_self_bijections_on_isomorphism_classes_of_objects} with corollary \ref{coro: (co)reflections_of_indecomposable_representations_of_dynkin_quivers}.
                 \end{proof}
             \begin{theorem}[Gabriel's theorem on Dynkin quivers] \label{theorem: gabriel_theorem_on_dynkin_quivers}
-                Let $k$ be a field and $Q$ be a quiver. $Q$ is then a Dynkin quiver if and only if $\Rep_k(\Gamma)$ has finitely many isomorphism classes of indecomposable objects.
+                Let $k$ be a field and $\Gamma$ be a connected and simply laced finite quiver. $\Gamma$ is then a Dynkin quiver if and only if $\Rep_k(\Gamma)$ has finitely many isomorphism classes of indecomposable objects.
             \end{theorem}
                 \begin{proof}
+                    Suppose first of all that $\Gamma$ is a Dynkin quiver. Then by applying proposition \ref{prop: compact_indecomposable_objects_are_simple} to the fact that any finite $k$-algebra (e.g. the path algebra $k\<\Gamma\>$) necessarily has finitely many isomorphism classes of simple modules, one sees that $\Rep_k(\Gamma)$ indeed has finitely isomorphism classes of indecomposable objects.
                     
+                    Conversely, suppose that $\Gamma$ is a connected and simply laced finite quiver such that there are finitely many isomorphism classes of indecomposable objects in $\Rep_k(\Gamma)$.
                 \end{proof}
             \begin{corollary}[Dimension vectors of indecomposable representations of Dynkin quivers] \label{coro: dimension_vectors_of_indecomposable_representations_of_dynkin_quivers}
                 Let $k$ be a field and $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a Dynkin quiver. Then, there is an \textit{essentially surjective} functor of so-called \textbf{dimension vectors}:
@@ -487,6 +536,22 @@
                 \begin{proof}
                     
                 \end{proof}
+                
+            \begin{example}[Gabriel's Theorem for $\sfA_n$ quivers]
+                
+            \end{example}
+            \begin{example}[Gabriel's Theorem for $\sfD_n$ quivers]
+                
+            \end{example}
+            \begin{example}[Gabriel's Theorem for $\sfE_n$ quivers]
+                
+            \end{example}
+            \begin{example}[Gabriel's Theorem fails for the loop quiver]
+                
+            \end{example}
+            \begin{example}[Gabriel's Theorem fails for the Kronecker quiver]
+                
+            \end{example}
         
     \subsection{Tilting modules and (derived) Morita equivalences}
         \subsubsection{(Partial) tilting objects}
