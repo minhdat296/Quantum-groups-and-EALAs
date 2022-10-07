@@ -1,7 +1,33 @@
 \section{(Quantum) vertex algebras}
-    \subsection{Vertex operator algebras}
-        \subsubsection{The classical approach to vertex operator algebras}
+    \subsection{The classical approach to vertex operator algebras}
+        \begin{convention}
+            Throughout this entire subsection, we work over the complex numbers $\bbC$, not only for convenience, but also because we will have to make use of certain analytic constructions such as residues of meromorphic functions.
+        \end{convention}
     
+        \subsubsection{The definition of a vertex algebra}
+            \begin{definition}[Formal distributions] \label{def: formal_distributions}
+                By a \textbf{formal distribution} in the (complex) variables $z_1, ..., z_n$ over an associative $\bbC$-algebra $R$, we shall mean a formal power series:
+                    $$A(z_1, ..., z_n) := \sum_{i_1 \in \Z} ... \sum_{i_n \in \Z} A_{i_1, ..., i_n} z_1^{i_1} ... z_n^{i_n}$$
+                wherein the coefficients $A_{i_1, ..., i_n}$ are elements of $R$. It is easy to see that such formal distributions form a $\bbC$-vector space\footnote{In fact, a left/right-$R$-module.}, which we shall denote by $R[\![z_1^{\pm 1}, ..., z_n^{\pm 1}]\!]$.  
+            \end{definition}
+            \begin{remark}[Multiplying formal distributions ?] \label{remark: multiplying_formal_distributions}
+                Let $R$ be an associative $\bbC$-algebra. Unlike for say, $R[\![z_1, ..., z_n]\!]$ or even $R(\!(z_1, ..., z_n)\!)$, the \textit{na\"ive} multiplication operation turns out to not be well-defined on $R[\![z_1^{\pm 1}, ..., z_n^{\pm 1}]\!]$. To see why, consider two arbitrary formal distributions:
+                    $$A(z_1, ..., z_n), B(z_1, ..., z_n) \in R[\![z_1^{\pm 1}, ..., z_n^{\pm 1}]\!]$$
+                and their \say{product}, taken in the obvious way:
+                    $$A(z_1, ..., z_n) B(z_1, ..., z_n) = \sum_{i_1 \in \Z} ... \sum_{i_n \in \Z} A_{i_1, ..., i_n} \left(\sum_{j_1 \in \Z} ... \sum_{j_n \in \Z} B_{j_1, ..., j_n}\right) z_1^{i_1 + j_1} ... z_n^{i_n + j_n}$$
+                will include coefficient terms which are infinite sums of elements of $R$, which are definitely not well-defined in general. 
+                
+                Note, however, that the \textit{na\"ive} product of a formal distribution with a formal power series or even a Laurent series is always well-defined. 
+            \end{remark}
+            
+        
+        \subsubsection{Vertex operators algebras from Lie algebras}
+        
+        \subsubsection{Operator product expansions (OPEs)}
+        
+        \subsubsection{Reperesentations of vertex operator algebras}
+    
+    \subsection{Vertex algebras, factorisation algebras, and chiral algebras}
         \subsubsection{Vertex operator algebras as "singular" commutative algebras}
             \begin{convention}
                 Let us now fix a commutative ring $k$ along with a $k$-linear infinite\footnote{This means that we do not require that $\calA$ is locally finite as a $k$-linear category, unlike in \cite[Definition 4.1.1]{EGNO}. Perhaps one could either require that $\calA$ is locally Noetherian or Artinian as a $k$-linear category (that is to say, that the hom-spaces are Noetherian or Artinian $k$-modules, respectively), but we are not certain that this is the weakest finiteness assumption that one could impose upon $\calA$.} tensor category:
@@ -55,7 +81,7 @@
             \begin{definition}[$(\calA, H, S)$-vertex algebras] \label{def: (A, H, S)_vertex_algebras}
                 Let $(\calA, H, S)$ be a vertex triple. An \textbf{$(\calA, H, S)$-vertex algebra} is then a commutative algebra object internal to the $k$-linear symmetric monoidal category $(S\mod, \singtensor, S)$.
             \end{definition}
-        
-        \subsubsection{Examples of vertex operator algebras}
+            
+    \subsection{Vertex algebra bundles and conformal blocks}
     
     \subsection{Quantum vertex operator algebras}
