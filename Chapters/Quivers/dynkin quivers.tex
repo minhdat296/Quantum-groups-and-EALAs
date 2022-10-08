@@ -70,10 +70,11 @@
             \end{remark}
             \begin{convention}
                 Often, we will consider the case $\calV \cong k\mod$ for some commutative ring $k$, and in which case, we shall write $\Rep_k(Q)$ for the category of $k$-linear representations of $Q$. Some important subcategories therein are:
-                    $$\Rep_k^{\fin}(Q)$$
                     $$\Rep_k^{\irr}(Q)$$
                     $$\Rep_k^{\red}(Q)$$
-                which are the categories of finite-rank $k$-linear representations of $Q$, of irreducible representations, and that of indecomposable representations.
+                which are the categories of irreducible representations and that of indecomposable representations. When $Q$ is an infinite quiver, we will also be interested in the full subcategory:
+                    $$\Rep_k^{\fin}(Q)$$
+                of $k$-linear representations of $Q$ which are of finite ranks over $k$.
             \end{convention}
             
             Let us now move on to the notion of so-called \say{quiver algebras} and discuss the roles that they play in the representation theory of $\Sets$-valued quivers. 
@@ -269,47 +270,54 @@
             \end{example}
             \begin{proposition}[Quiver representations are modules over quiver algebras] \label{prop: quiver_representations_are_modules_over_quiver_algebras}
                 Let $k$ be a commutative ring. Then, there is an exact and monoidal equivalence of $k$-linear categories (fibred over $k\mod$):
-                    $$\Rep_{k}(Q) \to {}^lk\<Q\>\mod$$
+                    $$\Rep_k(Q) \to {}^lk\<Q\>\mod$$
             \end{proposition}
                 \begin{proof}
                     
                 \end{proof}
             \begin{remark}
                 The equivalence of categories:
-                    $$\Rep_{k}(Q) \to {}^lk\<Q\>\mod$$
+                    $$\Rep_k(Q) \to {}^lk\<Q\>\mod$$
                 from proposition \ref{prop: quiver_representations_are_modules_over_quiver_algebras} has many important further properties, which all come from the very definition of linear representations of associative algebras (in this case, path algebras of quivers) themselves. For instance, this functor preserves (semi-)simplicity and (in)decomposability.
                 
                 As for further properties coming not from the definition of representations themselves, but rather from the basic property of this equivalence of categories, one has that the functor also preserves lengths and more generally, ascending and descending chains of objects, as a consequence of being exact. In particular, this means that should a representation of a given quiver $Q$ is finitely generated as a $k$-module (i.e. \say{finite-dimensional}), then the same would also be true for the corresponding left-$k\<Q\>$-module.
             \end{remark}
+            \begin{remark}
+                One important algebraic consequence of proposition \ref{prop: quiver_representations_are_modules_over_quiver_algebras} is should $k$ be a commutative ring and $Q$ be a finite $\Sets$-valued quiver, then the path $k$-algebra $k\<Q\>$ will necessarily have finite rank as a $k$-module. $k\<Q\>$ is therefore left and right-Artinian, and as such all left/right-$k\<Q\>$-modules are necessarily finitely generated; equivalently, this means that all $k$-linear representations of $Q$ are of finite ranks over $k$.
+            \end{remark}
             
-        \subsubsection{Admissible ideals; quivers with relations}
-            \begin{convention}
-                From now on, all quivers shall be $\Sets$-valued and therefore we shall simply say \say{quiver} for brevity.
-            \end{convention}
-            \begin{convention}
-                Let us henceforth assume that $k$ is field (i.e. a simple commutative ring). For the most part, this assumption is made so that given any quiver $Q := (Q_1, Q_0, s, t)$, the corresponding path $k$-algebra $k\<Q\>$ will admit $\<Q\> := \<[Q]_1\>$ as a maximal two-sided ideal, commonly referred to as the \say{arrow ideal} of $Q$.
-            \end{convention}
-            
-            \begin{definition}[Admissible ideals of path algebras] \label{def: admissible_ideals_of_path_algebras}
-                The path $k$-algebra of any given quiver is said to be \textbf{admissible} if and only if it is admissible in the sense of definition \ref{def: pre_admissible_and_pre_adic_rings}, and said to be \textbf{bounded} if and only if its ideal of definition is a finite power of the arrow ideal.
-            \end{definition}
-            
-        \subsubsection{The Cartan-Tits quadratic form of a quiver; Grothendieck groups, Euler characteristics, and dimension vectors of quiver representations}
-            \begin{definition}[Cartan-Tits quadratic forms of finite quivers] \label{def: cartan_tits_quadratic_forms_of_finite_quivers}
+        \subsubsection{Tits quadratic forms; roots; Grothendieck groups, Euler characteristics, and dimension vectors}
+            \begin{definition}[Cartan quadratic forms of finite quivers] \label{def: cartan_quadratic_forms_of_finite_quivers}
                 Let $Q := (Q_1, Q_0, s, t)$ be a finite quiver\footnote{With value in any category} and suppose that $n := |Q_0|$; also, let us give the set $Q_0$ of vertices a \textit{fixed} enumeration $\{v_1, ..., v_n\}$. To such a quiver, one can associate a so-called \textbf{adjacency matrix}:
                     $$R_Q \in \Mat_n(\Z)$$
                 given by:
                     $$R_Q := (r_{ij} := |\{f \in Q_1 \mid s(f) = v_i, t(f) = v_j\}|)_{1 \leq i, j \leq n}$$
                 (that is, the entries $r_{ij}$ of $R_Q$ are the numbers of \textit{undirected} edges from the vertex $v_i$ to the vertex $v_j$). From this matrix, one can define the \textbf{Cartan matrix} of $Q$:
                     $$A_Q := 2I_n - R_Q$$
-                along with a $\Z$-bilinear form, which we shall call the \textbf{Cartan-Tits form}:
+                along with a $\Z$-bilinear form, which we shall call the \textbf{Cartan form}:
                     $$B_Q: \Z^{\oplus n} \x \Z^{\oplus n} \to \Z$$
                     $$(x, y) \mapsto x^{\top} A_Q y$$                
             \end{definition}
-            \begin{definition}[Dynkin quivers] \label{def: dynkin_quivers}
-                A \textbf{Dynkin quiver} is a \textit{connected} and \textit{simply laced} finite quiver whose Cartan-Tits form is positive-definite.
+            \begin{definition}
+                A quiver is said to have a ring-theoretic property $\calP$ over some base ring $k$ if and only if its quiver $k$-algebra has property $\calP$.
             \end{definition}
-            \begin{proposition}[Evenness of Cartan-Tits forms of Dynkin quivers]
+            \begin{definition}[Simply laced quivers] \label{def: simply_laced_quivers}
+                A $\Sets$-valued quiver $Q := (Q_1, Q_0, s, t)$ is \textbf{simply laced} if and only if none of its vertices has self-loops: that is, for all $v \in Q_0$, one has:
+                    $$\{f \in Q_1 \mid s(f) = t(f) = v\} = \{\id_v\}$$
+            \end{definition}
+            \begin{remark}
+                Equivalently, one might characterise the simply laced quivers $Q := (Q_1, Q_0, s, t)$ as those wherein all non-identity paths $f \in Q_1$ generate square-free elements $f \in k\<Q\>$ (i.e. elements such that $f^2 = 0$). This is because the lack of non-identity loops implies that there is no non-identity path that can be composed with itself. 
+            \end{remark}
+            \begin{definition}[Connected quivers] \label{def: connected_quivers}
+                A $\Sets$-valued quiver $Q: \{\1, \0, s, t\}^{\op} \to \Sets$ is said to be \textbf{connected} if and only if for all $v, w \in Q(\0)$, there exists $f \in Q(\1)$ such that $s(f) = v$ and $t(f) = w$ (i.e. it has no isolated vertices).
+            \end{definition}
+            \begin{remark}
+                Equivalently, one can say that a $\Sets$-valued (or maybe with values in any category $\C$ with enough coproducts and sub-objects) quiver is connected if and only if it can not be written as the disjoint union of two sub-quivers. 
+            \end{remark}
+            \begin{definition}[Dynkin quivers] \label{def: dynkin_quivers}
+                A \textbf{Dynkin quiver} is a \textit{connected} and \textit{simply laced} finite quiver whose Cartan form is positive-definite.
+            \end{definition}
+            \begin{proposition}[Evenness of Cartan forms of Dynkin quivers] \label{prop: evenness_of_cartan_forms_of_dynkin_quivers}
                 Let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a Dynkin quiver and consider its Cartan matrix $A_{\Gamma}$. Then for all $x \in \Z^{\oplus n}$, $B_{\Gamma}(x, x)$ is even.  
             \end{proposition}
                 \begin{proof}
@@ -329,12 +337,18 @@
                         $$
                     for all $x \in \Z^{\oplus n}$, wherein the last line is due to the fact that the number of undirected edges from a vertex $v_i$ to another $v_j$ is equal to the number of undirected directed edges from $v_j$ to $v_i$, which in turn is a result of the assumption that by virtue of being a Dynkin quiver, $\Gamma$ is connected and simply laced\footnote{Note how this argument fails if $\Gamma$ is either not simply laced or not connected.}. Clearly, $B_{\Gamma}(v, v)$ is even for all $x \in \Z^{\oplus n}$.
                 \end{proof}
+            \begin{definition}[Tits quadratic forms] \label{def: tits_quadratic_forms}
+                Let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a Dynkin quiver and $B_{\Gamma}$ be its Cartan quadratic form. Then, inspired by the proof of proposition \ref{prop: evenness_of_cartan_forms_of_dynkin_quivers}, let us define the \textbf{Tits quadratic form} associated to $\Gamma$ by:
+                    $$q_{\Gamma}: \Z^{\oplus \Gamma_0} \to \Z$$
+                    $$x \mapsto \frac12 B_{\Gamma}(x, x)$$
+                Since $B_{\Gamma}(x, x)$ is \textit{a priori} even (cf. proposition \ref{prop: evenness_of_cartan_forms_of_dynkin_quivers}), $q_{\Gamma}(x)$ is always well-defined. 
+            \end{definition}
             \begin{definition}[Roots] \label{def: roots_of_dynkin_quivers}
                 A root of a \textit{Dynkin} quiver $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ is a vector:
                     $$\alpha \in \Z^{\oplus n}$$
                 (where $n := |\Gamma_0|$) such that:
-                    $$B_{\Gamma}(\alpha, \alpha) = 2$$
-                The set of all roots of $\Gamma$ is denoted by $\Phi_{\Gamma}$, and often called the \textbf{root system} of $\Gamma$.
+                    $$q_{\Gamma}(\alpha) = 1$$
+                The set of all roots of $\Gamma$ is denoted by $\Phi_{\Gamma}$.
             \end{definition}
             \begin{example}[Simple roots] \label{example: simple_roots}
                 Let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a Dynkin quiver and set $n := \Gamma_0$. Also, pick a basis $\{e_1, ..., e_n\}$ for $\Z^{\oplus n}$. Then the vectors of the form:
@@ -360,72 +374,159 @@
                 for all Dynkin quivers $\Gamma$.
             \end{remark}
             
-            Now that we are familiar with Cartan-Tits quadratic forms, let us see how they arise naturally as Euler characteristics of representations of quivers (cf. theorem \ref{theorem: cartan_tits_quadratic_forms_as_euler_characteristics}). 
-            \begin{convention}[Jordan-H\"older multiplicities]
-                Recall that by Schur's Lemma (cf. lemma \ref{lemma: schur_lemma_for_abelian_categories}), all morphisms between simple objects of any given abelian category are either zero or isomorphisms. Recall also, that by the Jordan-H\"older Theorem (cf. theorem \ref{theorem: jordan_holder_theorem}), Finite-length objects have Jordan-H\"older filtrations which are unique up to isomorphisms, which in particular implies that the simple factors are also unique up to isomorphisms. As such, one may speak of the \textbf{multiplicity} (cf. definition \ref{def: lengths_of_objects_and_jordan_holder_series}) of \textit{any} given simple object $M \in \Ob(\E)$ in any finite ($\Z$-linear) abelian category $\E$ (cf. definition \ref{def: finite_linear_categories}) within the Jordan-H\"older series of some other object $X \in \Ob(\E)$, which we shall denote by:
-                    $$[X : M]$$
-                Note that $X$ is necessarily of finite length per remark \ref{remark: locally_finite_linear_categories_are_jordan_holder_and_krull_schmidt} and the fact that finite abelian categories are locally finite by definition (cf. proposition \ref{prop: finite_linear_categories_are_locally_finite}).
-            \end{convention}
-            \begin{definition}[Grothendieck groups] \label{def: grothendieck_groups}
-                
+            Now that we are familiar with Cartan quadratic forms, let us see how they arise naturally as Euler characteristics of representations of quivers (cf. theorem \ref{theorem: tits_quadratic_forms_as_euler_characteristics}). 
+            \begin{definition}[Simple Grothendieck groups] \label{def: simple_grothendieck_groups}
+                The \textbf{simple Grothendieck group} of an abelian (respectively, triangulated) category $\E$, denoted by $\K_0^{\simple}(\E)$, is defined to be the abelian group generated by the set of isomorphism classes of objects of $\E$, subjected to the relations:
+                    $$[M] = [M'] + [M'']$$
+                on all short exact sequences (respectively, exact triangles):
+                    $$M' \to M \to M''$$
             \end{definition}
             \begin{remark}
-                
+                Let $\E$ be either be an abelian category or triangulated category. Then clearly:
+                    $$[M \oplus N] = [M] + [N]$$
+                (simply consider the canonical split short exact sequence $0 \to M \to M \oplus N \to N \to 0$).
             \end{remark}
-            
-            \begin{definition}[Euler characteristics] \label{def: euler_characteristics}
+            \begin{convention}[Jordan-H\"older multiplicities]
+                Recall that by Schur's Lemma (cf. lemma \ref{lemma: schur_lemma_for_abelian_categories}), all morphisms between simple objects of any given abelian category are either zero or isomorphisms. Recall also, that by the Jordan-H\"older Theorem (cf. theorem \ref{theorem: jordan_holder_theorem}), Finite-length objects have Jordan-H\"older filtrations which are unique up to isomorphisms, which in particular implies that the simple factors are also unique up to isomorphisms. As such, one may speak of the \textbf{multiplicity} (cf. definition \ref{def: lengths_of_objects_and_jordan_holder_series}) of \textit{any} given simple object $E \in \Ob(\E)$ in any finite ($\Z$-linear) abelian category $\E$ (cf. definition \ref{def: finite_linear_categories}) within the Jordan-H\"older series of some other object $M \in \Ob(\E)$, which we shall denote by:
+                    $$[M : E]$$
+                Note that $M$ is necessarily of finite length per remark \ref{remark: locally_finite_linear_categories_are_jordan_holder_and_krull_schmidt} and the fact that finite abelian categories are locally finite by definition (cf. proposition \ref{prop: finite_linear_categories_are_locally_finite}).
+            \end{convention}
+            \begin{proposition}[Simple Grothendieck groups are free on simple objects] \label{prop: simple_grothendieck_groups_of_finite_linear_abelian_categories_are_free_on_simple_objects} 
+                Let $k$ be a commutative ring and $\E$ be a finite $k$-linear abelian category with coefficient algebra $A$ (cf. definition \ref{def: finite_linear_categories}). The simple Grothendieck group $\K_0^{\simple}(\E)$ will then be isomorphic to the free abelian group on the \textit{a priori} finite (cf. proposition \ref{prop: simple_objects_in_finite_linear_categories}) set of isomorphism classes of simple objects\footnote{Hence the notation.} of $\E$, i.e.:
+                    $$\K_0^{\simple}(\E) \cong \Z^{\oplus [\E^{\simple}]}$$
+                In particular, given any object $M \in \Ob(\E)$, one can write:
+                    $$[M] := \sum_{[E] \in [\E^{\simple}]} [M : E] [E]$$
+            \end{proposition}
+                \begin{proof}
+                    
+                \end{proof}
                 
+            \begin{definition}[Projective Grothendieck groups] \label{def: projective_grothendieck_groups}
+                Let $k$ be a commutative ring. The \textbf{projective Grothendieck group} of a finite $k$-linear abelian category $\E$, denoted by $\K_0^{\proj}(\E)$, is defined to be the abelian group generated by the set $[\E^{\proj}]$ of isomorphism classes of projective objects of $\E$, subjected to the relations:
+                    $$[M] = [M'] + [M'']$$
+                on all short exact sequences:
+                    $$0 \to M' \to M \to M'' \to 0$$
             \end{definition}
-            \begin{example}[Euler characteristics of quiver representations] \label{example: euler_characteristics_of_quiver_representations}
+            \begin{proposition}[Projective Grothendieck groups are free on projective indecomposable objects] \label{prop: projective_grothendieck_groups_are_free_on_projecitve_indecomposable_objects}
+                Let $k$ be a commutative ring. The projective Grothendieck group of any finite $k$-linear abelian category $\E$ is then isomorphic to the free abelian group on the set of isomorphism classes of projective indecomposable objects of $\E$, i.e.:
+                    $$\K_0^{\proj}(\E) \cong \Z^{\oplus [\E^{\proj, \indecomp}]}$$
+            \end{proposition}
+                \begin{proof}
+                    
+                \end{proof}
+            \begin{lemma}[Projective indecomposable modules over finite algebras are simple] \label{lemma: projective_indecomposable_modules_over_finite_algebras_are_simple}
+                \footnote{One interesting consequence of this lemma (which is not too relevant to the current discussion about Dynkin quivers, as path algebras of quivers - even over fields - are generally not semi-simple, only hereditary) is that it implies via lemma \ref{lemma: projective_and_injective_modules_over_semi_simple_rings} that over a semi-simple finite-dimensional algebra over a field, a module is indecomposable if and only if it is simple.} Let $k$ be a field and $A$ be a finite-dimensional $k$-algebra. Then, there exists a surjection:
+                    $$
+                        \left\{\text{projective left/right-$A$-modules}\right\}
+                        \to
+                        \left\{\text{simple left/right-$A$-modules}\right\}
+                    $$
+                whose pre-images over each simple left/right-$A$-module $M$ is a choice of projective cover $\e: P \to M$ wherein $P$ is indecomposable as an $A$-module, which is unique up to isomorphisms. 
+            \end{lemma}
+                \begin{proof}
+                    First of all, because the category of left/right-$A$-modules \textit{a priori} has enough projectives, meaning that for all left/right-$A$-modules $M$ there exists a projective cover $\e: P \to M$, we certainly have a surjection:
+                        $$
+                            \left\{\text{projective left/right-$A$-modules}\right\}
+                            \to
+                            \left\{\text{simple left/right-$A$-modules}\right\}
+                        $$
+                    Now, in order to show that the pre-image of the class of simple left/right-$A$-modules under this surjection is that of indecomposable projective left/right-$A$-modules, start by recalling that simple left/right-modules are cyclic\footnote{The proof is simple (pun not intended!): if we were to suppose to the contrary that there existed a simple module $M$ with $\geq 1$ generators, then said module will admit non-zero (cyclic) proper submodules generated by the generators, and therefore $M$ can not be simple, contradicting our initial assumption.}. This tells us that every simple left/right-$A$-module admits a projective cover by a free\footnote{We assume the Axiom of Choice, so that free module would be projective.} left/right-$A$-module on $1$ generator, which is of course indecomposable and unique up to isomorphisms, per the universal property of left-adjoints.
+                \end{proof}
+            \begin{proposition}[Projective and simple Grothendieck groups coincide] \label{prop: projecitve_and_simple_grothendieck_groups_coincide}
+                Let $k$ be a commutative ring and $\E$ be any finite $k$-linear abelian category with coefficient algebra $A$ (cf. definition \ref{def: finite_linear_categories}). Then there will be a group isomorphism:
+                    $$\K_0^{\proj}(\E) \cong \K_0^{\simple}(\E)$$
+                given by $[M] \mapsto [M/\rad(A) M]$.
+            \end{proposition}
+                \begin{proof}
+                    Combine lemma \ref{lemma: projective_indecomposable_modules_over_finite_algebras_are_simple} with proposition \ref{prop: simple_grothendieck_groups_of_finite_linear_abelian_categories_are_free_on_simple_objects}.
+                \end{proof}
+            
+            Let us now discuss Euler characteristics, which is the mean through which we shall obtain roots from representations of quivers (cf. theorem \ref{theorem: tits_quadratic_forms_as_euler_characteristics}).
+            \begin{definition}[Compact objects] \label{def: compact_objects}
+                An object $c \in \Ob(\C)$ of a locally small category $\C$ is said to be \textbf{compact} if and only if the representable copresheaf:
+                    $$\C(c, -): \C \to \Sets$$
+                preserves all small filtered colimits that exist in $\C$. The (\textit{a priori} full) subcategory of $\C$ spanned by such objects is denoted by $\C^{\comp}$ (or sometimes $\C^{\omega}$) and shall be known as the \textbf{maximal compact subcategory} of $\C$. 
+            \end{definition}
+            \begin{remark}[Compact objects in full subcategories] \label{remark: compact_objects_in_full_subcategories}
+                Suppsoe that $\C$ is a category and $\C_0 \subseteq \C$ is a full subcategory thereof. Then, should $c \in \Ob(\C_0)$ be any object of $\C_0$ that is compact as an object of the larger ambient category $\C$, then it is clear from definition \ref{def: compact_objects} that it would also be compact as an object of $\C_0$; that is:
+                    $$\C_0 \cap \C^{\comp} = \C_0^{\comp}$$
+            \end{remark}
+            \begin{definition}[Euler characteristics] \label{def: euler_characteristics}
+                Let $k$ be a commutative ring and $\E$ be a locally finite $k$-linear abelian category. Next consider some left-exact\footnote{In the triangulated sense. For instance, one might consider right-derived functors.} endofunctor:
+                    $$F \in \rmD^b(\E)^{\comp} \to \rmD^b(\E)^{\comp}$$
+                on the full subcategory $\rmD^b(\E)^{\comp}$ of compact complexes\footnote{This is to ensure that the cohomologies $H^i(F(M^{\bullet}))$ are of finite ranks as $k$-modules.} inside the bounded derived category\footnote{Considered as a triangulated category.} $\rmD^b(\E)$. The \textbf{Euler characteristic} of this functor is then the function:
+                    $$\chi(F, -): \Ob(\rmD^b(\E)) \to \Z$$
+                    $$M^{\bullet} \mapsto \sum_{i \in \Z} (-1)^i \rank_k H^i(F(M^{\bullet}))$$
+            \end{definition}
+            \begin{example}[Euler characteristics of topological spaces] \label{example: euler_characteristics_of_topological_spaces}
                 
+            \end{example}
+            \begin{example}[Euler characteristics of schemes] \label{example: euler_characteristics_of_schemes}
+                
+            \end{example}
+            \begin{example}[Euler characteristics of quiver representations] \label{example: euler_characteristics_of_quiver_representations}
+                Let $Q$ be a finite quiver and $k$ be a commutative ring. The Euler characteristic of $Q$ is then defined to be the Euler characteristic of the right-derived functor:
+                    $$\R\Hom_{k\<Q\>}(\calF, -): \rmD(\Rep_k(Q)) \to \rmD(\Rep_k(Q))$$
+                evaluated at $\calF$ itself (or rather, some injective resolution $\calF^{\bullet}$ thereof), i.e.:
+                    $$
+                        \begin{aligned}
+                            \chi_Q(\calF) & := \chi(\R\Hom_{k\<Q\>}(\calF, -), \calF^{\bullet})
+                            \\
+                            & = \sum_{i \in \Z} (-1)^i \rank_k \R\Hom_{k\<Q\>}^i(\calF, \calF^{\bullet})
+                            \\
+                            & = \sum_{i \in \Z} (-1)^i \rank_k \Ext^i_{k\<Q\>}(\calF, \calF)
+                        \end{aligned}
+                    $$
+                Now, if $A$ is a hereditary $k$-algebra (e.g. $A \cong k\<Q\>$), then one has by definition that:
+                    $$\Ext^i_A(M, N) \cong 0$$
+                for all left/right-$A$-modules $M, N$, so in fact, one has:
+                    $$\chi_Q(\calF) = \rank_k \End_{k\<Q\>}(\calF) - \rank_k \Ext^1_{k\<Q\>}(\calF, \calF)$$
+                for all representations $\calF \in \Ob(\Rep_k(Q))$.
             \end{example}
             
             \begin{definition}[Dimension vectors of quiver representations] \label{def: dimension_vectors_of_quiver_representations}
-                Let $k$ be a commutative ring, let $Q := (Q_1, Q_0, s, t)$ be a finite quiver, and consider the finite $k$-linear abelian category $\Rep_k^{\fin}(Q)$ of finite-rank $k$-linear representations of $Q$. We then call the assignment:
-                    $$\rank_k: \Rep_k^{\fin}(Q) \to \Z^{\oplus Q_0}$$
+                Let $k$ be a commutative ring, let $Q := (Q_1, Q_0, s, t)$ be a finite quiver, and consider the finite $k$-linear abelian category $\Rep_k(Q)$ of $k$-linear representations of $Q$. We then call the assignment:
+                    $$\rank_k: \Rep_k(Q) \to \Z^{\oplus Q_0}$$
                     $$\calF \mapsto \sum_{v \in Q_0} \rank_k \calF(v) e_v$$
-                the assignment of \textbf{rank vectors} (or \textbf{dimension vectors} when $k$ is a field) to finite-rank $k$-linear representations of $Q$, wherein the set $\{e_v\}_{v \in Q_0}$ is some choice of basis for the free $\Z$-module $\Z^{\oplus Q_0}$.
+                the assignment of \textbf{rank vectors} (or \textbf{dimension vectors} when $k$ is a field) to $k$-linear representations of $Q$, wherein the set $\{e_v\}_{v \in Q_0}$ is some choice of basis for the free $\Z$-module $\Z^{\oplus Q_0}$.
             \end{definition}
             \begin{remark}
-                Let $k$ be a field and let $Q := (Q_1, Q_0, s, t)$ be a finite quiver. It is not hard to notice that taking rank vectors of finite-rank $k$-linear representations of $Q$ is additive, i.e.:
+                Let $k$ be a field and let $Q := (Q_1, Q_0, s, t)$ be a finite quiver. It is not hard to notice that taking rank vectors of $k$-linear representations of $Q$ is additive, i.e.:
                     $$\rank_k (\calF \oplus \calF') = \rank_k \calF + \rank_k \calF'$$
-                for all $\calF, \calF' \in \Ob(\Rep_k^{\fin}(Q))$. 
+                for all $\calF, \calF' \in \Ob(\Rep_k(Q))$. 
             \end{remark}
             \begin{lemma}[Representations of finite quivers are determined by dimension vectors] \label{lemma: representations_of_finite_quivers_are_determined_by_dimension_vectors}
                 Let $k$ be a field and let $Q := (Q_1, Q_0, s, t)$ be a finite quiver. There is then a $\Z$-module isomorphism:
-                    $$\rank_k: \K_0(\Rep_k^{\fin}(Q)) \to \Z^{\oplus Q_0}$$
+                    $$\rank_k: \K_0(Q) \to \Z^{\oplus Q_0}$$
             \end{lemma}
                 \begin{proof}
                     
                 \end{proof}
             \begin{corollary}[Irreducible representations of finite quivers are labelled by vertices] \label{coro: irreducible_representations_of_finite_quivers_are_labelled_by_vertices}
                 Let $k$ be a commutative ring and $Q := (Q_1, Q_0, s, t)$ be a finite quiver. Then, there are choices of bijections:
-                    $$|\Rep_k^{\irr}(\Gamma)| \cong Q_0$$
+                    $$[\Rep_k^{\irr}(\Gamma)] \cong Q_0$$
             \end{corollary}
                 \begin{proof}
-                    Since the Grothendieck group $\K_0(\Rep_k^{\fin}(Q))$ is freely generated as a $\Z$-module by the set of isomorphism classes of irreducible $k$-linear representations of $Q$ (i.e. the simple objects of $\Rep_k^{\fin}(Q)$), this is an immediate consequence of lemma \ref{lemma: representations_of_finite_quivers_are_determined_by_dimension_vectors}.
+                    Since the Grothendieck group $\K_0(Q)$ is freely generated as a $\Z$-module by the set of isomorphism classes of irreducible $k$-linear representations of $Q$ (cf. proposition \ref{prop: simple_grothendieck_groups_of_finite_linear_abelian_categories_are_free_on_simple_objects}), this is an immediate consequence of lemma \ref{lemma: representations_of_finite_quivers_are_determined_by_dimension_vectors}.
                 \end{proof}
-            \begin{theorem}[Cartan-Tits quadratic forms as Euler characteristics] \label{theorem: cartan_tits_quadratic_forms_as_euler_characteristics}
-                Let $k$ be a commutative ring and let $Q := (Q_1, Q_0, s, t)$ be a finite quiver, and let us denote the Cartan-Tits quadratic form of this quiver by $B_Q$ (cf. definition \ref{def: cartan_tits_quadratic_forms_of_finite_quivers}). Then, there is a commutative diagram of $\Z$-linear maps as follows:
+            \begin{theorem}[Cartan quadratic forms as Euler characteristics] \label{theorem: tits_quadratic_forms_as_euler_characteristics}
+                Let $k$ be a commutative ring and let $Q := (Q_1, Q_0, s, t)$ be a finite quiver, and let us denote the Cartan quadratic form of this quiver by $B_Q$ (cf. definition \ref{def: cartan_quadratic_forms_of_finite_quivers}). Then, there is a commutative diagram of $\Z$-linear maps as follows:
                     $$
                         \begin{tikzcd}
-                        	{\K_0(\Rep_k^{\fin}(Q))} & {\Z^{\oplus Q_0}} \\
+                        	{\K_0(Q)} & {\Z^{\oplus Q_0}} \\
                         	& \Z
                         	\arrow["{\rank_k}", from=1-1, to=1-2]
-                        	\arrow["{B_Q}", from=1-2, to=2-2]
+                        	\arrow["{q_Q}", from=1-2, to=2-2]
                         	\arrow["\chi_Q"', from=1-1, to=2-2]
                         \end{tikzcd}
                     $$
-                wherein $\chi_Q := \chi_{\Rep_k^{\fin}(Q)}$ and it is understood that:
-                    $$B_Q(\rank_k [\calF]) := B_Q(\rank_k [\calF], \rank_k [\calF])$$
-                for all isomorphism classes $[\calF] \in \K_0(\Rep_k^{\fin}(Q))$.
             \end{theorem}
                 \begin{proof}
                     
                 \end{proof}
             
         \subsubsection{(Co)reflection functors and Gabriel's Theorem}
-            We have now come to Gabriel's Theorem. The proof thereof relies heavily on constructions known as \say{(co)reflection functors} (cf. definition \ref{def: (co)reflection_functors}) which can be thought of as gadgets that help us ensure that the representation theory of a quiver is independent of its orientation\footnote{So for instance, once we have proven Gabriel's Theorem, we can simply think of Dynkin quivers as those whose underlying undirected graph is a Dynkin diagram, and this notion is completely captured by the Cartan-Tits quadratic forms associated to these undirected graphs.}. 
+            We have now come to Gabriel's Theorem. The proof thereof relies heavily on constructions known as \say{(co)reflection functors} (cf. definition \ref{def: (co)reflection_functors}) which can be thought of as gadgets that help us ensure that the representation theory of a quiver is independent of its orientation\footnote{So for instance, once we have proven Gabriel's Theorem, we can simply think of Dynkin quivers as those whose underlying undirected graph is a Dynkin diagram, and this notion is completely captured by the Cartan quadratic forms associated to these undirected graphs.}. 
             \begin{convention}
                 From now on, we shall be working over a field $k$. \todo[inline]{Explain why working over a field is necessary.}
             \end{convention}
@@ -478,16 +579,6 @@
                 \begin{proof}
                     
                 \end{proof}
-            \begin{corollary}[Indecomposable representations of finite quivers are labelled by positive roots] \label{coro: indecomposable_representations_of_finite_quivers_are_labelled_by_positive_roots}
-                Let $k$ be a field and $\Gamma$ be a Dynkin quiver. Then, there is a bijection:
-                    $$\dim_k: |\Rep_k^{\red}(\Gamma)| \to \Phi_{\Gamma}^+$$
-                wherein $\Phi_{\Gamma}^+$ denotes the set of positive roots of $\Gamma$ (cf. definition \ref{def: negative_and_positive_roots}).
-            \end{corollary}
-                \begin{proof}
-                    Via theorem \ref{theorem: cartan_tits_quadratic_forms_as_euler_characteristics}, one sees that it suffices to show that:
-                        $$\chi_{\Gamma}([\calF]) = 2$$
-                    for all isomorphism classes of indecomposable representations $[\calF] \in |\Rep_k^{\red}(\Gamma)|$, as this demonstrates that indeed, the dimension vectors of the irreducible representations of $\Gamma$ are precisely the positive roots of the Cartan-Tits quadratic form $B_{\Gamma}$ (and we have already known that representations of finite quivers are uniquely identified by their dimension vectors; cf. lemma \ref{lemma: representations_of_finite_quivers_are_determined_by_dimension_vectors}).
-                \end{proof}
                 
             \begin{example}[Gabriel's Theorem for $\sfA_n$ quivers]
                 
@@ -534,6 +625,15 @@
                 
                 As for algebras which are strictly left/right-hereditary and not left/right-semi-simple, consider the algebra $\b_2^-(k)$ of lower-triangular $2 \x 2$ matrices over a field $k$.
             \end{example}
+            
+        \subsubsection{Admissible ideals; quivers with relations}
+            \begin{convention}
+                Let us henceforth assume that $k$ is field (i.e. a simple commutative ring). For the most part, this assumption is made so that given any quiver $Q := (Q_1, Q_0, s, t)$, the corresponding path $k$-algebra $k\<Q\>$ will admit $\<Q\> := \<[Q]_1\>$ as a maximal two-sided ideal, commonly referred to as the \say{arrow ideal} of $Q$.
+            \end{convention}
+            
+            \begin{definition}[Admissible ideals of path algebras] \label{def: admissible_ideals_of_path_algebras}
+                The path $k$-algebra of any given quiver is said to be \textbf{admissible} if and only if it is admissible in the sense of definition \ref{def: pre_admissible_and_pre_adic_rings}, and said to be \textbf{bounded} if and only if its ideal of definition is a finite power of the arrow ideal.
+            \end{definition}
             
         \subsubsection{Quivers associated to finite-dimensional algebra}
             \begin{definition}[Basic algebras] \label{def: basic_algebras}
@@ -583,31 +683,5 @@
                     $$E := \left\{ \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix}, \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}, \begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix}, \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \right\}$$
                 
             \end{example}
-            
-            \begin{definition}
-                A quiver is said to have a ring-theoretic property $\calP$ over some base ring $k$ if and only if its quiver $k$-algebra has property $\calP$.
-            \end{definition}
-            \begin{example}[Quivers of finite type] \label{example: quivers_of_finite_type}
-                A quiver $Q$ is said to be of finite type over some ring $k$ if and only if its path $k$-algebra $k\<Q\>$ is of finite type as a $k$-algebra.
-            \end{example}
-            \begin{proposition}[Quivers of finite type are of finite presentations] \label{prop: quivers_of_finite_type_are_of_finite_presentations}
-                Let $k$ be a ring and $Q$ be a quiver. Then $Q$ is of finite type if and only if it is of finite presentation over $k$.
-            \end{proposition}
-                \begin{proof}
-                    If $k\<Q\>$ is of finite presentation then obviously it is of fintie type. Conversely, if $k\<Q\>$ is of finite presentation, then by definition the set $[Q]_1$ of morphisms of the free category $[Q]$ on $Q$ will have to be finite. These finitely many morphisms will generate finitely many relations on the noncommutative free $k$-algebra $k\<\{v_i\}_{1 \leq i \leq |Q_1|}\>$ (which we note to be of finite type over $k$), thereby making the algebra $k\<Q\>$ finitely presented over $k$.
-                \end{proof}
-            \begin{definition}[Simply laced quivers] \label{def: simply_laced_quivers}
-                A $\Sets$-valued quiver $Q := (Q_1, Q_0, s, t)$ is \textbf{simply laced} if and only if none of its vertices has self-loops: that is, for all $v \in Q_0$, one has:
-                    $$\{f \in Q_1 \mid s(f) = t(f) = v\} = \{\id_v\}$$
-            \end{definition}
-            \begin{remark}
-                Equivalently, one might characterise the simply laced quivers $Q := (Q_1, Q_0, s, t)$ as those wherein all non-identity paths $f \in Q_1$ generate square-free elements $f \in k\<Q\>$ (i.e. elements such that $f^2 = 0$). This is because the lack of non-identity loops implies that there is no non-identity path that can be composed with itself. 
-            \end{remark}
-            \begin{definition}[Connected quivers] \label{def: connected_quivers}
-                A $\Sets$-valued quiver $Q: \{\1, \0, s, t\}^{\op} \to \Sets$ is said to be \textbf{connected} if and only if for all $v, w \in Q(\0)$, there exists $f \in Q(\1)$ such that $s(f) = v$ and $t(f) = w$ (i.e. it has no isolated vertices).
-            \end{definition}
-            \begin{remark}
-                Equivalently, one can say that a $\Sets$-valued (or maybe with values in any category $\C$ with enough coproducts and sub-objects) quiver is connected if and only if it can not be written as the disjoint union of two sub-quivers. 
-            \end{remark}
             
         \subsubsection{Revisiting Gabriel's Theorem}

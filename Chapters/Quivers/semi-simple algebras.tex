@@ -172,8 +172,8 @@
                 
             \begin{definition}[Finite linear categories] \label{def: finite_linear_categories}
                 For any commutative ring $k$, a $k$-linear (abelian) category $\E$ is said to be \textbf{finite} if and only if there exists an \textit{exact} equivalence:
-                    $$F: \E \to {}^lA\mod^{\fin}$$
-                to the category $A\mod^{\fin}$ of finitely generated left-modules over some finite $k$-algebra $A$, which we shall call the algebra of \textbf{coefficients} of $\E$.
+                    $$F: \E \to {}^lA\mod$$
+                to the category $A\mod$ of left-modules\footnote{Which are necessarily finitely generated.} over some Artinian $k$-algebra $A$, which we shall call the algebra of \textbf{coefficients} of $\E$.
             \end{definition}
             \begin{proposition}[Finite linear categories are locally finite] \label{prop: finite_linear_categories_are_locally_finite}
                 Let $k$ be a commutative ring. Then, any finite $k$-linear category will also be locally finite. 
@@ -213,7 +213,7 @@
                 Let $k$ be a field. Every finite $k$-linear category has finitely many isomorphism classes of simple objects. 
             \end{proposition}
                 \begin{proof}
-                    Our task boils down to proving that for any finite-dimensional $k$-algebra $A$, there are only finitely many isomorphism classes of left-$A$-modules. This, however, is nothing but lemma \ref{lemma: simple_modules_over_semi_simple_rings}, since $A$ is semi-simple as a $k$-algebra by virtue of being finite-dimensional as a $k$-vector space. 
+                    Combine lemma \ref{lemma: simple_modules_over_semi_simple_rings} with proposition \ref{prop: semi_simple_iff_trivial_jacobson_radical_and_artinian}.
                 \end{proof}
         
     \subsection{Homological dimensions}
