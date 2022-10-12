@@ -286,7 +286,7 @@
                 One important algebraic consequence of proposition \ref{prop: quiver_representations_are_modules_over_quiver_algebras} is should $k$ be a commutative ring and $Q$ be a finite $\Sets$-valued quiver, then the path $k$-algebra $k\<Q\>$ will necessarily have finite rank as a $k$-module. $k\<Q\>$ is therefore left and right-Artinian, and as such all left/right-$k\<Q\>$-modules are finitely generated if and only if they are of finite lengths; equivalently, this means that all $k$-linear representations of $Q$ are of finite ranks over $k$ they are of finite lengths.
             \end{remark}
             
-        \subsubsection{Roots, Grothendieck groups, and Euler characteristics of Dynkin quivers}
+        \subsubsection{Tits quadratic forms and roots of Dynkin quivers; Grothendieck groups}
             \begin{definition}[Cartan quadratic forms of finite quivers] \label{def: cartan_quadratic_forms_of_finite_quivers}
                 Let $Q := (Q_1, Q_0, s, t)$ be a finite quiver\footnote{With value in any category} and suppose that $n := |Q_0|$; also, let us give the set $Q_0$ of vertices a \textit{fixed} enumeration $\{v_1, ..., v_n\}$. To such a quiver, one can associate a so-called \textbf{adjacency matrix}:
                     $$R_Q \in \Mat_n(\Z)$$
@@ -304,13 +304,10 @@
             \begin{definition}[Connected quivers] \label{def: connected_quivers}
                 A quiver $Q: \{\1, \0, s, t\}^{\op} \to \Sets$ is said to be \textbf{connected} if and only if for all $v, w \in Q(\0)$, there exists $f \in Q(\1)$ such that $s(f) = v$ and $t(f) = w$ (i.e. it has no isolated vertices).
             \end{definition}
-            \begin{remark}
+            \begin{remark}[Connected quivers are categorically indecomposable]
                 Equivalently, one can say that a $\Sets$-valued (or maybe with values in any category $\C$ with enough coproducts and sub-objects) quiver is connected if and only if it can not be written as the disjoint union of two sub-quivers. 
             \end{remark}
-            \begin{definition}[Dynkin quivers] \label{def: dynkin_quivers}
-                A \textbf{Dynkin quiver} is a \textit{connected} and \textit{acyclic} finite quiver whose Cartan form is positive-definite.
-            \end{definition}
-            \begin{proposition}[Evenness of Cartan forms of Dynkin quivers] \label{prop: evenness_of_cartan_forms_of_dynkin_quivers}
+            \begin{proposition}[Evenness of Cartan forms of finite connected acyclic quivers] \label{prop: evenness_of_cartan_forms_of_finite_connected_acyclic_quivers}
                 Let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a Dynkin quiver and consider its Cartan matrix $A_{\Gamma}$. Then for all $x \in \Z^{\oplus n}$, $B_{\Gamma}(x, x)$ is even.  
             \end{proposition}
                 \begin{proof}
@@ -328,17 +325,25 @@
                                 & = 2\sum_{1 \leq i \leq n} x_i^2 - 2\sum_{1 \leq i < j \leq n} x_i r_{ij} x_j
                             \end{aligned}
                         $$
-                    for all $x \in \Z^{\oplus n}$, wherein the last line is due to the fact that the number of undirected edges from a vertex $v_i$ to another $v_j$ is equal to the number of undirected directed edges from $v_j$ to $v_i$, which in turn is a result of the assumption that by virtue of being a Dynkin quiver, $\Gamma$ is connected and acyclic\footnote{Note how this argument fails if $\Gamma$ is either not acyclic or not connected.}. Clearly, $B_{\Gamma}(v, v)$ is even for all $x \in \Z^{\oplus n}$.
+                    for all $x \in \Z^{\oplus n}$, wherein the last line is due to the fact that the number of undirected edges from a vertex $v_i$ to another $v_j$ is equal to the number of undirected directed edges from $v_j$ to $v_i$, which in turn is a result of the assumption that $\Gamma$ is connected and acyclic\footnote{Note how this argument fails if $\Gamma$ is either not acyclic or not connected.}. Clearly, $B_{\Gamma}(v, v)$ is even for all $x \in \Z^{\oplus n}$.
                 \end{proof}
             \begin{definition}[Tits quadratic forms] \label{def: tits_quadratic_forms}
-                Let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a Dynkin quiver and $B_{\Gamma}$ be its Cartan quadratic form. Then, inspired by the proof of proposition \ref{prop: evenness_of_cartan_forms_of_dynkin_quivers}, let us define the \textbf{Tits quadratic form} associated to $\Gamma$ by:
+                Let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a finite connected acyclic quiver and $B_{\Gamma}$ be its Cartan quadratic form. Then, inspired by the proof of proposition \ref{prop: evenness_of_cartan_forms_of_finite_connected_acyclic_quivers}, let us define the \textbf{Tits quadratic form} associated to $\Gamma$ by:
                     $$q_{\Gamma}: \Z^{\oplus \Gamma_0} \to \Z$$
                     $$x \mapsto \frac12 B_{\Gamma}(x, x)$$
-                Since $B_{\Gamma}(x, x)$ is \textit{a priori} even (cf. proposition \ref{prop: evenness_of_cartan_forms_of_dynkin_quivers}), $q_{\Gamma}(x)$ is always well-defined. 
+                Since $B_{\Gamma}(x, x)$ is \textit{a priori} even (cf. proposition \ref{prop: evenness_of_cartan_forms_of_finite_connected_acyclic_quivers}), $q_{\Gamma}(x)$ is always well-defined. 
             \end{definition}
             \begin{remark}
-                Let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a Dynkin quiver with adjacency matrix $R_{\Gamma} := (r_{ij})_{1 \leq i, j \leq |\Gamma_0|}$. Then from the proof of proposition \ref{prop: evenness_of_cartan_forms_of_dynkin_quivers}, we know that:
+                Let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a finite connected acyclic quiver with adjacency matrix $R_{\Gamma} := (r_{ij})_{1 \leq i, j \leq |\Gamma_0|}$. Then from the proof of proposition \ref{prop: evenness_of_cartan_forms_of_finite_connected_acyclic_quivers}, we know that:
                     $$q_{\Gamma}(x) = \sum_{1 \leq i \leq |\Gamma_0|} x_i^2 - \sum_{1 \leq i < j \leq |\Gamma_0|} x_i r_{ij} x_j$$
+            \end{remark}
+            
+            Let us now narrow our focus down to a very special class of finite connected acyclic quivers, the so-called \say{Dynkin quivers}, which can be extensively analysed via the so-called \say{roots} of their Tits quadratic forms.
+            \begin{definition}[Dynkin quivers] \label{def: dynkin_quivers}
+                A \textbf{Dynkin quiver} is a \textit{connected} and \textit{acyclic} finite quiver whose Cartan form is \textit{positive-definite}.
+            \end{definition}
+            \begin{remark}[The importance of positive-definiteness]
+                
             \end{remark}
             \begin{definition}[Roots] \label{def: roots_of_dynkin_quivers}
                 A root of a \textit{Dynkin} quiver $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ is a vector:
@@ -358,21 +363,28 @@
                 Then either $c_i \geq 0$ or $c_i \leq 0$ for all $1 \leq i \leq n$ simultaneously.
             \end{lemma}
                 \begin{proof}
-                    By base-changing to $\Q(\sqrt{2})$, which we shall equip with the norm given by $|x| := \sqrt{B_{\Gamma}(x, x)}$ for all $x \in \Q(\sqrt{2})^{\oplus n}$ (note that this norm is well-defined because $B_{\Gamma}(x, x)$ is even for all $x \in \Z^{\oplus n}$), one sees that there is a bijection:
-                        $$\Phi_{\Gamma} \cong \{\alpha \in \Q(\sqrt{2})^{\oplus n} \mid |\alpha| = \sqrt{2}\}$$
+                    By base-changing to $\Z[2^{\pm \frac12}]$, which we shall equip with the norm\footnote{We shall let our dear readers verify for themselves that $|-|_{\Gamma}$ satisfies the norm axioms.} given by:
+                        $$|x|_{\Gamma} := \sqrt{q_{\Gamma}(x)}$$
+                    for all $x \in \Z[2^{\pm \frac12}]^{\oplus n}$ (note that this norm is well-defined because $q_{\Gamma}(x)$ is positive-definite as $\Gamma$ is a Dynkin quiver; cf. definition \ref{def: dynkin_quivers}), one sees that there is a bijection:
+                        $$\Phi_{\Gamma} \cong \{\alpha \in \Z[2^{\pm \frac12}]^{\oplus n} \mid |\alpha|_{\Gamma} = 1\}$$
                     The lemma is then an immediate consequence of the defintion of simple roots (cf. example \ref{example: simple_roots}).
                 \end{proof}
             \begin{definition}[Positive and negative roots] \label{def: negative_and_positive_roots}
                 Let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a Dynkin quiver and set $n := \Gamma_0$. Also, pick a basis $\{e_1, ..., e_n\}$ for $\Z^{\oplus n}$ and choose a root $\alpha$ and write it in terms of the simple roots $\{\alpha_i\}_{1 \leq i \leq n}$ as:
                     $$\alpha := \sum_{1 \leq i \leq n} c_i \alpha_i$$
-                Then we say that $\alpha$ is \textbf{positive} if and only if $c_i \geq 0$ for all $1 \leq i \leq n$ (i.e. $\alpha \in \N^n$) and \textbf{negative} if and only if $c_i \leq 0$ for all $1 \leq i \leq n$ (i.e. $\alpha \in -\N^n$). The set of positive (respectively, negative) roots of the given Dynkin quiver $\Gamma$ is denoted by $\Phi_{\Gamma}^+$ (respectively, $\Phi_{\Gamma}^-$).
+                Then we say that $\alpha$ is \textbf{positive} if and only if $c_i \geq 0$ for all $1 \leq i \leq n$ and \textbf{negative} if and only if $c_i \leq 0$ for all $1 \leq i \leq n$. The set of positive (respectively, negative) roots of the given Dynkin quiver $\Gamma$ is denoted by $\Phi_{\Gamma}^+$ (respectively, $\Phi_{\Gamma}^-$).
             \end{definition}
+            \begin{remark}
+                Equivalently, for any Dynkin quiver $\Gamma := (\Gamma_1, \Gamma_0, s, t)$, one might define the positive/negative roots as elements of the following sets:
+                    $$\Phi_{\Gamma}^+ := \{\alpha \in \N^{\Gamma_0} \mid q_{\Gamma}(\alpha) = 1\}$$
+                    $$\Phi_{\Gamma}^- := \{\alpha \in -\N^{\Gamma_0} \mid q_{\Gamma}(\alpha) = 1\}$$
+            \end{remark}
             \begin{remark}[Number of positive roots of Dynkin quivers] \label{remark: number_of_positive_roots_of_dynkin_quivers}
                 Obviously, one has:
-                    $$\Phi_{\Gamma} = \Phi_{\Gamma}^+ \cup \Phi_{\Gamma}^-$$
+                    $$\Phi_{\Gamma} = \Phi_{\Gamma}^+ \cup \Phi_{\Gamma}^- = \{\alpha \in \Z^{\oplus \Gamma_0} \mid q_{\Gamma}(\alpha) = 1\}$$
                 for all Dynkin quivers $\Gamma$. Furthermore, it is easy to see that:
-                    $$|\Phi_{\Gamma}^+| = |\Phi_{\Gamma}^-| = \binom{n}{2} = \frac{n!(n - 1)!}{2}$$
-                wherein $n := |\Gamma_0|$ is the number of vertices of $\Gamma$.
+                    $$|\Phi_{\Gamma}^+| = |\Phi_{\Gamma}^-|$$
+                and from the proof of lemma \ref{lemma: roots_are_exclusively_either_negative_or_positive}, one sees that since roots are bounded with respect to the norm $|-|_{\Gamma} := \sqrt{q_{\Gamma}(-)}$, there can only be finitely many of them.
             \end{remark}
             
             Now that we are familiar with Cartan quadratic forms, let us see how they arise naturally as Euler characteristics of representations of quivers (cf. proposition \ref{prop: tits_quadratic_forms_as_euler_characteristics}). 
@@ -457,7 +469,7 @@
                 for all $\calF, \calF' \in \Ob(\Rep_k^{\fin}(Q))$. From this, one sees that there is an induced $\Z$-module homomorphism:
                     $$\rank_k: \K_0(k\<Q\>) \to \Z^{\oplus Q_0}$$
             \end{remark}
-            \begin{lemma}[Representations of Dynkin quivers are determined by dimension vectors] \label{lemma: representations_of_dynkin_quivers_are_determined_by_dimension_vectors}
+            \begin{lemma}[Irreducible representations of Dynkin quivers are labelled by vertices] \label{lemma: irreducible_representations_of_finite_quivers_are_labelled_by_vertices}
                 Let $k$ be a field and let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a finite quiver. There is then a $\Z$-module isomorphism:
                     $$\dim_k: \K_0(k\<\Gamma\>) \to \Z^{\oplus \Gamma_0}$$
             \end{lemma}
@@ -474,7 +486,7 @@
                 between the set of isomorphism classes of irreducible $k$-linear representations of $\Gamma$ and that of vertices of $\Gamma_0$.
             \end{corollary}
                 \begin{proof}
-                    Since the Grothendieck group $\K_0(k\<\Gamma\>)$ is freely generated as a $\Z$-module by the set of isomorphism classes of irreducible $k$-linear representations of $\Gamma$ (cf. proposition \ref{prop: simple_grothendieck_groups_of_finite_linear_abelian_categories_are_free_on_simple_objects}), this is an immediate consequence of lemma \ref{lemma: representations_of_dynkin_quivers_are_determined_by_dimension_vectors}.
+                    Since the Grothendieck group $\K_0(k\<\Gamma\>)$ is freely generated as a $\Z$-module by the set of isomorphism classes of irreducible $k$-linear representations of $\Gamma$ (cf. proposition \ref{prop: simple_grothendieck_groups_of_finite_linear_abelian_categories_are_free_on_simple_objects}), this is an immediate consequence of lemma \ref{lemma: irreducible_representations_of_finite_quivers_are_labelled_by_vertices}.
                 \end{proof}
             \begin{proposition}[Irreducible representations of Dynkin quivers are labelled by simple roots] \label{prop: irreducible_representations_of_dynkin_quivers_are_labelled_by_simple_roots}
                 Let $k$ be a field and $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a Dynkin quiver. Then, there are choices of bijections (depending on choices of basis for $\Z^{\oplus \Gamma_0}$):
@@ -482,17 +494,145 @@
                 between the set of isomorphism classes irreducible $k$-linear representations of $\Gamma$ and the simple roots of $\Gamma$ (cf. example \ref{example: simple_roots}).
             \end{proposition}
                 \begin{proof}
-                    This comes from the fact that the simple roots of $\Gamma$ form a basis for $\Z^{\oplus \Gamma_0}$ (cf. example \ref{example: simple_roots}), which we know by lemma \ref{lemma: representations_of_dynkin_quivers_are_determined_by_dimension_vectors} is isomorphic to the Grothendieck group $\K_0(k\<\Gamma\>)$ via:
+                    This comes from the fact that the simple roots of $\Gamma$ form a basis for $\Z^{\oplus \Gamma_0}$ (cf. example \ref{example: simple_roots}), which we know by lemma \ref{lemma: irreducible_representations_of_finite_quivers_are_labelled_by_vertices} is isomorphic to the Grothendieck group $\K_0(k\<\Gamma\>)$ via:
                         $$\rank_k: \K_0(k\<\Gamma\>) \to \Z^{\oplus \Gamma_0}$$
                     and the Grothendieck group $\K_0(k\<\Gamma\>)$ itself is freely generated by the set $[\Rep_k^{\irr}(\Gamma)]$ of irreducible $k$-linear representations of $\Gamma$ (cf. proposition \ref{prop: simple_grothendieck_groups_of_finite_linear_abelian_categories_are_free_on_simple_objects}).
                 \end{proof}
             \begin{remark}
                 Let $\Gamma$ be a Dynkin quiver. Then because every root $\alpha \in \Phi_{\Gamma}$ is just a $\Z$-linear combination of simple roots, we see that:
                     $$\Z^{\oplus \Gamma_0} \cong \span_{\Z} \Phi_{\Gamma}^+ \cong \span_{\Z} \Phi_{\Gamma}^- = \span_{\Z} \Phi_{\Gamma}$$
-                though neither $\Phi_{\Gamma}^+$ nor $\Phi_{\Gamma}^-$ are $\Z$-linearly independent subsets of $\Z^{\oplus \Gamma_0}$; of course, $\Phi_{\Gamma}$ is certainly not a $\Z$-linearly independent subset of $\Z^{\oplus \Gamma_0}$, since $\Phi_{\Gamma} = \Phi_{\Gamma}^+ \cup \Phi_{\Gamma}^-$ (cf. remark \ref{remark: number_of_positive_roots_of_dynkin_quivers}).
+                though neither $\Phi_{\Gamma}^+$ nor $\Phi_{\Gamma}^-$ are $\Z$-linearly independent subsets of $\Z^{\oplus \Gamma_0}$; of course, $\Phi_{\Gamma}$ is certainly not a $\Z$-linearly independent subset of $\Z^{\oplus \Gamma_0}$, since $\Phi_{\Gamma} = \Phi_{\Gamma}^+ \cup \Phi_{\Gamma}^-$.
             \end{remark}
             
-            Let us now discuss Euler characteristics, which is the mean through which we shall obtain roots from representations of quivers (cf. proposition \ref{prop: tits_quadratic_forms_as_euler_characteristics}).
+        \subsubsection{(Co)reflection functors and admissible enumerations of vertices; Coxeter elements}
+            The proof of Gabriel's Theorem (that a quiver is Dynkin if it has finitely many indecomposable representations over a field) relies heavily on constructions known as \say{(co)reflection functors} (cf. definition \ref{def: (co)reflection_functors}) which can be thought of as gadgets that help us ensure that the representation theory of a quiver is independent of its orientation\footnote{So for instance, once we have proven Gabriel's Theorem, we can simply think of Dynkin quivers as those whose underlying undirected graph is a Dynkin diagram, and this notion is completely captured by the Tits quadratic forms associated to these undirected graphs.}. 
+            
+            \begin{convention}
+                If $Q := (Q_1, Q_0, s, t)$ is a quiver and $\sigma \in Q_0$ is any vertex therein, then we shall implicitly write $\sigma Q$ for the quiver wherein one reverses all the arrow into/out of $\sigma$ and keep the remaining arrows unchanged.
+            \end{convention}
+            \begin{convention}
+                From now on, let us work over a field $k$ so that path $k$-algebras of finite quivers are hereditary. We make no further assumptions on $k$, e.g. we do not need $k$ to be algebraically closed or of any particular characteristic.
+            \end{convention}
+            \begin{definition}[(Co)reflection functors] \label{def: (co)reflection_functors}
+                Let $Q := (Q_1, Q_0, s, t)$ be a quiver and $\sigma \in Q_0$ be a fixed vertex. One can then define the \textbf{reflection functor} based at the vertex $\sigma$ as:
+                    $$\Refl_{Q, \sigma}: \Rep_k(Q) \to \Rep_k(\sigma Q)$$
+                    $$(\calF: [Q] \to k\mod) \mapsto \left( \Refl_{Q, \sigma}(\calF): [Q] \to k\mod: v \mapsto \begin{cases} \text{$\calF(v)$ if $v \in Q_0 \setminus \{\sigma\}$} \\ \text{$\underset{v \in [Q]_{/\sigma}}{\lim} \calF(v)$ if $v = \sigma$} \end{cases} \right)$$
+                and the \textbf{coreflection functor} based at the vertex $\sigma$ respectively as:
+                    $$\co\Refl_{Q, \sigma}: \Rep_k(Q) \to \Rep_k(\sigma Q)$$
+                    $$(\calF: [Q] \to k\mod) \mapsto \left( \Refl_{Q, \sigma}(\calF): [Q] \to k\mod: v \mapsto \begin{cases} \text{$\calF(v)$ if $v \in Q_0 \setminus \{\sigma\}$} \\ \text{$\underset{v \in {}^{\sigma/}[Q]}{\colim} \calF(v)$ if $v = \sigma$} \end{cases} \right)$$
+            \end{definition}
+            \begin{convention}
+                Let $Q := (Q_1, Q_0, s, t)$ be a quiver and $\sigma \in Q_0$ be a fixed vertex. Then, for all $\calF \in \Ob(\Rep_k(Q))$, we shall abuse notations slightly and write:
+                    $$\Refl_{Q, \sigma}(\calF) := \underset{v \in [Q]_{/\sigma}}{\lim} \calF(v)$$
+                    $$\co\Refl_{Q, \sigma}(\calF) := \underset{v \in {}^{\sigma/}[Q]}{\colim} \calF(v)$$
+                when there is no risk of confusion. Keep in mind, over the remarks to come, that this abuse of notations of ours actually does not obscure any important categorical properties of the (co)reflection functors such as exactness.
+            \end{convention}
+            \begin{remark}[Categorical properties of (co)reflection functors] \label{remark: categorical_properties_of_(co)reflection_functors}
+                Immediately, one sees that (co)reflection functors preserve (co)limits of representations. More specifically, if $Q := (Q_1, Q_0, s, t)$ is a quiver and $\sigma \in Q_0$ is a fixed vertex, and if:
+                    $$I \to \Rep_k(Q)$$
+                    $$i \mapsto \calF_i$$
+                is a diagram of $k$-linear representations of $Q$, then clearly:
+                    $$\Refl_{Q, \sigma}\left( \underset{i \in I^{\op}}{\lim} \calF_i \right) \cong \underset{i \in I}{\lim} \Refl_{Q, \sigma}(\calF)$$
+                and:
+                    $$\co\Refl_{Q, \sigma}\left( \underset{i \in I}{\colim} F_i \right) \cong \underset{i \in I}{\colim} \co\Refl_{Q, \sigma}(F)$$
+                as a result of (co)limits commuting with one another. Of course, all the (co)limits at play here do indeed exist, since $\Rep_k(Q)$ is both complete and cocomplete as a result of $k\mod$ being so.
+            \end{remark}
+            
+            \begin{definition}[(Co)sinks] \label{def: (co)sinks}
+                Let $Q := (Q_1, Q_0, s, t)$ be a quiver and $\sigma \in Q_0$ be a fixed vertex therein. A \textbf{(co)sink} at $\sigma$ is then a sub-quiver of $Q$ wherein all the arrows point into/out of the fixed vertex $\sigma$. 
+            \end{definition}
+            \begin{convention}[(Co)sinks at the level of representations]
+                
+            \end{convention}
+            \begin{definition}[Admissible enumerations of (co)sinks] \label{def: admissible_enumerations_of_(co)sinks}
+                Let $Q := (Q_1, Q_0, s, t)$; also, fix an arbitrary representation $\calF \in \Ob(\Rep_k(Q))$. 
+                    \begin{itemize}
+                        \item An \textbf{admissible enumeration of sinks} on the vertices of $Q$ (i.e. on the set $Q_0$) is then a decreasing total ordering $\geq$ on the set $Q_0$, which is defined inductively in the following manner: if some $\sigma_1 \in Q_0$ is a sink then for all $1 \leq i \leq |Q_0|$, one shall have:
+                            $$\sigma_{i - 1} \geq \sigma_i$$
+                        if and only if:
+                            $$(\co\Refl_{Q, \sigma_{i - 1}} \circ ... \circ \co\Refl_{Q, \sigma_1})(\calF)(\sigma_i)$$
+                        is also a sink.
+                        \item An \textbf{admissible enumeration of cosinks} on the vertices of $Q$ (i.e. on the set $Q_0$) is then an increasing total ordering $\leq$ on the set $Q_0$, which is defined inductively in the following manner: if some $\sigma_1 \in Q_0$ is a sink then for all $1 \leq i \leq |Q_0|$, one shall have:
+                            $$\sigma_{i - 1} \leq \sigma_i$$
+                        if and only if:
+                            $$(\Refl_{Q, \sigma_{i - 1}} \circ ... \circ \Refl_{Q, \sigma_1})(\calF)(\sigma_i)$$
+                        is also a cosink.
+                    \end{itemize}
+            \end{definition}
+            \begin{remark}
+                Obviously, if a quiver $Q := (Q_1, Q_0, s, t)$ has an admissible enumeration of sinks on its set of vertices $Q_0$, say:
+                    $$Q_0 := \{\sigma_1 \geq ... \geq \sigma_n\}$$
+                then the opposite quiver $Q^{\op} := (Q_1, Q_0, s^{\op} := t, t^{\op} := s)$ will have an admissible enumeration of (co)sinks given by:
+                    $$Q^{\op}_0 = \{\sigma_1 \leq ... \leq \sigma_n\}$$
+            \end{remark}
+            \begin{proposition}[Existence of admissible enumerations] \label{prop: existence_of_admissible_enumerations}
+                If $Q$ is a connected acyclic quiver and has at least either one sink or cosink, then there will always exist admissible enumerations of (co)sinks on its set of vertices whenever $Q$ has a (co)sink. 
+            \end{proposition}
+                \begin{proof}
+                    
+                \end{proof}
+            \begin{remark}[(Co)reflection functors on finite connected acyclic quivers are exact] \label{remark: (co)reflection_functors_on_finite_connected_acyclic_quivers_are_exact}
+                If:
+                    $$\Gamma := (\Gamma_1, \Gamma_0, s, t)$$
+                is a \textit{finite} quiver with a fixed vertex $\sigma \in \Gamma_0$ then the corresponding (co)reflection functors:
+                    $$\Refl_{\Gamma, \sigma}, \co\Refl_{\Gamma, \sigma}: \Rep_k(\Gamma) \to \Rep_k(\sigma \Gamma)$$
+                will obviously be defined via finite (co)limits. Because there is an exact equivalence of abelian categories as follows (cf. proposition \ref{prop: quiver_representations_are_modules_over_quiver_algebras}):
+                    $$\Rep_k(\Gamma) \to {}^lk\<\Gamma\>\mod$$
+                the aforementioned reflection functor $\Refl_{\Gamma, \sigma}$ and coreflection functor $\co\Refl_{\Gamma, \sigma}$ are, respectively, left-exact and right-exact.
+                
+                If $\Gamma$ is - in addition to being finite - connected and acyclic then because either the free category on $\Gamma$ is filtered or because there exists a lowest/highest (co)sink. In the former case, we may assume without any loss of generality that the chosen vertex $\sigma \in \Gamma_0$ is a minimal object of the (co)filtered category $[\Gamma]$ (cf. proposition \ref{prop: existence_of_admissible_enumerations}), and in the latter case, we may assume without any loss of generality, that $\Gamma$ admits the previously fixed vertex $\sigma \in \Gamma_0$ as the lowest (co)sink. Then, observe that in both cases, the (co)reflection functors:
+                    $$\Refl_{\Gamma, \sigma}, \co\Refl_{\Gamma, \sigma}: \Rep_k(\Gamma) \to \Rep_k(\sigma \Gamma)$$
+                will actually be both left-exact and right-exact, since they are now defined via filtered (co)limits of left-$k\<\Gamma\>$-modules, and it is well-known that taking filtered (co)limits of modules over associative algebras is exact.
+            \end{remark}
+            \begin{lemma}[(Co)reflection functors on finite connected acyclic quivers preserve irreducible representations] \label{prop: (co)reflection_functors_on_finite_connected_acyclic_quivers_preserve_irreducible_representations}
+                Let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a connected and acyclic finite quiver with a fixed vertex $\sigma \in \Gamma_0$, which we assume to either be a minimal object of the (\textit{a priori} (co)filtered) free category $[\Gamma]$ (cf. proposition \ref{prop: existence_of_admissible_enumerations}) or a lowest (co)sink. Then, the (co)reflection functors 
+            \end{lemma}
+                \begin{proof}
+                    By remark \ref{remark: (co)reflection_functors_on_finite_connected_acyclic_quivers_are_exact}, we know that the (co)reflection functors:
+                        $$\Refl_{\Gamma, \sigma}, \co\Refl_{\Gamma, \sigma}: \Rep_k(\Gamma) \to \Rep_k(\sigma \Gamma)$$
+                    are exact. They thus preserve the irreducibility of $k$-linear representations $\calF \in \Ob(\Rep_k^{\irr}(\Gamma))$ as a consequence of Schur's Lemma (cf. lemma \ref{lemma: schur_lemma_for_abelian_categories}).
+                \end{proof}
+            \begin{corollary}[(Co)reflections and Grothendieck groups] \label{coro: (co)reflection_functors_and_grothendieck_groups}
+                
+            \end{corollary}
+            
+        \subsubsection{Dynkin quivers have finitely many isomorphism classes of indecomposable representations}
+            We have now come to the first half of Gabriel's Theorem. The broad idea here is that somehow, the isomorphism classes of indecomposable representations of a Dynkin quiver are bijectively labelled by the positive roots of said Dynkin quiver. In order to realise this vision, recall firstly, that over a field $k$ (which really should be thought of, heuristically, as a simple commutative ring in this context), the isomorphism classes of simple representations $[\calF] \in [\Rep_k^{\irr}(\Gamma)]$ of a Dynkin quiver $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ whose vertices are enumerated as:
+                $$\Gamma_0 := \{v_1, ..., v_n\}$$
+            correspond uniquely to simple roots of $\Gamma$ via the assignment of dimension vectors (cf. proposition \ref{prop: irreducible_representations_of_dynkin_quivers_are_labelled_by_simple_roots}):
+                $$\dim_k: [\Rep_k^{\irr}(\Gamma)] \to \Phi_{\Gamma}^{\simple}$$
+            Now, because we have by definition that:
+                $$\Phi_{\Gamma}^+ := \{\alpha \in \N^{\Gamma_0} \mid |\alpha|_{\Gamma} = 1\}$$
+            
+            \begin{theorem}[Gabriel's theorem (Dynkin implies representation-finite)] \label{theorem: gabriel_theorem_dynkin_implies_representation_finite}
+                Let $k$ be a field and $\Gamma$ be a Dynkin quiver. Then $\Gamma$ will have finitely many (finite-dimensional) indecomposable $k$-linear representations; in particular, there is a bijection:
+                    $$\dim_k: [\Rep_k^{\red}(\Gamma)] \to \Phi_{\Gamma}^+$$
+                between the set of isomorphism classes of indecomposable $k$-linear representations of $\Gamma$ and that of positive roots of $\Gamma$.
+            \end{theorem}
+                \begin{proof}
+                    Since $\Rep_k^{\fin}(\Gamma)$ is a finite $k$-linear abelian category, all of its objects are of finite lengths (cf. remark \ref{remark: locally_finite_linear_categories_are_jordan_holder_and_krull_schmidt}). As such, fix an indecomposable representation $\calF \in \Ob(\Rep_k^{\red}(\Gamma))$ of length $n$, along with a choice of a Jordan-H\"older filtration thereon:
+                        $$0 =: \calF_0 \subseteq \calF_1 \subseteq ... \subseteq \calF_n \subseteq \calF$$
+                    From the definition of Grothendieck groups (cf. definition \ref{def: simple_grothendieck_groups}), we then obtain the following expression from the filtration above:
+                        $$[\calF] = \sum_{1 \leq i \leq n} [\calF_i/\calF_{i - 1}]$$
+                    which we note to be well-defined thanks to the fact that Jordan-H\"older filtrations are unique up to multiplicities and permutations of their factors according to the Jordan-H\"older Theorem (cf. theorem \ref{theorem: jordan_holder_theorem}). By applying the $\Z$-module isomorphism (cf. lemma \ref{lemma: irreducible_representations_of_finite_quivers_are_labelled_by_vertices}):
+                        $$\dim_k: \Rep_k^{\fin}(\Gamma) \to \Z^{\oplus \Gamma_0}$$
+                    to the equation above, one then obtains:
+                        $$\dim_k [\calF] = \sum_{1 \leq i \leq n} \dim_k [\calF_i/\calF_{i - 1}]$$
+                    Since the factors $\calF_i/\calF_{i - 1}$ (for all $1 \leq i \leq n$) are simple by definition (cf. definition \ref{def: lengths_of_objects_and_jordan_holder_series}), we then see via proposition \ref{prop: irreducible_representations_of_dynkin_quivers_are_labelled_by_simple_roots} that:
+                        $$\dim_k [\calF_i/\calF_{i - 1}] \in \Phi_{\Gamma}^{\simple}$$
+                    for all $1 \leq i \leq n$. As a consequence of this, one has:
+                        $$\dim_k [\calF] \in \Phi_{\Gamma}^+$$
+                    which tells us that $\dim_k: [\Rep_k^{\red}(\Gamma)] \to \Phi_{\Gamma}^+$ is injective. Notice that this is already enough to show that $[\Rep_k^{\red}(\Gamma)]$ is a finite set, but we still have not yet demonstrated that isomorphism classes of indecomposable representations $[\calF] \in [\Rep_k^{\red}(\Gamma)]$ can be recovered from the positive roots $\alpha \in \Phi_{\Gamma}^+$.
+                    
+                    To that end, suppose that $\alpha \in \Phi_{\Gamma}^+$ is an arbitrary positive root of $\Gamma$ and write it as:
+                        $$\alpha := \sum_{1 \leq i \leq n} c_i \alpha_i$$
+                    in terms of the simple roots $\alpha_i$. Using proposition \ref{prop: irreducible_representations_of_dynkin_quivers_are_labelled_by_simple_roots}, we can rewrite the equation above as:
+                        $$\alpha := \sum_{1 \leq i \leq n} c_i [\calF_i]$$
+                    wherein $[\calF_i] \in [\Rep_k^{\irr}(\Gamma)]$ for all $1 \leq i \leq n$.
+                \end{proof}
+        
+        \subsubsection{Euler characteristics of finite connected acyclic quivers; representation-finite connected acyclic finite quivers are Dynkin}
+            Let us now discuss Euler characteristics before proving the second part of Gabriel's Theorem, which states that a finite connected acyclic quiver is Dynkin if it has finitely many isomorphism classes of indecomposable representations (cf. theorem \ref{theorem: gabriel_theorem_representation_finite_implies_dynkin}). As general finite connected acyclic quivers \textit{a priori} do not have any kind of well-behaved associated set of roots (unlike the more specialised Dynkin quivers), we shall have these so-called \say{Euler characteristics} serve as a replacement for the notion of Tits quadratic form (cf. proposition \ref{prop: tits_quadratic_forms_as_euler_characteristics}).
             \begin{definition}[Compact objects] \label{def: compact_objects}
                 An object $c \in \Ob(\C)$ of a locally small category $\C$ is said to be \textbf{compact} if and only if the representable copresheaf:
                     $$\C(c, -): \C \to \Sets$$
@@ -503,9 +643,6 @@
                     $$\C_0 \cap \C^{\comp} = \C_0^{\comp}$$
             \end{remark}
             \begin{example}[Finitely generated modules are compact] \label{example: finitely_generated_modules_are_compact}
-                
-            \end{example}
-            \begin{example}[Coherent module are compact] \label{example: coherent_modules_are_compact}
                 
             \end{example}
             \begin{convention}[Cohomological functors] \label{conv: cohomological_functors_dynkin_quiver_representations}
@@ -556,15 +693,14 @@
                     Straightforward from the fact that the cohomological functor $F: \rmD^b(\E)^{\op} \to \rmD^b(k\mod^{\fin})$ is triangulated by definition (cf. convention \ref{conv: cohomological_functors_dynkin_quiver_representations}) and from the definition of Grothendieck groups (cf. definitions \ref{def: simple_grothendieck_groups} and \ref{def: projective_grothendieck_groups}).
                 \end{proof}
             \begin{proposition}[Tits quadratic forms as Euler characteristics] \label{prop: tits_quadratic_forms_as_euler_characteristics}
-                Let $k$ be a field and let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a Dynkin quiver, and let us denote the Cartan quadratic form of this quiver by $B_{\Gamma}$ (cf. definition \ref{def: cartan_quadratic_forms_of_finite_quivers}). Then, there is a commutative diagram of $\Z$-module and homomorphisms between them as follows, wherein $\Delta_{\K_0(k\<\Gamma\>)}$ is the diagonal\footnote{This is given by $\Delta_{\K_0(k\<\Gamma\>)}([\calF]) := [\calF] \tensor [\calF]$, which can be easily shown to be $\Z$-linear.}:
+                Let $k$ be a field and let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a finite connected acyclic quiver. Then, there is a commutative diagram of $\Z$-module and homomorphisms between them as follows:
                     $$
                         \begin{tikzcd}
-                    	{\K_0(k\<\Gamma\>)} & {\Z^{\oplus \Phi_{\Gamma}^{\simple}}} \\
-                    	{\K_0(k\<\Gamma\>) \tensor_{\Z} \K_0(k\<\Gamma\>)} & \Z
-                    	\arrow["{\chi_{\Gamma}(-, -)}", from=2-1, to=2-2]
-                    	\arrow["{\Delta_{\K_0(k\<\Gamma\>)}}"', from=1-1, to=2-1]
-                    	\arrow["{\dim_k}", from=1-1, to=1-2]
-                    	\arrow["{q_{\Gamma}}", from=1-2, to=2-2]
+                        	{\K_0(k\<\Gamma\>) \x \K_0(k\<\Gamma\>)} && {\Z^{\oplus \Gamma_0} \tensor_{\Z} \Z^{\oplus \Gamma_0}} \\
+                        	& \Z
+                        	\arrow["{\chi_{\Gamma}(-, -)}"', from=1-1, to=2-2]
+                        	\arrow["{q_{\Gamma}}", from=1-3, to=2-2]
+                        	\arrow["{\dim_k \tensor_{\Z} \dim_k}", from=1-1, to=1-3]
                         \end{tikzcd}
                     $$
             \end{proposition}
@@ -577,104 +713,6 @@
                         $$\dim_k \End_{k\<\Gamma\>}(\calF) = 1$$
                     For this, we can simply make use of the fact that as a simple (left-)$k\<\Gamma\>$-module, $\calF$ is cyclic.
                 \end{proof}
-                
-                We have now come to the first half of Gabriel's Theorem. The broad idea here is that somehow, the isomorphism classes of indecomposable representations of a Dynkin quiver are bijectively labelled by the positive roots of said Dynkin quiver. In order to realise this vision, recall firstly, that over a field $k$ (which really should be thought of, heuristically, as a simple commutative ring in this context), the isomorphism classes of simple representations $[\calF] \in [\Rep_k^{\irr}(\Gamma)]$ of a Dynkin quiver $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ whose vertices are enumerated as:
-                    $$\Gamma_0 := \{v_1, ..., v_n\}$$
-                correspond uniquely to simple roots of $\Gamma$ via the assignment of dimension vectors (cf. proposition \ref{prop: irreducible_representations_of_dynkin_quivers_are_labelled_by_simple_roots}):
-                    $$\dim_k: [\Rep_k^{\irr}(\Gamma)] \to \Phi_{\Gamma}^{\simple}$$
-                Recall aslo, that:
-                    $$\Phi_{\Gamma}^+ := \span_{\N} \Phi_{\Gamma}^{\simple}$$
-                (cf. definition \ref{def: roots_of_dynkin_quivers}), so there is an induced $\N$-module isomorphism:
-                    $$\dim_k: \span_{\N} [\Rep_k^{\irr}(\Gamma)] \to \Phi_{\Gamma}^+$$
-                This tells us that the only thing to show is that there is a bijection:
-                    $$[\Rep_k^{\red}(\Gamma)] \cong \span_{\N} [\Rep_k^{\irr}(\Gamma)]$$
-                in order to show that there is bijection between the isomorphism classes of indecomposable $k$-linear representations of $\Gamma$ and the positive roots thereof. For this, we shall be making use of the Jordan-H\"older Theorem (cf. theorem \ref{theorem: jordan_holder_theorem}).
-                \begin{theorem}[Gabriel's theorem (Dynkin implies representation-finite)] \label{theorem: gabriel_theorem_dynkin_implies_representation_finite}
-                    Let $k$ be a field and $\Gamma$ be a Dynkin quiver. Then $\Gamma$ will have finitely many (finite-dimensional) indecomposable $k$-linear representations.
-                \end{theorem}
-                    \begin{proof}
-                        Since $\Rep_k^{\fin}(\Gamma)$ is a finite $k$-linear abelian category, all of its objects are of finite lengths (cf. remark \ref{remark: locally_finite_linear_categories_are_jordan_holder_and_krull_schmidt}). As such, fix an indecomposable representation $\calF \in \Ob(\Rep_k^{\red}(\Gamma))$ of length $n$, along with a choice of a Jordan-H\"older filtration thereon:
-                            $$0 =: \calF_0 \subseteq \calF_1 \subseteq ... \subseteq \calF_n \subseteq \calF$$
-                        From the definition of Grothendieck groups (cf. definition \ref{def: simple_grothendieck_groups}), we then obtain the following expression from the filtration above:
-                            $$[\calF] = \sum_{1 \leq i \leq n} [\calF_i/\calF_{i - 1}]$$
-                        Since the factors $\calF_i/\calF_{i - 1}$ (for all $1 \leq i \leq n$) are simple by definition (cf. definition \ref{def: lengths_of_objects_and_jordan_holder_series}), we have shown that $[\calF] \in \span_{\N} [\Rep_k^{\irr}(\Gamma)]$ for all $\calF \in \Ob(\Rep_k^{\red}(\Gamma))$. This tells us that:
-                            $$[\Rep_k^{\red}(\Gamma)] \subset \span_{\N} [\Rep_k^{\irr}(\Gamma)]$$
-                        
-                        Conversely, consider some $\N$-linear combination:
-                            $$\sum_{1 \leq j \leq m} a_j [\calF_j] \in \span_{\N} [\Rep_k^{\irr}(\Gamma)]$$
-                        of isomorphism classes of irreducible representations $\calF_j \in \Ob(\Rep_k^{\irr}(\Gamma))$ and subsequently, its dimension vector:
-                            $$\dim_k \sum_{1 \leq j \leq m} a_j [\calF_j] = \sum_{1 \leq j \leq m} a_j \dim_k [\calF_j]$$
-                        (recall that the dimension vector map $\dim_k: \K_0(k\<\Gamma\>) \to 
-                        \Z^{\oplus \Gamma_0}$ is $\Z$-linear; cf. remark \ref{remark: taking_dimension_vectors_is_Z_linear}). Now, because the Cartan quadratic form $B_{\Gamma}$ is $\Z$-bilinear by definition (cf. definition \ref{def: cartan_quadratic_forms_of_finite_quivers}), we have:
-                            $$
-                                \begin{aligned}
-                                    q_{\Gamma}\left(\sum_{1 \leq j \leq m} a_j \dim_k [\calF_j]\right) & := \frac12 B_{\Gamma}\left(\sum_{1 \leq j \leq m} a_j \dim_k [\calF_j], \sum_{1 \leq j \leq m} a_j \dim_k [\calF_j]\right)
-                                    \\
-                                    & = \frac12 \sum_{1 \leq j \leq m} a_j B_{\Gamma}\left(\dim_k [\calF_j], \sum_{1 \leq j \leq m} a_j \dim_k [\calF_j]\right)
-                                    \\
-                                    & = \frac12 \sum_{1 \leq j \leq m} a_j \left( \sum_{1 \leq j \leq m} a_j B_{\Gamma}(\dim_k [\calF_j], \dim_k [\calF_j]) \right)
-                                    \\
-                                    & = \sum_{1 \leq j \leq m} a_j \left( \sum_{1 \leq j \leq m} a_j \frac12 B_{\Gamma}(\dim_k [\calF_j], \dim_k [\calF_j]) \right)
-                                    \\
-                                    & = \sum_{1 \leq j \leq m} a_j \left( \sum_{1 \leq j \leq m} a_j q_{\Gamma}(\dim_k [\calF_j]) \right)
-                                    \\
-                                    & = 
-                                \end{aligned}    
-                            $$
-                    \end{proof}
-                \begin{corollary}[Indecomposable representations of Dynkin quivers are labelled by positive roots] \label{coro: indecomposable_representations_of_dynkin_quivers_are_labelled_by_positive_roots}
-                    Let $k$ be a field and $\Gamma$ be a Dynkin quiver. Then, there will be a bijection:
-                        $$[\Rep_k^{\red}(\Gamma)] \cong \Phi_{\Gamma}^+$$
-                    between the set of isomorphism classes of indecomposable $k$-linear representations of $\Gamma$ and that of positive roots of $\Gamma$.
-                \end{corollary}
-            
-        \subsubsection{(Co)reflection functors}
-            The proof of the second part of Gabriel's Theorem (that a quiver is Dynkin if it has finitely many indecomposable representations over a field) relies heavily on constructions known as \say{(co)reflection functors} (cf. definition \ref{def: (co)reflection_functors}) which can be thought of as gadgets that help us ensure that the representation theory of a quiver is independent of its orientation\footnote{So for instance, once we have proven Gabriel's Theorem, we can simply think of Dynkin quivers as those whose underlying undirected graph is a Dynkin diagram, and this notion is completely captured by the Tits quadratic forms associated to these undirected graphs.}. 
-            \begin{definition}[(Co)sinks] \label{def: (co)sinks}
-                Let $Q := (Q_1, Q_0, s, t)$ be a quiver and $\sigma \in Q_0$ be a fixed vertex therein. A \textbf{(co)sink} at $\sigma$ is then a sub-quiver of $Q$ wherein all the arrows point into/out of the fixed vertex $\sigma$. 
-            \end{definition}
-            \begin{convention}
-                If $Q := (Q_1, Q_0, s, t)$ is a quiver and $\sigma \in Q_0$ is a (co)sink, then we shall implicitly write $Q_{\sigma}^{\op}$ for the quiver wherein one reverses all the arrow into/out of $\sigma$ and keep the remaining arrows unchanged.
-            \end{convention}
-            \begin{convention}
-                From now on, let us work over a field $k$ so that path $k$-algebras of finite quivers are hereditary. We make no further assumptions on $k$, e.g. we do not need $k$ to be algebraically closed or of any particular characteristic.
-            \end{convention}
-            \begin{definition}[(Co)reflection functors] \label{def: (co)reflection_functors}
-                Let $Q := (Q_1, Q_0, s, t)$ be a quiver and $\sigma \in Q_0$ be a fixed vertex. 
-                    \begin{itemize}
-                        \item If $\sigma$ is a sink, then one can define the so-called \textbf{reflection functor}:
-                            $$\Refl_{Q, \sigma}: \Rep_k(Q) \to \Rep_k(Q_{\sigma}^{\op})$$
-                            $$(\calF: [Q] \to k\mod) \mapsto \left( \Refl_{Q, \sigma}(\calF): [Q] \to k\mod: v \mapsto \begin{cases} \text{$\calF(v)$ if $v \in Q_0 \setminus \{\sigma\}$} \\ \text{$\underset{v \in [Q]_{/\sigma}}{\lim} \calF(v)$ if $v = \sigma$} \end{cases} \right)$$
-                        \item If $\sigma$ is a cosink, then one can instead define the \textbf{coreflection functor}:
-                            $$\co\Refl_{Q, \sigma}: \Rep_k(Q) \to \Rep_k(Q_{\sigma}^{\op})$$
-                            $$(\calF: [Q] \to k\mod) \mapsto \left( \Refl_{Q, \sigma}(\calF): [Q] \to k\mod: v \mapsto \begin{cases} \text{$\calF(v)$ if $v \in Q_0 \setminus \{\sigma\}$} \\ \text{$\underset{v \in {}^{\sigma/}[Q]}{\colim} \calF(v)$ if $v = \sigma$} \end{cases} \right)$$
-                    \end{itemize}
-            \end{definition}
-            \begin{convention}
-                Let $Q := (Q_1, Q_0, s, t)$ be a quiver and $\sigma \in Q_0$ be a fixed vertex. Then, for all $\calF \in \Ob(\Rep_k(Q))$, we shall abuse notations slightly and write:
-                    $$\Refl_{Q, \sigma}(\calF) := \underset{v \in [Q]_{/\sigma}}{\lim} \calF(v)$$
-                    $$\co\Refl_{Q, \sigma}(\calF) := \underset{v \in {}^{\sigma/}[Q]}{\colim} \calF(v)$$
-                when there is no risk of confusion. Keep in mind, over the remarks to come, that this abuse of notations of ours actually does not obscure any important categorical properties of the (co)reflection functors such as exactness.
-            \end{convention}
-            \begin{remark}[Categorical properties of (co)reflection functors] \label{remark: categorical_properties_of_(co)reflection_functors}
-                Immediately, one sees that (co)reflection functors preserve (co)limits of representations. More specifically, if $Q := (Q_1, Q_0, s, t)$ is a quiver and $\sigma \in Q_0$ is a fixed vertex, and if:
-                    $$I \to \Rep_k(Q)$$
-                    $$i \mapsto \calF_i$$
-                is a diagram of $k$-linear representations of $Q$, then clearly:
-                    $$\Refl_{Q, \sigma}\left( \underset{i \in I^{\op}}{\lim} \calF_i \right) \cong \underset{i \in I}{\lim} \Refl_{Q, \sigma}(\calF)$$
-                and:
-                    $$\co\Refl_{Q, \sigma}\left( \underset{i \in I}{\colim} F_i \right) \cong \underset{i \in I}{\colim} \co\Refl_{Q, \sigma}(F)$$
-                as a result of (co)limits commuting with one another. Of course, all the (co)limits at play here do indeed exist, since $\Rep_k(Q)$ is both complete and cocomplete as a result of $k\mod$ being so.
-            \end{remark}
-            \begin{remark}[(Co)reflection functors of finite quivers are exact] \label{remark: (co)reflection_functors_of_finite_quivers_are_exact}
-                If:
-                    $$Q := (Q_1, Q_0, s, t)$$
-                is a \textit{finite} quiver with a fixed vertex $\sigma \in Q_0$ then the corresponding (co)reflection functors:
-                    $$\Refl_{Q, \sigma}, \co\Refl_{Q, \sigma}$$
-                will obviously be defined via finite (co)limits. Because there is an exact equivalence of abelian categories as follows (cf. proposition \ref{prop: quiver_representations_are_modules_over_quiver_algebras}):
-                    $$\Rep_k(Q) \to {}^lk\<Q\>\mod$$
-                the aforementioned reflection functor $\Refl_{Q, \sigma}$ and coreflection functor $\co\Refl_{Q, \sigma}$ are, respectively, left-exact and right-exact.
-            \end{remark}
             
             \begin{theorem}[Gabriel's theorem (representation-finite implies Dynkin)] \label{theorem: gabriel_theorem_representation_finite_implies_dynkin}
                 Let $k$ be a field and $\Gamma$ be a connected and acyclic finite quiver. $\Gamma$ is then a Dynkin quiver if it has finitely many isomorphism classes of indecomposable $k$-linear representations.
