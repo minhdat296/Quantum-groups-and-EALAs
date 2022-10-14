@@ -595,14 +595,15 @@
             \begin{corollary}[(Co)reflections and Grothendieck groups] \label{coro: (co)reflection_functors_and_grothendieck_groups}
                 
             \end{corollary}
+            \begin{proposition}[(Co)reflections of indecomposable representations of finite connected acyclic quivers] \label{prop: (co)reflections_of_indecomposable_representations_of_finite_connected_acyclic_quivers}
+                Let $k$ be a field and $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a finite connected acyclic quiver with $n := |\Gamma_0|$ vertices.  
+            \end{proposition}
+                \begin{proof}
+                    
+                \end{proof}
             
         \subsubsection{Dynkin quivers have finitely many isomorphism classes of indecomposable representations}
-            We have now come to the first half of Gabriel's Theorem. The broad idea here is that somehow, the isomorphism classes of indecomposable representations of a Dynkin quiver are bijectively labelled by the positive roots of said Dynkin quiver. In order to realise this vision, recall firstly, that over a field $k$ (which really should be thought of, heuristically, as a simple commutative ring in this context), the isomorphism classes of simple representations $[\calF] \in [\Rep_k^{\irr}(\Gamma)]$ of a Dynkin quiver $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ whose vertices are enumerated as:
-                $$\Gamma_0 := \{v_1, ..., v_n\}$$
-            correspond uniquely to simple roots of $\Gamma$ via the assignment of dimension vectors (cf. proposition \ref{prop: irreducible_representations_of_dynkin_quivers_are_labelled_by_simple_roots}):
-                $$\dim_k: [\Rep_k^{\irr}(\Gamma)] \to \Phi_{\Gamma}^{\simple}$$
-            Now, because we have by definition that:
-                $$\Phi_{\Gamma}^+ := \{\alpha \in \N^{\Gamma_0} \mid |\alpha|_{\Gamma} = 1\}$$
+            We have now come to the first half of Gabriel's Theorem. The broad idea here is that somehow, the isomorphism classes of indecomposable representations of a Dynkin quiver are bijectively labelled - via dimension vectors - by the positive roots of said Dynkin quiver, a phenomenon which ought to be thought of as a generalisation - via lemma \ref{lemma: projective_indecomposable_modules_over_artinian_algebras_are_simple} - of proposition \ref{prop: irreducible_representations_of_dynkin_quivers_are_labelled_by_simple_roots}, which tells us that there is a bijective correspondence between the isomorphism classes of irreducible representations of a Dynkin quiver and its simple roots via taking dimension vectors. 
             
             \begin{theorem}[Gabriel's theorem (Dynkin implies representation-finite)] \label{theorem: gabriel_theorem_dynkin_implies_representation_finite}
                 Let $k$ be a field and $\Gamma$ be a Dynkin quiver. Then $\Gamma$ will have finitely many (finite-dimensional) indecomposable $k$-linear representations; in particular, there is a bijection:
@@ -622,13 +623,7 @@
                         $$\dim_k [\calF_i/\calF_{i - 1}] \in \Phi_{\Gamma}^{\simple}$$
                     for all $1 \leq i \leq n$. As a consequence of this, one has:
                         $$\dim_k [\calF] \in \Phi_{\Gamma}^+$$
-                    which tells us that $\dim_k: [\Rep_k^{\red}(\Gamma)] \to \Phi_{\Gamma}^+$ is injective. Notice that this is already enough to show that $[\Rep_k^{\red}(\Gamma)]$ is a finite set, but we still have not yet demonstrated that isomorphism classes of indecomposable representations $[\calF] \in [\Rep_k^{\red}(\Gamma)]$ can be recovered from the positive roots $\alpha \in \Phi_{\Gamma}^+$.
-                    
-                    To that end, suppose that $\alpha \in \Phi_{\Gamma}^+$ is an arbitrary positive root of $\Gamma$ and write it as:
-                        $$\alpha := \sum_{1 \leq i \leq n} c_i \alpha_i$$
-                    in terms of the simple roots $\alpha_i$. Using proposition \ref{prop: irreducible_representations_of_dynkin_quivers_are_labelled_by_simple_roots}, we can rewrite the equation above as:
-                        $$\alpha := \sum_{1 \leq i \leq n} c_i [\calF_i]$$
-                    wherein $[\calF_i] \in [\Rep_k^{\irr}(\Gamma)]$ for all $1 \leq i \leq n$.
+                    which tells us that $\dim_k: [\Rep_k^{\red}(\Gamma)] \to \Phi_{\Gamma}^+$ is injective. Notice that this is already enough to show that $[\Rep_k^{\red}(\Gamma)]$ is a finite set, but we still have not yet demonstrated that isomorphism classes of indecomposable representations $[\calF] \in [\Rep_k^{\red}(\Gamma)]$ can be recovered from the positive roots $\alpha \in \Phi_{\Gamma}^+$, which entails showing that $\dim_k: [\Rep_k^{\red}(\Gamma)] \to \Phi_{\Gamma}^+$ is surjective. For this, simply combine proposition \ref{prop: (co)reflections_of_indecomposable_representations_of_finite_connected_acyclic_quivers} with proposition \ref{prop: irreducible_representations_of_dynkin_quivers_are_labelled_by_simple_roots} and lemma \ref{lemma: projective_indecomposable_modules_over_artinian_algebras_are_simple}.
                 \end{proof}
         
         \subsubsection{Euler characteristics of finite connected acyclic quivers; representation-finite connected acyclic finite quivers are Dynkin}
@@ -738,7 +733,40 @@
             \end{example}
         
     \subsection{Tilting modules and (derived) Morita equivalences}
+        \begin{convention}[Minimal additive subcategories] \label{conv: minimal_additive_subcategories}
+            Let $\calA$ be a Krull-Schmidt \textit{additive} category (cf. definition \ref{def: krull_schmidt_categories}) and fix an object $X \in \Ob(\calA)$, whose Krull-Schmidt Decomposition into indecomposable objects $X_i$ shall be supposed to be:
+                $$X := \bigoplus_{i \in I} X_i$$
+            Recall also, that such a decomposition is unique up to isomorphisms (cf. theorem \ref{theorem: krull_schmidt_theorem}). Let us then write:
+                $$\span_{\calA} X$$
+            for the additive full subcategory of $\calA$ freely generated via direct sums by elements of the isomorphism class of zero objects of $\calA$, along with those of isomorphism classes of direct sums of the form:
+                $$\bigoplus_{i \in I'} X_i$$
+            wherein $I' \subset I$ are subsets of $I$ as above. 
+        \end{convention}
+        \begin{remark}
+            Let $\calA$ be a Krull-Schmidt additive category and $X \in \Ob(\calA)$ be an object therein. Then, notice that the triple $(\calA[X], \oplus, 0)$ for some choice of zero object $0 \in \Ob(\calA)$ is a symmetric monoidal category. 
+        \end{remark}
+    
         \subsubsection{(Partial) tilting objects}
+            \begin{definition}[Orthogonal objects] \label{def: orthogonal_objects}
+                Let $k$ be an Artinian commutative ring and $\E$ be a finite $k$-linear abelian category. Then, for every object $X^{\bullet} \in \Ob(\rmD^b(\E))$, one defines the \textbf{orthogonal complement} of $X^{\bullet}$, denoted by $\E_X^{\bot}$, to be the kernel of the cohomological functor (cf. convention \ref{conv: cohomological_functors_dynkin_quiver_representations}):
+                    $$\R\Hom_{\E}(-, X^{\bullet}): \rmD^b(\E) \to \rmD^b(k\mod^{\fin})$$
+                in the sense that:
+                    $$\E_X^{\bot} := \{Y^{\bullet} \in \Ob(\rmD^b(\E)) \mid \R\Hom_{\E}(Y^{\bullet}, X^{\bullet}) \cong 0^{\bullet}\}$$
+                If $X^{\bullet} \in \E_X^{\bot}$ then we shall say that $X^{\bullet}$ is \textbf{self-orthogonal}. One also speaks of the \textbf{$i^{th}$ orthogonal complement} of $X^{\bullet}$, denoted by $H^i(\E_X^{\bot})$, which is kernel of the functor:
+                    $$\Ext^i_{\E}(-, X^{\bullet}[0]): \rmD^b(\E) \to k\mod^{\fin}$$
+                i.e.:
+                    $$H^i(\E_X^{\bot}) := \{Y^{\bullet} \in \Ob(\rmD^b(\E)) \mid \Ext^i_{\E}(Y^{\bullet}, X^{\bullet}[0]) \cong 0\}$$
+            \end{definition}
+            \begin{convention}
+                Let $k$ be an Artinian commutative ring and $\E$ be a finite $k$-linear abelian category. Then, we shall write:
+                    $$\E^{\bot} := \bigcap_{X \in \Ob(\E)} \E_X^{\bot}$$
+                for the full subcategory of $\rmD^b(\E)$ spanned by all the self-orthogonal objects. 
+            \end{convention}
+            \begin{definition}[Partial tilting objects] \label{def: partial_tilting_objects}
+                Let $k$ be an Artinian commutative ring and $\E$ be a finite $k$-linear abelian category. The full subcategory $\E^{\flat}$ of $\rmD^b(\E)$ spanned by the so-called \textbf{partial tilting objects} is then given by:
+                    $$\E^{\flat} := \rmD^{[0, 1]}(\E) \cap H^1(\E^{\bot})$$
+                The category $\E^{\flat}$ contains another full subcategory of $\rmD^b(\E)$, denoted by $\E^{\flat \flat}$, which is spanned by what are known as the \textbf{tilting objects}; it is given by:
+            \end{definition}
         
         \subsubsection{Separating and splitting tilting objects}
         

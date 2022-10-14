@@ -1,0 +1,50 @@
+\section{Nakajima quiver varieties}
+    \subsection{Moduli spaces of quiver representations}
+        \begin{convention}
+            Throughout this subsection, we work over a ground field $k$ of characteristic $0$. All schemes, unless stated to be otherwise, shall be over $k$.
+        \end{convention}
+        \begin{convention}
+            If $K$ is a field then by $\bar{K}$ we will usually mean the algebraic closure of $K$. When there are reasons to confuse $\bar{K}$ for the separable closure of $K$, then we shall write $K^{\alg}$ and $K^{\sep}$ instead. 
+        \end{convention}
+        
+        \subsubsection{GIT quotients parametrising quiver representations}
+            \begin{convention}
+                Let $Q := (Q_1, Q_0, s, t)$ be a finite quiver and fix some vector $v \in \N^{Q_0}$. Then, by $\Rep_k^v(Q)$ we shall mean the set of isomorphism classes of $k$-linear representations $\calF \in \Ob(\Rep_k(Q))$ such that:
+                    $$\dim_k \calF = v$$
+            \end{convention}
+            \begin{proposition}
+                Let $Q := (Q_1, Q_0, s, t)$ be a finite quiver and fix some vector $v \in \N^{Q_0}$. Then, $\Rep_k^v(Q)$ has a natural structure of a $k$-vector space; furthermore, we have:
+                    $$\dim_k \Rep_k^v(Q) = B_Q(v, v)$$
+                wherein $B_Q(-, -)$ is the Cartan quadratic form (cf. definition \ref{def: cartan_quadratic_forms_of_finite_quivers}).
+            \end{proposition}
+                \begin{proof}
+                            
+                \end{proof}
+            \begin{corollary}
+                Let $Q := (Q_1, Q_0, s, t)$ be a finite quiver and fix some vector $v \in \N^{Q_0}$. Then, there is a natural of the group $\GL_v(k) := \prod_{i \in Q_0} \GL_{v_i}(k)$ on $\Rep_k^v(Q)$ via conjugations. 
+            \end{corollary}
+                \begin{proof}
+                    
+                \end{proof}
+            \begin{remark}[Action of general linear groups on spaces of quiver representations] \label{remark: general_linear_group_action_on_quiver_representations}
+                Let $Q := (Q_1, Q_0, s, t)$ be a finite quiver and fix some vector $v \in \N^{Q_0}$. Then, observe that because the (central\footnote{Observe that $\rmZ(\GL_v(k)) = \GL_1(k)^{Q_0}$}) subgroup $\GL_1(k) \leq \GL_1(k)^{Q_0} \leq \GL_v(k)$ acts via conjugations on $\Rep_k^v(Q)$ by non-zero $k$-scalar multiples of the identity matrix, it acts trivially on $\Rep_k^v(Q)$. As such, one obtains an induced action of $\PGL_v(k)$ on $\Rep_k^v(Q)$ via conjugations. Observe for later, that both $\GL_v(k)$ and $\PGL_v(k)$ are the groups of $k$-points of geometrically reductive group $k$-schemes (namely $\GL_v$ and $\PGL_v$)
+            \end{remark}
+            \begin{remark}[Moduli spaces of quiver representations of given dimensions] \label{remark: moduli_spaces_of_quiver_representations_of_given_dimensions} 
+                Let $Q := (Q_1, Q_0, s, t)$ be a finite quiver and fix some vector $v \in \N^{Q_0}$. In light of remark \ref{remark: general_linear_group_action_on_quiver_representations}, we can now construct a moduli space of isomorphism classes $[\calF] \in \Rep_k^v(Q)$ in the following manner: since $\Rep_k^v(Q)$ is a finite-dimensional $k$-vector space, it can be regarded as a finite-rank vector bundle over $\Spec k$, namely:
+                    $$\calN_{Q, v} := \Spec\left( \Sym_k \Rep_k^v(Q) \right)$$
+                In fact, $\calN_{Q, v}$ is readily a finite and locally free affine $k$-scheme. In particular, this tells us that the functor-of-points of this $k$-scheme an \'etale sheaf on $\Spec k$ that is given by:
+                    $$\calN_{Q, v}(S) := \Spec\left( \Sym_k \Rep_k^v(Q) \right)(A) \cong \Hom_k(\Rep_k^v(Q), A)$$
+                for all \'etale commutative $k$-algebras $A$ (in the third term, we regard $A$ as a $k$-vector space).
+                
+                Now, as mentioned in remark \ref{remark: general_linear_group_action_on_quiver_representations}, the group $\GL_v$ is actually geometrically reductive. As a consequence, the quotient \'etale sheaf:
+                    $$\overline{\calN_{Q, v}} := \calN_{Q, v}/\GL_v$$
+                will actually be representable by an (affine) $k$-scheme, namely on has isomorphisms:
+                    $$\overline{\calN_{Q, v}} \cong \Spec\left( \Sym_k \Rep_k^v(Q) \right)^{\GL_v} \cong \Spec \Hom_k(\Rep_k^v(Q), k)^{\GL_v(k)}$$
+            \end{remark}
+            
+        \subsubsection{Isotropy groups and a geometric proof of Gabriel's Theorem}
+            
+    
+    \subsection{Framings}
+    
+    \subsection{Moment maps and Hamiltonian reductions}
