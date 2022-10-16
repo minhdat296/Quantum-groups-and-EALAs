@@ -456,6 +456,9 @@
             \begin{convention}
                 Due to proposition \ref{prop: projective_and_simple_grothendieck_groups_coincide}, we shall henceforth denote \textit{the} Grothendieck group of any given finite linear abelian category $\E$ simply by $\K_0(\E)$.
             \end{convention}
+            \begin{convention}[Grothendieck groups of finite quivers]
+                If $Q$ is a finite quiver and if it is understood from context that we were considering finite-rank $k$-linear representations of $Q$ (for some Artinian commutative ring $k$), then by $\K_0(Q)$ we shall mean $\K_0(\Rep_k^{\fin}(Q))$.
+            \end{convention}
             
             \begin{definition}[Dimension vectors of quiver representations] \label{def: dimension_vectors_of_quiver_representations}
                 Let $k$ be a commutative ring, let $Q := (Q_1, Q_0, s, t)$ be a finite quiver, and consider the finite $k$-linear abelian category $\Rep_k^{\fin}(Q)$ of finite-rank $k$-linear representations of $Q$. We then call the assignment:
@@ -467,18 +470,18 @@
                 Let $k$ be a field and let $Q := (Q_1, Q_0, s, t)$ be a finite quiver. It is not hard to notice that taking rank vectors of $k$-linear representations of $Q$ is additive, i.e.:
                     $$\rank_k (\calF \oplus \calF') = \rank_k \calF + \rank_k \calF'$$
                 for all $\calF, \calF' \in \Ob(\Rep_k^{\fin}(Q))$. From this, one sees that there is an induced $\Z$-module homomorphism:
-                    $$\rank_k: \K_0(k\<Q\>) \to \Z^{\oplus Q_0}$$
+                    $$\rank_k: \K_0(Q) \to \Z^{\oplus Q_0}$$
             \end{remark}
             \begin{lemma}[Irreducible representations of Dynkin quivers are labelled by vertices] \label{lemma: irreducible_representations_of_finite_quivers_are_labelled_by_vertices}
                 Let $k$ be a field and let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a finite quiver. There is then a $\Z$-module isomorphism:
-                    $$\dim_k: \K_0(k\<\Gamma\>) \to \Z^{\oplus \Gamma_0}$$
+                    $$\dim_k: \K_0(\Gamma) \to \Z^{\oplus \Gamma_0}$$
             \end{lemma}
                 \begin{proof}
-                    The map $\dim_k: \K_0(k\<\Gamma\>) \to \Z^{\oplus \Gamma_0}$ is already $\Z$-linear (cf. remark \ref{remark: taking_dimension_vectors_is_Z_linear}), so we need to only show that it is bijective. To show that it is injective, simply consider:
-                        $$\ker \dim_k := \{[\calF] \in \K_0(k\<\Gamma\>) \mid \dim_k \calF = 0\} = \{0\}$$
+                    The map $\dim_k: \K_0(\Gamma) \to \Z^{\oplus \Gamma_0}$ is already $\Z$-linear (cf. remark \ref{remark: taking_dimension_vectors_is_Z_linear}), so we need to only show that it is bijective. To show that it is injective, simply consider:
+                        $$\ker \dim_k := \{[\calF] \in \K_0(\Gamma) \mid \dim_k \calF = 0\} = \{0\}$$
                     To see that the map is surjective, let us first enumerate the vertices of $\Gamma$ by:
                         $$\Gamma_0 := \{v_1, ..., v_n\}$$
-                    Then, observe that the simple roots $\alpha_i \in \Phi_{\Gamma}^{\simple}$ (cf. example \ref{example: simple_roots}) are nothing but the dimension vectors of the representations $\Delta \in \Ob(\Rep_k^{\fin}(\Gamma))$ given by $\Delta(v_j) := k^{\oplus \delta_{ij}}$ for all $1 \leq j \leq n$ (note that the transition maps $\Delta(v_j) \to \Delta(v_{j'})$ do indeed exist thanks to the universal property of the zero vector space as a zero object of $k\-\Vect$). These representations are clearly irreducible, and since $\Phi_{\Gamma}^{\simple}$ and $[\Rep_k^{\irr}(\Gamma)]$ respectively form bases for the free $\Z$-modules $\Z^{\oplus \Gamma_0}$ and $\K_0(k\<\Gamma\>)$, we have in fact shown that for all $\beta \in \Z^{\oplus \Gamma_0}$, there exists an isomorphism class of representations $[\calF] \in \K_0(k\<\Gamma\>)$ such that $\dim_k \calF = \beta$; of course, this means that $\dim_k: \K_0(k\<\Gamma\>) \to \Z^{\oplus \Gamma_0}$ is also surjective.
+                    Then, observe that the simple roots $\alpha_i \in \Phi_{\Gamma}^{\simple}$ (cf. example \ref{example: simple_roots}) are nothing but the dimension vectors of the representations $\Delta \in \Ob(\Rep_k^{\fin}(\Gamma))$ given by $\Delta(v_j) := k^{\oplus \delta_{ij}}$ for all $1 \leq j \leq n$ (note that the transition maps $\Delta(v_j) \to \Delta(v_{j'})$ do indeed exist thanks to the universal property of the zero vector space as a zero object of $k\-\Vect$). These representations are clearly irreducible, and since $\Phi_{\Gamma}^{\simple}$ and $[\Rep_k^{\irr}(\Gamma)]$ respectively form bases for the free $\Z$-modules $\Z^{\oplus \Gamma_0}$ and $\K_0(\Gamma)$, we have in fact shown that for all $\beta \in \Z^{\oplus \Gamma_0}$, there exists an isomorphism class of representations $[\calF] \in \K_0(\Gamma)$ such that $\dim_k \calF = \beta$; of course, this means that $\dim_k: \K_0(\Gamma) \to \Z^{\oplus \Gamma_0}$ is also surjective.
                 \end{proof}
             \begin{corollary}[Irreducible representations of Dynkin quivers are labelled by vertices] \label{coro: irreducible_representations_of_finite_quivers_are_labelled_by_vertices}
                 Let $k$ be a field and $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a Dynkin quiver. Then, there are choices of bijections:
@@ -486,7 +489,7 @@
                 between the set of isomorphism classes of irreducible $k$-linear representations of $\Gamma$ and that of vertices of $\Gamma_0$.
             \end{corollary}
                 \begin{proof}
-                    Since the Grothendieck group $\K_0(k\<\Gamma\>)$ is freely generated as a $\Z$-module by the set of isomorphism classes of irreducible $k$-linear representations of $\Gamma$ (cf. proposition \ref{prop: simple_grothendieck_groups_of_finite_linear_abelian_categories_are_free_on_simple_objects}), this is an immediate consequence of lemma \ref{lemma: irreducible_representations_of_finite_quivers_are_labelled_by_vertices}.
+                    Since the Grothendieck group $\K_0(\Gamma)$ is freely generated as a $\Z$-module by the set of isomorphism classes of irreducible $k$-linear representations of $\Gamma$ (cf. proposition \ref{prop: simple_grothendieck_groups_of_finite_linear_abelian_categories_are_free_on_simple_objects}), this is an immediate consequence of lemma \ref{lemma: irreducible_representations_of_finite_quivers_are_labelled_by_vertices}.
                 \end{proof}
             \begin{proposition}[Irreducible representations of Dynkin quivers are labelled by simple roots] \label{prop: irreducible_representations_of_dynkin_quivers_are_labelled_by_simple_roots}
                 Let $k$ be a field and $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a Dynkin quiver. Then, there are choices of bijections (depending on choices of basis for $\Z^{\oplus \Gamma_0}$):
@@ -494,9 +497,9 @@
                 between the set of isomorphism classes irreducible $k$-linear representations of $\Gamma$ and the simple roots of $\Gamma$ (cf. example \ref{example: simple_roots}).
             \end{proposition}
                 \begin{proof}
-                    This comes from the fact that the simple roots of $\Gamma$ form a basis for $\Z^{\oplus \Gamma_0}$ (cf. example \ref{example: simple_roots}), which we know by lemma \ref{lemma: irreducible_representations_of_finite_quivers_are_labelled_by_vertices} is isomorphic to the Grothendieck group $\K_0(k\<\Gamma\>)$ via:
-                        $$\rank_k: \K_0(k\<\Gamma\>) \to \Z^{\oplus \Gamma_0}$$
-                    and the Grothendieck group $\K_0(k\<\Gamma\>)$ itself is freely generated by the set $[\Rep_k^{\irr}(\Gamma)]$ of irreducible $k$-linear representations of $\Gamma$ (cf. proposition \ref{prop: simple_grothendieck_groups_of_finite_linear_abelian_categories_are_free_on_simple_objects}).
+                    This comes from the fact that the simple roots of $\Gamma$ form a basis for $\Z^{\oplus \Gamma_0}$ (cf. example \ref{example: simple_roots}), which we know by lemma \ref{lemma: irreducible_representations_of_finite_quivers_are_labelled_by_vertices} is isomorphic to the Grothendieck group $\K_0(\Gamma)$ via:
+                        $$\rank_k: \K_0(\Gamma) \to \Z^{\oplus \Gamma_0}$$
+                    and the Grothendieck group $\K_0(\Gamma)$ itself is freely generated by the set $[\Rep_k^{\irr}(\Gamma)]$ of irreducible $k$-linear representations of $\Gamma$ (cf. proposition \ref{prop: simple_grothendieck_groups_of_finite_linear_abelian_categories_are_free_on_simple_objects}).
                 \end{proof}
             \begin{remark}
                 Let $\Gamma$ be a Dynkin quiver. Then because every root $\alpha \in \Phi_{\Gamma}$ is just a $\Z$-linear combination of simple roots, we see that:
@@ -691,7 +694,7 @@
                 Let $k$ be a field and let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a finite connected acyclic quiver. Then, there is a commutative diagram of $\Z$-module and homomorphisms between them as follows:
                     $$
                         \begin{tikzcd}
-                        	{\K_0(k\<\Gamma\>) \x \K_0(k\<\Gamma\>)} && {\Z^{\oplus \Gamma_0} \tensor_{\Z} \Z^{\oplus \Gamma_0}} \\
+                        	{\K_0(\Gamma) \x \K_0(\Gamma)} && {\Z^{\oplus \Gamma_0} \tensor_{\Z} \Z^{\oplus \Gamma_0}} \\
                         	& \Z
                         	\arrow["{\chi_{\Gamma}(-, -)}"', from=1-1, to=2-2]
                         	\arrow["{q_{\Gamma}}", from=1-3, to=2-2]
@@ -700,7 +703,7 @@
                     $$
             \end{proposition}
                 \begin{proof}
-                    Because the Grothendieck group $\K_0(k\<\Gamma\>)$ is admits $[\Rep_k^{\irr}(\Gamma)]$ as a $\Z$-linear basis (cf. proposition \ref{prop: simple_grothendieck_groups_of_finite_linear_abelian_categories_are_free_on_simple_objects}), which itself is in bijection with the set $\Phi_{\Gamma}^{\simple}$ of simple roots of $\Gamma$ via the dimension vector $\dim_k: \K_0(k\<\Gamma\>) \to \Z^{\oplus \Phi_{\Gamma}^{\simple}}$ (cf. propositions \ref{prop: irreducible_representations_of_dynkin_quivers_are_labelled_by_simple_roots}), and because $\q_{\Gamma}(\alpha) = 1$ for all $\alpha \in \Phi_{\Gamma}^{\simple}$ by definition (cf. definition \ref{def: roots_of_dynkin_quivers}), it shall suffice to show that for all \textit{irreducible} representations $\calF \in \Ob(\Rep_k^{\irr}(\Gamma))$, one has:
+                    Because the Grothendieck group $\K_0(\Gamma)$ is admits $[\Rep_k^{\irr}(\Gamma)]$ as a $\Z$-linear basis (cf. proposition \ref{prop: simple_grothendieck_groups_of_finite_linear_abelian_categories_are_free_on_simple_objects}), which itself is in bijection with the set $\Phi_{\Gamma}^{\simple}$ of simple roots of $\Gamma$ via the dimension vector $\dim_k: \K_0(\Gamma) \to \Z^{\oplus \Phi_{\Gamma}^{\simple}}$ (cf. propositions \ref{prop: irreducible_representations_of_dynkin_quivers_are_labelled_by_simple_roots}), and because $\q_{\Gamma}(\alpha) = 1$ for all $\alpha \in \Phi_{\Gamma}^{\simple}$ by definition (cf. definition \ref{def: roots_of_dynkin_quivers}), it shall suffice to show that for all \textit{irreducible} representations $\calF \in \Ob(\Rep_k^{\irr}(\Gamma))$, one has:
                         $$\chi_{\Gamma}(\calF, \calF) := \dim_k \End_{k\<\Gamma\>}(\calF) - \dim_k \Ext^1_{k\<\Gamma\>}(\calF, \calF) = 1$$
                     To that end, recall first of all that because $\calF$ is a simple module over the Artinian $k$-algebra $k\<\Gamma\>$ (indeed, $k\<\Gamma\>$ is finite-dimensional as a $k$-vector space), $\calF$ is projective (cf. lemma \ref{lemma: projective_indecomposable_modules_over_artinian_algebras_are_simple}), which in particular tells us that:
                         $$\Ext^1_{k\<\Gamma\>}(\calF, \calF) \cong 0$$
