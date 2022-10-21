@@ -1,7 +1,7 @@
 \section{Nakajima quiver varieties}
     \subsection{\textit{Pr\'elude}: \texorpdfstring{$\Quot$}{} and \texorpdfstring{$\Hilb$}{} schemes}
 
-    \subsection{Moduli spaces of quiver representations}
+    \subsection{GIT quotients parametrising quiver representations}
         \begin{convention}
             Throughout this subsection, we work over a ground field $k$. All schemes, unless stated to be otherwise, shall be over $k$.
         \end{convention}
@@ -9,63 +9,24 @@
             If $K$ is a field then by $\bar{K}$ we will usually mean the algebraic closure of $K$. When there are reasons to confuse $\bar{K}$ for the separable closure of $K$, then we shall write $K^{\alg}$ and $K^{\sep}$ instead. 
         \end{convention}
         
-        \subsubsection{GIT quotients parametrising quiver representations}
-            \begin{convention}
-                Let $Q := (Q_1, Q_0, s, t)$ be a finite quiver and fix some vector $v \in \N^{Q_0}$. Then, by $\Rep_k^v(Q)$ we shall mean the set of \textit{all} (not only isomorphism classes) $k$-linear representations $\calF \in \Ob(\Rep_k(Q))$ such that:
-                    $$\dim_k \calF = v$$
-            \end{convention}
-            \begin{proposition}[Dimensions of representation spaces of finite quivers] \label{prop: dimensions_of_representation_spaces_of_finite_quivers}
-                Let $Q := (Q_1, Q_0, s, t)$ be a finite quiver and fix some vector $v \in \N^{Q_0}$. Then, $\Rep_k^v(Q)$ has a natural structure of a $k$-vector space; furthermore, we have:
-                    $$\dim_k \Rep_k^v(Q) = v^{\top} R_Q v$$
-                wherein $R_Q$ is the adjacency matrix of $Q$ (cf. definition \ref{def: cartan_quadratic_forms_of_finite_quivers}).
-            \end{proposition}
-                \begin{proof}
-                            
-                \end{proof}
-            \begin{corollary}[Action of general linear groups on spaces of quiver representations] \label{coro: general_linear_group_action_on_quiver_representations}
-                Let $Q := (Q_1, Q_0, s, t)$ be a finite quiver and fix some vector $v \in \N^{Q_0}$. Then, there is a natural of the group $\GL_v(k) := \prod_{i \in Q_0} \GL_{v_i}(k)$ on $\Rep_k^v(Q)$ via conjugations. 
-            \end{corollary}
-                \begin{proof}
-                    
-                \end{proof}
-            \begin{remark}[Action of general linear groups on spaces of quiver representations] \label{remark: general_linear_group_action_on_quiver_representations}
-                Let $Q := (Q_1, Q_0, s, t)$ be a finite quiver and fix some vector $v \in \N^{Q_0}$. Then, observe that because the (central\footnote{Observe that $\rmZ(\GL_v(k)) = \GL_1(k)^{Q_0}$}) subgroup $\GL_1(k) \leq \GL_1(k)^{Q_0} \leq \GL_v(k)$ acts via conjugations on $\Rep_k^v(Q)$ by non-zero $k$-scalar multiples of the identity matrix, it acts trivially on $\Rep_k^v(Q)$. As such, one obtains an induced action of $\PGL_v(k)$ on $\Rep_k^v(Q)$ via conjugations. Observe for later, that both $\GL_v(k)$ and $\PGL_v(k)$ are the groups of $k$-points of geometrically reductive group $k$-schemes (namely $\GL_v$ and $\PGL_v$)
-            \end{remark}
-            \begin{remark}[Moduli spaces of quiver representations of given dimensions] \label{remark: moduli_spaces_of_quiver_representations_of_given_dimensions} 
-                Let $Q := (Q_1, Q_0, s, t)$ be a finite quiver and fix some vector $v \in \N^{Q_0}$. In light of remark \ref{remark: general_linear_group_action_on_quiver_representations}, we can now construct a moduli space of isomorphism classes $[\calF] \in \Rep_k^v(Q)$ in the following manner: since $\Rep_k^v(Q)$ is a finite-dimensional $k$-vector space, it can be regarded as a finite-rank vector bundle over $\Spec k$, namely:
-                    $$\calN_{Q, v} := \Spec\left( \Sym_k \Rep_k^v(Q) \right)$$
-                In fact, one readily sees that $\calN_{Q, v}$ is an affine scheme that is finite over $\Spec k$. Also, observe that wse have isomorphisms:
-                    $$\Sym_k \Rep_k^v(Q) \cong \Hom_k(\Rep_k^v(Q), k)$$
-                so the functor-of-points:
-                    $$\calN_{Q, v}: k\-\Comm\Alg \to \Sets$$
-                is given by:
-                    $$\calN_{Q, v}(-) \cong \Hom_k(\Rep_k^v(Q), -)$$
-            \end{remark}
-            Remark \ref{remark: moduli_spaces_of_quiver_representations_of_given_dimensions} can be formalised in the following manner:
-            \begin{proposition}[]
-                Let $Q := (Q_1, Q_0, s, t)$ be a finite quiver and fix some vector $v \in \N^{Q_0}$. If $k$ is algebraically closed then there will be a bijection:
-                    $$\overline{\calN_{Q, v}}(k) \cong [\Rep_k^v(Q)]$$
-            \end{proposition}
-                \begin{proof}
-                    
-                \end{proof}
-            
-            Let us now revisit Gabriel's Theorem (cf. theorems \ref{theorem: gabriel_theorem_dynkin_implies_representation_finite} and \ref{theorem: gabriel_theorem_representation_finite_implies_dynkin}). Here, we would like to investigate 
-            \begin{definition}[Orbit-finite quivers] \label{def: orbit_finite_quivers}
-                Let $Q := (Q_1, Q_0, s, t)$ be a finite quiver. Such a quiver is said to be ($k$-linearly) \textbf{orbit-finite} if and only if for all vectors $v \in \N^{Q_0}$, the GIT quotient $\calN_{Q, v} /\!/ \GL_v$ is finite over $\Spec k$.
+        \subsubsection{A moduli stack of finite-dimensional quiver representations}
+            Let us begin this section by introducing so-called \say{quiver varieties}. These are algebraic varieties representing fine moduli spaces of certain algebraic stacks classifying representations of finite quivers $Q$ of a prescribed dimension vector $v \in \N^{Q_0}$. Traditionally, these varieties were usually realised as GIT quotients of certain naturally arising affine schemes, but given the fragile nature of GIT constructions, and also because we would like to put emphasis on the fact that these quiver varieties parametrise quiver representations, the stacky point of view seems more appropriate. 
+            \begin{definition}[Quiver representation stacks] \label{def: quiver_representation_stacks}
+                Let $Q := (Q_1, Q_0, s, t)$ be a finite quiver. Let us then define the \textbf{prestack of finite-dimensional $k$-linear representations of $Q$} as the prestack (fibred in groupoids):
+                    $$\pi_Q^{\fin}: \scrR_Q^{\fin} \to (\Sch_{/\Spec k})_{\fppf}$$
+                whose fibre over each $k$-scheme $S \in \Ob((\Sch_{/\Spec k})_{\fppf})$ is the groupoid:
+                    $$\Rep_{\calO_S}^{\fin}(Q) := \Func([Q], \Coh(S)^{\circ})$$
+                of whose objects are $\Coh(S)$-valued representations of $Q$ and whose morphisms are isomorphism between such representations.  
             \end{definition}
             \begin{remark}
-                Let $Q := (Q_1, Q_0, s, t)$ be a finite quiver. By \'etale descent (cf. \cite[\href{https://stacks.math.columbia.edu/tag/04DH}{Tag 04DH}]{stacks}), one sees that $Q$ is equivalently orbit-finite if and only if for all finite extensions $k'/k$, there are only finitely many $\GL_v(k')$-orbits inside 
+                
             \end{remark}
-            \begin{definition}[Representation-finite quivers] \label{def: representation_finite_quivers}
-                Let $Q := (Q_1, Q_0, s, t)$ be a finite quiver. It is said to be ($k$-linearly) \textbf{representation-finite} if and only if $\Rep_k(Q)$ has only finitely many isomorphism classes of indecomposable objects. 
-            \end{definition}
+            
             \begin{theorem}[Gabriel's theorem (representation-finite implies Dynkin)] \label{theorem: geometric_gabriel_theorem_representation_finite_implies_dynkin}
                 Let $k$ be a field and $\Gamma$ be a connected and acyclic finite quiver. $\Gamma$ is then a Dynkin\footnote{Cf. definition \ref{def: dynkin_quivers}.} quiver if it $k$-linearly representation-finite.
             \end{theorem}
                 \begin{proof}
-                    Following definition \ref{def: dynkin_quivers}, we shall seek to show that the Tits quadratic form $q_{\Gamma}$ (cf. definition \ref{def: tits_quadratic_forms}) is positive-definite, i.e. $q_{\Gamma}(v) \geq 0$ for all $v \in \N^{\Gamma_0}$ with equality occurring if and only if $v = 0$. To this end, observe first of all that:
-                        $$q_{\Gamma}(v) = \sum_{1 \leq i \leq |\Gamma_0|} v_i^2 - \sum_{1 \leq i \leq j \leq |\Gamma_0|} v_i v_j = \dim \GL_v - \dim \calN_{\Gamma, v}$$
+                    
                 \end{proof}
         
             \begin{theorem}[Gabriel's theorem (Dynkin implies representation-finite)] \label{theorem: geometric_gabriel_theorem_dynkin_implies_representation_finite}

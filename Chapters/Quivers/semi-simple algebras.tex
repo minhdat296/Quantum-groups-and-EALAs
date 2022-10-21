@@ -171,18 +171,18 @@
                 \end{proof}
                 
             \begin{definition}[Finite linear categories] \label{def: finite_linear_categories}
-                For any commutative ring $k$, a $k$-linear (abelian) category $\E$ is said to be \textbf{finite} if and only if there exists an \textit{exact} equivalence:
+                For any Artinian\footnote{So that left/right-$A$-module are finitely generated if and only if it is of finite length.} commutative ring $k$, a $k$-linear (abelian) category $\E$ is said to be \textbf{finite} if and only if there exists an \textit{exact} equivalence:
                     $$F: \E \to {}^lA\mod$$
                 to the category $A\mod$ of left-modules\footnote{Which are necessarily finitely generated.} over some Artinian $k$-algebra $A$, which we shall call the algebra of \textbf{coefficients} of $\E$.
             \end{definition}
             \begin{proposition}[Finite linear categories are locally finite] \label{prop: finite_linear_categories_are_locally_finite}
-                Let $k$ be a commutative ring. Then, any finite $k$-linear category will also be locally finite. 
+                Let $k$ be an Artinian commutative ring. Then, any finite $k$-linear category will also be locally finite. 
             \end{proposition}
                 \begin{proof}
                     Combine definitions \ref{def: locally_finite_linear_categories} and \ref{def: finite_linear_categories}, and note that categories of finitely generated modules over finite $k$-algebras are indeed locally finite as $k$-linear categories. 
                 \end{proof}
             \begin{proposition}[Finite linear categories have enough projectives] \label{prop: finite_linear_categories_have_enough_projectives}
-                Let $k$ be a commutative ring. Every finite $k$-linear category has enough projectives.
+                Let $k$ be an Artinian commutative ring. Every finite $k$-linear category has enough projectives.
             \end{proposition}
                 \begin{proof}
                     This is tautologically obvious because every left-module $M$ over a ring $A$ admits a free (hence projective) resolution $\e_{\bullet}: P_{\bullet} \to M$; the existence of the two-term complex $\e_1: P_1 \to M \to 0$ then tells us that indeed, finite linear categories have enough projectives. 
