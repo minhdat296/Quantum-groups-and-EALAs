@@ -672,10 +672,44 @@
                 where $n := |\Gamma_0|$. Then for all $1 \leq i, j \leq n$, the $i^{th}$ \textbf{Kronecker representation} of $\Gamma$ is then the object $\Delta_i \in \Ob(\Rep_k^{\irr}(\Gamma))$ given by:
                     $$\Delta_i(\sigma_j) := k^{\oplus \delta_{ij}}$$
             \end{convention}
+            \begin{lemma}[Fixed-points of (co)reflection adjunctions] \label{lemma: fixed_points_of_(co)reflection_adjunctions}
+                Let $Q$ be a quiver with a fixed vertex $\sigma$, and let $\calF \in \Ob(\Rep_k(Q))$ be an arbitrary representation thereof.
+                    \begin{enumerate}
+                        \item If:
+                            $$\calF(\sigma) \cong \coker \left( \ker: \Refl_{Q, \sigma}(\calF)(\sigma) \to \bigoplus_{v \in \Ob([Q]_{/\sigma})} \calF(v) \right)$$
+                        (cf. remark \ref{remark: categorical_properties_of_(co)reflection_functors}) then the adjunction counit map:
+                            $$\e_{\calF}: (\co\Refl_{\sigma Q, \sigma} \circ \Refl_{Q, \sigma})(\calF) \to \calF$$
+                        will be an isomorphism.
+                        \item Dually, if:
+                            $$\calF(\sigma) \cong \ker \left( \coker: \bigoplus_{v \in \Ob({}^{\sigma/}[Q])} \calF(v) \to \co\Refl_{Q, \sigma}(\calF)(\sigma) \right)$$
+                        (cf. remark \ref{remark: categorical_properties_of_(co)reflection_functors}) then the adjunction unit map:
+                            $$\eta_{\calF}: \calF \to (\Refl_{\sigma Q, \sigma} \circ \co\Refl_{Q, \sigma})(\calF)$$
+                        will be an isomorphism.
+                    \end{enumerate}
+            \end{lemma}
+                \begin{proof}
+                    The two cases are formally dual to one another, so we shall only prove that first.
+                    
+                    If:
+                        $$\calF(\sigma) \cong \coker \left( \Refl_{Q, \sigma}(\calF)(\sigma) \to \bigoplus_{v \in \Ob([Q]_{/\sigma})} \calF(v) \right)$$
+                    then by remark \ref{remark: categorical_properties_of_(co)reflection_functors}, we will have:
+                        $$
+                            \begin{aligned}
+                                (\co\Refl_{\sigma Q, \sigma} \circ \Refl_{Q, \sigma})(\calF)(\sigma) & \cong \co\Refl_{\sigma Q, \sigma}\left( \ker \left( \bigoplus_{v \in \Ob([Q]_{/\sigma})} \calF(v) \to \calF(\sigma) \right) \right)
+                                \\
+                                & \cong \coker \left( \ker \left( \bigoplus_{v \in \Ob([Q]_{/\sigma})} \calF(v) \to \calF(\sigma) \right) \to \bigoplus_{v \in \Ob({}^{\sigma/}[\sigma Q])} \calF(v) \right)
+                                \\
+                                & \cong \coker \left( \ker \left( \bigoplus_{v \in \Ob([Q]_{/\sigma})} \calF(v) \to \calF(\sigma) \right) \to \bigoplus_{v \in \Ob([Q]_{/\sigma})} \calF(v) \right)
+                                \\
+                                & \cong \calF(\sigma)
+                            \end{aligned}
+                        $$
+                    This proves the claim, since the vertex $\sigma$ was picked arbitrarily. 
+                \end{proof}
             \begin{lemma}[(Co)reflections of indecomposable representations] \label{lemma: (co)reflections_of_indecomposable_representations}
                 Let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a Dynkin quiver and fix an arbitrary vertex $\sigma \in \Gamma_0$. Then, for all representations $\calF \in \Ob(\Rep_k(\Gamma))$, the (co)reflections:
                     $$\Refl_{\Gamma, \sigma}(\calF), \co\Refl_{\Gamma, \sigma}(\calF)$$
-                will be indecomposable if and only if $\calF$ itself is indecomposable.
+                will be indecomposable\footnote{We count the zero represenatation as being indecomposable (cf. definition \ref{def: (in)decomposable_objects}).} if $\calF$ itself is indecomposable.
             \end{lemma}
                 \begin{proof}
                     
