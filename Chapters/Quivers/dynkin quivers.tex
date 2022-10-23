@@ -127,7 +127,7 @@
                 (cf. proposition \ref{prop: free_quivers}), one also has\footnote{One does not have to worry about the formal existence of $Q \cup Q'$ within the category $\Quiv$ of $\Sets$-valued quivers, since it is a topos by construction.}:
                     $$k\<Q \cup Q'\> \cong k\<Q\> \tensor_k k\<Q'\>$$
             \end{remark}
-            \begin{example}[Path algebras of discrete quivers]
+            \begin{example}[Path algebras of discrete quivers] \label{example: path_algebras_of_discrete_quivers}
                 The simplest example of a quiver is the trivial loop:
                     \begin{figure}[H]
                         \centering
@@ -197,7 +197,7 @@
                     $$\b_n^-(k)$$
                 of lower-triangular $n \x n$ matrices with entries in $k$.
             \end{example}
-            \begin{example}[Path algebras of quivers with loops]
+            \begin{example}[Path algebras of quivers with loops] \label{example: path_algebras_of_loop_quivers}
                 If we were to add a non-trivial loop $x: \bullet \to \bullet$ to the trivial quiver $(\{\bullet\}, \{\id\})$ to yield:
                     $$
                         \begin{tikzcd}
@@ -650,7 +650,7 @@
                 \begin{proof}
                     
                 \end{proof}
-            \begin{lemma}[(Co)reflection functors on finite connected acyclic quivers are adjoint] \label{lemma: (co)reflection_functors_on_finite_connected_acyclic_quivers_are_adjoint}
+            \begin{lemma}[Coxeter functors on finite connected acyclic quivers are adjoint] \label{lemma: coxeter_functors_are_adjoints}
                 Let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a connected and acyclic finite quiver with an admissible enumeration of sinks:
                     $$\Gamma_0 := \{\sigma_1 \geq ... \geq \sigma_n\}$$
                 The $i^{th}$ (co)Coxeter functors $\Cox^{(i)}_{\Gamma, \sigma_1 \geq ...\geq \sigma_n}$ and $\co\Cox^{(i)}_{\Gamma, \sigma_1 \geq ...\geq \sigma_n}$ form a pair of adjoint functors in the following manner for all $1 \leq i \leq n$:
@@ -667,10 +667,10 @@
                     See remark \ref{remark: categorical_properties_of_(co)reflection_functors}.
                 \end{proof}
             \begin{convention}[Kronecker representations] \label{conv: kronecker_representations}
-                Let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a Dynkin quiver and enumerate its vertices by:
+                Let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a connected and acyclic finite quiver and enumerate its vertices by:
                     $$\Gamma := \{\sigma_1, ..., \sigma_n\}$$
-                where $n := |\Gamma_0|$. Then for all $1 \leq i, j \leq n$, the $i^{th}$ \textbf{Kronecker representation} of $\Gamma$ is then the object $\Delta_i \in \Ob(\Rep_k^{\irr}(\Gamma))$ given by:
-                    $$\Delta_i(\sigma_j) := k^{\oplus \delta_{ij}}$$
+                where $n := |\Gamma_0|$. Then for all $1 \leq i, j \leq n$, the $i^{th}$ \textbf{Kronecker representation} of $\Gamma$ is then the object $\Delta_{\Gamma, \sigma_i} \in \Ob(\Rep_k^{\irr}(\Gamma))$ given by:
+                    $$\Delta_{\Gamma, \sigma_i}(\sigma_j) := k^{\oplus \delta_{ij}}$$
             \end{convention}
             \begin{lemma}[Fixed-points of (co)reflection adjunctions] \label{lemma: fixed_points_of_(co)reflection_adjunctions}
                 Let $Q$ be a quiver with a fixed vertex $\sigma$, and let $\calF \in \Ob(\Rep_k(Q))$ be an arbitrary representation thereof.
@@ -706,23 +706,30 @@
                         $$
                     This proves the claim, since the vertex $\sigma$ was picked arbitrarily. 
                 \end{proof}
-            \begin{lemma}[(Co)reflections of indecomposable representations] \label{lemma: (co)reflections_of_indecomposable_representations}
-                Let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a Dynkin quiver and fix an arbitrary vertex $\sigma \in \Gamma_0$. Then, for all representations $\calF \in \Ob(\Rep_k(\Gamma))$, the (co)reflections:
-                    $$\Refl_{\Gamma, \sigma}(\calF), \co\Refl_{\Gamma, \sigma}(\calF)$$
-                will be indecomposable\footnote{We count the zero represenatation as being indecomposable (cf. definition \ref{def: (in)decomposable_objects}).} if $\calF$ itself is indecomposable.
-            \end{lemma}
-                \begin{proof}
-                    
-                \end{proof}
-            \begin{corollary}[Coxeter functors act as zero on irreducible representations] \label{coro: coxeter_functors_act_as_zero_on_irreducible_representations}
+            \begin{remark}[Coxeter functors act as zero on irreducible representations] \label{remark: coxeter_functors_act_as_zero_on_irreducible_representations}
                 Let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a connected and acyclic finite quiver with an admissible enumeration of sinks:
                     $$\Gamma_0 := \{\sigma_1 \geq ... \geq \sigma_n\}$$
-                The $n^{th}$ (co)Coxeter functors $\Cox_{\Gamma, \sigma_1 \geq ...\geq \sigma_n}$ and $\co\Cox_{\Gamma, \sigma_1 \geq ...\geq \sigma_n}$ then act as zero on all simple objects of $\Rep_k(\sigma_n ... \sigma_1 \Gamma)$ and those of $\Rep_k(\Gamma)$, respectively. 
-            \end{corollary}
+                Then, as a consequence of definitions \ref{def: (co)reflection_functors} and \ref{def: coxeter_functors}, the $i^{th}$ Coxeter functors:
+                    $$\Cox_{\Gamma, \sigma_1 \geq ...\geq \sigma_n}^{(i)}, \co\Cox_{\Gamma, \sigma_1 \geq ...\geq \sigma_n}^{(i)}$$
+                act on all the Kronecker representations $\Delta_{\sigma_i ... \sigma_1, \sigma_j \Gamma, \sigma_j}, \Delta_{\Gamma, \sigma_j}$ as the identity when $i < j$ and as zero when $i \geq j$. Notably, the $n^{th}$ (co)Coxeter functors:
+                    $$\Cox_{\Gamma, \sigma_1 \geq ...\geq \sigma_n}^{(n)}, \co\Cox_{\Gamma, \sigma_1 \geq ...\geq \sigma_n}^{(n)}$$
+                act as zero on all objects of $\Rep_k^{\irr}(\sigma_n ... \sigma_1 \Gamma)$ and those of $\Rep_k^{\irr}(\Gamma)$, respectively (which we recall, using proposition \ref{prop: irreducible_representations_of_dynkin_quivers_are_labelled_by_simple_roots}, are in bijection with the Kronecker representations, which themselves are in bijection with $\Phi_{\Gamma}^{\simple}$ by construction). 
+            \end{remark}
+            \begin{lemma}[(Co)reflections of indecomposable representations] \label{lemma: (co)reflections_of_indecomposable_representations}
+                Let $Q := (Q_1, Q_0, s, t)$ be a connected and acyclic finite quiver and fix an arbitrary vertex $\sigma \in Q_0$. Then, for all representations $\calF \in \Ob(\Rep_k(Q))$, the (co)reflections:
+                    $$\Refl_{Q, \sigma}(\calF), \co\Refl_{Q, \sigma}(\calF)$$
+                will be indecomposable\footnote{We count the zero representation as being indecomposable (cf. definition \ref{def: (in)decomposable_objects}).} if and only if $\calF$ itself is indecomposable.
+            \end{lemma}
                 \begin{proof}
-                    Apply lemma \ref{lemma: (co)reflections_of_indecomposable_representations} to the Kronecker representations, which are together in bijection with $[\Rep_k^{\irr}(\Gamma)]$. Then, use the fact that irreducible representations of any Dynkin quiver are - up to isomorphisms - in bijection with the simple roots of said quiver (cf. proposition \ref{prop: irreducible_representations_of_dynkin_quivers_are_labelled_by_simple_roots}).
+                    Firstly, assume that $\calF$ is indecomposable. Without any loss of generality, suppose that the fixed vertex $\sigma \in Q_0$ is a sink; because $\calF$ is indecomposable, this implies that:
+                        $$\calF(\sigma) \cong \coker \left( \ker: \Refl_{Q, \sigma}(\calF)(\sigma) \to \bigoplus_{v \in \Ob([Q]_{/\sigma})} \calF(v) \right)$$
+                    Lemma \ref{lemma: fixed_points_of_(co)reflection_adjunctions} then tells us that the adjunction counit:
+                        $$\e: \co\Refl_{\sigma Q, \sigma} \circ \Refl_{Q, \sigma} \to \1$$
+                    is a natural isomorphism of functors on $\Rep_k(Q)$. Suppose now, suppose for the sake of deriving a contradiction, that $\Refl_{Q, \sigma}(\calF)$ is decomposable (showing that $\co\Refl_{Q, \sigma}(\calF)$ is indecomposable is formally dual to this case). $\co\Refl_{\sigma Q, \sigma}$ being left-exact (cf. remark \ref{remark: categorical_properties_of_(co)reflection_functors}) - and hence preserving finite direct sums - then implies $(\co\Refl_{\sigma Q, \sigma} \circ \Refl_{Q, \sigma})(\calF)$ is also decomposable. But this representation of $Q$ is isomorphic to $\calF$, as stated above, so we have a contradiction. As such, $\Refl_{Q, \sigma}(\calF)$ (and likewise, $\co\Refl_{Q, \sigma}(\calF)$) must be indecomposable as a representation of $\sigma Q$ whenever $\calF$ is an indecomposable representation of $Q$.
+                    
+                    Conversely, suppose that $\Refl_{Q, \sigma}(\calF)$ or $\co\Refl_{Q, \sigma}(\calF)$ is indecomposable. $\calF$ must then also be indecomposable by the right/left-exactness of (co)reflection functors (cf. remark \ref{remark: categorical_properties_of_(co)reflection_functors}), which in particular tells us that finite direct sums are preserved.
                 \end{proof}
-            \begin{proposition}[Coxeter functors preserve non-projective indecomposable representations] \label{prop: coxeter_functors_preserve_non_projective_indecomposable_representations}
+            \begin{theorem}[Coxeter functors preserve non-projective indecomposable representations] \label{theorem: coxeter_functors_preserve_non_projective_indecomposable_representations}
                 Let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a connected and acyclic finite quiver with an admissible enumeration of sinks:
                     $$\Gamma_0 := \{\sigma_1 \geq ... \geq \sigma_n\}$$
                 Then, there is an adjoint equivalence:
@@ -735,32 +742,62 @@
                         \end{tikzcd}
                     $$
                 between the categories of indecomposable but not irreducible (i.e. non-projective indecomposable; cf. lemma \ref{lemma: projective_indecomposable_modules_over_artinian_algebras_are_simple}) $k$-linear representations of $\sigma_n ... \sigma_1 \Gamma$ and $\Gamma$. 
-            \end{proposition}
+            \end{theorem}
                 \begin{proof}
-                    
+                    Combine lemmas \ref{lemma: coxeter_functors_are_adjoints} and \ref{lemma: (co)reflections_of_indecomposable_representations} with remark \ref{remark: coxeter_functors_act_as_zero_on_irreducible_representations} to see that the sought-for adjunction is well-defined. That this is an adjoint equivalence is a straightforward consequence of lemma \ref{lemma: fixed_points_of_(co)reflection_adjunctions}.
                 \end{proof}
-            \begin{theorem}[Coxeter functors and Grothendieck groups] \label{theorem: coxeter_functors_and_grothendieck_groups}
+            \begin{convention}[Grothendieck group of non-irreducible indecomposable representations of Dynkin quivers]
+                Let $Q$ be a Dynkin quiver. Denote the quotient $\Z$-module:
+                    $$\K_0^{\red}(Q)/\K_0^{\irr}(Q)$$
+                of the split Grothendieck group:
+                    $$\K_0^{\red}(Q) := \K_0^{\indecomp}(\Rep_k^{\fin}(Q))$$
+                of the finite $k$-linear abelian category $\Rep_k^{\fin}(Q)$ by the simple Grothendieck group:
+                    $$\K_0(Q) := \K_0^{\simple}(\Rep_k^{\fin}(Q))$$
+                of the same category by:
+                    $$\K_0^{\red, \not \irr}(Q)$$
+            \end{convention}
+            \begin{corollary}[Coxeter functors and Grothendieck groups] \label{coro: coxeter_functors_and_grothendieck_groups}
                 Let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a connected and acyclic finite quiver with an admissible enumeration of sinks:
                     $$\Gamma_0 := \{\sigma_1 \geq ... \geq \sigma_n\}$$
-                Then, there are two mutually inverse $\Z$-linear operators:
+                Then, there are two mutually inverse $\Z$-module homomorphisms as follows, defined in the obvious manner:
                     $$
                         \begin{tikzcd}
-                        	{\K_0^{\red, \not \irr}(\Gamma)} & {\K_0^{\red, \not \irr}(\Gamma)}
+                        	{\K_0^{\red, \not \irr}(\sigma_n ... \sigma_1 \Gamma)} & {\K_0^{\red, \not \irr}(\Gamma)}
                         	\arrow[""{name=0, anchor=center, inner sep=0}, "{\Cox_{\Gamma, \sigma_1 \geq ...\geq \sigma_n}^{(n)}}"', bend right, from=1-1, to=1-2]
                         	\arrow[""{name=1, anchor=center, inner sep=0}, "{\co\Cox_{\Gamma, \sigma_1 \geq ...\geq \sigma_n}^{(n)}}"', bend right, from=1-2, to=1-1]
                         \end{tikzcd}
                     $$
-                on the quotient $\Z$-module $\K_0^{\red, \not \irr}(\Gamma) := \K_0^{\red}(\Gamma)/\K_0^{\irr}(\Gamma)$ of the split Grothendieck group of $\Rep_k^{\fin}(\Gamma)$ by the simple Grothendieck group of the same category.
-            \end{theorem}
+            \end{corollary}
                 \begin{proof}
-                    
+                    Straightforward from theorem \ref{theorem: coxeter_functors_preserve_non_projective_indecomposable_representations}. 
                 \end{proof}
             
-        \subsubsection{Dynkin quivers have finitely many isomorphism classes of indecomposable representations}
+        \subsubsection{Dynkin quivers are representation-finite}
             We have now come to the first half of Gabriel's Theorem. The broad idea here is that somehow, the isomorphism classes of indecomposable representations of a Dynkin quiver are bijectively labelled - via dimension vectors - by the positive roots of said Dynkin quiver, a phenomenon which ought to be thought of as a generalisation - via lemma \ref{lemma: projective_indecomposable_modules_over_artinian_algebras_are_simple} - of proposition \ref{prop: irreducible_representations_of_dynkin_quivers_are_labelled_by_simple_roots}, which tells us that there is a bijective correspondence between the isomorphism classes of irreducible representations of a Dynkin quiver and its simple roots via taking dimension vectors. 
             
+            Before we actually prove that Dynkin quivers have only finitely many isomorphism classes of indecomposable representations, let us first see how non-irreducible (i.e. non-projective) indecomposable representations can be obtained from irreducible (i.e. projective) ones.
+            \begin{lemma}[Coxeter functors are essentially surjective on indecomposable representations] \label{lemma: coxeter_functors_are_essentially_surjective_on_indecomposable_representations}
+                Let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a Dynkin quiver with an admissible enumeration of sinks:
+                    $$\Gamma_0 := \{\sigma_1 \geq ... \geq \sigma_n\}$$
+                Then, the $n^{th}$ (co)Coxeter functors, when restricted to the full subcategories $\Rep_k^{\red}(\sigma_n ... \sigma_1\Gamma) \subseteq \Rep_k^{\fin}(\sigma_n ... \sigma_1\Gamma)$ and $\Rep_k^{\red}(\Gamma) \subseteq \Rep_k^{\fin}(\Gamma)$ of indecomposable representations, induce two surjective $\Z$-module homomorphisms:
+                    $$\Cox_{\Gamma, \sigma_1 \geq ...\geq \sigma_n}^{(n)}: \K_0^{\red}(\Gamma) \to \K_0^{\red, \not \irr}(\sigma_n ... \sigma_1\Gamma)$$  
+                    $$\co\Cox_{\Gamma, \sigma_1 \geq ...\geq \sigma_n}^{(n)}: \K_0^{\red}(\sigma_n ... \sigma_1\Gamma) \to \K_0^{\red, \not \irr}(\Gamma)$$
+                whose kernels, respectively, are $\K_0^{\irr}(\Gamma)$ and $\K_0^{\irr}(\sigma_n ... \sigma_1 \Gamma)$.
+            \end{lemma}
+                \begin{proof}
+                    Since Dynkin quivers are connected, acyclic, and finite, we we can simply combine corollary \ref{coro: coxeter_functors_and_grothendieck_groups} with remark \ref{remark: coxeter_functors_act_as_zero_on_irreducible_representations} in order to prove this lemma. 
+                \end{proof}
+            \begin{proposition}[Indecomposable representations from irreducible representations through coreflections] \label{prop: indecomposable_representations_from_irreducible_representations_through_corelfections}
+                Let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a Dynkin quiver with an admissible enumeration of sinks:
+                    $$\Gamma_0 := \{\sigma_1 \geq ... \geq \sigma_n\}$$
+                Then, at any index $1 \leq i \leq n$, one can construct a \textit{non-projective} indecomposable representation $\calF \in \Ob(\Rep_k^{\red}(\Gamma))$ by successively coreflecting the Kronecker representation $\Delta_{\sigma_{i - 1} ... \sigma_1 \Gamma, \sigma_i}$ in the following manner:
+                    $$\calF := \co\Cox^{(i - 1)}_{\Gamma, \sigma_1 \geq ... \geq \sigma_n}(\Delta_{\sigma_{i - 1} ... \sigma_1 \Gamma, \sigma_i})$$
+            \end{proposition}
+                \begin{proof}
+                    Through combining lemma \ref{lemma: coxeter_functors_are_essentially_surjective_on_indecomposable_representations} with lemma \ref{lemma: fixed_points_of_(co)reflection_adjunctions} and lemma \ref{lemma: coxeter_functors_are_adjoints}, we see that 
+                \end{proof}
             \begin{theorem}[Gabriel's theorem (Dynkin implies representation-finite)] \label{theorem: gabriel_theorem_dynkin_implies_representation_finite}
-                Let $k$ be a field and $\Gamma$ be a Dynkin quiver. Then $\Gamma$ will have finitely many (finite-dimensional) indecomposable $k$-linear representations; in particular, there is a bijection:
+                Let $k$ be a field and $\Gamma$ be a Dynkin quiver. Then there will be a bijection:
                     $$\dim_k: [\Rep_k^{\red}(\Gamma)] \to \Phi_{\Gamma}^+$$
                 between the set of isomorphism classes of indecomposable $k$-linear representations of $\Gamma$ and that of positive roots of $\Gamma$.
             \end{theorem}
@@ -779,15 +816,46 @@
                         $$\dim_k [\calF] \in \Phi_{\Gamma}^+$$
                     which tells us that $\dim_k: [\Rep_k^{\red}(\Gamma)] \to \Phi_{\Gamma}^+$ is injective.
                     
-                    Notice that this is already enough to show that $[\Rep_k^{\red}(\Gamma)]$ is a finite set, but we still have not yet demonstrated that isomorphism classes of indecomposable representations $[\calF] \in [\Rep_k^{\red}(\Gamma)]$ can be recovered from the positive roots $\alpha \in \Phi_{\Gamma}^+$, which entails showing that $\dim_k: [\Rep_k^{\red}(\Gamma)] \to \Phi_{\Gamma}^+$ is surjective. For this, pick an arbitrary positive root:
-                        $$\alpha \in \Phi_{\Gamma}^+$$
-                    which we suppose can be written as an $\N$-linear combination of the simple roots $\{\alpha_i\}_{1 \leq i \leq n}$ in the following manner:
+                    To show that $\dim_k: [\Rep_k^{\red}(\Gamma)] \to \Phi_{\Gamma}^+$ is surjective, firstly pick an arbitrary positive root $\alpha \in \Phi_{\Gamma}^+$, which we suppose can be written as an $\N$-linear combination of the simple roots $\{\alpha_i\}_{1 \leq i \leq n}$ in the following manner:
                         $$\alpha := \sum_{1 \leq i \leq n} c_i \alpha_i$$
-                    By proposition \ref{prop: irreducible_representations_of_dynkin_quivers_are_labelled_by_simple_roots}, there exist $[\calF_i] \in [\Rep_k^{\irr}(\Gamma)]$ such that:
-                        $$[\calF_i] := \alpha_i$$
-                    and therefore:
-                        $$\alpha = \sum_{1 \leq i \leq n} c_i [\calF_i]$$
+                    By proposition \ref{prop: irreducible_representations_of_dynkin_quivers_are_labelled_by_simple_roots}, there exist $[\calF_i] \in [\Rep_k^{\irr}(\Gamma)]$ such that $\dim_k [\calF_i] := \alpha_i$ for all $1 \leq i \leq n$ along with some $\calF \in \K_0^{\irr}(\Gamma)$ such that $\dim_k [\calF] = \alpha$; together, they satisfy:
+                        $$\dim_k [\calF] = \sum_{1 \leq i \leq n} c_i \dim_k [\calF_i] \in \Z^{\oplus \Phi_{\Gamma}^{\simple}}$$
+                    Using proposition \ref{prop: irreducible_representations_of_dynkin_quivers_are_labelled_by_simple_roots} once again, one sees that:
+                        $$[\calF] = \sum_{1 \leq i \leq n} c_i [\calF_i] \in \K_0^{\irr}(\Gamma)$$
+                    If $\calF$ were to be irreducible, i.e. there existed only one index $i \in \{1, ..., n\}$ such that $c_i \not = 0$, then we would be done immediately (since irreducible representations are indecomposable), so let us assume that $\calF$ is non-irreducible. Now, fix an admissible enumeration of sinks $\Gamma_0 := \{\sigma_1 \geq ... \geq \sigma_n\}$. By Schur's Lemma (cf. lemma \ref{lemma: schur_lemma_for_abelian_categories}), we can replace the isomorphism classes $[\calF_i]$ by $[\Delta_{\Gamma, \sigma_i}]$ (for all $1 \leq i \leq n$), i.e. those of the Kronecker representations, in order to get:
+                        $$[\calF] = \sum_{1 \leq i \leq n} c_i [\Delta_{\Gamma, \sigma_i}] \in \K_0^{\irr}(\Gamma)$$
+                    
                 \end{proof}
+            \begin{corollary}[Dynkin quivers are representation-finite] \label{coro: dynkin_quivers_are_representation_finite}
+                For any Dynkin quiver $\Gamma$, the set $[\Rep_k^{\red}(\Gamma)]$ of isomorphism classes of indecomposable $k$-linear representations of $\Gamma$ is finite. 
+            \end{corollary}
+                \begin{proof}
+                    Appply theorem \ref{theorem: gabriel_theorem_dynkin_implies_representation_finite} to the fact that $\Phi_{\Gamma}^+$ is a finite set (cf. remark \ref{remark: number_of_positive_roots_of_dynkin_quivers}).
+                \end{proof}
+            
+            \begin{example}[Gabriel's Theorem for $\sfA_n$ quivers]
+                
+            \end{example}
+            \begin{example}[Gabriel's Theorem for $\sfD_n$ quivers]
+                
+            \end{example}
+            \begin{example}[Gabriel's Theorem for $\sfE_n$ quivers]
+                
+            \end{example}
+            \begin{example}[Gabriel's Theorem fails for the loop quiver]
+                From example \ref{example: path_algebras_of_loop_quivers}, we know that the path $k$-algebra of the quiver with one non-trivial loop, i.e.:
+                    $$
+                        \begin{tikzcd}
+                            \bullet \arrow["x"', loop, distance=2em, in=35, out=325]
+                        \end{tikzcd}
+                    $$
+                is isomorphic to $k\<x\> \cong k[x]$. This $k$-algebra is not even Artinian (consider the infinite descending chain of ideals $(x) \supset (x^2) \supset ...$), so the representation category:
+                    $$\Rep_k^{\fin}\left(\begin{tikzcd}\bullet \arrow["x"', loop, distance=2em, in=35, out=325]\end{tikzcd}\right)$$
+                can not be expected to be \textit{a priori} finite as a $k$-linear abelian category (i.e. one would not even suspect that this quiver would have finitely many irreducible representations, let alone finitely many indecomposable representations). This is indeed the case, since the loop quiver fails to even be acyclic and hence can not be a Dynkin quiver.
+            \end{example}
+            \begin{example}[Gabriel's Theorem fails for the Kronecker quiver]
+                
+            \end{example}
         
         \subsubsection{Euler characteristics of quivers; representation-finite connected acyclic finite quivers are Dynkin}
             Let us now discuss Euler characteristics before proving the second part of Gabriel's Theorem, which states that a finite connected acyclic quiver is Dynkin if it has finitely many isomorphism classes of indecomposable representations (cf. theorem \ref{theorem: gabriel_theorem_representation_finite_implies_dynkin}). As general finite connected acyclic quivers \textit{a priori} do not have any kind of well-behaved associated set of roots (unlike the more specialised Dynkin quivers), we shall have these so-called \say{Euler characteristics} serve as a replacement for the notion of Tits quadratic form (cf. proposition \ref{prop: tits_quadratic_forms_as_euler_characteristics}).
