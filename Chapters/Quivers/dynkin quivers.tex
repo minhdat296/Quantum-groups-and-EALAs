@@ -579,6 +579,17 @@
                     $$\Refl_{Q, \sigma}(\calF) \cong \ker\left(\bigoplus_{v \in \Ob([Q]_{/\sigma})} \calF(v) \to \calF(\sigma)\right)$$
                     $$\co\Refl_{Q, \sigma}(\calF) := \coker\left(\calF(\sigma) \to \bigoplus_{v \in \Ob({}^{\sigma/}[Q])} \calF(v)\right)$$
             \end{remark}
+            \begin{remark}[(Co)reflection functors and Grothendieck groups] \label{remark: (co)reflection_functors_and_grothendieck_groups}
+                Let $Q := (Q_1, Q_0, s, t)$ be a quiver with a fixed vertex $\sigma \in Q_0$. Then, there are two $\Z$-module homomorphisms as follows, defined in the obvious manner:
+                    $$
+                        \begin{tikzcd}
+                        	{\K_0(\sigma Q)} & {\K_0(Q)}
+                        	\arrow[""{name=0, anchor=center, inner sep=0}, "{\Refl_{\sigma Q, \sigma}}"', bend right, from=1-1, to=1-2]
+                        	\arrow[""{name=1, anchor=center, inner sep=0}, "{\co\Refl_{Q, \sigma}}"', bend right, from=1-2, to=1-1]
+                        \end{tikzcd}
+                    $$
+                If $Q$ is finite then these maps will also be adjoint to one another, with respect to the Cartan form\footnote{Which is - by construction - independent of the orientation of the underlying quiver; in particular, this means that $B_{\sigma Q}(-, -) = B_Q(-, -)$} $B_Q(-, -)$ (cf. definition \ref{def: cartan_quadratic_forms_of_finite_quivers}).
+            \end{remark}
             
             \begin{definition}[(Co)sinks] \label{def: (co)sinks}
                 Let $Q := (Q_1, Q_0, s, t)$ be a quiver and $\sigma \in Q_0$ be a fixed vertex therein. A \textbf{(co)sink} at $\sigma$ is then a sub-quiver of $Q$ wherein all the arrows point into/out of the fixed vertex $\sigma$. 
@@ -640,7 +651,7 @@
                 The $i^{th}$ (co)Coxeter functors $\Cox^{(i)}_{\Gamma, \sigma_1 \geq ...\geq \sigma_n}$ and $\co\Cox^{(i)}_{\Gamma, \sigma_1 \geq ...\geq \sigma_n}$ form a pair of adjoint functors in the following manner for all $1 \leq i \leq n$:
                     $$
                         \begin{tikzcd}
-                        	{\Rep_k(\sigma_n ... \sigma_1\Gamma)} & {\Rep_k(\Gamma)}
+                        	{\Rep_k(\sigma_i ... \sigma_1\Gamma)} & {\Rep_k(\Gamma)}
                         	\arrow[""{name=0, anchor=center, inner sep=0}, "{\Cox^{(i)}_{\Gamma, \sigma_1 \geq ...\geq \sigma_n}}"', bend right, from=1-1, to=1-2]
                         	\arrow[""{name=1, anchor=center, inner sep=0}, "{\co\Cox^{(i)}_{\Gamma, \sigma_1 \geq ...\geq \sigma_n}}"', bend right, from=1-2, to=1-1]
                         	\arrow["\dashv"{anchor=center, rotate=-90}, draw=none, from=1, to=0]
@@ -650,6 +661,7 @@
                 \begin{proof}
                     See remark \ref{remark: categorical_properties_of_(co)reflection_functors}.
                 \end{proof}
+            
             \begin{convention}[Kronecker representations] \label{conv: kronecker_representations}
                 Let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a connected and acyclic finite quiver and enumerate its vertices by:
                     $$\Gamma := \{\sigma_1, ..., \sigma_n\}$$
@@ -740,7 +752,7 @@
                 of the same category by:
                     $$\K_0^{\red, \not \irr}(Q)$$
             \end{convention}
-            \begin{corollary}[Coxeter functors and Grothendieck groups] \label{coro: coxeter_functors_and_grothendieck_groups}
+            \begin{corollary}[$n^{th}$ Coxeter functors and Grothendieck groups] \label{coro: nth_coxeter_functors_and_grothendieck_groups}
                 Let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a connected and acyclic finite quiver with an admissible enumeration of sinks:
                     $$\Gamma_0 := \{\sigma_1 \geq ... \geq \sigma_n\}$$
                 Then, there are two mutually inverse $\Z$-module homomorphisms as follows, defined in the obvious manner:
@@ -751,16 +763,16 @@
                         	\arrow[""{name=1, anchor=center, inner sep=0}, "{\co\Cox_{\Gamma, \sigma_1 \geq ...\geq \sigma_n}^{(n)}}"', bend right, from=1-2, to=1-1]
                         \end{tikzcd}
                     $$
-                Furthermore, they are adjoint\footnote{And hence unitary.} with respect to the Cartan form\footnote{Which is - by construction - independent of the orientation of the quiver $\Gamma$; in particular, this means that $B_{\sigma_n ... \sigma_1 \Gamma}(-, -) = B_{\Gamma}(-, -)$} $B_{\Gamma}(-, -)$ (cf. definition \ref{def: cartan_quadratic_forms_of_finite_quivers}).
+                Furthermore, they are adjoint\footnote{And hence unitary.} with respect to the Cartan form\footnote{Which is - by construction - independent of the orientation of the underlying quiver; in particular, this means that $B_{\sigma_n ... \sigma_1 \Gamma}(-, -) = B_{\Gamma}(-, -)$} $B_{\Gamma}(-, -)$ (cf. definition \ref{def: cartan_quadratic_forms_of_finite_quivers}).
             \end{corollary}
                 \begin{proof}
-                    Straightforward from theorem \ref{theorem: coxeter_functors_preserve_non_projective_indecomposable_representations}. 
+                    Apply theorem \ref{theorem: coxeter_functors_preserve_non_projective_indecomposable_representations} to remark \ref{remark: (co)reflection_functors_and_grothendieck_groups}. 
                 \end{proof}
             
         \subsubsection{Dynkin quivers are representation-finite}
             We have now come to the first half of Gabriel's Theorem. The broad idea here is that somehow, the isomorphism classes of indecomposable representations of a Dynkin quiver are bijectively labelled - via dimension vectors - by the positive roots of said Dynkin quiver, a phenomenon which ought to be thought of as a generalisation - via lemma \ref{lemma: projective_indecomposable_modules_over_artinian_algebras_are_simple} - of proposition \ref{prop: irreducible_representations_of_dynkin_quivers_are_labelled_by_simple_roots}, which tells us that there is a bijective correspondence between the isomorphism classes of irreducible representations of a Dynkin quiver and its simple roots via taking dimension vectors. 
             
-            Let us take a slight detour now and discuss a more abstract notion of so-called \say{root systems}, which encompass that of roots of Dynkin quivers as described in definition \ref{def: negative_and_positive_roots}. The point that we would like to establish here is that these entities are highly symmetric, and that in the special case of roots of Dynkin quivers, these symmetries are entirely encoded within the construction of (co)reflection functors.
+            Let us take a slight detour and discuss a more abstract notion of so-called \say{root systems} (cf. definition \ref{def: root_systems}), which encompass that of roots of Dynkin quivers as described in definition \ref{def: negative_and_positive_roots}. The point that we would like to establish here is that these entities are highly symmetric, and that in the special case of roots of Dynkin quivers, these symmetries are entirely encoded within the construction of (co)reflection functors: in fact, the decategorifications of (co)reflection functors (as well as (co)Coxeter functors) down to the level of Grothendieck groups, e.g. in the sense of corollary \ref{coro: nth_coxeter_functors_and_grothendieck_groups}, are precisely elements of symmetry groups of the so-called \say{root systems} of Dynkin quivers (cf. example \ref{example: root_systems_of_dynkin_quivers}) after taking dimension vectors. More specifically, we shall see that the individual (co)reflection functors as in definition \ref{def: (co)reflection_functors} correspond via dimension vectors to so-called \say{simple reflections} (cf. definition \ref{def: simple_reflections}), which generate the symmetry groups of roots of Dynkin quivers (cf. definition \ref{def: weyl_groups}). 
             \begin{definition}[Euclidean spaces] \label{defL euclidean_spaces}
                 A \textbf{Euclidean space} is a finite-dimensional real inner product space. Given any Euclidean space $(E, \<-, -\>)$, a(n) \textbf{(integral) Euclidean lattice} therein is then a $\Z$-submodule $E_0 \subseteq E$ such that $E \cong E_0 \tensor_{\Z} \R$ and for all $\alpha, \beta \in E_0$, one has $\<\alpha, \beta\> \in E_0$.
             \end{definition}
@@ -813,16 +825,16 @@
                         and hence $s_{\alpha}(\beta) \in \Phi_{\Gamma} \tensor_{\Z} \R$ according to definitions \ref{def: roots_of_dynkin_quivers} and \ref{def: tits_quadratic_forms} (i.e. $\Phi_{\Gamma} \tensor_{\Z} \R$ is closed under simple reflections);
                         \item for all $\alpha, \beta \in \Phi_{\Gamma} \tensor_{\Z} \R$, we know that $B_{\Gamma}(\alpha, \alpha) \in 2\Z$ (cf. proposition \ref{prop: evenness_of_cartan_forms_of_finite_connected_acyclic_quivers}) and that $B_{\Gamma}(\alpha, \beta) \in \Z$, so clearly $2\frac{B_{\Gamma}(\alpha, \beta)}{B_{\Gamma}(\alpha, \alpha)} \in \Z$. 
                     \end{itemize}
-                From this, it is easy to see that $\Phi_{\Gamma} \subset \Z^{\oplus \Gamma_0}$ is a root lattice with respect to the integral inner product $B_{\Gamma}(-, -)$. 
+                From this, it is easy to see that $\Phi_{\Gamma} \subset \Z^{\oplus \Gamma_0}$ is a root lattice with respect to the integral inner product $B_{\Gamma}(-, -)$.
             \end{example}
-            \begin{lemma}[Simple relfections are invertible] \label{lemma: simple_reflections_about_roots_are_invertible}
+            \begin{lemma}[Simple reflections are invertible] \label{lemma: simple_reflections_about_roots_are_invertible}
                 Let $(E, \<-, -\>)$ be a Euclidean space. Then, for all $\alpha \in E$, the $\R$-linear operator $s_{\alpha}$ is invertible; in fact, it is also self-adjoint and therefore unitary.
             \end{lemma}
                 \begin{proof}
-                    
+                    Clear form the fact that simple reflections $s_{\alpha}$ about vectors $\alpha \in E$ are involutive isometries (cf. remark \ref{remark: simple_reflections_are_involutive_isometries}).
                 \end{proof}
             \begin{definition}[Weyl groups] \label{def: weyl_groups}
-                Let $(E, \<-, -\>, \Phi)$ be a Euclidean space equipped with a root system. The \textbf{Weyl group} attached to the given root system $\Phi$, denoted by $\rmW_{\Phi}$, is then the subgroup of the special orthogonal group $\SO(E, \<-, -\>)$ generated by the simple reflections $s_{\alpha}$, for all $\alpha \in \Phi$. 
+                Let $(E, \<-, -\>, \Phi)$ be a Euclidean space equipped with a root system. The \textbf{Weyl group} attached to the given root system $\Phi$, denoted by $\rmW_{\Phi}$, is then the subgroup of the special orthogonal group $\SO(E, \<-, -\>)$ generated by the simple reflections $s_{\alpha}$, for all $\alpha \in \Phi$.
             \end{definition}
             \begin{remark}
                 Since root systems are closed under simple reflections about its elements by definition, one also could abstractly characterise the Weyl group of a root system $\Phi$ inside some Euclidean space $(E, \<-, -\>)$ as nothing but the symmetric group on the (\textit{a priori} finite) set $\Phi$, i.e.:
@@ -832,47 +844,58 @@
             \begin{convention}[Weyl groups of Dynkin quivers]
                 If $\Gamma$ is a Dynkin quiver then we shall write $\rmW_{\Gamma}$ for the Weyl group attached to the root lattice $\Phi_{\Gamma}$ (or equivalently, the root system $\Phi_{\Gamma} \tensor_{\Z} \R$). 
             \end{convention}
+            
             \begin{proposition}[(Co)reflection functors as simple reflections] \label{prop: (co)reflection_functors_as_simple_reflections}
-                Let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a Dynkin quiver wtih a fixed vertex $\sigma$ and denote the simple root corresponding to that vertex (via proposition \ref{prop: irreducible_representations_of_dynkin_quivers_are_labelled_by_simple_roots}) by $\alpha_{\sigma}$. Then, we have the following commutative diagram of $\Z$-modules and $\Z$-linear maps between them:
+                Let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a Dynkin quiver with a fixed vertex $\sigma$ and denote the simple root corresponding to that vertex (via proposition \ref{prop: irreducible_representations_of_dynkin_quivers_are_labelled_by_simple_roots}) by $\alpha_{\sigma}$. Then we have the following commutative diagram of $\Z$-modules and $\Z$-linear maps between them:
                     $$
                         \begin{tikzcd}
                         	{\K_0^{\red, \not \irr}(\sigma\Gamma)} & {\K_0^{\red, \not \irr}(\Gamma)} \\
-                        	\\
                         	{\Z^{\oplus \sigma\Gamma_0}} & {\Z^{\oplus \Gamma_0}}
-                        	\arrow["{\dim_k}"', from=1-1, to=3-1]
-                        	\arrow["{s_{\alpha_{\sigma}}}"', bend right, from=3-2, to=3-1]
-                        	\arrow["{\Refl_{\Gamma, \sigma}}"', bend right, from=1-2, to=1-1]
-                        	\arrow["{\dim_k}", from=1-2, to=3-2]
-                        	\arrow["{\co\Refl_{\sigma \Gamma, \sigma}}"', bend right, from=1-1, to=1-2]
-                        	\arrow["{s_{\alpha_{\sigma}}}"', bend right, from=3-1, to=3-2]
+                        	\arrow["{\dim_k}"', from=1-1, to=2-1]
+                        	\arrow["{s_{\alpha_{\sigma}}}"', shift right=2, from=2-2, to=2-1]
+                        	\arrow["{\Refl_{\Gamma, \sigma}}"', shift right=2, from=1-2, to=1-1]
+                        	\arrow["{\dim_k}", from=1-2, to=2-2]
+                        	\arrow["{\co\Refl_{\sigma \Gamma, \sigma}}"', shift right=2, from=1-1, to=1-2]
+                        	\arrow["{s_{\alpha_{\sigma}}}"', shift right=2, from=2-1, to=2-2]
                         \end{tikzcd}
                     $$
             \end{proposition}
                 \begin{proof}
                     
                 \end{proof}
-            
-            Before we actually prove that Dynkin quivers have only finitely many isomorphism classes of indecomposable representations, let us first see how non-irreducible (i.e. non-projective) indecomposable representations can be obtained from irreducible (i.e. projective) ones.
-            \begin{lemma}[Coxeter functors are essentially surjective on indecomposable representations] \label{lemma: coxeter_functors_are_essentially_surjective_on_indecomposable_representations}
+                
+            \begin{lemma}[Non-simple positive roots from simple roots via simple reflections] \label{lemma: non_simple_positive_roots_from_simple_roots_via_simple_reflections}
                 Let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a Dynkin quiver with an admissible enumeration of sinks:
                     $$\Gamma_0 := \{\sigma_1 \geq ... \geq \sigma_n\}$$
-                Then, the $n^{th}$ (co)Coxeter functors, when restricted to the full subcategories $\Rep_k^{\red}(\sigma_n ... \sigma_1\Gamma) \subseteq \Rep_k^{\fin}(\sigma_n ... \sigma_1\Gamma)$ and $\Rep_k^{\red}(\Gamma) \subseteq \Rep_k^{\fin}(\Gamma)$ of indecomposable representations, induce two surjective $\Z$-module homomorphisms:
-                    $$\Cox_{\Gamma, \sigma_1 \geq ...\geq \sigma_n}^{(n)}: \K_0^{\red}(\Gamma) \to \K_0^{\red, \not \irr}(\sigma_n ... \sigma_1\Gamma)$$  
-                    $$\co\Cox_{\Gamma, \sigma_1 \geq ...\geq \sigma_n}^{(n)}: \K_0^{\red}(\sigma_n ... \sigma_1\Gamma) \to \K_0^{\red, \not \irr}(\Gamma)$$
-                whose kernels, respectively, are $\K_0^{\irr}(\Gamma)$ and $\K_0^{\irr}(\sigma_n ... \sigma_1 \Gamma)$.
-            \end{lemma}
+                Suppose that $\alpha_i \in \Phi_{\Gamma}^{\simple}$ is an arbitrary simple root of $\Gamma$. Then the element:
+                    $$\alpha := (s_{\alpha_{i - 1}}^{-1} \circ ... \circ s_{\alpha_1}^{-1})(\alpha_i) \in \Z^{\oplus \Gamma_0}$$
+                shall be a non-simple positive root. 
+            \end{lemma}    
                 \begin{proof}
-                    Since Dynkin quivers are connected, acyclic, and finite, we we can simply combine corollary \ref{coro: coxeter_functors_and_grothendieck_groups} with remark \ref{remark: coxeter_functors_act_as_zero_on_irreducible_representations} in order to prove this lemma. 
+                    Direct calculations.
                 \end{proof}
-            \begin{lemma}[Indecomposable representations from irreducible representations through coreflections] \label{lemma: indecomposable_representations_from_irreducible_representations_through_corelfections}
+            \begin{corollary}[Non-irreducible indecomposable representations from irreducible representations through coreflections] \label{coro: non_irreducible_indecomposable_representations_from_irreducible_representations_through_corelfections}
                 Let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a Dynkin quiver with an admissible enumeration of sinks:
                     $$\Gamma_0 := \{\sigma_1 \geq ... \geq \sigma_n\}$$
                 Then, at any index $1 \leq i \leq n$, one can construct a \textit{non-projective} indecomposable representation $\calF \in \Ob(\Rep_k^{\red}(\Gamma))$ by successively coreflecting the Kronecker representation $\Delta_{\sigma_{i - 1} ... \sigma_1 \Gamma, \sigma_i}$ in the following manner:
                     $$\calF := \co\Cox^{(i - 1)}_{\Gamma, \sigma_1 \geq ... \geq \sigma_n}(\Delta_{\sigma_{i - 1} ... \sigma_1 \Gamma, \sigma_i})$$
-            \end{lemma}
+            \end{corollary}
                 \begin{proof}
-                    
+                    Combine lemma \ref{lemma: non_simple_positive_roots_from_simple_roots_via_simple_reflections} with proposition \ref{prop: (co)reflection_functors_as_simple_reflections} and definition \ref{def: coxeter_functors}.
                 \end{proof}
+            \begin{remark}
+                Weyl groups are \textit{a priori} non-abelian, so the non-simple positive root:
+                    $$\alpha := (s_{\alpha_{i - 1}}^{-1} \circ ... \circ s_{\alpha_1}^{-1})(\alpha_i)$$
+                that one obtains in lemma \ref{lemma: non_simple_positive_roots_from_simple_roots_via_simple_reflections} depends on the previously chosen admissible enumeration of sinks:
+                    $$\Gamma_0 := \{\sigma_1 \geq ... \geq \sigma_n\}$$
+                However, (co)Coxeter functors are - on the other hand - independent of our choice of admissible enumearation of sinks (cf. proposition \ref{prop: coxeter_functors_are_independent_of_admissible_enumerations}). Because we have a bijective corresondence:
+                    $$\dim_k: [\Rep_k^{\irr}(\sigma_{i - 1} ... \sigma_1\Gamma)] \to \Phi_{\sigma_{i - 1} ... \sigma_1\Gamma}^{\simple}$$
+                between the isomorphism classes of irreucible representations of $\sigma_{i - 1} ... \sigma_1\Gamma$ and the simple roots thereof (although, note that $\Phi_{\Gamma} = \Phi_{\sigma_{i - 1} ... \sigma_1 \Gamma}$ as the Tits quadratic form is independent of the orientation of the underlying quiver), when given any simple root $\alpha_i \in \Phi_{\sigma_{i - 1} ... \sigma_1\Gamma}^{\simple}$, one can \textit{choose} a representative:
+                    $$\calF_i \in \dim_k^{-1}(\alpha_i)$$
+                (which must be isomorphic to the Kronecker representation $\Delta_{\sigma_{i - 1} ... \sigma_1\Gamma, \sigma_i}$) and obtain a non-irreducible indecomposable representation:
+                    $$\calF := \co\Cox^{(i - 1)}_{\Gamma, \sigma_1 \geq ... \geq \sigma_n}(\calF_i)$$
+                which is unique up to isomorphisms and independent of the chocie of admissible enumeration of sinks $\Gamma_0 := \{\sigma_1 \geq ... \geq \sigma_n\}$.
+            \end{remark}
             \begin{theorem}[Indecomposable representations of Dynkin quivers are labelled by positive roots] \label{theorem: indecomposable_representations_of_dynkin_quivers_are_labelled_by_positive_roots}
                 Let $k$ be a field and $\Gamma$ be a Dynkin quiver. Then there will be a bijection:
                     $$\dim_k: [\Rep_k^{\red}(\Gamma)] \to \Phi_{\Gamma}^+$$
@@ -893,14 +916,8 @@
                         $$\dim_k [\calF] \in \Phi_{\Gamma}^+$$
                     which tells us that $\dim_k: [\Rep_k^{\red}(\Gamma)] \to \Phi_{\Gamma}^+$ is injective.
                     
-                    To show that $\dim_k: [\Rep_k^{\red}(\Gamma)] \to \Phi_{\Gamma}^+$ is surjective, firstly pick an arbitrary positive root $\alpha \in \Phi_{\Gamma}^+$, which we suppose can be written as an $\N$-linear combination of the simple roots $\{\alpha_i\}_{1 \leq i \leq n}$ in the following manner:
-                        $$\alpha := \sum_{1 \leq i \leq n} c_i \alpha_i$$
-                    By proposition \ref{prop: irreducible_representations_of_dynkin_quivers_are_labelled_by_simple_roots}, there exist $[\calF_i] \in [\Rep_k^{\irr}(\Gamma)]$ such that $\dim_k [\calF_i] := \alpha_i$ for all $1 \leq i \leq n$ along with some $\calF \in \K_0^{\irr}(\Gamma)$ such that $\dim_k [\calF] = \alpha$; together, they satisfy:
-                        $$\dim_k [\calF] = \sum_{1 \leq i \leq n} c_i \dim_k [\calF_i] \in \Z^{\oplus \Phi_{\Gamma}^{\simple}}$$
-                    Using proposition \ref{prop: irreducible_representations_of_dynkin_quivers_are_labelled_by_simple_roots} once again, one sees that:
-                        $$[\calF] = \sum_{1 \leq i \leq n} c_i [\calF_i] \in \K_0^{\irr}(\Gamma)$$
-                    If $\calF$ were to be irreducible, i.e. there existed only one index $i \in \{1, ..., n\}$ such that $c_i \not = 0$, then we would be done immediately (since irreducible representations are indecomposable), so let us assume that $\calF$ is non-irreducible. Now, fix an admissible enumeration of sinks $\Gamma_0 := \{\sigma_1 \geq ... \geq \sigma_n\}$. By Schur's Lemma (cf. lemma \ref{lemma: schur_lemma_for_abelian_categories}), we can replace the isomorphism classes $[\calF_i]$ by $[\Delta_{\Gamma, \sigma_i}]$ (for all $1 \leq i \leq n$), i.e. those of the Kronecker representations, in order to get:
-                        $$[\calF] = \sum_{1 \leq i \leq n} c_i [\Delta_{\Gamma, \sigma_i}] \in \K_0^{\irr}(\Gamma)$$
+                    To show that $\dim_k: [\Rep_k^{\red}(\Gamma)] \to \Phi_{\Gamma}^+$ is surjective, firstly pick an arbitrary positive root $\alpha \in \Phi_{\Gamma}^+$. Then, using the fact that simple reflections are invertible operators (cf. lemma \ref{lemma: simple_reflections_about_roots_are_invertible}) in conjunction with lemma \ref{lemma: non_simple_positive_roots_from_simple_roots_via_simple_reflections}, followed by corollary \ref{coro: non_irreducible_indecomposable_representations_from_irreducible_representations_through_corelfections}, one sees that there exists a (non-irreducible) indecomposable representation $\calF \in \Ob(\Rep_k^{\red}(\Gamma))$ such that:
+                        $$\dim_k \calF = \alpha$$
                 \end{proof}
             \begin{corollary}[Dynkin quivers are representation-finite] \label{coro: dynkin_quivers_are_representation_finite}
                 For any Dynkin quiver $\Gamma$, the set $[\Rep_k^{\red}(\Gamma)]$ of isomorphism classes of indecomposable $k$-linear representations of $\Gamma$ is finite. 
