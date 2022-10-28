@@ -51,6 +51,12 @@
                             \end{tikzcd}
                         $$
                 \end{proof}
+            \begin{corollary}[Morphisms into and out of simple objects] \label{coro: morphisms_into_and_out_of_simple_objects}
+                Let $\calA$ be an abelian category and let $M$ be a simple object. Then, any morphism $\pi: P \to M$ must be epic and any morphism $\iota: M \to Q$ must be monic.
+            \end{corollary}
+                \begin{proof}
+                    Since $\calA$ is an abelian category, any monomorphism/epimorphism must be a (co)kernel, and because $M$ is simple, both $\co\ker \pi$ and $\ker \iota$ must be trivial. 
+                \end{proof}
             \begin{corollary}[Endomorphism algebras of simple objects] \label{coro: endomorphism_algebras_of_simple_objects_in_abelian_categories}
                 Let $\calA$ be an abelian category and let $M$ be a simple object. Then $\calA(M, M)$ will be a division ring (with respect to compositions of endomorphisms on $M$), and if $N \not \cong M$ is another simply object, then $\calA(M, N) \cong 0$. 
             \end{corollary}
