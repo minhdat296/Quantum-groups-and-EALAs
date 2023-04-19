@@ -55,7 +55,7 @@
 \newcommand{\rank}{\operatorname{rank}}
 \newcommand{\trace}{\operatorname{tr}}
 \newcommand{\length}{\operatorname{length}}
-\newcommand{\height}{\operatorname{height}}
+\newcommand{\height}{\operatorname{ht}}
 \renewcommand{\span}{\operatorname{span}}
 \newcommand{\e}{\epsilon}
 \newcommand{\p}{\mathfrak{p}}
@@ -74,6 +74,10 @@
 \newcommand{\injdim}{\operatorname{inj.dim}}
 \newcommand{\flatdim}{\operatorname{flat.dim}}
 \newcommand{\globdim}{\operatorname{glob.dim}}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\coad}{\operatorname{coad}}
 
 \newcommand{\Ad}{\mathrm{Ad}}
 \newcommand{\GL}{\mathrm{GL}}
@@ -83,12 +87,15 @@
 \newcommand{\Sp}{\mathrm{Sp}}
 \newcommand{\GSp}{\mathrm{GSp}}
 \newcommand{\GSpin}{\mathrm{GSpin}}
-\newcommand{\opO}{\mathrm{O}}
+\newcommand{\rmO}{\mathrm{O}}
 \newcommand{\SO}{\mathrm{SO}}
 \newcommand{\SU}{\mathrm{SU}}
-\newcommand{\opU}{\mathrm{U}}
+\newcommand{\rmU}{\mathrm{U}}
+\newcommand{\rmu}{\mathrm{u}}
+\newcommand{\rmV}{\mathrm{V}}
 \newcommand{\gl}{\mathfrak{gl}}
 \renewcommand{\sl}{\mathfrak{sl}}
+\newcommand{\diag}{\mathfrak{diag}}
 \newcommand{\pgl}{\mathfrak{pgl}}
 \newcommand{\psl}{\mathfrak{psl}}
 \newcommand{\fraksp}{\mathfrak{sp}}
@@ -120,6 +127,10 @@
 \newcommand{\tangent}{\mathrm{T}} %tangent space
 \newcommand{\Eig}{\mathrm{Eig}}
 \newcommand{\Cox}{\mathrm{Cox}} %coxeter functors
+\newcommand{\rmK}{\mathrm{K}} %Killing form
+\newcommand{\km}{\mathfrak{km}} %kac-moody algebras
+\newcommand{\Dyn}{\mathrm{Dyn}} %associated Dynkin quivers
+\newcommand{\Car}{\mathrm{Car}} %cartan matrices of finite quivers
 
 \newcommand{\Ring}{\mathrm{Ring}}
 \newcommand{\Cring}{\mathrm{CRing}}
@@ -150,12 +161,14 @@
 \newcommand{\Esp}{\mathrm{Esp}}
 \newcommand{\Ob}{\mathrm{Ob}}
 \newcommand{\Mor}{\mathrm{Mor}}
-\newcommand{\Man}{\mathrm{Man}}
+\newcommand{\Mfd}{\mathrm{Mfd}}
 \newcommand{\Riem}{\mathrm{Riem}}
 \newcommand{\RS}{\mathrm{RS}}
 \newcommand{\LRS}{\mathrm{LRS}}
 \newcommand{\TRS}{\mathrm{TRS}}
+\newcommand{\TLRS}{\mathrm{TLRS}}
 \newcommand{\LVRS}{\mathrm{LVRS}}
+\newcommand{\LBRS}{\mathrm{LBRS}}
 \newcommand{\Spc}{\mathrm{Spc}}
 \newcommand{\Top}{\mathrm{Top}}
 \newcommand{\Topos}{\mathrm{Topos}}
@@ -199,7 +212,7 @@
 \newcommand{\Monad}{\mathrm{Monad}}
 \newcommand{\Var}{\mathrm{Var}}
 \newcommand{\sfN}{\mathrm{N}} %nerve
-\newcommand{\Dia}{\mathrm{Dia}}
+\newcommand{\Diam}{\mathrm{Diam}} %diamonds
 \newcommand{\co}{\mathrm{co}}
 \newcommand{\ev}{\mathrm{ev}}
 \newcommand{\bi}{\mathrm{bi}}
@@ -239,17 +252,27 @@
 \newcommand{\LPar}{\mathrm{LPar}} %Langlands parameters
 \newcommand{\ORig}{\mathrm{ORig}} %overconvergent sites
 \newcommand{\Quiv}{\mathrm{Quiv}} %quivers
+\newcommand{\Def}{\mathrm{Def}} %deformation functors
+\newcommand{\Root}{\mathrm{Root}}
+\newcommand{\gRep}{\mathrm{gRep}}
+\newcommand{\Higgs}{\mathrm{Higgs}}
+\newcommand{\BGG}{\mathrm{BGG}}
 
 \newcommand{\Aut}{\mathrm{Aut}}
 \newcommand{\Inn}{\mathrm{Inn}}
 \newcommand{\Out}{\mathrm{Out}}
 \newcommand{\der}{\mathfrak{der}} %derivations on Lie algebras
+\newcommand{\frakend}{\mathfrak{end}}
+\newcommand{\aut}{\mathfrak{aut}}
 \newcommand{\inn}{\mathfrak{inn}} %inner derivations
 \newcommand{\out}{\mathfrak{out}} %outer derivations
 \newcommand{\Stab}{\mathrm{Stab}}
 \newcommand{\Cent}{\mathrm{Cent}}
 \newcommand{\Norm}{\mathrm{Norm}}
-\newcommand{\Rad}{\mathrm{Rad}}
+\newcommand{\stab}{\mathfrak{stab}}
+\newcommand{\cent}{\mathfrak{cent}}
+\newcommand{\norm}{\mathfrak{norm}}
+\newcommand{\Rad}{\operatorname{Rad}}
 \newcommand{\Transporter}{\mathrm{Transp}} %transporter between two subsets of a group
 \newcommand{\Conj}{\mathrm{Conj}}
 \newcommand{\Diag}{\mathrm{Diag}}
@@ -273,9 +296,17 @@
 \newcommand{\Nerve}{\mathrm{N}}
 \newcommand{\Hol}{\mathrm{Hol}} %holomorphic functions %holonomy groups
 \newcommand{\Bi}{\mathrm{Bi}} %Bi for biholomorphic functions
+\newcommand{\chev}{\mathfrak{chev}} %chevalley relations
+\newcommand{\bfLie}{\mathbf{Lie}} %non-reduced lie algebra associated to generalised cartan matrices
+\newcommand{\frakLie}{\mathfrak{Lie}} %reduced lie algebra associated to generalised cartan matrices
+\newcommand{\frakChev}{\mathfrak{Chev}} 
+\newcommand{\Rees}{\operatorname{Rees}}
+\newcommand{\Dr}{\mathrm{Dr}} %Drinfeld's quantum double 
 
-\newcommand{\colim}{\operatorname{colim} \:}
-\renewcommand{\lim}{\operatorname{lim} \:}
+\renewcommand{\projlim}{\varprojlim}
+\newcommand{\indlim}{\varinjlim}
+\newcommand{\colim}{\operatorname{colim}}
+\renewcommand{\lim}{\operatorname{lim}}
 \newcommand{\toto}{\rightrightarrows}
 %\newcommand{\tensor}{\otimes}
 \NewDocumentCommand{\tensor}{e{_^}}{%
@@ -332,7 +363,7 @@
 \newcommand{\Sq}{\mathrm{Sq}}
 \newcommand{\Zero}{\mathrm{Z}}
 \newcommand{\SqZ}{\Sq\Zero}
-\newcommand{\frakLie}{\mathfrak{Lie}}
+\newcommand{\lie}{\mathfrak{lie}}
 \newcommand{\y}{\mathrm{y}} %yoneda
 \newcommand{\Sm}{\mathrm{Sm}}
 \newcommand{\AJ}{\phi} %abel-jacobi map
@@ -340,12 +371,13 @@
 \newcommand{\ram}{\mathrm{ram}} %ramification index
 \newcommand{\inv}{\mathrm{inv}}
 \newcommand{\Spr}{\mathrm{Spr}} %the Springer map/sheaf
-\newcommand{\Def}{\mathrm{Def}}
-\newcommand{\Refl}{\mathrm{Refl}} %reflection functor
+\newcommand{\Refl}{\mathrm{Refl}} %reflection functor]
+\newcommand{\HH}{\mathrm{HH}} %Hochschild (co)homology
+\newcommand{\Poinc}{\mathrm{Poinc}}
+\newcommand{\Simpson}{\mathrm{Simpson}}
 
 \newcommand{\bbU}{\mathbb{U}}
 \newcommand{\V}{\mathbb{V}}
-\newcommand{\U}{\mathrm{U}}
 \newcommand{\calU}{\mathcal{U}}
 \newcommand{\calW}{\mathcal{W}}
 \newcommand{\rmI}{\mathrm{I}} %augmentation ideal
@@ -386,12 +418,17 @@
 \renewcommand{\r}{\mathfrak{r}}
 \newcommand{\fraku}{\mathfrak{u}}
 \newcommand{\bbX}{\mathbb{X}}
+\newcommand{\frakw}{\mathfrak{w}}
 \newcommand{\frakG}{\mathfrak{G}}
 \newcommand{\frakH}{\mathfrak{H}}
+\newcommand{\frakE}{\mathfrak{E}}
+\newcommand{\frakF}{\mathfrak{F}}
 \newcommand{\g}{\mathfrak{g}}
 \newcommand{\h}{\mathfrak{h}}
 \renewcommand{\k}{\mathfrak{k}}
 \newcommand{\z}{\mathfrak{z}}
+\newcommand{\fraki}{\mathfrak{i}}
+\newcommand{\frakj}{\mathfrak{j}}
 \newcommand{\del}{\partial}
 \newcommand{\bbE}{\mathbb{E}}
 \newcommand{\scrO}{\mathscr{O}}
@@ -418,31 +455,31 @@
 \newcommand{\bfA}{\mathbf{A}}
 \newcommand{\bfB}{\mathbf{B}}
 \newcommand{\bfC}{\mathbf{C}}
-\newcommand{\Witt}{W}
 \renewcommand{\O}{\mathbb{O}}
 \newcommand{\calV}{\mathcal{V}}
 \newcommand{\scrR}{\mathscr{R}} %radical
 \newcommand{\rmZ}{\mathrm{Z}} %centre of algebra
+\newcommand{\rmC}{\mathrm{C}} %centralisers in algebras
 \newcommand{\bfGamma}{\mathbf{\Gamma}}
 \newcommand{\scrU}{\mathscr{U}}
 \newcommand{\rmW}{\mathrm{W}} %Weil group
 \newcommand{\frakM}{\mathfrak{M}}
 \newcommand{\frakN}{\mathfrak{N}}
+\newcommand{\frakB}{\mathfrak{B}}
 \newcommand{\frakX}{\mathfrak{X}}
 \newcommand{\frakY}{\mathfrak{Y}}
 \newcommand{\frakZ}{\mathfrak{Z}}
 \newcommand{\frakU}{\mathfrak{U}}
 \newcommand{\frakR}{\mathfrak{R}}
-\newcommand{\rmC}{\mathrm{C}}
 \newcommand{\frakP}{\mathfrak{P}}
 \newcommand{\frakQ}{\mathfrak{Q}}
-\newcommand{\frakE}{\mathfrak{E}}
 \newcommand{\sfX}{\mathsf{X}}
 \newcommand{\sfY}{\mathsf{Y}}
 \newcommand{\sfZ}{\mathsf{Z}}
 \newcommand{\sfS}{\mathsf{S}}
 \newcommand{\sfT}{\mathsf{T}}
 \newcommand{\sfOmega}{\mathsf{\Omega}} %drinfeld p-adic upper-half plane
+\newcommand{\rmA}{\mathrm{A}}
 \newcommand{\rmB}{\mathrm{B}}
 \newcommand{\calT}{\mathcal{T}}
 \newcommand{\sfA}{\mathsf{A}}
@@ -451,6 +488,12 @@
 \newcommand{\frakL}{\mathfrak{L}}
 \newcommand{\K}{\mathrm{K}}
 \newcommand{\rmT}{\mathrm{T}}
+\newcommand{\bfv}{\mathbf{v}}
+\newcommand{\bfg}{\mathbf{g}}
+\newcommand{\frakV}{\mathfrak{V}}
+\newcommand{\frakv}{\mathfrak{v}}
+\newcommand{\bfn}{\mathbf{n}}
+\renewcommand{\o}{\mathfrak{o}}
 
 \newcommand{\aff}{\mathrm{aff}}
 \newcommand{\ft}{\mathrm{ft}} %finite type
@@ -465,6 +508,7 @@
 \newcommand{\lcmpt}{\mathrm{lcmpt}}
 \newcommand{\red}{\mathrm{red}}
 \newcommand{\fin}{\mathrm{fin}}
+\newcommand{\fd}{\mathrm{fd}} %finite-dimensional
 \newcommand{\gen}{\mathrm{gen}}
 \newcommand{\petit}{\mathrm{petit}}
 \newcommand{\gros}{\mathrm{gros}}
@@ -484,6 +528,7 @@
 \newcommand{\smooth}{\mathrm{sm}}
 \newcommand{\sh}{\mathrm{sh}}
 \newcommand{\op}{\mathrm{op}}
+\newcommand{\cop}{\mathrm{cop}}
 \newcommand{\open}{\mathrm{open}}
 \newcommand{\closed}{\mathrm{closed}}
 \newcommand{\geom}{\mathrm{geom}}
@@ -571,6 +616,7 @@
 \newcommand{\preproj}{\mathrm{preproj}}
 \newcommand{\preinj}{\mathrm{preinj}}
 \newcommand{\reg}{\mathrm{reg}}
+\renewcommand{\ss}{\mathrm{ss}}
 
 %prism custom command
 \usepackage{relsize}
