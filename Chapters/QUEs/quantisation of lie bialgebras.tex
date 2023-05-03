@@ -144,8 +144,8 @@
             A \textbf{$n^{th}$ order flat algebra/coalgebra/bialgebra/Hopf algebra deformation}\footnote{Algebraic geometers might call these \say{$n^{th}$ order thickenings}.} (for some $n \geq 1$) of $A$ is a \textit{flat} algebra/coalgebra/bialgebra/Hopf algebra $\tilde{A}$ over $k[\hbar]/\hbar^n$ such that there exist an isomorphism of algebra/coalgebra/bialgebra/Hopf algebra over $k$ as follows:
                 $$\tilde{A} \tensor_{k[\hbar]/\hbar^n} k \xrightarrow[]{\cong} A$$
                 
-            A \textbf{formal flat deformation} of $A$ is a flat algebra/coalgebra/bialgebra/Hopf algebra $\mathfrak{A}$ over $k[\![\hbar]\!]$ such that there eixst an isomorphism of algebra/coalgebra/bialgebra/Hopf algebra over $k$ as follows:
-                $$\mathfrak{A} \tensor_{k[\![\hbar]\!]} k \xrightarrow[]{\cong} A$$
+            A \textbf{formal flat deformation} of $A$ is a flat algebra/coalgebra/bialgebra/Hopf algebra $\tilde{A}$ over $k[\![\hbar]\!]$ such that there eixst an isomorphism of algebra/coalgebra/bialgebra/Hopf algebra over $k$ as follows:
+                $$\tilde{A} \tensor_{k[\![\hbar]\!]} k \xrightarrow[]{\cong} A$$
         \end{definition}
         \begin{remark}
             Definition \ref{def: flat_deformations} actually works for $k$ being any commutative ring, provided that one requires that $A$ is flat as a $k$-module. 
@@ -171,23 +171,18 @@
                 $$\{f \cdot g, a\} = f \cdot \{g, a\} + \{f, a\} \cdot g$$
         \end{definition}
         \begin{definition}[Deformation quantisations] \label{def: deformation_quantisation}
-            Let $(A, \cdot, \{-, -\})$ be a Poisson algebra over $k$. A \textbf{formal deformation quantisation} of $A$ is a formal flat deformation $\mathfrak{A}$ (over $k[\![\hbar]\!]$) of $A$, endowed with the Poisson structure given by the commutator $[-, -]_{\mathfrak{A}}$, such that:
-                $$\{f, g\} = \frac{1}{\hbar}[\tilde{f}, \tilde{g}]_{\mathfrak{A}} \pmod{\hbar}$$
-            for any lifts $\tilde{f}, \tilde{g} \in \mathfrak{A}$ of $f, g \in A$ (i.e. $\tilde{f} \equiv f, \tilde{g} \equiv g \pmod{\hbar}$).
+            Let $(A, \cdot, \{-, -\})$ be a Poisson algebra over $k$. A \textbf{formal deformation quantisation} of $A$ is a formal flat deformation $\tilde{A}$ (over $k[\![\hbar]\!]$) of $A$, endowed with the Poisson structure given by the commutator $[-, -]_{\tilde{A}}$, such that:
+                $$\{f, g\} = \frac{1}{\hbar}[\tilde{f}, \tilde{g}]_{\tilde{A}} \pmod{\hbar}$$
+            for any lifts $\tilde{f}, \tilde{g} \in \tilde{A}$ of $f, g \in A$ (i.e. $\tilde{f} \equiv f, \tilde{g} \equiv g \pmod{\hbar}$).
         \end{definition}
-        \begin{remark}[Finite-order deformation quantisations]
-            For several reasons, we will often restrict our attention to deformation quantisation commutative Poisson algebras, i.e. those Poisson algebras whose underlying associative algebras are commutative. Particularly, in doing so, one is able to obtain a well-behaved notion of finite-order deformation quantisations.  
-            
-            Firstly, note from the definition that if $A$ is a commutative Poisson $k$-algebra then:
-                $$[\tilde{f}, \tilde{g}]_{\mathfrak{A}} \in \hbar \mathfrak{A}$$
-            for any $f, g \in A$ and any choice of lifts $\tilde{f}, \tilde{g} \in \mathfrak{A}$, and hence we are always guaranteed that $\frac{1}{\hbar}[\tilde{f}, \tilde{g}]_{\mathfrak{A}} \in \mathfrak{A}$ is a well-defined element. Now, let $m(f, g)$ be the maximal positive integer such that:
-                $$[\tilde{f}, \tilde{g}]_{\mathfrak{A}} \in \hbar^{m(\tilde{f}, \tilde{g})} \mathfrak{A}$$
-            and let:
-                $$n := \inf_{f, g \in A} m(f, g)$$
-            It is then clear per the construction of $n$ that:
-                $$[\tilde{f}, \tilde{g}]_{\mathfrak{A}} \in \hbar^n \mathfrak{A}$$
-            and hence $\frac{1}{\hbar^n}[\tilde{f}, \tilde{g}]_{\mathfrak{A}} \in \mathfrak{A}$ is a well-defined element. 
-        \end{remark}
+        \begin{lemma}[Central deformation quantisations induced by formal flat deformations] \label{lemma: central_deformation_quantisation_from_formal_flat_deformations}
+            Let $(A, \cdot)$ be an associative $k$-algebra with a formal flat deformation $\tilde{A}$ (over $k[\![\hbar]\!]$). Then, the following - for all $f, g \in \rmZ(A)$ and all lifts $\tilde{f}, \tilde{g} \in \tilde{A}$ (i.e. $\tilde{f}, \tilde{g} \equiv f, g \pmod{\hbar}$) - makes the centre $\rmZ(A) \subseteq A$ a commutative Poisson $k$-algebra:
+                $$\{f, g\} := \frac{1}{\hbar}[\tilde{f}, \tilde{g}]_{\tilde{A}} \pmod{\hbar}$$
+            and thus making $\tilde{A}$ a deformation quantisation of $A$ in the sense of definition \ref{def: deformation_quantisation}.
+        \end{lemma}
+            \begin{proof}
+                As $f, g \in \rmZ(A)$, we have that $[f, g]_A = 0$ and hence $[\tilde{f}, \tilde{g}]_{\tilde{A}} \in \hbar \tilde{A}$; we thus see firstly that the expression $\frac{1}{\hbar}[\tilde{f}, \tilde{g}]_{\tilde{A}} \in \tilde{A}$ is well-defined. It is well-known that the commutator $[-, -]_{\tilde{A}}$ is a Lie bracket on $\tilde{A}$, so $\{-, -\}$ given by $\{f, g\} := \frac{1}{\hbar}[\tilde{f}, \tilde{g}]_{\tilde{A}} \pmod{\hbar}$ for all $f, g \in \rmZ(A)$ is therefore a well-defined Lie bracket on $\rmZ(A)$. We also have that $\{f, -\}: \rmZ(A) \to \rmZ(A)$ is a derivation with respect to the multiplication $\cdot$ on $A$ for every $f \in \rmZ(A)$, owing to the fact that $[\varphi, -]_{\tilde{A}}$ is a derivation with respect to the multiplication on $\tilde{A}$, for any $\varphi \in \tilde{A}$ (one can then take $\varphi := \tilde{f}$ for any $\tilde{f} \equiv f \pmod{\hbar}$).
+            \end{proof}
     
     \subsection{Quasi-classical limits: from QUEs to finite-dimensional Lie bialgebras}
         \begin{definition}[Formal QUEs] \label{def: formal_QUEs}
