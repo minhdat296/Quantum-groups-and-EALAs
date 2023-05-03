@@ -1,0 +1,244 @@
+\section{Tame Dynkin quivers and their root systems} \label{section: tame_dynkin_quivers}
+    \begin{convention}
+        We assume basic familiarity with quivers (e.g. the reader should be familiar with basic terminologies such as what it means for a quiver to be \say{connected}, \say{acyclic}, or \say{simply laced}, etc.), though nothing substantial about their representations nor about their root systems. 
+    \end{convention}
+    \begin{convention}
+        Throughout this section, suppose that $\Q$ is equipped with the usual absolute value $|-|$ so that $(\Q, |-|)$ would be an archimedean field, and suppose also that $k/\Q$ is an archimedean subextension of $\bbC/\Q$ so that notions such as positivity and negativity could be meaningfully discussed. Typically, $k$ is taken to either be $\Q, \R$, or $\bbC$.
+    \end{convention}
+    
+    \subsection{Tame Dynkin quivers}
+        \subsubsection{Generalised Cartan matrices associated to Dynkin quivers}
+            \begin{definition}[Symmetrisable matrices] \label{def: symmetrisable_matrices}
+                The subset of $\Mat_n(k)$ consisting of $n \x n$ \textbf{symmtrisable matrices} is the orbit of the set $\Sym_n(k) \subset \Mat_n(k)$ of symmetric $n \x n$ matrices under the left-multiplication action of the group $\GL_1^n(k)$ of invertible diagonal $n \x n$ matrices. That is to say, that $A \in \Mat_n(k)$ is symmetrisable if and only if there exists $D \in \GL_1^n(k)$ and $S \in \Sym_n(k)$ such that $A = DS$; the product $A = DS$ is called a \textbf{symmetrisation} of $A$ (which may or may not be unique up to non-zero constants).
+            \end{definition}
+            \begin{definition}[Indecomposable matrices] \label{def: indecomposable_matrices}
+                A square matrix is said to be \textbf{indecomposable} if and only if it can not be written as a direct sum of two proper sub-matrices.  
+            \end{definition}
+            \begin{remark}[Symmetrisations of indecomposable symmetrisable matrices] \label{remark: symmetrisations_of_indecomposable_symmetrisable_matrices}
+                \cite[Corollary 15.16]{carter_affine_lie_algebras} Let $A \in \Mat_n(\Z)$ be symmetrisable. Suppose also, that $A := DS, A := D'S'$ are two symmetrisations of $A$. Then, there shall exist a unique $\xi \in k^{\x}$ such that $D' = \xi D$. Thus, given an indecomposable and symmetrisable square matrix $A$, one can always fix once and for all a symmetrisation $A := DS$.
+            \end{remark}
+            
+            \begin{definition}[Tame and wild GCMs] \label{def: tame_and_wild_generalised_cartan_matrices}
+                A GCM is said to be \textbf{tame} if it is indecomposable\footnote{We need this condition in order to obtain a correspondence between tame GCMs and tame Dynkin quivers.}, symmetrisable, and positive-definite or positive-semi-definite; in particular, a tame GCM that is strictly positive-definite is said to be of \textbf{finite type}, while one that is positive-semi-definite is said to be of \textbf{affine type}. Otherwise, it is said to be \textbf{wild}.
+            \end{definition}
+            \begin{definition}[Cartan quadratic forms of finite quivers] \label{def: cartan_quadratic_forms_of_finite_quivers}
+                Let $Q := (Q_1, Q_0, s, t)$ be a finite quiver and suppose that $n := |Q_0|$; also, let us give the set $Q_0$ of vertices a \textit{fixed} enumeration $\{v_1, ..., v_n\}$. To such a quiver, one can associate a so-called \textbf{adjacency matrix}:
+                    $$R_Q := (m_{ij} r_{ij} := |\{f \in Q_1 \mid s(f) = v_i, t(f) = v_j\}|)_{1 \leq i, j \leq n} \in \Mat_n(\Z)$$
+                wherein $r_{ij}$ of $R_Q$ are the numbers of \textit{undirected} edges from the vertex $v_i$ to the vertex $v_j$ and $m_{ij}$ is the \say{directional multiplicity} from $v_i$ to $v_j$ of said edges (e.g. for the quiver $\mathsf{G}_2$, one has $r_{12} = r_{21} = 3$ but $m_{12} = 1$ while $m_{21} = 0$).
+                
+                From this matrix, one can define the \textbf{Cartan matrix} of $Q$, given by $A_Q := 2I_n - R_Q$, along with a $\Z$-bilinear form $B_Q: \Z^{\oplus n} \x \Z^{\oplus n} \to \Z$ given by:
+                    $$B_Q(x, y) := x^{\top} A_Q y$$
+                which we shall call the \textbf{Cartan form}.
+            \end{definition}
+            \begin{remark}[Cartan matrices are symmetrisable GCMs] \label{remark: cartan_matrices_of_finite_acyclic_quivers_are_symmetrisable_generalised_cartan_matrices}
+                It can be very easily checked that the Cartan matrix of a \textit{simply laced} finite and connected quiver is actually an instance of a GCM (cf. definition \ref{def: generalised_cartan_matrices}). In fact, Cartan matrices are rather special GCMs, in that they are symmetric. One particular consequence of this is that it is thus meaningful to ask whether or not a Cartan matrix/quadratic form is positive-(semi-)definite (cf. defintion \ref{def: dynkin_quivers}).
+                
+                In fact, a more general phenomenon occurs: the Cartan matrix $A_Q := 2I_n - R_Q$ of any finite, connected, and acyclic quiver $Q$ (with $n$ vertices) is a symmetrisable GCM (cf. definition \ref{def: generalised_cartan_matrices}).
+            \end{remark}
+            
+            \begin{proposition}[Evenness of Cartan forms of finite connected acyclic quivers] \label{prop: evenness_of_cartan_forms_of_finite_connected_acyclic_quivers}
+                Let $Q := (Q_1, Q_0, s, t)$ be a finite connected acyclic quiver with $n := |Q_0|$ vertices and consider its Cartan matrix $A_Q$. Then for all $x \in \Z^{\oplus n}$, $B_Q(x, x)$ is even.  
+            \end{proposition}
+                \begin{proof}
+                    Let $n := |Q_0|$ and pick a basis for $\Z^{\oplus n}$ in order to write:
+                        $$
+                            \begin{aligned}
+                                B_Q(x, x) & = x^{\top} A_Q x
+                                \\
+                                & = \sum_{1 \leq i, j \leq n} x_i a_{ij} x_j
+                                \\
+                                & = \sum_{1 \leq i, j \leq n} x_i (2\delta_{ij} - r_{ij}) x_j \text{(wherein $\delta_{ij}$ is the Kronecker delta)}
+                                \\
+                                & = 2\sum_{1 \leq i, j \leq n} x_i \delta_{ij} x_j - \sum_{1 \leq i, j \leq n} x_i (1 - \delta_{ij}) r_{ij} x_j \text{($r_{ij}$ are the entries the adjacency matrix of $Q$)}
+                                \\
+                                & = 2\sum_{1 \leq i \leq n} x_i^2 - 2\sum_{1 \leq i < j \leq n} x_i r_{ij} x_j
+                            \end{aligned}
+                        $$
+                    for all $x \in \Z^{\oplus n}$, wherein the last line is due to the fact that the number of undirected edges from a vertex $v_i$ to another $v_j$ is equal to the number of undirected directed edges from $v_j$ to $v_i$, which in turn is a result of the assumption that $Q$ is connected and acyclic\footnote{Note how this argument fails if $Q$ is either not acyclic or not connected.}. Clearly, $B_Q(x, x)$ is even for all $x \in \Z^{\oplus n}$.
+                \end{proof}
+            \begin{definition}[Tits quadratic forms] \label{def: tits_quadratic_forms}
+                Let $Q := (Q_1, Q_0, s, t)$ be a finite connected acyclic quiver and $B_Q$ be its Cartan quadratic form. Then, inspired by the proof of proposition \ref{prop: evenness_of_cartan_forms_of_finite_connected_acyclic_quivers}, let us define the \textbf{Tits quadratic form} $q_Q: \Z^{\oplus Q_0} \to \Z$ associated to $Q$, which shall be given by\footnote{Since $B_Q(x, x)$ is \textit{a priori} even (cf. proposition \ref{prop: evenness_of_cartan_forms_of_finite_connected_acyclic_quivers}), $q_Q(x)$ is always well-defined.} $q_Q(x) := \frac12 B_Q(x, x)$. 
+            \end{definition}
+            \begin{remark}
+                Let $Q := (Q_1, Q_0, s, t)$ be a finite connected acyclic quiver with adjacency matrix $R_Q := (r_{ij})_{1 \leq i, j \leq |Q_0|}$. Then from the proof of proposition \ref{prop: evenness_of_cartan_forms_of_finite_connected_acyclic_quivers}, we know that:
+                    $$q_Q(x) = \sum_{1 \leq i \leq |Q_0|} x_i^2 - \sum_{1 \leq i < j \leq |Q_0|} x_i r_{ij} x_j$$
+                Also, note that:
+                    $$\forall x, y \in \Z^{\oplus Q_0}: B_Q(x, y) = \frac14(q_Q(x + y) - q_Q(x - y))$$
+            \end{remark}
+            \begin{definition}[Dynkin quivers] \label{def: dynkin_quivers}
+                A \textbf{Dynkin quiver} is a quiver that is finite, acyclic, and connected. A Dynkin quiver $\Gamma$ is said to be of \textbf{finite type}\footnote{Traditionally, finite-type Dynkin quivers are referred to simply as \say{Dynkin quivers}.} if and only if the associated Cartan form $B_{\Gamma}$ (or equivalently, the Tits quadratic form $q_{\Gamma}$) is positive-definite, while it is said to be of \textbf{affine type}\footnote{Also said to be of \textbf{Euclidean type}.} if and only if $B_{\Gamma}$ (or equivalently, $q_{\Gamma}$) is positive semi-definite; collectively, such Dynkin quivers are known as being \textbf{tame} and otherwise, a Dynkin quiver will be said to be \textbf{wild}.
+            \end{definition}
+            \begin{remark}
+                The notion of tame Dynkin quivers as in definition \ref{def: dynkin_quivers} is well-defined thanks to the fact that Cartan quadratic forms are \textit{a priori} symmetrisable (cf. remark \ref{remark: cartan_matrices_of_finite_acyclic_quivers_are_symmetrisable_generalised_cartan_matrices}).
+            \end{remark}
+        
+        \subsubsection{Classification and affinisation of generalised Cartan matrices}
+            \begin{definition}[Dynkin quivers associated to indecomposable GCMs] \label{def: dynkkin_quivers_assocaited_to_indecopmosable_generalised_cartan_matrices}
+                Suppose that $A := (a_{ij})_{1 \leq i, j \leq n} \in \Mat_n(\Z)$ is an indecomposable and symmetrisable GCM. From such a matrix, one can construct an \textbf{associated Dynkin quiver} $\Dyn(A) := (\Dyn_1(A), \Dyn_0(A), s, t)$ wherein:
+                    \begin{itemize}
+                        \item the vertex set $\Dyn_1(A) := \{v_1, ..., v_n\}$ is chosen abstractly, and
+                        \item the arrow set $\Dyn_1(A)$ is defined as follows: for all $1 \leq i, j \leq n$ such that $a_{ij} a_{ji} \leq 4$ and $|a_{ij}| \geq |a_{ji}|$ then $|\{f \in \Dyn_1(A) \mid s(f) = v_i \wedge t(f) = v_j\}| = |a_{ij}|$, while if $a_{ij} a_{ji} < 4$ then $\{f \in \Dyn_1(A) \mid s(f) = v_i \wedge t(f) = v_j\} := \{ (|a_{ij}|, |a_{ji}|) \}$ (wherein the pair is \textit{ordered}), i.e. there will be a unique arrow $(|a_{ij}|, |a_{ji}|): v_i \to v_j$. 
+                    \end{itemize}
+            \end{definition}
+            \begin{remark}
+                It is not hard to see that the notion of associated Dynkin quivers as in definition \ref{def: dynkkin_quivers_assocaited_to_indecopmosable_generalised_cartan_matrices} in fact gives us quivers which are Dynkin in the sense of definition \ref{def: dynkin_quivers}. It should nevertheless be noted, however, that the indecomposability hypothesis on the given GCM $A \in \Mat_n(\Z)$ is crucial, since Dynkin quivers are, by definition, connected; if one was to associated to a decomposable matrix $A := A' \oplus A''$ a quiver by following the procedure described in defintion \ref{def: dynkkin_quivers_assocaited_to_indecopmosable_generalised_cartan_matrices} then there will exist vertices with no arrows between them, i.e. the resulting quiver will be disconnected. 
+            \end{remark}
+            \begin{remark} \label{remark: dynkin_quivers_and_their_cartan_matrices}
+                There is a pair of mutually inverse functions:
+                    $$\Car: \{ \text{Dynkin graphs} \} \leftrightarrows \{ \text{Symmetrisable and indecomposable GCMs} \}: \Dyn$$
+            \end{remark}
+            \begin{lemma}[A tameness criterion via determinants] \label{lemma: tameness_criterion_via_determinants}
+                \cite[Theorem 15.18]{carter_affine_lie_algebras} Let $A \in \Mat_n(\Z)$ be an indecomposable and symmetrisable GCM. 
+                    \begin{enumerate}
+                        \item $A$ is of finite type if and only if all its principal minors have positive determinants.
+                        \item $A$ is of affine type if and only if $\det A = 0$ and all its principal minors have positive determinants.
+                    \end{enumerate}
+            \end{lemma}
+            \begin{proposition}[Tits forms of connected proper subquivers of tame Dynkin quivers] \label{prop: tits_forms_of_connected_proper_subquivers_of_tame_dynkin_quivers}
+                If $\Gamma$ is a Dynkin quiver and $\Gamma' \subset \Gamma$ is any arbitrary (necessarily connected) proper subquiver therein, and denote their Tits forms respectively by $q$ and $q'$. Then $q' = q|_{\Gamma'}$; furthermore, $q'$ is positive-definite if and only if $\Gamma$ is tame. 
+            \end{proposition}
+                \begin{proof}
+                    As a Dynkin quiver, $\Gamma$ is finite, connected, and acyclic by definition, so any connected proper subquiver $\Gamma' \subset \Gamma$ is also necessarily finite, connected, and acyclic, and hence $\Gamma'$ is also a Dynkin quiver. Now, since any proper subquiver $\Gamma' \subseteq \Gamma$ is connected, its associated Cartan matrix $A'$ (cf. definition \ref{def: cartan_quadratic_forms_of_finite_quivers}) must be a proper principal minor of the Cartan matrix of $\Gamma$, and hence $q' = q|_{\Gamma'}$ by construction (cf. definition \ref{def: tits_quadratic_forms}); the second statement is clear by lemma \ref{lemma: tameness_criterion_via_determinants}.
+                \end{proof}
+            \begin{corollary}[Indecomposable tame GCMs are symmetrisable] \label{coro: dynkin_quivers_of_symmetrisable_indecomposable_generalised_cartan_matrices}
+                \cite[Proposition 4.7]{kac_infinite_dimensional_lie_algebras} For $A \in \Mat_n(\Z)$ being any tame GCM, there exists a pair of mutually inverse order-preserving bijecction:
+                    $$\Car: \{ \text{Proper Dynkin subgraphs of $\Dyn(A)$} \} \leftrightarrows \{ \text{Proper principal minors of $A$} \}: \Dyn$$
+            \end{corollary}
+            
+            \begin{definition}[Radical of bilinear forms] \label{def: radicals_of_bilinear_forms}
+                Let $B: V \tensor_k V \to k$ be a \textit{symmetric} $k$-bilinear form. The \textbf{radical} of $B$, denoted by $\Rad B$, is thus the kernel of the canonical map $V \to \Hom_k(V, k)$ given by $v \mapsto B(-, v)$. Tautologically, one has $\Rad B := \{x \in V \mid \forall v \in V: B(x, v) = 0\}$. Elements of radicals are called \textbf{radical vectors}. 
+            \end{definition}
+            \begin{proposition}[An affineness criterion via radicals] \label{prop: affineness_criterion_via_radicals}
+                 \cite[Theorem 4.2.1(2)]{krause_quiver_representations_via_reflection_functors} Let $A \in \Mat_n(\Z)$ be a tame GCM and set $\Gamma := \Dyn(A)$. Then, the given GCM $A$ is of affine type if and only if $\Rad B_{\Gamma} \cong \Z$.
+            \end{proposition}
+                
+            Lastly, let us explain how one may construct an affine-type GCM from a given finite-type GCM through a process that shall come to be known as \say{untwisted affinisation}. This is useful for constructing so-called \say{untwisted} affine reduced Kac-Moody algberas from semi-simple finite-dimensional Lie algebras over algebraically closed fields of characteristic $0$ (cf. theorem \ref{theorem: untwisted_affinisation}). 
+            \begin{definition}[Extended Cartan matrices] \label{def: extended_cartan_matrices}
+                From any finite-type GCM $A := (a_ij)_{1 \leq i, j \leq l} \in \Mat_l(\Z)$, one can construct an \textbf{extended Cartan matrix} $\hat{A} := (\hat{a}_{ij})_{0 \leq i, j \leq l} \in \Mat_{l + 1}(\Z)$ through the following procedure:
+                    \begin{itemize}
+                        \item $\hat{a}_{00} := 2$,
+                        \item $\hat{a}_{ij} := a_{ij}$ for all $1 \leq i, j \leq l$, and
+                        \item the rest of the top row (aside from the entry $\hat{a}_{00}$, that is) is given by:
+                            $$(\hat{a}_{0j})_{1 \leq j \leq l} := -\theta^{\vee} A := -\sum_{1 \leq j \leq l} \theta_j^{\vee} a_{ij}$$
+                        and the rest of the left-most column (aside from the entry $\hat{a}_{00}$, that is) is:
+                            $$(\hat{a}_{i0})_{1 \leq i \leq l} := - A \theta := -\sum_{1 \leq i \leq l} a_{ij} \theta_i$$
+                        with $\theta$ being the highest weight of the finite-type Dynkin quiver $\Dyn(A)$ associated to $A$ (or equivalently, of the finite-type reduced Kac-Moody algebra $\frakLie(A)$).
+                    \end{itemize}
+            \end{definition}
+            \begin{lemma}[Extended Cartan matrices are affine GCMs] \label{lemma: extended_cartan_matrices_are_affine_generalised_cartan_matrices}
+                \cite[Proposition 18.1]{carter_affine_lie_algebras} As a finite-type GCM, if $A$ is of type $\sfX_l$ then $\hat{a}$ will be the affine-type GCM of type $\hat{\sfX}_1^{(1)}$, with $\sfX \in \{\mathsf{A}, \mathsf{B}, \mathsf{C}, \mathsf{D}, \mathsf{E}, \mathsf{F}, \mathsf{G}\}$.
+            \end{lemma}
+            \begin{corollary}[Dynkin quivers of extended Cartan matrices] \label{coro: dynkin_quivers_of_tame_generalised_cartan_matrices}
+                Let $A \in \Mat_n(\Z)$ be a finite-type GCM. Then $\Dyn(\hat{A})$ will be an affine Dynkin quiver that admits the finite-type Dynkin quiver $\Dyn(A)$ as a maximal connected subquiver.
+            \end{corollary}
+            \begin{definition}[Untwisted affine GCMs and Dynkin quivers] \label{def: untwisted_affine_generalised_cartan_matrices_and_dynkin_quivers}
+                If $A \in \Mat_l(\Z)$ is a finite-type GCM of type $\sfX_l$, with $\sfX \in \{\mathsf{A}, \mathsf{B}, \mathsf{C}, \mathsf{D}, \mathsf{E}, \mathsf{F}, \mathsf{G}\}$ (i.e. $A$ corresponds to a finite-type Dynkin diagram), then the corresponding extended Cartan matrix $\hat{A}$ will be referred to as being an \textbf{untwisted affine GCM}. The corresponding Dynkin quiver $\Dyn(\hat{A})$ bears the same descriptor. 
+            \end{definition}
+            
+    \subsection{Root systems of tame Dynkin quivers}
+        \subsubsection{Abstract root systems and abstract Weyl groups}
+            \begin{definition}[Euclidean spaces] \label{defL euclidean_spaces}
+                A \textbf{$k$-Euclidean space} is a pair $(E, B)$ consisting of a finite-dimensional $k$-vector space $E$ and a symmetric $k$-bilinear form $B: E \x E \to k$ (i.e. an inner product). Given any Euclidean space $(E, B)$, a(n) \textbf{(integral) Euclidean lattice} therein is then a $\Z$-submodule $E_0 \subseteq E$ such that $E \cong E_0 \tensor_{\Z} k$ and for all $\alpha, \beta \in E_0$, one has $B(\beta, \alpha) \in E_0$.
+            \end{definition}
+            \begin{definition}[Simple reflections] \label{def: simple_reflections}
+                Let $(E, B)$ be a Euclidean space and $\alpha \in E$ be some fixed vector. The \textbf{simple reflection} about $\alpha$ is then a Euclidean homomorphism $s_{\alpha}: E \to E$ given by $s_{\alpha}(\beta) := \beta - 2\frac{B(\beta, \alpha)}{B(\alpha, \alpha)} \alpha$ for all $\beta \in E$.
+                
+                A root system $(E, B, \Phi)$ is said to be \textbf{tame} if $B$ is positive-(semi-)definite and \textbf{wild} otherwise. A tame root system is of \textbf{finite type} if and only if $B$ is positive-definite, while it is of \textbf{affine type} if and only if $B$ is only positive-semi-definite (and \textit{not} positive-definite).
+            \end{definition}
+            \begin{remark}[Simple reflections are involutive isometries] \label{remark: simple_reflections_are_involutive_isometries}
+                Let $(E, B)$ be a Euclidean space. Then, for all vectors $\alpha \in E$, it is not hard to check that the corresponding simple reflection $s_{\alpha}$, firstly, is an $k$-linear map that preserves the inner product $B$, i.e. firstly that $\<s_{\alpha}(-), s_{\alpha}(-)\> =B$ and secondly, that $s_{\alpha}^2 = \id_E$.
+            \end{remark}
+            \begin{definition}[Abstract root systems] \label{def: abstract_root_systems}
+                A $k$-linear \textbf{(integral) root system} inside a $k$-Euclidean space $(E, B)$ is a subset $\Phi \subset E$ satisfying the following properties $E \cong \span_k \Phi$ (though we do not require that $\Phi$ is $k$-linearly independent\footnote{... and in fact this can not be the case!}), $\Phi$ is closed under simple reflections, and \footnote{This condition is usually known as \textbf{integrality}.}for all $\alpha, \beta \in \Phi$, we require that $B(\beta, \alpha) \in \Z$.
+            \end{definition}
+            \begin{example}[Simple roots] \label{example: simple_roots}
+                Let $(E, B, \Phi)$ be a $k$-linear root system and suppose that $n := \dim_k E$. Then, it can be checked that any choice of a basis $\{e_i\}_{1 \leq i \leq n} \subset E$ is in fact a subset of the set of roots $\Phi$. In this context, we shall refer to the basis vectors $e_1, ..., e_n$ as \textbf{simple roots}.
+            \end{example}
+            \begin{definition}[GCMs associated to root systems] \label{def: generalised_cartan_matrices_of_root_systems}
+                Let $(E, B, \Phi)$ be a $k$-linear root system and suppose that $n := \dim_k E$; also, choose a basis $\{e_i\}_{1 \leq i \leq n} \subset E$. One can then construct an associated GCM $\Car(\Phi)_{1 \leq i, j \leq n} := \left(2\frac{B(e_i, e_j)}{B(e_i, e_i)}\right)_{1 \leq i, j \leq n} \in \Mat_n(\Z)$.
+            \end{definition}
+            \begin{example}[Root systems of tame Dynkin quivers] \label{example: root_systems_of_tame_dynkin_quivers}
+                Let us demonstrate that the notion of roots of Dynkin quivers as in definition \ref{def: roots_of_tame_dynkin_quivers} actually agrees with that of abstract roots as in definition \ref{def: abstract_root_systems} above. For this, let $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a tame Dynkin quiver with $n := |\Gamma_0|$ vertices. The prerequisite of a $k$-Euclidean space is satisfied by the pair $(k^{\oplus n}, B_{\Gamma})$ ($B_{\Gamma}$ is indeed symmetric by remark \ref{remark: cartan_matrices_of_finite_acyclic_quivers_are_symmetrisable_generalised_cartan_matrices}).
+            \end{example}
+            \begin{remark}[Integral simple reflections] \label{remark: integral_simple_reflections}
+                Let $(E, B)$ be a Euclidean space and $E_0 \subseteq E$ be an integral lattice therein. Then, note that every simple reflection $s_{\alpha}$ corresponding to some vector $\alpha \in E_0$ is actually $E_0$-valued on $E_0$, i.e. there is an induced Euclidean lattice homomorphism $s_{\alpha}|_{E_0}: E_0 \to E_0$ given by $s_{\alpha}|_{E_0}(\beta) := \beta - 2\frac{B(\beta, \alpha)}{B(\alpha, \alpha)} \alpha$ for all $\beta \in E_0$. It preserves the inner product $B_0 := B|_{E_0 \x E_0}$, i.e. $\<s_{\alpha}(-), s_{\alpha}(-)\> =B$ and also, similar to $s_{\alpha}$, it is involutive, i.e. $s_{\alpha}|_{E_0}^2 = \id_{E_0}$.
+            \end{remark}
+            \begin{definition}[Abstract root lattices] \label{def: abstract_root_lattices}
+                Let $(E,B, \Phi)$ be a $k$-linear root system. The so-called \textbf{root lattice} inside this root system is then nothing but $\bbX := \span_{\Z} \Phi$. 
+            \end{definition}
+            \begin{remark}[Simple reflections are invertible] \label{remark: simple_reflections_about_roots_are^+_invertible}
+                Let $(E, B)$ be a $k$-Euclidean space. Then, for all $\alpha \in E$, the $k$-linear operator $s_{\alpha}$ is invertible; in fact, it is also self-adjoint and therefore unitary. This is clear form the fact that simple reflections $s_{\alpha}$ about vectors $\alpha \in E$ are involutive isometries (cf. remark \ref{remark: simple_reflections_are_involutive_isometries}).
+            \end{remark}
+            \begin{definition}[Weyl groups] \label{def: weyl_groups}
+                Let $(E,B, \Phi)$ be a $k$-Euclidean space equipped with a root system. The \textbf{Weyl group} attached to the given root system $\Phi$, denoted by $\rmW_{\Phi}$, is then the subgroup\footnote{Note that Weyl groups attached to root systems are well-defined, since simple reflections are invertible operators (cf. remark \ref{remark: simple_reflections_about_roots_are^+_invertible}).} of the special orthogonal group $\SO(E, B)$ generated by the simple reflections $s_{\alpha}$, for all $\alpha \in \Phi$.
+            \end{definition}
+            \begin{convention}[Weyl groups of finite quivers] \label{conv: weyl_groups_of_finite_quivers}
+                If $Q$ is a finite quiver then we shall denote its Weyl group - constructed with respect to the Cartan quadratic form $B_Q$ (cf. definition \ref{def: cartan_quadratic_forms_of_finite_quivers}), which is \textit{a priori} symmetric (cf. remark \ref{remark: cartan_matrices_of_finite_acyclic_quivers_are_symmetrisable_generalised_cartan_matrices}) - by $\rmW_Q$. The corresponding root lattice will be denoted by $\bbX_Q$.
+            \end{convention}
+            \begin{definition}[Heights of roots] \label{def: heights_of_roots}
+                Let $(E, B, \Phi)$ be a $k$-linear root system and endow $E$ with the standard basis $\{e_i\}_{1 \leq i \leq \dim_k E}$. Given an element $\lambda := \sum_{1 \leq i \leq } e_i \alpha_i \in \bbX$, one declares that its \textbf{height} is $\height(\lambda) := \sum_{1 \leq i \leq n} \lambda_i$. 
+            \end{definition}
+            \begin{proposition}[Roots are partially ordered by heights] \label{prop: roots_are_partially_ordered_by_heights}
+                Let $(E, B, \Phi)$ be a $k$-linear root system and endow $E$ with the standard basis $\{e_i\}_{1 \leq i \leq \dim_k E}$. Then the root lattice $\bbX$ will be partially ordered by heights in the sense that for all $\lambda, \mu \in \bbX$, one has $\mu - \lambda \in \bbX^+$ if and only if $\height(\lambda) \leq \height(\mu)$ (in which case one shall write $\lambda \leq \mu$).
+            \end{proposition}
+            \begin{corollary}[Heights of simple roots] \label{coro: heights_of_simple_roots}
+                Let $(E, B, \Phi)$ be a $k$-linear root system and endow $E$ with the standard basis $\{e_i\}_{1 \leq i \leq \dim_k E}$. Then $e_i \leq \lambda$ for all $1 \leq i \leq \dim_k E$ and all $\lambda \in \bbX \setminus \{0\}$. Equivalently, all simple roots are of height $1$.
+            \end{corollary}
+            \begin{definition}[Highest root] \label{def: highest_root}
+                Let $(E, B, \Phi)$ be a $k$-linear root system. A maximal element of the partially ordered $\Z$-module $\bbX$, should it exist, would be called a \textbf{highest root}.
+            \end{definition}
+            
+            Let us now examine the root systems of tame Dynkin quivers more closely, in particular, how the Weyl groups of tame Dynkin quivers act on their root systems. Our main result will be that any such root system admits a unique highest so-called \say{short root} (and in particular, those of finite type always admit a unique highest root in the sense of definition \ref{def: highest_root}).
+            \begin{lemma}[Reflections of simple roots] \label{lemma: reflections_of_simple_roots}
+                Let $\Gamma$ be a tame Dynkin quiver. If $\beta \in \Phi_{\Gamma}^+$ such that $s_{\alpha}(\beta) \not \in \Phi_{\Gamma}^+$ for any simple root $\alpha \not = \beta$ then $\beta$ itself will also be simple. 
+            \end{lemma}
+                \begin{proof}
+                    By proposition \ref{prop: basic_properties_of_tame_dynkin_quivers}, we see that $s_{\alpha}(\beta) \not \in \Phi_{\Gamma}^+$ implies that $s_{\alpha} \in \Phi_{\Gamma}^-$
+                \end{proof}
+            
+        \subsubsection{Real and imaginary roots of tame Dynkin quivers}
+            \begin{definition}[Roots of tame Dynkin quivers] \label{def: roots_of_tame_dynkin_quivers}
+                If $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ is a tame Dynkin quiver with $n := |\Gamma_0|$ vertices then its set of \textbf{roots} shall be $\Phi_{\Gamma} := \{\alpha \in \Z^{\oplus n} \setminus \{0\} \mid q_{\Gamma}(\alpha) \leq 1\}$.
+            \end{definition}
+            \begin{proposition}[Basic properties of roots of Dynkin quivers] \label{prop: basic_properties_of_tame_dynkin_quivers}
+                Suppose that $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ be a tame Dynkin quiver with $n := |\Gamma_0|$ vertices. Also, let us endow $\Z^{\oplus n}$ with the standard basis $\{e_i\}_{1 \leq i \leq n}$.
+                    \begin{enumerate}
+                        \item $\{e_i\}_{1 \leq i \leq n}$ is a proper subset of $\Phi_{\Gamma}$.
+                        \item $-\alpha, \pm\alpha + y \in \Phi_{\Gamma}$ for all $\alpha \in \Phi_{\Gamma}$ and all $y \in \Rad B_{\Gamma}$.
+                        \item If we have any root $\alpha \in \Phi_{\Gamma}$ then $\alpha \in \Phi_{\Gamma} \cap \span_{\pm \N} \{e_i\}_{1 \leq i \leq n}$ (i.e. roots are exclusively \say{positive} or \say{negative}).
+                    \end{enumerate}
+            \end{proposition}
+                \begin{proof}
+                    \noindent
+                    \begin{enumerate}
+                        \item This can be easily checked by hand.
+                        \item We have $q_{\Gamma}(-\alpha) = \frac12 B_{\Gamma}(-\alpha, -\alpha) = \frac12 B_{\Gamma}(\alpha, \alpha) = q_{\Gamma}(\alpha) \in \Phi_{\Gamma}$ by the $\Z$-bilinearity of $B_{\Gamma}$ (cf. definition \ref{def: cartan_quadratic_forms_of_finite_quivers}), which proves that $-\alpha \in \Phi_{\Gamma}$. To show that $\pm\alpha + y \in \Phi_{\Gamma}$, simply consider the fact that $q_{\Gamma}(\pm\alpha + y) = q_{\Gamma}(\pm\alpha) \pm B_{\Gamma}(\pm \alpha, y) + q_{\Gamma}(y) = q_{\Gamma}(\pm\alpha) \in \Phi_{\Gamma}$.
+                        \item Suppose to the contrary that there exists a root $\alpha \in \Phi_{\Gamma}$ that is neither positive nor negative (i.e. $\alpha \not \in \span_{\pm \N} \{e_i\}_{1 \leq i \leq n}$). Such a root can be written as the sum of a positive component and a negative one, say $\alpha := \alpha^+ + \alpha^-$, with $\alpha^{\pm} \in \Phi_{\Gamma} \cap \span_{\pm \N} \{e_i\}_{1 \leq i \leq n}$. Now, consider the fact that $q_{\Gamma}(\alpha) = q_{\Gamma}(\alpha^+ + \alpha^-) = q_{\Gamma}(\alpha^+) - B_{\Gamma}(\alpha^+, -\alpha^-) + q_{\Gamma}(\alpha^-) \geq q_{\Gamma}(\alpha^+) + q_{\Gamma}(\alpha^-)$. Since $\alpha \in \Phi_{\Gamma}$, one has by definition that $q_{\Gamma}(\alpha) \leq 1$, and since $\Gamma$ is tame, $q_{\Gamma}(x) \geq 0$ for all $x \in \Z^{\oplus n}$. Thus, one gathers that $0 \leq q_{\Gamma}(\alpha^+) + q_{\Gamma}(\alpha^-) \leq 1$ and because $q_{\Gamma}(\alpha^{\pm}) \in \Z$, this implies that either $q_{\Gamma}(\alpha^+) = 0$ or $q_{\Gamma}(\alpha^-) = 0$, leading to a contradiction with the initial assumption on $\alpha$. Therefore, it is indeed the case that if we were to have any root $\alpha \in \Phi_{\Gamma}$ then $\alpha \in \Phi_{\Gamma} \cap \span_{\pm \N} \{e_i\}_{1 \leq i \leq n}$ as claimed. 
+                    \end{enumerate}
+                \end{proof}
+                
+            The last statement in proposition \ref{prop: basic_properties_of_tame_dynkin_quivers} inspires the following definition:
+            \begin{definition}[Real and imaginary roots of tame Dynkin quivers] \label{def: real_and_imeginary_roots_of_tame_dynkin_quivers}
+                Let $\Gamma$ be a tame Dynkin quiver. Its set of roots $\Phi_{\Gamma}$ then admits two subsets, denoted by $\Re(\Phi_{\Gamma})$ and $\Im(\Phi_{\Gamma})$, of \textbf{real} and \textbf{imaginary} roots, which are respectively given by:
+                    $$\Re(\Phi_{\Gamma}) := \{\alpha \in \Phi_{\Gamma} \mid q_{\Gamma}(\alpha) = 1\}$$
+                    $$\Im(\Phi_{\Gamma}) := \{\alpha \in \Phi_{\Gamma} \mid q_{\Gamma}(\alpha) = 0\}$$
+            \end{definition}    
+            \begin{remark}[Roots are zero, real, or imaginary] \label{remark: roots_are_zero_real_or_imaginary}
+                It is easy to see that $\Im(\Phi_{\Gamma}) = \Phi_{\Gamma} \cap \Rad B_{\Gamma}$ and from this, one can then deduce that $\Phi_{\Gamma} = \Re(\Phi_{\Gamma}) \sqcup \Im(\Phi_{\Gamma})$.
+            \end{remark}
+            Due to the fact that the Cartan quadratic form of finite-type Dynkin quivers are positive-definite by definition, we know that if $\Gamma$ is a finite-type Dynkin quiver then $\Im(\Phi_{\Gamma}) = \varnothing$; the converse is also true: should $\Gamma$ be a tame Dynkin quiver with no imaginary roots then it must be of finite type. On the other hand, affine-type Dynkin quivers are characterised by their non-empty sets of imaginary roots, described by the following proposition, which is nothing but a rewording of proposition \ref{prop: affineness_criterion_via_radicals} in more quiver-theoretic terms:
+            \begin{proposition}[Radicals of Tits quadratic forms of affine Dynkin quivers] \label{prop: radicals_of_tits_quadratic_forms_of_affine_dynkin_quivers}
+                If $\Gamma := (\Gamma_1, \Gamma_0, s, t)$ is a tame Dynkin quiver with $n := |\Gamma_0|$ vertices, then $\Rad B_{\Gamma} \cong \span_{\Z} \delta$ for any $\delta \in \Im(\Phi_{\Gamma})$ if and only if $\Gamma$ is of affine type.
+            \end{proposition}
+            \begin{corollary}[Imaginary roots of affine Dynkin quivers] \label{prop: imaginary_roots_of_affine_dynkin_quivers}
+                Let $\Gamma$ be an affine Dynkin quiver and choose some $\delta \in \Im(\Phi_{\Gamma})$. Then:
+                    $$\Im(\Phi_{\Gamma}) = \{r \delta \mid \forall r \in \Z \setminus \{0\}\}$$
+            \end{corollary}
+            
+            An important feature that differentiates real and imaginary roots of tame Dynkin quivers is whether or not they lie within the permutation-orbits of the Weyl group of said quivers. Specifically, real roots can always be reached by permuting simple roots using Weyl group elements, whereas the same can not be done in order to reach imaginary roots. In this sense, the real component of the set of roots of a given tame Dynkin quiver behaves very much like the set of roots of a finite-type Dynkin quiver. 
+            \begin{proposition}[Real roots as reflections of simple roots] \label{prop: real_roots_as_reflections_of_simple_roots}
+                Let $\Gamma$ be a tame Dynkin quiver. A root $\alpha \in \Phi_{\Gamma}$ is then real if and only if there exists $w \in \rmW_{\Gamma}$ such that $w(\alpha)$ is a simple root. 
+            \end{proposition}
+            \begin{corollary}[Real and imaginary roots have disjoint Weyl orbits] \label{coro: real_and_imaginary_roots_of_tame_dynkin_quivers_have_disjoint_weyl_orbits}
+                 Let $\Gamma$ be a tame Dynkin quiver. Then $\rmW_{\Gamma}(\Phi_{\Gamma}) = \rmW_{\Gamma}(\Phi^{\simple}_{\Gamma}) \sqcup \rmW(\Im(\Phi_{\Gamma}))$. 
+            \end{corollary}
