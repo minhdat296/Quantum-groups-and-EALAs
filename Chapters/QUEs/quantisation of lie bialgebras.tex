@@ -1,0 +1,263 @@
+\begin{convention}
+    We fix once and for all a field $k$. All Hopf algebras will be assumed to have invertible antipodes. All modules will be left-modules unless mentioned explicitly to be otherwise.
+\end{convention}
+
+\section{Braidings and R-matrices}
+    \subsection{Braided monoidal categories}
+
+    \subsection{R-matrices}
+        \begin{convention}
+            Throughout, suppose that $(\C, \tensor, \1)$ is a \textit{braided} $k$-linear monoidal category.
+        \end{convention}
+    
+        \begin{definition}[R-matrices] \label{def: R_matrices}
+            An \textbf{R-matrix} on an object $V \in \Ob(\C)$ is an automorphism $c \in \Aut(V \tensor V)$ satisfying the so-called \textbf{Yang-Baxter equation}:
+                $$(c \tensor \id_V) \circ (\id_V \tensor c) \circ (c \tensor \id_V) = (\id_V \tensor c) \circ (c \tensor \id_V) \circ (\id_V \tensor c) \in \Aut(V \tensor V \tensor V)$$
+        \end{definition}
+        \begin{example}
+            For each object $V \in \Ob(\C)$, the twist map:
+                $$\tau_{V, V}: V \tensor V \xrightarrow[]{\cong} V \tensor V$$
+            will be an example of an R-matrix. For a proof, consider the following Coxeter relation in the symmetric group $S_3 \cong \Aut(\{1, 2, 3\})$:
+                $$(12)(23)(12) = (23)(12)(23)$$    
+        \end{example}
+        \begin{remark}
+            Finding all solutions to the Yang-Baxter equation is a very difficult task. To see why, specialise to the case $\C := k\mod^{\fr}$ and write the equation out in terms of a fixed basis. 
+            
+            Nevertheless, it is known how one might generate new solutions from a previously known one (e.g. $c = \tau_{V, V}$). In particular, if $V \in \Ob(\C)$ is an object and $c \in \Aut(V \tensor V)$ is an R-matrix then the following automorphisms on $V \tensor V$ will also be R-matrices:
+                $$c^{-1}, \lambda c, \tau_{V, V} \circ c \circ \tau_{V, V}$$
+            wherein $\lambda \in k$ is some scalar.
+        \end{remark}
+        \begin{example}[The Yang-Baxter equation for finite-dimensional simple $\rmU_q(\sl_2)$-modules]
+            Let us write $\rmU_q := \rmU_q(\sl_2(k))$ and for any root lattice element $\lambda = \e q^n\in k$ (with $\e = \pm 1$), write $V_q(n) = V_q(\lambda)$ to mean the corresponding $(n + 1)$-dimensional simple $\rmU_q$-module of highest-weight $\lambda$. For details on the theory of highest-weight $\rmU_q$-modules, we refer the reader to \cite[Chapters VI and VII]{kassel_quantum_groups}. Also, for convenience, we shall also assume for this example that $k$ is algebraically closed and of characteristic $0$. 
+            
+            We now analyse certain R-matrices in the braided monoidal category of finite-dimensional $k$-linear $\rmU_q$-representations. We caution the reader that it is important to view these $\rmU_q$-representations as certain $\rmU_q$-modules, since R-matrices thereon are not simply certain $k$-linear automorphisms but $\rmU_q$-linear automorphisms. To that end, recall the quantum Clebsch-Gordon formula (cf. \cite[Theorem VII.7.1]{kassel_quantum_groups}), which tells us that the tensor product $V_q(n) \tensor_k V_q(m)$ is a semi-simple $\rmU_q$-module in the following manner:
+                $$V_q(n) \tensor_k V_q(m) \cong \bigoplus_{0 \leq p \leq m} V_q(n + m - 2p)$$
+            By specialising to the case wherein $m = n$, one gets that:
+                $$V_q(n) \tensor_k V_q(n) \cong \bigoplus_{0 \leq p \leq n} V_q(2(n - p))$$
+            and so $\rmU_q$-module automorphisms on $V_q(n) \tensor_k V_q(n)$ are nothing but $\rmU_q$-module automorphisms on $\bigoplus_{0 \leq p \leq m} V_q(2(n - p))$. Such automorphisms can thus be computed via examining their actions on the generators $v^{\lambda}_0 \in V_q(\lambda)$ of the simple (hence cyclic) $\rmU_q$-modules $V_q(\lambda)$ (for $\lambda \in \{\pm q^{ 2(n - p) }\}_{0 \leq p \leq n}$). In particular, one sees that any $\rmU_q$-module automorphism on $V_q(n) \tensor_k V_q(n)$ is necessarily diagonalisable. 
+            
+            Now, let us use the quantum Clebsch-Gordon formula again to obtain the following direct sum decomposition of $V_q(n) \tensor V_q(n) \tensor V_q(n)$:
+                $$
+                    \begin{aligned}
+                        V_q(n) \tensor_k V_q(n) \tensor_k V_q(n) & \cong V_q(n) \tensor_k \left( \bigoplus_{0 \leq p \leq n} V_q(2(n - p)) \right)
+                        \\
+                        & \cong \bigoplus_{0 \leq p \leq n} ( V_q(n) \tensor_k V_q(2(n - p)) )
+                        \\
+                        & \cong \bigoplus_{0 \leq p \leq n} \bigoplus_{0 \leq j \leq 2(n - p)} V_q(n + 2(n - p - j))
+                    \end{aligned}
+                $$
+        \end{example}
+        
+\section{Reconstructing bialgebras from their representation categories}
+    \subsection{Fibre functors}
+        For the sake of fixing terminologies, let us recall a few relevant definitions.
+        \begin{definition}[Rigid monoidal categories] \label{def: rigid_monoidal_categories}
+            A monoidal category is said to be \textbf{rigid} if and only if every of its objects has two-sided duals. 
+        \end{definition}
+        \begin{definition}[(Multi-)ring categories] \label{def: ring_categories}
+            \cite[Definition 4.1.1]{EGNO} A \textbf{(multi-)ring category} is a locally finite $k$-linear monoidal category $(\C, \tensor, \1)$ on which the tensor product bifunctor $\tensor: \C \x \C \to \C$ is $k$-bilinear on morphisms and biexact, i.e. for all $V, V', V'' \in \Ob(\C)$, the natural map:
+                $$\C(V, V') \tensor_k \C(V', V'') \to \C(V, V'')$$
+            is $k$-linear. Without the local finiteness condition, we shall say \say{infinite (multi-)ring categories}.
+        \end{definition}
+        \begin{definition}[Tensor functors] \label{def: tensor_functors}
+            Let $\C, \D$ be multi-ring categories over $k$ and $F: \C \to \D$ be a monoidal functor. One says that $F$ is a \textbf{tensor functor} if and only if there is a monoidal natural isomorphism:
+                $$J_{-, -}: F(- \tensor -) \xrightarrow[]{\cong} F(-) \tensor F(-)$$
+            along with an isomorphism:
+                $$F(\1_{\C}) \cong \1_{\D}$$
+        \end{definition}
+        \begin{definition}[(Multi-)tensor categories] \label{def: tensor_categories}
+            \cite[Definition 4.1.1]{EGNO} A  \textbf{multi-tensor category} over a field $k$ is a locally finite $k$-linear abelian rigid monoidal category $(\C, \tensor, \1)$ on which the bifunctor:
+                $$\tensor: \C \x \C \to \C$$
+            is $k$-bilinear on morphisms. If, in addition, we have that $\C(\1, \1) \cong k$ then $\C$ will be called a \textbf{tensor category}. Without the local finiteness condition, we shall say \say{infinite (multi-)tensor categories}.
+        \end{definition}
+        \begin{proposition}[Biexactness of tensor products] \label{prop: biexactness_of_tensor_products}
+            \cite[Proposition 4.2.1]{EGNO} Let $(\C, \tensor, \1)$ be a multi-tensor category. Then the bifunctor $\tensor: \C \x \C \to \C$ will always be biexact. 
+        \end{proposition}
+            \begin{proof}
+                This is a direct consequence of the fact that multi-tensor categories are rigid as monoidal categories. 
+            \end{proof}
+        \begin{corollary}
+            (Infinite) (multi-)tensor categories are special cases of (infinite) (multi-)ring categories.
+        \end{corollary}
+        
+        Now that all the etymological background materials have been put into place, let us actually begin discussing the so-called \say{Tannakian reconstruction theory}. 
+        \begin{convention}
+            From now on until the end of this subsection, let $(\C, \tensor, \1)$ be a ring category over $k$. 
+        \end{convention}
+        The following definition bears significant resemblances with the notion of fibre functors in Grothendieck's interpretation of Galois theory (cf. \cite[Expos\'e V]{SGA1}).
+        \begin{definition}[Fibre functors] \label{def: fibre_functors}
+            A fibre functor on $(\C, \tensor, \1)$ is an \textit{exact} tensor functor:
+                $$F: \C \to k\mod^{\fr}$$
+            (wherein $k\mod^{\fr}$ is a tensor category over $k$ in the usual manner).
+        \end{definition}
+        The following proposition, though very important, is more-or-less self-evident. 
+        \begin{proposition}[Fibre functors for representation categories of associative algebras] \label{prop: fibre_functors_for_representation_categories_of_associative_algebras}
+            Let $A$ be an associative $k$-algebra. Then, the forgetful functor:
+                $$A\mod \xrightarrow[]{F_A := \Hom_A(A, -)} k\mod^{\fr}$$
+            is a fibre functor. Furthermore, we have that:
+                $$A \cong \End_{\Mon\Nat}(F_A)$$
+            as associative $k$-algebras. 
+        \end{proposition}
+        Let us see what happens when we consider $\C$ to be the representation category of a bialgebra over $k$. Again, the proposition is somewhat self-evident. For details, see the discussion immediately preceding \cite[Section 5.2]{EGNO} as well as \cite[Section 5.3]{EGNO}.
+        \begin{remark}[Tensor products of hom-sets]
+            One thing that we would like to remind the reader about is that, should $(H, \mu, \eta, \Delta, \e)$ be a $k$-bialgebra and if $V, W, V', W'$ are $H$-modules then the canonical map:
+                $$\Hom_H(V, W) \tensor_k \Hom_H(V', W') \to \Hom_H(V \tensor_k W, V' \tensor_k W')$$
+            is generally a monomorphism of $H \tensor_k H^{\op}$-modules, and is furthermore an isomorphism whenever $V, V'$ are \textit{free} over $H$. When $H$ is furthermore a Hopf algebra with (invertible) antipode $\sigma: H \to H^{\op}$ then the above becomes an monomorphism (respectively, isomorphism) of $H$-modules via the composite algebra homomorphism:
+                $$H \tensor_k H^{\op} \xrightarrow[\cong]{\id_H \tensor \sigma^{-1}} H \tensor_k H \xrightarrow[]{\mu} H$$
+        \end{remark}
+        \begin{proposition}[Fibre functors for representation categories of bialgebras] \label{prop: fibre_functors_for_representation_categories_of_bialgebras}
+            Let $(H, \mu, \eta, \Delta, \e)$ be a $k$-bialgebra and consider the forgetful functor:
+                $$H\mod \xrightarrow[]{F_H := \Hom_H(H, -)} k\mod^{\fr}$$
+            which we know by proposition \ref{prop: fibre_functors_for_representation_categories_of_associative_algebras} above to be tensorial by virtue of being a fibre functor; denote this tensor structure on $F_H$ by:
+                $$F_H(- \tensor_H -) \xrightarrow[\cong]{J_{-, -}} F_H(-) \tensor_k F_H(-)$$
+            Then:
+                $$H \cong \End_{\Mon\Nat}(F_H)$$
+            not simply as $k$-algebras, but furthermore as $k$-bialgebras; the $k$-coalgebra structure on $\End_{\Mon\Nat}(F_H)$ is induced by that of $H$, via the Deligne tensor product $F_H \boxtimes F_H$, in the sense that there are the following $k$-algebra homomorphisms:
+                $$\End_{\Mon\Nat}(F_H) \xrightarrow[]{\cong} H \xrightarrow[]{\Delta} H \tensor_k H \xrightarrow[]{\cong} \End_{\Mon\Nat}(F_H) \tensor_k \End_{\Mon\Nat}(F_H) \xrightarrow[]{J_{-, -}^{-1}} \End_{\Mon\Nat}(F_H \boxtimes_k F_H)$$
+                $$\End_{\Mon\Nat}(F_H) \xrightarrow[]{\cong} H \xrightarrow[]{\e} k$$
+        \end{proposition}
+        \begin{corollary}[Fibre functors for representation categories of Hopf algebras] \label{coro: fibre_functors_for_representation_categories_of_hopf_algebras}
+            Let $(H, \mu, \eta, \Delta, \e, \sigma)$ be a Hopf $k$-algebra and consider the forgetful functor:
+                $$H\mod \xrightarrow[]{F_H := \Hom_H(H, -)} k\mod^{\fr}$$
+            Then there will be an isomorphism of Hopf $k$-algebra isomorphism:
+                $$H \cong \End_{\Mon\Nat}(F_H)$$
+            Particularly, the antipode on $H$ is given by:
+                $$\End_{\Mon\Nat}(F_H) \xrightarrow[]{\cong} H \xrightarrow[]{\sigma} H^{\op} \xrightarrow[]{\cong} \End_{\Mon\Nat}(F_H)^{\op}$$
+        \end{corollary}
+            \begin{proof}
+                True because Hopf $k$-algebras form a full subcategory of that of $k$-bialgebras. 
+            \end{proof}
+    
+    \subsection{Quasi-cocommutative Hopf algebras}
+    
+    \subsection{Quantum doubles of finite-dimensional Hopf algebras and Yetter-Drinfeld modules}
+    
+\section{Quantisation of finite-dimensional Lie bialgebras}
+    \begin{convention}
+        We fix once and for all a field $k$ of characteristic $0$. 
+    \end{convention}
+    
+    \subsection{Poisson algebras and deformation quantisation}
+        \begin{definition}[Flat deformations] \label{def: flat_deformations}
+            Let $A$ be an associative $k$-algebra.
+            
+            A \textbf{$n^{th}$ order flat algebra/coalgebra/bialgebra/Hopf algebra deformation}\footnote{Algebraic geometers might call these \say{$n^{th}$ order thickenings}.} (for some $n \geq 1$) of $A$ is a \textit{flat} algebra/coalgebra/bialgebra/Hopf algebra $\tilde{A}$ over $k[\hbar]/\hbar^n$ such that there exist an isomorphism of algebra/coalgebra/bialgebra/Hopf algebra over $k$ as follows:
+                $$\tilde{A} \tensor_{k[\hbar]/\hbar^n} k \xrightarrow[]{\cong} A$$
+                
+            A \textbf{formal flat deformation} of $A$ is a flat algebra/coalgebra/bialgebra/Hopf algebra $\mathfrak{A}$ over $k[\![\hbar]\!]$ such that there eixst an isomorphism of algebra/coalgebra/bialgebra/Hopf algebra over $k$ as follows:
+                $$\mathfrak{A} \tensor_{k[\![\hbar]\!]} k \xrightarrow[]{\cong} A$$
+        \end{definition}
+        \begin{remark}
+            Definition \ref{def: flat_deformations} actually works for $k$ being any commutative ring, provided that one requires that $A$ is flat as a $k$-module. 
+            
+            It is also clear that any cofiltered diagram of $n^{th}$ order flat deformations $\{A_n\}_{n \geq 1}$ of some (flat) $k$-algebra gives rise to a universal formal flat deformation:
+                $$A_{\infty} := \projlim_{n \geq 1} A_n$$
+            as a result of Lazard's Theorem, which tells us that cofiltered limits of flat modules are once more flat, as well as the fact that the categories of algebra/coalgebra/bialgebra/Hopf algebra over $k$ has all small cofiltered limits. 
+        \end{remark}
+        \begin{example}[Rees algebras] \label{example: rees_algebras}
+            Let $A := \{A_n\}_{n \geq 0}$ be an $\N$-filtered $k$-algebra. Its Rees algebra is defined to be:
+                $$\Rees(A) := \bigoplus_{n \geq 0} A_n$$
+            An important identification of $\Rees(A)$ is that:
+                $$\Rees(A) \cong \sum_{n \geq 0} A_n \hbar^n$$
+            from which one can extract the following properties:
+                $$\Rees(A)/\hbar \cong \gr(A), \Rees(A)/(\hbar - a) \cong A, \Rees(A)[\hbar^{-1}] \cong A[\hbar^{\pm 1}]$$
+            (wherein $0 \not = a \in k$)
+        \end{example}
+        
+        \begin{definition}[Poisson algebras] \label{def: poisson_algebras}
+            A \textbf{Poisson $k$-algebra} is a triple $(A, \cdot, \{-, -\})$ wherein the pair $(A, \cdot)$ is an associative $k$-algebra, and $\{-, -\}: A \tensor_k A \to A$ is a Lie bracket such that, for each $a \in A$, the map:
+                $$\{-, a\}: A \to A$$
+            is a derivation on $(A, \cdot)$, i.e. for all $f, g \in A$, one has that:
+                $$\{f \cdot g, a\} = f \cdot \{g, a\} + \{f, a\} \cdot g$$
+        \end{definition}
+        \begin{definition}[Deformation quantisations] \label{def: deformation_quantisation}
+            Let $(A, \cdot, \{-, -\})$ be a Poisson algebra over $k$. A \textbf{formal deformation quantisation} of $A$ is a formal flat deformation $\mathfrak{A}$ (over $k[\![\hbar]\!]$) of $A$, endowed with the Poisson structure given by the commutator $[-, -]_{\mathfrak{A}}$, such that:
+                $$\{f, g\} = \frac{1}{\hbar}[\tilde{f}, \tilde{g}]_{\mathfrak{A}} \pmod{\hbar}$$
+            for any lifts $\tilde{f}, \tilde{g} \in \mathfrak{A}$ of $f, g \in A$ (i.e. $\tilde{f} \equiv f, \tilde{g} \equiv g \pmod{\hbar}$).
+        \end{definition}
+        \begin{remark}[Finite-order deformation quantisations]
+            For several reasons, we will often restrict our attention to deformation quantisation commutative Poisson algebras, i.e. those Poisson algebras whose underlying associative algebras are commutative. Particularly, in doing so, one is able to obtain a well-behaved notion of finite-order deformation quantisations.  
+            
+            Firstly, note from the definition that if $A$ is a commutative Poisson $k$-algebra then:
+                $$[\tilde{f}, \tilde{g}]_{\mathfrak{A}} \in \hbar \mathfrak{A}$$
+            for any $f, g \in A$ and any choice of lifts $\tilde{f}, \tilde{g} \in \mathfrak{A}$, and hence we are always guaranteed that $\frac{1}{\hbar}[\tilde{f}, \tilde{g}]_{\mathfrak{A}} \in \mathfrak{A}$ is a well-defined element. Now, let $m(f, g)$ be the maximal positive integer such that:
+                $$[\tilde{f}, \tilde{g}]_{\mathfrak{A}} \in \hbar^{m(\tilde{f}, \tilde{g})} \mathfrak{A}$$
+            and let:
+                $$n := \inf_{f, g \in A} m(f, g)$$
+            It is then clear per the construction of $n$ that:
+                $$[\tilde{f}, \tilde{g}]_{\mathfrak{A}} \in \hbar^n \mathfrak{A}$$
+            and hence $\frac{1}{\hbar^n}[\tilde{f}, \tilde{g}]_{\mathfrak{A}} \in \mathfrak{A}$ is a well-defined element. 
+        \end{remark}
+    
+    \subsection{Quasi-classical limits: from QUEs to finite-dimensional Lie bialgebras}
+        \begin{definition}[Formal QUEs] \label{def: formal_QUEs}
+            A \textbf{formal(ly) quantised universal enveloping algebra (QUE)} of a Lie algebra $\g$ is a formal flat Hopf algebra deformation of $\rmU(\g)$ in the sense of definition \ref{def: flat_deformations}.
+        \end{definition}
+    
+        \begin{definition}[Finite-dimensional Lie bialgebras] \label{def: finite_dimensional_lie_bialgebras}
+            A finite-dimensional \textbf{Lie bialgebra} over $k$ is a triple $(\g, [-, -], \delta)$ consisting of a finite-dimensional Lie algebra $(\g, [-, -])$ over $k$ and a Hochschild $1$-cocycle $\delta \in \HH^1(\g, \g \tensor_k \g)$ such that $\delta^*: \g^* \tensor_k \g^* \to \g^*$, which we call a \textbf{Lie cobracket} or \textbf{cocommutator}, is a Lie algebra structure on $\g^*$ (note that we are exploiting the finite-dimensionality of $\g$ to identify $(\g \tensor_k \g)^* \cong \g^* \tensor_k \g^*$). 
+        \end{definition}
+        \begin{remark}[Some basic properties of finite-dimensional Lie algebras]
+            
+        \end{remark}
+    
+        For $\g$ a finite-dimensional Lie algebra over $k$, the process of taking the so-called \say{classical limit} in order to obtain a finite-dimensional Lie bialgebra from a quantisation $H$ of $\rmU_{\hbar}(\g)$ amounts to constructing a \say{coproduct-like} map:
+            $$\delta: \rmU(\g) \to \rmU(\g) \tensor_k \rmU(\g)$$
+        whose job is to measure how non-cocommutative the comultiplication on $H$ is. It is thus natural to consider:
+            $$\delta(x \pmod{\hbar}) := \frac{\Delta(x) - \Delta^{\op}(x)}{\hbar} \pmod{\hbar}$$
+        for all $x \in H$; one readily checks that this map $\delta$ is well-defined up to a choice of representative $x \pmod{\hbar}$; this map is important, so we give it a name:
+        \begin{definition}[Co-Poisson structures] \label{def: co_poisson_structures}
+            Let $\g$ be a Lie algebra over $k$. The map $\delta: \rmU(\g) \to \rmU(\g) \tensor_k \rmU(\g)$ given by $\delta(x \pmod{\hbar}) := \frac{\Delta(x) - \Delta^{\op}(x)}{\hbar} \pmod{\hbar}$ is called the \textbf{co-Poisson structure} on $\rmU(\g)$ induced by the quantisation $H$.
+        \end{definition}
+        What makes the co-Poisson structure on universal enveloping algebras $\rmU(\g)$ interesting and important is that they induce a Lie bialgebra structure on $\g$ (provided that quantisations of $\rmU(\g)$ existed in the first place). 
+        \begin{lemma}[Co-Poisson structures are coalternating] \label{lemma: co_poisson_structures_are_coalternating}
+            Let $\g$ be a Lie algebra over $k$ and suppose that there exists a formal quantisation $H$ of $\rmU(\g)$. Then, the restriction $\delta|_{\g}: \g \to \g \tensor_k \g$ of the co-Poisson structure on $\rmU(\g)$ given by $\delta(x \pmod{\hbar}) := \frac{\Delta(x) - \Delta^{\op}(x)}{\hbar} \pmod{\hbar}$ is coalternating, in the sense that it factors through $\g \wedge \g$.
+        \end{lemma}
+            \begin{proof}
+            
+            \end{proof}
+        \begin{theorem}[Lie bialgebra structures from co-Poisson structures] \label{theorem: lie_bialgebra_structures_from_co_poisson_structures}
+            Let $\g$ be a Lie algebra over $k$ and suppose that there exists a formal quantisation $H$ of $\rmU(\g)$. Then, the restriction $\delta|_{\g}: \g \to \g \tensor_k \g$ of the co-Poisson structure on $\rmU(\g)$ given by $\delta(x \pmod{\hbar}) := \frac{\Delta(x) - \Delta^{\op}(x)}{\hbar} \pmod{\hbar}$ is a Lie bialgebra structure on $\g$.    
+        \end{theorem}
+            \begin{proof}
+                
+            \end{proof}
+    
+    \subsection{Quantisation: from finite-dimensional Lie bialgebras to QUEs}
+        In the reverse direction, namely from finite-dimensional Lie bialgebras to formal quantisations of their universal enveloping algebras, we adopt a Tannakian perspective in order to construct these quantisations; as a bonus, this approach affords us a functorial description of quantisation. 
+        
+        \begin{convention}
+            If $\calA$ is a $k$-linear category then we shall write $\calA[\hbar]$ for the category whose objects are those of $\calA$ (i.e. $\Ob(\calA[\hbar]) := \Ob(\calA)$) and whose hom-sets are given by:
+                $$\Hom_{\calA[\hbar]}(V, V') := \Hom_{\calA}(V, V')[\hbar] := \Hom_{\calA}(V, V') \tensor_k k[\hbar]$$
+            for all $V, V' \in \Ob(\calA)$.
+        \end{convention}
+        
+        \begin{definition}[Drinfeld categories of bialgebras] \label{def: drinfeld_categories_of_finite_type_bialgebras}
+            Suppose that $H$ is a bialgebra over $k$, and consider the localisations:
+                $$H\mod[\hbar] \to H\mod[\hbar]/\hbar^n$$
+            at the thick subcategories of $H\mod[\hbar]$ spanned by $\hbar^n$-torsion $H$-modules (with $n \geq 1$); in other words, the categories $H\mod[\hbar]/\hbar^n$ are those whose objects are (left-)$H$-modules and whose hom-sets are given by:
+                $$\Hom_{H\mod[\hbar]/\hbar^n}(V, V') := \Hom_{H\mod}(V, V')[\hbar]/\hbar^n$$
+            for all $V, V' \in \Ob(H\mod)$. We shall also be equipping each of these categories $H\mod[\hbar]/\hbar^n$ with the fibre functor:
+                $$F_H[\hbar]/\hbar^n: H\mod[\hbar]/\hbar^n \to k[\hbar]/\hbar^n\mod^{\fr}$$
+            that is the forgetful functor; recall that this functor is corepresentable by $H$, i.e.:
+                $$F_H[\hbar]/\hbar^n \cong \Hom_{H\mod[\hbar]/\hbar^n}(H, -) := \Hom_{H\mod}(H, -)/\hbar^n$$
+                
+            The so-called \textbf{Drinfeld category} of $\g$, which we shall denote by $H\mod[\![\hbar]\!]$ is then the weak $2$-limit of the diagram $\{ ( H\mod[\hbar]/\hbar^n, F_H[\hbar]/\hbar^n ) \}_{n \geq 1} := \{ F_H[\hbar]/\hbar^n: H\mod[\hbar]/\hbar^n \to k[\hbar]/\hbar^n\mod^{\fr} \}_{n \geq 1}$, i.e.:
+                $$( H\mod[\![\hbar]\!], \hat{F}_H ) := 2\-\projlim_{n \geq 1} ( H\mod[\hbar]/\hbar^n, F_H[\hbar]/\hbar^n )$$
+        \end{definition}
+        \begin{remark}[Formal properties of Drinfeld categories] \label{remark: formal_properties_of_drinfeld_categories}
+            Firstly, we note that the Drinfeld category of any bialgebra $H$ is $k[\![\hbar]\!]$-linear.
+            
+            Furthermore (and as the notation suggests), the category $H\mod[\![\hbar]\!]$ comes equipped with a fibre functor:
+                $$\hat{F}_H: H\mod[\![\hbar]\!] \to k[\![\hbar]\!]\mod^{\tfr}$$
+            to the category of topologically free $k[\![\hbar]\!]$-modules (i.e. they are of the form $V[\![\hbar]\!]$ for some $k$-vector space $V$). It is also not hard to see, given the construction of the fibre functors $F_H[\hbar]/\hbar^n$, that:
+                $$\hat{F}_H \cong \projlim_{n \geq 1} F_H[\hbar]/\hbar^n \cong \Hom_{H\mod}(H, -)[\![\hbar]\!] \cong F_H[\hbar]^{\wedge}$$
+            wherein $F_H[\hbar]: H\mod[\hbar] \to k[\hbar]\mod^{\fr}$ is the forgetful functor to the category of free\footnote{... or equivalently, projective $k[\hbar]$-modules, since $k[\hbar]$ is a PID, owing to $k$ being a field.} $k[\hbar]$-modules, and by $(-)^{\wedge}$ we meant the object-wise $\hbar$-adic completion, i.e.:
+                $$F_H[\hbar]^{\wedge}(V) := \projlim_{n \geq 1} F_H[\hbar](V)/\hbar^n$$
+            
+            We thus have that:
+                $$\End_{\Mon\Nat}(\hat{F}_H) \cong \End_{\Mon\Nat}(F_H[\hbar]^{\wedge}(V))$$
+            and hence that there is an isomorphism of associative algebras:
+                $$\End_{\Mon\Nat}(\hat{F}_H) \cong \projlim_{n \geq 1} H[\hbar]/\hbar^n \cong H[\![\hbar]\!]$$
+        \end{remark}
+        Clearly, $H[\![\hbar]\!]$ is a formal flat deformation of $H$ (cf. definition \ref{def: flat_deformations}), so let us now attempt to construct a (braided) monoidal structure on the category $H\mod[\![\hbar]\!]$ so as to be able to use reconstruction theory to identify $H[\![\hbar]\!]$, firstly as a $k$-bialgebra (or even has a Hopf $k$-algebra, in the event that $H$ was Hopf to begin with), and secondly as a quantisation of $H$ in the sense of definition \ref{def: deformation_quantisation}. It is not always the case that $H$ admits a quantisation, seeing how $H$ might not have been a bialgebra to begin with\todo{What is a counter-example ?}\footnote{In fact, we need $H$ to be a Hopf algebra so that the tensor bifunctor on $H\mod$ would be $H$-bilinear. Otherwise, one may only consider tensor products of two-sided $H$-modules.}; nevertheless, this is precisely why finite-dimensional Manin triples are important to us: the fact that they correspond to finite-dimensional Lie bialgebras ensures that, if $(\g, \g_+, \g_-)$ is such a triple, then the universal enveloping algebra $\rmU(\g)$ of the Lie bialgebra $\g$ will admit $\rmU(\g)[\![\hbar]\!]$ as a quantisation.
