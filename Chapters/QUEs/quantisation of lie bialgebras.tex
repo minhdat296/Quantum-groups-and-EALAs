@@ -155,15 +155,12 @@
             as a result of Lazard's Theorem, which tells us that cofiltered limits of flat modules are once more flat, as well as the fact that the categories of algebra/coalgebra/bialgebra/Hopf algebra over $k$ has all small cofiltered limits. 
         \end{remark}
         \begin{example}[Rees algebras] \label{example: rees_algebras}
-            Let $A := \{A_n\}_{n \geq 0}$ be an $\N$-filtered $k$-algebra. Its Rees algebra is defined to be:
-                $$\Rees(A) := \bigoplus_{n \geq 0} A_n$$
-            An important identification of $\Rees(A)$ is that:
-                $$\Rees(A) \cong \sum_{n \geq 0} A_n \hbar^n$$
-            from which one can extract the following properties:
-                $$\Rees(A)/\hbar \cong \gr(A), \Rees(A)/(\hbar - a) \cong A, \Rees(A)[\hbar^{-1}] \cong A[\hbar^{\pm 1}]$$
-            (wherein $0 \not = a \in k$)
+            Let $\g$ be an arbitrary Lie algebra over $k$. THe PBW Theorem asserts that there is a canonical isomorphism of graded $k$-algebras:
+                $$\gr \rmU(\g) \cong \Sym(\g)$$
+            and per the fact that the functor of associated $\N$-graded algebras $\gr: k\-\Assoc\Alg^{\N} \to \gr(k\-\Assoc\Alg^{\N})$ admits the Rees algebra functor $\Rees: \gr(k\-\Assoc\Alg^{\N}) \to k\-\Assoc\Alg^{\N}$ as a right-adjoint (recall that this is given by $A \mapsto $).
         \end{example}
-        
+
+        Let us now introduce Poisson algebras, which in a sense are \say{dual} to Lie algebras; we will explain how this duality occurs momentarily. 
         \begin{definition}[Poisson algebras] \label{def: poisson_algebras}
             A \textbf{Poisson $k$-algebra} is a triple $(A, \cdot, \{-, -\})$ wherein the pair $(A, \cdot)$ is an associative $k$-algebra, and $\{-, -\}: A \tensor_k A \to A$ is a Lie bracket such that, for each $a \in A$, the map:
                 $$\{-, a\}: A \to A$$
@@ -175,14 +172,21 @@
                 $$\{f, g\} = \frac{1}{\hbar}[\tilde{f}, \tilde{g}]_{\tilde{A}} \pmod{\hbar}$$
             for any lifts $\tilde{f}, \tilde{g} \in \tilde{A}$ of $f, g \in A$ (i.e. $\tilde{f} \equiv f, \tilde{g} \equiv g \pmod{\hbar}$).
         \end{definition}
-        \begin{lemma}[Central deformation quantisations induced by formal flat deformations] \label{lemma: central_deformation_quantisation_from_formal_flat_deformations}
+        \begin{lemma}[Poisson brackets from formal flat deformations] \label{lemma: poisson_brackets_from_formal_flat_deformations}
             Let $(A, \cdot)$ be an associative $k$-algebra with a formal flat deformation $\tilde{A}$ (over $k[\![\hbar]\!]$). Then, the following - for all $f, g \in \rmZ(A)$ and all lifts $\tilde{f}, \tilde{g} \in \tilde{A}$ (i.e. $\tilde{f}, \tilde{g} \equiv f, g \pmod{\hbar}$) - makes the centre $\rmZ(A) \subseteq A$ a commutative Poisson $k$-algebra:
                 $$\{f, g\} := \frac{1}{\hbar}[\tilde{f}, \tilde{g}]_{\tilde{A}} \pmod{\hbar}$$
-            and thus making $\tilde{A}$ a deformation quantisation of $A$ in the sense of definition \ref{def: deformation_quantisation}.
         \end{lemma}
             \begin{proof}
-                As $f, g \in \rmZ(A)$, we have that $[f, g]_A = 0$ and hence $[\tilde{f}, \tilde{g}]_{\tilde{A}} \in \hbar \tilde{A}$; we thus see firstly that the expression $\frac{1}{\hbar}[\tilde{f}, \tilde{g}]_{\tilde{A}} \in \tilde{A}$ is well-defined. It is well-known that the commutator $[-, -]_{\tilde{A}}$ is a Lie bracket on $\tilde{A}$, so $\{-, -\}$ given by $\{f, g\} := \frac{1}{\hbar}[\tilde{f}, \tilde{g}]_{\tilde{A}} \pmod{\hbar}$ for all $f, g \in \rmZ(A)$ is therefore a well-defined Lie bracket on $\rmZ(A)$. We also have that $\{f, -\}: \rmZ(A) \to \rmZ(A)$ is a derivation with respect to the multiplication $\cdot$ on $A$ for every $f \in \rmZ(A)$, owing to the fact that $[\varphi, -]_{\tilde{A}}$ is a derivation with respect to the multiplication on $\tilde{A}$, for any $\varphi \in \tilde{A}$ (one can then take $\varphi := \tilde{f}$ for any $\tilde{f} \equiv f \pmod{\hbar}$).
+                As $f, g \in \rmZ(A)$, we have that $[f, g]_A = 0$ and hence $[\tilde{f}, \tilde{g}]_{\tilde{A}} \in \hbar \tilde{A}$; we thus see firstly that the expression $\frac{1}{\hbar}[\tilde{f}, \tilde{g}]_{\tilde{A}} \in \tilde{A}$ is well-defined. It is well-known that the commutator $[-, -]_{\tilde{A}}$ is a Lie bracket on $\tilde{A}$, so $\{-, -\}$ given by $\{f, g\} := \frac{1}{\hbar}[\tilde{f}, \tilde{g}]_{\tilde{A}} \pmod{\hbar}$ for all $f, g \in \rmZ(A)$ is therefore a well-defined Lie bracket on $\rmZ(A)$. It is also easy to check that $\{f, g\}$ is depends not on the choices of lifts $\tilde{f}, \tilde{g}$. We also have that $\{f, -\}: \rmZ(A) \to \rmZ(A)$ is a derivation with respect to the multiplication $\cdot$ on $A$ for every $f \in \rmZ(A)$, owing to the fact that $[\varphi, -]_{\tilde{A}}$ is a derivation with respect to the multiplication on $\tilde{A}$, for any $\varphi \in \tilde{A}$ (one can then take $\varphi := \tilde{f}$ for any $\tilde{f} \equiv f \pmod{\hbar}$).
             \end{proof}
+        \begin{corollary}[Deformation quantisations of commutative Poisson algebras induced by formal flat deformations] \label{coro: deformation_quantisation_of_poisson_algebras_from_formal_flat_deformations}
+            Let $(A, \cdot)$ be a \textit{commutative} $k$-algebra with a formal flat deformation $\tilde{A}$ (over $k[\![\hbar]\!]$). Then, the following - for all $f, g \in A$ and all lifts $\tilde{f}, \tilde{g} \in \tilde{A}$ (i.e. $\tilde{f}, \tilde{g} \equiv f, g \pmod{\hbar}$) - makes $A = \rmZ(A)$ a commutative Poisson $k$-algebra:
+                $$\{f, g\} := \frac{1}{\hbar}[\tilde{f}, \tilde{g}]_{\tilde{A}} \pmod{\hbar}$$
+            and thus making $\tilde{A}$ a deformation quantisation of $A$ in the sense of definition \ref{def: deformation_quantisation}.
+        \end{corollary}
+        \begin{remark}
+            We have thus seen that, formal flat deformations of 
+        \end{remark}
     
     \subsection{Quasi-classical limits: from QUEs to finite-dimensional Lie bialgebras}
         \begin{definition}[Formal QUEs] \label{def: formal_QUEs}
