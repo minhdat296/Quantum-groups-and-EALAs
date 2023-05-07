@@ -137,7 +137,7 @@
         We fix once and for all a field $k$ of characteristic $0$. 
     \end{convention}
     
-    \subsection{Poisson algebras and deformation quantisation}
+    \subsection{(Co-)Poisson algebras and deformation quantisation}
         \begin{definition}[Flat deformations] \label{def: flat_deformations}
             Let $A$ be an associative $k$-algebra.
             
@@ -154,10 +154,12 @@
                 $$A_{\infty} := \projlim_{n \geq 1} A_n$$
             as a result of Lazard's Theorem, which tells us that cofiltered limits of flat modules are once more flat, as well as the fact that the categories of algebra/coalgebra/bialgebra/Hopf algebra over $k$ has all small cofiltered limits. 
         \end{remark}
-        \begin{example}[Rees algebras] \label{example: rees_algebras}
-            Let $\g$ be an arbitrary Lie algebra over $k$. THe PBW Theorem asserts that there is a canonical isomorphism of graded $k$-algebras:
-                $$\gr \rmU(\g) \cong \Sym(\g)$$
-            and per the fact that the functor of associated $\N$-graded algebras $\gr: k\-\Assoc\Alg^{\N} \to \gr(k\-\Assoc\Alg^{\N})$ admits the Rees algebra functor $\Rees: \gr(k\-\Assoc\Alg^{\N}) \to k\-\Assoc\Alg^{\N}$ as a right-adjoint (recall that this is given by $A \mapsto $).
+        \begin{example}[Rees algebras as formal flat deformations] \label{example: rees_algebras_as_formal_flat_deformations}
+            Let $A := \{A_n\}_{n \geq 0}$ be an $\N$-filtered associative $k$-algebra recall that its associated \textbf{Rees algebra} is $\N$-graded associative $k[\![\hbar]\!]$-algebra given by:
+                $$\Rees(A) := \bigoplus_{n \geq 0} A_n \hbar^n$$
+            Since we have that:
+                $$\Rees(A)/\hbar \cong \gr(A)$$
+            and since $\Rees(A)$ is flat over $k[\![\hbar]\!]$ (if $k$ is replaced by a more general commutative ring, we can guarantee this flatness by assuming, e.g. that each $A_n$ is flat over each $k[\hbar]/\hbar^n$), the algebra $\Rees(A)$ can be thought of as a formal flat ($\N$-graded) deformation of $\gr(A)$ (which itself is $\N$-graded). 
         \end{example}
 
         Let us now introduce Poisson algebras, which in a sense are \say{dual} to Lie algebras; we will explain how this duality occurs momentarily. 
@@ -172,7 +174,7 @@
                 $$\{f, g\} = \frac{1}{\hbar}[\tilde{f}, \tilde{g}]_{\tilde{A}} \pmod{\hbar}$$
             for any lifts $\tilde{f}, \tilde{g} \in \tilde{A}$ of $f, g \in A$ (i.e. $\tilde{f} \equiv f, \tilde{g} \equiv g \pmod{\hbar}$).
         \end{definition}
-        \begin{lemma}[Poisson brackets from formal flat deformations] \label{lemma: poisson_brackets_from_formal_flat_deformations}
+        \begin{lemma}[Poisson brackets from formal flat deformations of commutative algebras] \label{lemma: poisson_brackets_from_formal_flat_deformations_of_commutative_algebras}
             Let $(A, \cdot)$ be an associative $k$-algebra with a formal flat deformation $\tilde{A}$ (over $k[\![\hbar]\!]$). Then, the following - for all $f, g \in \rmZ(A)$ and all lifts $\tilde{f}, \tilde{g} \in \tilde{A}$ (i.e. $\tilde{f}, \tilde{g} \equiv f, g \pmod{\hbar}$) - makes the centre $\rmZ(A) \subseteq A$ a commutative Poisson $k$-algebra:
                 $$\{f, g\} := \frac{1}{\hbar}[\tilde{f}, \tilde{g}]_{\tilde{A}} \pmod{\hbar}$$
         \end{lemma}
@@ -184,43 +186,67 @@
                 $$\{f, g\} := \frac{1}{\hbar}[\tilde{f}, \tilde{g}]_{\tilde{A}} \pmod{\hbar}$$
             and thus making $\tilde{A}$ a deformation quantisation of $A$ in the sense of definition \ref{def: deformation_quantisation}.
         \end{corollary}
-        \begin{remark}
-            We have thus seen that, formal flat deformations of 
-        \end{remark}
+        \begin{example}[PBW deformations] \label{example: PBW_deformations}
+            Let $\g$ be an arbitrary Lie algebra over $k$ and denote the PBW filtration on the universal enveloping algebra of $\g$ by $\rmU(\g) := \{\rmU(\g)_n\}_{n \geq 0}$. The PBW Theorem tells us that there is a canonical isomorphism of $\N$-graded commutative $k$-algebras:
+                $$\Sym(\g) \xrightarrow[]{\cong} \gr \rmU(\g)$$
+            Using example \ref{example: rees_algebras_as_formal_flat_deformations}, we thus know that:
+                $$\Rees(\rmU(\g)) := \bigoplus_{n \geq 0} \rmU(\g)_n \hbar^n$$
+            is a formal flat $\N$-graded deformation over $k[\![\hbar]\!]$ of the $\N$-graded commutative $k$-algebra $\Sym(\g)$. Lemma \ref{lemma: poisson_brackets_from_formal_flat_deformations_of_commutative_algebras} then tells us that $\Sym(\g)$ carries a canonically defined Poisson structure $\{-, -\}$ given by:
+                $$\{x, y\} := \frac{1}{\hbar}[\tilde{x}, \tilde{y}]_{\Rees(\rmU(\g))} \pmod{\hbar}$$
+            for all $x, y \in \Sym(\g)$ and all lifts $\tilde{x}, \tilde{y} \in \Rees(\rmU(\g))$ thereof. 
+
+            Now, recall also that when $\g$ is finite-dimensional, the symmetric algebra $\Sym(\g)$ also has a natural bialgebra structure (cf. \cite[Chapter III]{kassel_quantum_groups}) which happens to be compatible with the one on $\gr \rmU(\g)$, and since both are Hopf algebras, the PBW isomorphism upgrades to an isomorphism of $\N$-graded Hopf $k$]
+            algebras:
+                $$\Sym(\g) \xrightarrow[\text{Hopf}]{\cong} \gr \rmU(\g)$$
+            In other words, when $\g$ is finite-dimensional over $k$, $\Rees(\rmU(\g))$ is actually a formal flat $\N$-graded Hopf algebra deformation of $\Sym(\g)$. 
+        \end{example}
     
     \subsection{Quasi-classical limits: from QUEs to finite-dimensional Lie bialgebras}
         \begin{definition}[Formal QUEs] \label{def: formal_QUEs}
             A \textbf{formal(ly) quantised universal enveloping algebra (QUE)} of a Lie algebra $\g$ is a formal flat Hopf algebra deformation of $\rmU(\g)$ in the sense of definition \ref{def: flat_deformations}.
         \end{definition}
     
-        \begin{definition}[Finite-dimensional Lie bialgebras] \label{def: finite_dimensional_lie_bialgebras}
-            A finite-dimensional \textbf{Lie bialgebra} over $k$ is a triple $(\g, [-, -], \delta)$ consisting of a finite-dimensional Lie algebra $(\g, [-, -])$ over $k$ and a Hochschild $1$-cocycle $\delta \in \HH^1(\g, \g \tensor_k \g)$ such that $\delta^*: \g^* \tensor_k \g^* \to \g^*$, which we call a \textbf{Lie cobracket} or \textbf{cocommutator}, is a Lie algebra structure on $\g^*$ (note that we are exploiting the finite-dimensionality of $\g$ to identify $(\g \tensor_k \g)^* \cong \g^* \tensor_k \g^*$). 
+        \begin{definition}[Lie co/bialgebras] \label{def: lie_co/bialgebras}
+            A \textbf{Lie coalgebra} over $k$ is a pair $(\c, \delta)$ consisting of a $k$-vector space $\c$ and a $k$-linear map:
+                $$\delta: \c \to \c \wedge \c$$
+            satisfying the following so-called \textbf{co-Jacobi identity}:
+                $$((123) + (231) + (312)) \circ (\delta \tensor_k \id_\c) \circ \delta = 0$$
+            Now, suppose that $(\a, [-, -])$ is a Lie algebra over $k$ that is also equipped with a Lie coalgebra structure $\delta: \a \to \a \wedge \a$. If the Lie and co-Lie structures $[-, -]$ and $\delta$ are compatible in the sense below, then we will refer to the triple $(\a, [-, -], \delta)$ as a \textbf{Lie bialgebra} over $k$:
+                $$\delta \circ [-, -] = (\ad \tensor_k \id_{\a} + \id_{\a} \tensor_k \ad) \circ (\id_{\a \tensor_k \a} + (12))$$
         \end{definition}
-        \begin{remark}[Some basic properties of finite-dimensional Lie algebras]
-            
-        \end{remark}
-    
+        \begin{definition}[Manin triples] \label{def: manin_triples}
+            A \textbf{Manin triple} consists of the datum of a triple of Lie algebras $(\a, \b^+, \b^-)$ along with an $\ad(\a)$-invariant symmetric and non-degenerate $k$-bilinear form $\kappa: \Sym^2(\a) \to \a$ such that:
+                \begin{itemize}
+                    \item $\b^{\pm}$ are Lie subalgebras of $\a$,
+                    \item $\a \cong \b^- \oplus \b^+$
+                    \item with respect to the inner product $\kappa$, the Lie subalgebras $\b^{\pm}$ are isotropic to one another, i.e. $\kappa(\b^-, \b^+) = 0$. 
+                \end{itemize}
+        \end{definition}
+        
         For $\g$ a finite-dimensional Lie algebra over $k$, the process of taking the so-called \say{classical limit} in order to obtain a finite-dimensional Lie bialgebra from a quantisation $H$ of $\rmU_{\hbar}(\g)$ amounts to constructing a \say{coproduct-like} map:
             $$\delta: \rmU(\g) \to \rmU(\g) \tensor_k \rmU(\g)$$
         whose job is to measure how non-cocommutative the comultiplication on $H$ is. It is thus natural to consider:
             $$\delta(x \pmod{\hbar}) := \frac{\Delta(x) - \Delta^{\op}(x)}{\hbar} \pmod{\hbar}$$
-        for all $x \in H$; one readily checks that this map $\delta$ is well-defined up to a choice of representative $x \pmod{\hbar}$; this map is important, so we give it a name:
-        \begin{definition}[Co-Poisson structures] \label{def: co_poisson_structures}
-            Let $\g$ be a Lie algebra over $k$. The map $\delta: \rmU(\g) \to \rmU(\g) \tensor_k \rmU(\g)$ given by $\delta(x \pmod{\hbar}) := \frac{\Delta(x) - \Delta^{\op}(x)}{\hbar} \pmod{\hbar}$ is called the \textbf{co-Poisson structure} on $\rmU(\g)$ induced by the quantisation $H$.
+        for all $x \in H$; one readily checks that this map $\delta$ is well-defined up to a choice of representative $x \pmod{\hbar}$; this map is important, so we give it a name: the bi-Poisson structure (sometimes called the \say{co-Poisson-Hopf structure}) on $\rmU(\g)$. In order to study it, let us make the following definition for the sake of precision.
+        \begin{definition}[Co/bi-Poisson structures] \label{def: co/bi_poisson_structures}
+            Suppose that $(C, \Delta, \e)$ is a $k$-coalgebra. A \textbf{co-Poisson structure} (or \textbf{co-Poisson cobracket}) on this coalgebra is then a $k$-linear map:
+                $$\delta: C \to C \wedge C$$
+            that is a co-Lie structure on $(C, \Delta, \e)$, and simultaneously a coderivation on $(C, \Delta, \e)$ in the following sense:
+                $$\delta \circ \e = 0$$
+                $$(\Delta \tensor_k \id_C) \circ \delta = (\delta \tensor_k \id_C + (23) \circ \id_C \tensor_k \delta) \circ \Delta$$
+            Now, if $(H, \mu, \eta, \Delta, \e)$ is a $k$-bialgebra, then a co-Poisson structure thereon is a bi-Poisson structure if and only if it is compatible with the algebra structures $\mu, \eta$ in the following manner:
+                $$\delta \circ \mu = (\mu \tensor_k \mu) \circ (\Delta \tensor_k \delta + \delta \tensor_k \Delta)$$
         \end{definition}
         What makes the co-Poisson structure on universal enveloping algebras $\rmU(\g)$ interesting and important is that they induce a Lie bialgebra structure on $\g$ (provided that quantisations of $\rmU(\g)$ existed in the first place). 
-        \begin{lemma}[Co-Poisson structures are coalternating] \label{lemma: co_poisson_structures_are_coalternating}
-            Let $\g$ be a Lie algebra over $k$ and suppose that there exists a formal quantisation $H$ of $\rmU(\g)$. Then, the restriction $\delta|_{\g}: \g \to \g \tensor_k \g$ of the co-Poisson structure on $\rmU(\g)$ given by $\delta(x \pmod{\hbar}) := \frac{\Delta(x) - \Delta^{\op}(x)}{\hbar} \pmod{\hbar}$ is coalternating, in the sense that it factors through $\g \wedge \g$.
-        \end{lemma}
-            \begin{proof}
-            
-            \end{proof}
         \begin{theorem}[Lie bialgebra structures from co-Poisson structures] \label{theorem: lie_bialgebra_structures_from_co_poisson_structures}
-            Let $\g$ be a Lie algebra over $k$ and suppose that there exists a formal quantisation $H$ of $\rmU(\g)$. Then, the restriction $\delta|_{\g}: \g \to \g \tensor_k \g$ of the co-Poisson structure on $\rmU(\g)$ given by $\delta(x \pmod{\hbar}) := \frac{\Delta(x) - \Delta^{\op}(x)}{\hbar} \pmod{\hbar}$ is a Lie bialgebra structure on $\g$.    
+            Let $\g$ be a Lie algebra over $k$ and suppose that there exists a formal quantisation $H$ of $\rmU(\g)$. Then, the restriction $\delta|_{\g}: \g \to \g \tensor_k \g$ of the bi-Poisson structure on $\rmU(\g)$ given by $\delta(x \pmod{\hbar}) := \frac{\Delta(x) - \Delta^{\op}(x)}{\hbar} \pmod{\hbar}$ is a Lie bialgebra structure on $\g$.    
         \end{theorem}
             \begin{proof}
                 
             \end{proof}
+        \begin{remark}
+            Our proof relied heavily on the fact that, by construction of the standard coalgebra structure on $\rmU(\g)$, $\g$ can be identified with the coideal $\Prim(\rmU(\g))$ generated by primitive elements. However, we doubt that this is precisely why the theorem is true. In fact, we suspect that there is a more natural proof that somehow makes use of the identification of Hochschild cohomology and Hopf algebra cohomology; the idea here is that, $\HH^2$ ought to parametrise co/bi-Poisson structures, while $\HH^3$ parametrises obstructions to non-trivially deforming the Hopf algebra in question, and hence the existence of co/bi-Poisson structures on the classical limit can be checked via Hochschild cohomological computations. 
+        \end{remark}
     
     \subsection{Quantisation: from finite-dimensional Lie bialgebras to QUEs}
         In the reverse direction, namely from finite-dimensional Lie bialgebras to formal quantisations of their universal enveloping algebras, we adopt a Tannakian perspective in order to construct these quantisations; as a bonus, this approach affords us a functorial description of quantisation. 
