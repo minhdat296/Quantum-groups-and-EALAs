@@ -215,31 +215,90 @@
                 $$\delta \circ [-, -] = (\ad \tensor_k \id_{\a} + \id_{\a} \tensor_k \ad) \circ (\id_{\a \tensor_k \a} + (12))$$
         \end{definition}
         \begin{definition}[Manin triples] \label{def: manin_triples}
-            A \textbf{Manin triple} consists of the datum of a triple of Lie algebras $(\a, \b^+, \b^-)$ along with an $\ad(\a)$-invariant symmetric and non-degenerate $k$-bilinear form $\kappa: \Sym^2(\a) \to \a$ such that:
+            A \textbf{Manin triple} consists of the datum of a triple of Lie algebras $(\d, \a^+, \a^-)$ along with an $\ad(\a)$-invariant symmetric and non-degenerate $k$-bilinear form $\kappa: \Sym^2(\d) \to \d$ such that:
                 \begin{itemize}
-                    \item $\b^{\pm}$ are Lie subalgebras of $\a$,
-                    \item $\a \cong \b^- \oplus \b^+$
-                    \item with respect to the inner product $\kappa$, the Lie subalgebras $\b^{\pm}$ are isotropic to one another, i.e. $\kappa(\b^-, \b^+) = 0$. 
+                    \item $\a^{\pm}$ are Lie subalgebras of $\d$,
+                    \item $\d \cong \a^- \oplus \a^+$
+                    \item with respect to the inner product $\kappa$, the Lie subalgebras $\a^{\pm}$ are isotropic to one another, i.e. $\kappa(\a^-, \a^+) = 0$, i.e. they are orthogonal complements of one another with respect to $\kappa$.
                 \end{itemize}
         \end{definition}
+        \begin{proposition}[Manin triples classify Lie bialgebras] \label{prop: manin_triples_classify_lie_bialgebras}
+            There is a bijection:
+                $$\left\{ \text{Finite-dimensional Lie bialgebras $(\a, [-, -], \delta)$} \right\}$$
+                $$\cong$$
+                $$\left\{ \text{Finite-dimensional Manin triples $(\d, \a^-, \a^+)$ with $\a^+ \cong \a$} \right\}$$
+        \end{proposition}
+            \begin{proof}
+                 
+            \end{proof}
+        \begin{example}[Lie bialgebra structures semi-simple finite-dimensional Lie algebras]
+            Let $\g$ be a semi-simple finite-dimensional Lie algebra over $k$ given by $3l$ Chevalley-Serre generators $\{h_i, e_i^{\pm}\}_{1 \leq i \leq l}$. Given the relations amongst these generators, and given the usual coalgebra structure on $\rmU(\g)$, one can write down and check the well-definiteness of the following Lie coalgebra structure on $\g$:
+                $$\delta(h_i) := 0, \delta(e_i^{\pm}) = \pm a_{ii} e_i^{\pm} \wedge h_i$$
+            wherein $a_{ii}$ are the diagonal entries of the GCM associated to $\g$. 
+        \end{example}
         
-        For $\g$ a finite-dimensional Lie algebra over $k$, the process of taking the so-called \say{classical limit} in order to obtain a finite-dimensional Lie bialgebra from a quantisation $H$ of $\rmU_{\hbar}(\g)$ amounts to constructing a \say{coproduct-like} map:
+        For $\g$ a finite-dimensional Lie algebra over $k$, the process of taking the so-called \say{classical limit} in order to obtain a finite-dimensional Lie bialgebra from a quantisation $\widetilde{\rmU(\g)}$ of $\rmU(\g)$ amounts to constructing a \say{coproduct-like} map:
             $$\delta: \rmU(\g) \to \rmU(\g) \tensor_k \rmU(\g)$$
-        whose job is to measure how non-cocommutative the comultiplication on $H$ is. It is thus natural to consider:
-            $$\delta(x \pmod{\hbar}) := \frac{\Delta(x) - \Delta^{\op}(x)}{\hbar} \pmod{\hbar}$$
-        for all $x \in H$; one readily checks that this map $\delta$ is well-defined up to a choice of representative $x \pmod{\hbar}$; this map is important, so we give it a name: the bi-Poisson structure (sometimes called the \say{co-Poisson-Hopf structure}) on $\rmU(\g)$. In order to study it, let us make the following definition for the sake of precision.
+        whose job is to measure how non-cocommutative the comultiplication on $\widetilde{\rmU(\g)}$ is. It is thus natural to consider:
+            $$\delta := \frac1\hbar(\tilde{\Delta} - \tilde{\Delta}^{\cop}) \pmod{\hbar}$$
+        One readily checks that this map $\delta$ is well-defined up to a choice of representative $x \pmod{\hbar}$; this map is important, so we give it a name: the bi-Poisson structure (sometimes called the \say{co-Poisson-Hopf structure}) on $\rmU(\g)$. In order to study it, let us make the following definition for the sake of precision.
         \begin{definition}[Co/bi-Poisson structures] \label{def: co/bi_poisson_structures}
             Suppose that $(C, \Delta, \e)$ is a $k$-coalgebra. A \textbf{co-Poisson structure} (or \textbf{co-Poisson cobracket}) on this coalgebra is then a $k$-linear map:
                 $$\delta: C \to C \wedge C$$
             that is a co-Lie structure on $(C, \Delta, \e)$, and simultaneously a coderivation on $(C, \Delta, \e)$ in the following sense:
-                $$\delta \circ \e = 0$$
                 $$(\Delta \tensor_k \id_C) \circ \delta = (\delta \tensor_k \id_C + (23) \circ \id_C \tensor_k \delta) \circ \Delta$$
-            Now, if $(H, \mu, \eta, \Delta, \e)$ is a $k$-bialgebra, then a co-Poisson structure thereon is a bi-Poisson structure if and only if it is compatible with the algebra structures $\mu, \eta$ in the following manner:
+            Now, if $(H, \mu, \eta, \Delta, \e)$ is a $k$-bialgebra, then a co-Poisson structure thereon is a bi-Poisson structure if and only if it is compatible with the multiplication $\mu$ in the following manner:
                 $$\delta \circ \mu = (\mu \tensor_k \mu) \circ (\Delta \tensor_k \delta + \delta \tensor_k \Delta)$$
         \end{definition}
         What makes the co-Poisson structure on universal enveloping algebras $\rmU(\g)$ interesting and important is that they induce a Lie bialgebra structure on $\g$ (provided that quantisations of $\rmU(\g)$ existed in the first place). 
-        \begin{theorem}[Lie bialgebra structures from co-Poisson structures] \label{theorem: lie_bialgebra_structures_from_co_poisson_structures}
-            Let $\g$ be a Lie algebra over $k$ and suppose that there exists a formal quantisation $H$ of $\rmU(\g)$. Then, the restriction $\delta|_{\g}: \g \to \g \tensor_k \g$ of the bi-Poisson structure on $\rmU(\g)$ given by $\delta(x \pmod{\hbar}) := \frac{\Delta(x) - \Delta^{\op}(x)}{\hbar} \pmod{\hbar}$ is a Lie bialgebra structure on $\g$.    
+        \begin{lemma}[Bi-Poisson structures from Hopf algebra deformations] \label{lemma: bi_poisson_structures_from_hopf_algebra_deformations}
+            Suppose that $(H, \mu, \eta, \Delta, \e)$ is a cocommutative Hopf algebra over $k$ with a formal flat Hopf algebra deformation $(\tilde{H}, \tilde{\mu}, \tilde{\eta}, \tilde{\Delta}, \tilde{\e})$ over $k[\![\hbar]\!]$. Then, there will be a bi-Poisson structure on $H$ given by:
+                $$\delta := \frac{1}{\hbar}(\tilde{\Delta} - \tilde{\Delta}^{\cop}) \pmod{\hbar}$$
+        \end{lemma}
+            \begin{proof}
+                Since $H$ is cocommutative, we have that $\Delta - \Delta^{\cop} = 0$ and hence $\tilde{\Delta}(y) - \tilde{\Delta}^{\cop}(y) \in \hbar \tilde{H}$ for all $y \in \tilde{H}$. The expression $\delta := \frac{1}{\hbar}(\tilde{\Delta} - \tilde{\Delta}^{\cop}) \pmod{\hbar}$ is therefore well-defined.
+
+                Let us now check the axioms in definition \ref{def: co/bi_poisson_structures}. Firstly, it is clear that $\delta$ is $k$-linear and co-alternating by construction. Secondly, let us check that the co-Jacobi identity holds. To this end, consider the following:
+                    $$
+                        \begin{aligned}
+                            & \hbar^2 (\delta \tensor_k \id_H) \circ \delta
+                            \\
+                            = & ( (\tilde{\Delta} - \tilde{\Delta}^{\cop}) \tensor_{k[\![\hbar]\!]} \id_{\tilde{H}} ) \circ (\tilde{\Delta} - \tilde{\Delta}^{\cop}) \pmod{\hbar}
+                            \\
+                            = & ( \tilde{\Delta} \tensor_{k[\![\hbar]\!]} \id_{\tilde{H}} - \tilde{\Delta}^{\cop} \tensor_{k[\![\hbar]\!]} \id_{\tilde{H}} ) \circ (\tilde{\Delta} - \tilde{\Delta}^{\cop}) \pmod{\hbar}
+                            \\
+                            = & (\tilde{\Delta} \tensor_{k[\![\hbar]\!]} \id_{\tilde{H}}) \circ \tilde{\Delta} - (\tilde{\Delta}^{\cop} \tensor_{k[\![\hbar]\!]} \id_{\tilde{H}}) \circ \tilde{\Delta} - (\tilde{\Delta}^{\cop} \tensor_{k[\![\hbar]\!]} \id_{\tilde{H}}) \circ \tilde{\Delta} + (\tilde{\Delta}^{\cop} \tensor_{k[\![\hbar]\!]} \id_{\tilde{H}}) \circ \tilde{\Delta}^{\cop} \pmod{\hbar}
+                        \end{aligned}
+                    $$
+                It is then clear than:
+                    $$((123) + (231) + (312)) \circ (\delta \tensor_k \id_H) \circ \delta = 0$$
+                Now, to check that $\delta$ is a co-derivation with respect to $\Delta$, consider the following:
+                    $$
+                        \begin{aligned}
+                            & \hbar (\Delta \tensor_k \id_H) \circ \delta 
+                            \\
+                            = & (\Delta \tensor_k \id_H) \circ (\tilde{\Delta} - \tilde{\Delta}^{\cop}) \pmod{\hbar} 
+                            \\
+                            = & 
+                        \end{aligned}
+                    $$
+                Finally, in order to check that $\delta$ is compatible with the multiplication $\mu$, we will be making use of the fact that $\mu$ is an algebra homomorphism and that $\Delta$ is a coalgebra homomorphism, boththanks to $H$ being a bialgebra:
+                    $$
+                        \begin{aligned}
+                            & \hbar( \delta \circ \mu )
+                            \\
+                            = & (\tilde{\Delta} - \tilde{\Delta}^{\cop}) \circ \tilde{\mu} \pmod{\hbar}
+                            \\
+                            = & 
+                        \end{aligned}
+                    $$
+            \end{proof}
+        \begin{theorem}[Lie bialgebra structures from bi-Poisson structures] \label{theorem: lie_bialgebra_structures_from_bi_poisson_structures}
+            Let $\g$ be a Lie algebra over $k$ and suppose that there exists a formal quantisation $U$ of $\rmU(\g)$. Then, the restriction:
+                $$\delta|_{\g}: \g \to \g \tensor_k \g$$
+            of the bi-Poisson structure on $\rmU(\g)$ given by:
+                $$\delta := \frac{1}{\hbar}(\Delta - \Delta^{\cop}) \pmod{\hbar}$$
+            down onto the coideal $\g = \Prim(\rmU(\g))$ of primitive elements, determines a Lie bialgebra structure on $\g$.    
         \end{theorem}
             \begin{proof}
                 
