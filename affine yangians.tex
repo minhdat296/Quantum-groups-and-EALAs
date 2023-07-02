@@ -1,0 +1,82 @@
+\input{article preambles}
+
+\setcounter{section}{-1}
+
+\input{commands}
+
+\begin{document}
+
+    \title{Affine Yangians and their universal R-matrices}
+    
+    \author{Dat Minh Ha}
+    \maketitle
+    
+    \begin{abstract}
+    
+    \end{abstract}
+    
+    {
+    \hypersetup{} 
+    %\dominitoc
+    \tableofcontents %sort sections alphabetically
+    }
+
+    \section{Introduction}
+        We fix once and for all $\g$, which is either a finite-dimensional simple Lie algebra or a symmetrisable Kac-Moody algebra, with indecomposable Cartan matrix $C := DA$ (with $D$ diagonal and invertible, and $A$ symmetric). 
+
+    \section{Definitions}
+        \subsection{Yangians of symmetrisable Kac-Moody algebras}
+
+        \subsection{Some toroidal Lie algebras; universal central extensions of perfect Lie algebras}
+
+    \section{Toroidal Lie bialgebras and a coproduct on simply laced affine Yangians}
+        \subsection{Cobrackets on toroidal Lie algebras}
+            In order to obtain classical limits of the affine Yangian $\rmY_{\hbar}(\g)$, we shall firstly need to identify Lie bialgebra structures on the toroidal Lie algebra $\g'[t]$. This Lie bialgebra structure\footnote{Or rather, its extension to a universal central extension of $\g'[t]$. We will address this detail shortly.} can then be quantised into the coproduct of a Hopf algebra structure on $\rmY_{\hbar}(\g)$ (which is to be constructed later on). 
+
+            We shall do this by constructing an \textit{$\N$-graded} Manin triple; this is done for several technical reasons that will become clear after the fact, though let us note right away that in this case, consider full linear duals and graded duals will end up giving us the same Lie bialgebra structure on $\g'[t]$. To this end, consider the following Manin triple:
+                $$(\g'[t^{\pm 1}], \g'[t], t^{-1}\g[t^{-1}])$$
+            with $\g'[t^{\pm 1}]$ being endowed with the following invariant inner product:
+                $$(X t^p, Y t^q) := \kappa(X, Y) \delta_{p + q, -1}$$
+            given for every $X, Y \in \g'$ and every $p, q \in \Z$; here, $\kappa$ means the generalised Killing form on the symmetrisable Kac-Moody algebra $\g$ as in \cite[Chapter 2]{kac_infinite_dimensional_lie_algebras}; note that when $\g$ is of finite type:
+                $$\g' = \g$$
+            and so $\kappa$ is nothing but the usual Killing form, and when $\g$ is of untwisted affine type, i.e. when:
+                $$\g \cong \g^{\circ}[v^{\pm 1}] \oplus \bbC c \oplus \bbC d$$
+            with $\g^{\circ}$ the finite-type Kac-Moody algebra associated to the Cartan matrix obtained by deleting the first row and column of the Cartan matrix $C$ of $\g$, $c \in \bbC \setminus \{0\}$ is an arbitrary non-zero scalar, called the \textbf{central charge}, arising from:
+                $$\uce(\g^{\circ}[v^{\pm 1}]) \cong \g^{\circ}[v^{\pm 1}] \oplus \bbC c$$
+            and $d$ is a derivation on $\g^{\circ}[v^{\pm 1}] \oplus \bbC c$ acting as $v \frac{d}{dv}$ on $\g^{\circ}[v^{\pm 1}]$ and as zero on $c$, we shall have that:
+                $$\g' \cong \g^{\circ}[v^{\pm 1}] \oplus \bbC c \cong \uce(\g^{\circ}[v^{\pm 1}])$$
+            (for more details, see \cite[Chapter 7]{kac_infinite_dimensional_lie_algebras}). It is easy to check that:
+                $$\g'[t]^{\vee} \cong t^{-1}\g[t^{-1}]$$
+            with respect to $(-, -)$ as above, and also that:
+                $$\g'[t^{\pm}] \cong \g'[t] \oplus t^{-1} \g'[t^{-1}]$$
+            The sought-for Lie cobracket on $\g'[t]$, which shall be denoted by $\delta$, is then the graded dual of the Lie bracket on $t^{-1}\g'[t^{-1}]$ (which is clearly $\N$-graded) and hence given by:
+                $$\delta(X t^p) = \sum_{[X', X''] = X} \sum_{p' + p'' = p - 1} (X' t^{p'}) \wedge (X'' t^{p''})$$
+            for all $X \in \g'$ and all $p \in \N$. When $\g$ is of untwisted affine type, let us identify:
+                $$\g' \cong \g^{\circ}[v^{\pm 1}] \bigoplus \bbC c$$
+            (with notations as above), and then note that the Lie cobracket on $\g'[t] \cong \g^{\circ}[v^{\pm 1}, t] \oplus \bbC[t]$ can then be written out more explicitly as:
+                $$\delta(x v^m t^p) =\cong \sum_{[x', x''] = x} \sum_{m' + m'' = m} \sum_{p' + p'' = p - 1} (x' v^{m'} t^{p'}) \wedge (x'' v^{m''} t^{p''})$$
+            for any $x \in \g^{\circ}, m \in \Z, p \in \N$.
+
+            Now, suppose that $\g$ is either of finite type or untwisted affine type. In these cases, observe that the Lie algebra $\g'[t]$ is such that:
+                $$\g'[t]' = \g'[t]$$
+            Such a Lie algebra is said to be \textbf{perfect} and are known to admit universal central extensions, which split \textit{a priori}, so let us write:
+                $$\s := \uce(\g'[t])$$
+            We note also that it is known\footnote{... by Kassel.} that:
+                $$\uce(\g'[t]) \cong \g'[t] \oplus \overline{\Omega^1_{\bbC[t]/\bbC}}$$ 
+            with $\overline{\Omega^1_{\bbC[t]/\bbC}} := \Omega^1_{\bbC[t]/\bbC}/d \bbC[t]$ denoting the coimage of the universal K\"ahler differential map:
+                $$\del: \bbC[t] \to \Omega^1_{\bbC[t]/\bbC}$$
+            (cf. \cite{stacks}). Additionally, if we choose representatives $\overline{\xi}$ for elements $\xi \in \co\im \del$, then the Lie bracket on $\s := \uce(\g'[t])$ can be shown to be given by:
+                $$[X f(t), Y g(t)]_{\s} = [X, Y]_{\g'} f(t)g(t) + \kappa(X, Y) \overline{(\del f(t)) g(t)}$$
+                $$[X f(t), \overline{\xi}] = 0$$
+            for all $X, Y \in \g'$, all $f(t), g(t) \in \bbC[t]$, and all $\xi \in \Omega^1_{\bbC[t]/\bbC}$. The (graded) Lie cobracket $\delta: \g'[t] \to \bigwedge^2 \g'[t]$ can then be extended over to the entirety of its split extension $\s$ via:
+                $$\delta( \overline{\del g(t)} ) := \sum_{ X \in \g'[t] } X \wedge g(t) = 0 \wedge g(t) = 0$$
+            wherein $g(t) \in \bbC[t]$ is arbitrary (note that the elements $\del g(t)$ generate $\Omega^1_{\bbC[t]/\bbC}$ and hence $\overline{\Omega^1_{\bbC[t]/\bbC}}$); note the use of the fact that $\sum_{ X \in \g'[t] } X = 0$.
+
+        \subsection{\textit{Interlude}: Finite-type Yangians as Hopf algebras}
+
+        \subsection{A coproduct on Yangians of simply laced untwisted affine Kac-Moody algebras}
+    
+    \addcontentsline{toc}{section}{References}
+    \printbibliography
+
+\end{document}

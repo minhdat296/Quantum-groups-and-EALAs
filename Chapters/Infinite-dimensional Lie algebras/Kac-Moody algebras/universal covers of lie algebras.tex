@@ -1,0 +1,51 @@
+\section{Universal covers of Lie algebras}
+    \subsection{Extensions of Lie algebras}
+        \begin{convention}
+            Throughout, we work over a base commutative ring $A$.
+        \end{convention}
+
+        We begin by recalling the notions of (central) extensions of Lie algebras.
+        \begin{definition}[Lie algebra extensions] \label{def: lie_algebra_extensions}
+            An \textbf{extension} $(\frake, \pi)$ of a Lie algebra $\a$ over $A$ is a short exact sequence in $A\mod$ of Lie algebras:
+                $$0 \to \z \to \frake \xrightarrow[]{\pi} \a \to 0$$
+            and if $\z \subseteq \frake$ is furthermore a central Lie subalgebra (i.e. $\z \subseteq \z(\frake)$), then the extension will be said to be \textbf{central}.
+
+            There is an evident category of (central) extensions of $\a$ over $A$, which shall be denoted by $\Lie\Ext_A(\a)$ (respectively, by $\Cent\Lie\Ext_A(\a)$). Since the images under Lie algebra homomorphisms of central Lie subalgebra are once more central, $\Cent\Lie\Ext_A(\a)$ is a full subcategory of $\Lie\Ext_A(\a)$.
+        \end{definition}
+        \begin{definition}[Universal central extensions of Lie algebras] \label{def: universal_central_extensions_of_lie_algebras} 
+            A central extensions of a Lie algebra $\a$ over $A$ is said to be \textbf{universal} if and only if it is initial as an object of $\Cent\Lie\Ext_A(\a)$. 
+        \end{definition}
+        
+        \begin{definition}[Perfect Lie algebras] \label{def: perfect_lie_algebras} 
+            A Lie algebra $\a$ is perfect if it is equal to its derived Lie subalgebra $[\a, \a]$.
+        \end{definition}
+        \begin{definition}[Lie algebra coverings] \label{def: lie_algebra_coverings}
+            A \textbf{covering} (or a \textbf{perfect extension}) of a Lie algebra $\a$ over $A$ is a central extension $(\frake, \pi)$ wherein $\frake$ is a perfect Lie algebra. There is also a subcategory $\Perf\Lie\Ext_A(\a) \subset \Cent\Lie\Ext_A(\a)$ of coverings/perfect extensions of $\a$ over $A$, though this subcategory is not full (cf. lemma \ref{lemma: category_of_perfect_lie_algebra_extensions_is_thin}).
+        \end{definition}
+        \begin{lemma}
+            If $\frake$ is a perfect Lie algebra over $A$ and $\pi: \frake \to \a$ is an epimorphism then $\a$ will also be perfect.  
+        \end{lemma}
+            \begin{proof}
+                By definition, $\frake$ is perfect if and only if:
+                    $$[\frake, \frake] = \frake$$
+                and so:
+                    $$\pi(\frake) = \pi([\frake, \frake]) = [\pi(\frake), \pi(\frake)] = [\a, \a]$$
+                wherein the last equality comes from the assumption that $\pi: \frake \to \a$ is an epimorphism and hence surjective. 
+            \end{proof}
+        \begin{corollary} \label{coro: lie_algebras_with_coverings_are_perfect}
+            If a Lie algebra $\a$ over $A$ admits a perfect extension then it will be perfect.
+        \end{corollary}
+        \begin{lemma} \label{lemma: category_of_perfect_lie_algebra_extensions_is_thin}
+            If $\a$ is a perfect Lie algebra over $A$ then the category $\Perf\Lie\Ext_A(\a)$ will be thin, in the sense that any two non-zero morphisms $\varphi: (\frake, \pi) \to (\frake', \pi')$ are necessarily equal to one another. 
+        \end{lemma}
+            \begin{proof}
+                Suppose that we have two distinct non-zero morphisms of perfect extensions:
+                    $$\varphi, \psi: (\frake, \pi) \to (\frake', \pi')$$
+                Since $\frake, \frake'$ are perfect, we have by definition that:
+                    $$\frake = [\frake, \frake], \frake' = [\frake', \frake']$$
+                from which it is clear that:
+                    $$(\varphi - \psi)([\frake, \frake]) = [(\varphi - \psi)(\frake), (\varphi - \psi)(\frake)] = [\frake', \frake'] - [\frake', \frake'] = 0$$
+                which shows that:
+                    $$\varphi = \psi$$
+            \end{proof}
+        
