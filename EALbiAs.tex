@@ -1,0 +1,132 @@
+\input{article preambles}
+
+\setcounter{section}{-1}
+
+\input{commands}
+
+\begin{document}
+
+    \title{Extended affine Lie bialgebras (EALbiA)}
+    
+    \author{Dat Minh Ha}
+    \maketitle
+    
+    \begin{abstract}
+    
+    \end{abstract}
+    
+    {
+    \hypersetup{} 
+    %\dominitoc
+    \tableofcontents %sort sections alphabetically
+    }
+
+    \section{Introduction}
+
+    \section{Lie algebras of affine and toroidal types}
+
+    \section{Example: A Lie bialgebra structures on \texorpdfstring{$\uce( \g'[t] )$}{}}
+        \begin{convention}
+            Throughout this section, we fix a symmetrisable Kac-Moody algebra $\g$, with indecomposable Cartan matrix $C := DA$ (with $D$ diagonal and invertible, and $A$ symmetric). 
+        \end{convention}
+    
+        \subsection{A Lie bialgebra structure on \texorpdfstring{$\g'[t]$}{}}
+            In order to obtain classical limits of the affine Yangian $\rmY_{\hbar}(\g)$, we shall firstly need to identify Lie bialgebra structures on the toroidal Lie algebra $\g'[t]$. This Lie bialgebra structure\footnote{Or rather, its extension to a universal central extension of $\g'[t]$. We will address this detail shortly.} can then be quantised into the coproduct of a Hopf algebra structure on $\rmY_{\hbar}(\g)$ (which is to be constructed later on). 
+
+            We shall do this by constructing an \textit{$\Z$-graded} Manin triple; this is done for several technical reasons that will become clear after the fact, though let us note right away that in this case, consider full linear duals and graded duals will end up giving us the same Lie bialgebra structure on $\g'[t]$. To this end, for any Lie algebra $L$, set:
+                $$L t^p := L \tensor_{\bbC} t^p\bbC[t^{\pm 1}]/t^{p + 1}\bbC[t^{\pm 1}]$$
+            for any $p \in \Z$ and then set:
+                $$L[t^{\pm 1}] := L \tensor_{\bbC} \bbC[t^{\pm 1}] \cong \bigoplus_{p \in \Z} L t^p$$
+            Suppose firstly that the vector space $L[t^{\pm 1}]$ is endowed with the following Lie brackets:
+                $$[X t^p, Y t^q]_{L[t^{\pm 1}]} := [X, Y]_{L} t^{p + q}$$
+            for any $X, Y \in L$ and any $p, q \in \Z$. It is easy to see that $L[t^{\pm 1}]$ is a $\Z$-graded Lie algebra. Furthermore, it admits two particularly interesting Lie subalgebras, namely:
+                $$L[t] := \bigoplus_{p \geq 0} L t^p \cong L \tensor_{\bbC} \bbC[t]$$
+                $$t^{-1}L[t^{-1}] := \bigoplus_{p \leq 1} L t^p \cong L \tensor_{\bbC} t^{-1}\bbC[t^{-1}]$$
+            which we note to be $\Z_{\geq 0}$-graded and $\Z_{\leq -1}$-graded respectively; note also that:
+                $$L[t^{\pm}] \cong L[t] \oplus t^{-1} L[t^{-1}]$$
+            
+            Next, suppose that $L$ is equipped with an invariant symmetric and non-degenerate bilinear form\footnote{Henceforth, such bilinear forms shall be referred to as \say{invariant inner products}.} $\beta_0$ given by:
+                $$\beta(X t^p, Y t^q) := \beta_0(X, Y) \delta_{p + q, -1}$$
+            given for every $X, Y \in L$ and every $p, q \in \Z$. It is easy to check that:
+                $$L[t]^{\vee} \cong t^{-1}L[t^{-1}]$$
+            with respect to $\beta$ as above. Importantly, note that the Lie subalgebras $L[t]$ and $t^{-1}L[t^{-1}]$ are paired isotropically by $\beta$: indeed, there exist no $p, q \geq 0$ or $p, q \leq -1$ such that:
+                $$p + q = -1$$
+            but one can always choose $p \leq -1$ and $q \geq 0$ satisfying this condition, and hence:
+                $$\beta(L[t], t^{-1}L[t^{-1}]) \not = 0$$
+                $$\beta(L[t], L[t]) = \beta(t^{-1}L[t^{-1}], t^{-1}L[t^{-1}]) = 0$$
+            For $L \cong \g'$, the only invariant inner product up to scalar multiples is the generalised Killing form $\kappa$ on the symmetrisable Kac-Moody algebra $\g$ (cf. \cite[Chapter 2]{kac_infinite_dimensional_lie_algebras}), so without any loss of generality, we can take:
+                $$\beta_0 := \kappa$$
+            (i.e. set the constant multiple to $1$). 
+
+            We have therefore succeeded in constructing a $\Z$-graded Manin triple:
+                $$(\g'[t^{\pm 1}], \g'[t], t^{-1}\g'[t^{-1}])$$
+            wherein $\g'[t^{\pm 1}]$ is endowed with the invariant inner product:
+                $$\beta(X t^p, Y t^q) := \kappa(X, Y) \delta_{p + q, -1}$$
+            given for all $X, Y \in \g'$ and all $p, q \in \Z$. It is known that such a $\Z$-graded Manin triple gives rise to a $\Z$-graded Lie bialgebra structure on $\g'[t]$.
+            
+            The sought-for Lie cobracket on $\g'[t]$, which shall be denoted by $\delta$, is then the graded dual of the Lie bracket on $t^{-1}\g'[t^{-1}]$ (which is clearly $\N$-graded) and hence given by:
+                $$\delta(X t^p) = \sum_{[X', X''] = X} \sum_{p' + p'' = p - 1} (X' t^{p'}) \wedge (X'' t^{p''})$$
+            for all $X \in \g'$ and all $p \in \N$. When $\g$ is of untwisted affine type, let us identify:
+                $$\g' \cong \g^{\circ}[v^{\pm 1}] \oplus \bbC c$$
+            (with notations as above), and then note that the Lie cobracket on $\g'[t] \cong \g^{\circ}[v^{\pm 1}, t] \oplus \bbC[t]$ can then be written out more explicitly as:
+                $$\delta(x v^m t^p) = \sum_{[x', x''] = x} \sum_{m' + m'' = m} \sum_{p' + p'' = p - 1} (x' v^{m'} t^{p'}) \wedge (x'' v^{m''} t^{p''})$$
+            for any $x \in \g^{\circ}, m \in \Z, p \in \N$.
+
+        \subsection{Extending the Lie bialgebra structure to \texorpdfstring{$\uce( \g'[t] )$}{}}
+            Now, in order to extend the Lie bialgebra structure on $\g'[t]$ as above to over the entirety of its universal central extension $\s := \uce( \g'[t] )$. We shall do this by \say{enlarging} the Manin triple $(\g'[t^{\pm 1}], \g'[t], t^{-1}\g'[t^{-1}])$ from before that gave rise to the Lie bialgebra structure on $\g'[t]$.
+
+            To this end, the first thing that we shall need to do is to extend the invariant inner product $\beta$ on $\g'[t^{\pm 1}]$ to:
+                $$\t := \uce( \g'[t^{\pm 1}] )$$
+            and specifically, we would like to know how central elements of $\t$ are paired with everything else as well as how it pairs with itself; by the end of this process, we will have obtained an invariant inner product on $\t$ that is \textit{uniquely} determined by the invariant inner product $\beta$ on $\g'[t^{\pm 1}]$. If $B$ is an invariant inner product on $\t$ then by definition, it satisfies:
+                $$\forall X, Y, Z \in \t: B([X, Y], Z) = B(X, [Y, Z])$$
+            It is then clear that, should $Z \in \z(\t)$, meaning that $[Y, Z] = 0$ for all $Y \in \t$; this implies that:
+                $$\forall X, Y \in \t: \forall Z \in \z(\s): B([X, Y], Z) = B(X, [Y, Z]) = B(X, 0) = 0$$
+            i.e. the centre of $\t$ should be orthogonally complementary to $\g'[t]$.
+            
+            As for how central elements pair with one another, let us firstly recall some details about the generalised Killing form $\kappa$ specific to the cases of finite-type and untwisted affine Kac-Moody algebras. 
+            \begin{remark}
+                Recall that when $\g$ is of finite type:
+                    $$\g' = \g$$
+                and so $\kappa$ is nothing but the usual Killing form.
+                
+                When $\g$ is of untwisted affine type, i.e. when:
+                    $$\g \cong \g^{\circ}[v^{\pm 1}] \oplus \bbC c \oplus \bbC d$$
+                with $\g^{\circ}$ the finite-type Kac-Moody algebra associated to the Cartan matrix obtained by deleting the first row and column of the Cartan matrix $C$ of $\g$, $c \in \bbC \setminus \{0\}$ is an arbitrary non-zero scalar, called the \textbf{central charge}, arising from:
+                    $$\uce(\g^{\circ}[v^{\pm 1}]) \cong \g^{\circ}[v^{\pm 1}] \oplus \bbC c$$
+                and $d$ is a derivation on $\g^{\circ}[v^{\pm 1}] \oplus \bbC c$ acting as $v \frac{d}{dv}$ on $\g^{\circ}[v^{\pm 1}]$ and as zero on $c$ (the so-called \textbf{degree derivation}), we shall have that:
+                    $$\g' \cong \g^{\circ}[v^{\pm 1}] \oplus \bbC c \cong \uce(\g^{\circ}[v^{\pm 1}])$$
+                If we denote the Killing form on $\g^{\circ}$ by $\kappa^{\circ}$ then in this case, the generalised Killing form on $\g$ will be determined by:
+                    $$\kappa(x v^m, y v^n) = \kappa^{\circ}(x, y) \delta_{m + n, 0}$$
+                    $$\kappa(x v^m, c) = 0, \kappa(x v^m, d) = 0$$
+                    $$\kappa(c, c) = \kappa(d, d) = 0$$
+                    $$\kappa(c, d) = 1$$
+                for all $x, y \in \g^{\circ}$ and all $m, n \in \Z$. For more details, see \cite[Chapter 7]{kac_infinite_dimensional_lie_algebras}.
+            \end{remark}
+            \begin{remark}
+                We make the following observations when $\g$ is of finite type, which ought to give some insight into the case wherein $\g$ is of untwisted affine type. In this case, we have that:
+                    $$\g' = \g$$
+                and so:
+                    $$\t \cong \uce( \g[v^{\pm 1}] ) \cong \g[v^{\pm 1}] \oplus \bbC c$$
+                    $$\s \cong \uce( \g[v] ) \cong \g[v] \oplus \bbC c$$
+                By equipping $\t$ (and hence $\s$) with the invariant inner product determined by:
+                    $$\beta(x v^m, y v^n) = \kappa(x, y) \delta_{m + n, 0}$$
+                    $$\beta(x v^m, c) = 0$$
+            \end{remark}
+            
+            \begin{proposition} \label{prop: invariant_inner_product_on_double_toroidal_lie_algebras}
+                Let $\g$ be a symmetrisable Kac-Moody algebra with indecomposable Cartan matrix and set $\t := \uce( \g'[t^{\pm 1}] )$. If we equip $\g'[t^{\pm 1}]$ with the invariant inner product given by:
+                    $$\beta(X t^p, Y t^q) = \kappa(X, Y) \delta_{p + q, -1}$$
+                for all $X, Y \in \g'$ and all $p, q \in \Z$, then a uniquely defined invariant inner product can then be induced onto $\t$ in the following manner:
+                    $$\tilde{\beta}(X t^p, Y t^q) = \beta(X t^p, Y t^q)$$
+                    $$\tilde{\beta}(X t^p, \xi) = 0$$
+                    $$\tilde{\beta}(\xi, \zeta) = 0$$
+                for all $X, Y \in \g'$, all $p, q \in \Z$, and all $\xi, \zeta \in \z(\t)$.
+            \end{proposition}
+                \begin{proof}
+                    
+                \end{proof}
+    
+    \addcontentsline{toc}{section}{References}
+    \printbibliography
+
+\end{document}
