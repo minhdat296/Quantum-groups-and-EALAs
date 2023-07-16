@@ -41,7 +41,7 @@
             $L \tensor_k A$ is usually regarded as Lie algebra over $k$ instead of over $A$.  
         \end{convention}
     
-        \subsection{A Lie bialgebra structure on \texorpdfstring{$\g[v^{\pm 1}][t]$}{}}
+        \subsection{A Lie bialgebra structure on \texorpdfstring{$\g[v^{\pm 1}, t]$}{}}
             \begin{definition} \label{def: residue_form_on_loop_algebra}
                 For $v$ a formal variable, we can extend the invariant inner product $(-, -)_{\g}$ to the following pairing on $\g[v^{\pm 1}]$ by defining:
                     $$(x f(v), y g(v))_{\g[v^{\pm 1}]} := - (x, y)_{\g} \Res_{v = 0}( v^{-1} f(v) g(v) )$$
@@ -101,14 +101,50 @@
                         When $X(v, t) := x v^m t^p$ for some $x \in \g, m \in \Z, t \in \Z_{\geq 0}$, this can written out more explicitly as follows:
                             $$
                                 \begin{aligned}
-                                    \delta_{\g[v^{\pm 1}, t]}( x v^m t^p ) & = 
+                                    \delta_{\g[v^{\pm 1}, t]}( x v^m t^p ) & = \left[x v_1^m t_1^p \tensor 1 + 1 \tensor x v_2^m t_2^p, \scrR_{\g} \cdot \left( \frac{1}{1 - v_1 v_2^{-1}} + \frac{1}{1 - v_1^{-1} v_2} \right) \cdot \frac{t_2}{1 - t_1 t_2^{-1}}\right]
+                                    \\
+                                    & = [x \tensor 1 + 1 \tensor x, \scrR_{\g}] \cdot v_1^m, t_1^p \cdot v_2^m t_2^p \cdot \left( \frac{1}{1 - v_1 v_2^{-1}} + \frac{1}{1 - v_1^{-1} v_2} \right) \frac{t_2}{1 - t_1 t_2^{-1}}
                                 \end{aligned}
                             $$
                     \end{enumerate}
                 \end{proof}
 
         \subsection{Extending the Lie bialgebra structure to \texorpdfstring{$\uce( \g[v^{\pm 1}, t] )$}{}}
-            
+            \begin{convention}
+                Set $\t := \uce( \g[v^{\pm 1}, t^{\pm 1}] )$ and $\s := \uce( \g[v^{\pm 1}, t] )$. 
+            \end{convention}
+        
+            \begin{question}
+                \begin{enumerate}
+                    \item Prove that there is a unique invariant symmetric bilinear form $(-, -)_{\t}$ on $\t$ whose restriction to $\g[v^{\pm 1}, t^{\pm 1}]$ coincides with $(-, -)_{\g[v^{\pm 1}, t^{\pm 1}]}$.
+                    \item Find a Lie subalgebra $\s^{\star} \subset \t$ such that:
+                        $$\t \cong \s \oplus \s^{\star}$$
+                    and such that $\s^{\star}$ is paired isotropically with $\s$ by $(-, -)_{\t}$. 
+                    \item Why is the triple:
+                        $$(\t, \s, \s^{\star})$$
+                    with $\t$ being equipped with $(-, -)_{\t}$ not a Manin triple ?
+                \end{enumerate}
+            \end{question}
+                \begin{proof}
+                    \begin{enumerate}
+                        \item Suppose that $B$ is any invariant inner product on $\t$ and fix an element $Z \in \z(\t)$. This gives us:
+                            $$B([X, Y], Z) = B(X, [Y, Z]) = B(X, 0) = 0$$
+                        for all $X, Y \in \t$. As such, the sought-for unique invariant inner product on $\t$ induced by $(-, -)_{\g[v^{\pm 1}, t^{\pm 1}]}$, whose restriction to $\g[v^{\pm 1}, t^{\pm 1}] \subset \t$ coincides with $(-, -)_{\g[v^{\pm 1}, t^{\pm 1}]}$, must be determined by:
+                            $$(X, Z)_{\t} = 0, (Z, Z)_{\t} = 0$$
+                        for all $X \in \t$ and all $Z \in \z(\t)$.
+                        \item One thing that we are able to gather from 1 is that, with respect to $(-, -)_{\t}$, the centre $\z(\t)$ is orthogonally complementary to $\g[v^{\pm 1}, t^{\pm 1}]$. With this in mind, we claim that:
+                            $$\s^{\star} \cong t^{-1}\g[v^{\pm 1}, t^{-1}] \oplus \z(\s)^{\bot}$$
+                        wherein $\z(\s)^{\bot}$ is such that:
+                            $$\z(\t) \cong \z(\s) \oplus \z(\s)^{\bot}$$
+                        and note that $\z(\s)^{\bot}$ must exist due to $\s$ being a Lie subalgebra of $\t$ and hence $\z(\s)$ being a Lie subalgebra of $\z(\t)$ (namely, one has that $\z(\s) = \z(\t) \cap \s$). To see that this is indeed that the Lie subalgebra of $\t$ that we are after, firstly note that because:
+                            $$(-, -)_{\t}|_{\g[v^{\pm 1}, t^{\pm 1}]} = (-, -)_{\g[v^{\pm 1}, t^{\pm 1}]}$$
+                        and because it has been shown that $(-, -)_{\g[v^{\pm 1}, t^{\pm 1}]}$ pairs $\g[v^{\pm 1}, t]$ and $t^{-1}\g[v^{\pm 1}, t^{-1}]$ isotropically as subspaces of $\g[v^{\pm 1}, t^{\pm 1}]$, the only thing to demonstrate is that $(-, -)_{\t}$ pairs elements of $\z(\s)$ and $\z(\s)^{\bot}$ isotropically with one another in the sense that:
+                            $$(\z(\s), \z(\s))_{\t} = (\z(\s)^{\bot}, \z(\s)^{\bot})_{\t} = 0$$
+                        This is directly due to the fact that elements of $\z(\s)$ and likewise, those of $\z(\s)^{\bot}$, are central as elements of $\t$. Lastly, one verifies that, one indeed has that:
+                            $$\s \oplus \s^{\star} \cong ( \g[v^{\pm 1}, t] \oplus \z(\s) ) \oplus ( t^{-1}\g[v^{\pm 1}, t^{-1}] \oplus \z(\s)^{\bot} ) \cong \g[v^{\pm 1}, t^{\pm 1}] \oplus \z(\t) \cong \t$$
+                        \item $(\t, \s, \s^{\star})$ is not a Manin triple (nor a graded Manin triple, for that matter) due to the simple fact that the non-zero vector space $\z(\t)$ is contained entirely in $\Rad (-, -)_{\t} := \{Z \in \t \mid \forall X \in \t: (X, Z)_{\t} = 0\}$. This implies that the invariant inner product $(-, -)_{\t}$ on $\t$ is degenerate, thereby violating the definition of Manin triples. 
+                    \end{enumerate}
+                \end{proof}
     
     \addcontentsline{toc}{section}{References}
     \printbibliography

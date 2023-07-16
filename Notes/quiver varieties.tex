@@ -1,0 +1,69 @@
+\input{article preambles}
+
+\setcounter{section}{-1}
+
+\input{commands}
+
+\begin{document}
+
+    \title{Quiver varieties}
+    
+    \author{Dat Minh Ha}
+    \maketitle
+    
+    \begin{abstract}
+    
+    \end{abstract}
+    
+    {
+    \hypersetup{} 
+    %\dominitoc
+    \tableofcontents %sort sections alphabetically
+    }
+
+    \section{Introduction}
+        Nakajima's quiver varieties are certain smooth (not necessarily affine) complex algebraic varieties associated with quivers. These varieties have been used by Nakajima to give a geometric construction of universal enveloping algebras of Kac-Moody Lie algebras (as well as a construction of quantized enveloping algebras for affine Lie algebras) and of all irreducible integrable (e.g., finite dimensional) representations of those algebras.
+
+        A connection between quiver representations and Kac-Moody Lie algebras was first discovered by Ringel around 1990. Ringel produced a construction of $\rmU_q(\n^+)$, the positive part of the quantized enveloping algebra $\rmU_q(\g)$ of a Kac-Moody Lie algebra $\g$, in terms of a Hall algebra associated with an appropriate quiver. Shortly afterwards, Lusztig combined Ringel's ideas with the powerful technique of perverse sheaves to construct a canonical basis of $\rmU_q(\n^+)$.
+        
+        The main advantage of Nakajima's approach (as opposed to the earlier one by Ringel and Lusztig) is that it yields a geometric construction of the whole algebra $\rmU(\g)$ rather than its positive part. At the same time, it also provides a geometric construction of simple integrable $\rmU(g)$-modules. Nakajima's approach also yields a similar construction of the algebra $\rmU_q(\g[v^{\pm 1}])$ and its simple integrable representations.
+
+    \section{Nakajima's quiver varieties}
+        \begin{convention}[Quivers]
+            When referring to \textbf{quivers}, often denoted by $Q := (Q_0, Q_1)$, we shall always mean a diagram of the form:
+                $$
+                    \begin{tikzcd}
+                	{Q_1} & {Q_0}
+                	\arrow["t"', shift right=2, from=1-1, to=1-2]
+                	\arrow["s", shift left=2, from=1-1, to=1-2]
+                    \end{tikzcd}
+                $$
+            in the category of sets. The functions $s, t: Q_1 \toto Q_0$ are usually called the \textbf{source} and \textbf{target} maps respectively, while the sets $Q_1, Q_0$ are usually referred to as the sets of \textbf{directed edges} and of \textbf{vertices}; note also that unlike a (small) category, a quiver lacks a composition rule for its \say{morphisms}. 
+
+            As Nakajima does, we work over the field $\bbC$, as we are mostly interested in geometric interpretations of quivers; as such, \say{algebras} shall always mean \say{$\bbC$-algebras} unless stated to be otherwise. Now, to any quiver $Q$, one can associate a free category $\tilde{Q}$ by freely adjoining all compositions of elements of $Q_1$. The \textbf{path algebra} $\bbC Q$ of a quiver $Q$ is then algebra whose underlying vector space has $Q_1$ as a basis, and whose multiplication is given by composition of arrows in $\tilde{Q}$. We caution the reader that while $kQ$ is always an associative algebra\footnote{... as compositions of arrows in a category is associative by definition.}, it is unital if and only if $Q_0$ is a finite set\footnote{Though $Q_1$ may still be infinite, i.e. $kQ$ can be infinite-dimensional}.
+
+            A \textbf{representation} of a quiver is nothing but a module over its path algebra. 
+        \end{convention}
+
+        \begin{convention}
+            Symplectic geometry will be a prominent tool in the analysis of quiver varieties. The word \say{symplectic} ought to always be understood in the algebraic sense. 
+        \end{convention}
+    
+        \subsection{Moduli spaces of quiver representations}
+            Nakajima’s varieties also provide an important large class of examples of algebraic symplectic manifolds with extremely nice properties and rich structure, interesting in their own right. To explain this, it is instructive to consider a more general setting as follows.
+
+            \begin{definition}[Poisson schemes] \label{def: poisson_schemes}
+                A \textbf{Poisson scheme} or \textbf{symplectic scheme} is a triple $(X, \scrO_X, \{-, -\}_X)$ consiting of a scheme $(X, \scrO_X)$ along with a Poisson bracket $\{-, -\}_X: \scrO_X \to \bigwedge^2 \scrO_X$. There is a non-full subcategory of Poisson schemes $\Poiss\Sch \subset \Sch$ whose objects are Poisson schemes and whose morphisms are morphisms of schemes between these Poisson schemes (say, $X, Y$):
+                    $$f: X \to Y$$
+                such that the pullback map:
+                    $$f^{\sharp}: f^*\scrO_Y \to \scrO_X$$
+                is a Poisson algebra homomorphism.
+            \end{definition}
+            \begin{definition}
+                
+            \end{definition}
+    
+    \addcontentsline{toc}{section}{References}
+    \printbibliography
+
+\end{document}
