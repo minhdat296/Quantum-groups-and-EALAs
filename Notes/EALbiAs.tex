@@ -6,7 +6,7 @@
 
 \begin{document}
 
-    \title{}
+    \title{Toroidal doubles ?}
     
     \author{Dat Minh Ha}
     \maketitle
@@ -24,7 +24,7 @@
 
     \section{Introduction}
 
-    \section{Example: A Lie bialgebra structures on \texorpdfstring{$\uce( \g[v^{\pm 1}, t] )$}{}}
+    \section{A Lie bialgebra structures on \texorpdfstring{$\uce( \g[v^{\pm 1}, t] )$}{}}
         \begin{convention} \label{conv: a_fixed_finite_dimensional_simple_lie_algebra}
             Throughout this section, we fix a finite-dimensional simple Lie algebra $\g$ over $\bbC$, equipped with a symmetric and non-degenerate invariant $\bbC$-bilinear form $(-, -)_{\g}$. It is known that such a bilinear form is unique up to $\bbC^{\x}$-multiples, so for all intents and purposes, it can be assumed to be the Killing form, though this assumption is not necessary. 
 
@@ -59,7 +59,7 @@
                     $$(X(v) f(t), Y(v) g(t))_{\g[v^{\pm 1}, t^{\pm 1}]} := (X(v), Y(v))_{\g[v^{\pm 1}]} \delta_{m + n, -1}$$
             \end{definition}
 
-            \begin{question}
+            \begin{question} 
                 \begin{enumerate}
                     \item Verify that $(-, -)_{\g[v^{\pm 1}, t^{\pm 1}]}$ is an invariant and non-degenerate symmetric $\bbC$-bilinear form on $\g[v^{\pm 1}, t^{\pm 1}]$.
                     \item Show that by equpping $\g[v^{\pm 1}, t^{\pm 1}]$ with the invariant inner product $(-, -)_{\g[v^{\pm 1}, t^{\pm 1}]}$, the following triple of Lie algebras becomes a well-defined Manin triple:
@@ -93,7 +93,7 @@
                                 \begin{aligned}
                                     \scrR_{\g[v^{\pm 1}, t^{\pm 1}]} & := \sum_{1 \leq i \leq \dim_{\bbC} \g} \sum_{m = -\infty}^{+\infty} \sum_{p = -\infty}^{+\infty} x_i v_1^m t_1^p \hattensor x^i v_2^{-m} t_2^{-p - 1}
                                     \\
-                                    & = \left( \sum_{1 \leq i \leq \dim_{\bbC} \g} x_i \tensor x^i \right) \left( \lim_{M \to +\infty} \left(\sum_{m = 0}^M (v_1^{-1} v_2)^m \right) + \left(\sum_{m = 0}^M (v_1 v_2^{-1})^m\right) \right) \left( t_2^{-1} \lim_{P \to +\infty} \sum_{p = 0}^P (t_1 t_2^{-1})^p \right)
+                                    & = \left( \sum_{1 \leq i \leq \dim_{\bbC} \g} x_i \tensor x^i \right) \left( \sum_{m = 0}^{+\infty} (v_1^{-1} v_2)^m + \sum_{m = 0}^{+\infty} (v_1 v_2^{-1})^m \right) \left( t_2^{-1} \sum_{p = 0}^{+\infty} (t_1 t_2^{-1})^p \right)
                                     \\
                                     & = \scrR_{\g} \cdot \left( \frac{1}{1 - v_1 v_2^{-1}} + \frac{1}{1 - v_1^{-1} v_2} \right) \cdot \frac{t_2}{1 - t_1 t_2^{-1}}
                                 \end{aligned}
@@ -113,7 +113,7 @@
                     \end{enumerate}
                 \end{proof}
 
-        \subsection{Extending the Lie bialgebra structure to \texorpdfstring{$\uce( \g[v^{\pm 1}, t] )$}{}}
+        \subsection{Failing to extend the Lie bialgebra structure to \texorpdfstring{$\uce( \g[v^{\pm 1}, t] )$}{}}
             \begin{convention}
                 Set $\t := \uce( \g[v^{\pm 1}, t^{\pm 1}] )$ and $\s := \uce( \g[v^{\pm 1}, t] )$. 
             \end{convention}
@@ -147,6 +147,8 @@
                         This is directly due to the fact that elements of $\z(\s)$ and likewise, those of $\z(\s^{\star})$, are central as elements of $\t$. Lastly, one verifies that, one indeed has that:
                             $$\s \oplus \s^{\star} \cong ( \g[v^{\pm 1}, t] \oplus \z(\s) ) \oplus ( t^{-1}\g[v^{\pm 1}, t^{-1}] \oplus \z(\s^{\star}) ) \cong \g[v^{\pm 1}, t^{\pm 1}] \oplus \z(\t) \cong \t$$
                         \item $(\t, \s, \s^{\star})$ is not a Manin triple (nor a graded Manin triple, for that matter) due to the simple fact that the non-zero vector space $\z(\t)$ is contained entirely in $\Rad (-, -)_{\t} := \{Z \in \t \mid \forall X \in \t: (X, Z)_{\t} = 0\}$. This implies that the invariant inner product $(-, -)_{\t}$ on $\t$ is \textit{degenerate}, thereby violating the definition of Manin triples. 
+
+                        Note that we have not even checked whether or not $\s^{\star}$ is actually a Lie subalgebra of $\t$ or merely a vector subspace. This will turn out to be true, but we defer this discussion to question \ref{question: toroidal_dual}. 
                     \end{enumerate}
                 \end{proof}
             \begin{remark}[What exactly is $\z(\s^{\star})$ ?] \label{remark: centres_of_dual_toroidal_lie_bialgebras}
@@ -163,7 +165,7 @@
                         \begin{aligned}
                             [ x \tensor a, y \tensor b ]_{\uce(\a_A)} & = [ X \tensor a, Y \tensor b ]_{\a_A} + (x, y)_{\a} b \overline{d_{A/k}}(a)
                             \\
-                            & = [X, Y]_{\a} ab + (x, y)_{\a} b \overline{d_{A/k}}(a)
+                            & = [X, Y]_{\a} ab - (x, y)_{\a} a \overline{d_{A/k}}(b)
                         \end{aligned}
                     $$
                 for all $x, y \in \a$ and all $a, b \in A$.
@@ -178,25 +180,81 @@
                     $$d_{A/k}(ab) - a d_{A/k}(b) - d_{A/k}(a) b = 0$$
                 defined for all $a, b \in A$. 
 
-                We now specialise to the case wherein $k \cong \bbC$, $\a = \g$, and $(-, -)_{\a} = (-, -)_{\g}$ as in convention \ref{conv: a_fixed_finite_dimensional_simple_lie_algebra}. For the moment, let us consider:
-                    $$A \in \{ A_{[n]}^+ := \bbC[t_1, ..., t_n], A_{[n]}^{\pm} := \bbC[t_1^{\pm 1}, ..., t_n^{\pm 1}] \}$$
+                We now specialise to the case wherein $k \cong \bbC$, $\a = \g$, and $(-, -)_{\a} = (-, -)_{\g}$ as in convention \ref{conv: a_fixed_finite_dimensional_simple_lie_algebra} and for the moment, let us consider:
+                    $$A \in \{ A_{[n]}^+ := \bbC[v_1, ..., v_n], A_{[n]}^{\pm} := \bbC[v_1^{\pm 1}, ..., v_n^{\pm 1}] \}$$
                 and also, let us abbreviate:
                     $$\Omega^+_{[n]} := \Omega^1_{A_{[n]}^+/\bbC}, \Omega^{\pm}_{[n]} := \Omega^1_{A_{[n]}^{\pm}/\bbC}$$
                     $$\overline{\Omega^+_{[n]}} := \overline{\Omega^1_{A_{[n]}^+/\bbC}}, \overline{\Omega^{\pm}_{[n]}} := \overline{\Omega^1_{A_{[n]}^{\pm}/\bbC}}$$
                     $$d := d_{A/k}, \overline{d} := \overline{d_{A/k}}$$
-                Eventually, we will specialise to the case $n = 2$. \textit{A priori}, both $\Omega^+_{[n]}$ and $\Omega^{\pm}_{[n]}$ are free and of rank $n$ over $A_{[n]}^+$ and $A_{[n]}^{\pm}$ respectively, specifically generated by the elements:
-                    $$t_1^{p_1} ... t_n^{p_n} d$$
+                Eventually, we will specialise to the case $n = 2$. \textit{A priori}, both $\Omega^+_{[n]}$ and $\Omega^{\pm}_{[n]}$ are free and of rank $n$ over $A_{[n]}^+$ and $A_{[n]}^{\pm}$ respectively, specifically generated by the basis elements:
+                    $$d(v_j)$$
+                In turn, this implies that the $A_{[n]}^+$-module $\overline{\Omega^+_{[n]}}$ and the $A_{[n]}^{\pm}$-module $\overline{\Omega^{\pm}_{[n]}}$ are both generated by the basis elements:
+                    $$\overline{d}(v_j)$$
+                that are subjected to the following relation:
+                    $$0 = \overline{d}( v_1^{m_1} ... v_n^{m_n} ) = \sum_{1 \leq j \leq n} m_j v_1^{m_1} ... v_j^{m_j - 1} ... v_n^{m_n} \overline{d}(v_j)$$
+                From this, one infers that the elements:
+                    $$v_1^{m_1} ... v_j^{m_j - 1} ... v_n^{m_n}$$
+                form a basis for $\overline{\Omega^+_{[n]}}$ and $\overline{\Omega^{\pm}_{[n]}}$ as $\bbC$-vector spaces. 
+
+                When $n = 2$, we can write things out more explicitly: $\z(\t) \cong \overline{\Omega_{[2]}^{\pm}}$ now decomposes as a $\bbC$-vector space in the following manner:
+                    $$\z(\t) \cong ( \bigoplus_{(r, s) \in \Z^2} \bbC Z_{r, s}) \oplus \bbC c_v \oplus \bbC c_t$$
+                and $\z(\s) \cong \overline{\Omega_{[2]}^+}$ decomposes in the following manner:
+                    $$\z(\s) \cong ( \bigoplus_{(r, s) \in \Z \x \Z_{> 0}} \bbC Z_{r, s}) \oplus \bbC c_v$$
+                wherein:
+                    $$\forall (r, s) \in \Z \x (\Z \setminus \{0\}): Z_{r, s} = v^{r - 1} t^s \overline{d}(v)$$
+                    $$\forall (m, 0) \in \Z \x \{0\}: Z_{m, 0} = v^r t^{-1} \overline{d}(t)$$
+                    $$c_v = v^{-1} \overline{d}(v), c_t = t^{-1} \overline{d}(t)$$
+
+                From the above and from the requirement on $\z(\s^{\star})$ that:
+                    $$\z(\t) \cong \z(\s) \oplus \z(\s^{\star})$$
+                one sees immediately that:
+                    $$\z(\s^{\star}) \cong ( \bigoplus_{(r, s) \in \Z \x \Z_{\leq 0}} \bbC Z_{r, s}) \oplus \bbC c_t$$
             \end{remark}
             \begin{definition}[Toroidal duals and doubles] \label{def: toroidal_duals_and_doubles}
                 From now on, let us refer to $\s^{\star}$ as the \textbf{toroidal dual} of $\s$ and $\t$ as the \textbf{toroidal double} of $\s$. 
             \end{definition}
-            \begin{question}
+            \begin{question} \label{question: toroidal_dual}
                 Verify that $\s^{\star}$ is a Lie subalgebra of $\t$.
             \end{question}
                 \begin{proof}
-                    
+                    We now know that:
+                        $$\s^{\star} \cong t^{-1}\g[v^{\pm 1}, t^{-1}] \oplus \left( ( \bigoplus_{(r, s) \in \Z \x \Z_{\leq 0}} \bbC Z_{r, s}) \oplus \bbC c_t \right)$$
+                    (with notations as in remark \ref{remark: centres_of_dual_toroidal_lie_bialgebras}), so the verification can be carried out by firstly considering the following, for any $X(v, t), Y(v, t) \in t^{-1}\g[v^{\pm 1}, t^{-1}]$ and any $Z, Z' \in \z(\s^{\star})$:
+                        $$
+                            \begin{aligned}
+                                [ X(v, t) + Z, Y(v, t) + Z' ]_{\t} & = [ X(v, t), Y(v, t) ]_{\t} + [ Z, Y(v, t) ]_{\t} + [X(v, t) + Z, Z']_{\t}
+                                \\
+                                & = [ X(v, t), Y(v, t) ]_{\t}
+                            \end{aligned}
+                        $$
+                    wherein the equalities hold thanks to the elements $Z, Z'$ being central inside $\t$, and then, without any loss of generality, we consider secondly the following for:
+                        $$X(v, t) := x f(v, t), Y(v, t) := y g(v, t)$$
+                    for some $x, y \in \g$ and $f(v, t), g(v, t) \in t^{-1}\bbC[v^{\pm 1}, t^{-1}]$:
+                        $$
+                            \begin{aligned}
+                                [ X(v, t), Y(v, t) ]_{\t} & = [ x f(v, t), y g(v, t) ]_{\t}
+                                \\
+                                & = [x, y]_{\g} f(v, t) g(v, t) - (x, y)_{\g} f(v, t) \overline{d}( g(v, t) )
+                            \end{aligned}
+                        $$
+                    Now, the only thing left to show is that:
+                        $$f(v, t) \overline{d}( g(v, t) ) \in \t$$
+                    (in fact, we shall see that $f(v, t) \overline{d}( g(v, t) ) \in \z(\t)$) and we can do this by once again assume without any loss of generality that:
+                        $$f(v, t) := v^m t^p, g(v, t) := v^n t^q$$
+                    for some $m, n \in \Z, p, q \in \Z_{\leq -1}$:
+                        $$
+                            \begin{aligned}
+                                f(v, t) \overline{d}( g(v, t) ) & = v^m t^p \overline{d}( v^n t^q )
+                                \\
+                                & = v^m t^p ( n v^{n - 1} t^q \overline{d}(v) + q v^n t^{q - 1} \overline{d}(t) )
+                            \end{aligned}
+                        $$
+                    Using the description of $\z(\t)$ from remark \ref{remark: centres_of_dual_toroidal_lie_bialgebras}, one thus sees that:
+                        $$v^m t^p ( n v^{n - 1} t^q \overline{d}(v) + q v^n t^{q - 1} \overline{d}(t) ) \in \z(\t)$$
+                    precisely as needed. 
                 \end{proof}
 
+        \subsection{Derivations on \texorpdfstring{$ \uce(\g[v^{\pm}, t]) $}{}}
             \begin{remark}[Extending $\t$ by derivations] \label{remark: extending_toroidal_lie_algebras_by_derivations}
                 In order to remedy the issue of the pairing $(-, -)_{\t}$ as in question \ref{question: extending_invariant_inner_products_on_multi_loop_to_universal_central_extensions} being degenerate, we shall need to artificially adjoin elements that pair orthogonally (or for that matter, orthonormally) with the central elements of $\t$, seeing how these central elements all lie within the radical of $(-, -)_{\t}$. The most obvious thing to attempt is to simply set these new elements up as dual basis vectors to the elements of $\z(\t)$, as this forces the pairings to be non-trivial. We remark that, heuristically, these dual basis vectors ought to be derivations of some kind\footnote{... much like in the loop realisation of untwisted affine Kac-Moody algebras as well, which is to be thought of as the $1$-parameter counterpart to our situation.}, since we have the identification:
                     $$\z(\t) \cong \overline{\Omega^{\pm}_{[2]}}$$
@@ -205,25 +263,25 @@
                 To begin, let us introduce a vector space extension (which necessarily splits):
                     $$0 \to \d^{\pm} \to \hat{\t} \to \t \to 0$$
                 Since we know that:
-                    $$\z(\t) \cong ( \bigoplus_{(m, p) \in \Z^2} \bbC Z_{m, p}) \oplus \bbC c_v \oplus \bbC c_t$$
+                    $$\z(\t) \cong ( \bigoplus_{(r, s) \in \Z^2} \bbC Z_{r, s}) \oplus \bbC c_v \oplus \bbC c_t$$
                 wherein:
-                    $$\forall (m, p) \in \Z \x (\Z \setminus \{0\}): Z_{m, p} = \frac1p v^{m - 1} t^p \overline{d}(v)$$
-                    $$\forall (m, 0) \in \Z \x \{0\}: Z_{m, 0} = -\frac1m v^m t^{-1} \overline{d}(t)$$
+                    $$\forall (r, s) \in \Z \x (\Z \setminus \{0\}): Z_{r, s} = v^{r - 1} t^s \overline{d}(v)$$
+                    $$\forall (m, 0) \in \Z \x \{0\}: Z_{m, 0} = v^r t^{-1} \overline{d}(t)$$
                     $$c_v = v^{-1} \overline{d}(v), c_t = t^{-1} \overline{d}(t)$$
-                (cf. remark \ref{remark: centres_of_dual_toroidal_lie_bialgebras}) and since we are extending $\t$ by $\d^{\pm}$ simply so we can extend the invariant inner product $(-, -)_{\t}$ to all of $\hat{\t}$ to obtain a \textit{non-degenerate} pairing $(-, -)_{\hat{\t}}$, let us declare $\d^{\pm}$ to be the vector space spanned by the set:
-                    $$\{ D_{m, p} \}_{(m, p) \in \Z^2} \cup \{D_v, D_t\}$$
-                whose elements, i.e. the basis vectors of $\d^{\pm}$ are so that:
-                    $$( D_{m, p}, Z_{m', p'} )_{\hat{\t}} := \delta_{(m, p), (m', p')}$$
-                    $$(D_v, c_v)_{\hat{\t}} := 1, (D_{m, p}, c_v)_{\hat{\t}} := 0$$
-                    $$(D_t, c_t)_{\hat{\t}} := 1, (D_{m, p}, c_t)_{\hat{\t}} := 0$$
-                for all $(m, p), (m', p') \in \Z^2$. In light of these conditions and of the idea that elements of $\d^{\pm}$ - as they pair orthonormally with the differential forms in $\z(\t)$ - ought to be derivationsm, we can let the Lie algebra $\der_{\bbC}(\t)$ of $\bbC$-linear derivations on $\t$ act on $\t$ via the following operators:
-                    $$\forall (m, p) \in \Z \x (\Z \setminus \{0\}): D_{m, p} := p v^{-(m - 1)} t^{-p} \del_v$$
-                    $$\forall (m, 0) \in \Z \x \{0\}: D_{m, 0} := -m v^{-m} t \del_t$$
+                (cf. remark \ref{remark: centres_of_dual_toroidal_lie_bialgebras}) and since we are extending $\t$ by $\d^{\pm}$ simply so we can extend the invariant inner product $(-, -)_{\t}$ to all of $\hat{\t}$ to obtain a \textit{non-degenerate} pairing $(-, -)_{\hat{\t}}$, let us declare that:
+                    $$\d^{\pm} := (\bigoplus_{(r, s) \in \Z^2} \bbC D_{r, s}) \oplus \bbC D_v \oplus \bbC D_t$$
+                wherein the basis vectors $D_{r, s}, D_v, D_t$ are so that:
+                    $$( D_{r, s}, Z_{r', s'} )_{\hat{\t}} := \delta_{(r, s), (r', s')}$$
+                    $$(D_v, c_v)_{\hat{\t}} := 1, (D_{r, s}, c_v)_{\hat{\t}} := 0$$
+                    $$(D_t, c_t)_{\hat{\t}} := 1, (D_{r, s}, c_t)_{\hat{\t}} := 0$$
+                for all $(r, s), (r', s') \in \Z^2$. In light of these conditions and of the idea that elements of $\d^{\pm}$ - as they pair orthonormally with the differential forms in $\z(\t)$ - ought to be derivationsm, we can let the Lie algebra $\der_{\bbC}(\t)$ of $\bbC$-linear derivations on $\t$ act on $\t$ via the following operators:
+                    $$\forall (r, s) \in \Z \x (\Z \setminus \{0\}): D_{r, s} := v^{-(m - 1)} t^{-p} \del_v$$
+                    $$\forall (r, 0) \in \Z \x \{0\}: D_{r, 0} := v^{-m} t \del_t$$
                     $$D_v := v \del_v, D_t := t \del_t$$
                 wherein it is to be understood that:
                     $$\del_v \cdot x f(v, t) = x \del_v f(v, t), \del_t \cdot x f(v, t) = x \del_t f(v, t)$$
                     $$\del_v \cdot Z(v, t) = \del_t \cdot Z(v, t) = 0$$
-                for all $x \in \g$, all $f(v, t) \in \bbC[v^{\pm 1}, t^{\pm 1}]$, and all $Z(v, t) \in \z(\t)$. $\d^{\pm}$ is therefore realisable as the Lie subalgebra of $\der_{\bbC}(\t)$ spanned by the basis $\{ D_{m, p} \}_{(m, p) \in \Z^2} \cup \{D_v, D_t\}$; note also that as a Lie algebra, $\d^{\pm}$ is abelian, since the operators $\del_v, \del_t$ commute with one another. By putting everything together, one obtains:
+                for all $x \in \g$, all $f(v, t) \in \bbC[v^{\pm 1}, t^{\pm 1}]$, and all $Z(v, t) \in \z(\t)$. $\d^{\pm}$ is therefore realisable as the Lie subalgebra of $\der_{\bbC}(\t)$ spanned by the basis $\{ D_{r, s} \}_{(r, s) \in \Z^2} \cup \{D_v, D_t\}$; note also that as a Lie algebra, $\d^{\pm}$ is abelian, since the operators $\del_v, \del_t$ commute with one another. By putting everything together, one obtains:
                     $$\hat{\t} \cong \d^{\pm} \ltimes \t$$
                 This implies that the Lie algebra structure on $\hat{\t}$ is given by:
                     $$
@@ -235,32 +293,66 @@
                     $$
                 for all $X_1(v, t), X_2(v, t) \in \t$ and all $D_1, D_2 \in \d^{\pm}$.
             \end{remark}
-        \begin{lemma}
+        \begin{lemma} \label{lemma: non_degenerate_invariant_inner_product_on_extended_toroidal_algebras}
             There is an extension of $(-, -)_{\t}$ to $\hat{\t}$, denoted by $(-, -)_{\hat{\t}}$, that is unique up to non-zero multiples. It is given by:
-                $$(-, -)_{\hat{\t}}|_{\t} = (-, -)_{\t}$$
-                $$(D_{m, p}, Z_{m', p'})_{\hat{\t}} = \delta_{(m, p), (m', p')}$$
-                $$(D_v, c_v)_{\hat{\t}} = (D_t, c_t)_{\hat{\t}} = 1$$
+                $$(-, -)_{\hat{\t}}|_{\t} := (-, -)_{\t}$$
+                $$\forall (r, s), (r', s') \in \Z^2: (D_{r, s}, Z_{r', s'})_{\hat{\t}} := \delta_{(r, s), (r', s')}$$
+                $$\forall (r, s), (r', s') \in \Z^2: (D_{r, s}, D_{r', s'})_{\hat{\t}} := 0$$
+                $$\forall (r, s) \in \Z^2: (D_{r, s}, c_v)_{\hat{\t}} = (D_{r, s}, c_t)_{\hat{\t}} := 0$$ 
+                $$(D_v, c_v)_{\hat{\t}} = (D_t, c_t)_{\hat{\t}} := 0, (D_v, c_t)_{\hat{\t}} = (D_t, c_v)_{\hat{\t}} := 1$$
+                $$(D_v, Z_{r', s'})_{\hat{\t}} = (D_{r, s}, c_v)_{\hat{\t}} = (D_t, Z_{r', s'})_{\hat{\t}} = (D_{r, s}, c_t)_{\hat{\t}} := 0$$
+                $$\forall D \in \d^{\pm}, \forall X(x, t) \in \g[v^{\pm 1}, t^{\pm 1}]: (D, X(v, t))_{\hat{\t}} := 0$$
             with notations as in remark \ref{remark: extending_toroidal_lie_algebras_by_derivations}. $(-, -)_{\hat{\t}}$ is $\bbC$-bilinear, symmetric, non-degenerate, and invariant. 
         \end{lemma}
             \begin{proof}
-                The $\bbC$-bilinearity, symmetry, and non-degeneracy of $(-, -)_{\hat{\t}}$ are easy consequences of its construction, so the only thing non-trivial to show is that $(-, -)_{\hat{\t}}$ is invariant. To this end, let us firstly pick $x f(v, t), y g(v, t) \in \g[v^{\pm 1}, t^{\pm 1}]$ and recall that for such elements of $\t$, their Lie brackets are given by:
-                    $$[x f(v, t), g f(v, t)]_{\t} = [x, y]_{\g} f(v, t) g(v, t) + (x, y)_{\g} g(v, t) \overline{d}(f(v, t))$$
+                The $\bbC$-bilinearity, symmetry, and non-degeneracy of $(-, -)_{\hat{\t}}$ are easy consequences of its construction, so the only thing non-trivial to show is that $(-, -)_{\hat{\t}}$ is invariant. To this end, let us firstly pick $x, y \in \g$ along with $r, r', s, s' \in \Z$ and then recall that:
+                    $$[x v^r t^s, g v^{r'} t^{s'}]_{\t} = [x, y]_{\g} v^{r + r'} t^{s + s'} - (x, y)_{\g} v^r t^s \overline{d}(v^{r'} t^{s'})$$
                 Using this, we see that:
                     $$
                         \begin{aligned}
-                            ( D, [x f(v, t), g f(v, t)]_{\t} )_{\hat{\t}} & = ( D, [x, y]_{\g} f(v, t) g(v, t) )_{\hat{\t}} + (x, y)_{\g} ( D, g(v, t) \overline{d}(f(v, t)) )_{\hat{\t}}
+                            ( D, [x v^r t^s, y v^{r'} t^{s'}]_{\t} )_{\hat{\t}} & = ( D, [x, y]_{\g} v^{r + r'} t^{s + s'} )_{\hat{\t}} - (x, y)_{\g} v^r t^s \overline{d}( v^{r'} t^{s'}) )_{\hat{\t}}
                             \\
-                            & = 
+                            & = -( D, (x, y)_{\g} v^r t^s \overline{d}( v^{r'} t^{s'}) )_{\hat{\t}}
+                            \\
+                            & = -(x, y)_{\g} ( D, v^r t^s ( r' v^{r' - 1} t^{s'} \overline{d}(v) + s' v^{r'} t^{s' - 1} \overline{d}(t) ) )_{\hat{\t}} 
+                            \\
+                            & = -(x, y)_{\g} ( D, r' v^{r + r' - 1} t^{s + s'} \overline{d}(v) + s' v^{r + r'} t^{s + s' - 1} \overline{d}(t) )_{\hat{\t}}
                         \end{aligned}
                     $$
+                \todo{What central elements can we pair $D$ with ?}
                 At the same time, consider the following:
                     $$
                         \begin{aligned}
-                            ( [D, x f(v, t)], y g(v, t) )_{\hat{\t}} & = ( x D( f(v, t) ), y g(v, t) )_{\hat{\t}}
+                            ( [D, x v^r t^s]_{\hat{\t}}, y v^{r'} t^{s'} )_{\hat{\t}} & = ( -D \cdot x v^r t^s, y v^{r'} t^{s'} )_{\hat{\t}}
                             \\
-                            & = 
+                            & = -( x D( v^r t^s ), y v^{r'} t^{s'} )_{\hat{\t}}
+                            \\
+                            & = -(x, y)_{\g} ( D( v^r t^s ), v^{r'} t^{s'} )_{\hat{\t}}
                         \end{aligned}
                     $$
+            \end{proof}
+        \begin{proposition}
+            Set:
+                $$\hat{\s} := \d^+ \ltimes \s, \hat{\s}^{\star} := \d^- \ltimes \s^{\star}$$
+            wherein:
+                $$\d^+ := ( \bigoplus_{(r, s) \in \Z \x \Z_{> 0}} \bbC D_{r, s} ) \oplus \bbC D_v, \d^- := ( \bigoplus_{(r, s) \in \Z \x \Z_{\leq 0}} \bbC D_{r, s} ) \oplus \bbC D_t$$
+            and the actions of $\d^+ < \der_{\bbC}(\s), \d^- < \der_{\bbC}(\s^{\star})$ are as described in remark \ref{remark: extending_toroidal_lie_algebras_by_derivations}. Also, let $(-, -)_{\hat{\t}}$ be as in lemma \ref{lemma: non_degenerate_invariant_inner_product_on_extended_toroidal_algebras}. Then:
+                $$(\hat{\s}, \hat{\s})_{\hat{\t}} = (\hat{\s}^{\star}, \hat{\s}^{\star})_{\hat{\t}} = 0$$
+        \end{proposition}
+            \begin{proof}
+                 It is then clear that:
+                    $$\hat{\t} \cong \hat{\s} \oplus \hat{\s}^{\star}$$
+                We know from question \ref{question: extending_invariant_inner_products_on_multi_loop_to_universal_central_extensions} that:
+                    $$(\s, \s)_{\t} = (\s^{\star}, \s^{\star})_{\t} = 0$$
+                and since $(-, -)_{\hat{\t}}|_{\t} = (-, -)_{\t}$ by construction (cf. lemma \ref{lemma: non_degenerate_invariant_inner_product_on_extended_toroidal_algebras}), we also have that:
+                    $$(\s, \s)_{\hat{\t}} = (\s^{\star}, \s^{\star})_{\hat{\t}} = 0$$
+                Lemma \ref{lemma: non_degenerate_invariant_inner_product_on_extended_toroidal_algebras} also tells us that:
+                    $$\forall (r, s), (r', s') \in \Z^2: (D_{r, s}, D_{r', s'})_{\hat{\t}} := 0$$
+                    $$\forall (r, s) \in \Z^2: (D_{r, s}, c_v)_{\hat{\t}} = (D_{r, s}, c_t)_{\hat{\t}} := 0$$ 
+                and hence:
+                    $$(\d^+, \d^+)_{\hat{\t}} = (\d^-, \d^-)_{\hat{\t}} = 0$$
+                By combining the two facts, we see that:
+                    $$(\hat{\s}, \hat{\s})_{\hat{\t}} = (\hat{\s}^{\star}, \hat{\s}^{\star})_{\hat{\t}} = 0$$
             \end{proof}
     
     \addcontentsline{toc}{section}{References}
