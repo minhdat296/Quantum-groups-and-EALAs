@@ -24,7 +24,7 @@
 
     \section{Introduction}
 
-    \section{Full toroidal Lie bialgebras}
+    \section{Toroidal Lie bialgebras}
         \begin{convention} \label{conv: a_fixed_finite_dimensional_simple_lie_algebra}
             Throughout this section, we fix a finite-dimensional simple Lie algebra $\g$ over $\bbC$, equipped with a symmetric and non-degenerate invariant $\bbC$-bilinear form $(-, -)_{\g}$. It is known that such a bilinear form is unique up to $\bbC^{\x}$-multiples, so for all intents and purposes, it can be assumed to be the Killing form, though this assumption is not necessary. 
 
@@ -219,7 +219,6 @@
                     $$v^m t^p \overline{d}(v^n t^q) \in \z(\t)$$
                 can be written in terms of the basis vectors $Z_{r, s}, c_v, c_t$ in the following manner:
                     $$v^m t^p \overline{d}(v^n t^q) = \delta_{(m, p) + (n, q), (0, 0)} ( n c_v + q c_t ) + (np - mq) Z_{m + n, p + q}$$
-                This will become useful later on for the purposes of proposition \ref{prop: extended_toroidal_lie_algebras}.
 
                 From the above and from the requirement on $\z(\s^{\star})$ that:
                     $$\z(\t) \cong \z(\s) \oplus \z(\s^{\star})$$
@@ -253,52 +252,62 @@
                     This is clearly an element of $\t$, in light of how the Lie bracket $[-, -]_{\t}$ is given, so we are done. 
                 \end{proof}
 
-        \subsection{Extending \texorpdfstring{$ \uce(\g[v^{\pm}, t]) $}{} to fix degeneracy; full toroidal Lie algebras}
-            \begin{remark}[Extending $\t$ into a larger vector space] \label{remark: extending_underlying_vector_spaces_of_toroidal_lie_algebras}
-                In order to remedy the issue of the pairing $(-, -)_{\t}$ as in question \ref{question: extending_invariant_inner_products_on_multi_loop_to_universal_central_extensions} being degenerate, we shall need to artificially adjoin elements that pair orthogonally (or for that matter, orthonormally) with the central elements of $\t$, seeing how these central elements all lie within the radical of $(-, -)_{\t}$. The most obvious thing to attempt is to simply set these new elements up as dual basis vectors to the elements of $\z(\t)$, as this forces the pairings to be non-trivial. We remark that, heuristically, these dual basis vectors ought to be derivations of some kind\footnote{... much like in the loop realisation of untwisted affine Kac-Moody algebras as well, which is to be thought of as the $1$-parameter counterpart to our situation.}, since we have the identification:
-                    $$\z(\t) \cong \overline{\Omega^{\pm}_{[2]}}$$
-                due to Kassel, and derivations are dual to differential forms after all; that said, this is merely a vague heuristic as this point.
-
-                To begin, let us introduce a vector space extension:
-                    $$0 \to \t \to \hat{\t} \to \d \to 0$$
-                Since we know that:
-                    $$\z(\t) \cong ( \bigoplus_{(r, s) \in \Z^2} \bbC Z_{r, s}) \oplus \bbC c_v \oplus \bbC c_t$$
-                with notations as in remark \ref{remark: centres_of_dual_toroidal_lie_bialgebras}, and since we are extending $\t$ by $\d$ simply so we can extend the invariant inner product $(-, -)_{\t}$ to all of $\hat{\t}$ to obtain a \textit{non-degenerate} pairing $(-, -)_{\hat{\t}}$, let us declare that:
-                    $$\d := (\bigoplus_{(r, s) \in \Z^2} \bbC D_{r, s}) \oplus \bbC D_v \oplus \bbC D_t$$
-                wherein the basis vectors $D_{r, s}, D_v, D_t$ are, respectively, dual to the basis vectors $Z_{r, s}, c_v, c_t \in \z(\t)$ (as in remark \ref{remark: centres_of_dual_toroidal_lie_bialgebras}) with respect to $(-, -)_{\hat{\t}}$. Let us require also that:
-                    $$(-, -)_{\hat{\t}}|_{\t} := (-, -)_{\t}$$
-                as well as:
-                    $$(\d, \g[v^{\pm 1}, t^{\pm 1}])_{\hat{\t}} = 0$$
-                Now, it is not hard to check that $(-, -)_{\hat{\t}}$ is $\bbC$-bilinear and symmetric as well and we have therefore given a non-degenerate inner product on $\hat{\t} := \d \oplus \t$. 
-            \end{remark}
-
+        \subsection{Extending \texorpdfstring{$ \uce(\g[v^{\pm}, t]) $}{} to fix degeneracy}
+            \begin{convention}[Multi-indices] 
+                In what follows, we will be using multi-indices. In particular, if $p \in \Z^n$ and ${v} := (v_1, ..., v_n)$ is an $n$-tuple (say, of formal variables) then:
+                    $${v}^{p} := v_1^{p_1} ... v_n^{p_n}$$
+            \end{convention}
             \begin{remark}
                 For a moment, let us consider the following universal central extension:
                     $$\t_{[n]} := \uce( \g \tensor_{\bbC} A_{[n]} ) \cong \g \tensor_\bbC A_{[n]} \oplus \z(\t_{[n]})$$
                 wherein:
                     $$A_{[n]} := \bbC[v_1^{\pm 1}, ..., v_n^{\pm 1}]$$
-                    $$\z(\t_{[n]}) := \overline{\Omega^1_{[n]}} := \Omega^1_{A_{[n]}/\bbC}/d(A_{[n]})$$
-                Recall also, from remark \ref{remark: centres_of_dual_toroidal_lie_bialgebras}, that the basis elements of $\z(\t_{[n]}) := \overline{\Omega^1_{[n]}}$ (with respect to the standard basis of $A_{[n]}$) are given by:
-                    $$$$
+                    $$\z(\t_{[n]}) := \overline{\Omega^1_{[n]}} := \Omega^1_{[n]}/d(A_{[n]})$$
+                with $\Omega^1_{[n]} := \Omega^1_{A_{[n]}/\bbC}$ and $d: A_{[n]} \to \Omega^1_{[n]}$ being the universal K\"ahler differential map; like before, we write $\overline{d}: A_{[n]} \to \overline{\Omega^1_{[n]}}$ for the composition of $d$ with the canonical $A_{[n]}$-module quotient map $\Omega^1_{[n]} \to \overline{\Omega^1_{[n]}}$. \textit{A priori}, $\Omega^1_{[n]}$ is a free $A_{[n]}$-module of rank $n$:
+                    $$\Omega^1_{[n]} \cong \bigoplus_{1 \leq i \leq n} A_{[n]} v_i^{-1} d(v_i)$$
+                In turn, this implies that as a $\bbC$-vector space, $\Omega^1_{[n]}$ can be identified in the following way:
+                    $$\Omega^1_{[n]} \cong \bigoplus_{1 \leq i \leq n} \bigoplus_{p \in \Z^n} v^p v_i^{-1} d(v_i)$$
+                wherein $v := (v_1, ..., v_n)$. The $\bbC$-vector space $\overline{\Omega^1_{[n]}}$ is therefore spanned by the elements $v^p \overline{d}(v_i)$ with $p \in \Z^n$. 
                     
-                Write $\d_{[n]} := \der_\bbC(A_{[n]})$ for the Lie algebra of $\bbC$-linear derivations on $A_{[n]}$, with the usual commutator bracket. Recall that as an $A_{[n]}$-module, $\d_{[n]}$ is free and of rank $n$ and is given by:
-                    $$\d_{[n]} \cong \bigoplus_{1 \leq i \leq n} A_{[n]} \del_{v_i}$$
+                Write $\d_{[n]} := \der_\bbC(A_{[n]}, A_{[n]})$ for the Lie algebra of $\bbC$-linear derivations on $A_{[n]}$, with the usual commutator bracket. Recall that as an $A_{[n]}$-module, $\d_{[n]}$ is free and of rank $n$ and is given by:
+                    $$\d_{[n]} \cong \bigoplus_{1 \leq i \leq n} A_{[n]} D_{v_i}$$
+                wherein:
+                    $$D_{v_i} := v_i \del_{v_i}$$
+                From this, one gathers that as a $\bbC$-vector space, $\d_{[n]}$ is given by:
+                    $$\d_{[n]} \cong \bigoplus_{1 \leq i \leq n} \bigoplus_{p \in \Z^n} {v}^{p} D_{v_i}$$
+                wherein ${v} := (v_1, ..., v_n)$.
             \end{remark}
-            \begin{convention}[Multi-indices] 
-                In what follows, we will be using multi-indices. In particular, if $\vec{p} \in \Z^n$ and $\vec{v} := (v_1, ..., v_n)$ is an $n$-tuple (say, of formal variables) then:
-                    $$\vec{v}^{\vec{p}} := v_1^{p_1} ... v_n^{p_n}$$
+            \begin{definition}[Shifted full $n$-toroidal Lie algebras] \label{def: shifted_full_toroidal_lie_algebras}
+                We define the \textbf{$\e$-shifted full $n$-toroidal Lie algebra}\footnote{We are interested in the case $n = 2$ and $\e = (0, 1)$} associated to $\g$, for some fixed vector $\e \in \Z^n$, called the \textbf{degree shift}, to be the Lie algebra extension:
+                    $$\widetilde{\t_{[n]}} := \t_{[n]} \rtimes \d_{[n]}$$
+                with respect to the action of $\d_{[n]}$ on $\t_{[n]}$ being given by:
+                    
+                for all $1 \leq i \leq n$, all $p := (p_1, ..., p_n), q := (q_1, ..., q_n) \in \Z^n$, and all $x \in \g$. 
+            \end{definition}
+            \begin{convention}
+                Write:
+                    $$\overline{\d_{[n]}} := \left\{ D := \sum_{1 \leq i \leq n} f_i(v_1, ..., v_n) D_i \in \d_{[n]} \bigg\mid \sum_{1 \leq i \leq n} D_i( f_i(v_1, ..., v_n) ) = 0 \right\}$$
+                for the Lie subalgebra of $\d_{[n]}$ spanned by divergence-free derivations. 
             \end{convention}
-            \begin{definition}[Shifted full toroidal Lie algebras] \label{def: shifted_full_toroidal_lie_algebras}
-                Now, we can consider the following \textbf{$\e$-shifted full $n$-toroidal Lie algebra}\footnote{We are interested in the case $n = 2$ and $\vec{\e} = (0, 1)$}, for some vector $\vec{\e} \in \Z_{\geq 0}^n$:
-                    $$\hat{\t}_{[n]} := \t_{[n]} \oplus \d_{[n]}$$
-                with the (adjoint) action of $\d_{[n]}$ on $\g \tensor_{\bbC} A_{[n]}$ being given by:
-                    $$[ \vec{v}^{\vec{p}} \del_{v_i}, x \vec{v}^{\vec{q}} ]_{\hat{\t}_{[n]}} := q_i x \vec{v}^{\vec{p} + \vec{q} - \vec{\e}}$$
-                for all $1 \leq i \leq n$, all $\vec{p} := (p_1, ..., p_n), \vec{q} := (q_1, ..., q_n) \in \Z^n$, and all $x \in \g$; this action extends (\textit{non-uniquely!}) to the universal central extension $\t_{[n]}$ in the following manner:
-                    $$[ \vec{v}^{\vec{p}},  ]_{\hat{\t}_{[n]}}$$
-            \end{definition}
-            \begin{definition}[Shifted extended toroidal Lie algebras] \label{def: shifted_extended_toroidal_lie_algebras}
-                
-            \end{definition}
+            \begin{proposition}
+                Consider $\overline{\Omega^1_{[n]}}$ as an abstract abelian Lie algebra and let $\d_{[n]}$ (and hence $\overline{\d_{[n]}}$) act on it as in definition \ref{def: shifted_full_toroidal_lie_algebras}. Then, on the semi-direct product:
+                    $$\overline{\Omega^1_{[n]}} \rtimes \overline{\d_{[n]}}$$
+                there will be a \textit{non-degenerate} invariant symmetric $\bbC$-bilinear form $\<-, -\>$ given by:
+                    $$$$
+            \end{proposition}
+                \begin{proof}
+                    
+                \end{proof}
+            \begin{corollary}
+                Let $\d_{[n]}$ (and hence $\overline{\d_{[n]}}$) act on $\t_{[n]}$ as in definition \ref{def: shifted_full_toroidal_lie_algebras}. Then, there will be a \textit{non-degenerate} invariant symmetric $\bbC$-bilinear form $(-, -)_{\widehat{\t_{[m]}}}$ on:
+                    $$\widehat{\t_{[n]}} := \t_{[n]} \rtimes \overline{\d_{[n]}} \cong \g[v_1^{\pm 1}, ..., v_n^{\pm 1}] \oplus ( \overline{\Omega^1_{[n]}} \oplus \overline{\d_{[n]}} )$$
+                determined by:
+                    $$(-, -)_{\widehat{\t_{[n]}}} |_{\Sym^2_{\bbC}( \g[v_1^{\pm 1}, ..., v_n^{\pm 1}] )} = (-, -)_{\g[v_1^{\pm 1}, ..., v_n^{\pm 1}]}$$
+                    $$(-, -)_{\widehat{\t_{[n]}}} |_{\Sym^2_{\bbC}( \overline{\Omega^1_{[n]}} \oplus \overline{\d_{[n]}} )} = \<-, -\>$$
+                with $(-, -)_{\g[v_1^{\pm 1}, ..., v_n^{\pm 1}]}$ being given by:
+                    $$(x v^p, y v^q)_{\g[v_1^{\pm 1}, ..., v_n^{\pm 1}]} := (x, y)_{\g} \delta_{p + q, \e}$$
+                for all $x, y \in \g$, $v := (v_1, ..., v_n)$, and $p, q \in \Z^n$.
+            \end{corollary}
             
     \addcontentsline{toc}{section}{References}
     \printbibliography
