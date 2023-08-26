@@ -257,36 +257,95 @@
                 In what follows, we will be using multi-indices. In particular, if $p \in \Z^n$ and ${v} := (v_1, ..., v_n)$ is an $n$-tuple (say, of formal variables) then:
                     $${v}^{p} := v_1^{p_1} ... v_n^{p_n}$$
             \end{convention}
-            \begin{remark}
-                For a moment, let us consider the following universal central extension:
-                    $$\t_{[n]} := \uce( \g \tensor_{\bbC} A_{[n]} ) \cong \g \tensor_\bbC A_{[n]} \oplus \z(\t_{[n]})$$
-                wherein:
-                    $$A_{[n]} := \bbC[v_1^{\pm 1}, ..., v_n^{\pm 1}]$$
-                    $$\z(\t_{[n]}) := \overline{\Omega_{[n]}^{\pm}} := \Omega_{[n]}^{\pm}/d(A_{[n]})$$
-                with $\Omega_{[n]}^{\pm} := \Omega^1_{A_{[n]}/\bbC}$ and $d: A_{[n]} \to \Omega_{[n]}^{\pm}$ being the universal K\"ahler differential map; like before, we write $\overline{d}: A_{[n]} \to \overline{\Omega_{[n]}^{\pm}}$ for the composition of $d$ with the canonical $A_{[n]}$-module quotient map $\Omega_{[n]}^{\pm} \to \overline{\Omega_{[n]}^{\pm}}$.
-                    
-                Write $\d_{[n]}^{\pm} := \der_\bbC(A_{[n]}, A_{[n]})$ for the Lie algebra of $\bbC$-linear derivations on $A_{[n]}$, with the usual commutator bracket. Recall that as an $A_{[n]}$-module, $\d_{[n]}^{\pm}$ is free and of rank $n$, so let us pick for it the following $A_{[n]}$-linear basis:
-                    $$\{D_{v_i} := v_i \del_{v_i}\}_{1 \leq i \leq n}$$
-            \end{remark}
-            \begin{definition}[Shifted full $n$-toroidal Lie algebras] \label{def: shifted_full_toroidal_lie_algebras}
-                We define the \textbf{$\e$-shifted full $n$-toroidal Lie algebra} associated to $\g$, for some fixed vector $\e \in \Z^n$, called the \textbf{degree shift}, to be the Lie algebra extension:
-                    $$\widetilde{\t_{[n]}} := \t_{[n]} \rtimes \d_{[n]}^{\pm}$$
-                with respect to the action of $\d_{[n]}^{\pm}$ on $\t_{[n]}$ being given by:
-                    $$$$
-                for all $1 \leq i \leq n$, all $p := (p_1, ..., p_n), q := (q_1, ..., q_n) \in \Z^n$, and all $x \in \g$. 
-            \end{definition}
             \begin{convention}
-                Write:
+                Fix an arbitrary $n \in \N$.
+            
+                Let us now re-adopt the notations:
+                    $$A_{[n]} := \bbC[v_1^{\pm 1}, ..., v_n^{\pm 1}]$$
+                    $$\overline{\Omega_{[n]}^{\pm}} := \Omega_{[n]}^{\pm}/d(A_{[n]})$$
+                with $\Omega_{[n]}^{\pm} := \Omega^1_{A_{[n]}/\bbC}$ and $d: A_{[n]} \to \Omega_{[n]}^{\pm}$ being the universal K\"ahler differential map; like before, we write $\overline{d}: A_{[n]} \to \overline{\Omega_{[n]}^{\pm}}$ for the composition of $d$ with the canonical $A_{[n]}$-module quotient map $\Omega_{[n]}^{\pm} \to \overline{\Omega_{[n]}^{\pm}}$. \textit{A priori}, $\Omega^{\pm}_{[n]}$ is free and of rank $n$ over $A_{[n]}$; e.g. the following is a basis for $\Omega^{\pm}_{[n]}$ as an $A_{[n]}$-module:
+                    $$\{ d_i := v_i^{-1} d(v_i) \}_{1 \leq i \leq n}$$
+                $\overline{\Omega^{\pm}_{[n]}}$ is therefore generated as an $A_{[n]}$-module by the set:
+                    $$\{ \overline{d_i} := v_i^{-1} \overline{d}(v_i) \}_{1 \leq i \leq n}$$
+                    
+                Write $\d_{[n]}^{\pm} := \der_\bbC(A_{[n]}, A_{[n]})$ for the Lie algebra of $\bbC$-linear derivations on $A_{[n]}$, with the usual commutator bracket. Recall that as an $A_{[n]}$-module, $\d_{[n]}^{\pm}$ is free and of rank $n$; e.g. the following is a basis for $\d_{[n]}$ as an $A_{[n]}$-module:
+                    $$\{D_{v_i} := v_i \del_{v_i}\}_{1 \leq i \leq n}$$
+            \end{convention}
+            \begin{convention}
+                From now on, for brevity let us write:
+                    $$\g_{[n]} := \g \tensor_{\bbC} A_{[n]}$$
+                for any $n \in \N$. As before, we will still write:
+                    $$\t := \uce(\g_{[2]})$$
+                but in general, we will write:
+                    $$\t_{[n]} := \uce(\g_{[n]})$$
+            \end{convention}
+            \begin{remark}
+                It remains true that:
+                    $$\z(\t_{[n]}) \cong \overline{\Omega^{\pm}_{[n]}}$$
+            \end{remark}
+
+            We begin with the following definition. Let us note right away that it is actually not full toroidal Lie algebras that we will be interested in, as they do not carry non-degenerate invariant inner products; certain Lie subalgebras thereof do, however. 
+            \begin{definition}[Full $n$-toroidal Lie algebras] \label{def: full_toroidal_lie_algebras}
+                Fix $n \in \N$ and set $v := (v_1, ..., v_n)$.
+            
+                We define the \textbf{full $n$-toroidal Lie algebra} associated to $\g$, to be the Lie algebra extension:
+                    $$\widetilde{\t_{[n]}} := \t_{[n]} \rtimes \d_{[n]}^{\pm}$$
+                Here, we have:
+                    \begin{itemize}
+                        \item the action of $\d_{[n]}^{\pm}$ on $\g_{[n]}$ being given as follows, for all $D \in \d_{[n]}^{\pm}$, all $x \in \g$, and all $p \in \Z^2$:
+                    $$[D, x v^p]_{ \widetilde{\t_{[n]}} } := x D( v^p )$$
+                        \item the action of $\d_{[n]}^{\pm}$ on $\z(\t_{[n]}) \cong \overline{\Omega^{\pm}_{[n]}}$ is given as follows, for all $p, q \in \Z^n$ and all $1 \leq i, j \leq n$:
+                            $$[ v^p D_{v_i}, v^q \overline{d_j} ]_{\widetilde{\t_{[n]}}} := v^p D_{v_i}(v^q) \overline{d_j} + \delta_{ij} \sum_{1 \leq m \leq n} D_{v_m}(v^p) v^q \overline{d_m}$$
+                    \end{itemize}
+            \end{definition}
+            \begin{question}[Non-uniqueness ?] \label{question: non_uniqueness_of_full_toroidal_lie_algebras}
+                What is $H^2( \d_{[n]}, \overline{\Omega^{\pm}_{[n]}} )$ as a $\bbC$-vector space ? 
+            \end{question}
+            
+            \begin{convention}
+                For any $n \in \N$, write:
                     $$\overline{\d_{[n]}^{\pm}} := \left\{ D := \sum_{1 \leq i \leq n} f_i(v_1, ..., v_n) D_i \in \d_{[n]}^{\pm} \bigg\mid \sum_{1 \leq i \leq n} D_i( f_i(v_1, ..., v_n) ) = 0 \right\}$$
                 for the Lie subalgebra of $\d_{[n]}^{\pm}$ spanned by divergence-free derivations. 
+
+                Let us also write:
+                    $$\widehat{\t_{[n]}} := \t_{[n]} \rtimes \overline{\d_{[n]}^{\pm}}$$
+                This wil be called the \textbf{exact $n$-toroidal Lie algebra} associated to $\g$.
             \end{convention}
-            Let us now identify a basis for $\overline{\d_{[2]}^{\pm}}$.
+            \begin{proposition}[Pairing divergence-free derivations with $1$-forms] \label{prop: pairing_divergence_free_derivations_with_1_forms}
+                Fix $n \in \N$ and set $v := (v_1, ..., v_n)$. Also, fix some $\eta \in \Z^n$.
+            
+                Let $\d_{[n]}^{\pm}$ act on $\overline{\Omega^1_{[n]}}$ (viewed as an abstract abelian Lie algebra) as in definition \ref{def: full_toroidal_lie_algebras}. Then, there is an invariant and symmetric $\bbC$-bilinear form $(-, -)_{\eta}$ on $\overline{\Omega^{\pm}_{[n]}} \rtimes \d_{[n]}^{\pm}$ given by:
+                    $$\left( \sum_{1 \leq i \leq n} a_i v^p D_{v_i}, v^q \overline{d_j} \right)_{\eta} := \delta_{p + q, \eta} \sum_{1 \leq i \leq }$$
+                When restricted down to $\overline{\Omega^{\pm}_{[n]}} \rtimes \overline{\d_{[n]}^{\pm}}$, this bilinear form will become non-degenerate as well.
+            \end{proposition}
+                \begin{proof}
+                    The first statement is clear. To show that the second statement is true, 
+                \end{proof}
+            
+            \begin{definition}[Shifted pairings] \label{def: shifted_pairings}
+                Fix some $n \in \N$ and some $\e \in \Z^n$. Also, let us write $v := (v_1, ..., v_n)$.
+
+                We shall be writing $\g_{[n]}^{\e}$ to mean $\g_{[n]}$ equipped with the following \textbf{$\e$-shifted pairing}:
+                    $$(x v^p, y v^q)_{\g_{[n]}^{\e}} := (x, y)_{\g} \delta_{p + q, \e}$$
+                defined for all $x, y \in \g$ and all $p, q \in \Z^n$. 
+            \end{definition}
+            \begin{remark}
+                It is easy to see that $(-, -)_{\g_{[n]}^{\e}}$ is $\bbC$-bilinear, symmetric, and invariant. Furthermore, it is non-degenerate if and only if $\e \not = (0, ..., 0)$.
+            \end{remark}
+            \begin{example}[The Yangian pairing]
+                A \textbf{Yangian pairing} (e.g. as in definition \ref{def: residue_form_on_multi_loop_algebra}, where we dealt with the case $n = 2$) is nothing but the $\e$-shifted pairing on $\g_{[n]}$ with $\e$ having $-1$ in one entry and $0$ elsewhere; typically, we will take $\e := (0, ..., 0, -1)$ when referring to \say{the} Yangian pairing.
+            \end{example}
+            \begin{example}[The Kac-Moody pairing]
+                The \textbf{Kac-Moody pairing} is obtained when one takes $\e := (0, ..., 0)$.
+            \end{example}
+            
+            Let us now focus on the case $n = 2$ again. 
             \begin{lemma}[A basis for $\overline{\d_{[2]}^{\pm}}$] \label{lemma: 2d_divergence_free_vector_fields_basis}
                 Fix some $\eta := (\eta_1, \eta_2) \in \Z^2$ and consider the following Lie subalgebra of $\d_{[2]}^{\pm}$:
                     $$\overline{\d_{[2]}^{\pm, \eta}} := \left\{ D \in f_1 v_1^{\eta_1 + 1} \del_{v_1} \oplus f_2 v_2^{\eta_2 + 1} \del_{v_2} \bigg\mid f_1, f_2 \in A_{[2]}, v_1^{\eta_1 + 1} \del_{v_1} f + v_2^{\eta_2 + 1} \del_{v_2} f_2 = 0 \right\}$$
                 Note also that:
                     $$\overline{\d_{[2]}^{\pm, 0}} = \overline{\d_{[2]}^{\pm}}$$
-                is nothing but the Lie algebra of divergence-free vector fields on $\G_m \x \G_m$. The following basis can be identified for $\overline{\d_{[2]}^{\pm, \eta}}$:
+                is nothing but the Lie algebra of divergence-free vector fields on $\G_m^2$. The following basis can be identified for $\overline{\d_{[2]}^{\pm, \eta}}$:
                     $$\{ D^{\eta}_1, D^{\eta}_2 \} \cup \{ D^{\eta}_{p, q} \}_{p \in \Z^2 \setminus \{\eta\}}$$
                 wherein:
                     $$D^{\eta}_1 := v_1^{\eta_1} \del_{v_1}, D^{\eta}_2 := v_1^{\eta_2} \del_{v_2}$$
@@ -296,32 +355,19 @@
                 \begin{proof}
                     
                 \end{proof}
-            \begin{proposition}[Pairing divergence-free vector fields with $1$-forms] \label{prop: pairing_2d_divergence_free_vector_fields_with_1_forms}
+            \begin{proposition} \label{prop: pairing_2d_divergence_free_derivations_with_1_forms}
                 Fix some $\eta \in \Z^2$.
             
-                Consider $\overline{\Omega_{[2]}^{\pm}}$ as an abstract abelian Lie algebra and let $\d_{[2]}^{\pm}$ (and hence $\overline{\d_{[2]}^{\pm, \eta}}$) act on it as in definition \ref{def: shifted_full_toroidal_lie_algebras}. Then, on the semi-direct product:
+                Consider $\overline{\Omega_{[2]}^{\pm}}$ as an abstract abelian Lie algebra and let $\d_{[2]}^{\pm}$ (and hence $\overline{\d_{[2]}^{\pm, \eta}}$) act on it as in definition \ref{def: full_toroidal_lie_algebras}. Then, on the semi-direct product:
                     $$\overline{\Omega_{[2]}^{\pm}} \rtimes \overline{\d_{[2]}^{\pm, \eta}}$$
-                there will be a \textit{non-degenerate} invariant symmetric $\bbC$-bilinear form $\<-, -\>$ given by\footnote{With notations as in remarks \ref{remark: centres_of_dual_toroidal_lie_bialgebras} \ref{lemma: 2d_divergence_free_vector_fields_basis}}:
-                    $$\< D^{\eta}_{p_1, p_2}, Z_{r, s} \> := \delta_{(p, q), (r, s)}$$
-                    $$\< D^{\eta}_1, c_v \> := 1, \< D^{\eta}_2, c_t \> := 1$$
+                there will be a \textit{non-degenerate} invariant symmetric $\bbC$-bilinear form $(-, -)_{\eta}$ given by\footnote{With notations as in remarks \ref{remark: centres_of_dual_toroidal_lie_bialgebras} and \ref{lemma: 2d_divergence_free_vector_fields_basis}.}:
+                    $$( D^{\eta}_{p_1, p_2}, Z_{r, s} )_{\eta} := \delta_{(p, q), (r, s)}$$
+                    $$( D^{\eta}_1, c_v )_{\eta} := 1, ( D^{\eta}_2, c_t )_{\eta} := 1$$
                 for all $(p, q), (r, s) \in \Z^2$.
             \end{proposition}
                 \begin{proof}
                     
                 \end{proof}
-            \begin{corollary}
-                Fix some $\eta \in \Z^2$.
-            
-                Let $\d_{[2]}^{\pm}$ (and hence $\overline{\d_{[2]}^{\pm, \eta}}$) act on $\t_{[2]}$ as in definition \ref{def: shifted_full_toroidal_lie_algebras}. Then, there will be a \textit{non-degenerate} invariant symmetric $\bbC$-bilinear form $(-, -)_{\widehat{\t_{[2]}^{\eta}}}$ on:
-                    $$\widehat{\t_{[2]}^{\eta}} := \t_{[2]} \rtimes \overline{\d_{[2]}^{\pm, \eta}} \cong \g_{[2]}^{\pm} \oplus ( \overline{\Omega_{[2]}^{\pm}} \oplus \overline{\d_{[2]}^{\pm, \eta}} )$$
-                determined by:
-                    $$(-, -)_{\widehat{\t_{[2]}^{\eta}}} |_{\Sym^2_{\bbC}( \g_{[2]}^{\pm} )} = (-, -)_{\g_{[2]}^{\pm}}$$
-                    $$(-, -)_{\widehat{\t_{[2]}^{\eta}}} |_{\Sym^2_{\bbC}( \overline{\Omega_{[2]}^{\pm}} \oplus \overline{\d_{[2]}^{\pm, \eta}} )} = \<-, -\>$$
-                    $$\left(\g_{[2]}^{\pm}, \overline{\Omega_{[2]}^{\pm}} \oplus \overline{\d_{[2]}^{\pm, \eta}} \right)_{\widehat{\t_{[2]}^{\eta}}} = 0, \left(\overline{\Omega_{[2]}^{\pm}}, \overline{\Omega_{[2]}^{\pm}}\right)_{\widehat{\t_{[2]}^{\eta}}} = 0, \left(\overline{\d_{[2]}^{\pm, \eta}}, \overline{\d_{[2]}^{\pm, \eta}}\right)_{\widehat{\t_{[2]}^{\eta}}} = 0$$
-                with $(-, -)_{\g_{[2]}^{\pm}}$ being given by:
-                    $$(x v^p, y v^q)_{\g_{[2]}^{\pm}} := (x, y)_{\g} \delta_{p + q, \e}$$
-                for all $x, y \in \g$, $v := (v_1, v_2)$, and $p, q \in \Z^2$.
-            \end{corollary}
             
     \addcontentsline{toc}{section}{References}
     \printbibliography
