@@ -316,23 +316,30 @@
                     $$\widehat{\t_{[n]}} := \t_{[n]} \rtimes \overline{\d_{[n]}^{\pm}}$$
                 This will be called the \textbf{exact $n$-toroidal Lie algebra} associated to $\g$.
             \end{convention}
+            It is useful to have a description of bases of $\overline{\Omega_{[n]}^{\pm}}$ and likewise, of $\overline{\d_{[n]}^{\pm}}$, as $\bbC$-vector spaces. 
             \begin{remark}
                 Set $v := (v_1, ..., v_n)$.
             
                 Recall from remark \ref{remark: centres_of_dual_toroidal_lie_bialgebras} that, as a $\bbC$-vector space, $\overline{\Omega_{[n]}^{\pm}}$ has the following set as a basis:
                     $$\{ p_i^{-1} v^p \overline{d_i} \}_{p \in \Z^n, 1 \leq i \leq n} = \{ p_i^{-1} v_1^{p_1} ... v_i^{p_i - 1} ... v_n^{p_n} \overline{d}(v_i) \}_{(p_1, ..., p_n) \in \Z^n, 1 \leq i \leq \Z}$$
+                This basis can be rewritten as the union:
+                    $$\{\overline{d_i}\}_{1 \leq i \leq n} \cup \{ Z_p \}_{p \in \Z^n \setminus \{(0, ..., 0)\}}$$
+                wherein:
+                    $$Z_0 := 0$$
+                    $$Z_p := $$
+                for each $p \in \Z^n$.
             \end{remark}
             \begin{lemma}[A basis for $\overline{\d_{[n]}^{\pm}}$] \label{lemma: div_zero_derivations_basis}
                 The vector subspace $\overline{\d_{[n]}^{\pm}}$ admits the following basis, given in terms of the elements $D_{v_i} \in \d_{[n]}^{\pm}$:
                     $$\{ D_{v_i} \}_{1 \leq i \leq n} \cup \{ D_p \}_{p \in \Z^n \setminus \{(0, ..., 0)\}}$$
                 wherein:
-                    $$D_p := \sum_{1 \leq i \leq n} p_i v^p \del_{v_i} = \sum_{1 \leq i \leq n} p_i v_1^{p_1} ... v_i^{p_i - 1} ... v_n^{p_n} D_{v_i}$$
-                for each $p \in \Z^n$.
+                    $$D_p := \sum_{1 \leq i \leq n} (-1)^i p_i v^p \del_{v_i} = \sum_{1 \leq i \leq n} (-1)^i p_i v_1^{p_1} ... v_i^{p_i - 1} ... v_n^{p_n} D_{v_i}$$
+                for each $p \in \Z^n$ (note that $D_0 = 0$).
             \end{lemma}
                 \begin{proof}
                     
                 \end{proof}
-            The similarity between the basis of $\overline{\d_{[n]^{\pm}}}$ and that of $\overline{\Omega_{[n]}^{\pm}}$ leads us to propose the following construction of an invariant bilinear form on $\overline{\Omega^{\pm}_{[n]}} \rtimes \overline{\d_{[n]}^{\pm}}$.
+            The similarity between the aforementioned vector space bases of $\overline{\d_{[n]^{\pm}}}$ and that of $\overline{\Omega_{[n]}^{\pm}}$ leads us to propose the following construction of an invariant bilinear form on $\overline{\Omega^{\pm}_{[n]}} \rtimes \overline{\d_{[n]}^{\pm}}$.
             \begin{proposition}[Pairing divergence-free derivations with $1$-forms] \label{prop: pairing_divergence_free_derivations_with_1_forms}
                 Fix $n \in \N$ and set $v := (v_1, ..., v_n)$. 
             
@@ -355,10 +362,14 @@
                         \end{cases}
                     $$
                     $$c_v := v^{-1} \overline{d}(v), c_t := t^{-1} \overline{d}(t)$$
-                Using lemma \ref{lemma: div_zero_derivations_basis}, we know that:
+                Using lemma \ref{lemma: div_zero_derivations_basis}, we obtain the following direct sum decomposition of $\overline{\d_{[2]}^{\pm}}$ into $\bbC$-vector subspaces:
                     $$\overline{\d_{[2]}^{\pm}} \cong ( \bigoplus_{(p, q) \in \Z^2 \setminus \{(0, 0)\}} D_{p, q} ) \oplus \bbC D_v \oplus \bbC D_t$$
                 wherein:
-                    
+                    $$D_{p, q} := p v^{p - 1} t^q D_v - q v^p t^{q - 1} D_t$$
+                    $$D_v := v \del_v, D_t := t \del_t$$
+                The bilinear form $\<-, -\>$ from proposition \ref{prop: pairing_divergence_free_derivations_with_1_forms} can then be given by:
+                    $$\<c_v, D_v\> = \<c_t, D_t\> = 1$$
+                    $$( Z_{r, s}, D_{p, q} ) := \delta_{(r, s), (p, q)}$$
             \end{example}
                 
             \begin{definition}[Shifted pairings] \label{def: shifted_pairings}
