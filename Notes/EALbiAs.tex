@@ -356,7 +356,7 @@
                         $$
                         
                     We now claim that:
-                        $$K_{(m, p), (r, s)}(x) = 0, \xi_{(m, p), (r, s)}(x) = 0$$
+                        $$\xi_{(m, p), (r, s)}(x) = 0$$
                     To this end, consider firstly the following, wherein $Z \in \z_{[2]}$ is an arbitrary choice:
                         $$
                             \begin{aligned}
@@ -379,11 +379,10 @@
                         $$( \xi_{(m, p), (r, s)}(x), Z )_{\hat{\t}} = 0$$
                     for \textit{any} $Z \in \z_{[2]}$, but since $\bar{\d}_{[2]}$ is graded-dual to $\z_{[2]}$ by construction, the above implies via the non-degeneracy of the inner product $(-, -)_{\hat{\t}}$ that:
                         $$\xi_{(m, p), (r, s)}(x) = 0$$
-                    necessarily. Arguing similarly with $Z \in \z_{[2]}$ replaced by some arbitrary $D \in \bar{\d}_{[2]}$ yields:
-                        $$K_{(m, p), (r, s)}(x) = 0$$
+                    necessarily. 
 
                     We can now conclude that:
-                        $$[D_{r, s}, x v^m t^p]_{\hat{\t}} = ( rp - ms ) x v^{m - r} t^{p - s - 1}$$
+                        $$[D_{r, s}, x v^m t^p]_{\hat{\t}} = ( rp - ms ) x v^{m - r} t^{p - s - 1} + K_{(m, p), (r, s)}(x)$$
                     \item \textbf{(Case 2: $D := D_v$):} In this case, it is easy to see that:
                         $$
                             \begin{aligned}
@@ -422,11 +421,12 @@
                         $$
 
                     Now, by arguing as in \textbf{Case 1}, we will see that:
-                        $$K_{m, p}(x) = \xi_{m, p}(x) = 0$$
+                        $$\xi_{m, p}(x) = 0$$
                     and afterwards we will be able to conclude that:
-                        $$[D_v, x v^m t^p]_{\hat{\t}} = m x v^m t^{p - 1}$$
+                        $$[D_v, x v^m t^p]_{\hat{\t}} = m x v^m t^{p - 1} + K_{m, p}(x)$$
                     \item \textbf{(Case 3: $D := D_t$)} Arguing as when $D = D_v$, we will obtain:
-                        $$[D_t, x v^m t^p]_{\hat{\t}} = p x v^m t^{p - 1}$$
+                        $$[D_t, x v^m t^p]_{\hat{\t}} = p x v^m t^{p - 1} + K_{m, p}(x)$$
+                    for some $K_{m, p}(x) \in \z_{[2]}$.
                 \end{itemize}
             \end{remark}
             \begin{remark}
@@ -502,11 +502,15 @@
 
                 Now that we know that the basis elements $D_{r, s}, D_v, D_t \in \bar{\d}_{[2]}$ are actually certain derivations on $A_{[2]}$, we can also check if $\bar{\d}_{[2]}$ is in fact a Lie subalgebra of $\d_{[2]}$ (equipped with the usual commutator Lie bracket) by checking whether or not commutators of the elements $D_{r, s}, D_v, D_t$ are still elements of $\bar{\d}_{[2]}$.
             \end{remark}
-
+            
             \begin{remark}[How does $\bar{\d}_{[2]}$ act on $\z_{[2]}$ ?] \label{remark: derivation_action_on_toroidal_centres}
                 We can now use what we know about how $\bar{\d}_{[2]}$ acts on $\g_{[2]}$ in conjunction with the Jacobi identity in order to compute Lie brackets of the form:
                     $$[D, Z]_{\hat{\t}}$$
-                for any $D \in \bar{\d}_{[2]}$ and any $Z \in \z_{[2]}$.
+                for any $D \in \bar{\d}_{[2]}$ and any $Z \in \z_{[2]}$. For the computations that follow, \textit{we will need to assume that}:
+                    $$\hat{\t} \cong \t \rtimes \bar{\d}_{[2]}$$
+                in which case it can be easily shown that:
+                    $$[\bar{\d}_{[2]}, \g_{[2]}]_{\hat{\t}} \subseteq \g_{[2]}$$
+                Different methods will have to be employed in the absence of this assumption.
 
                 The idea here is to use the fact that:
                     $$[-, -]_{\t} = [-, -]_{\g_{[2]}} + \e$$
@@ -537,6 +541,46 @@
                 By putting the two computations together, one yields:
                     $$[D, v^m t^p \bar{d}(v^n t^q)]_{\hat{\t}} = D(v^m t^p) \bar{d}(v^n t^q) + v^m t^p \bar{d}(D(v^n t^q))$$
                 Since we know how the basis elements of $\bar{\d}_{[2]}$ act on $\g_{[2]}$ (see remark \ref{remark: derivation_action_on_loop_algebras}), the above is enough to determine how $\bar{\d}_{[2]}$ acts on $\z_{[2]}$. 
+
+                Now, let us \textit{not} assume that:
+                    $$\hat{\t} \cong \t \rtimes \bar{\d}_{[2]}$$
+                Without any loss of generality, let us consider the following for any $h, h' \in \h$ so that\footnote{We can make this assumption because ultimately, elements of $\z_{[2]}$ do not depend on those of $\g$.}:
+                    $$(h, h')_{\g} = -1$$
+                any $f(v, t), g(v, t) \in A_{[2]}$, and any $D \in \bar{\d}_{[2]}$:
+                    $$[ D, [h f(v, t), h' g(v, t)]_{\t} ]_{\hat{\t}} = [ D, f(v, t) \bar{d}( g(v, t) ) ]_{\hat{\t}}$$
+                At the same time, we have via the Jacobi identity that:
+                    $$
+                        \begin{aligned}
+                            [ D, [h f(v, t), h' g(v, t)]_{\t} ]_{\hat{\t}} & = [ h f(v, t), [D, h' g(v, t)]_{\hat{\t}} ]_{\t} + [ [D, h f(v, t)]_{\hat{\t}}, h' g(v, t) ]_{\t}
+                            \\
+                            & = [ h f(v, t), h' D( g(v, t) ) ]_{\t} + [ h D( f(v, t) ), h' g(v, t) ]_{\t}
+                            \\
+                            & = f(v, t) \bar{d}( D( g(v, t) ) ) + D( f(v, t) ) \bar{d}(g(v, t))
+                        \end{aligned}
+                    $$
+                One thus sees that:
+                    $$[ D, f(v, t) \bar{d}( g(v, t) ) ]_{\hat{\t}} = f(v, t) \bar{d}( D( g(v, t) ) ) + D( f(v, t) ) \bar{d}(g(v, t))$$
+                and since the element $f(v, t) \bar{d}( g(v, t) )$ is central (via the map $\e$ mentioned earlier), this gives another description of:
+                    $$[ \bar{\d}_{[2]}, \z_{[2]} ]_{\hat{\t}}$$
+                Using this, we can return quickly to remark \ref{remark: derivation_action_on_loop_algebras}; there, we previously demonstrated that:
+                    $$[ \bar{\d}_{[2]}, \g_{[2]} ]_{\hat{\t}} \subseteq \g_{[2]} \oplus \z_{[2]}$$
+                but we claim now that the following stronger fact holds:
+                    $$[ \bar{\d}_{[2]}, \g_{[2]} ]_{\hat{\t}} \subseteq \g_{[2]}$$
+                To see why this is the case, suppose firstly that for any $D \in \bar{\d}_{[2]}$, any $X(v, t) \in \g_{[2]}$, there is $K(X) \in \z_{[2]}$ depending on $X := X(v, t)$ (and indeed, such a $K$ exists by remark \ref{remark: derivation_action_on_loop_algebras}) such that:
+                    $$[ D, X(v, t) ]_{\hat{\t}} = D( X(v, t) ) + K(X)$$
+                Next, pick an arbitrary element $\xi \in \bar{\d}_{[2]}$ and then consider the following:
+                    $$( [ D, X(v, t) ]_{\hat{\t}}, \xi )_{\hat{\t}} = (D( X(v, t) ) + K(X), \xi)_{\hat{\t}} = (K(X), \xi)_{\hat{\t}}$$
+                At the same time, using invariance yields us:
+                    $$( [ D, X(v, t) ]_{\hat{\t}}, \xi )_{\hat{\t}} = (X(v, t), [\xi, D]_{\hat{\t}})_{\hat{\t}} = 0$$
+                wherein the last equality is due to the fact that:
+                    $$[\xi, D]_{\hat{\t}} \in \bar{\d}_{[2]}$$
+                (cf. remark \ref{remark: dual_of_toroidal_centres_contains_derivations}). We thus see that:
+                    $$(K(X), \xi)_{\hat{\t}} = 0$$
+                for every $\xi \in \bar{\d}_{[2]}$, which then implies via the non-degeneracy of $(-, -)_{\hat{\t}}$ that:
+                    $$K(X) = 0$$
+                As such:
+                    $$[ \bar{\d}_{[2]}, \g_{[2]} ]_{\hat{\t}} \subseteq \g_{[2]}$$
+                as claimed. 
             \end{remark}
 
             Putting everything together then yields us the following result:
