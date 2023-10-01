@@ -29,15 +29,15 @@
             Throughout this section, we fix a finite-dimensional simple Lie algebra $\g$ over $\bbC$, equipped with a symmetric and non-degenerate invariant $\bbC$-bilinear form $(-, -)_{\g}$. It is known that such a bilinear form is unique up to $\bbC^{\x}$-multiples, so for all intents and purposes, it can be assumed to be the Killing form, though this assumption is not necessary. 
 
             Suppose also that $\g$ is equipped with a basis $\{x_i\}_{1 \leq i \leq \dim_{\bbC} \g}$ and with respect to $(-, -)_{\g}$, we identify a dual basis $\{x^i\}_{1 \leq i \leq \dim_{\bbC} \g}$. Recall that the universal Casimir element/canonical element of $\g$ is:
-                $$\scrR_{\g} := \sum_{1 \leq i \leq \dim_{\bbC} \g} x_i \tensor x^i \in \g \tensor_{\bbC} \g$$
-            and recall that $\scrR_{\g}$ is independent of what we choose the basis vectors $x_i$ to be.
+                $$\sfr_{\g} := \sum_{1 \leq i \leq \dim_{\bbC} \g} x_i \tensor x^i \in \g \tensor_{\bbC} \g$$
+            and recall that $\sfr_{\g}$ is independent of what we choose the basis vectors $x_i$ to be.
 
             Eventually, we will also be concerned with the Dynkin diagram associated to the root system of $\g$. Let us denote this by:
                 $$\Gamma := (\Gamma_0, \Gamma_1)$$
             wherein $\Gamma_0$ means the (finite) set of vertices and $\Gamma_1$ means the set of undirected edges between said vertices. 
 
             Finally, denote the associated Cartan matrix by:
-                $$C := (C_{ij})_{1 \leq i, j \leq |\Gamma_0|}$$
+                $$C := (c_{ij})_{1 \leq i, j \leq |\Gamma_0|}$$
             Since finite-type Cartan matrices are symmetrisable, we can fix a symmetrisation:
                 $$C := D A$$
             wherein $D$ is an invertible diagonal $|\Gamma_0| \x |\Gamma_0|$ matrix and $A$ is symmetric. 
@@ -74,7 +74,7 @@
                     \item Verify that $(-, -)_{\g_{[2]}}$ is an invariant and non-degenerate symmetric $\bbC$-bilinear form on $\g_{[2]}$.
                     \item Show that by equpping $\g_{[2]}$ with the invariant inner product $(-, -)_{\g_{[2]}}$, the following triple of Lie algebras becomes a well-defined Manin triple:
                         $$(\g_{[2]}, \g_{[2]}^+, \g_{[2]}^-)$$
-                    \item Find a formula for the canonical element $\scrR_{\g[v^{\pm 1}, t} \in \g_{[2]}^+ \hattensor_{\bbC} \g_{[2]}^+$ with respect to the restriction of $(-, -)_{\g_{[2]}}$ to $\g[v^{\pm 1}, t^{-1}] \x \g_{[2]}^+$.
+                    \item Find a formula for the canonical element $\sfr_{\g[v^{\pm 1}, t} \in \g_{[2]}^+ \hattensor_{\bbC} \g_{[2]}^+$ with respect to the restriction of $(-, -)_{\g_{[2]}}$ to $\g[v^{\pm 1}, t^{-1}] \x \g_{[2]}^+$.
                     \item Find the Lie bialgebra structure on $\g_{[2]}^+$ arising from the Manin triple in 2.
                 \end{enumerate}
             \end{question}
@@ -96,28 +96,28 @@
                         for $\g_{[2]}$. It is easy to see that the graded dual of this basis with respect to the invariant inner product $(-, -)_{\g_{[2]}}$ is:
                             $$\{X_{m, p}^{\star}\}_{(m, p) \in \Z^2} := \{x^i v^{-m} t^{-p - 1}\}_{1 \leq i \leq \dim_{\bbC} \g, m \in \Z, p \in \Z}$$
                         
-                        By definition, the canonical element $\scrR_{\g[v_1^{\pm 1}, t]} \in \g[v_2^{\pm 1}, t_1] \hattensor_{\bbC} \g[v^{\pm 1}, t_2^{-1}]$ is given by:
-                            $$\scrR_{\g[v_1^{\pm 1}, t]} := \sum_{(m, p) \in \Z^2} X_{m, p} \hattensor X_{m, p}^{\star}$$
+                        By definition, the canonical element $\sfr_{\g[v_1^{\pm 1}, t]} \in \g[v_2^{\pm 1}, t_1] \hattensor_{\bbC} \g[v^{\pm 1}, t_2^{-1}]$ is given by:
+                            $$\sfr_{\g[v_1^{\pm 1}, t]} := \sum_{(m, p) \in \Z^2} X_{m, p} \hattensor X_{m, p}^{\star}$$
                         As such, we have that:
                             $$
                                 \begin{aligned}
-                                    \scrR_{\g_{[2]}^+} & := \sum_{1 \leq i \leq \dim_{\bbC} \g} \sum_{m = -\infty}^{+\infty} \sum_{p = -\infty}^{+\infty} x_i v_1^m t_1^p \tensor x^i v_2^{-m} t_2^{-p - 1}
+                                    \sfr_{\g_{[2]}^+} & := \sum_{1 \leq i \leq \dim_{\bbC} \g} \sum_{m = -\infty}^{+\infty} \sum_{p = -\infty}^{+\infty} x_i v_1^m t_1^p \tensor x^i v_2^{-m} t_2^{-p - 1}
                                     \\
                                     & = \left( \sum_{1 \leq i \leq \dim_{\bbC} \g} x_i \tensor x^i \right) \left( \sum_{m = 0}^{+\infty} (v_1^{-1} v_2)^m + \sum_{m = 0}^{+\infty} (v_1 v_2^{-1})^m \right) \left( t_2^{-1} \sum_{p = 0}^{+\infty} (t_1 t_2^{-1})^p \right)
                                     \\
-                                    & = \scrR_{\g} \cdot \left( \frac{1}{1 - v_1 v_2^{-1}} + \frac{1}{1 - v_1^{-1} v_2} \right) \cdot \frac{t_2}{1 - t_1 t_2^{-1}}
+                                    & = \sfr_{\g} \cdot \left( \frac{1}{1 - v_1 v_2^{-1}} + \frac{1}{1 - v_1^{-1} v_2} \right) \cdot \frac{t_2}{1 - t_1 t_2^{-1}}
                                 \end{aligned}
                             $$
                         \item Let us keep the identification:
                             $$\g_{[2]}^+ \hattensor_{\bbC} \g[v^{\pm 1}, t^{-1}] \cong \g[v_2^{\pm 1}, t_1] \hattensor_{\bbC} \g[v^{\pm 1}, t_2^{-1}]$$
                         From \cite[pp. 5]{etingof_kazhdan_quantisation_1}\footnote{Actually, this citation is not quite right, since the result was stated for finite-dimensional Manin triples only. However, since we're dealing with graded duals with finite-dimensional graded components, I believe the analogous result still holds. Of course, I should write this down carefully at some point.}, we know that the Lie bialgebra structure (say, $\delta_{\g_{[2]}^+}$) on $\g_{[2]}$ is given at any $X(v, t) \in \g_{[2]}$ by:
-                            $$\delta_{\g_{[2]}^+}( X(v, t) ) = [X(v_1, t_1) \tensor 1 + 1 \tensor X(v_2, t_2), \scrR_{\g_{[2]}^+}]$$
+                            $$\delta_{\g_{[2]}^+}( X(v, t) ) = [X(v_1, t_1) \tensor 1 + 1 \tensor X(v_2, t_2), \sfr_{\g_{[2]}^+}]$$
                         When $X(v, t) := x v^m t^p$ for some $x \in \g, m \in \Z, t \in \Z_{\geq 0}$, this can written out more explicitly as follows:
                             $$
                                 \begin{aligned}
-                                    \delta_{\g_{[2]}^+}( x v^m t^p ) & = \left[x v_1^m t_1^p \tensor 1 + 1 \tensor x v_2^m t_2^p, \scrR_{\g} \cdot \left( \frac{1}{1 - v_1 v_2^{-1}} + \frac{1}{1 - v_1^{-1} v_2} \right) \cdot \frac{t_2}{1 - t_1 t_2^{-1}}\right]
+                                    \delta_{\g_{[2]}^+}( x v^m t^p ) & = \left[x v_1^m t_1^p \tensor 1 + 1 \tensor x v_2^m t_2^p, \sfr_{\g} \cdot \left( \frac{1}{1 - v_1 v_2^{-1}} + \frac{1}{1 - v_1^{-1} v_2} \right) \cdot \frac{t_2}{1 - t_1 t_2^{-1}}\right]
                                     \\
-                                    & = [x \tensor 1 + 1 \tensor x, \scrR_{\g}] \cdot v_1^m t_1^p \cdot v_2^m t_2^p \cdot \left( \frac{1}{1 - v_1 v_2^{-1}} + \frac{1}{1 - v_1^{-1} v_2} \right) \frac{t_2}{1 - t_1 t_2^{-1}}
+                                    & = [x \tensor 1 + 1 \tensor x, \sfr_{\g}] \cdot v_1^m t_1^p \cdot v_2^m t_2^p \cdot \left( \frac{1}{1 - v_1 v_2^{-1}} + \frac{1}{1 - v_1^{-1} v_2} \right) \frac{t_2}{1 - t_1 t_2^{-1}}
                                 \end{aligned}
                             $$
                     \end{enumerate}
@@ -667,162 +667,144 @@
                 On the extended toroidal Lie algebra $\hat{\g}_{[2]}^+$, there is a continuous Lie cobracket\footnote{Note the completion!}, making $\hat{\g}_{[2]}^+$ a complete topological Lie bialgebra:
                     $$\delta_{\hat{\g}_{[2]}^+}: \hat{\g}_{[2]}^+ \to \hat{\g}_{[2]}^+ \hattensor_{\bbC} \hat{\g}_{[2]}^+$$
                 given for any $X \in \hat{\g}_{[2]}^+$ by the following formula (cf. \cite{etingof_kazhdan_quantisation_1}):
-                    $$\delta_{\hat{\g}_{[2]}^+}(X) = [ X \tensor 1 + 1 \tensor X, \scrR_{\hat{\g}_{[2]}^+} ]$$
+                    $$\delta_{\hat{\g}_{[2]}^+}(X) = [ X \tensor 1 + 1 \tensor X, \sfr_{\hat{\g}_{[2]}^+} ]$$
                 wherein:
-                    $$\scrR_{\hat{\g}_{[2]}^+} := \scrR_{\g_{[2]}^+} + \scrR_{\z_{[2]}^+} + \scrR_{\bar{\d}_{[2]}^+} \in \hat{\g}_{[2]}^+ \hattensor_{\bbC} \hat{\g}_{[2]}^-$$
-                with $\scrR_{\g_{[2]}^+} \in \g_{[2]}^+ \hattensor_{\bbC} \g_{[2]}^-$ being as in question \ref{question: multiloop_lie_bialgebras} and\footnote{Note how we are simply summing over tensor products of dual basis elements.} $\scrR_{\z_{[2]}^+} \in \z_{[2]}^+ \hattensor_{\bbC} \bar{\d}_{[2]}^+$ and $\scrR_{\bar{\d}_{[2]}^+} \in \d_{[2]}^+ \hattensor_{\bbC} \z_{[2]}^+$ being given by the following formulae:
-                    $$\scrR_{\z_{[2]}^+} := \sum_{(r, s) \in \Z \x \Z_{> 0}} Z_{r, s} \tensor D_{r, s} + c_v \tensor D_v$$
-                    $$\scrR_{\bar{\d}_{[2]}^+} := \sum_{(r, s) \in \Z \x \Z_{> 0}} D_{r, s} \tensor Z_{r, s} + D_v \tensor c_v$$
+                    $$\sfr_{\hat{\g}_{[2]}^+} := \sfr_{\g_{[2]}^+} + \sfr_{\z_{[2]}^+} + \sfr_{\bar{\d}_{[2]}^+} \in \hat{\g}_{[2]}^+ \hattensor_{\bbC} \hat{\g}_{[2]}^-$$
+                with $\sfr_{\g_{[2]}^+} \in \g_{[2]}^+ \hattensor_{\bbC} \g_{[2]}^-$ being as in question \ref{question: multiloop_lie_bialgebras} and\footnote{Note how we are simply summing over tensor products of dual basis elements.} $\sfr_{\z_{[2]}^+} \in \z_{[2]}^+ \hattensor_{\bbC} \bar{\d}_{[2]}^+$ and $\sfr_{\bar{\d}_{[2]}^+} \in \d_{[2]}^+ \hattensor_{\bbC} \z_{[2]}^+$ being given by the following formulae:
+                    $$\sfr_{\z_{[2]}^+} := \sum_{(r, s) \in \Z \x \Z_{> 0}} Z_{r, s} \tensor D_{r, s} + c_v \tensor D_v$$
+                    $$\sfr_{\bar{\d}_{[2]}^+} := \sum_{(r, s) \in \Z \x \Z_{> 0}} D_{r, s} \tensor Z_{r, s} + D_v \tensor c_v$$
             \end{corollary}
-            \begin{remark}[Lie cobracket on $\hat{\g}_{[2]}^+$, explicitly] \label{remark: extended_toroidal_lie_bialgebras_explicit_formulae}
-                Let us see how the Lie cobracket $\delta_{\hat{\g}_{[2]}^+}$ from corollary \ref{coro: extended_toroidal_lie_bialgebras} is given explicitly on basis elements of $\hat{\g}_{[2]}^+$.
+            \begin{remark}[Total degrees of classical Yangian R-matrices] \label{remark: total_degrees_of_classical_yangian_R_matrices}
+                One property of the R-matrix $\sfr_{\hat{\g}_{[2]}^+}$ from corollary \ref{coro: extended_toroidal_lie_bialgebras} that will help simplify some computations later on (see the proof of theorem \ref{theorem: toroidal_lie_bialgebras}) is that they are of total degree $-1$. 
 
-                Before we do, however, it will be necessary to see how the elements $\scrR_{\z_{[2]}^+}$ and $\scrR_{\bar{\d}_{[2]}^+}$ can be written in terms of the differentials $\bar{d}(v), \bar{d}(t)$ and the partial derivatives $\del_v, \del_t$. Recall from remark \ref{remark: centres_of_dual_toroidal_lie_bialgebras} that:
-                    $$
-                        Z_{r, s} :=
-                        \begin{cases}
-                            \text{$\frac1s v^{r - 1} t^s \bar{d}(v)$ if $(r, s) \in \Z \x (\Z \setminus \{0\})$}
-                            \\
-                            \text{$-\frac1r v^r t^{-1} \bar{d}(t)$ if $(r, s) \in \Z \x \{0\}$}
-                            \\
-                            \text{$0$ if $(r, s) = (0, 0)$}
-                        \end{cases}
-                    $$
-                    $$c_v := v^{-1} \bar{d}(v)$$
-                and from remark \ref{remark: dual_of_toroidal_centres_contains_derivations} that:
-                    $$D_{r, s} = -s v^{-r + 1} t^{-s - 1} \del_v + r v^{-r} t^{-s} \del_t$$
-                    $$D_v = v t^{-1} \del_v$$
-                \begin{itemize}
-                    \item Consider the following:
-                        $$
-                            \begin{aligned}
-                                \scrR_{\z_{[2]}^+} & = \sum_{(r, s) \in \Z \x \Z_{> 0}} Z_{r, s} \tensor D_{r, s} + c_v \tensor D_v
-                                \\
-                                & = \sum_{(r, s) \in \Z \x \Z_{> 0}} \left(\frac1s v^{r - 1} t^s \bar{d}(v)\right) \tensor \left(-s v^{-r + 1} t^{-s - 1} \del_v + r v^{-r} t^{-s} \del_t\right) + \left(v^{-1} \bar{d}(v)\right) \tensor \left(v t^{-1} \del_v\right)
-                                \\
-                                & = \sum_{(r, s) \in (\Z \x \Z_{> 0}) \setminus \{*\}} -t^{-1} \bar{d}(v) \tensor \del_v + \sum_{(r, s) \in \Z \x \Z_{> 0}} \frac{r}{s} v^{-1} \bar{d}(v) \tensor \del_t
-                            \end{aligned}
-                        $$
-                    wherein by $(\Z \x \Z_{> 0}) \setminus \{*\}$ we simply meant $\Z \x \Z_{> 0}$ minus an arbitrarily element that we shall fix once and for all. 
-                    \item Likewise, we have that:
-                        $$\scrR_{\bar{\d}_{[2]}^+} = \sum_{(r, s) \in (\Z \x \Z_{> 0}) \setminus \{*\}} -t^{-1} \del_v \tensor \bar{d}(v) + \sum_{(r, s) \in \Z \x \Z_{> 0}} \frac{r}{s} v^{-1} \del_t \tensor \bar{d}(v)$$
-                \end{itemize}
+                Recall that if $V := \bigoplus_{m \in \Z} V_m, W := \bigoplus_{n \in \Z} W_n$ are $\Z$-graded vector spaces then for any $k \in \Z$, we have that:
+                    $$(V \tensor_{\bbC} W)_k \cong \bigoplus_{m + n = k} V_m \tensor_{\bbC} W_n$$
+                If we now take $V = W = \rmU(\hat{\g}_{[2]})$ then the claim from above would read:
+                    $$\sfr_{\hat{\g}_{[2]}^+} \in ( \rmU(\hat{\g}_{[2]}^+) \tensor_{\bbC} \rmU(\hat{\g}_{[2]}^-) )_{-1}$$
+                with the $\Z$-grading on $\hat{\g}_{[2]}^{\pm}$ (and hence on $\rmU(\hat{\g}_{[2]}^{\pm})$) being the one on the second variable $t$, and actually, this is entirely due to:
+                    $$\sfr_{\g_{[2]}^+} \in ( \rmU(\g_{[2]}^+) \tensor_{\bbC} \rmU(\g_{[2]}^-) )_{-1}$$
+                and this can already be inferred from the computations done in question \ref{question: multiloop_lie_bialgebras}.
 
-                Now, we compute the Lie cobrackets.
-                \begin{itemize}
-                    \item Let us firstly see how the elements $\delta_{\hat{\g}_{[2]}^+}(x v^m t^p)$, for some basis element $x \in \g$ and for some $(m, p) \in \Z \x \Z_{\geq 0}$, are given. Note that:
-                        $$\delta_{\hat{\g}_{[2]}^+}(x v^m t^p) = \delta_{\g_{[2]}^+}(x v^m t^p) + [ x v^m t^p \tensor 1 + 1 \tensor x v^m t^p, \scrR_{ \z_{[2]}^+ } + \scrR_{ \bar{\d}_{[2]}^+ } ]$$
-                    with $\delta_{\g_{[2]}^+}$ being given as in question \ref{question: multiloop_lie_bialgebras}, so the only non-trivial calculations that we will have to perform is of the second summand.
-                    \begin{itemize}
-                        \item Consider firstly the following:
-                            $$
-                                \begin{aligned}
-                                    & [ x v^m t^p \tensor 1 + 1 \tensor x v^m t^p, \scrR_{ \z_{[2]}^+ }]
-                                    \\
-                                    = & \left[ x v^m t^p \tensor 1 + 1 \tensor x v^m t^p, \sum_{(r, s) \in (\Z \x \Z_{> 0}) \setminus \{*\}} -t^{-1} \bar{d}(v) \tensor \del_v + \sum_{(r, s) \in \Z \x \Z_{> 0}} \frac{r}{s} v^{-1} \bar{d}(v) \tensor \del_t\right]
-                                    \\
-                                    = & v^m t^p \left(
-                                    \begin{aligned}
-                                        & \sum_{(r, s) \in (\Z \x \Z_{> 0}) \setminus \{*\}} -\left[ x t^{-1} \tensor 1 + 1 \tensor x t^{-1}, \bar{d}(v) \tensor \del_v \right]
-                                        \\
-                                        + & \sum_{(r, s) \in \Z \x \Z_{> 0}} \frac{r}{s} \left[ x v^{-1} \tensor 1 + 1 \tensor x v^{-1}, \bar{d}(v) \tensor \del_t \right]
-                                    \end{aligned}
-                                    \right)
-                                \end{aligned}
-                            $$
-                        \item Likewise, we have that:
-                            $$
-                                [ x v^m t^p \tensor 1 + 1 \tensor x v^m t^p, \scrR_{ \bar{\d}_{[2]}^+ }] = 
-                                v^m t^p \left(
-                                \begin{aligned}
-                                    & \sum_{(r, s) \in (\Z \x \Z_{> 0}) \setminus \{*\}} -\left[ x t^{-1} \tensor 1 + 1 \tensor x t^{-1}, \del_v \tensor \bar{d}(v) \right]
-                                    \\
-                                    + & \sum_{(r, s) \in \Z \x \Z_{> 0}} \frac{r}{s} \left[ x v^{-1} \tensor 1 + 1 \tensor x v^{-1}, \del_t \tensor \bar{d}(v) \right]
-                                \end{aligned}
-                                \right)
-                            $$
-                    \end{itemize}
-                    \item Secondly, let us see how the elements $\delta_{\hat{\g}_{[2]}^+}(Z_{r, s})$ and $\delta_{\hat{\g}_{[2]}^+}(c_v)$ are given.
-                    \begin{itemize}
-                        \item Since we are working with $(r, s) \in \Z \x \Z_{> 0}$, we have:
-                            $$Z_{r, s} = \frac1s v^{r - 1} t^s \bar{d}(v)$$
-                        from which we get:
-                            $$\delta_{\hat{\g}_{[2]}^+}(Z_{r, s}) = \frac1s v^{r - 1} t^s [\bar{d}(v) \tensor 1 + 1 \tensor \bar{d}(v), \scrR_{\hat{\g}_{[2]}^+}]$$
-                        \item We also have that:
-                            $$c_v = v^{-1} \bar{d}(v)$$
-                        and so:
-                            $$\delta_{\hat{\g}_{[2]}^+}(c_v) = v^{-1} [\bar{d}(v) \tensor 1 + 1 \tensor \bar{d}(v), \scrR_{\hat{\g}_{[2]}^+}]$$
-                    \end{itemize}
-                    \item Finally, let us see how the elements $\delta_{\hat{\g}_{[2]}^+}(D_{r, s})$ and $\delta_{\hat{\g}_{[2]}^+}(D_v)$ are given.
-                    \begin{itemize}
-                        \item We have that:
-                            $$D_{r, s} = -s v^{-r + 1} t^{-s - 1} \del_v + r v^{-r} t^{-s} \del_t$$
-                        and so:
-                            $$\delta_{\hat{\g}_{[2]}^+}(D_{r, s}) = -s v^{-r + 1} t^{-s - 1} [\del_v \tensor 1 + 1 \tensor \del_v, \scrR_{\hat{\g}_{[2]}^+}] + r v^{-r} t^{-s} [\del_t \tensor 1 + 1 \tensor \del_t, \scrR_{\hat{\g}_{[2]}^+}]$$
-                        \item We have that:
-                            $$D_v = v t^{-1} \del_v$$
-                        and so:
-                            $$\delta_{\hat{\g}_{[2]}^+}(D_v) = v t^{-1} [\del_v \tensor 1 + 1 \tensor \del_v, \scrR_{\hat{\g}_{[2]}^+}]$$
-                    \end{itemize}
-                \end{itemize}
+                What this means for us is that, should we have $X \in \hat{\g}_{[2]}^+$ such that:
+                    $$\deg X \leq 0$$
+                then it will automatically be the case that:
+                    $$\delta_{\hat{\g}_{[2]}^+}(X) = 0$$
             \end{remark}
 
         \subsection{Chevalley-Serre presentations for extended toroidal Lie algebras}
-            \begin{lemma}[Chevalley-Serre presentation for $\tilde{\g}_{[2]}$] \label{lemma: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras}
-                The Lie algebra $\tilde{\g}_{[2]}$ is isomorphic to the Lie algebra $\t$ generated by the set:
-                    $$\{ E_{i, r}^{\pm}, H_{i, r} \}_{(i, r) \in \Gamma_0 \x \Z} \cup \{ c \}$$
-                whose elements are subjected to the following relations:
+            When $\g$ is of finite type as in convention \ref{conv: a_fixed_finite_dimensional_simple_lie_algebra}, we will be observing the following convention.
+            \begin{convention} \label{conv: a_fixed_untwisted_affine_kac_moody_algebra}
+                Let us write:
+                    $$\hat{\g}_{[1]} := \tilde{\g}_{[1]} \rtimes \bbC D$$
+                to mean the untwisted affine Kac-Moody algebra attached to the finite-dimensional simple Lie algebra $\g$ from convention \ref{conv: a_fixed_finite_dimensional_simple_lie_algebra} (cf. \cite[Chapter 7]{kac_infinite_dimensional_lie_algebras}). Here, $\g_{[1]} := \g[v^{\pm 1}]$ is equipped with the invariant inner product given by:
+                    $$(x v^m, y v^n)_{\g_{[1]}} := (x, y)_{\g} \delta_{m + n = 0}$$
+                for all $x, y \in \g$ and all $m, n \in \Z$, and $D \in \der_{\bbC}(\tilde{\g}_{[1]})$ is a derivation on $\tilde{\g}_{[1]} := \uce(\g_{[1]})$ acting as $\id_{\g} \tensor v \frac{d}{dv}$ on $\g_{[1]}$ and as zero on $\z_{[1]} := \z(\tilde{\g}_{[1]})$ (recall also that this centre is $1$-dimensional; we shall be writing $\z_{[1]} := \bbC c$).
+    
+                Fix a Cartan subalgebra $\hat{\h}_{[1]}$ of $\hat{\g}_{[1]}$.
+    
+                The affine Dynkin diagram associated to $\hat{\g}_{[1]}$ (cf. \cite[Chapter 4]{kac_infinite_dimensional_lie_algebras}) shall be denoted by:
+                    $$\hat{\Gamma} := ( \hat{\Gamma}_0, \hat{\Gamma}_1 )$$
+                with $\hat{\Gamma}_0$ denoting the set of vertices and $\hat{\Gamma}_1$ denoting the set of undirected edges.
+    
+                Finally, denote the associated Cartan matrix by:
+                    $$\hat{C} := (\hat{c}_{ij})_{1 \leq i, j \leq |\hat{\Gamma}_0|}$$
+                Since affine Cartan matrices are symmetrisable, we can fix a symmetrisation:
+                    $$\hat{C} := \hat{D} \hat{A}$$
+                wherein $\hat{D}$ is an invertible diagonal $|\Gamma_0| \x |\Gamma_0|$ matrix and $A$ is symmetric. 
 
-                The isomorphism $\t \xrightarrow[]{\cong} \tilde{\g}_{[2]}$ in question is given by:
+                Also, let us denote the highest root by $\theta$. Note that we have:
+                    $$\hat{\Gamma}_0 = \Gamma_0 \cup \{\theta\}$$
+            \end{convention}
+            \begin{lemma}[Chevalley-Serre presentation for $\tilde{\g}_{[2]}$] \label{lemma: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras}
+                (Cf. \cite[Proposition 6.6]{wendlandt_formal_shift_operators_on_yangian_doubles}) The Lie algebra $\tilde{\g}_{[2]}$ is isomorphic to the Lie algebra $\t$ generated by the set:
+                    $$\{ E_{i, r}^{\pm}, H_{i, r} \}_{(i, r) \in \hat{\Gamma}_0 \x \Z} \cup \{ K \}$$
+                whose elements are subjected to the following relations, given for all $(i, r), (j, s) \in \hat{\Gamma}_0 \x \Z$:
+                    $$[\t, K] = 0$$
+                    $$[ H_{i, r}, H_{j, s} ] = 0$$
+                    $$[ H_{i, r}, E_{j, s}^{\pm} ] = \pm 2 d_{ij} E_{j, r + s}^{\pm}$$
+                    $$[ E_{i, r}^+, E_{j, s}^- ] = \delta_{ij} H_{i, r + s}$$
+                    $$[ E_{i, r + 1}^{\pm}, E_{j, s}^{\pm} ] - [ E_{i, r}^{\pm}, E_{j, s + 1}^{\pm} ] = 0$$
+                The isomorphism $\t \xrightarrow[]{\cong} \tilde{\g}_{[2]}$ in question is given as follows, for all $(i, r) \in \hat{\Gamma}_0 \x \Z$:
+                    $$\forall (i, r) \in \Gamma_0 \x \Z: E_{i, r}^{\pm} \mapsto e_i^{\pm} t^r, H_{i, r} \mapsto h_i t^r$$
+                    $$\forall (i, r) \in \{\theta\} \x \Z: E_{\theta, r}^{\pm} \mapsto e_{\theta}^{\mp} v^{\pm 1} t^r, H_{\theta, r} \mapsto h_{\theta} t^r + c_v t^r$$
+                    $$K \mapsto c_t$$
             \end{lemma}
                 \begin{proof}
                     
                 \end{proof}
             \begin{corollary} \label{coro: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras}
                 The Lie algebras $\tilde{\g}_{[2]}^{\pm}$ is isomorphic to the Lie algebras $\s^{\pm}$ generated, respectively, by the sets:
-                    $$\{ E_{i, r}^{\pm}, H_{i, r} \}_{(i, r) \in \Gamma_0 \x \Z_{\geq 0}} \cup \{ c^+ \}$$
-                    $$\{ E_{i, r}^{\pm}, H_{i, r} \}_{(i, r) \in \Gamma_0 \x \Z_{< 0}} \cup \{ c^- \}$$
-                whose elements are subjected to the following relations:
-
-                The isomorphisms $\s^{\pm} \xrightarrow[]{\cong} \tilde{\g}_{[2]}^{\pm}$ in question are just codomain restrictions of the isomorphism $\t \xrightarrow[]{\cong} \tilde{\g}_{[2]}$ from lemma \ref{lemma: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras}.
+                    $$\{ E_{i, r}^{\pm}, H_{i, r} \}_{(i, r) \in \Gamma_0 \x \Z_{\geq 0}}$$
+                    $$\{ E_{i, r}^{\pm}, H_{i, r} \}_{(i, r) \in \Gamma_0 \x \Z_{< 0}} \cup \{K\}$$
+                whose elements are subjected to the same relations as in lemma \ref{lemma: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras}. The isomorphisms $\s^{\pm} \xrightarrow[]{\cong} \tilde{\g}_{[2]}^{\pm}$ in question are just codomain restrictions of the isomorphism $\t \xrightarrow[]{\cong} \tilde{\g}_{[2]}$ from lemma \ref{lemma: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras}.
             \end{corollary}
             
         \begin{convention}[Yangians associated to symmetrisable Kac-Moody algebras]
             Suppose for a moment that $\g$ is a general symmetrisable Kac-Moody algebra whose associated Cartan matrix is indecomposable. We refer the reader to \cite[Section 2]{guay_nakajima_wendlandt_affine_yangian_vertex_representations_and_PBW} for the definition of the formal Yangian $\rmY_{\hbar}(\g)$ and Yangian $\rmY(\g)$, as well as all relevant discussions about the various \say{basic} presentations of these associative algebras (living over $\bbC[\hbar]$ and $\bbC$ respectively). The only thing that we will note is that we will be denoting the Chevalley-Serre generators by:
                 $$E_{i, r}^{\pm}, H_{i, r}$$
         \end{convention}
-        When $\g$ is of finite type as in convention \ref{conv: a_fixed_finite_dimensional_simple_lie_algebra}, we will be observing the following convention.
-        \begin{convention} \label{conv: a_fixed_untwisted_affine_kac_moody_algebra}
-            Let us write:
-                $$\hat{\g}_{[1]} := \tilde{\g}_{[1]} \rtimes \bbC D$$
-            to mean the untwisted affine Kac-Moody algebra attached to the finite-dimensional simple Lie algebra $\g$ from convention \ref{conv: a_fixed_finite_dimensional_simple_lie_algebra} (cf. \cite[Chapter 7]{kac_infinite_dimensional_lie_algebras}). Here, $\g_{[1]} := \g[v^{\pm 1}]$ is equipped with the invariant inner product given by:
-                $$(x v^m, y v^n)_{\g_{[1]}} := (x, y)_{\g} \delta_{m + n = 0}$$
-            for all $x, y \in \g$ and all $m, n \in \Z$, and $D \in \der_{\bbC}(\tilde{\g}_{[1]})$ is a derivation on $\tilde{\g}_{[1]} := \uce(\g_{[1]})$ acting as $\id_{\g} \tensor v \frac{d}{dv}$ on $\g_{[1]}$ and as zero on $\z_{[1]} := \z(\tilde{\g}_{[1]})$ (recall also that this centre is $1$-dimensional; we shall be writing $\z_{[1]} := \bbC c$).
-
-            Fix a Cartan subalgebra $\hat{\h}_{[1]}$ of $\hat{\g}_{[1]}$.
-
-            The affine Dynkin diagram associated to $\hat{\g}_{[1]}$ (cf. \cite[Chapter 4]{kac_infinite_dimensional_lie_algebras}) shall be denoted by:
-                $$\hat{\Gamma} := ( \hat{\Gamma}_0, \hat{\Gamma}_1 )$$
-            with $\hat{\Gamma}_0$ denoting the set of vertices and $\hat{\Gamma}_1$ denoting the set of undirected edges.
-
-            Finally, denote the associated Cartan matrix by:
-                $$\hat{C} := (\hat{C}_{ij})_{1 \leq i, j \leq |\hat{\Gamma}_0|}$$
-            Since affine Cartan matrices are symmetrisable, we can fix a symmetrisation:
-                $$\hat{C} := \hat{D} \hat{A}$$
-            wherein $\hat{D}$ is an invertible diagonal $|\Gamma_0| \x |\Gamma_0|$ matrix and $A$ is symmetric. 
-        \end{convention}
-        
-         \begin{proposition}[Affine formal Yangians as flat graded deformations] \label{prop: affine_formal_yangians_as_flat_graded_deformations}
-             Suppose that $\g \not \cong \sl_2(\bbC)$. Then the $\bbC[\hbar]$-algebra $\rmY_{\hbar}(\hat{\g}_{[1]})$ will be a flat $\Z$-graded deformation of the $\Z$-graded $\bbC$-algebra $\rmU(\tilde{\g}_{[2]}^+)$. 
-         \end{proposition}
+        \begin{convention}
+                From now on, let us write:
+                    $$T_{i, 1}(\hbar) := H_{i, 1} - \frac12 \hbar H_{i, 0}^2$$
+                    $$T_{i, 1} := T_{i, 1}(1) = H_{i, 1} - \frac12 H_{i, 0}^2$$
+            \end{convention}
+         \begin{lemma}[Affine formal Yangians as flat graded deformations] \label{lemma: affine_formal_yangians_as_flat_graded_deformations}
+             \cite{guay_nakajima_wendlandt_affine_yangian_vertex_representations_and_PBW} Suppose that $\g \not \cong \sl_2(\bbC)$. Then the $\bbC[\hbar]$-algebra $\rmY_{\hbar}(\hat{\g}_{[1]})$ will be a flat $\Z$-graded deformation of the $\Z$-graded $\bbC$-algebra $\rmU(\tilde{\g}_{[2]}^+)$. 
+         \end{lemma}
             \begin{proof}
-                
+                \todo[inline]{This depends on PBW for untwisted affine Yangians. See appendix.}
             \end{proof}
+        The hypotheses of the following lemma are satisfied at least when $\g$ is either of finite type or of affine type, save for the types $\sfA_1^{(1)}$ and $\sfA_1^{(2)}$.
+        \begin{lemma}[Levendorskii's presentation] \label{lemma: levendorskii_presentation}
+            \cite[Theorem 2.13]{guay_nakajima_wendlandt_affine_yangian_coproduct} Suppose for a moment that $\g$ is a general symmetrisable Kac-Moody algebra whose Cartan matrix is:
+            \begin{itemize}
+                \item indecomposable,
+                \item such that, for any $i < j \in \Gamma_0$ (with respect to some choice of total ordering on $\Gamma_0$) the following $2 \x 2$ matrix is invertible:
+                    $$
+                        \begin{pmatrix}
+                            a_{ii} & a_{ij}
+                            \\
+                            a_{ji} & a_{ji}
+                        \end{pmatrix}
+                    $$
+            \end{itemize}
+            The formal Yangian $\rmY_{\hbar}(\g)$ of $\g$ will then be isomorphic to the associative $\bbC$-algebra generated by the set:
+                $$\{ H_{i, r}, E_{i, r}^{\pm} \}_{(i, r) \in \Gamma_0 \x \N}$$
+            whose elements are subjected to the following relations\footnote{... and it is understood that the elements $H_{i, 0} = h_i, E_{i, 0}^{\pm} = e_i^{\pm}$ satisfy the Chevalley-Serre relations defining $\g$; cf. \cite[Chapter 1]{kac_infinite_dimensional_lie_algebras}.}:
+                $$H_{i, 0} = h_i, E_{i, 0}^{\pm} = e_i^{\pm}$$
+                $$[ H_{i, r}, H_{j, s} ] = 0$$
+                $$[ H_{i, 0}, E_{j, s}^{\pm} ] = \pm c_{ij} E_{j, s}^{\pm}$$
+                $$[ E_{i, r}^+, E_{j, s}^- ] = \pm \delta_{ij} H_{i, r + s}$$
+                $$\left[ T_{i, 1}(\hbar), E_{j, 0}^{\pm} \right] = \pm \hbar c_{ij} E_{j, 1}^{\pm}$$
+                $$[ E_{i, 1}^{\pm}, E_{j, 0}^{\pm} ] - [ E_{i, 0}^{\pm}, E_{j, 1}^{\pm} ] = \pm \frac12 \hbar c_{ij} \{E_{i, 0}^{\pm}, E_{j, 0}^{\pm}\}$$
+        \end{lemma}
+        \begin{proposition}[Levendorskii presentation for $\tilde{\g}_{[2]}$] \label{prop: levendorskii_presentation__for_central_extensions_of_multiloop_algebras}
+            The Lie algebra $\tilde{\g}_{[2]}$ is isomorphic to the Lie algebra $\t$ generated by the set:
+                $$\{ E_{i, r}^{\pm}, H_{i, r} \}_{(i, r) \in \hat{\Gamma}_0 \x \Z} \cup \{ K \}$$
+            whose elements are subjected to the following relations, given for all $(i, r), (j, s) \in \hat{\Gamma}_0 \x \Z$:
+                $$[\t, K] = 0$$
+                $$H_{i, 0} = h_i, E_{i, 0}^{\pm} = e_i^{\pm}$$
+                $$[ H_{i, r}, H_{j, s} ] = 0$$
+                $$[ H_{i, 0}, E_{j, s}^{\pm} ] = \pm 2 d_{ij} E_{j, s}^{\pm}$$
+                $$[ E_{i, r}^+, E_{j, s}^- ] = \delta_{ij} H_{i, r + s}$$
+                $$[ E_{i, 1}^{\pm}, E_{j, 0}^{\pm} ] - [ E_{i, 0}^{\pm}, E_{j, 1}^{\pm} ] = 0$$
+            The isomorphism $\t \xrightarrow[]{\cong} \tilde{\g}_{[2]}$ in question is as in lemma \ref{lemma: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras}.
+        \end{proposition}
+            \begin{proof}
+                Combine lemma \ref{lemma: affine_formal_yangians_as_flat_graded_deformations} with lemma \ref{lemma: levendorskii_presentation}. 
+            \end{proof}
+        \begin{corollary} \label{coro: levendorskii_presentation__for_central_extensions_of_multiloop_algebras}
+            The Lie algebras $\tilde{\g}_{[2]}^{\pm}$ are, respectively, isomorphic to the Lie algebra $\s^{\pm}$ generated by the set:
+                $$\{ E_{i, r}^{\pm}, H_{i, r} \}_{(i, r) \in \Gamma_0 \x \Z_{\geq 0}}$$
+                $$\{ E_{i, r}^{\pm}, H_{i, r} \}_{(i, r) \in \Gamma_0 \x \Z_{< 0}} \cup \{K\}$$
+            whose elements are subjected to the relations as in proposition \ref{prop: levendorskii_presentation__for_central_extensions_of_multiloop_algebras}. The isomorphism $\s^{\pm} \xrightarrow[]{\cong} \tilde{\g}_{[2]}^{\pm}$ in question is as in lemma \ref{lemma: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras}.
+        \end{corollary}
 
     \section{Classical limits of affine Yangians}
         \begin{convention}
             We shall be using the following shorthand:
                 $$\{ X_1, ..., X_n \} := \sum_{\sigma \in S_n} X_{\sigma(1)} \cdot ... \cdot X_{\sigma(n)}$$
+                $$\bar{\Delta}(X) := X \tensor 1 + 1 \tensor X$$
         \end{convention}
 
         \begin{convention} \label{conv: general_symmetrisable_kac_moody_algebra}
@@ -847,15 +829,6 @@
 
                 If $V$ is a $\bbC$-algebra and $\Delta_u$ is a $\bbC$-algebra homomorphism, then $\Delta_u$ will define a \textbf{parametrised pseudo-bialgebra} structure on $V$.
             \end{definition}
-            
-            \begin{convention}[Universal enveloping algebra coproduct] \label{conv: universal_enveloping_algebra_coproduct}
-                Let $\g$ be as in convention \ref{conv: general_symmetrisable_kac_moody_algebra}. From now on, the usual coproduct on the universal enveloping algebra $\rmU(\g)$ will be denoted by $\bar{\Delta}$.
-            \end{convention}
-            \begin{convention}
-                From now on, let us write:
-                    $$T_{i, 1}(\hbar) := H_{i, 1} - \frac12 \hbar H_{i, 0}^2$$
-                    $$T_{i, 1} := T_{i, 1}(1) = H_{i, 1} - \frac12 H_{i, 0}^2$$
-            \end{convention}
             \begin{theorem}[The parametrised pseudo-coproduct on Yangians] \label{theorem: parametrised_pseudo_coproduct_on_yangians}
                 (Cf. \cite[Theorem 6.2]{guay_nakajima_wendlandt_affine_yangian_coproduct}) If $\g$ is either of finite type but not $\sfA_1$ or of affine type but not $\sfA_1^{(1)}$ and not $\sfA_1^{(2)}$, then the following algebra homomorphism:
                     $$\Delta_u: \rmY(\g) \to \rmY(\g)^{\tensor 2}(\!(u^{\pm 1})\!)$$
@@ -887,17 +860,32 @@
                 \end{proof}
 
         \subsection{Affine Yangians as quantisations of toroidal algebras}
-            From now on, we follow convention \ref{conv: a_fixed_untwisted_affine_kac_moody_algebra}.
-
+            We are now finally able to put a Lie cobracket on the toroidal Lie algebra $\tilde{\g}_{[2]}^+$, compatible with the Lie bracket thereon in a manner that produces a Lie bialgebra structure. This Lie bialgebra structure is the classical limit of the coproduct on the formal Yangian $\rmY_{\h}(\hat{\g}_{[1]})$. 
             \begin{theorem}[Toroidal Lie bialgebras] \label{theorem: toroidal_lie_bialgebras}
-                Let:
+                Assume convention \ref{conv: a_fixed_untwisted_affine_kac_moody_algebra}. Let:
                     $$\delta_{\tilde{\g}_{[2]}^+} := \delta_{\hat{\g}_{[2]}^+}|_{\tilde{\g}_{[2]}}$$
                 Then $(\tilde{\g}_{[2]}^+, \delta_{\tilde{\g}_{[2]}^+})$ will be a complete topological Lie sub-bialgebra of $(\hat{\g}_{[2]}^+, \delta_{\hat{\g}_{[2]}^+})$ as given in corollary \ref{coro: extended_toroidal_lie_bialgebras}.
             \end{theorem}
                 \begin{proof}
-                    It is enough to check that:
-                        $$\im \delta_{\tilde{\g}_{[2]}^+} \subseteq \tilde{\g}_{[2]}^+ \hattensor_{\bbC} \tilde{\g}_{[2]}^+$$
-                    on the Chevalley-Serre generators of $\tilde{\g}_{[2]}^+$ as in corollary \ref{coro: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras}.
+                    We will demonstrate that the Lie bialgebra structure on $\hat{\g}_{[2]}^+$ as in corollary \ref{coro: extended_toroidal_lie_bialgebras} restricts down to the Lie subalgebra $\tilde{\g}_{[2]}^+$ thereof by showing that if:
+                        $$X \in \{ E_{i, r}^{\pm}, H_{i, r} \}_{(i, r) \in \hat{\Gamma}_0 \x \Z_{\geq 0}}$$
+                    is a Chevalley-Serre generator of $\tilde{\g}_{[2]}^+$ (cf. lemma \ref{lemma: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras}) then:
+                        $$\delta_{\hat{\g}_{[2]}^+}(X) \in \tilde{\g}_{[2]}^+ \hattensor_{\bbC} \tilde{\g}_{[2]}^+$$
+                    Actually, thanks to corollary \ref{coro: levendorskii_presentation__for_central_extensions_of_multiloop_algebras}, it suffices to only compute $\delta_{\hat{\g}_{[2]}^+}(X)$ for:
+                        $$X \in \{ E_{i, r}^{\pm}, H_{i, r} \}_{(i, r) \in \hat{\Gamma}_0 \x \{0, 1\}}$$
+                    Firstly, since:
+                        $$\forall i \in \hat{\Gamma}_0: \deg E_{i, 0}^{\pm} = \deg H_{i, 0} = 0$$
+                    it is clear (via remark \ref{remark: total_degrees_of_classical_yangian_R_matrices}) that:
+                        $$\forall i \in \hat{\Gamma}_0: \delta_{\hat{\g}_{[2]}^+}(E_{i, 0}^{\pm}) = \delta_{\hat{\g}_{[2]}^+}(H_{i, 0}^{\pm}) = 0$$
+                    To compute the action of the cocommutator $\delta_{\hat{\g}_{[2]}^+}$ on the degree-$1$ generators $E_{i, 1}^{\pm}, H_{i, 1}^{\pm}$, we shall be making use of the relations:
+                        $$[ E_{i, r}^+, E_{j, s}^- ] = \delta_{ij} H_{i, r + s}$$
+                        $$[ E_{i, 1}^{\pm}, E_{j, 0}^{\pm} ] - [ E_{i, 0}^{\pm}, E_{j, 1}^{\pm} ] = 0$$
+                    (cf. corollary \ref{coro: levendorskii_presentation__for_central_extensions_of_multiloop_algebras}) along with the cocycle condition for Lie cobrackets of Lie bialgebras (cf. \cite[pp. 4]{etingof_kazhdan_quantisation_1}). Specifically, let us firstly consider the following:
+                        $$\delta_{\hat{\g}_{[2]}^+}(H_{i, 1}) = \delta_{\hat{\g}_{[2]}^+}([ E_{i, 0}^+, E_{i, 1}^- ]) = [ \bar{\Delta}(E_{i, 0}^+), \delta_{\hat{\g}_{[2]}^+}(E_{i, 1}^-) ]$$
+                    This tells us that (up to a sign correction), knowing $\delta_{\hat{\g}_{[2]}}(E_{i, 1}^{\pm})$ will help us completely determine $\delta_{\hat{\g}_{[2]}^+}(H_{i, 1})$; in particular, it remains to show that:
+                        $$\delta_{\hat{\g}_{[2]}}(E_{i, 1}^{\pm}) \in \tilde{\g}_{[2]}^+ \hattensor_{\bbC} \tilde{\g}_{[2]}^+$$
+                    To this end, we consider next the following:
+                        $$0 = \delta_{\hat{\g}_{[2]}^+}( [ E_{i, 1}^{\pm}, E_{j, 0}^{\pm} ] - [ E_{i, 0}^{\pm}, E_{j, 1}^{\pm} ] ) = [ \delta_{\hat{\g}_{[2]}^+}(E_{i, 1}^{\pm}), \bar{\Delta}(E_{j, 0}^{\pm}) ] - [ \delta_{\hat{\g}_{[2]}^+}(E_{j, 1}^{\pm}), \bar{\Delta}(E_{i, 0}^{\pm}) ]$$
                 \end{proof}
 
             \begin{definition}[Pseudo-quantisation] \label{def: pseudo_quantisation}
