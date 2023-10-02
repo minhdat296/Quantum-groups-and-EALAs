@@ -674,8 +674,9 @@
                     $$\sfr_{\z_{[2]}^+} := \sum_{(r, s) \in \Z \x \Z_{> 0}} Z_{r, s} \tensor D_{r, s} + c_v \tensor D_v$$
                     $$\sfr_{\bar{\d}_{[2]}^+} := \sum_{(r, s) \in \Z \x \Z_{> 0}} D_{r, s} \tensor Z_{r, s} + D_v \tensor c_v$$
             \end{corollary}
+            
             \begin{remark}[Total degrees of classical Yangian R-matrices] \label{remark: total_degrees_of_classical_yangian_R_matrices}
-                One property of the R-matrix $\sfr_{\hat{\g}_{[2]}^+}$ from corollary \ref{coro: extended_toroidal_lie_bialgebras} that will help simplify some computations later on (see the proof of theorem \ref{theorem: toroidal_lie_bialgebras}) is that they are of total degree $-1$. 
+                One property of the R-matrix $\sfr_{\hat{\g}_{[2]}^+}$ from corollary \ref{coro: extended_toroidal_lie_bialgebras} that will help simplify some computations later on (see the proof of lemma \ref{lemma: toroidal_lie_bialgebras}) is that they are of total degree $-1$. 
 
                 Recall that if $V := \bigoplus_{m \in \Z} V_m, W := \bigoplus_{n \in \Z} W_n$ are $\Z$-graded vector spaces then for any $k \in \Z$, we have that:
                     $$(V \tensor_{\bbC} W)_k \cong \bigoplus_{m + n = k} V_m \tensor_{\bbC} W_n$$
@@ -689,6 +690,99 @@
                     $$\deg X \leq 0$$
                 then it will automatically be the case that:
                     $$\delta_{\hat{\g}_{[2]}^+}(X) = 0$$
+            \end{remark}
+
+            \begin{remark}[Lie cobracket on $\hat{\g}_{[2]}^+$, explicitly] \label{remark: extended_toroidal_lie_bialgebras_explicit_formulae}
+                Let us see how the Lie cobracket $\delta_{\hat{\g}_{[2]}^+}$ from corollary \ref{coro: extended_toroidal_lie_bialgebras} is given explicitly on basis elements of $\hat{\g}_{[2]}^+$.
+
+                Before we do, however, it will be necessary to see how the elements $\scrR_{\z_{[2]}^+}$ and $\scrR_{\bar{\d}_{[2]}^+}$ can be written in terms of the differentials $\bar{d}(v), \bar{d}(t)$ and the partial derivatives $\del_v, \del_t$. Recall from remark \ref{remark: centres_of_dual_toroidal_lie_bialgebras} that:
+                    $$
+                        Z_{r, s} :=
+                        \begin{cases}
+                            \text{$\frac1s v^{r - 1} t^s \bar{d}(v)$ if $(r, s) \in \Z \x (\Z \setminus \{0\})$}
+                            \\
+                            \text{$-\frac1r v^r t^{-1} \bar{d}(t)$ if $(r, s) \in \Z \x \{0\}$}
+                            \\
+                            \text{$0$ if $(r, s) = (0, 0)$}
+                        \end{cases}
+                    $$
+                    $$c_v := v^{-1} \bar{d}(v)$$
+                and from remark \ref{remark: dual_of_toroidal_centres_contains_derivations} that:
+                    $$D_{r, s} = -s v^{-r + 1} t^{-s - 1} \del_v + r v^{-r} t^{-s} \del_t$$
+                    $$D_v = v t^{-1} \del_v$$
+                \begin{itemize}
+                    \item Consider the following:
+                        $$
+                            \begin{aligned}
+                                \scrR_{\z_{[2]}^+} & = \sum_{(r, s) \in \Z \x \Z_{> 0}} Z_{r, s} \tensor D_{r, s} + c_v \tensor D_v
+                                \\
+                                & = \sum_{(r, s) \in \Z \x \Z_{> 0}} \left(\frac1s v^{r - 1} t^s \bar{d}(v)\right) \tensor \left(-s v^{-r + 1} t^{-s - 1} \del_v + r v^{-r} t^{-s} \del_t\right) + \left(v^{-1} \bar{d}(v)\right) \tensor \left(v t^{-1} \del_v\right)
+                                \\
+                                & = \sum_{(r, s) \in (\Z \x \Z_{> 0}) \setminus \{*\}} -t^{-1} \bar{d}(v) \tensor \del_v + \sum_{(r, s) \in \Z \x \Z_{> 0}} \frac{r}{s} v^{-1} \bar{d}(v) \tensor \del_t
+                            \end{aligned}
+                        $$
+                    wherein by $(\Z \x \Z_{> 0}) \setminus \{*\}$ we simply meant $\Z \x \Z_{> 0}$ minus an arbitrarily element that we shall fix once and for all. 
+                    \item Likewise, we have that:
+                        $$\scrR_{\bar{\d}_{[2]}^+} = \sum_{(r, s) \in (\Z \x \Z_{> 0}) \setminus \{*\}} -t^{-1} \del_v \tensor \bar{d}(v) + \sum_{(r, s) \in \Z \x \Z_{> 0}} \frac{r}{s} v^{-1} \del_t \tensor \bar{d}(v)$$
+                \end{itemize}
+
+                Now, we compute the Lie cobrackets.
+                \begin{itemize}
+                    \item Let us firstly see how the elements $\delta_{\hat{\g}_{[2]}^+}(x v^m t^p)$, for some basis element $x \in \g$ and for some $(m, p) \in \Z \x \Z_{\geq 0}$, are given. Note that:
+                        $$\delta_{\hat{\g}_{[2]}^+}(x v^m t^p) = \delta_{\g_{[2]}^+}(x v^m t^p) + [ x v^m t^p \tensor 1 + 1 \tensor x v^m t^p, \scrR_{ \z_{[2]}^+ } + \scrR_{ \bar{\d}_{[2]}^+ } ]$$
+                    with $\delta_{\g_{[2]}^+}$ being given as in question \ref{question: multiloop_lie_bialgebras}, so the only non-trivial calculations that we will have to perform is of the second summand.
+                    \begin{itemize}
+                        \item Consider firstly the following:
+                            $$
+                                \begin{aligned}
+                                    & [ x v^m t^p \tensor 1 + 1 \tensor x v^m t^p, \scrR_{ \z_{[2]}^+ }]
+                                    \\
+                                    = & \left[ x v^m t^p \tensor 1 + 1 \tensor x v^m t^p, \sum_{(r, s) \in (\Z \x \Z_{> 0}) \setminus \{*\}} -t^{-1} \bar{d}(v) \tensor \del_v + \sum_{(r, s) \in \Z \x \Z_{> 0}} \frac{r}{s} v^{-1} \bar{d}(v) \tensor \del_t\right]
+                                    \\
+                                    = & v^m t^p \left(
+                                    \begin{aligned}
+                                        & \sum_{(r, s) \in (\Z \x \Z_{> 0}) \setminus \{*\}} -\left[ x t^{-1} \tensor 1 + 1 \tensor x t^{-1}, \bar{d}(v) \tensor \del_v \right]
+                                        \\
+                                        + & \sum_{(r, s) \in \Z \x \Z_{> 0}} \frac{r}{s} \left[ x v^{-1} \tensor 1 + 1 \tensor x v^{-1}, \bar{d}(v) \tensor \del_t \right]
+                                    \end{aligned}
+                                    \right)
+                                \end{aligned}
+                            $$
+                        \item Likewise, we have that:
+                            $$
+                                [ x v^m t^p \tensor 1 + 1 \tensor x v^m t^p, \scrR_{ \bar{\d}_{[2]}^+ }] = 
+                                v^m t^p \left(
+                                \begin{aligned}
+                                    & \sum_{(r, s) \in (\Z \x \Z_{> 0}) \setminus \{*\}} -\left[ x t^{-1} \tensor 1 + 1 \tensor x t^{-1}, \del_v \tensor \bar{d}(v) \right]
+                                    \\
+                                    + & \sum_{(r, s) \in \Z \x \Z_{> 0}} \frac{r}{s} \left[ x v^{-1} \tensor 1 + 1 \tensor x v^{-1}, \del_t \tensor \bar{d}(v) \right]
+                                \end{aligned}
+                                \right)
+                            $$
+                    \end{itemize}
+                    \item Secondly, let us see how the elements $\delta_{\hat{\g}_{[2]}^+}(Z_{r, s})$ and $\delta_{\hat{\g}_{[2]}^+}(c_v)$ are given.
+                    \begin{itemize}
+                        \item Since we are working with $(r, s) \in \Z \x \Z_{> 0}$, we have:
+                            $$Z_{r, s} = \frac1s v^{r - 1} t^s \bar{d}(v)$$
+                        from which we get:
+                            $$\delta_{\hat{\g}_{[2]}^+}(Z_{r, s}) = \frac1s v^{r - 1} t^s [\bar{d}(v) \tensor 1 + 1 \tensor \bar{d}(v), \scrR_{\hat{\g}_{[2]}^+}]$$
+                        \item We also have that:
+                            $$c_v = v^{-1} \bar{d}(v)$$
+                        and so:
+                            $$\delta_{\hat{\g}_{[2]}^+}(c_v) = v^{-1} [\bar{d}(v) \tensor 1 + 1 \tensor \bar{d}(v), \scrR_{\hat{\g}_{[2]}^+}]$$
+                    \end{itemize}
+                    \item Finally, let us see how the elements $\delta_{\hat{\g}_{[2]}^+}(D_{r, s})$ and $\delta_{\hat{\g}_{[2]}^+}(D_v)$ are given.
+                    \begin{itemize}
+                        \item We have that:
+                            $$D_{r, s} = -s v^{-r + 1} t^{-s - 1} \del_v + r v^{-r} t^{-s} \del_t$$
+                        and so:
+                            $$\delta_{\hat{\g}_{[2]}^+}(D_{r, s}) = -s v^{-r + 1} t^{-s - 1} [\del_v \tensor 1 + 1 \tensor \del_v, \scrR_{\hat{\g}_{[2]}^+}] + r v^{-r} t^{-s} [\del_t \tensor 1 + 1 \tensor \del_t, \scrR_{\hat{\g}_{[2]}^+}]$$
+                        \item We have that:
+                            $$D_v = v t^{-1} \del_v$$
+                        and so:
+                            $$\delta_{\hat{\g}_{[2]}^+}(D_v) = v t^{-1} [\del_v \tensor 1 + 1 \tensor \del_v, \scrR_{\hat{\g}_{[2]}^+}]$$
+                    \end{itemize}
+                \end{itemize}
             \end{remark}
 
         \subsection{Chevalley-Serre presentations for extended toroidal Lie algebras}
@@ -740,14 +834,27 @@
             \end{corollary}
             
         \begin{convention}[Yangians associated to symmetrisable Kac-Moody algebras]
-            Suppose for a moment that $\g$ is a general symmetrisable Kac-Moody algebra whose associated Cartan matrix is indecomposable. We refer the reader to \cite[Section 2]{guay_nakajima_wendlandt_affine_yangian_vertex_representations_and_PBW} for the definition of the formal Yangian $\rmY_{\hbar}(\g)$ and Yangian $\rmY(\g)$, as well as all relevant discussions about the various \say{basic} presentations of these associative algebras (living over $\bbC[\hbar]$ and $\bbC$ respectively). The only thing that we will note is that we will be denoting the Chevalley-Serre generators by:
+            Suppose for a moment that $\g$ is a general symmetrisable Kac-Moody algebra whose associated Cartan matrix is indecomposable. We refer the reader to \cite[Section 2]{guay_nakajima_wendlandt_affine_yangian_coproduct} for the definition of the \textbf{formal Yangian} $\rmY_{\hbar}(\g)$ and \textbf{Yangian} $\rmY(\g)$, as well as all relevant discussions about the various \say{basic} presentations of these associative algebras (living over $\bbC[\hbar]$ and $\bbC$ respectively). The only thing that we will note is that we will be denoting the Chevalley-Serre generators by:
                 $$E_{i, r}^{\pm}, H_{i, r}$$
+
+            Recall also that if we let:
+                $$\deg E_{i, r}^{\pm} = \deg H_{i, r} = r$$
+                $$\deg \hbar = 1$$
+            then in doing so, we will have endowed $\rmY_{\hbar}(\g)$ (respectively, $\rmY(\g)$) with a $\Z$-grading (respectively, a $\Z$-filtration); for each $k \in \Z$, let us write:
+                $$\rmY_{\hbar}^k(\g), \rmY^k(\g)$$
+            respectively to mean the $\bbC$-vector subspace consisting of degree-$k$ monomials. Furthermore - and even though this is not known to be true in general - we will also assume that there are \textbf{triangular decompositions}:
+                $$\rmY_{\hbar}(\g) \cong \rmY_{\hbar}^{< 0}(\g) \tensor_{\bbC} \rmY_{\hbar}^0(\g) \tensor_{\bbC} \rmY_{\hbar}^{> 0}(\g)$$
+                $$\rmY(\g) \cong \rmY^{< 0}(\g) \tensor_{\bbC} \rmY^0(\g) \tensor_{\bbC} \rmY^{> 0}(\g)$$
+            wherein, for each $n \in \Z$, we have that:
+                $$\rmY_{\hbar}^{\leq n}(\g) := \bigoplus_{k \in \Z_{\leq n}} \rmY_{\hbar}^k(\g)$$
+                $$\rmY^{\leq n}(\g) := \bigcup_{k \in \Z_{\leq n}} \rmY^k(\g)$$
+            (and likewise for $\geq$ and strict inequalities).
         \end{convention}
         \begin{convention}
-                From now on, let us write:
-                    $$T_{i, 1}(\hbar) := H_{i, 1} - \frac12 \hbar H_{i, 0}^2$$
-                    $$T_{i, 1} := T_{i, 1}(1) = H_{i, 1} - \frac12 H_{i, 0}^2$$
-            \end{convention}
+            From now on, let us write:
+                $$T_{i, 1}(\hbar) := H_{i, 1} - \frac12 \hbar H_{i, 0}^2$$
+                $$T_{i, 1} := T_{i, 1}(1) = H_{i, 1} - \frac12 H_{i, 0}^2$$
+        \end{convention}
          \begin{lemma}[Affine formal Yangians as flat graded deformations] \label{lemma: affine_formal_yangians_as_flat_graded_deformations}
              \cite{guay_nakajima_wendlandt_affine_yangian_vertex_representations_and_PBW} Suppose that $\g \not \cong \sl_2(\bbC)$. Then the $\bbC[\hbar]$-algebra $\rmY_{\hbar}(\hat{\g}_{[1]})$ will be a flat $\Z$-graded deformation of the $\Z$-graded $\bbC$-algebra $\rmU(\tilde{\g}_{[2]}^+)$. 
          \end{lemma}
@@ -813,6 +920,8 @@
 
         \subsection{(Pseudo-)coproducts on affine Yangians}
             We begin by reviewing the constructions of a coproduct and a \say{parametrised pseudo-coproduct} giving rise, respectively, to a bialgebra and a pseudo-bialgebra structure on the Yangian $\rmY(\hat{\g}_{[1]})$, with $\hat{\g}_{[1]}$ denoting the untwisted affine Kac-Moody algebra associated to $\g$, as was done in \cite[Chapter 7]{kac_infinite_dimensional_lie_algebras} (cf. convention \ref{conv: a_fixed_untwisted_affine_kac_moody_algebra}). For more details, see \cite[Sections 4, 5, and 6]{guay_nakajima_wendlandt_affine_yangian_coproduct}.
+
+            
         
             \begin{definition}[Parametrised pseudo-coproducts] \label{def: parametrised_pseudo_coproducts}
                 Let $V$ be a $\bbC$-vector space. 
@@ -835,7 +944,7 @@
                 given as follows\footnote{Note that it is given only for low-degree generators, which we know to be enough.}:
                     $$\Delta_u(E_{i, 0}^{\pm}) := E_{i, 0}^{\pm} \tensor 1 + 1 \tensor E_{i, 0}^{\pm} u^{\pm 1}$$
                     $$\Delta_u(H_{i, 0}) := \bar{\Delta}(H_{i, 0})$$
-                    $$\Delta_u(T_{i, 1}) := \bar{\Delta}(T_{i, 1}) - \sum_{k \geq 1} \sum_{\alpha \in \Re(\Phi)^+} (\alpha, \alpha_i) e_{\alpha}^- \tensor e_{\alpha}^+ u^k$$
+                    $$\Delta_u(T_{i, 1}) := \bar{\Delta}(T_{i, 1}) - \sum_{k \geq 1} \sum_{\alpha \in \Phi^+} (\alpha, \alpha_i) e_{\alpha}^- \tensor e_{\alpha}^+ u^k$$
                 given for each $i \in \Gamma_0$ and for some choices\footnote{The expression is choice-independent, of course.} of root vectors $e_{\pm\alpha} \in \g_{\pm\alpha}$, normalised so that:
                     $$(e_{\alpha}^-, e_{\alpha}^+) = 1$$
                 will define a parametrised pseudo-bialgebra structure on $\rmY(\g)$ in the sense of definition \ref{def: parametrised_pseudo_coproducts}, compatible with the algebra structure on $\rmY(\g)$.
@@ -850,7 +959,7 @@
                 given as follows:
                     $$\Delta_{u, \hbar}(E_{i, 0}^{\pm}) := E_{i, 0}^{\pm} \tensor 1 + 1 \tensor E_{i, 0}^{\pm} u^{\pm 1}$$
                     $$\Delta_{u, \hbar}(H_{i, 0}) := \bar{\Delta}(H_{i, 0})$$
-                    $$\Delta_{u, \hbar}(T_{i, 1}(\hbar)) := \bar{\Delta}(T_{i, 1}(\hbar)) - \hbar \sum_{k \geq 1} \sum_{\alpha \in \Re(\Phi)^+} (\alpha, \alpha_i) e_{\alpha}^- \tensor e_{\alpha}^+ u^k$$
+                    $$\Delta_{u, \hbar}(T_{i, 1}(\hbar)) := \bar{\Delta}(T_{i, 1}(\hbar)) - \hbar \sum_{k \geq 1} \sum_{\alpha \in \Phi^+} (\alpha, \alpha_i) e_{\alpha}^- \tensor e_{\alpha}^+ u^k$$
                 given for each $i \in \Gamma_0$ and for some choices of root vectors $e_{\pm\alpha} \in \g_{\pm\alpha}$, normalised so that:
                     $$(e_{\alpha}^-, e_{\alpha}^+) = 1$$
                 will define a parametrised pseudo-bialgebra structure on $\rmY_{\hbar}(\g)$ in the sense of definition \ref{def: parametrised_pseudo_coproducts}, compatible with the algebra structure on $\rmY_{\hbar}(\g)$.
@@ -858,14 +967,21 @@
                 \begin{proof}
                     
                 \end{proof}
+            \begin{corollary}[The coproduct on completed formal Yangians]
+                If $\g$ is either of finite type but not $\sfA_1$ or of affine type but not $\sfA_1^{(1)}$ and not $\sfA_1^{(2)}$, then there will be a continuous coproduct:
+                    $$\Delta_{\hbar}: \rmY_{\hbar}(\g) \to \rmY_{\hbar}(\g) \hattensor_{\bbC} \rmY_{\hbar}(\g)$$
+            \end{corollary}
+                \begin{proof}
+                    
+                \end{proof}
 
         \subsection{Affine Yangians as quantisations of toroidal algebras}
             We are now finally able to put a Lie cobracket on the toroidal Lie algebra $\tilde{\g}_{[2]}^+$, compatible with the Lie bracket thereon in a manner that produces a Lie bialgebra structure. This Lie bialgebra structure is the classical limit of the coproduct on the formal Yangian $\rmY_{\h}(\hat{\g}_{[1]})$. 
-            \begin{theorem}[Toroidal Lie bialgebras] \label{theorem: toroidal_lie_bialgebras}
+            \begin{lemma}[Toroidal Lie bialgebras] \label{lemma: toroidal_lie_bialgebras}
                 Assume convention \ref{conv: a_fixed_untwisted_affine_kac_moody_algebra}. Let:
                     $$\delta_{\tilde{\g}_{[2]}^+} := \delta_{\hat{\g}_{[2]}^+}|_{\tilde{\g}_{[2]}}$$
                 Then $(\tilde{\g}_{[2]}^+, \delta_{\tilde{\g}_{[2]}^+})$ will be a complete topological Lie sub-bialgebra of $(\hat{\g}_{[2]}^+, \delta_{\hat{\g}_{[2]}^+})$ as given in corollary \ref{coro: extended_toroidal_lie_bialgebras}.
-            \end{theorem}
+            \end{lemma}
                 \begin{proof}
                     We will demonstrate that the Lie bialgebra structure on $\hat{\g}_{[2]}^+$ as in corollary \ref{coro: extended_toroidal_lie_bialgebras} restricts down to the Lie subalgebra $\tilde{\g}_{[2]}^+$ thereof by showing that if:
                         $$X \in \{ E_{i, r}^{\pm}, H_{i, r} \}_{(i, r) \in \hat{\Gamma}_0 \x \Z_{\geq 0}}$$
@@ -873,26 +989,19 @@
                         $$\delta_{\hat{\g}_{[2]}^+}(X) \in \tilde{\g}_{[2]}^+ \hattensor_{\bbC} \tilde{\g}_{[2]}^+$$
                     Actually, thanks to corollary \ref{coro: levendorskii_presentation__for_central_extensions_of_multiloop_algebras}, it suffices to only compute $\delta_{\hat{\g}_{[2]}^+}(X)$ for:
                         $$X \in \{ E_{i, r}^{\pm}, H_{i, r} \}_{(i, r) \in \hat{\Gamma}_0 \x \{0, 1\}}$$
-                    Firstly, since:
-                        $$\forall i \in \hat{\Gamma}_0: \deg E_{i, 0}^{\pm} = \deg H_{i, 0} = 0$$
-                    it is clear (via remark \ref{remark: total_degrees_of_classical_yangian_R_matrices}) that:
-                        $$\forall i \in \hat{\Gamma}_0: \delta_{\hat{\g}_{[2]}^+}(E_{i, 0}^{\pm}) = \delta_{\hat{\g}_{[2]}^+}(H_{i, 0}^{\pm}) = 0$$
-                    To compute the action of the cocommutator $\delta_{\hat{\g}_{[2]}^+}$ on the degree-$1$ generators $E_{i, 1}^{\pm}, H_{i, 1}^{\pm}$, we shall be making use of the relations:
-                        $$[ E_{i, r}^+, E_{j, s}^- ] = \delta_{ij} H_{i, r + s}$$
-                        $$[ E_{i, 1}^{\pm}, E_{j, 0}^{\pm} ] - [ E_{i, 0}^{\pm}, E_{j, 1}^{\pm} ] = 0$$
-                    (cf. corollary \ref{coro: levendorskii_presentation__for_central_extensions_of_multiloop_algebras}) along with the cocycle condition for Lie cobrackets of Lie bialgebras (cf. \cite[pp. 4]{etingof_kazhdan_quantisation_1}). Specifically, let us firstly consider the following:
-                        $$\delta_{\hat{\g}_{[2]}^+}(H_{i, 1}) = \delta_{\hat{\g}_{[2]}^+}([ E_{i, 0}^+, E_{i, 1}^- ]) = [ \bar{\Delta}(E_{i, 0}^+), \delta_{\hat{\g}_{[2]}^+}(E_{i, 1}^-) ]$$
-                    This tells us that (up to a sign correction), knowing $\delta_{\hat{\g}_{[2]}}(E_{i, 1}^{\pm})$ will help us completely determine $\delta_{\hat{\g}_{[2]}^+}(H_{i, 1})$; in particular, it remains to show that:
-                        $$\delta_{\hat{\g}_{[2]}}(E_{i, 1}^{\pm}) \in \tilde{\g}_{[2]}^+ \hattensor_{\bbC} \tilde{\g}_{[2]}^+$$
-                    To this end, we consider next the following:
-                        $$0 = \delta_{\hat{\g}_{[2]}^+}( [ E_{i, 1}^{\pm}, E_{j, 0}^{\pm} ] - [ E_{i, 0}^{\pm}, E_{j, 1}^{\pm} ] ) = [ \delta_{\hat{\g}_{[2]}^+}(E_{i, 1}^{\pm}), \bar{\Delta}(E_{j, 0}^{\pm}) ] - [ \delta_{\hat{\g}_{[2]}^+}(E_{j, 1}^{\pm}), \bar{\Delta}(E_{i, 0}^{\pm}) ]$$
+                    The assertion is now clear from remarks \ref{remark: total_degrees_of_classical_yangian_R_matrices} and \ref{remark: extended_toroidal_lie_bialgebras_explicit_formulae}.
                 \end{proof}
-
-            \begin{definition}[Pseudo-quantisation] \label{def: pseudo_quantisation}
+            \begin{theorem}[Toroidal Lie algebras as classical limits of affine Yangians] \label{theorem: toroidal_lie_algebras_as_classical_limits_of_affine_yangians}
+                The complete topological Lie bialgebra $(\tilde{\g}_{[2]}^+, \delta_{\tilde{\g}_{[2]}^+})$ as in lemma \ref{lemma: toroidal_lie_bialgebras} is the classical limit\footnote{\say{Quasi-classical} in the terminologies of \cite{etingof_kazhdan_quantisation_1}.} of the complete topological bialgebra $(\rmY_{\hbar}(\hat{\g}_{[1]}), \Delta_{\hbar})$.
+            \end{theorem}
+                \begin{proof}
+                    Clear from lemma \ref{lemma: toroidal_lie_bialgebras} and the construction of the coproduct 
+                \end{proof}
+                
+            \begin{definition}[Parametrised pseudo-quantisations] \label{def: parametrised_pseudo_quantisations}
                 
             \end{definition}
-        
-            \begin{theorem}[Extended toroidal Lie algebras as classical limits of affine Yangians] \label{theorem: extended_toroidal_lie_algebras_as_classical_limits_of_affine_yangians}
+            \begin{theorem}[Parametrised pseudo-classical limits of affine Yangians] \label{theorem: parametrised_pseudo_classical_limits_of_affine_yangians}
                 
             \end{theorem}
                 \begin{proof}
@@ -900,6 +1009,8 @@
                 \end{proof}
 
     \begin{appendices}
+        \input{Notes/yangian category O}
+    
         \input{Notes/vertex representations and yangian PBW}
     \end{appendices}
             
