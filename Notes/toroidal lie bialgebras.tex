@@ -28,8 +28,8 @@
         \begin{convention} \label{conv: a_fixed_finite_dimensional_simple_lie_algebra}
             Throughout this section, we fix a finite-dimensional simple Lie algebra $\g$ over $\bbC$, equipped with a symmetric and non-degenerate invariant $\bbC$-bilinear form $(-, -)_{\g}$. It is known that such a bilinear form is unique up to $\bbC^{\x}$-multiples, so for all intents and purposes, it can be assumed to be the Killing form, though this assumption is not necessary. 
 
-            Suppose also that $\g$ is equipped with a basis $\{x_i\}_{1 \leq i \leq \dim_{\bbC} \g}$ and with respect to $(-, -)_{\g}$, we identify a dual basis $\{x^i\}_{1 \leq i \leq \dim_{\bbC} \g}$. Recall that the universal Casimir element/canonical element of $\g$ is:
-                $$\sfr_{\g} := \sum_{1 \leq i \leq \dim_{\bbC} \g} x_i \tensor x^i \in \g \tensor_{\bbC} \g$$
+            Suppose also that $\g$ is equipped with a basis $\{x_i\}_{1 \leq i \leq \dim_{\bbC} \g}$ and with respect to $(-, -)_{\g}$, we identify a dual basis $\{x_i^*\}_{1 \leq i \leq \dim_{\bbC} \g}$. Recall that the universal Casimir element/canonical element of $\g$ is:
+                $$\sfr_{\g} := \sum_{1 \leq i \leq \dim_{\bbC} \g} x_i \tensor x_i^* \in \g \tensor_{\bbC} \g$$
             and recall that $\sfr_{\g}$ is independent of what we choose the basis vectors $x_i$ to be.
 
             Eventually, we will also be concerned with the Dynkin diagram associated to the root system of $\g$. Let us denote this by:
@@ -101,18 +101,18 @@
                         \item It will be convenient for us to make the identification of topological vector spaces:
                             $$\g_{[2]}^+ \hattensor_{\bbC} \g[v^{\pm 1}, t^{-1}] \cong \g[v_2^{\pm 1}, t_1] \hattensor_{\bbC} \g[v^{\pm 1}, t_2^{-1}]$$
                         Also, let us fix the basis:
-                            $$\{X_{m, p}\}_{(m, p) \in \Z^2} := \{x_i v^m t^p\}_{1 \leq i \leq \dim_{\bbC} \g, m \in \Z, p \in \Z}$$
+                            $$\{X_{i, m, p}\}_{1 \leq i \leq \dim_{\bbC} \g, (m, p) \in \Z^2} := \{x_i v^m t^p\}_{1 \leq i \leq \dim_{\bbC} \g, (m, p) \in \Z^2}$$
                         for $\g_{[2]}$. It is easy to see that the graded dual of this basis with respect to the invariant inner product $(-, -)_{\g_{[2]}}$ is:
-                            $$\{X_{m, p}^{\star}\}_{(m, p) \in \Z^2} := \{x^i v^{-m} t^{-p - 1}\}_{1 \leq i \leq \dim_{\bbC} \g, m \in \Z, p \in \Z}$$
+                            $$\{X_{i, m, p}^{\star}\}_{1 \leq i \leq \dim_{\bbC} \g, (m, p) \in \Z^2} := \{x_i^* v^{-m} t^{-p - 1}\}_{1 \leq i \leq \dim_{\bbC} \g, (m, p) \in \Z^2}$$
                         
                         By definition, the canonical element $\sfr_{\g_{[2]}^+} \in \g[v_2^{\pm 1}, t_1] \hattensor_{\bbC} \g[v^{\pm 1}, t_2^{-1}]$ is given by:
-                            $$\sfr_{\g_{[2]}^+} := \sum_{(m, p) \in \Z^2} X_{m, p} \tensor X_{m, p}^{\star}$$
+                            $$\sfr_{\g_{[2]}^+} := \sum_{1 \leq i \leq \dim_{\bbC} \g} \sum_{(m, p) \in \Z^2} X_{i, m, p} \tensor X_{i, m, p}^{\star}$$
                         As such, we have that:
                             $$
                                 \begin{aligned}
-                                    \sfr_{\g_{[2]}^+} & := \sum_{1 \leq i \leq \dim_{\bbC} \g} \sum_{m = -\infty}^{+\infty} \sum_{p = -\infty}^{+\infty} x_i v_1^m t_1^p \tensor x^i v_2^{-m} t_2^{-p - 1}
+                                    \sfr_{\g_{[2]}^+} & := \sum_{1 \leq i \leq \dim_{\bbC} \g} \sum_{m = -\infty}^{+\infty} \sum_{p = -\infty}^{+\infty} x_i v_1^m t_1^p \tensor x_i^* v_2^{-m} t_2^{-p - 1}
                                     \\
-                                    & = \left( \sum_{1 \leq i \leq \dim_{\bbC} \g} x_i \tensor x^i \right) \left( \sum_{m = 0}^{+\infty} (v_1^{-1} v_2)^m + \sum_{m = 0}^{+\infty} (v_1 v_2^{-1})^m \right) \left( t_2^{-1} \sum_{p = 0}^{+\infty} (t_1 t_2^{-1})^p \right)
+                                    & = \left( \sum_{1 \leq i \leq \dim_{\bbC} \g} x_i \tensor x_i^* \right) \left( \sum_{m = 0}^{+\infty} (v_1^{-1} v_2)^m + \sum_{m = 0}^{+\infty} (v_1 v_2^{-1})^m \right) \left( t_2^{-1} \sum_{p = 0}^{+\infty} (t_1 t_2^{-1})^p \right)
                                     \\
                                     & = \sfr_{\g} \cdot \left( \frac{1}{1 - v_1 v_2^{-1}} + \frac{1}{1 - v_1^{-1} v_2} \right) \cdot \frac{t_2}{1 - t_1 t_2^{-1}}
                                 \end{aligned}
@@ -305,7 +305,7 @@
                 Now, without any loss of generality, let us suppose that $D \in \bar{\d}_{[2]}$ is some basis element, i.e.:
                     $$D \in \{ D_{r, s}, D_v, D_t \}$$
                 and consider these cases separately, for the sake of clarity:
-                \begin{itemize}
+                \begin{enumerate}
                     \item \textbf{(Case 1: $D := D_{r, s}$):} Fix some $(r, s) \in \Z^2$ and consider the following:
                         $$
                             \begin{aligned}
@@ -417,7 +417,7 @@
                     \item \textbf{(Case 3: $D := D_t$)} Arguing as when $D = D_v$, we will obtain:
                         $$[D_t, x v^m t^p]_{\hat{\g}_{[2]}} = p x v^m t^{p - 1} + K_{m, p}(x)$$
                     for some $K_{m, p}(x) \in \z_{[2]}$.
-                \end{itemize}
+                \end{enumerate}
             \end{remark}
             \begin{remark}
                 We see now also that $\t$ is a Lie algebra ideal of $\hat{\g}_{[2]}$ with respect to $[-, -]_{\hat{\g}_{[2]}}$.
@@ -462,7 +462,7 @@
                 for any $D, D' \in \bar{\d}_{[2]}$. 
                 
                 We now claim that, given how $\bar{\d}_{[2]}$ acts on $\g_{[2]}$ (cf. remark \ref{remark: derivation_action_on_multiloop_algebras}), it can then be shown that the elements of $\bar{\d}_{[2]}$ are in fact derivations on $A_{[2]}$ (which is perhaps to be expected, since elements of $\z_{[2]}$ are certain equivalence classes of differential $1$-forms on $A_{[2]}$).
-                \begin{itemize}
+                \begin{enumerate}
                     \item Firstly, consider the map:
                         $$D_{r, s}: A_{[2]} \to A_{[2]}$$
                     given for all $(m, p) \in \Z^2$ by:
@@ -496,13 +496,13 @@
                     given for all $(m, p) \in \Z^2$ by:
                         $$D_t(v^m t^p) := p v^m t^{p - 1}$$
                     is a derivation on $A_{[2]}$.
-                \end{itemize}
+                \end{enumerate}
 
                 We can also identify the derivations $D_{r, s}, D_v, D_t$ explicitly in terms of $\del_v := \frac{\del}{\del v}, \del_t := \frac{\del}{\del t}$. For this, let us firstly equip:
                     $$\d_{[2]} := \der_{\bbC}(A_{[2]})$$
                 - the $\bbC$-vector space of all $\bbC$-linear derivations on $A_{[2]}$ - with the following basis:
                     $$\{ v^m t^p \del_v, v^n t^q \del_t \}_{(m, p), (n, q) \in \Z^2}$$
-                \begin{itemize}
+                \begin{enumerate}
                     \item To compute $D_{r, s}$ in terms of $\del_v, \del_t$, suppose firstly that:
                         $$D_{r, s} := f(v, t) \del_v + g(v, t) \del_t$$
                     with $f(v, t), g(v, t) \in A_{[2]}$. Next, fix some $(m, p) \in \Z^2$ and then consider the following:
@@ -525,7 +525,7 @@
                         $$D_v = v t^{-1} \del_v$$
                     \item Likewise:
                         $$D_t = \del_t$$
-                \end{itemize}
+                \end{enumerate}
 
                 Now that we know that the basis elements $D_{r, s}, D_v, D_t \in \bar{\d}_{[2]}$ are actually certain derivations on $A_{[2]}$, we can also check if $\bar{\d}_{[2]}$ is in fact a Lie subalgebra of $\d_{[2]}$ (equipped with the usual commutator Lie bracket) by checking whether or not commutators of the elements $D_{r, s}, D_v, D_t$ are still elements of $\bar{\d}_{[2]}$. Doing so gives one Lie bracket on $\bar{\d}_{[2]}$, namely the one such that:
                     $$[D, D']_{\hat{\g}_{[2]}} = \xi(D, D') \in \bar{\d}_{[2]}$$
@@ -688,13 +688,13 @@
                 and from remark \ref{remark: dual_of_toroidal_centres_contains_derivations} that:
                     $$D_{r, s} = -s v^{-r + 1} t^{-s - 1} \del_v + r v^{-r} t^{-s} \del_t$$
                     $$D_v = v t^{-1} \del_v$$
-                \begin{itemize}
+                \begin{enumerate}
                     \item For the sake of convenience, let us firstly recall from question \ref{question: multiloop_lie_bialgebras} that, with respect to the following basis of $\g_{[2]}^+$:
-                        $$\{X_{m, p}\}_{(m, p) \in \Z^2} := \{x_i v^m t^p\}_{1 \leq i \leq \dim_{\bbC} \g, m \in \Z, p \in \Z}$$
+                        $$\{X_{i, m, p}\}_{1 \leq i \leq \dim_{\bbC} \g, (m, p) \in \Z^2} := \{x_i v^m t^p\}_{1 \leq i \leq \dim_{\bbC} \g, (m, p) \in \Z^2}$$
                     whose graded dual is:
-                        $$\{X_{m, p}^{\star}\}_{(m, p) \in \Z^2} := \{x^i v^{-m} t^{-p - 1}\}_{1 \leq i \leq \dim_{\bbC} \g, m \in \Z, p \in \Z}$$
+                        $$\{X_{i, m, p}^{\star}\}_{1 \leq i \leq \dim_{\bbC} \g, (m, p) \in \Z^2} := \{x_i^* v^{-m} t^{-p - 1}\}_{1 \leq i \leq \dim_{\bbC} \g, (m, p) \in \Z^2}$$
                     the canonical element $\sfr_{\g_{[2]}^+}$ is given by:
-                        $$\sfr_{\g_{[2]}^+} := \sum_{(m, p) \in \Z^2} X_{m, p} \tensor X_{m, p}^{\star} = \sfr_{\g} \left( \frac{1}{1 - v_1 v_2^{-1}} + \frac{1}{1 - v_1^{-1} v_2} \right) \frac{t_2}{1 - t_1 t_2^{-1}}$$
+                        $$\sfr_{\g_{[2]}^+} := \sum_{1 \leq i \leq \dim_{\bbC} \g} \sum_{(m, p) \in \Z^2} X_{i, m, p} \tensor X_{i, m, p}^{\star} = \sfr_{\g} \left( \frac{1}{1 - v_1 v_2^{-1}} + \frac{1}{1 - v_1^{-1} v_2} \right) \frac{t_2}{1 - t_1 t_2^{-1}}$$
                     \item Consider the following:
                         $$
                             \begin{aligned}
@@ -708,33 +708,33 @@
                     wherein by $(\Z \x \Z_{> 0}) \setminus \{*\}$ we simply meant $\Z \x \Z_{> 0}$ minus an arbitrarily element that we shall fix once and for all. 
                     \item Likewise, we have that:
                         $$\sfr_{\bar{\d}_{[2]}^+} = \sum_{(r, s) \in (\Z \x \Z_{> 0}) \setminus \{*\}} -t^{-1} \del_v \tensor \bar{d}(v) + \sum_{(r, s) \in \Z \x \Z_{> 0}} \frac{r}{s} v^{-1} \del_t \tensor \bar{d}(v)$$
-                \end{itemize}
+                \end{enumerate}
 
                 Now, we compute the Lie cobrackets.
-                \begin{itemize}
+                \begin{enumerate}
                     \item Let us firstly see how the elements $\delta_{\hat{\g}_{[2]}^+}(x v^m t^p)$, for some basis element $x \in \g$ and for some $(m, p) \in \Z \x \Z_{\geq 0}$, are given. Note that while it might seem that:
                         $$\delta_{\hat{\g}_{[2]}^+}(x v^m t^p) = \delta_{\g_{[2]}^+}(x v^m t^p)$$
-                    with $\delta_{\g_{[2]}^+}$ being given as in question \ref{question: multiloop_lie_bialgebras}, this actually should not be true, since the Lie brackets in $\tilde{\g}_{[2]}^+$ between elements of $\g_{[2]}$ actually do not lie within $\g_{[2]}$ in general, as such brackets usually would contain a central summand as well (cf. reamrk \ref{remark: dual_of_toroidal_centres_contains_derivations}).  
-                    \begin{itemize}
+                    with $\delta_{\g_{[2]}^+}$ being given as in question \ref{question: multiloop_lie_bialgebras}, this actually should not be true, since the Lie brackets in $\tilde{\g}_{[2]}^+$ between elements of $\g_{[2]}$ actually do not lie within $\g_{[2]}$ in general, as such brackets usually would contain a central summand as well (cf. remark \ref{remark: dual_of_toroidal_centres_contains_derivations}).  
+                    \begin{enumerate}
                         \item Firstly, consider the following wherein $Y(v, t) := y v^a t^b \in \g_{[2]}^+$ for some $y \in \g$ and some $(a, b) \in \Z \x \Z_{\geq 0}$:
-                            $$[ Y(v, t) \tensor 1 + 1 \tensor Y(v, t), \sfr_{ \g_{[2]}^+ }] = \left[ Y(v, t) \tensor 1 + 1 \tensor Y(v, t), \sum_{(m, p) \in \Z^2} X_{m, p} \tensor X_{m, p}^{\star} \right]$$
+                            $$[ Y(v, t) \tensor 1 + 1 \tensor Y(v, t), \sfr_{ \g_{[2]}^+ }] = \left[ Y(v, t) \tensor 1 + 1 \tensor Y(v, t), \sum_{1 \leq i \leq \dim_{\bbC} \g} \sum_{(m, p) \in \Z^2} X_{i, m, p} \tensor X_{i, m, p}^{\star} \right]$$
                         From this, we see that it suffices to make the following computations:
                             $$
                                 \begin{aligned}
-                                    [ Y(v, t) \tensor 1, X_{m, p} \tensor X_{m, p}^{\star} ] & = [Y(v, t), X_{m, p}]_{\tilde{\g}_{[2]}} \tensor X_{m, p}^{\star}
+                                    [ Y(v, t) \tensor 1, X_{i, m, p} \tensor X_{i, m, p}^{\star} ] & = [Y(v, t), X_{i, m, p}]_{\tilde{\g}_{[2]}} \tensor X_{i, m, p}^{\star}
                                     \\
-                                    & = ( [y, x] v^{a + m} t^{b + p} - (y, x)_{\g} v^a t^b \bar{d}(v^m t^p) ) \tensor x^* v^{-m} t^{-p - 1}
+                                    & = ( [y, x_i] v^{a + m} t^{b + p} - (y, x_i)_{\g} v^a t^b \bar{d}(v^m t^p) ) \tensor x_i^* v^{-m} t^{-p - 1}
                                     \\
-                                    & = ( [y, x] \tensor x^* ) v^a t^{b - 1} - (y, x)_{\g} v^{a - m} t^{b - p - 1} ( \bar{d}(v^m t^p) \tensor x^* )
+                                    & = ( [y, x_i] \tensor x_i^* ) v^a t^{b - 1} - (y, x)_{\g} v^{a - m} t^{b - p - 1} ( \bar{d}(v^m t^p) \tensor x^* )
                                 \end{aligned}
                             $$
                             $$
                                 \begin{aligned}
-                                    [ 1 \tensor Y(v, t), X_{m, p} \tensor X_{m, p}^{\star} ] & = X_{m, p} \tensor [Y(v, t), X_{m, p}^{\star}]_{\tilde{\g}_{[2]}}
+                                    [ 1 \tensor Y(v, t), X_{i, m, p} \tensor X_{i, m, p}^{\star} ] & = X_{i, m, p} \tensor [Y(v, t), X_{i, m, p}^{\star}]_{\tilde{\g}_{[2]}}
                                     \\
-                                    & = x v^m t^p \tensor ( [y, x^*] v^{a - m} t^{b - p - 1} - (y, x^*)_{\g} v^a t^b \bar{d}(v^{-m} t^{-p - 1}) )
+                                    & = x_i v^m t^p \tensor ( [y, x_i^*] v^{a - m} t^{b - p - 1} - (y, x_i^*)_{\g} v^a t^b \bar{d}(v^{-m} t^{-p - 1}) )
                                     \\
-                                    & = ( x \tensor [y, x^*] ) v^a t^{b - 1} - (y, x^*)_{\g} v^{m + a} t^{p + b} ( x \tensor \bar{d}(v^{-m} t^{-p - 1}) ) 
+                                    & = ( x_i \tensor [y, x_i^*] ) v^a t^{b - 1} - (y, x_i^*)_{\g} v^{m + a} t^{p + b} ( x_i \tensor \bar{d}(v^{-m} t^{-p - 1}) ) 
                                 \end{aligned}
                             $$
                         which then yields:
@@ -742,24 +742,24 @@
                                 \begin{aligned}
                                     & [ Y(v, t) \tensor 1 + 1 \tensor Y(v, t), \sfr_{ \g_{[2]}^+ }]
                                     \\
-                                    = & \sum_{(m, p) \in \Z^2} \left(
+                                    = & \sum_{1 \leq i \leq \dim_{\bbC} \g} \sum_{(m, p) \in \Z^2} \left(
                                     \begin{aligned}
-                                        & ( [y, x] \tensor x^* ) v^a t^{b - 1} - (y, x)_{\g} v^{a - m} t^{b - p - 1} ( \bar{d}(v^m t^p) \tensor x^* )
+                                        & ( [y, x_i] \tensor x_i^* ) v^a t^{b - 1} - (y, x_i)_{\g} v^{a - m} t^{b - p - 1} ( \bar{d}(v^m t^p) \tensor x_i^* )
                                         \\
-                                        + & ( x \tensor [y, x^*] ) v^a t^{b - 1} - (y, x^*)_{\g} v^{m + a} t^{p + b} ( x \tensor \bar{d}(v^{-m} t^{-p - 1}) ) 
+                                        + & ( x_i \tensor [y, x_i^*] ) v^a t^{b - 1} - (y, x_i^*)_{\g} v^{m + a} t^{p + b} ( x_i \tensor \bar{d}(v^{-m} t^{-p - 1}) ) 
                                     \end{aligned}
                                     \right)
                                     \\
-                                    = & \sum_{(m, p) \in \Z^2} \left( ( [y, x] \tensor x^* + x \tensor [y, x^*] ) v^a t^{b - 1} - \left(
+                                    = & \sum_{1 \leq i \leq \dim_{\bbC} \g} \sum_{(m, p) \in \Z^2} \left( ( [y, x_i] \tensor x_i^* + x_i \tensor [y, x_i^*] ) v^a t^{b - 1} - \left(
                                     \begin{aligned}
-                                        & (y, x)_{\g} v^{a - m} t^{b - p - 1} ( \bar{d}(v^m t^p) \tensor x^* )
+                                        & (y, x_i)_{\g} v^{a - m} t^{b - p - 1} ( \bar{d}(v^m t^p) \tensor x_i^* )
                                         \\
-                                        + & (y, x^*)_{\g} v^{m + a} t^{p + b} ( x \tensor \bar{d}(v^{-m} t^{-p - 1}) )
+                                        + & (y, x_i^*)_{\g} v^{m + a} t^{p + b} ( x_i \tensor \bar{d}(v^{-m} t^{-p - 1}) )
                                     \end{aligned}
                                     \right) \right)
                                 \end{aligned}
                             $$
-                        \item Secondly, consider the following:
+                        \item Secondly, consider the following, for some arbitrary $x \in \g$ and $(m, p) \in \Z^2$:
                             $$
                                 \begin{aligned}
                                     & [ x v^m t^p \tensor 1 + 1 \tensor x v^m t^p, \sfr_{ \z_{[2]}^+ }]
@@ -775,7 +775,19 @@
                                     \right)
                                 \end{aligned}
                             $$
-                        \item Likewise, we have that:
+                        wherein $* \in \Z \x \Z_{> 0}$ is an arbitrary choice of a point in $\Z \x \Z_{> 0}$; we will see eventually that this choice is immaterial. For visual clarity, let us compute the summands individually; consider firstly the following:
+                            $$
+                                \begin{aligned}
+                                    [ x t^{-1} \tensor 1 + 1 \tensor x t^{-1}, \bar{d}(v) \tensor \del_v ] & = [xt^{-1}, \bar{d}(v)] \tensor \del_v + \bar{d}(v) \tensor [xt^{-1}, \del_v]
+                                    \\
+                                    & = 0 \tensor \del_v + \bar{d}(v) \tensor 0
+                                \end{aligned}
+                            $$
+                        and likewise, we see that:
+                            $$[x v^{-1} \tensor 1 + 1 \tensor x v^{-1}, \bar{d}(v) \tensor \del_t] = 0$$
+                        Together, these computations imply that:
+                            $$[ x v^m t^p \tensor 1 + 1 \tensor x v^m t^p, \sfr_{ \z_{[2]}^+ }] = 0$$
+                        \item Likewise, we have that (also for any $x \in \g$ and any $(m, p) \in \Z^2$):
                             $$
                                 [ x v^m t^p \tensor 1 + 1 \tensor x v^m t^p, \sfr_{ \bar{\d}_{[2]}^+ }] = 
                                 v^m t^p \left(
@@ -786,9 +798,22 @@
                                 \end{aligned}
                                 \right)
                             $$
-                    \end{itemize}
+                        For visual clarity, let us compute the summands individually; consider firstly the following:
+                            $$
+                                \begin{aligned}
+                                    [ x t^{-1} \tensor 1 + 1 \tensor x t^{-1}, \del_v \tensor \bar{d}(v) ] & = [xt^{-1}, \del_v] \tensor \bar{d}(v) + \del_v \tensor [x t^{-1}, \bar{d}(v)]
+                                    \\
+                                    & = 0 \tensor \bar{d}(v) + \del_v \tensor 0
+                                \end{aligned}
+                            $$
+                        and likewise, we see that:
+                            $$[ x v^{-1} \tensor 1 + 1 \tensor x v^{-1}, \del_t \tensor \bar{d}(v) ] = 0$$
+                        and so:
+                            $$[ x v^m t^p \tensor 1 + 1 \tensor x v^m t^p, \sfr_{ \bar{\d}_{[2]}^+ }] = 0$$
+                    \end{enumerate}
+                    Note that the last two computations demonstrates that the auxiliary choice of a point $* \in \Z \x \Z_{> 0}$ is indeed inconsequential. 
                     \item Now, let us see how the elements $\delta_{\hat{\g}_{[2]}^+}(Z_{r, s})$ and $\delta_{\hat{\g}_{[2]}^+}(c_v)$ are given.
-                    \begin{itemize}
+                    \begin{enumerate}
                         \item Since we are working with $(r, s) \in \Z \x \Z_{> 0}$, we have:
                             $$Z_{r, s} = \frac1s v^{r - 1} t^s \bar{d}(v)$$
                         from which we get:
@@ -797,9 +822,9 @@
                             $$c_v = v^{-1} \bar{d}(v)$$
                         and so:
                             $$\delta_{\hat{\g}_{[2]}^+}(c_v) = v^{-1} [\bar{d}(v) \tensor 1 + 1 \tensor \bar{d}(v), \sfr_{\hat{\g}_{[2]}^+}]$$
-                    \end{itemize}
+                    \end{enumerate}
                     \item Finally, let us see how the elements $\delta_{\hat{\g}_{[2]}^+}(D_{r, s})$ and $\delta_{\hat{\g}_{[2]}^+}(D_v)$ are given.
-                    \begin{itemize}
+                    \begin{enumerate}
                         \item We have that:
                             $$D_{r, s} = -s v^{-r + 1} t^{-s - 1} \del_v + r v^{-r} t^{-s} \del_t$$
                         and so:
@@ -808,8 +833,8 @@
                             $$D_v = v t^{-1} \del_v$$
                         and so:
                             $$\delta_{\hat{\g}_{[2]}^+}(D_v) = v t^{-1} [\del_v \tensor 1 + 1 \tensor \del_v, \sfr_{\hat{\g}_{[2]}^+}]$$
-                    \end{itemize}
-                \end{itemize}
+                    \end{enumerate}
+                \end{enumerate}
             \end{remark}
 
         \subsection{Chevalley-Serre presentations for extended toroidal Lie algebras}
@@ -850,9 +875,6 @@
                     $$\forall (i, r) \in \{\theta\} \x \Z: E_{\theta, r}^{\pm} \mapsto e_{\theta}^{\mp} v^{\pm 1} t^r, H_{\theta, r} \mapsto h_{\theta} t^r + c_v t^r$$
                     $$K \mapsto c_t$$
             \end{lemma}
-                \begin{proof}
-                    
-                \end{proof}
             \begin{corollary} \label{coro: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras}
                 The Lie algebras $\tilde{\g}_{[2]}^{\pm}$ is isomorphic to the Lie algebras $\s^{\pm}$ generated, respectively, by the sets:
                     $$\{ E_{i, r}^{\pm}, H_{i, r} \}_{(i, r) \in \Gamma_0 \x \Z_{\geq 0}}$$
@@ -870,10 +892,10 @@
                 $$T_{i, 1} := T_{i, 1}(1) = H_{i, 1} - \frac12 H_{i, 0}^2$$
         \end{convention}
          \begin{lemma}[Affine formal Yangians as flat graded deformations] \label{lemma: affine_formal_yangians_as_flat_graded_deformations}
-             \cite{guay_nakajima_wendlandt_affine_yangian_vertex_representations_and_PBW} Suppose that $\g \not \cong \sl_2(\bbC)$. Then the $\bbC[\hbar]$-algebra $\rmY_{\hbar}(\hat{\g}_{[1]})$ will be a flat $\Z$-graded deformation of the $\Z$-graded $\bbC$-algebra $\rmU(\tilde{\g}_{[2]}^+)$. 
+            Suppose that $\g \not \cong \sl_2(\bbC)$. Then the $\bbC[\hbar]$-algebra $\rmY_{\hbar}(\hat{\g}_{[1]})$ will be a flat $\Z$-graded deformation of the $\Z$-graded $\bbC$-algebra $\rmU(\tilde{\g}_{[2]}^+)$. 
          \end{lemma}
             \begin{proof}
-                \todo[inline]{This depends on PBW for untwisted affine Yangians. See appendix.}
+                \todo[inline]{Check if this depends on PBW for untwisted affine Yangians. See appendix. The coproduct paper only tells us that $\rmY(\hat{\g}_{[1]})$ is a PBW deformation of $\rmU(\tilde{\g}_{[2]}^+)$. We need to lift this up to the formal Yangian via $\Rees_{\hbar}$, but this construction might depend on PBW.}
             \end{proof}
         The hypotheses of the following lemma are satisfied at least when $\g$ is either of finite type or of affine type, save for the types $\sfA_1^{(1)}$ and $\sfA_1^{(2)}$.
         \begin{lemma}[Levendorskii's presentation] \label{lemma: levendorskii_presentation}
@@ -912,7 +934,7 @@
             The isomorphism $\t \xrightarrow[]{\cong} \tilde{\g}_{[2]}$ in question is as in lemma \ref{lemma: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras}.
         \end{proposition}
             \begin{proof}
-                Combine lemma \ref{lemma: affine_formal_yangians_as_flat_graded_deformations} with lemma \ref{lemma: levendorskii_presentation}. 
+                Combine lemma \ref{lemma: affine_formal_yangians_as_flat_graded_deformations} with lemma \ref{lemma: levendorskii_presentation}. Note that flatness (in particular, $\hbar$-torsion-freeness) is crucial for our application of lemma \ref{lemma: affine_formal_yangians_as_flat_graded_deformations}.
             \end{proof}
         \begin{corollary} \label{coro: levendorskii_presentation__for_central_extensions_of_multiloop_algebras}
             The Lie algebras $\tilde{\g}_{[2]}^{\pm}$ are, respectively, isomorphic to the Lie algebra $\s^{\pm}$ generated by the set:
@@ -999,6 +1021,35 @@
 
         \subsection{Toroidal Lie algebras as classical limits of affine Yangians}
             We are now finally able to put a Lie cobracket on the toroidal Lie algebra $\tilde{\g}_{[2]}^+$, compatible with the Lie bracket thereon in a manner that produces a Lie bialgebra structure. This Lie bialgebra structure is the classical limit of the coproduct on the formal Yangian $\rmY_{\h}(\hat{\g}_{[1]})$. 
+            \begin{remark}
+                Recall from remark \ref{remark: extended_toroidal_lie_bialgebras_explicit_formulae} that for any:
+                    $$Y(v, t) := y v^a t^b \in \g_{[2]}^+$$
+                one has that:
+                    $$
+                        \begin{aligned}
+                            \delta(Y(v, t)) & = [Y(v, t) \tensor 1 + 1 \tensor Y(v, t), \sfr_{ \hat{\g}_{[2]}^+ }]
+                            \\
+                            & = \sum_{1 \leq i \leq \dim_{\bbC} \g} \sum_{(m, p) \in \Z^2} \left( ( [y, x_i] \tensor x_i^* + x_i \tensor [y, x_i^*] ) v^a t^{b - 1} - \left(
+                            \begin{aligned}
+                                & (y, x_i)_{\g} v^{a - m} t^{b - p - 1} ( \bar{d}(v^m t^p) \tensor x^* )
+                                \\
+                                + & (y, x_i^*)_{\g} v^{m + a} t^{p + b} ( x \tensor \bar{d}(v^{-m} t^{-p - 1}) )
+                            \end{aligned}
+                            \right) \right)
+                        \end{aligned}
+                    $$
+                so when $(a, b) = (0, 1)$ in particular, we shall have that:
+                    $$\delta(Y(v, t)) = \sum_{1 \leq i \leq \dim_{\bbC} \g} \sum_{(m, p) \in \Z^2} \left(
+                        [y, x_i] \tensor x_i^* + x_i \tensor [y, x_i^*] -
+                        \left(
+                            \begin{aligned}
+                                & (y, x_i)_{\g} v^{-m} t^{-p} ( \bar{d}(v^m t^p) \tensor x_i^* )
+                                \\
+                                + & (y, x_i^*)_{\g} v^m t^{p + 1} ( x_i \tensor \bar{d}(v^{-m} t^{-p - 1}) )
+                            \end{aligned}
+                        \right)
+                    \right)$$
+            \end{remark}
             \begin{lemma}[Toroidal Lie bialgebras] \label{lemma: toroidal_lie_bialgebras}
                 Assume convention \ref{conv: a_fixed_untwisted_affine_kac_moody_algebra}. Let:
                     $$\delta_{\tilde{\g}_{[2]}^+} := \delta_{\hat{\g}_{[2]}^+}|_{\tilde{\g}_{[2]}}$$
@@ -1006,17 +1057,50 @@
                     $$\delta := \delta_{\tilde{\g}_{[2]}^+}$$
                 Additionally\footnote{We need to know how this Lie cobracket is given explicitly in order to see that it is the classical limit of the coproduct on $\rmY_{\hbar}(\hat{\g}_{[1]})$.}, the Lie cobracket:
                     $$\delta: \tilde{\g}_{[2]}^+ \to \tilde{\g}_{[2]}^+ \hattensor_{\bbC} \tilde{\g}_{[2]}^+$$
-                as above is given explicitly on the generators $E_{i, r}^{\pm}, H_{i, r}$ (cf. corollary \ref{coro: levendorskii_presentation__for_central_extensions_of_multiloop_algebras}) as follows:
-                    
+                as above is given explicitly on the set of generators:
+                    $$\{ E_{i, 0}^{\pm} \}_{i \in \hat{\Gamma}_0} \cup \{ H_{i, r} \}_{i \in \hat{\Gamma}_0 \x \{0, 1\}}$$
+                (which, according to corollary \ref{coro: levendorskii_presentation__for_central_extensions_of_multiloop_algebras}, are enough to specify the Lie algebra $\tilde{\g}_{[2]}^+$) as follows:
+                    $$\delta(E_{i, 0}^{\pm}) = \delta(H_{i, 0}) = 0$$
+                    $$\delta(H_{i, 1}) = $$
             \end{lemma}
                 \begin{proof}
-                    
+                    It is clear from remark \ref{remark: total_degrees_of_classical_yangian_R_matrices} that:
+                        $$\delta(E_{i, 0}^{\pm}) = \delta(H_{i, 0}) = 0$$
+                
+                    To compute $\delta(H_{i, 1})$, let us do the following. If we choose the root vector basis for $\g$, i.e.:
+                        $$\{x_i\}_{1 \leq i \leq \dim_{\bbC} \g} := \{e_{\alpha}^-, e_{\alpha}^+\}_{\alpha \in \Phi^+} \cup \{h_j\}_{1 \leq j \leq l}$$
+                    (with $l = \dim_{\bbC} \h$ being the rank of the Cartan matrix of $\g$) which are normalised to be such that:
+                        $$(h_j, h_j)_{\g} = (e_{\alpha}^-, e_{\alpha}^+)_{\g} = 1$$
+                    and consider $y := h_i$ being a Chevalley-Serre generator of the Cartan subalgebra $\h \subset \g$, then we can exploit the fact that $\h$ is an abelian Lie subalgebra of $\g$ to obtain the following expression for any $1 \leq i \leq l$ and any $\alpha \in \Phi^+$:
+                        $$
+                            \begin{aligned}
+                                [y, x_i] \tensor x_i^* + x_i \tensor [y, x_i^*] & = [h_i, e_{\alpha}^{\pm}] \tensor e_{\alpha}^{\mp} + e_{\alpha}^{\pm} \tensor [h_i, e_{\alpha}^{\mp}]
+                                \\
+                                & = \pm (\alpha_i, \alpha) e_{\alpha}^{\pm} \tensor e_{\alpha}^{\mp} \mp (\alpha_i, \alpha) e_{\alpha}^{\pm} \tensor e_{\alpha}^{\mp}
+                                \\
+                                & = 0
+                            \end{aligned}
+                        $$
+                    (note the implicit use of the fact that $(e_{\alpha}^{\pm})^* = e_{\alpha}^{\mp}$ via the non-degenerate invariant inner product $(-, -)_{\g}$). We can also exploit the fact that $(-, -)_{\g}$ differs from the trace form only by a non-zero scalar, and that in the vector representation, the matrices corresponding to $h_j$ and $e_{\alpha}^{\pm}$ are respectively diagonal and strictly upper/lower triangular to see that:
+                        $$(h_i, e_{\alpha}^{\pm})_{\g} = 0$$
+                    Together, the previous two observations leads us to conclude that:
+                        $$
+                            \begin{aligned}
+                                \delta(H_{i, 1}) & = \delta(h_i t)
+                                \\
+                                & = -\sum_{1 \leq j \leq l} (h_i, h_j)_{\g} \sum_{(m, p) \in \Z^2} v^{-m} t^{-p} ( \bar{d}(v^m t^p) \tensor h_j^* ) + v^m t^{p + 1} ( h_j \tensor \bar{d}(v^{-m} t^{-p - 1}) )
+                                \\
+                                & = -\sum_{1 \leq j \leq l} \delta_{ij} \sum_{(m, p) \in \Z^2} v^{-m} t^{-p} ( \bar{d}(v^m t^p) \tensor h_j^* ) + v^m t^{p + 1} ( h_j \tensor \bar{d}(v^{-m} t^{-p - 1}) )
+                                \\
+                                & = -\sum_{(m, p) \in \Z^2} v^{-m} t^{-p} ( \bar{d}(v^m t^p) \tensor h_i^* ) + v^m t^{p + 1} ( h_i \tensor \bar{d}(v^{-m} t^{-p - 1}) )
+                            \end{aligned}
+                        $$
                 \end{proof}
             \begin{theorem}[Toroidal Lie algebras as classical limits of affine Yangians] \label{theorem: toroidal_lie_algebras_as_classical_limits_of_affine_yangians}
                 The complete topological Lie bialgebra $(\tilde{\g}_{[2]}^+, \delta_{\tilde{\g}_{[2]}^+})$ as in lemma \ref{lemma: toroidal_lie_bialgebras} is the classical limit\footnote{\say{Quasi-classical} in the terminologies of \cite{etingof_kazhdan_quantisation_1}.} of the complete topological bialgebra $(\rmY_{\hbar}(\hat{\g}_{[1]}), \Delta_{\hbar})$.
             \end{theorem}
                 \begin{proof}
-                    Clear from lemma \ref{lemma: toroidal_lie_bialgebras} and the construction of the coproduct 
+                    Clear from lemma \ref{lemma: toroidal_lie_bialgebras} and the construction of the Hopf coproduct on the formal Yangian $\rmY_{\hbar}(\hat{\g}_{[1]})$. 
                 \end{proof}
                 
             \begin{definition}[Parametrised pseudo-quantisations] \label{def: parametrised_pseudo_quantisations}
