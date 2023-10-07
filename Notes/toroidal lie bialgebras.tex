@@ -750,7 +750,7 @@
                                 \begin{aligned}
                                     [Y_1 \tensor 1, \sfr_{\z_{[2]}^+}] & = \sum_{(r, s) \in \Z \x \Z_{> 0}} [Y_1 \tensor 1, Z_{r, s} \tensor D_{r, s} + c_{v_1} \tensor D_{v_2}]
                                     \\
-                                    & = \sum_{(r, s) \in \Z \x \Z_{> 0}} \left( [Y_1, Z_{r, s}] \tensor D_{r, s} + [Y_1, c_{v_1}] \tensor D_{v_2} \right)
+                                    & = \sum_{(r, s) \in \Z \x \Z_{> 0}} [Y_1, Z_{r, s}] \tensor D_{r, s} + [Y_1, c_{v_1}] \tensor D_{v_2}
                                 \end{aligned}
                             $$
                         Since $\hat{\g}_{[2]}^+ \cong \tilde{\g}_{[2]}^+ \rtimes \bar{\d}_{[2]}^+$, which in particular means that $\tilde{\g}_{[2]}^+$ is a Lie ideal of $\hat{\g}_{[2]}^+$, we have that:
@@ -763,21 +763,21 @@
                                 \begin{aligned}
                                     [1 \tensor Y_2, \sfr_{\z_{[2]}^+}] & = \sum_{(r, s) \in \Z \x \Z_{> 0}} [1 \tensor Y_2, Z_{r, s} \tensor D_{r, s} + c_{v_1} \tensor D_{v_2}]
                                     \\
-                                    & = \sum_{(r, s) \in \Z \x \Z_{> 0}} \left( Z_{r, s} \tensor [Y_2, D_{r, s}] + c_{v_1} \tensor [Y_2, D_{v_2}] \right)
+                                    & = \sum_{(r, s) \in \Z \x \Z_{> 0}} Z_{r, s} \tensor [Y_2, D_{r, s}] + c_{v_1} \tensor [Y_2, D_{v_2}]
                                     \\
-                                    & = \sum_{(r, s) \in \Z \x \Z_{> 0}} \left( Z_{r, s} \tensor y_2 D_{r, s}(v_2^a t_2^b) + c_{v_1} \tensor y_2 D_{v_2}(v_2^a t_2^b) \right)
+                                    & = \sum_{(r, s) \in \Z \x \Z_{> 0}} Z_{r, s} \tensor y_2 D_{r, s}(v_2^a t_2^b) + c_{v_1} \tensor y_2 D_{v_2}(v_2^a t_2^b)
                                 \end{aligned}
                             $$
 
                         We thus gather that:
-                            $$[Y_1 \tensor 1 + 1 \tensor Y_2, \sfr_{\z_{[2]}^+}] = \sum_{(r, s) \in \Z \x \Z_{> 0}} \left( Z_{r, s} \tensor y_2 D_{r, s}(v_2^a t_2^b) + c_{v_1} \tensor y_2 D_{v_2}(v_2^a t_2^b) \right)$$
+                            $$[Y_1 \tensor 1 + 1 \tensor Y_2, \sfr_{\z_{[2]}^+}] = \sum_{(r, s) \in \Z \x \Z_{> 0}} Z_{r, s} \tensor y_2 D_{r, s}(v_2^a t_2^b) + c_{v_1} \tensor y_2 D_{v_2}(v_2^a t_2^b)$$
                         For more details on how elements of $\bar{\d}_{[2]}^+$ act on those of $\g_{[2]}^+$, see remark \ref{remark: dual_of_toroidal_centres_contains_derivations}; in particular, recall that:
                             $$D_{r, s} = -s v^{-r + 1} t^{-s - 1} \del_v + r v^{-r} t^{-s} \del_t$$
                             $$D_v = v t^{-1} \del_v$$
                         \item Similarly to the previous case, we can calculate:
-                            $$[Y_1 \tensor 1 + 1 \tensor Y_2, \sfr_{\bar{\d}_{[2]}^+}] = \sum_{(r, s) \in \Z \x \Z_{> 0}} \left( y_1 D_{r, s}(v_1^a t_1^b) \tensor Z_{r, s} + y_1 D_{v_1}(v_1^a t_1^b) \tensor c_{v_2} \right)$$
+                            $$[Y_1 \tensor 1 + 1 \tensor Y_2, \sfr_{\bar{\d}_{[2]}^+}] = \sum_{(r, s) \in \Z \x \Z_{> 0}} y_1 D_{r, s}(v_1^a t_1^b) \tensor Z_{r, s} + y_1 D_{v_1}(v_1^a t_1^b) \tensor c_{v_2}$$
                     \end{enumerate}
-                    Addint the three summands together yields:
+                    Adding the three summands together yields:
                         $$
                             \begin{aligned}
                                 \hat{\delta}^+(Y) & = [Y_1 \tensor 1 + 1 \tensor Y_2, \sfr_{ \hat{\g}_{[2]}^+ }]
@@ -791,13 +791,9 @@
                                     \end{aligned}
                                     \right)
                                     \\
-                                    + & \sum_{(r, s) \in \Z \x \Z_{> 0}} \left(
-                                    \begin{aligned}
-                                        & \left( Z_{r, s} \tensor y_2 D_{r, s}(v_2^a t_2^b) + c_{v_1} \tensor y_2 D_{v_2}(v_2^a t_2^b) \right)
-                                        \\
-                                        + & \left( y_1 D_{r, s}(v_1^a t_1^b) \tensor Z_{r, s} + y_1 D_{v_1}(v_1^a t_1^b) \tensor c_{v_2} \right)
-                                    \end{aligned}
-                                    \right)
+                                    + & \sum_{(r, s) \in \Z \x \Z_{> 0}} \left( Z_{r, s} \tensor y_2 D_{r, s}(v_2^a t_2^b) + y_1 D_{r, s}(v_1^a t_1^b) \tensor Z_{r, s} \right)
+                                    \\
+                                    + & c_{v_1} \tensor y_2 D_{v_2}(v_2^a t_2^b) + y_1 D_{v_1}(v_1^a t_1^b) \tensor c_{v_2}
                                 \end{aligned}
                             \end{aligned}
                         $$
@@ -818,16 +814,65 @@
                         \item Secondly, we compute:
                             $$[c_{v_1} \tensor 1 + 1 \tensor c_{v_2}, \sfr_{\hat{\g}_{[2]}^+}]$$
                         \begin{enumerate}
-                            \item Consider the following:
+                            \item Consider firstly the following:
+                                $$[c_{v_1} \tensor 1 + 1 \tensor c_{v_2}, \sfr_{\g_{[2]}^+}] = [c_{v_1} \tensor 1 + 1 \tensor c_{v_2}, \sfr_{\g} \1(v_1, v_2) \1^+(t_1, t_2)] = 0$$
+                            \item Secondly, to compute:
+                                $$[c_{v_1} \tensor 1 + 1 \tensor c_{v_2}, \sfr_{\z_{[2]}^+}]$$
+                            let us firstly consider 
                                 $$
                                     \begin{aligned}
-                                        [c_{v_1} \tensor 1 + 1 \tensor c_{v_2}, \sfr_{\g_{[2]}^+}] & = [c_{v_1} \tensor 1 + 1 \tensor c_{v_2}, \sfr_{\g} \1(v_1, v_2) \1^+(t_1, t_2)]
+                                         [c_{v_1} \tensor 1, \sfr_{\z_{[2]}^+}] & = \sum_{(r, s) \in \Z \x \Z_{> 0}} [c_{v_1} \tensor 1, Z_{r, s} \tensor D_{r, s} + c_{v_1} \tensor D_{v_2}]
+                                         \\
+                                         & = \sum_{(r, s) \in \Z \x \Z_{> 0}} [c_v, Z_{r, s}] \tensor D_{r, s} + [c_{v_1}, c_{v_2}] \tensor D_{v_2}
+                                         \\
+                                         & = \sum_{(r, s) \in \Z \x \Z_{> 0}} 0 \tensor D_{r, s} + 0 \tensor D_{v_2}
+                                         \\
+                                         & = 0
                                     \end{aligned}
                                 $$
-                            \item Secondly, consider the following:
-                                $$[c_{v_1} \tensor 1 + 1 \tensor c_{v_2}, \sfr_{\z_{[2]}^+}]$$
-                            \item Thirdly, we have that:
+                            In contrast, we have that:
+                                $$
+                                    \begin{aligned}
+                                         [1 \tensor c_{v_2}, \sfr_{\z_{[2]}^+}] & = \sum_{(r, s) \in \Z \x \Z_{> 0}} [1 \tensor c_{v_2}, Z_{r, s} \tensor D_{r, s} + c_{v_1} \tensor D_{v_2}]
+                                         \\
+                                         & = \sum_{(r, s) \in \Z \x \Z_{> 0}} Z_{r, s} \tensor [c_{v_1}, D_{r, s}] + c_{v_1} \tensor [c_{v_2}, D_{v_2}]
+                                    \end{aligned}
+                                $$
+                            Now, recall from remark \ref{remark: centres_of_dual_toroidal_lie_bialgebras} and from remark \ref{remark: dual_of_toroidal_centres_contains_derivations} that:
+                                $$c_v = v^{-1} \bar{d}(v)$$
+                                $$D_{r, s} = -s v^{-r + 1} t^{-s - 1} \del_v + r v^{-r} t^{-s} \del_t, D_v = vt^{-1} \del_v$$
+                            and then from remark \ref{remark: derivation_action_on_toroidal_centres} that $\bar{\d}_{[2]}$ acts on $\z_{[2]}$ in the following manner, given for all $D \in \bar{\d}_{[2]}$ and all $f, g \in A_{[2]}$ (recall that $\z_{[2]}$ is spanned as a $\bbC$-vector space by elements of the form $f \bar{d}(g)$; cf. remark \ref{remark: centres_of_dual_toroidal_lie_bialgebras}):
+                                $$[D, f \bar{d}(g)] = D(f) \bar{d}(g) + f \bar{d}( D(g) )$$
+                            Applying this formula yields:
+                                $$
+                                    \begin{aligned}
+                                        [c_v, D_{r, s}] & = -\left( (-s v^{-r + 1} t^{-s - 1} \del_v + r v^{-r} t^{-s} \del_t)(v^{-1}) \bar{d}(v) + v^{-1} \bar{d}( (-s v^{-r + 1} t^{-s - 1} \del_v + r v^{-r} t^{-s} \del_t)(v) ) \right)
+                                        \\
+                                        & = -\left( -s v^{-r + 1} t^{-s - 1} \del_v v + v^{-1} \bar{d}( -s v^{-r + 1} t^{-s - 1} \del_v v ) \right)
+                                        \\
+                                        & = s v^{-r + 1} t^{-s - 1} - s v^{-1} \bar{d}( v^{-r + 1} t^{-s - 1} )
+                                        \\
+                                        & = s v^{-r + 1} t^{-s - 1} - 0
+                                        \\
+                                        & = s v^{-r + 1} t^{-s - 1}
+                                    \end{aligned}
+                                $$
+                                $$
+                                    \begin{aligned}
+                                        [c_v, D_v] & = -\left( v t^{-1} \del_v v^{-1} \bar{d}(v) + v^{-1} \bar{d}(v t^{-1} \del_v v)\right)
+                                        \\
+                                        & = -\left( - v^{-1} t^{-1} \bar{d}(v) + v^{-1} t^{-1} d(v t^{-1}) ) \right)
+                                        \\
+                                        & = -\left( - v^{-1} t^{-1} \bar{d}(v) + 0 ) \right)
+                                        \\
+                                        & = v^{-1} t^{-1} \bar{d}(v)
+                                    \end{aligned}
+                                $$
+                            From these formulas, we obtain:
+                                $$$$
+                            \item Thirdly, to compute:
                                 $$[c_{v_1} \tensor 1 + 1 \tensor c_{v_2}, \sfr_{\bar{\d}_{[2]}^+}]$$
+                            let us firstly consider the following:
                         \end{enumerate}
                         
                         \item Finally, consider:
@@ -836,16 +881,18 @@
 
                     \item Finally, let us compute how $\hat{\delta}^+$ acts on $\bar{\d}_{[2]}^+$. 
                 \end{enumerate}
+
+                \todo{cobracket computations link}
             \end{remark}
 
         \subsection{Chevalley-Serre presentations for extended toroidal Lie algebras}
             When $\g$ is of finite type as in convention \ref{conv: a_fixed_finite_dimensional_simple_lie_algebra}, we will be observing the following convention.
             \begin{convention} \label{conv: a_fixed_untwisted_affine_kac_moody_algebra}
                 Let us write:
-                    $$\hat{\g}_{[1]} := \tilde{\g}_{[1]} \rtimes \bbC D$$
+                    $$\hat{\g}_{[1]} := \tilde{\g}_{[1]} \rtimes \bbC \del_v^{(0)}$$
                 to mean the untwisted affine Kac-Moody algebra attached to the finite-dimensional simple Lie algebra $\g$ from convention \ref{conv: a_fixed_finite_dimensional_simple_lie_algebra} (cf. \cite[Chapter 7]{kac_infinite_dimensional_lie_algebras}). Here, $\g_{[1]} := \g[v^{\pm 1}]$ is equipped with the invariant inner product given by:
                     $$(x v^m, y v^n)_{\g_{[1]}} := (x, y)_{\g} \delta_{m + n = 0}$$
-                for all $x, y \in \g$ and all $m, n \in \Z$, and $D \in \der_{\bbC}(\tilde{\g}_{[1]})$ is a derivation on $\tilde{\g}_{[1]} := \uce(\g_{[1]})$ acting as $\id_{\g} \tensor v \frac{d}{dv}$ on $\g_{[1]}$ and as zero on $\z_{[1]} := \z(\tilde{\g}_{[1]})$ (recall also that this centre is $1$-dimensional; we shall be writing $\z_{[1]} := \bbC c$).
+                for all $x, y \in \g$ and all $m, n \in \Z$, and $\del_v^{(0)} \in \der_{\bbC}(\tilde{\g}_{[1]})$ is the derivation on $\tilde{\g}_{[1]} := \uce(\g_{[1]})$ acting as $\id_{\g} \tensor v \frac{d}{dv}$ on $\g_{[1]}$ and as zero on $\z_{[1]} := \z(\tilde{\g}_{[1]})$ (recall also that this centre is $1$-dimensional; we shall be writing $\z_{[1]} := \bbC c$).
     
                 Fix a Cartan subalgebra $\hat{\h}_{[1]}$ of $\hat{\g}_{[1]}$.
     
@@ -1044,11 +1091,13 @@
             \end{lemma}
                 \begin{proof}
                     It is clear from remark \ref{remark: total_degrees_of_classical_yangian_R_matrices} that:
-                        $$\tilde{\delta}^+(E_{i, 0}^{\pm}) = \tilde{\delta}^+(H_{i, 0}) = 0$$
+                        $$\hat{\delta}^+(E_{i, 0}^{\pm}) = \hat{\delta}^+(H_{i, 0}) = 0$$
+                    Trivially, this shows that:
+                        $$\hat{\delta}^+(E_{i, 0}^{\pm}) = \hat{\delta}^+(H_{i, 0}) \in \tilde{\g}_{[2]}^+ \hattensor_{\bbC} \tilde{\g}_{[2]}^+$$
                 
                     To compute $\delta(H_{i, 1})$, let us do the following. If we choose the root vector basis for $\g$, i.e.:
-                        $$\{x_i\}_{1 \leq i \leq \dim_{\bbC} \g} := \{e_{\alpha}^-, e_{\alpha}^+\}_{\alpha \in \Phi^+} \cup \{h_j\}_{1 \leq j \leq l}$$
-                    (with $l = \dim_{\bbC} \h$ being the rank of the Cartan matrix of $\g$) which are normalised to be such that:
+                        $$\{x_i\}_{1 \leq i \leq \dim_{\bbC} \g} := \{e_{\alpha}^-, e_{\alpha}^+\}_{\alpha \in \Phi^+} \cup \{h_j\}_{j \in \Gamma_0}$$
+                    which are normalised to be such that:
                         $$(h_j, h_j)_{\g} = (e_{\alpha}^-, e_{\alpha}^+)_{\g} = 1$$
                     and consider $y := h_i$ being a Chevalley-Serre generator of the Cartan subalgebra $\h \subset \g$, then we can exploit the fact that $\h$ is an abelian Lie subalgebra of $\g$ to obtain the following expression for any $1 \leq i \leq l$ and any $\alpha \in \Phi^+$:
                         $$
@@ -1077,18 +1126,55 @@
                                     \end{aligned}
                                     \right)
                                     \\
-                                    + & \sum_{(r, s) \in \Z \x \Z_{> 0}} \left(
-                                    \begin{aligned}
-                                        & \left( Z_{r, s} \tensor y_2 D_{r, s}(v_2^a t_2^b) + c_{v_1} \tensor y_2 D_{v_2}(v_2^a t_2^b) \right)
-                                        \\
-                                        + & \left( y_1 D_{r, s}(v_1^a t_1^b) \tensor Z_{r, s} + y_1 D_{v_1}(v_1^a t_1^b) \tensor c_{v_2} \right)
-                                    \end{aligned}
-                                    \right)
+                                    + & \sum_{(r, s) \in \Z \x \Z_{> 0}} \left( Z_{r, s} \tensor y_2 D_{r, s}(v_2^a t_2^b) + y_1 D_{r, s}(v_1^a t_1^b) \tensor Z_{r, s} \right)
+                                    \\
+                                    + & c_{v_1} \tensor y_2 D_{v_2}(v_2^a t_2^b) + y_1 D_{v_1}(v_1^a t_1^b) \tensor c_{v_2}
                                 \end{aligned}
                             \end{aligned}
                         $$
-                    for any $Y := y v^a t^b$, with $y \in \g$ and $(a, b) \in \Z \x \Z_{\geq 0}$. When $y := h_i$ and $(a, b) = (0, 1)$, the above reduces to:
+                    for any $Y := y v^a t^b$, with $y \in \g$ and $(a, b) \in \Z \x \Z_{\geq 0}$. When $y := h_i$ for some \textit{finite} vertex $i \in \Gamma_0$ and $(a, b) = (0, 1)$, the above reduces to:
+                        $$
+                            \begin{aligned}
+                                \hat{\delta}^+(H_{i, 1}) & = \hat{\delta}^+(h_i t)
+                                \\
+                                & =
+                                \begin{aligned}
+                                    & \left( [h_i \tensor 1 + 1 \tensor h_i, \sfr_{\g}] v_2 \1(v_1, v_2) \1^+(t_1, t_2) - \sum_{j \in \Gamma_0} \left( c_{t_1} \tensor h_j t_2^{-2} + h_j t_1 \tensor c_{t_2} \right)
+                                    \right)
+                                    \\
+                                    + & \sum_{(r, s) \in \Z \x \Z_{> 0}} r \left( Z_{r, s} \tensor h_i v_2^{-r} t_2^{-s} + h_i v_1^{-r} t_1^{-s}  \tensor Z_{r, s}
+                                    \right)
+                                \end{aligned}
+                                \\
+                                & =
+                                \begin{aligned}
+                                    & \left( [h_i \tensor 1 + 1 \tensor h_i, \sfr_{\g}] v_2 \1(v_1, v_2) \1^+(t_1, t_2) - \sum_{j \in \Gamma_0} \left( c_{t_1} \tensor h_j t_2^{-2} + h_j t_1 \tensor c_{t_2} \right)
+                                    \right)
+                                    \\
+                                    + & r ( Z_{r, s} \tensor h_i + h_i \tensor Z_{r, s} ) v_2 t_2 \1(v_1, v_2) \1^+(t_1, t_2)
+                                \end{aligned}
+                            \end{aligned}
+                        $$
+
+                    When $i = \theta$ is the affine vertex of the Dynkin diagram of $\hat{\g}_{[1]}$, recall first of all under the isomorphism:
+                        $$\s \xrightarrow[]{\cong} \tilde{\g}_{[2]}^+$$
+                    as in corollary \ref{coro: levendorskii_presentation__for_central_extensions_of_multiloop_algebras}, one has that:
+                        $$H_{\theta, 1} \mapsto h_{\theta} t + c_v t$$
+                    As such, we will break up the computation of $\hat{\delta}^+(H_{\theta, 1})$ into computations of $\hat{\delta}(h_{\theta} t)$ and of $\hat{\delta}^+(c_v t)$, and then add these summands together. For the first computation, let us recall from \cite[Chapter 7]{kac_infinite_dimensional_lie_algebras} that:
+                        $$\hat{\h} \cong \h \oplus \bbC c_v \oplus \bbC \del_v^{(0)}$$
+                    and that there is the following root space decomposition of the Kac-Moody algebra $\hat{\g}_{[1]}$ (see also \cite[Chapter 1]{kac_infinite_dimensional_lie_algebras}):
+                        $$\hat{\g}_{[1]} \cong \hat{\h} \oplus \bigoplus_{\alpha \in \hat{\Phi}} \g_{\alpha}[v^{\pm 1}]$$
+                    From this, one sees that:
+                        $$h_{\theta} = c_v + \del_v^{(0)} = c_v + t D_v$$
+                    (recall from remark \ref{remark: dual_of_toroidal_centres_contains_derivations} that $D_v = v t^{-1} \del_v$); we thus see that it is enough to know the values of:
+                        $$\hat{\delta}^+(c_v), \hat{\delta}^+(D_v)$$
+                    in order to compute $\hat{\delta}^+(H_{\theta, 1})$.
                         
+                    Let us note also that the computations above, along with the fact that $\hat{\delta}^+(E_{i, 0}^{\pm}) = \hat{\delta}^+(H_{i, 0}) \in \tilde{\g}_{[2]}^+ \hattensor_{\bbC} \tilde{\g}_{[2]}^+$, shows that:
+                        $$\hat{\delta}^+(H_{i, 1}) \in \tilde{\g}_{[2]}^+ \hattensor_{\bbC} \tilde{\g}_{[2]}^+$$
+                    for all $i \in \hat{\Gamma}_0$, which shows that the restriction:
+                        $$\tilde{\delta}^+ := \delta_{\hat{\g}_{[2]}^+}|_{\tilde{\g}_{[2]}^+}$$
+                    indeed defines a Lie bialgebra structure on $\tilde{\g}_{[2]}^+$.
                     
                     \todo{Not done!}
                 \end{proof}
