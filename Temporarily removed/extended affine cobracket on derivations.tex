@@ -1,0 +1,266 @@
+\item \textbf{(Action of $\hat{\delta}^+$ on $\bar{\d}_{[2]}^+$):} Finally, let us compute how $\hat{\delta}^+$ acts on $\bar{\d}_{[2]}^+$. 
+                    \begin{enumerate}
+                        \item Firstly, let us compute $\hat{\delta}^+(D_{r, s})$. 
+                        \begin{enumerate}
+                            \item Firstly, consider the following:
+                                $$
+                                    \begin{aligned}
+                                        [D_{r, s} \tensor 1 + 1 \tensor 1, \sfr_{\g_{[2]}^+}] & = [D_{r, s} \tensor 1 + 1 \tensor 1, \sfr_{\g} v_2 \1(v_1, v_2) \1^+(t_1, t_2)]
+                                        \\
+                                        & = \sum_{1 \leq i \leq \dim_{\bbC} \g} \sum_{(m, p) \in \Z \x \Z_{\geq 0}} [D_{r, s} \tensor 1 + 1 \tensor D_{r, s}, x_i v_1^m t_1^p \tensor x_i^* v_2^{-m} t_2^{-p - 1}]
+                                    \end{aligned}
+                                $$
+                            Then, consider the following:
+                                $$
+                                    \begin{aligned}
+                                        [D_{r, s} \tensor 1, x_i v_1^m t_1^p \tensor x_i^* v_2^{-m} t_2^{-p - 1}] & = [D_{r, s}, x_i v_1^m t_1^p] \tensor x_i^* v_2^{-m} t_2^{-p - 1}
+                                        \\
+                                        & = x_i D_{r, s}(v_1^m t_1^p) \tensor x_i^* v_2^{-m} t_2^{-p - 1}
+                                    \end{aligned}
+                                $$
+                            and likewise, we have that:
+                                $$[1 \tensor D_{r, s}, x_i v_1^m t_1^p \tensor x_i^* v_2^{-m} t_2^{-p - 1}] = x_i v_1^m t_1^p \tensor x_i^* D_{r, s}(v_2^{-m} t_2^{-p - 1})$$
+                            Now, recall from remarks \ref{remark: derivation_action_on_multiloop_algebras} and \ref{remark: derivation_action_on_toroidal_centres} that:
+                                $$[D_{r, s}, x v^m t^p] = (rp - ms) x v^{m - r} t^{p - s - 1}$$
+                            which tells us that:
+                                $$
+                                    \begin{aligned}
+                                        & [D_{r, s} \tensor 1 + 1 \tensor D_{r, s}, \sfr_{\g_{[2]}^+}]
+                                        \\
+                                        = & \sum_{1 \leq i \leq \dim_{\bbC} \g} \sum_{(m, p) \in \Z \x \Z_{\geq 0}} x_i D_{r, s}(v_1^m t_1^p) \tensor x_i^* v_2^{-m} t_2^{-p - 1} + x_i v_1^m t_1^p \tensor x_i^* D_{r, s}(v_2^{-m} t_2^{-p - 1})
+                                        \\
+                                        & = \sum_{1 \leq i \leq \dim_{\bbC} \g} \sum_{(m, p) \in \Z \x \Z_{\geq 0}} (rp - ms) x_i v_1^{m - r} t_1^{p - s - 1} \left( 1 \tensor x_i^* v_2^{-m} t_2^{-p - 1} - r x_i v_1^m t_1^p \tensor x_i^* v_2^{-m - r} t_2^{-p - s - 2} \right)
+                                    \end{aligned}
+                                $$
+                            \item Secondly, consider the following:
+                                $$
+                                    \begin{aligned}
+                                        & [D_{r, s} \tensor 1 + 1 \tensor D_{r, s}, \sfr_{\z_{[2]}^+}]
+                                        \\
+                                        = & \sum_{(a, b) \in \Z \x \Z_{> 0}} [D_{r, s} \tensor 1 + 1 \tensor D_{r, s}, Z_{a, b} \tensor D_{a, b}] + [D_{r, s} \tensor 1 + 1 \tensor D_{r, s}, c_{v_1} \tensor D_{v_2}]
+                                    \end{aligned}
+                                $$
+                            Then, consider the following:
+                                $$[D_{r, s} \tensor 1, Z_{a, b} \tensor D_{a, b}] = [D_{r, s}, Z_{a, b}] \tensor D_{a, b}$$
+                                $$[D_{r, s} \tensor 1, c_{v_1} \tensor D_{v_2}] = [D_{r, s}, c_{v_1}] \tensor D_{v_2}$$
+                            Recall from remark \ref{remark: centres_of_dual_toroidal_lie_bialgebras} that:
+                                $$(a, b) \in \Z \x \Z_{> 0} \implies Z_{a, b} = \frac1b v^{a - 1} t^b \bar{d}(v)$$
+                                $$c_v = v^{-1} \bar{d}(v)$$
+                            and from remark \ref{remark: dual_of_toroidal_centres_contains_derivations} that:
+                                $$D_{r, s} = -s v^{-r + 1} t^{-s - 1} \del_v + r v^{-r} t^{-s} \del_t$$
+                                $$D_v = v t^{-1} \del_v$$
+                            Recall also, from remark \ref{remark: derivation_action_on_toroidal_centres} that $\bar{\d}_{[2]}$ acts on $\z_{[2]}$ in the following manner, given for all $D \in \bar{\d}_{[2]}$ and all $f, g \in A_{[2]}$ (recall that $\z_{[2]}$ is spanned as a $\bbC$-vector space by elements of the form $f \bar{d}(g)$; cf. remark \ref{remark: centres_of_dual_toroidal_lie_bialgebras}):
+                                $$[D, f \bar{d}(g)] = D(f) \bar{d}(g) + f \bar{d}( D(g) )$$
+                            which tells us that:
+                                $$
+                                    \begin{aligned}
+                                        [D_{r, s}, Z_{a, b}] & = \left[ -s v^{-r + 1} t^{-s - 1} \del_v + r v^{-r} t^{-s} \del_t, \frac1b v^{a - 1} t^b \bar{d}(v) \right]
+                                        \\
+                                        & = \left( -s v^{-r + 1} t^{-s - 1} \del_v + r v^{-r} t^{-s} \del_t \right)\left( \frac1b v^{a - 1} t^b \right) \bar{d}(v) + \frac1b v^{a - 1} t^b \bar{d}\left( -s v^{-r + 1} t^{-s - 1} \del_v(v) \right)
+                                        \\
+                                        & = \left( \frac{s(1 - a)}{b} + rb  \right) v^{a - r - 1} t^{b - s - 1} \bar{d}(v)
+                                    \end{aligned}
+                                $$
+                                $$
+                                    \begin{aligned}
+                                        [D_{r, s}, c_v] & = \left[ -s v^{-r + 1} t^{-s - 1} \del_v + r v^{-r} t^{-s} \del_t, v^{-1} \bar{d}(v) \right]
+                                        \\
+                                        & = \left( -s v^{-r + 1} t^{-s - 1} \del_v + r v^{-r} t^{-s} \del_t \right)(v^{-1}) \bar{d}(v) + v^{-1} \bar{d}( -s v^{-r + 1} t^{-s - 1} \del_v(v) )
+                                        \\
+                                        & = s v^{-r - 1} t^{-s - 1} \bar{d}(v)
+                                    \end{aligned}
+                                $$
+                            Putting everything together yields:
+                                $$[D_{r, s} \tensor 1, \sfr_{\z_{[2]}^+}] = \sum_{(a, b) \in \Z \x \Z_{> 0}} \left( \frac{s(1 - a)}{b} + rb  \right) v_1^{a - r - 1} t_1^{b - s - 1} \bar{d}(v_1) \tensor D_{a, b} + s v_1^{-r - 1} t_1^{-s - 1} \bar{d}(v_1) \tensor D_{v_2}$$
+
+                            Next, consider:
+                                $$
+                                    \begin{aligned}
+                                        & [1 \tensor D_{r, s}, Z_{a, b} \tensor D_{a, b}]
+                                        \\
+                                        = & Z_{a, b} \tensor [D_{r, s}, D_{a, b}]
+                                        \\
+                                        = & -Z_{a, b} \tensor ( s a v_2^{-r - a} t_2^{-s - b} + b r v_2^{-a - r} t_2^{-b - s} ) \del_{v_2} \del_{t_2}
+                                    \end{aligned}
+                                $$
+                                $$[1 \tensor D_{r, s}, c_{v_1} \tensor D_{v_2}] = c_{v_1} \tensor [D_{r, s}, D_{v_2}] = c_{v_1} \tensor 0 = 0$$
+                            and as such:
+                                $$
+                                    \begin{aligned}
+                                        & [1 \tensor D_{v_2}, \sfr_{\z_{[2]}^+}]
+                                        \\
+                                        = & -\sum_{(a, b) \in \Z \x \Z_{> 0}} Z_{a, b} \tensor ( s a v_2^{-r - a} t_2^{-s - b} + b r v_2^{-a - r} t_2^{-b - s} ) \del_{v_2} \del_{t_2}
+                                    \end{aligned}
+                                $$
+
+                            In the end, we have that:
+                                $$
+                                    \begin{aligned}
+                                        & [D_{r, s} \tensor 1 + 1 \tensor D_{r, s}, \sfr_{\z_{[2]}^+}]
+                                        \\
+                                        = & \sum_{(a, b) \in \Z \x \Z_{> 0}} \left(
+                                        \begin{aligned}
+                                            & \left( \frac{s(1 - a)}{b} + rb  \right) v_1^{a - r - 1} t_1^{b - s - 1} \bar{d}(v_1) \tensor D_{a, b}
+                                            \\
+                                            - & Z_{a, b} \tensor ( s a v_2^{-r - a} t_2^{-s - b} + b r v_2^{-a - r} t_2^{-b - s} ) \del_{v_2} \del_{t_2}
+                                        \end{aligned} 
+                                        \right)
+                                        + s v_1^{-r - 1} t_1^{-s - 1} \bar{d}(v_1) \tensor D_{v_2}
+                                    \end{aligned}
+                                $$
+                            
+                            \item Since:
+                                $$\sfr_{\bar{\d}_{[2]}^+} = \sum_{(a, b) \in \Z \x \Z_{> 0}} D_{a, b} \tensor Z_{a, b} + D_{v_1} \tensor c_{v_2}$$
+                            we infer from the computation of $[D_{r, s} \tensor 1 + 1 \tensor D_{r, s}, \sfr_{\z_{[2]}^+}]$ that:
+                                $$
+                                    \begin{aligned}
+                                        & [D_{r, s} \tensor 1 + 1 \tensor D_{r, s}, \sfr_{\bar{\d}_{[2]}^+}]
+                                        \\
+                                        = & \sum_{(a, b) \in \Z \x \Z_{> 0}} \left(
+                                        \begin{aligned}
+                                            & D_{a, b} \tensor \left( \frac{s(1 - a)}{b} + rb  \right) v_2^{a - r - 1} t_2^{b - s - 1} \bar{d}(v_2)
+                                            \\
+                                            - & ( s a v_1^{-r - a} t_1^{-s - b} + b r v_1^{-a - r} t_1^{-b - s} ) \del_{v_1} \del_{t_1} \tensor Z_{a, b}
+                                        \end{aligned} 
+                                        \right)
+                                        + D_{v_1} \tensor s v_2^{-r - 1} t_2^{-s - 1} \bar{d}(v_2)
+                                    \end{aligned}
+                                $$
+                        \end{enumerate}
+                        Adding the three summands together then yields:
+                            $$
+                                \hat{\delta}^+(D_{r, s}) = 
+                                \begin{aligned}
+                                    & \sum_{1 \leq i \leq \dim_{\bbC} \g} \sum_{(m, p) \in \Z \x \Z_{\geq 0}} (rp - ms) x_i v_1^{m - r} t_1^{p - s - 1} \left( 1 \tensor x_i^* v_2^{-m} t_2^{-p - 1} - r x_i v_1^m t_1^p \tensor x_i^* v_2^{-m - r} t_2^{-p - s - 2} \right)
+                                    \\
+                                    + & \sum_{(a, b) \in \Z \x \Z_{> 0}} \left(
+                                    \begin{aligned}
+                                        & \left( \frac{s(1 - a)}{b} + rb  \right) v_1^{a - r - 1} t_1^{b - s - 1} \bar{d}(v_1) \tensor D_{a, b}
+                                        \\
+                                        - & Z_{a, b} \tensor ( s a v_2^{-r - a} t_2^{-s - b} + b r v_2^{-a - r} t_2^{-b - s} ) \del_{v_2} \del_{t_2}
+                                    \end{aligned} 
+                                    \right)
+                                    + s v_1^{-r - 1} t_1^{-s - 1} \bar{d}(v_1) \tensor D_{v_2}
+                                    \\
+                                    + & \sum_{(a, b) \in \Z \x \Z_{> 0}} \left(
+                                    \begin{aligned}
+                                        & D_{a, b} \tensor \left(\frac{s(1 - a)}{b} + rb  \right) v_2^{a - r - 1} t_2^{b - s - 1} \bar{d}(v_2)
+                                        \\
+                                        - & ( s a v_1^{-r - a} t_1^{-s - b} + b r v_1^{-a - r} t_1^{-b - s} ) \del_{v_1} \del_{t_1} \tensor Z_{a, b}
+                                    \end{aligned} 
+                                    \right)
+                                    + D_{v_1} \tensor s v_2^{-r - 1} t_2^{-s - 1} \bar{d}(v_2)
+                                \end{aligned}
+                            $$
+                        \item Secondly, let us compute $\hat{\delta}^+(D_v)$. 
+                        \begin{enumerate}
+                            \item Firstly, we have the following:
+                                $$
+                                    \begin{aligned}
+                                        [D_{v_1} \tensor 1 + 1 \tensor D_{v_2}, \sfr_{\g_{[2]}^+}] & = [D_{v_1} \tensor 1 + 1 \tensor D_{v_2}, \sfr_{\g} v_2 \1(v_1, v_2) \1^+(t_1, t_2)]
+                                        \\
+                                        & = \sum_{1 \leq i \leq \dim_{\bbC} \g} \sum_{(m, p) \in \Z \x \Z_{\geq 0}} [D_{v_1} \tensor 1 + 1 \tensor D_{v_2}, x_i v_1^m t_1^p \tensor x_i^* v_2^{-m} t_2^{-p - 1}]
+                                    \end{aligned}
+                                $$
+                            Then, consider the following:
+                                $$
+                                    \begin{aligned}
+                                        [D_{v_1} \tensor 1, x_i v_1^m t_1^p \tensor x_i^* v_2^{-m} t_2^{-p - 1}] & = [D_{v_1}, x_i v_1^m t_1^p] \tensor x_i^* v_2^{-m} t_2^{-p - 1}
+                                        \\
+                                        & = x_i D_{v_1}(v_1^m t_1^p) \tensor x_i^* v_2^{-m} t_2^{-p - 1}
+                                        \\
+                                        & = m x_i v_1^m t_1^{p - 1} \tensor x_i^* v_2^{-m} t_2^{-p - 1}
+                                    \end{aligned}
+                                $$
+                            \item Secondly, consider the following:
+                                $$
+                                    \begin{aligned}
+                                        [D_{v_1} \tensor 1, \sfr_{\z_{[2]}^+}] & = \sum_{(r, s) \in \Z \x \Z_{> 0}} [D_{v_1} \tensor 1, Z_{r, s} \tensor D_{r, s}] + [D_{v_1} \tensor 1, c_{v_1} \tensor D_{v_2}]
+                                        \\
+                                        & = \sum_{(r, s) \in \Z \x \Z_{> 0}} [D_{v_1}, Z_{r, s}] \tensor D_{r, s} + [D_{v_1}, c_{v_1}] \tensor D_{v_2}
+                                    \end{aligned}
+                                $$
+                            Recall from remark \ref{remark: centres_of_dual_toroidal_lie_bialgebras} that:
+                                $$(r, s) \in \Z \x \Z_{> 0} \implies Z_{r, s} = \frac1s v^{r - 1} t^s \bar{d}(v)$$
+                                $$c_v = v^{-1} \bar{d}(v)$$
+                            and from remark \ref{remark: dual_of_toroidal_centres_contains_derivations} that:
+                                $$D_v = v t^{-1} \del_v$$
+                            Recall also, from remark \ref{remark: derivation_action_on_toroidal_centres} that $\bar{\d}_{[2]}$ acts on $\z_{[2]}$ in the following manner, given for all $D \in \bar{\d}_{[2]}$ and all $f, g \in A_{[2]}$ (recall that $\z_{[2]}$ is spanned as a $\bbC$-vector space by elements of the form $f \bar{d}(g)$; cf. remark \ref{remark: centres_of_dual_toroidal_lie_bialgebras}):
+                                $$[D, f \bar{d}(g)] = D(f) \bar{d}(g) + f \bar{d}( D(g) )$$
+                            which tells us that:
+                                $$
+                                    \begin{aligned}
+                                        [D_v, Z_{r, s}] & = \frac1s D_v( v^{r - 1} t^s ) \bar{d}(v) + \frac1s v^{r - 1} t^s \bar{d}(D_v(v))
+                                        \\
+                                        & = \frac1s \left( (r - 1) v^{r - 1} t^s \bar{d}(v) + v^{r - 1} t^s \bar{d}(v t^{-1}) \right)
+                                        \\
+                                        & = \frac{r - 1}{s} v^{r - 1} t^s \bar{d}(v) 
+                                    \end{aligned}
+                                $$
+                            (which is always well-defined since we are in the case $s > 0$) and that:
+                                $$
+                                    \begin{aligned}
+                                        [D_v, c_v] & = D_v(v^{-1}) \bar{d}(v) + v^{-1} \bar{d}(D_v(v))
+                                        \\
+                                        & = -v^{-1} t^{-1} \bar{d}(v) + v^{-1} \bar{d}(v t^{-1})
+                                        \\
+                                        & = -v^{-1} t^{-1} \bar{d}(v)
+                                    \end{aligned}
+                                $$
+                            We thus see that:
+                                $$[D_{v_1} \tensor 1, \sfr_{\z_{[2]}^+}] = \sum_{(r, s) \in \Z \x \Z_{> 0}} \frac{r - 1}{s} v_1^{r - 1} t_1^s \bar{d}(v_1)  \tensor D_{r, s} - v_1^{-1} t_1^{-1} \bar{d}(v_1) \tensor D_{v_2}$$
+                            From remark \ref{remark: centres_of_dual_toroidal_lie_bialgebras}, we know that:
+                                $$v^m t^p \bar{d}(v^n t^q) = \delta_{(m, p) + (n, q), (0, 0)} ( n c_v + q c_t ) + (np - mq) Z_{m + n, p + q}$$
+                            which tells us that:
+                                $$v^{r - 1} t^s \bar{d}(v) = \delta_{(r, s), (0, 0)} c_v + s Z_{r, s}$$
+                                $$v^{-1} t^{-1} \bar{d}(v) = Z_{0, 1}$$
+                            Using these expressions, we can rewrite $[D_{v_1} \tensor 1, \sfr_{\z_{[2]}^+}]$ as:
+                                $$
+                                    \begin{aligned}
+                                        [D_{v_1} \tensor 1, \sfr_{\z_{[2]}^+}] & = \sum_{(r, s) \in \Z \x \Z_{> 0}} \frac{r - 1}{s} ( \delta_{(r, s), (0, 0)} c_v + s Z_{r, s} ) - Z_{0, 1} \tensor D_{v_2}
+                                        \\
+                                        & = \sum_{(r, s) \in \Z \x \Z_{> 0}} (r - 1) Z_{r, s} - Z_{0, 1} \tensor D_{v_2}
+                                    \end{aligned}
+                                $$
+                            wherein the terms with $\delta_{(r, s), (0, 0)} c_v$ vanish because $(0, 0) \not \in \Z \x \Z_{> 0}$. 
+ 
+                            Next, consider the following:
+                                $$
+                                    \begin{aligned}
+                                        [1 \tensor D_{v_2}, \sfr_{\z_{[2]}^+}] & = \sum_{(r, s) \in \Z \x \Z_{> 0}} [1 \tensor D_{v_2}, Z_{r, s} \tensor D_{r, s}] + [1 \tensor D_{v_2}, c_{v_1} \tensor D_{v_2}]
+                                        \\
+                                        & = \sum_{(r, s) \in \Z \x \Z_{> 0}} Z_{r, s} \tensor [D_{v_2}, D_{r, s}] + c_{v_1} \tensor [D_{v_2}, D_{v_2}]
+                                        \\
+                                        & = \sum_{(r, s) \in \Z \x \Z_{> 0}} Z_{r, s} \tensor [D_{v_2}, D_{r, s}]
+                                    \end{aligned}
+                                $$
+                            Now, recall from remark \ref{remark: dual_of_toroidal_centres_contains_derivations} that:
+                                $$D_{r, s} = -s v^{-r + 1} t^{-s - 1} \del_v + r v^{-r} t^{-s} \del_t$$
+                                $$D_v = v t^{-1} \del_v$$
+                            which tells us that, for all $f \in A_{[2]}$, the following holds:
+                                $$
+                                    \begin{aligned}
+                                        [D_v, D_{r, s}](f) & = [-s v^{-r + 1} t^{-s - 1} \del_v + r v^{-r} t^{-s} \del_t, v t^{-1} \del_v](f)
+                                        \\
+                                        & = 
+                                        \begin{aligned}
+                                            & \left( -s v^{-r + 1} t^{-s - 1} \del_v( v t^{-1} \del_v f ) + v t^{-1} \del_v( s v^{-r + 1} t^{-s - 1} \del_v f ) \right)
+                                            \\
+                                            + & \left( r v^{-r} t^{-s} \del_t( v t^{-1} \del_v f ) - v t^{-1} \del_v( r v^{-r} t^{-s} \del_t f ) \right)
+                                        \end{aligned}
+                                        \\
+                                        & = 
+                                        \begin{aligned}
+                                            & s \left( -v^{-r + 1} t^{-s - 1} \del_v( v t^{-1} \del_v f ) + v t^{-s - 2} \del_v( v^{-r + 1} \del_v f ) \right)
+                                            \\
+                                            + & r \left( v^{-r} t^{-s} \del_t( v t^{-1} \del_v f ) - v t^{-1} \del_v( v^{-r} t^{-s} \del_t f ) \right)
+                                        \end{aligned}
+                                    \end{aligned}
+                                $$
+                            \item Using the fact that:
+                                $$\sfr_{ \bar{\d}_{[2]}^+ } = \sum_{(r, s) \in \Z \x \Z_{> 0}} D_{r, s} \tensor Z_{r, s} + D_{v_1} \tensor c_{v_2}$$
+                            we can infer form the computation of $[D_{v_1} \tensor 1 + 1 \tensor D_{v_2}, \sfr_{\z_{[2]}^+}]$ above that:
+                                $$[D_{v_1} \tensor 1 + 1 \tensor D_{v_2}, \sfr_{\bar{\d}_{[2]}^+}]$$
+                        \end{enumerate}
+                        \item $D_t$
+                    \end{enumerate}
