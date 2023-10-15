@@ -878,13 +878,243 @@
                     $$\forall i \in \hat{\Gamma}_0: E_{i, 0}^{\pm} \mapsto e_i^{\pm}, H_{i, 0} \mapsto h_i$$
                     $$\forall i \in \Gamma_0: H_{i, 1} \mapsto h_i t$$
                     $$H_{\theta, 1} \mapsto h_{\theta} t + t c_v$$
-                it is enough to specify the following, wherein $x \in \g$ is arbitrary:
-                    $$\tilde{\delta}^+(x) = 0$$
+                it is enough to specify the following, wherein $h \in \h$ is arbitrary:
+                    $$\tilde{\delta}^+(h) = 0$$
+                    $$\tilde{\delta}^+(ht) = [h_1 \tensor 1, \sfr_{\g} v_2 \1(v_1, v_2)]$$
                     $$\tilde{\delta}^+(t c_v) = 0$$
-                    $$\tilde{\delta}^+(xt) = [x_1 \tensor 1, \sfr_{\g} v_2 \1(v_1, v_2)]$$
             \end{lemma}
                 \begin{proof}
-                    
+                    \begin{enumerate}
+                        \item Since $\deg x = 0$ for all $x \in \g$, we get via remark \ref{remark: total_degrees_of_classical_yangian_R_matrices} that:
+                            $$\hat{\delta}^+(x) = 0$$
+                        and in particular, we have that:
+                            $$\hat{\delta}^+(h) = 0$$
+
+                        \item Let us now compute $\hat{\delta}^+(ht)$ for an arbitrary $h \in \h$. 
+                        \begin{enumerate}
+                            \item \textbf{($\g_{[2]}^+$-component):} Firstly, to compute:
+                                $$[\bar{\Delta}(ht), \sfr_{\g_{[2]}^+}]$$
+                            let us firstly recall from question \ref{question: multiloop_lie_bialgebras} that:
+                                $$\sfr_{\g_{[2]}^+} = \sfr_{\g} v_2\1(v_1, v_2) \1^+(t_1, t_2)$$
+                            (with notations as in \textit{loc. cit.}); let us also choose a root basis for $\g$ for writing out $\sfr_{\g}$ explicitly: this is to say that for each positive root $\alpha \in \Phi^+$, we choose corresponding basis vectors $e_{\alpha}^{\pm} \in \g_{\pm \alpha}$ normalised so that:
+                                $$(e_{\alpha}^-, e_{\alpha}^+)_{\g} = 1$$
+                            to get the following basis for $\g$:
+                                $$\{h_i\}_{i \in \Gamma_0} \cup \{e_{\alpha}^-, e_{\alpha}^+\}_{\alpha \in \Phi^+}$$
+                            From this, we see that:
+                                $$
+                                    \begin{aligned}
+                                        & [\bar{\Delta}(ht), \sfr_{\g_{[2]}^+}]
+                                        \\
+                                        = & \sum_{i \in \Gamma_0} [\bar{\Delta}(ht), h_i \tensor h_i v_2\1(v_1, v_2) \1^+(t_1, t_2)] + \sum_{\alpha \in \Phi^+} [\bar{\Delta}(ht), (e_{\alpha}^- \tensor e_{\alpha}^+ + e_{\alpha}^+ \tensor e_{\alpha}^-) v_2\1(v_1, v_2) \1^+(t_1, t_2)]
+                                    \end{aligned}
+                                $$
+
+                            Now, for each $i \in \Gamma_0$, observe that:
+                                $$
+                                    \begin{aligned}
+                                        & [h t_1 \tensor 1, h_i \tensor h_i v_2\1(v_1, v_2) \1^+(t_1, t_2)]
+                                        \\
+                                        = & \sum_{(m, p) \in \Z \x \Z_{\geq 0}} [ht_1 \tensor 1, h_i v_1^m t_1^p \tensor h_i v_2^{-m} t_2^{-p - 1}]
+                                        \\
+                                        = & \sum_{(m, p) \in \Z \x \Z_{\geq 0}} [ht_1, h_i v_1^m t_1^p]_{\tilde{\g}_{[2]}^+} \tensor h_i v_2^{-m} t_2^{-p - 1}
+                                        \\
+                                        = & \sum_{(m, p) \in \Z \x \Z_{\geq 0}} (h, h_i)_{\g} v_1^m t_1^p \bar{d}(t_1)) \tensor h_i v_2^{-m} t_2^{-p - 1}
+                                    \end{aligned}
+                                $$
+                            and likewise, that:
+                                $$[1 \tensor h t_2, h_i \tensor h_i v_2\1(v_1, v_2) \1^+(t_1, t_2)] = \sum_{(m, p) \in \Z \x \Z_{\geq 0}} h_i v_1^m t_1^p \tensor (h, h_i)_{\g} v_2^{-m} t_2^{-p - 1} \bar{d}(t_2)$$
+                            Adding the two summands together then yields:
+                                $$
+                                    \begin{aligned}
+                                        & [\bar{\Delta}(ht), h_i \tensor h_i v_2\1(v_1, v_2) \1^+(t_1, t_2)]
+                                        \\
+                                        = & (h, h_i)_{\g} \sum_{(m, p) \in \Z \x \Z_{\geq 0}} \left( v_1^m t_1^p \bar{d}(t_1)) \tensor h_i v_2^{-m} t_2^{-p - 1} + h_i v_1^m t_1^p \tensor v_2^{-m} t_2^{-p - 1} \bar{d}(t_2) \right)
+                                        \\
+                                        = & (h, h_i)_{\g} ( \bar{d}(t_1) \tensor h_i + h_i \tensor \bar{d}(t_2) ) v_2\1(v_1, v_2) \1^+(t_1, t_2)
+                                    \end{aligned}
+                                $$
+                            
+                            Next, consider the following:
+                                $$
+                                    \begin{aligned}
+                                        & [ht_1 \tensor 1, e_{\alpha}^- \tensor e_{\alpha}^+ v_2\1(v_1, v_2) \1^+(t_1, t_2)]
+                                        \\
+                                        = & \sum_{(m, p) \in \Z \x \Z_{\geq 0}} [ht_1 \tensor 1, e_{\alpha}^- v_1^m t_1^p \tensor e_{\alpha}^+ v_2^{-m} t_2^{-p - 1}]
+                                        \\
+                                        = & \sum_{(m, p) \in \Z \x \Z_{\geq 0}} [ht_1, e_{\alpha}^- v_1^m t_1^p]_{\tilde{\g}_{[2]}^+} \tensor e_{\alpha}^+ v_2^{-m} t_2^{-p - 1}
+                                        \\
+                                        = & \sum_{(m, p) \in \Z \x \Z_{\geq 0}} \left( -\alpha(h) e_{\alpha}^- v_1^m t_1^{p + 1} - (h, e_{\alpha}^-)_{\g} t_1 \bar{d}(v_1^m t_1^p) \right) \tensor e_{\alpha}^+ v_2^{-m} t_2^{-p - 1}
+                                        \\
+                                        = & \sum_{(m, p) \in \Z \x \Z_{\geq 0}} -\alpha(h) e_{\alpha}^- v_1^m t_1^{p + 1} \tensor e_{\alpha}^+ v_2^{-m} t_2^{-p - 1}
+                                        \\
+                                        & = -\alpha(h) ( e_{\alpha}^- \tensor e_{\alpha}^+ ) v_2 \1(v_1, v_2) t_1 \1^+(t_1, t_2)
+                                    \end{aligned}    
+                                $$
+                            wherein the second-to-last identity comes from the fact that\footnote{This can be proven easily by passing to the vector representation of $\g$, wherein $h$ is represented by a diagonal matrix while $e^{\pm}$ is represented by an upper/lower triangular matrix, and then using the fact that $(-, -)_{\g}$ differs from the trace form only by a non-zero constant.}:
+                                $$(h, e^{\pm})_{\g} = 0$$
+                            for every $h \in \h$ and every $e^{\pm} \in \n^{\pm}$. Similarly, we find that:
+                                $$[ht_1 \tensor 1, e_{\alpha}^+ \tensor e_{\alpha}^- v_2\1(v_1, v_2) \1^+(t_1, t_2)] = \alpha(h) ( e_{\alpha}^+ \tensor e_{\alpha}^- ) v_2 \1(v_1, v_2) t_1 \1^+(t_1, t_2)$$
+                            By putting the two together, one obtains:
+                                $$[h t_1 \tensor 1, (e_{\alpha}^- \tensor e_{\alpha}^+ + e_{\alpha}^+ \tensor e_{\alpha}^-) v_2\1(v_1, v_2) \1^+(t_1, t_2)] = -\alpha(h) ( e_{\alpha}^- \tensor e_{\alpha}^+ - e_{\alpha}^+ \tensor e_{\alpha}^- ) v_2 \1(v_1, v_2) t_1 \1^+(t_1, t_2)$$
+                            Likewise, we find that:
+                                $$[1 \tensor h t_2, (e_{\alpha}^- \tensor e_{\alpha}^+ + e_{\alpha}^+ \tensor e_{\alpha}^-) v_2\1(v_1, v_2) \1^+(t_1, t_2)] = \alpha(h) ( e_{\alpha}^- \tensor e_{\alpha}^+ - e_{\alpha}^+ \tensor e_{\alpha}^- ) v_2 \1(v_1, v_2) t_2 \1^+(t_1, t_2)$$
+                            and hence:
+                                $$
+                                    \begin{aligned}
+                                        & [\bar{\Delta}(ht), \sfr_{\g_{[2]}^+}]
+                                        \\
+                                        = & \left( \sum_{i \in \Gamma_0} (h, h_i)_{\g} ( \bar{d}(t_1) \tensor h_i + h_i \tensor \bar{d}(t_2) ) + \sum_{\alpha \in \Phi^+} -\alpha(h) ( e_{\alpha}^- \tensor e_{\alpha}^+ - e_{\alpha}^+ \tensor e_{\alpha}^- )(t_1 - t_2) \right) v_2 \1(v_1, v_2) \1^+(t_1, t_2)
+                                        \\
+                                        & = \left( \bar{d}(t_1) \tensor h + h \tensor \bar{d}(t_2) + [h_1 \tensor 1, \sfr_{\g}] (t_1 - t_2) \right) v_2 \1(v_1, v_2) \1^+(t_1, t_2)
+                                        \\
+                                        & = \left( c_{t_1} \tensor ht_2 + ht_1 \tensor c_{t_2} + [h_1 \tensor 1, \sfr_{\g}] (t_1 - t_2) \right) v_2 \1(v_1, v_2) \1^+(t_1, t_2)
+                                    \end{aligned}
+                                $$
+                                
+                            \item \textbf{($\z_{[2]}^+$-component):} Recall from corollary \ref{coro: extended_toroidal_lie_bialgebras} that:
+                                $$\sfr_{\z_{[2]}^+} := \sum_{(r, s) \in \Z \x \Z_{> 0}} K_{r, s} \tensor D_{r, s} + c_{v_1} \tensor D_{v_2}$$
+                            and so:
+                                $$
+                                    \begin{aligned}
+                                        & [\bar{\Delta}(ht), \sfr_{\z_{[2]}^+}]
+                                        \\
+                                        = & \sum_{(r, s) \in \Z \x \Z_{> 0}} [\bar{\Delta}(ht), K_{r, s} \tensor D_{r, s}] + [\bar{\Delta}(ht), c_{v_1} \tensor D_{v_2}]
+                                        \\
+                                        = & -\sum_{(r, s) \in \Z \x \Z_{> 0}} K_{r, s} \tensor h D_{r, s}(t) + c_{v_1} \tensor h D_{v_2}(t_2)
+                                        \\
+                                        = & -\sum_{(r, s) \in \Z \x \Z_{> 0}} K_{r, s} \tensor r h v_2^{-r} t_2^{-s}
+                                    \end{aligned}
+                                $$
+                            wherein the last equality is due to the fact that:
+                                $$D_{r, s} = -s v^{-r + 1} t^{-s - 1} \del_v + r v^{-r} t^{-s} \del_t$$
+                                $$D_v = v t^{-1} \del_v$$
+                            (cf. remark \ref{remark: dual_of_toroidal_centres_contains_derivations}). 
+                            
+                            \item \textbf{($\d_{[2]}^+$-component):} Recall from corollary \ref{coro: extended_toroidal_lie_bialgebras} that:
+                                $$\sfr_{\z_{[2]}^+} := \sum_{(r, s) \in \Z \x \Z_{\leq 0}} D_{r, s} \tensor K_{r, s} + D_{t_1} \tensor c_{t_2}$$
+                            and so:
+                                $$
+                                    \begin{aligned}
+                                        & [\bar{\Delta}(ht), \sfr_{\z_{[2]}^+}]
+                                        \\
+                                        = & \sum_{(r, s) \in \Z \x \Z_{\leq 0}} [\bar{\Delta}(ht), D_{r, s} \tensor K_{r, s}] + [\bar{\Delta}(ht), D_{t_1} \tensor c_{t_2}]
+                                        \\
+                                        = & \sum_{(r, s) \in \Z \x \Z_{\leq 0}} h D_{r, s}(t_1) \tensor K_{r, s} + h D_{t_1}(t_1) \tensor c_{t_2}
+                                        \\
+                                        = & \sum_{(r, s) \in \Z \x \Z_{\leq 0}} r h v_1^{-r} t_1^{-s} \tensor K_{r, s} + h \tensor c_{t_2}
+                                    \end{aligned}
+                                $$
+                            wherein the last equality is due to the fact that:
+                                $$D_{r, s} = -s v^{-r + 1} t^{-s - 1} \del_v + r v^{-r} t^{-s} \del_t$$
+                                $$D_t = \del_t$$
+                            (cf. remark \ref{remark: dual_of_toroidal_centres_contains_derivations}). 
+                        \end{enumerate}
+                        We now have that:
+                            $$
+                                \begin{aligned}
+                                    & [\bar{\Delta}(ht), \sfr_{\z_{[2]}^+} + \sfr_{\d_{[2]}^+}]
+                                    \\
+                                    = & -\sum_{r \in \Z} r h v_1^{-r} \tensor K_{r, 0} + \sum_{(r, s) \in \Z \x \Z_{> 0}} \left( -K_{r, s} \tensor r h v_2^{-r} t_2^{-s} + r h v_1^{-r} t_1^s \tensor K_{r, -s} \right) + h \tensor c_{t_2}
+                                \end{aligned}
+                            $$
+                        From remark \ref{remark: centres_of_dual_toroidal_lie_bialgebras}, we know that:
+                            $$
+                                K_{r, s} :=
+                                \begin{cases}
+                                    \text{$\frac1s v^{r - 1} t^s \bar{d}(v)$ if $(r, s) \in \Z \x (\Z \setminus \{0\})$}
+                                    \\
+                                    \text{$-\frac1r v^r t^{-1} \bar{d}(t)$ if $(r, s) \in \Z \x \{0\}$}
+                                    \\
+                                    \text{$0$ if $(r, s) = (0, 0)$}
+                                \end{cases}
+                            $$
+                        from which one infers that:
+                            $$
+                                \begin{aligned}
+                                    & \sum_{r \in \Z} r h v_1^{-r} \tensor K_{r, 0}
+                                    \\
+                                    = & \sum_{r \in \Z \setminus \{0\}} r h v_1^{-r} \tensor \left( -\frac1r v_2^r t_2^{-1} \bar{d}(t_2) \right)
+                                    \\
+                                    = & -\sum_{r \in \Z \setminus \{0\}} h v_1^{-r} \tensor v_2^r t_2^{-1} \bar{d}(t_2)
+                                    \\
+                                    = & -\sum_{r \in \Z \setminus \{0\}} h v_1^{-r} \tensor v_2^r c_{t_2}
+                                \end{aligned}
+                            $$
+                        whenever $r \in \Z \setminus \{0\}$; in particular, the information that we wish to extract from this computation is that:
+                            $$
+                                \begin{aligned}
+                                    & -\sum_{r \in \Z} r h v_1^{-r} \tensor K_{r, 0} + h \tensor c_{t_2}
+                                    \\
+                                    = & \sum_{r \in \Z \setminus \{0\}} h v_1^{-r} \tensor v_2^r c_{t_2} + h \tensor c_{t_2}
+                                    \\
+                                    = & \sum_{r \in \Z} h v_1^{-r} \tensor v_2^r c_{t_2}
+                                    \\
+                                    = & (h \tensor c_{t_2}) v_2 \1(v_1, v_2)
+                                \end{aligned}
+                            $$
+                        Next, recall again from remark \ref{remark: centres_of_dual_toroidal_lie_bialgebras} that:
+                            $$(r, s) \in (\Z \setminus \{0\})^2 \implies K_{r, s} = -\frac1s v^{r - 1} t^s \bar{d}(v) = \frac1r v^r t^{s - 1} \bar{d}(t) \in \bar{\Omega}_{[2]}$$
+                        and then consider the following:
+                            $$
+                                \begin{aligned}
+                                    & \sum_{(r, s) \in \Z \x \Z_{> 0}} \left( -K_{r, s} \tensor r h v_2^{-r} t_2^{-s} + r h v_1^{-r} t_1^s \tensor K_{r, -s} \right)
+                                    \\
+                                    = & \sum_{(r, s) \in (\Z \setminus \{0\}) \x \Z_{> 0}} \left( -\frac1r v_1^r t_1^{s - 1} \bar{d}(t_1) \tensor r h v_2^{-r} t_2^{-s} + r h v_1^{-r} t_1^s \tensor \frac1r v_2^r t_2^{-s - 1} \bar{d}(t_2) \right)
+                                    \\
+                                    = & \sum_{(r, s) \in (\Z \setminus \{0\}) \x \Z_{> 0}} \left( -v_1^r t_1^{s - 1} \bar{d}(t_1) \tensor h v_2^{-r} t_2^{-s} + h v_1^{-r} t_1^s \tensor v_2^r t_2^{-s - 1} \bar{d}(t_2) \right)
+                                    \\
+                                    = & ( c_{t_1} \tensor h + h \tensor c_{t_2} ) \sum_{(r, s) \in (\Z \setminus \{0\}) \x \Z_{> 0}} \left( -v_1^r t_1^s v_2^{-r} t_2^{-s} + v_1^{-r} t_1^s v_2^r t_2^{-s} \right)
+                                \end{aligned}
+                            $$
+                        wherein we note that for all $s \in \Z_{> 0}$, the summands corresponding to the indices $(0, s)$ vanish. Together, these facts imply that:
+                            $$[\bar{\Delta}(ht), \sfr_{\z_{[2]}^+} + \sfr_{\d_{[2]}^+}] = (h \tensor c_{t_2}) v_2 \1(v_1, v_2) + $$
+
+                        We can now add the three components together to yield:
+                            $$
+                                \begin{aligned}
+                                    & [\bar{\Delta}(ht), \sfr_{\hat{\g}_{[2]}^+}]
+                                    \\
+                                    = & [ \bar{\Delta}(ht), \sfr_{\g_{[2]}^+} + (\sfr_{\z_{[2]}^+} + \sfr_{\d_{[2]}^+}) ]
+                                    \\
+                                    = &
+                                \end{aligned}
+                            $$
+                        
+                        \item In order to compute $\hat{\delta}^+(t c_v)$, let us firstly use the fact that:
+                            $$v^m t^p \bar{d}(v^n t^q) = \delta_{(m, p) + (n, q), (0, 0)} ( n c_v + q c_t ) + (np - mq) K_{m + n, p + q}$$
+                        (cf. remark \ref{remark: centres_of_dual_toroidal_lie_bialgebras}) to see that:
+                            $$t c_v = v^{-1} t c_v = K_{0, 1}$$
+                        \begin{enumerate}
+                            \item \textbf{($\g_{[2]}^+$-component):} Since $K_{0, 1} \in \z_{[2]}^+$ (which in particular means that it commutes with all elements of $\g_{[2]}$) and:
+                                $$\sfr_{\g_{[2]}^+} = \sfr_{\g} v_2 \1(v_1, v_2) \1^+(t_1, t_2)$$
+                            it is clear that:
+                                $$[\bar{\Delta}(K_{0, 1}), \sfr_{\g_{[2]}^+}] = 0$$
+                            \item \textbf{($\z_{[2]}^+$-component):} Recall from corollary \ref{coro: extended_toroidal_lie_bialgebras} that:
+                                $$\sfr_{\z_{[2]}^+} := \sum_{(r, s) \in \Z \x \Z_{> 0}} K_{r, s} \tensor D_{r, s} + c_{v_1} \tensor D_{v_2}$$
+                            and so:
+                                $$
+                                    \begin{aligned}
+                                        & [\bar{\Delta}(K_{0, 1}), \sfr_{\z_{[2]}^+}] 
+                                        \\
+                                        = & \sum_{(r, s) \in \Z \x \Z_{> 0}} [\bar{\Delta}(K_{0, 1}), K_{r, s} \tensor D_{r, s}] + [\bar{\Delta}(K_{0, 1}), c_{v_1} \tensor D_{v_2}]
+                                        \\
+                                        = & \sum_{(r, s) \in \Z \x \Z_{> 0}} K_{r, s} \tensor [K_{0, 1}, D_{r, s}] + c_{v_1} \tensor [K_{0, 1}, D_{v_2}]
+                                    \end{aligned}
+                                $$
+                            \item \textbf{($\d_{[2]}^+$-component):} Recall from corollary \ref{coro: extended_toroidal_lie_bialgebras} that:
+                                $$\sfr_{\z_{[2]}^+} := \sum_{(r, s) \in \Z \x \Z_{\leq 0}} K_{r, s} \tensor D_{r, s} + c_{v_1} \tensor D_{v_2}$$
+                            and so:
+                                $$
+                                    \begin{aligned}
+                                        & [\bar{\Delta}(K_{0, 1}), \sfr_{\z_{[2]}^+}] 
+                                        \\
+                                        = & \sum_{(r, s) \in \Z \x \Z_{\leq 0}} [\bar{\Delta}(K_{0, 1}), D_{r, s} \tensor K_{r, s}] + [\bar{\Delta}(K_{0, 1}), D_{t_1} \tensor c_{v_2}]
+                                        \\
+                                        = & \sum_{(r, s) \in \Z \x \Z_{\leq 0}} [D_{r, s}, K_{0, 1}] \tensor K_{r, s} + [D_{t_1}, K_{0, 1}] \tensor c_{t_2}
+                                    \end{aligned}
+                                $$
+                        \end{enumerate}
+                    \end{enumerate}
                 \end{proof}
             \begin{theorem}[Toroidal Lie algebras as classical limits of affine Yangians] \label{theorem: toroidal_lie_algebras_as_classical_limits_of_affine_yangians}
                 The complete topological Lie bialgebra $(\tilde{\g}_{[2]}^+, \tilde{\delta}^+)$ as in lemma \ref{lemma: toroidal_lie_bialgebras} is the classical limit\footnote{\say{Quasi-classical} in the terminologies of \cite{etingof_kazhdan_quantisation_1}.} of the complete topological bialgebra $(\rmY_{\hbar}(\hat{\g}_{[1]}), \Delta_{\hbar})$.
