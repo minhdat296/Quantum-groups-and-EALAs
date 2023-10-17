@@ -6,13 +6,13 @@
 
 \begin{document}
 
-    \title{Toroidal Lie bialgebras and classical limits of affine Yangians}
+    \title{Toroidal Lie bialgebras as classical limits of affine Yangians}
     
     \author{Dat Minh Ha}
     \maketitle
     
     \begin{abstract}
-        
+        These are some notes on the construction of certain topological Lie bialgebras - so-called \say{toroidal Lie bialgebras} - which shall be demonstrated to be the classical limits of formal Yangians associated to affine Kac-Moody algebras (outside of types $\sfA_1^{(1)}$ and $\sfA_1^{(2)}$). As toroidal Lie algebras have non-trivial centres, thereby forcing any invariant bilinear form thereon to be degenerate, the construction of the aforementioned toroidal Lie bialgebra structures necessitates enlarging the toroidal Lie algebras to so-called \say{extended toroidal Lie algebras}, on which invariant bilinear form can be non-degenerate, which permits the construction of Manin triples from which Lie bialgebra structures can arise.
     \end{abstract}
     
     {
@@ -62,7 +62,7 @@
             \end{itemize}
         \end{convention}
     
-        \subsection{A Lie bialgebra structure on the multiloop Lie algebra \texorpdfstring{$\g_{[2]}^+$}{}}
+        \subsection{A Lie bialgebra structure on the \texorpdfstring{$2$}{}-loop Lie algebra \texorpdfstring{$\g_{[2]}$}{}}
             \begin{definition} \label{def: residue_form_on_loop_algebra}
                 For $v$ a formal variable, we can extend the invariant inner product $(-, -)_{\g}$ to the following pairing on $\g[v^{\pm 1}]$ by defining:
                     $$(x f(v), y g(v))_{\g[v^{\pm 1}]} := (x, y)_{\g} \Res_{v = 0}( v^{-1} f(v) g(v) )$$
@@ -138,7 +138,7 @@
                     \end{enumerate}
                 \end{proof}
 
-        \subsection{Failing to extend the Lie bialgebra structure to the universal central extension \texorpdfstring{$\uce( \g_{[2]}^+ )$}{}}
+        \subsection{Failing to extend the Lie bialgebra structure to the universal central extension \texorpdfstring{$\tilde{\g}_{[2]}$}{}}
             \begin{question} \label{question: extending_invariant_inner_products_on_multi_loop_to_universal_central_extensions}
                 \begin{enumerate}
                     \item Prove that there is a unique invariant symmetric bilinear form $(-, -)_{\tilde{\g}_{[2]}}$ on $\t$ whose restriction to $\g_{[2]}$ coincides with $(-, -)_{\g_{[2]}}$.
@@ -317,7 +317,7 @@
                     $$\deg c_v = \deg c_t = -1$$
             \end{remark}
 
-        \subsection{Extending \texorpdfstring{$ \uce(\g[v^{\pm}, t]) $}{} to fix degeneracy}
+        \subsection{Extending \texorpdfstring{$\tilde{\g}_{[2]}$}{} to fix degeneracy}
             We now attempt to fix the issue whereby any bilinear form on $\tilde{\g}_{[2]}:= \uce(\g_{[2]})$ is necessarily degenerate. We do this by formally introducing a \say{complementary} vector space $\d_{[2]}$ whose elements shall pair non-degenerately with those of $\z_{[2]}$. 
             \begin{convention} \label{conv: orthogonal_complement_of_toroidal_centres}
                 From now on, $\d_{[2]}$ shall be the $\bbC$-vector space:
@@ -1070,7 +1070,7 @@
                                 \begin{aligned}
                                     & [\bar{\Delta}(ht), \sfr_{\z_{[2]}^+} + \sfr_{\d_{[2]}^+}]
                                     \\
-                                    = & \sum_{r \in \Z} r h v_1^{-r} \tensor K_{r, 0} + \sum_{(r, s) \in \Z \x \Z_{> 0}} \left( K_{r, s} \tensor r h v_2^{-r} t_2^{-s} - r h v_1^{-r} t_1^s \tensor K_{r, -s} \right) + h \tensor c_{t_2}
+                                    = & \sum_{(r, s) \in \Z \x \Z_{> 0}} \left( K_{r, s} \tensor r h v_2^{-r} t_2^{-s} - r h v_1^{-r} t_1^s \tensor K_{r, -s} \right) - \sum_{r \in \Z} r h v_1^{-r} \tensor K_{r, 0} + h \tensor c_{t_2}
                                 \end{aligned}
                             $$
                         From remark \ref{remark: centres_of_dual_toroidal_lie_algebras}, we know that:
@@ -1095,45 +1095,51 @@
                                     \\
                                     = & -\sum_{r \in \Z \setminus \{0\}} h v_1^{-r} \tensor v_2^r t_2^{-1} \bar{d}(t_2)
                                     \\
-                                    = & -(h \tensor \bar{d}(t_2)) \sum_{r \in \Z \setminus \{0\}} v_1^{-r} v_2^r t_2^{-1}
+                                    = & -(h \tensor \bar{d}(t_2)) \left( \sum_{r \in \Z \setminus \{0\}} v_1^{-r} v_2^r \right) t_2^{-1}
                                 \end{aligned}
                             $$
-                        whenever $r \in \Z \setminus \{0\}$. Next, recall again from remark \ref{remark: centres_of_dual_toroidal_lie_algebras} that:
+                        whenever $r \in \Z \setminus \{0\}$; in particular, this implies that:
+                            $$
+                                \begin{aligned}
+                                    & -\sum_{r \in \Z} r h v_1^{-r} \tensor K_{r, 0} + h \tensor c_{t_2}
+                                    \\
+                                    = & (h \tensor \bar{d}(t_2)) \left( \sum_{r \in \Z \setminus \{0\}} v_1^{-r} v_2^r \right) t_2^{-1} + (h \tensor \bar{d}(t_2)) t_2^{-1}
+                                    \\
+                                    = & (h \tensor \bar{d}(t_2)) \left( \sum_{r \in \Z} v_1^{-r} v_2^r \right) t_2^{-1}
+                                \end{aligned}
+                            $$
+                            
+                        Next, recall again from remark \ref{remark: centres_of_dual_toroidal_lie_algebras} that:
                             $$(r, s) \in (\Z \setminus \{0\})^2 \implies K_{r, s} = \frac1s v^{r - 1} t^s \bar{d}(v) = -\frac1r v^r t^{s - 1} \bar{d}(t) \in \bar{\Omega}_{[2]}$$
                         and then consider the following:
                             $$
                                 \begin{aligned}
                                     & \sum_{(r, s) \in \Z \x \Z_{> 0}} \left( K_{r, s} \tensor r h v_2^{-r} t_2^{-s} - r h v_1^{-r} t_1^s \tensor K_{r, -s} \right)
                                     \\
-                                    = & \sum_{(r, s) \in (\Z \setminus \{0\}) \x \Z_{> 0}} \left( -\frac1r v_1^r t_1^{s - 1} \bar{d}(t_1) \tensor r h v_2^{-r} t_2^{-s} - r h v_1^{-r} t_1^s \tensor \left(-\frac1r v_2^r t_2^{s - 1} \bar{d}(t_2)\right) \right)
+                                    = & \sum_{(r, s) \in \Z \x \Z_{> 0}} \left( -\frac1r v_1^r t_1^{s - 1} \bar{d}(t_1) \tensor r h v_2^{-r} t_2^{-s} - r h v_1^{-r} t_1^s \tensor \left(-\frac1r v_2^r t_2^{-s - 1} \bar{d}(t_2)\right) \right)
                                     \\
-                                    = & \sum_{(r, s) \in (\Z \setminus \{0\}) \x \Z_{> 0}} \left( -v_1^r t_1^{s - 1} \bar{d}(t_1) \tensor h v_2^{-r} t_2^{-s} + h v_1^{-r} t_1^s \tensor v_2^r t_2^{s - 1} \bar{d}(t_2) \right)
+                                    = & \sum_{(r, s) \in \Z \x \Z_{> 0}} \left( -v_1^r t_1^{s - 1} \bar{d}(t_1) \tensor h v_2^{-r} t_2^{-s} + h v_1^{-r} t_1^s \tensor v_2^r t_2^{-s - 1} \bar{d}(t_2) \right)
                                     \\
-                                    = & ( \bar{d}(t_1) \tensor h + h \tensor \bar{d}(t_2) ) \sum_{(r, s) \in (\Z \setminus \{0\}) \x \Z_{> 0}} \left( -v_1^r t_1^{s - 1} \tensor v_2^{-r} t_2^{-s} + v_1^{-r} t_1^s \tensor v_2^r t_2^{s - 1} \right)
-                                    \\
-                                    = & \left( \bar{d}(t_1) \tensor h + h \tensor \bar{d}(t_2) \right) v_2 \1(v_1, v_2) \1^+(t_1, t_2) - 
+                                    = & ( \bar{d}(t_1) \tensor h + h \tensor \bar{d}(t_2) ) \sum_{(r, s) \in \Z \x \Z_{> 0}} \left( -v_1^r t_1^{s - 1} \tensor v_2^{-r} t_2^{-s} + v_1^{-r} t_1^s \tensor v_2^r t_2^{-s - 1} \right)
                                 \end{aligned}
                             $$
-                        wherein we note that for all $s \in \Z_{> 0}$, the summands corresponding to the indices $(0, s)$ vanish. Together, these facts imply that:
+                        wherein we note that for all $s \in \Z_{> 0}$, the summands corresponding to the indices $(0, s)$ vanish.
+
+                        We now have that:
                             $$
                                 \begin{aligned}
                                     & [\bar{\Delta}(ht), \sfr_{\z_{[2]}^+} + \sfr_{\d_{[2]}^+}]
                                     \\
+                                    = & ( \bar{d}(t_1) \tensor h + h \tensor \bar{d}(t_2) ) \sum_{(r, s) \in \Z \x \Z_{> 0}} \left( -v_1^r t_1^{s - 1} \tensor v_2^{-r} t_2^{-s} + v_1^{-r} t_1^s \tensor v_2^r t_2^{-s - 1} \right) + (h \tensor \bar{d}(t_2)) \left( \sum_{r \in \Z} v_1^{-r} v_2^r \right) t_2^{-1}
+                                    \\
+                                    = & ( \bar{d}(t_1) \tensor h + h \tensor \bar{d}(t_2) ) \sum_{(r, s) \in \Z \x \Z_{\geq 0}} \left( -v_1^r t_1^{s - 1} \tensor v_2^{-r} t_2^{-s} + v_1^{-r} t_1^s \tensor v_2^r t_2^{-s - 1} \right)
+                                    \\
                                     = & \left( \bar{d}(t_1) \tensor h + h \tensor \bar{d}(t_2) \right) v_2 \1(v_1, v_2) \1^+(t_1, t_2)
                                 \end{aligned}
                             $$
-                        wherein the second-to-last equality holds as the first summand in the previous equation corresponds to indices $(r, 0) \in (\Z \setminus \{0\}) \x \{0\}$ while the third summand corresponds to the index $(0, 0) \in \Z \x \Z_{\geq 0}$; this is precisely as we claimed above. 
 
                         We can now add the three components together to yield:
-                            $$
-                                \begin{aligned}
-                                    & [\bar{\Delta}(ht), \sfr_{\hat{\g}_{[2]}^+}]
-                                    \\
-                                    = & [ \bar{\Delta}(ht), \sfr_{\g_{[2]}^+} + (\sfr_{\z_{[2]}^+} + \sfr_{\d_{[2]}^+}) ]
-                                    \\
-                                    = & [h_1 \tensor 1] v_2 \1(v_1, v_2)
-                                \end{aligned}
-                            $$
+                            $$[\bar{\Delta}(ht), \sfr_{\hat{\g}_{[2]}^+}] = [ \bar{\Delta}(ht), \sfr_{\g_{[2]}^+} + (\sfr_{\z_{[2]}^+} + \sfr_{\d_{[2]}^+}) ] =  [h_1 \tensor 1] v_2 \1(v_1, v_2)$$
                         
                         \item Finally, in order to compute $\hat{\delta}^+(t c_v)$, let us simply note that because:
                             $$\deg t = 1, \deg c_v = -1$$
