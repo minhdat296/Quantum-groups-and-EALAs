@@ -904,9 +904,11 @@
                     
                 If we now take $V = W = \rmU(\tilde{\g}_{[2]})$ then the claim from above would read:
                     $$\sfr_{\tilde{\g}_{[2]}^+} \in ( \rmU(\tilde{\g}_{[2]}^+) \tensor_{\bbC} \rmU(\tilde{\g}_{[2]}^-) )_{-1}$$
-                with the $\Z$-grading on $\tilde{\g}_{[2]}^{\pm}$ (and hence on $\rmU(\tilde{\g}_{[2]}^{\pm})$) being the one on the second variable $t$, and actually, this is entirely due to:
+                with the $\Z$-grading on $\tilde{\g}_{[2]}^{\pm}$ (and hence on $\rmU(\tilde{\g}_{[2]}^{\pm})$) being the one on the second variable $t$ (cf. remark \ref{remark: Z_gradings_on_toroidal_lie_algebras}), and actually, this is entirely due to:
                     $$\sfr_{\g_{[2]}^+} \in ( \rmU(\g_{[2]}^+) \tensor_{\bbC} \rmU(\g_{[2]}^-) )_{-1}$$
-                and this can already be inferred from the computations done in question \ref{question: multiloop_lie_bialgebras}.
+                and this can already be inferred from the computations done in question \ref{question: multiloop_lie_bialgebras}, where we showed that:
+                    $$\sfr_{\g_{[2]}^+} = \sfr_{\g} v_2 \1(v_1, v_2) \1^+(t_1, t_2)$$
+                (the crucial detail to notice here is that $\deg \1^+(t_1, t_2) = -1$ since $\1^+(t_1, t_2) := \sum_{p \in \Z_{\geq 0}} t_1^p t_2^{-p - 1}$).
 
                 What this means for us is that, should we have $X \in \tilde{\g}_{[2]}^+$ such that:
                     $$\deg X \leq 0$$
@@ -914,7 +916,7 @@
                     $$\delta_{\tilde{\g}_{[2]}^+}(X) = 0$$
             \end{remark}
             
-            We are now finally able to put a Lie cobracket on the toroidal Lie algebra $\tilde{\g}_{[2]}^+$, compatible with the Lie bracket thereon in a manner that produces a Lie bialgebra structure. This Lie bialgebra structure is the classical limit of the coproduct on the formal Yangian $\rmY_{\h}(\hat{\g}_{[1]})$. 
+            We are now finally able to put a Lie cobracket on the toroidal Lie algebra $\tilde{\g}_{[2]}^+$, compatible with the Lie bracket thereon in a manner that produces a Lie bialgebra structure. This Lie bialgebra structure is the classical limit of the coproduct on the formal Yangian $\rmY_{\hbar}(\hat{\g}_{[1]})$. 
             \begin{lemma}[Toroidal Lie bialgebras] \label{lemma: toroidal_lie_bialgebras}
                 Assume convention \ref{conv: a_fixed_untwisted_affine_kac_moody_algebra} and let us abbreviate:
                     $$\hat{\delta}^+ := \delta_{\hat{\g}_{[2]}^+}$$
@@ -1057,7 +1059,10 @@
                                 $$D_t = \del_t$$
                             (cf. remark \ref{remark: dual_of_toroidal_centres_contains_derivations}). 
                         \end{enumerate}
-                        We now have that:
+
+                        We now claim that:
+                            $$[\bar{\Delta}(ht), \sfr_{\z_{[2]}^+} + \sfr_{\d_{[2]}^+}] = -( c_{t_1} \tensor ht_2 + ht_1 \tensor c_{t_2} ) v_2 \1(v_1, v_2) \1^+(t_1, t_2)$$
+                        and to prove that this is the case, let us first note that we now have that:
                             $$
                                 \begin{aligned}
                                     & [\bar{\Delta}(ht), \sfr_{\z_{[2]}^+} + \sfr_{\d_{[2]}^+}]
@@ -1115,7 +1120,17 @@
                                 \end{aligned}
                             $$
                         wherein we note that for all $s \in \Z_{> 0}$, the summands corresponding to the indices $(0, s)$ vanish. Together, these facts imply that:
-                            $$[\bar{\Delta}(ht), \sfr_{\z_{[2]}^+} + \sfr_{\d_{[2]}^+}] = (h \tensor c_{t_2}) v_2 \1(v_1, v_2) + $$
+                            $$
+                                \begin{aligned}
+                                    & [\bar{\Delta}(ht), \sfr_{\z_{[2]}^+} + \sfr_{\d_{[2]}^+}]
+                                    \\
+                                    = & (h \tensor c_{t_2}) v_2 \1(v_1, v_2) + \sum_{(r, s) \in (\Z \setminus \{0\}) \x \Z_{> 0}} \left( -v_1^r t_1^s c_{t_1} \tensor h v_2^{-r} t_2^{-s} + h v_1^{-r} t_1^s \tensor v_2^r t_2^{-s} c_{t_2} \right)
+                                    \\
+                                    = & -\sum_{(r, s) \in (\Z \setminus \{0\}) \x \Z_{> 0}} v_1^r t_1^s c_{t_1} \tensor h v_2^{-r} t_2^{-s} + \sum_{(r, s) \in (\Z \setminus \{0\}) \x \Z_{\geq 0}} h v_1^{-r} t_1^s \tensor v_2^r t_2^{-s} c_{t_2} 
+                                    \\
+                                    = & + (h )
+                                \end{aligned}Ư
+                            $$
 
                         We can now add the three components together to yield:
                             $$
@@ -1154,11 +1169,11 @@
                     
                 \end{proof}
 
-    %\begin{appendices}
-        %\input{Notes/yangian category O}
+    \begin{appendices}
+        \input{Notes/yangian category O}
     
-        %\input{Notes/vertex representations and yangian PBW}
-    %\end{appendices}
+        \input{Notes/vertex representations and yangian PBW}
+    \end{appendices}
             
     \addcontentsline{toc}{section}{References}
     \printbibliography
