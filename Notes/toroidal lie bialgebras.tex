@@ -73,9 +73,10 @@
             \end{definition}
             \begin{definition} \label{def: residue_form_on_multi_loop_algebra}
                 Now, let $(-, -)_{\g[v^{\pm 1}]}$ be as in definition \ref{def: residue_form_on_loop_algebra}. This can be extended furthermore to $\g_{[2]}$ in the following manner: for all $X(v), Y(v) \in \g[v^{\pm 1}]$ and all $f(t), g(t) \in \bbC[t^{\pm 1}]$, define:
-                    $$(X(v) f(t), Y(v) g(t))_{\g_{[2]}} := (X(v), Y(v))_{\g[v^{\pm 1}]} \Res_{t = 0}( f(t) g(t) )$$
+                    $$(X(v) f(t), Y(v) g(t))_{\g_{[2]}} := -(X(v), Y(v))_{\g[v^{\pm 1}]} \Res_{t = 0}( f(t) g(t) )$$
                 More algebraically, we can define this as:
-                    $$(X(v) f(t), Y(v) g(t))_{\g_{[2]}} := (X(v), Y(v))_{\g[v^{\pm 1}]} \delta_{m + n, -1}$$
+                    $$(X(v) f(t), Y(v) g(t))_{\g_{[2]}} := -(X(v), Y(v))_{\g[v^{\pm 1}]} \delta_{m + n, -1}$$
+                In both cases, the appearance of the minus sign is a crucial choice for our purposes. 
             \end{definition}
 
             \begin{question} \label{question: multiloop_lie_bialgebras}
@@ -112,9 +113,9 @@
                                 \begin{aligned}
                                     \sfr_{\g_{[2]}^+} & := \sum_{1 \leq i \leq \dim_{\bbC} \g} \sum_{m \in \Z} \sum_{p \in \Z_{\geq 0}} x_i v_1^m t_1^p \tensor x_i^* v_2^{-m} t_2^{-p - 1}
                                     \\
-                                    & = \left( \sum_{1 \leq i \leq \dim_{\bbC} \g} x_i \tensor x_i^* \right) \left( v_2 \sum_{m \in \Z} v_1^m v_2^{-m - 1} \right) \left( t_2^{-1} \sum_{p \in \Z_{\geq 0}} (t_1 t_2^{-1})^p \right)
+                                    & = -\left( \sum_{1 \leq i \leq \dim_{\bbC} \g} x_i \tensor x_i^* \right) \left( v_2 \sum_{m \in \Z} v_1^m v_2^{-m - 1} \right) \left( t_2^{-1} \sum_{p \in \Z_{\geq 0}} (t_1 t_2^{-1})^p \right)
                                     \\
-                                    & = \sfr_{\g} v_2 \1(v_1, v_2) \1^+(t_1, t_2)
+                                    & = -\sfr_{\g} v_2 \1(v_1, v_2) \1^+(t_1, t_2)
                                 \end{aligned}
                             $$
                         wherein:
@@ -129,9 +130,9 @@
                         When $X(v, t) := x v^m t^p$ for some $x \in \g, m \in \Z, t \in \Z_{\geq 0}$, this can written out more explicitly as follows:
                             $$
                                 \begin{aligned}
-                                    \delta_{\g_{[2]}^+}( x v^m t^p ) & = \left[x v_1^m t_1^p \tensor 1 + 1 \tensor x v_2^m t_2^p, \sfr_{\g} v_2 \1(v_1, v_2) \1^+(t_1, t_2)\right]
+                                    \delta_{\g_{[2]}^+}( x v^m t^p ) & = -\left[x v_1^m t_1^p \tensor 1 + 1 \tensor x v_2^m t_2^p, \sfr_{\g} v_2 \1(v_1, v_2) \1^+(t_1, t_2)\right]
                                     \\
-                                    & = [x \tensor 1 + 1 \tensor x, \sfr_{\g}] \cdot v_1^m t_1^p \cdot v_2^m t_2^p \cdot v_2 \1(v_1, v_2) \1^+(t_1, t_2)
+                                    & = -[x \tensor 1 + 1 \tensor x, \sfr_{\g}] \cdot v_1^m t_1^p \cdot v_2^m t_2^p \cdot v_2 \1(v_1, v_2) \1^+(t_1, t_2)
                                 \end{aligned}
                             $$
                     \end{enumerate}
@@ -377,23 +378,25 @@
                                 \\
                                 & = \sum_{(a, b) \in \Z^2} \left( \lambda_{a, b}(x) v^a t^b, y v^n t^q \right)_{\g_{[2]}}
                                 \\
-                                & = \sum_{(a, b) \in \Z^2} (\lambda_{a, b}(x), y)_{\g} \delta_{ (a, b) + (n, q), (0, -1) }
+                                & = -\sum_{(a, b) \in \Z^2} (\lambda_{a, b}(x), y)_{\g} \delta_{ (a, b) + (n, q), (0, -1) }
                                 \\
-                                & = (\lambda_{-n, -q - 1}(x), y)_{\g}
+                                & = -(\lambda_{-n, -q - 1}(x), y)_{\g}
                             \end{aligned}
                         $$
                     which tells us that:
-                        $$-(x, y)_{\g} (np - mq) \delta_{(r, s), (m + n, p + q)} = (\lambda_{-n, -q - 1}(x), y)_{\g}$$
+                        $$-(x, y)_{\g} (np - mq) \delta_{(r, s), (m + n, p + q)} = -(\lambda_{-n, -q - 1}(x), y)_{\g}$$
                     The non-degeneracy of the inner product $(-, -)_{\g}$ as well as the arbitrariness of the choices of $y \in \g$ and $(n, q) \in \Z^2$ then together imply that:
-                        $$\lambda_{-n, -q - 1}(x) = -(np - mq) \delta_{(r, s), (m + n, p + q)}$$
+                        $$\lambda_{-n, -q - 1}(x) = (np - mq) \delta_{(r, s), (m + n, p + q)}$$
                     for any fixed choices of $x \in \g$ and $(m, p) \in \Z^2$. From this, we infer that:
                         $$
                             \begin{aligned}
                                 [D_{r, s}, x v^m t^p]_{\hat{\g}_{[2]}} & = \sum_{(n, q) \in \Z^2} -(np - mq) \delta_{(r, s), (m + n, p + q)} v^{-n} t^{-q - 1} + K_{(m, p), (r, s)}(x) + \xi_{(m, p), (r, s)}(x)
                                 \\
-                                & = ( (r - m)p - m(s - p) ) x v^{m - r} t^{p - s - 1} + K_{(m, p), (r, s)}(x) + \xi_{(m, p), (r, s)}(x)
+                                & = -( (r - m)p - m(s - p) ) x v^{m - r} t^{p - s - 1} + K_{(m, p), (r, s)}(x) + \xi_{(m, p), (r, s)}(x)
                                 \\
-                                & = ( rp - ms ) x v^{m - r} t^{p - s - 1} + K_{(m, p), (r, s)}(x) + \xi_{(m, p), (r, s)}(x)
+                                & = -( rp - ms ) x v^{m - r} t^{p - s - 1} + K_{(m, p), (r, s)}(x) + \xi_{(m, p), (r, s)}(x)
+                                \\
+                                & = ( ms - rp ) x v^{m - r} t^{p - s - 1} + K_{(m, p), (r, s)}(x) + \xi_{(m, p), (r, s)}(x)
                             \end{aligned}
                         $$
                         
@@ -444,19 +447,19 @@
                                 \\
                                 & = \sum_{(a, b) \in \Z^2} \left( \lambda_{a, b}(x) v^a t^b, y v^n t^q \right)_{\g_{[2]}}
                                 \\
-                                & = \sum_{(a, b) \in \Z^2} (\lambda_{a, b}(x), y)_{\g} \delta_{ (a, b) + (n, q), (0, -1) }
+                                & = -\sum_{(a, b) \in \Z^2} (\lambda_{a, b}(x), y)_{\g} \delta_{ (a, b) + (n, q), (0, -1) }
                                 \\
-                                & = (\lambda_{-n, -q - 1}(x), y)_{\g}
+                                & = -(\lambda_{-n, -q - 1}(x), y)_{\g}
                             \end{aligned}
                         $$
                     From this, we are able to conclude that:
-                        $$-(x, y)_{\g} \delta_{(m, p) + (n, q), (0, 0)} n = (\lambda_{-n, -q - 1}(x), y)_{\g}$$
+                        $$(x, y)_{\g} \delta_{(m, p) + (n, q), (0, 0)} n = (\lambda_{-n, -q - 1}(x), y)_{\g}$$
                     As this holds for all $y \in \g$ and all $(n, q) \in \Z^2$, we can infer from the above and from the non-degeneracy of the inner product $(-, -)_{\g}$ that:
-                        $$\lambda_{-n, -q - 1}(x) = -\delta_{(m, p) + (n, q), (0, 0)} n x$$
+                        $$\lambda_{-n, -q - 1}(x) = \delta_{(m, p) + (n, q), (0, 0)} n x$$
                     for any $x \in \g$ and any $(m, p) \in \Z^2$ (both fixed!), and hence:
                         $$
                             \begin{aligned}
-                                [D_v, x v^m t^p]_{\hat{\g}_{[2]}} & = \sum_{(n, q) \in \Z^2} -\delta_{(m, p) + (n, q), (0, 0)} n x v^{-n} t^{-q - 1} + K_{m, p}(x) + \xi_{m, p}(x)
+                                [D_v, x v^m t^p]_{\hat{\g}_{[2]}} & = \sum_{(n, q) \in \Z^2} \delta_{(m, p) + (n, q), (0, 0)} n x v^{-n} t^{-q - 1} + K_{m, p}(x) + \xi_{m, p}(x)
                                 \\
                                 & = m x v^m t^{p - 1} + K_{m, p}(x) + \xi_{m, p}(x)
                             \end{aligned}
@@ -518,13 +521,13 @@
                     \item Firstly, consider the map:
                         $$D_{r, s}: A_{[2]} \to A_{[2]}$$
                     given for all $(m, p) \in \Z^2$ by:
-                        $$D_{r, s}(v^m t^p) := ( rp - ms ) v^{m - r} t^{p - s - 1}$$
+                        $$D_{r, s}(v^m t^p) := ( ms - rp ) v^{m - r} t^{p - s - 1}$$
                     Then, consider the following wherein $(m, p), (n, q) \in \Z^2$ are arbitrary:
                         $$
                             \begin{aligned}
-                                D_{r, s}(v^m t^p) v^n t^q + v^m t^p D_{r, s}(v^n t^q) & = ( rp - ms ) v^{m + n - r} t^{p + q - s - 1} + ( rq - ns ) v^{m + n - r} t^{p + q - s - 1}
+                                D_{r, s}(v^m t^p) v^n t^q + v^m t^p D_{r, s}(v^n t^q) & = ( ms - rp ) v^{m + n - r} t^{p + q - s - 1} + ( ns - rq ) v^{m + n - r} t^{p + q - s - 1}
                                 \\
-                                & = ( r(p + q) - (m + n)s ) v^{m + n - r} t^{p + q - s - 1}
+                                & = ( (m + n)s - r(p + q) ) v^{m + n - r} t^{p + q - s - 1}
                                 \\
                                 & = D_{r, s}( v^{m + n} t^{p + q} )
                             \end{aligned}
@@ -564,13 +567,13 @@
                             \end{aligned}
                         $$
                     At the same time, we also have that:
-                        $$D_{r, s}(v^m t^p) := ( rp - ms ) v^{m - r} t^{p - s - 1}$$
+                        $$D_{r, s}(v^m t^p) := ( ms - rp ) v^{m - r} t^{p - s - 1}$$
                     and hence:
-                        $$f(v, t) m v^{m - 1} t^p + g(v, t) p v^m t^{p - 1} = ( rp - ms ) v^{m - r} t^{p - s - 1}$$
+                        $$f(v, t) m v^{m - 1} t^p + g(v, t) p v^m t^{p - 1} = ( ms - rp ) v^{m - r} t^{p - s - 1}$$
                     From this, one infers that:
-                        $$f(v, t) = -s v^{-r + 1} t^{-s - 1}, g(v, t) = r v^{-r} t^{-s}$$
+                        $$f(v, t) = s v^{-r + 1} t^{-s - 1}, g(v, t) = -r v^{-r} t^{-s}$$
                     and therefore:
-                        $$D_{r, s} = -s v^{-r + 1} t^{-s - 1} \del_v + r v^{-r} t^{-s} \del_t$$
+                        $$D_{r, s} = s v^{-r + 1} t^{-s - 1} \del_v - r v^{-r} t^{-s} \del_t$$
                     \item One easily checks that:
                         $$D_v = v t^{-1} \del_v$$
                     \item Likewise:
@@ -955,7 +958,7 @@
                                     \begin{aligned}
                                         & [\bar{\Delta}(ht), \sfr_{\g_{[2]}^+}]
                                         \\
-                                        = & \sum_{i \in \Gamma_0} [\bar{\Delta}(ht), h_i \tensor h_i v_2\1(v_1, v_2) \1^+(t_1, t_2)] + \sum_{\alpha \in \Phi^+} [\bar{\Delta}(ht), (e_{\alpha}^- \tensor e_{\alpha}^+ + e_{\alpha}^+ \tensor e_{\alpha}^-) v_2\1(v_1, v_2) \1^+(t_1, t_2)]
+                                        = & -\sum_{i \in \Gamma_0} [\bar{\Delta}(ht), h_i \tensor h_i v_2\1(v_1, v_2) \1^+(t_1, t_2)] - \sum_{\alpha \in \Phi^+} [\bar{\Delta}(ht), (e_{\alpha}^- \tensor e_{\alpha}^+ + e_{\alpha}^+ \tensor e_{\alpha}^-) v_2\1(v_1, v_2) \1^+(t_1, t_2)]
                                     \end{aligned}
                                 $$
 
@@ -1013,11 +1016,11 @@
                                     \begin{aligned}
                                         & [\bar{\Delta}(ht), \sfr_{\g_{[2]}^+}]
                                         \\
-                                        = & \left( \sum_{i \in \Gamma_0} (h, h_i)_{\g} ( \bar{d}(t_1) \tensor h_i + h_i \tensor \bar{d}(t_2) ) + \sum_{\alpha \in \Phi^+} -\alpha(h) ( e_{\alpha}^- \tensor e_{\alpha}^+ - e_{\alpha}^+ \tensor e_{\alpha}^- )(t_1 - t_2) \right) v_2 \1(v_1, v_2) \1^+(t_1, t_2)
+                                        = & -\left( \sum_{i \in \Gamma_0} (h, h_i)_{\g} ( \bar{d}(t_1) \tensor h_i + h_i \tensor \bar{d}(t_2) ) + \sum_{\alpha \in \Phi^+} \alpha(h) ( e_{\alpha}^- \tensor e_{\alpha}^+ - e_{\alpha}^+ \tensor e_{\alpha}^- )(t_2 - t_1) \right) v_2 \1(v_1, v_2) \1^+(t_1, t_2)
                                         \\
-                                        & = \left( \bar{d}(t_1) \tensor h + h \tensor \bar{d}(t_2) - [h_1 \tensor 1, \sfr_{\g}] (t_1 - t_2) \right) v_2 \1(v_1, v_2) \1^+(t_1, t_2)
+                                        & = -\left( \bar{d}(t_1) \tensor h + h \tensor \bar{d}(t_2) + [h_1 \tensor 1, \sfr_{\g}] (t_2 - t_1) \right) v_2 \1(v_1, v_2) \1^+(t_1, t_2)
                                         \\
-                                        & = \left( c_{t_1} \tensor ht_2 + ht_1 \tensor c_{t_2} + [h_1 \tensor 1, \sfr_{\g}] (t_1 - t_2) \right) v_2 \1(v_1, v_2) \1^+(t_1, t_2)
+                                        & = -\left( c_{t_1} \tensor ht_2 + ht_1 \tensor c_{t_2} \right) v_2 \1(v_1, v_2) \1^+(t_1, t_2) + [h_1 \tensor 1, \sfr_{\g}] v_2 \1(v_1, v_2)
                                     \end{aligned}
                                 $$
                                 
@@ -1032,11 +1035,11 @@
                                         \\
                                         = & -\sum_{(r, s) \in \Z \x \Z_{> 0}} K_{r, s} \tensor h D_{r, s}(t) - c_{v_1} \tensor h D_{v_2}(t_2)
                                         \\
-                                        = & -\sum_{(r, s) \in \Z \x \Z_{> 0}} K_{r, s} \tensor r h v_2^{-r} t_2^{-s}
+                                        = & \sum_{(r, s) \in \Z \x \Z_{> 0}} K_{r, s} \tensor r h v_2^{-r} t_2^{-s}
                                     \end{aligned}
                                 $$
                             wherein the last equality is due to the fact that:
-                                $$D_{r, s} = -s v^{-r + 1} t^{-s - 1} \del_v + r v^{-r} t^{-s} \del_t$$
+                                $$D_{r, s} = s v^{-r + 1} t^{-s - 1} \del_v - r v^{-r} t^{-s} \del_t$$
                                 $$D_v = v t^{-1} \del_v$$
                             (cf. remark \ref{remark: dual_of_toroidal_centres_contains_derivations}). 
                             
@@ -1051,23 +1054,23 @@
                                         \\
                                         = & \sum_{(r, s) \in \Z \x \Z_{\leq 0}} h D_{r, s}(t_1) \tensor K_{r, s} + h D_{t_1}(t_1) \tensor c_{t_2}
                                         \\
-                                        = & \sum_{(r, s) \in \Z \x \Z_{\leq 0}} r h v_1^{-r} t_1^{-s} \tensor K_{r, s} + h \tensor c_{t_2}
+                                        = & \sum_{(r, s) \in \Z \x \Z_{\leq 0}} -r h v_1^{-r} t_1^{-s} \tensor K_{r, s} + h \tensor c_{t_2}
                                     \end{aligned}
                                 $$
                             wherein the last equality is due to the fact that:
-                                $$D_{r, s} = -s v^{-r + 1} t^{-s - 1} \del_v + r v^{-r} t^{-s} \del_t$$
+                                $$D_{r, s} = s v^{-r + 1} t^{-s - 1} \del_v - r v^{-r} t^{-s} \del_t$$
                                 $$D_t = \del_t$$
                             (cf. remark \ref{remark: dual_of_toroidal_centres_contains_derivations}). 
                         \end{enumerate}
 
                         We now claim that:
-                            $$[\bar{\Delta}(ht), \sfr_{\z_{[2]}^+} + \sfr_{\d_{[2]}^+}] = -( c_{t_1} \tensor ht_2 + ht_1 \tensor c_{t_2} ) v_2 \1(v_1, v_2) \1^+(t_1, t_2)$$
-                        and to prove that this is the case, let us first note that we now have that:
+                            $$[\bar{\Delta}(ht), \sfr_{\z_{[2]}^+} + \sfr_{\d_{[2]}^+}] = ( c_{t_1} \tensor ht_2 + ht_1 \tensor c_{t_2} ) v_2 \1(v_1, v_2) \1^+(t_1, t_2)$$
+                        (sincee ultimately, we would like to show that $\hat{\delta}^+(ht) = \sfr_{\g} v_2 \1(v_1, v_2)$), and to prove that this is the case, let us first note that we now have that:
                             $$
                                 \begin{aligned}
                                     & [\bar{\Delta}(ht), \sfr_{\z_{[2]}^+} + \sfr_{\d_{[2]}^+}]
                                     \\
-                                    = & -\sum_{r \in \Z} r h v_1^{-r} \tensor K_{r, 0} + \sum_{(r, s) \in \Z \x \Z_{> 0}} \left( -K_{r, s} \tensor r h v_2^{-r} t_2^{-s} + r h v_1^{-r} t_1^s \tensor K_{r, -s} \right) + h \tensor c_{t_2}
+                                    = & \sum_{r \in \Z} r h v_1^{-r} \tensor K_{r, 0} + \sum_{(r, s) \in \Z \x \Z_{> 0}} \left( K_{r, s} \tensor r h v_2^{-r} t_2^{-s} - r h v_1^{-r} t_1^s \tensor K_{r, -s} \right) + h \tensor c_{t_2}
                                 \end{aligned}
                             $$
                         From remark \ref{remark: centres_of_dual_toroidal_lie_algebras}, we know that:
@@ -1093,30 +1096,18 @@
                                     = & -\sum_{r \in \Z \setminus \{0\}} h v_1^{-r} \tensor v_2^r c_{t_2}
                                 \end{aligned}
                             $$
-                        whenever $r \in \Z \setminus \{0\}$; in particular, the information that we wish to extract from this computation is that:
-                            $$
-                                \begin{aligned}
-                                    & -\sum_{r \in \Z} r h v_1^{-r} \tensor K_{r, 0} + h \tensor c_{t_2}
-                                    \\
-                                    = & \sum_{r \in \Z \setminus \{0\}} h v_1^{-r} \tensor v_2^r c_{t_2} + h \tensor c_{t_2}
-                                    \\
-                                    = & \sum_{r \in \Z} h v_1^{-r} \tensor v_2^r c_{t_2}
-                                    \\
-                                    = & (h \tensor c_{t_2}) v_2 \1(v_1, v_2)
-                                \end{aligned}
-                            $$
-                        Next, recall again from remark \ref{remark: centres_of_dual_toroidal_lie_algebras} that:
-                            $$(r, s) \in (\Z \setminus \{0\})^2 \implies K_{r, s} = -\frac1s v^{r - 1} t^s \bar{d}(v) = \frac1r v^r t^{s - 1} \bar{d}(t) \in \bar{\Omega}_{[2]}$$
+                        whenever $r \in \Z \setminus \{0\}$. Next, recall again from remark \ref{remark: centres_of_dual_toroidal_lie_algebras} that:
+                            $$(r, s) \in (\Z \setminus \{0\})^2 \implies K_{r, s} = \frac1s v^{r - 1} t^s \bar{d}(v) = -\frac1r v^r t^{s - 1} \bar{d}(t) \in \bar{\Omega}_{[2]}$$
                         and then consider the following:
                             $$
                                 \begin{aligned}
-                                    & \sum_{(r, s) \in \Z \x \Z_{> 0}} \left( -K_{r, s} \tensor r h v_2^{-r} t_2^{-s} + r h v_1^{-r} t_1^s \tensor K_{r, -s} \right)
+                                    & \sum_{(r, s) \in \Z \x \Z_{> 0}} \left( K_{r, s} \tensor r h v_2^{-r} t_2^{-s} - r h v_1^{-r} t_1^s \tensor K_{r, -s} \right)
                                     \\
-                                    = & \sum_{(r, s) \in (\Z \setminus \{0\}) \x \Z_{> 0}} \left( -\frac1r v_1^r t_1^{s - 1} \bar{d}(t_1) \tensor r h v_2^{-r} t_2^{-s} + r h v_1^{-r} t_1^s \tensor \frac1r v_2^r t_2^{-s - 1} \bar{d}(t_2) \right)
+                                    = & \sum_{(r, s) \in (\Z \setminus \{0\}) \x \Z_{> 0}} \left( \frac1r v_1^r t_1^{s - 1} \bar{d}(t_1) \tensor r h v_2^{-r} t_2^{-s} - r h v_1^{-r} t_1^s \tensor \left(-\frac1r v_2^r t_2^{-s - 1} \bar{d}(t_2)\right) \right)
                                     \\
-                                    = & \sum_{(r, s) \in (\Z \setminus \{0\}) \x \Z_{> 0}} \left( -v_1^r t_1^{s - 1} \bar{d}(t_1) \tensor h v_2^{-r} t_2^{-s} + h v_1^{-r} t_1^s \tensor v_2^r t_2^{-s - 1} \bar{d}(t_2) \right)
+                                    = & \sum_{(r, s) \in (\Z \setminus \{0\}) \x \Z_{> 0}} \left( v_1^r t_1^{s - 1} \bar{d}(t_1) \tensor h v_2^{-r} t_2^{-s} + h v_1^{-r} t_1^s \tensor v_2^r t_2^{-s - 1} \bar{d}(t_2) \right)
                                     \\
-                                    = & \sum_{(r, s) \in (\Z \setminus \{0\}) \x \Z_{> 0}} \left( -v_1^r t_1^s c_{t_1} \tensor h v_2^{-r} t_2^{-s} + h v_1^{-r} t_1^s \tensor v_2^r t_2^{-s} c_{t_2} \right)
+                                    = & \sum_{(r, s) \in (\Z \setminus \{0\}) \x \Z_{> 0}} \left( v_1^r t_1^s c_{t_1} \tensor h v_2^{-r} t_2^{-s} + h v_1^{-r} t_1^s \tensor v_2^r t_2^{-s} c_{t_2} \right)
                                 \end{aligned}
                             $$
                         wherein we note that for all $s \in \Z_{> 0}$, the summands corresponding to the indices $(0, s)$ vanish. Together, these facts imply that:
@@ -1124,13 +1115,14 @@
                                 \begin{aligned}
                                     & [\bar{\Delta}(ht), \sfr_{\z_{[2]}^+} + \sfr_{\d_{[2]}^+}]
                                     \\
-                                    = & (h \tensor c_{t_2}) v_2 \1(v_1, v_2) + \sum_{(r, s) \in (\Z \setminus \{0\}) \x \Z_{> 0}} \left( -v_1^r t_1^s c_{t_1} \tensor h v_2^{-r} t_2^{-s} + h v_1^{-r} t_1^s \tensor v_2^r t_2^{-s} c_{t_2} \right)
+                                    = & \sum_{r \in \Z \setminus \{0\}} hv_1^{-r} \tensor v_2^r c_{t_2} + \sum_{(r, s) \in (\Z \setminus \{0\}) \x \Z_{> 0}} \left( v_1^r t_1^s c_{t_1} \tensor h v_2^{-r} t_2^{-s} + h v_1^{-r} t_1^s \tensor v_2^r t_2^{-s} c_{t_2} \right) + h \tensor c_{t_2}
                                     \\
-                                    = & -\sum_{(r, s) \in (\Z \setminus \{0\}) \x \Z_{> 0}} v_1^r t_1^s c_{t_1} \tensor h v_2^{-r} t_2^{-s} + \sum_{(r, s) \in (\Z \setminus \{0\}) \x \Z_{\geq 0}} h v_1^{-r} t_1^s \tensor v_2^r t_2^{-s} c_{t_2} 
+                                    = & \sum_{(r, s) \in \Z \x \Z_{\geq 0}} \left( v_1^r t_1^s c_{t_1} \tensor h v_2^{-r} t_2^{-s} + h v_1^{-r} t_1^s \tensor v_2^r t_2^{-s} c_{t_2} \right)
                                     \\
-                                    = & + (h )
-                                \end{aligned}Ư
+                                    = & (c_{t_1} \tensor h t_2 + h t_1 \tensor c_{t_2} ) v_2 \1(v_1, v_2) \1^+(t_1, t_2)
+                                \end{aligned}
                             $$
+                        wherein the second-to-last equality holds as the first summand in the previous equation corresponds to indices $(r, 0) \in (\Z \setminus \{0\}) \x \{0\}$ while the third summand corresponds to the index $(0, 0) \in \Z \x \Z_{\geq 0}$; this is precisely as we claimed above. 
 
                         We can now add the three components together to yield:
                             $$
@@ -1139,7 +1131,7 @@
                                     \\
                                     = & [ \bar{\Delta}(ht), \sfr_{\g_{[2]}^+} + (\sfr_{\z_{[2]}^+} + \sfr_{\d_{[2]}^+}) ]
                                     \\
-                                    = &
+                                    = & [h_1 \tensor 1] v_2 \1(v_1, v_2)
                                 \end{aligned}
                             $$
                         
