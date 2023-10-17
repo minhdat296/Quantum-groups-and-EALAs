@@ -1020,7 +1020,7 @@
                                         \\
                                         & = -\left( \bar{d}(t_1) \tensor h + h \tensor \bar{d}(t_2) + [h_1 \tensor 1, \sfr_{\g}] (t_2 - t_1) \right) v_2 \1(v_1, v_2) \1^+(t_1, t_2)
                                         \\
-                                        & = -\left( c_{t_1} \tensor ht_2 + ht_1 \tensor c_{t_2} \right) v_2 \1(v_1, v_2) \1^+(t_1, t_2) + [h_1 \tensor 1, \sfr_{\g}] v_2 \1(v_1, v_2)
+                                        & = -\left( \bar{d}(t_1) \tensor h + h \tensor \bar{d}(t_2) \right) v_2 \1(v_1, v_2) \1^+(t_1, t_2) + [h_1 \tensor 1, \sfr_{\g}] v_2 \1(v_1, v_2)
                                     \end{aligned}
                                 $$
                                 
@@ -1064,8 +1064,8 @@
                         \end{enumerate}
 
                         We now claim that:
-                            $$[\bar{\Delta}(ht), \sfr_{\z_{[2]}^+} + \sfr_{\d_{[2]}^+}] = ( c_{t_1} \tensor ht_2 + ht_1 \tensor c_{t_2} ) v_2 \1(v_1, v_2) \1^+(t_1, t_2)$$
-                        (sincee ultimately, we would like to show that $\hat{\delta}^+(ht) = \sfr_{\g} v_2 \1(v_1, v_2)$), and to prove that this is the case, let us first note that we now have that:
+                            $$[\bar{\Delta}(ht), \sfr_{\z_{[2]}^+} + \sfr_{\d_{[2]}^+}] = \left( \bar{d}(t_1) \tensor h + h \tensor \bar{d}(t_2) \right) v_2 \1(v_1, v_2) \1^+(t_1, t_2)$$
+                        (since ultimately, we would like to show that $\hat{\delta}^+(ht) = \sfr_{\g} v_2 \1(v_1, v_2)$), and to prove that this is the case, let us first note that we now have that:
                             $$
                                 \begin{aligned}
                                     & [\bar{\Delta}(ht), \sfr_{\z_{[2]}^+} + \sfr_{\d_{[2]}^+}]
@@ -1093,7 +1093,9 @@
                                     \\
                                     = & -\sum_{r \in \Z \setminus \{0\}} h v_1^{-r} \tensor v_2^r t_2^{-1} \bar{d}(t_2)
                                     \\
-                                    = & -\sum_{r \in \Z \setminus \{0\}} h v_1^{-r} \tensor v_2^r c_{t_2}
+                                    = & -\sum_{r \in \Z \setminus \{0\}} h v_1^{-r} \tensor v_2^r t_2^{-1} \bar{d}(t_2)
+                                    \\
+                                    = & -(h \tensor \bar{d}(t_2)) \sum_{r \in \Z \setminus \{0\}} v_1^{-r} v_2^r t_2^{-1}
                                 \end{aligned}
                             $$
                         whenever $r \in \Z \setminus \{0\}$. Next, recall again from remark \ref{remark: centres_of_dual_toroidal_lie_algebras} that:
@@ -1103,11 +1105,13 @@
                                 \begin{aligned}
                                     & \sum_{(r, s) \in \Z \x \Z_{> 0}} \left( K_{r, s} \tensor r h v_2^{-r} t_2^{-s} - r h v_1^{-r} t_1^s \tensor K_{r, -s} \right)
                                     \\
-                                    = & \sum_{(r, s) \in (\Z \setminus \{0\}) \x \Z_{> 0}} \left( \frac1r v_1^r t_1^{s - 1} \bar{d}(t_1) \tensor r h v_2^{-r} t_2^{-s} - r h v_1^{-r} t_1^s \tensor \left(-\frac1r v_2^r t_2^{-s - 1} \bar{d}(t_2)\right) \right)
+                                    = & \sum_{(r, s) \in (\Z \setminus \{0\}) \x \Z_{> 0}} \left( -\frac1r v_1^r t_1^{s - 1} \bar{d}(t_1) \tensor r h v_2^{-r} t_2^{-s} - r h v_1^{-r} t_1^s \tensor \left(-\frac1r v_2^r t_2^{s - 1} \bar{d}(t_2)\right) \right)
                                     \\
-                                    = & \sum_{(r, s) \in (\Z \setminus \{0\}) \x \Z_{> 0}} \left( v_1^r t_1^{s - 1} \bar{d}(t_1) \tensor h v_2^{-r} t_2^{-s} + h v_1^{-r} t_1^s \tensor v_2^r t_2^{-s - 1} \bar{d}(t_2) \right)
+                                    = & \sum_{(r, s) \in (\Z \setminus \{0\}) \x \Z_{> 0}} \left( -v_1^r t_1^{s - 1} \bar{d}(t_1) \tensor h v_2^{-r} t_2^{-s} + h v_1^{-r} t_1^s \tensor v_2^r t_2^{s - 1} \bar{d}(t_2) \right)
                                     \\
-                                    = & \sum_{(r, s) \in (\Z \setminus \{0\}) \x \Z_{> 0}} \left( v_1^r t_1^s c_{t_1} \tensor h v_2^{-r} t_2^{-s} + h v_1^{-r} t_1^s \tensor v_2^r t_2^{-s} c_{t_2} \right)
+                                    = & ( \bar{d}(t_1) \tensor h + h \tensor \bar{d}(t_2) ) \sum_{(r, s) \in (\Z \setminus \{0\}) \x \Z_{> 0}} \left( -v_1^r t_1^{s - 1} \tensor v_2^{-r} t_2^{-s} + v_1^{-r} t_1^s \tensor v_2^r t_2^{s - 1} \right)
+                                    \\
+                                    = & \left( \bar{d}(t_1) \tensor h + h \tensor \bar{d}(t_2) \right) v_2 \1(v_1, v_2) \1^+(t_1, t_2) - 
                                 \end{aligned}
                             $$
                         wherein we note that for all $s \in \Z_{> 0}$, the summands corresponding to the indices $(0, s)$ vanish. Together, these facts imply that:
@@ -1115,11 +1119,7 @@
                                 \begin{aligned}
                                     & [\bar{\Delta}(ht), \sfr_{\z_{[2]}^+} + \sfr_{\d_{[2]}^+}]
                                     \\
-                                    = & \sum_{r \in \Z \setminus \{0\}} hv_1^{-r} \tensor v_2^r c_{t_2} + \sum_{(r, s) \in (\Z \setminus \{0\}) \x \Z_{> 0}} \left( v_1^r t_1^s c_{t_1} \tensor h v_2^{-r} t_2^{-s} + h v_1^{-r} t_1^s \tensor v_2^r t_2^{-s} c_{t_2} \right) + h \tensor c_{t_2}
-                                    \\
-                                    = & \sum_{(r, s) \in \Z \x \Z_{\geq 0}} \left( v_1^r t_1^s c_{t_1} \tensor h v_2^{-r} t_2^{-s} + h v_1^{-r} t_1^s \tensor v_2^r t_2^{-s} c_{t_2} \right)
-                                    \\
-                                    = & (c_{t_1} \tensor h t_2 + h t_1 \tensor c_{t_2} ) v_2 \1(v_1, v_2) \1^+(t_1, t_2)
+                                    = & \left( \bar{d}(t_1) \tensor h + h \tensor \bar{d}(t_2) \right) v_2 \1(v_1, v_2) \1^+(t_1, t_2)
                                 \end{aligned}
                             $$
                         wherein the second-to-last equality holds as the first summand in the previous equation corresponds to indices $(r, 0) \in (\Z \setminus \{0\}) \x \{0\}$ while the third summand corresponds to the index $(0, 0) \in \Z \x \Z_{\geq 0}$; this is precisely as we claimed above. 
