@@ -643,43 +643,12 @@
         \end{remark}
 
         Putting everything together then yields us the following result:
-        \begin{proposition}[Extended toroidal Lie algebras] \label{prop: extended_toroidal_lie_algebras}
+        \begin{theorem}[Extended toroidal Lie algebras] \label{theorem: extended_toroidal_lie_algebras}
             Let $\d_{[2]}$ - viewed as a Lie subalgebra of $\der_{\bbC}(A_{[2]})$ (cf. remark \ref{remark: dual_of_toroidal_centres_contains_derivations}) - act on $\g_{[2]}$ and on $\z_{[2]}$ (and hence on $\tilde{\g}_{[2]}\cong \g_{[2]} \oplus \z_{[2]}$) as in remarks \ref{remark: derivation_action_on_multiloop_algebras} and \ref{remark: derivation_action_on_toroidal_centres} respectively. These actions give rise to a Lie algebra extension:
                 $$\hat{\g}_{[2]} := \tilde{\g}_{[2]}\rtimes \d_{[2]}$$
             Furthermore, there is an invariant non-degenerate symmetric $\bbC$-bilinear form $(-, -)_{\hat{\g}_{[2]}}$ as in convention \ref{conv: orthogonal_complement_of_toroidal_centres}. 
-        \end{proposition}
-
-        \begin{convention} \label{conv: positive_and_negative_parts_of_derivation_subalgebras_of_extended_toroidal_algebras}
-            Let us now adopt the following notations:
-            \begin{itemize}
-                \item
-                    $$\d_{[2]}^+ := ( \bigoplus_{(r, s) \in \Z \x \Z_{\leq 0} } \bbC D_{r, s} ) \oplus \bbC D_t$$
-                    $$\d_{[2]}^- := ( \bigoplus_{(r, s) \in \Z \x \Z_{> 0} } \bbC D_{r, s} ) \oplus \bbC D_v$$
-                shall respectively be the Lie subalgebras of $\d_{[2]}$ which are graded-dual to $\z_{[2]}^{\pm}$ with respect to $(-, -)_{\hat{\g}_{[2]}}$;
-                \item $\hat{\g}_{[2]}^{\pm} := \tilde{\g}_{[2]}^{\pm} \rtimes \d_{[2]}^{\pm}$.
-            \end{itemize}
-        \end{convention}    
-        \begin{theorem} \label{theorem: extended_toroidal_manin_triples}
-            There is a complete topological Manin triple:
-                $$(\hat{\g}_{[2]}, \hat{\g}_{[2]}^+, \hat{\g}_{[2]}^-)$$
-            wherein $\hat{\g}_{[2]}$ is equipped with the non-degenerate invariant inner product $(-, -)_{\hat{\g}_{[2]}}$ (cf. convention \ref{conv: orthogonal_complement_of_toroidal_centres}).
         \end{theorem}
-            \begin{proof}
-                Firstly, let us check that $\hat{\g}_{[2]}^{\pm}$ are Lie subalgebras of $\hat{\g}_{[2]}$ and note that for this, it suffices to check that $\d_{[2]}^{\pm}$ are Lie subalgebras of $\d_{[2]}$, since we have that:
-                    $$\hat{\g}_{[2]} \cong \tilde{\g}_{[2]} \rtimes \d_{[2]}$$
-                (cf. proposition \ref{prop: extended_toroidal_lie_algebras}) and that:
-                    $$\hat{\g}_{[2]}^{\pm} := \tilde{\g}_{[2]}^{\pm} \rtimes \d_{[2]}^{\pm}$$
-                by construction. 
-            \end{proof}
-        \begin{corollary}[Lie cobracket on $\hat{\g}_{[2]}^+$] \label{coro: extended_toroidal_lie_bialgebras}
-            On the extended toroidal Lie algebra $\hat{\g}_{[2]}^+$, there is a continuous Lie cobracket\footnote{Note the completion!}, making $\hat{\g}_{[2]}^+$ a complete topological Lie bialgebra:
-                $$\delta_{\hat{\g}_{[2]}^+}: \hat{\g}_{[2]}^+ \to \hat{\g}_{[2]}^+ \hattensor_{\bbC} \hat{\g}_{[2]}^+$$
-            given for any $X \in \hat{\g}_{[2]}^+$ by the following formula (cf. \cite{etingof_kazhdan_quantisation_1}):
-                $$\delta_{\hat{\g}_{[2]}^+}(X) = [ X \tensor 1 + 1 \tensor X, \sfr_{\hat{\g}_{[2]}^+} ]$$
-            wherein:
-                $$\sfr_{\hat{\g}_{[2]}^+} := \sfr_{\g_{[2]}^+} + \sfr_{\z_{[2]}^+} + \sfr_{\d_{[2]}^+} \in \hat{\g}_{[2]}^+ \hattensor_{\bbC} \hat{\g}_{[2]}^-$$
-            with $\sfr_{\g_{[2]}^+} \in \g_{[2]}^+ \hattensor_{\bbC} \g_{[2]}^-$ being as in question \ref{question: multiloop_lie_bialgebras} and\footnote{Note how we are simply summing over tensor products of dual basis elements.} $\sfr_{\z_{[2]}^+} \in \z_{[2]}^+ \hattensor_{\bbC} \d_{[2]}^+$ and $\sfr_{\d_{[2]}^+} \in \d_{[2]}^+ \hattensor_{\bbC} \z_{[2]}^+$ being given by the following formulae:
-                $$\sfr_{\z_{[2]}^+} := \sum_{(r, s) \in \Z \x \Z_{> 0}} K_{r, s} \tensor D_{r, s} + c_v \tensor D_v$$
-                
-                $$\sfr_{\d_{[2]}^+} := \sum_{(r, s) \in \Z \x \Z_{\leq 0}} D_{r, s} \tensor K_{r, s} + D_t \tensor c_t$$
-        \end{corollary}
+
+        Even though we are now perfectly ready to endow $\hat{\g}_{[2]}^+$ with a Lie bialgebra structure (which eventually will be shown to descend down to a Lie bialgebra structure on $\tilde{\g}_{[2]}^+$; cf. theorem \ref{theorem: toroidal_lie_bialgebras}) arising from some Manin triple of the kind:
+            $$(\hat{\g}_{[2]}, \hat{\g}_{[2]}^+, \hat{\g}_{[2]}^-)$$
+        wherein $\hat{\g}_{[2]}$ is equipped with the non-degenerate invariant bilinear form $(-, -)_{\hat{\g}_{[2]}}$, let us defer this construction to theorem \ref{theorem: extended_toroidal_manin_triples} for organisational purposes.
