@@ -397,20 +397,28 @@
             In this subsection, we assume that $\g$ is simply laced exclude the case where $\g$ is of type $\sfA_1$. 
         \end{convention}
 
-        We begin this subsection by reviewing the construction of a continuous Hopf coproduct on a certain topological completion of $\rmY(\hat{\g}_{[1]})$, as was done in \cite[Sections 4 and 5]{guay_nakajima_wendlandt_affine_yangian_coproduct}. The fundamental inspiration behind this construction is the fact that, should $(H, \mu, \eta, \Delta, \e, \sigma)$ be a Hopf algebra, then given any two left-$H$-modules:
+        We begin this subsection by reviewing the construction of what we shall call the \say{Hopf coproduct} $\Delta$ on the Yangian $\rmY_{\hbar}(\hat{\g}_{[1]})$, as was done in \cite[Sections 4 and 5]{guay_nakajima_wendlandt_affine_yangian_coproduct}. We will then lift this map to the formal Yangian $\rmY_{\hbar}(\hat{\g}_{[1]})$ to get another \say{Hopf coproduct} $\Delta_{\hbar}$ thereon. The point of doing this is so that ultimately, we would obtain:
+            $$\frac{1}{\hbar}(\Delta_{\hbar} - \Delta_{\hbar}^{\cop}) \pmod{\hbar} \equiv \tilde{\delta}^+$$
+        and hence be able to realise the topological Lie bialgebra $(\tilde{\g}_{[2]}^+, \tilde{\delta}^+)$ from theorem \ref{theorem: toroidal_lie_bialgebras} as the classical limit of the formal Yangian $\rmY_{\hbar}(\hat{\g}_{[1]})$ in some sense (which, let us caution, is not exactly the same as in \cite{etingof_kazhdan_quantisation_1}).
+        
+        The fundamental inspiration behind this construction of \cite{guay_nakajima_wendlandt_affine_yangian_coproduct} is - to our understanding - the fact that, should $(H, \mu, \eta, \Delta, \e, \sigma)$ be a Hopf algebra, then given any two left-$H$-modules:
             $$\rho_V: H \to \End(V)$$
             $$\rho_W: H \to \End(W)$$
         (and likewise for right-modules), one can always form the $H$-modules tensor product using the following series of compositions:
             $$H \xrightarrow[]{\Delta} H \tensor H \xrightarrow[]{\id_H \tensor \sigma} H \tensor H^{\op, \cop} \xrightarrow[]{\rho_V \tensor \rho_W^{\op}} \End(V) \tensor \End(W) \to \End(V \tensor W)$$
         wherein the last arrow is the natural one.
         
-        In \textit{loc. cit.}, the authors first established that the so-called \say{category $\calO$} of $\rmY(\hat{\g}_{[1]})$ (the definition is similar to the usual BGG category $\calO$ of $\g$) is closed under tensor products. One as such is able to write down a $\bbC$-algebra homomorphism:
+        In \textit{loc. cit.}, the authors first established that the so-called \say{category $\calO$} of $\rmY(\hat{\g}_{[1]})$ (the definition is similar to the usual BGG category $\calO$ of $\g$; cf. lemma \ref{lemma: category_O_affine_yangian}) is closed under tensor products. One as such is able to write down a $\bbC$-algebra homomorphism:
             $$\Delta_{V_1, V_2}: \rmY(\hat{\g}_{[1]}) \to \End_{\bbC}(V_1 \tensor_{\bbC} V_2)$$
         corresponding to any pair of objects $V_1, V_2$ in the aforementioned category $\calO$ of $\rmY(\hat{\g}_{[1]})$; furthermore, such algebra homomorphisms satisfy coassociativity in the sense that any $\bbC$-vector space isomorphism:
             $$(V_1 \tensor_{\bbC} V_2) \tensor_{\bbC} V_3 \xrightarrow[]{\cong} V_1 \tensor_{\bbC} (V_2 \tensor_{\bbC} V_3)$$
         between objects $V_1, V_2, V_3$ of the category $\calO$ of $\rmY(\hat{\g}_{[1]})$ upgrades to an isomorphism of left-$\rmY(\hat{\g}_{[1]})$-modules. As such, one obtains a kind of \say{\textit{faux} coproduct} on $\rmY(\hat{\g}_{[1]})$. 
+
+        Now, how may we \say{package} the maps $\Delta_{V_1, V_2}$ together (say, by varying the representations $V_1, V_2 \in \Ob(\calO)$ somehow) to obtain a bialgebra coproduct on the Yangian $\rmY(\hat{\g}_{[1]})$ ? To this end, note firstly that, due to the Serre relations in the definition of Yangians (cf. e.g. \cite[Equation 2.7]{guay_nakajima_wendlandt_affine_yangian_coproduct}), the adjoint representation of $\rmY(\hat{\g}_{[1]})$ is \say{integrable} \todo{Not done}
         
         \begin{lemma}[The category $\calO$ for the affine Yangian $\rmY(\hat{\g}_{[1]})$] \label{lemma: category_O_affine_yangian}
+            (Cf. \cite[Theorem 4.9]{guay_nakajima_wendlandt_affine_yangian_coproduct}).
+        
             There is a full subcategory of ${}^l\rmY(\hat{\g}_{[1]})\mod$, called the \textbf{category $\calO$}. This category satisfies the following properties:
             \begin{itemize}
                 \item Every object $V \in \Ob(\calO)$ is $\hat{\h}_{[1]}$-diagonalisable and with finite-dimensional ($\h$-)weight spaces, and
@@ -418,15 +426,17 @@
                     $$\forall 1 \leq i \leq k: \lambda_i - \mu \in \hat{\Lambda}^+$$
             \end{itemize}
 
-            The aforementioned category $\calO$ of $\rmY(\hat{\g}_{[1]})$ is carries a strict monoidal structure given by tensor products over $\bbC$, in the sense that if $V_1, V_2$ are any two objects of the category $\calO$, then there will be a $\bbC$-algebra homomorphism:
+            The aforementioned category $\calO$ of $\rmY(\hat{\g}_{[1]})$ is closed under tensor products over $\bbC$, i.e. if $V_1, V_2$ are any two objects of the category $\calO$, then there will be a $\bbC$-algebra homomorphism:
                 $$\Delta_{V_1, V_2}: \rmY(\hat{\g}_{[1]}) \to \End_{\bbC}(V_1 \tensor_{\bbC} V_2)$$
-            The monoidal unit is $\rmY(\hat{\g}_{[1]})$ itself. 
+            Furthermore, these tensor products are coassociative in the sense that any $\bbC$-vector space isomorphism:
+                $$(V_1 \tensor_{\bbC} V_2) \tensor_{\bbC} V_3 \xrightarrow[]{\cong} V_1 \tensor_{\bbC} (V_2 \tensor_{\bbC} V_3)$$
+            between objects $V_1, V_2, V_3 \in \Ob(\calO)$ upgrades to an isomorphism of left-$\rmY(\hat{\g}_{[1]})$-modules.
 
             Explicitly, for each $V_1, V_2 \in \Ob(\calO)$, the map $\Delta_{V_1, V_2}$ is given on the generating set\footnote{Using the Levendorskii presentation for $\rmY(\hat{\g}_{[1]})$, one sees that this generating set suffices.} $\hat{\h}_{[1]} \cup \{T_{i, 1}, E_{i, 0}^{\pm}\}_{i \in \hat{\Gamma}_0}$ by:
                 $$\forall h \in \hat{\h}_{[1]}: \Delta_{V_1, V_2}(h) := \bar{\Delta}(h)$$
                 $$\forall i \in \hat{\Gamma}_0: \Delta_{V_1, V_2}(E_{i, 0}^{\pm}) := \bar{\Delta}(E_{i, 0}^{\pm})$$
                 $$\forall i \in \hat{\Gamma}_0: \Delta_{V_1, V_2}(T_{i, 0}) = \bar{\Delta}(T_{i, 0}) + [H_{i, 0} \tensor 1, \sfr_{ \hat{\g}_{[1]} }^-]$$
-            with:
+            with\footnote{This is denoted by $\Omega_+$ in \cite{guay_nakajima_wendlandt_affine_yangian_coproduct} and \cite{guay_nakajima_wendlandt_affine_yangian_vertex_representations_and_PBW}. We opted to designate this the \say{negative} half of the Casimir tensor of $\hat{\g}_{[1]}$ in accordance with the root-degree of the first tensor factor, namely $e_{\alpha, k}^-$.}:
                 $$\sfr_{ \hat{\g}_{[1]} }^- := \sum_{i \in \hat{\Gamma}_0} h_i \tensor h_i + \sum_{\alpha \in \hat{\Phi}^+} \sum_{k = 1}^{ \dim_{\bbC} (\hat{\g}_{[1]})_{\alpha} } e_{\alpha, k}^- \tensor e_{\alpha, k}^+$$
             wherein:
                 $$\{h_i\}_{i \in \hat{\Gamma}_0}$$
@@ -438,6 +448,18 @@
                 $$(e_{\alpha, k}^-, e_{\alpha, l}^+) = \delta_{kl}$$
             for every $1 \leq k, l \leq \dim_{\bbC} (\hat{\g}_{[1]})_{\pm\alpha}$.
         \end{lemma}
+        \begin{remark}
+            The category $\calO$ as in lemma \ref{lemma: category_O_affine_yangian} is \textit{not} monoidal, since it lacks a monoidal unit. 
+        \end{remark}
+        \begin{remark}[Why involve the category $\calO$ ?]
+            One notable detail is the fact that the sum\footnote{The completed tensor product $\rmY(\hat{\g}_{[1]}) \hattensor_{\bbC} \rmY(\hat{\g}_{[1]})$ is only to be understood in the vague sense that it denotes some completion of the algebraic tensor product $\rmY(\hat{\g}_{[1]}) \tensor_{\bbC} \rmY(\hat{\g}_{[1]})$ wherein the sum in question converges.}:
+                $$\sum_{\alpha \in \hat{\Phi}^+} \sum_{k = 1}^{ \dim_{\bbC} (\hat{\g}_{[1]})_{\alpha} } e_{\alpha, k}^- \tensor e_{\alpha, k}^+ \in \rmY(\hat{\g}_{[1]}) \hattensor_{\bbC} \rmY(\hat{\g}_{[1]})$$
+            is infinite \textit{a priori}, since the affine Kac-Moody algebra $\hat{\g}_{[1]}$ has infinitely many positive roots. However, this is precisely why we have restricted our attention down to the category $\calO$: notice that for any $V \in \Ob(\calO)$ and any $\mu \in \Pi(V)$, there exists a natural number $N \in \N$ such that:
+                $$\forall \alpha \in \hat{\Phi}^+: r \geq N \implies V_{\mu + r \alpha} \cong 0$$
+            From this, one sees that even though it is given by an infinite sum, the operator:
+                $$\sum_{\alpha \in \hat{\Phi}^+} \sum_{k = 1}^{ \dim_{\bbC} (\hat{\g}_{[1]})_{\alpha} } e_{\alpha, k}^- \tensor e_{\alpha, k}^+ \in \End_{\bbC}(V_1 \tensor_{\bbC} V_2)$$
+            is ultimately locally nilpotent on the vector spaces of the kind $V_1 \tensor_{\bbC} V_2$, wherein $V_1, V_2 \in \Ob(\calO)$; as such, one sees that the infinite sum above actually becomes finite (and hence converges) after evaluation on elements of the $\rmY(\hat{\g}_{[1]})$-modules in the category $\calO$, and the maps $\Delta_{V_1, V_2}$ as in lemma \ref{lemma: category_O_affine_yangian} are therefore well-defined. 
+        \end{remark}
         \begin{convention}
             If $L$ is a Kac-Moody algebra of some simply laced untwisted affine type and then we will denote by $\tilde{\rmY}(L)$ the completion of $\rmY(L)$ with respect to its root grading, with \say{completion} being understood to be in the sense of \cite[Appendix A]{wendlandt_formal_shift_operators_on_yangian_doubles}.
         \end{convention}
@@ -469,12 +491,17 @@
             \end{proof}
         
         \begin{lemma}[The category $\calO_{\hbar}$ of the formal affine Yangian $\rmY_{\hbar}(\hat{\g}_{[1]})$] \label{lemma: category_O_formal_affine_yangian}
-            For the formal affine Yangian $\rmY_{\hbar}(\hat{\g}_{[1]})$, one can define a category $\calO_{\hbar}$ in the exact same way as how the category $\calO$ was defined for $\rmY(\hat{\g}_{[1]})$ in lemma \ref{lemma: category_O_affine_yangian}. $\calO_{\hbar}$ is the full subcategory of ${}^l\rmY_{\hbar}$ satisfying the following properties:
-            \begin{itemize}
-                \item Every object $V \in \Ob(\calO_{\hbar})$ is $\hat{\h}_{[1]}$-diagonalisable and with finite-dimensional ($\h$-)weight spaces, and
-                \item For every object $V \in \Ob(\calO_{\hbar})$, there exist \textbf{maximal weights} $\lambda_1, ..., \lambda_k \in \hat{\h}_{[1]}^*$ such that, for any $\mu \in \Pi(V)$, one has that:
-                    $$\forall 1 \leq i \leq k: \lambda_i - \mu \in \hat{\Lambda}^+$$
-            \end{itemize}
+            For the formal affine Yangian $\rmY_{\hbar}(\hat{\g}_{[1]})$, one can define a category $\calO_{\hbar}$ in the exact same way as how the category $\calO$ was defined for $\rmY(\hat{\g}_{[1]})$ in lemma \ref{lemma: category_O_affine_yangian}. 
+
+            The category $\calO_{\hbar}$ is closed under $\tensor_{\bbC}$ (cf. lemma \ref{lemma: category_O_affine_yangian}): for every $V_1, V_2 \in \Ob(\calO_{\hbar})$, there is a corresponding $\bbC$-algebra homomorphism:
+                $$\Delta_{V_1, V_2, \hbar}: \rmY_{\hbar}(\hat{\g}_{[1]}) \to \End_{\bbC}(V_1 \tensor_{\bbC} V_2)$$
+            given by:
+                $$\forall h \in \hat{\h}_{[1]}: \Delta_{V_1, V_2, \hbar}(h) := \bar{\Delta}(h)$$
+                $$\forall i \in \hat{\Gamma}_0: \Delta_{V_1, V_2, \hbar}(E_{i, 0}^{\pm}) := \bar{\Delta}(E_{i, 0}^{\pm})$$
+                $$\forall i \in \hat{\Gamma}_0: \Delta_{V_1, V_2, \hbar}(T_{i, 0}) = \bar{\Delta}(T_{i, 0}) + [H_{i, 0} \tensor 1, \sfr_{ \hat{\g}_{[1]} }^-(\hbar)]$$
+            wherein:
+                $$\sfr_{ \hat{\g}_{[1]} }^-(\hbar) := \sum_{i \in \hat{\Gamma}_0} h_i \tensor h_i + \hbar \sum_{\alpha \in \hat{\Phi}^+} \sum_{k = 1}^{ \dim_{\bbC} (\hat{\g}_{[1]})_{\alpha} } e_{\alpha, k}^- \tensor e_{\alpha, k}^+$$
+            (otherwise, our notations are the same as in lemma \ref{lemma: category_O_affine_yangian}). Furthermore, the tensor products in $\calO_{\hbar}$ are coassociative in the same sense as in lemma \ref{lemma: category_O_affine_yangian}.
         \end{lemma}
             \begin{proof}
                 
