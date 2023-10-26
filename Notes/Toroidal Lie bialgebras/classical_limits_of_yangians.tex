@@ -394,7 +394,7 @@
     
     \subsection{Hopf coproducts and classical limits of completed affine Yangians}
         \begin{convention}
-            In this subsection, we assume that $\g$ is simply-laced exclude the case where $\g$ is of type $\sfA_1$. 
+            In this subsection, we assume that $\g$ is simply laced exclude the case where $\g$ is of type $\sfA_1$. 
         \end{convention}
 
         We begin this subsection by reviewing the construction of a continuous Hopf coproduct on a certain topological completion of $\rmY(\hat{\g}_{[1]})$, as was done in \cite[Sections 4 and 5]{guay_nakajima_wendlandt_affine_yangian_coproduct}. The fundamental inspiration behind this construction is the fact that, should $(H, \mu, \eta, \Delta, \e, \sigma)$ be a Hopf algebra, then given any two left-$H$-modules:
@@ -411,26 +411,87 @@
         between objects $V_1, V_2, V_3$ of the category $\calO$ of $\rmY(\hat{\g}_{[1]})$ upgrades to an isomorphism of left-$\rmY(\hat{\g}_{[1]})$-modules. As such, one obtains a kind of \say{\textit{faux} coproduct} on $\rmY(\hat{\g}_{[1]})$. 
         
         \begin{lemma}[The category $\calO$ for the affine Yangian $\rmY(\hat{\g}_{[1]})$] \label{lemma: category_O_affine_yangian}
-            There is a full subcategory of ${}^l\rmY(\hat{\g}_{[1]})\mod$, called the \textbf{category $\calO$}, spanned by objects which:
+            There is a full subcategory of ${}^l\rmY(\hat{\g}_{[1]})\mod$, called the \textbf{category $\calO$}. This category satisfies the following properties:
             \begin{itemize}
-                \item are $\h$-diagonalisable and with finite-dimensional ($\h$-)weight spaces, and
-                \item 
+                \item Every object $V \in \Ob(\calO)$ is $\hat{\h}_{[1]}$-diagonalisable and with finite-dimensional ($\h$-)weight spaces, and
+                \item For every object $V \in \Ob(\calO)$, there exist \textbf{maximal weights} $\lambda_1, ..., \lambda_k \in \hat{\h}_{[1]}^*$ such that, for any $\mu \in \Pi(V)$, one has that:
+                    $$\forall 1 \leq i \leq k: \lambda_i - \mu \in \hat{\Lambda}^+$$
+            \end{itemize}
+
+            The aforementioned category $\calO$ of $\rmY(\hat{\g}_{[1]})$ is carries a strict monoidal structure given by tensor products over $\bbC$, in the sense that if $V_1, V_2$ are any two objects of the category $\calO$, then there will be a $\bbC$-algebra homomorphism:
+                $$\Delta_{V_1, V_2}: \rmY(\hat{\g}_{[1]}) \to \End_{\bbC}(V_1 \tensor_{\bbC} V_2)$$
+            The monoidal unit is $\rmY(\hat{\g}_{[1]})$ itself. 
+
+            Explicitly, for each $V_1, V_2 \in \Ob(\calO)$, the map $\Delta_{V_1, V_2}$ is given on the generating set\footnote{Using the Levendorskii presentation for $\rmY(\hat{\g}_{[1]})$, one sees that this generating set suffices.} $\hat{\h}_{[1]} \cup \{T_{i, 1}, E_{i, 0}^{\pm}\}_{i \in \hat{\Gamma}_0}$ by:
+                $$\forall h \in \hat{\h}_{[1]}: \Delta_{V_1, V_2}(h) := \bar{\Delta}(h)$$
+                $$\forall i \in \hat{\Gamma}_0: \Delta_{V_1, V_2}(E_{i, 0}^{\pm}) := \bar{\Delta}(E_{i, 0}^{\pm})$$
+                $$\forall i \in \hat{\Gamma}_0: \Delta_{V_1, V_2}(T_{i, 0}) = \bar{\Delta}(T_{i, 0}) + [H_{i, 0} \tensor 1, \sfr_{ \hat{\g}_{[1]} }^-]$$
+            with:
+                $$\sfr_{ \hat{\g}_{[1]} }^- := \sum_{i \in \hat{\Gamma}_0} h_i \tensor h_i + \sum_{\alpha \in \hat{\Phi}^+} \sum_{k = 1}^{ \dim_{\bbC} (\hat{\g}_{[1]})_{\alpha} } e_{\alpha, k}^- \tensor e_{\alpha, k}^+$$
+            wherein:
+                $$\{h_i\}_{i \in \hat{\Gamma}_0}$$
+            is some choice of basis for $\hat{\h}_{[1]}$, normalised so that:
+                $$(h_i, h_j) = \delta_{ij}$$
+            and:
+                $$\{ e_{\alpha, 1}^{\pm}, ..., e_{\alpha, \dim_{\bbC} (\hat{\g}_{[1]})_{\pm \alpha}}^{\pm} \}_{\alpha \in \hat{\Phi}^+}$$
+            are choices of bases for the root spaces\footnote{Recall that real roots always have multiplicity $1$, but this is not true for imaginary roots.} $(\hat{\g}_{[1]})_{\pm\alpha}$, normalised so that:
+                $$(e_{\alpha, k}^-, e_{\alpha, l}^+) = \delta_{kl}$$
+            for every $1 \leq k, l \leq \dim_{\bbC} (\hat{\g}_{[1]})_{\pm\alpha}$.
+        \end{lemma}
+        \begin{convention}
+            If $L$ is a Kac-Moody algebra of some simply laced untwisted affine type and then we will denote by $\tilde{\rmY}(L)$ the completion of $\rmY(L)$ with respect to its root grading, with \say{completion} being understood to be in the sense of \cite[Appendix A]{wendlandt_formal_shift_operators_on_yangian_doubles}.
+        \end{convention}
+        \begin{lemma}[$\rmY(\hat{\g}_{[1]})$-modules are $\tilde{\rmY}(\hat{\g}_{[1]}$-modules] \label{lemma: lifting_representations_to_root_grading_completions}
+            (Cf. \cite[Proposition 5.14]{guay_nakajima_wendlandt_affine_yangian_coproduct}) Any left-$\rmY(\hat{\g}_{[1]})$-module $V$ in the category $\calO$, given by a $\bbC$-algebra homomorphism:
+                $$\rho: \rmY(\hat{\g}_{[1]}) \to \End_{\bbC}(V)$$
+            gives rise to a unique left-$\tilde{\rmY}(\hat{\g}_{[1]})$-module structure on $V$, which is the same as a $\bbC$-algebra homomorphism:
+                $$\tilde{\rho}: \tilde{\rmY}(\hat{\g}_{[1]}) \to \End_{\bbC}(V)$$
+            fitting into the following commutative diagram of $\bbC$-algebras and homomorphisms between them, where the vertical arrow is the canonical one as in \cite[Section 5, Lemma 5.3]{guay_nakajima_wendlandt_affine_yangian_coproduct}:
+                $$
+                    \begin{tikzcd}
+                	{\tilde{\rmY}(\hat{\g}_{[1]})} & {\End_{\bbC}(V)} \\
+                	{\rmY(\hat{\g}_{[1]})}
+                	\arrow[from=2-1, to=1-1]
+                	\arrow["{\tilde{\rho}}", dashed, from=1-1, to=1-2]
+                	\arrow["\rho"', from=2-1, to=1-2]
+                    \end{tikzcd}
+                $$
+        \end{lemma}
+        \begin{proposition}[Hopf coproduct on affine Yangians] \label{prop: hopf_coproduct_on_yangians}
+            There exists a $\bbC$-algebra homomorphism:
+                $$\Delta: \rmY(\hat{\g}_{[1]}) \to \tilde{\rmY}(\hat{\g}_{[1]} \oplus \hat{\g}_{[1]})$$
+            satisfying:
+                $$\Delta_{V_1, V_2} = (\tilde{\rho}_1 \tensor \tilde{\rho}_2) \circ \Delta$$
+            for any objects $(V_1, \rho_1), (V_2, \rho_2)$ of the category $\calO$ of $\rmY(\hat{\g}_{[1]})$.
+        \end{proposition}
+            \begin{proof}
+                
+            \end{proof}
+        
+        \begin{lemma}[The category $\calO_{\hbar}$ of the formal affine Yangian $\rmY_{\hbar}(\hat{\g}_{[1]})$] \label{lemma: category_O_formal_affine_yangian}
+            For the formal affine Yangian $\rmY_{\hbar}(\hat{\g}_{[1]})$, one can define a category $\calO_{\hbar}$ in the exact same way as how the category $\calO$ was defined for $\rmY(\hat{\g}_{[1]})$ in lemma \ref{lemma: category_O_affine_yangian}. $\calO_{\hbar}$ is the full subcategory of ${}^l\rmY_{\hbar}$ satisfying the following properties:
+            \begin{itemize}
+                \item Every object $V \in \Ob(\calO_{\hbar})$ is $\hat{\h}_{[1]}$-diagonalisable and with finite-dimensional ($\h$-)weight spaces, and
+                \item For every object $V \in \Ob(\calO_{\hbar})$, there exist \textbf{maximal weights} $\lambda_1, ..., \lambda_k \in \hat{\h}_{[1]}^*$ such that, for any $\mu \in \Pi(V)$, one has that:
+                    $$\forall 1 \leq i \leq k: \lambda_i - \mu \in \hat{\Lambda}^+$$
             \end{itemize}
         \end{lemma}
-
-        
-        
-        \begin{proposition}[Hopf coproduct on affine Yangians] \label{prop: hopf_coproduct_on_yangians}
-            
-        \end{proposition}
-
+            \begin{proof}
+                
+            \end{proof}
         \begin{theorem}[Hopf coproduct on formal affine Yangians] \label{theorem: hopf_coproduct_on_formal_yangians}
-            
-        \end{theorem}
-        
-        \begin{theorem}[Toroidal Lie algebras as classical limits of formal affine Yangians] \label{theorem: toroidal_lie_algebras_as_classical_limits_of_formal_affine_yangians}
-            The complete topological Lie bialgebra $(\tilde{\g}_{[2]}^+, \tilde{\delta}^+)$ as in theorem \ref{theorem: toroidal_lie_bialgebras} is the classical limit\footnote{\say{Quasi-classical} in the terminologies of \cite{etingof_kazhdan_quantisation_1}.} of the complete topological bialgebra $(\tilde{\rmY}_{\hbar}(\hat{\g}_{[1]}), \tilde{\Delta}_{\hbar})$.
+            The $\bbC$-algebra homomorphism $\Delta: \rmY(\hat{\g}_{[1]}) \to \tilde{\rmY}(\hat{\g}_{[1]} \oplus \hat{\g}_{[1]})$ from proposition \ref{prop: hopf_coproduct_on_yangians} lifts to a $\bbC$-algebra homomorphism:
+                $$\Delta_{\hbar}: \rmY_{\hbar}(\hat{\g}_{[1]}) \to \tilde{\rmY}_{\hbar}(\hat{\g}_{[1]} \oplus \hat{\g}_{[1]})$$
+            satisfying:
+                $$\Delta_{V_1, V_2} = (\tilde{\rho}_1 \tensor \tilde{\rho}_2) \circ \Delta_{\hbar}$$
         \end{theorem}
             \begin{proof}
-                Clear from theorem \ref{theorem: toroidal_lie_bialgebras} and the construction of the Hopf coproduct on the completed formal Yangian $\tilde{\rmY}_{\hbar}(\hat{\g}_{[1]})$. 
+                
+            \end{proof}
+        
+        \begin{theorem}[Toroidal Lie algebras as classical limits of formal affine Yangians] \label{theorem: toroidal_lie_algebras_as_classical_limits_of_formal_affine_yangians}
+           
+        \end{theorem}
+            \begin{proof}
+                
             \end{proof}

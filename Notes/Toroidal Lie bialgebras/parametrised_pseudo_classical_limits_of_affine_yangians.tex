@@ -1,6 +1,6 @@
 \section{Parametrised pseudo-classical limits of affine Yangians}
     \begin{convention}
-        Throughout this section, we assume that $\g$ is simply-laced exclude the case where $\g$ is of type $\sfA_1$. 
+        Throughout this section, we assume that $\g$ is simply laced exclude the case where $\g$ is of type $\sfA_1$. 
     \end{convention}
 
     \subsection{Parametrised pseudo-coproducts}
@@ -26,19 +26,19 @@
             given as follows\footnote{Note that it is given only for low-degree generators, which we know to be enough.}:
                 $$\Delta_u(E_{i, 0}^{\pm}) := E_{i, 0}^{\pm} \tensor 1 + 1 \tensor E_{i, 0}^{\pm} u^{\pm 1}$$
                 $$\Delta_u(H_{i, 0}) := \bar{\Delta}(H_{i, 0})$$
-                $$\Delta_u(T_{i, 1}) := \bar{\Delta}(T_{i, 1}) - \sum_{k \geq 1} \sum_{\alpha \in \Phi^+, \height(\alpha) = k} (\alpha, \alpha_i) e_{\alpha}^- \tensor e_{\alpha}^+ u^k$$
+                $$\Delta_u(T_{i, 1}) := \bar{\Delta}(T_{i, 1}) - \sum_{\alpha \in \hat{\Phi}^+} (\alpha, \alpha_i) e_{\alpha}^- \tensor e_{\alpha}^+ u^{\height(\alpha)}$$
             given for each $i \in \Gamma_0$ and for some choices\footnote{The expression is choice-independent, of course.} of root vectors $e_{\pm\alpha} \in \g_{\pm\alpha}$, normalised so that:
                 $$(e_{\alpha}^-, e_{\alpha}^+) = 1$$
             will define a parametrised pseudo-bialgebra structure on $\rmY(\g)$ in the sense of definition \ref{def: parametrised_pseudo_coproducts}, compatible with the algebra structure on $\rmY(\g)$.
         \end{theorem}
-
+        
         \begin{theorem}[The parametrised pseudo-coproduct on formal Yangians] \label{theorem: parametrised_pseudo_coproduct_on_formal_yangians}
             The following algebra homomorphism:
                 $$\Delta_{u, \hbar}: \rmY_{\hbar}(\g) \to \rmY_{\hbar}(\g)^{\tensor 2}(\!(u)\!)$$
             given as follows:
                 $$\Delta_{u, \hbar}(E_{i, 0}^{\pm}) := E_{i, 0}^{\pm} \tensor 1 + 1 \tensor E_{i, 0}^{\pm} u^{\pm 1}$$
                 $$\Delta_{u, \hbar}(H_{i, 0}) := \bar{\Delta}(H_{i, 0})$$
-                $$\Delta_{u, \hbar}(T_{i, 1}(\hbar)) := \bar{\Delta}(T_{i, 1}(\hbar)) - \hbar \sum_{k \geq 1} \sum_{\alpha \in \Phi^+, \height(\alpha) = k} (\alpha, \alpha_i) e_{\alpha}^- \tensor e_{\alpha}^+ u^k$$
+                $$\Delta_{u, \hbar}(T_{i, 1}(\hbar)) := \bar{\Delta}(T_{i, 1}) - \hbar \sum_{\alpha \in \hat{\Phi}^+} (\alpha, \alpha_i) e_{\alpha}^- \tensor e_{\alpha}^+ u^{\height(\alpha)}$$
             given for each $i \in \Gamma_0$ and for some choices of root vectors $e_{\pm\alpha} \in \g_{\pm\alpha}$, normalised so that:
                 $$(e_{\alpha}^-, e_{\alpha}^+) = 1$$
             will define a parametrised pseudo-bialgebra structure on $\rmY_{\hbar}(\g)$ in the sense of definition \ref{def: parametrised_pseudo_coproducts}, compatible with the algebra structure on $\rmY_{\hbar}(\g)$.
