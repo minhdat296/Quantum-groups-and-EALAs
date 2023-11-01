@@ -430,11 +430,24 @@
 
             Recall once again that:
                 $$\tilde{\g}_{[2]}^+ \cong \g_{[2]}^+ \oplus \bar{\Omega}_{[2]}^+$$
-            (with notations as in remark \ref{remark: centres_of_dual_toroidal_lie_algebras}) and then recall that on the $\g_{[2]}^+$, there is a $\Z_{\geq 0}$-grading given by:
+            (with notations as in remarks \ref{remark: centres_of_dual_toroidal_lie_algebras} and \ref{remark: Z_gradings_on_toroidal_lie_algebras}) and then recall that on the $\g_{[2]}^+$, there is a $\Z_{\geq 0}$-grading given by:
                 $$\forall x \in \g: \deg x = 0$$
                 $$\deg v = 0, \deg t = 1$$
-            which then induces a $\Z_{< 0}$-grading on the centre $\z_{[2]}^+ \cong \bar{\Omega}_{[2]}^+$ given by:
+            which then induces a $(-1 + \Z)$-grading on the centre $\z_{[2]}^+ \cong \bar{\Omega}_{[2]}^+$ given by:
                 $$\deg dv = -1, \deg dt = 0$$
+            Equivalent, and more explicitly, this grading is given on the basis elements of $\bar{\Omega}_{[2]}^+$ by:
+                $$
+                    \deg K_{r, s} =
+                    \begin{cases}
+                        \text{$s - 1$ if $(r, s) \in \Z \x (\Z \setminus \{0\})$}
+                        \\
+                        \text{$-1$ if $(r, s) \in \Z \x \{0\}$}
+                        \\
+                        \text{$0$ if $(r, s) = (0, 0)$}
+                    \end{cases}
+                $$
+                $$\deg c_v = \deg c_t = -1$$
+            (cf. remark \ref{remark: Z_gradings_on_toroidal_lie_algebras}). 
 
             \todo[inline]{How do we topologically complete graded Lie algebras ?}
         \end{remark}
@@ -484,7 +497,7 @@
                 $$\forall i \in \hat{\Gamma}_0: \Delta_{V_1, V_2}(E_{i, 0}^{\pm}) := \bar{\Delta}(E_{i, 0}^{\pm})$$
                 $$\forall i \in \hat{\Gamma}_0: \Delta_{V_1, V_2}(T_{i, 0}) = \bar{\Delta}(T_{i, 0}) + [H_{i, 0} \tensor 1, \sfr_{ \hat{\g}_{[1]} }^-]$$
             with\footnote{This is denoted by $\Omega_+$ in \cite{guay_nakajima_wendlandt_affine_yangian_coproduct} and \cite{guay_nakajima_wendlandt_affine_yangian_vertex_representations_and_PBW}. We opted to designate this the \say{negative} half of the Casimir tensor of $\hat{\g}_{[1]}$ in accordance with the root-degree of the first tensor factor, namely $e_{\alpha, k}^-$.}:
-                $$\sfr_{ \hat{\g}_{[1]} }^- := \sum_{i \in \hat{\Gamma}_0} h_i \tensor h_i + \sum_{\alpha \in \hat{\Phi}^+} \sum_{k = 1}^{ \dim_{\bbC} (\hat{\g}_{[1]})_{\alpha} } e_{\alpha, k}^- \tensor e_{\alpha, k}^+$$
+                $$\sfr_{ \hat{\g}_{[1]} }^- := \sum_{j \in \hat{\Gamma}_0} h_j \tensor h_j + \sum_{\alpha \in \hat{\Phi}^+} \sum_{k = 1}^{ \dim_{\bbC} (\hat{\g}_{[1]})_{\alpha} } e_{\alpha, k}^- \tensor e_{\alpha, k}^+$$
             wherein:
                 $$\{h_i\}_{i \in \hat{\Gamma}_0}$$
             is some choice of basis for $\hat{\h}_{[1]}$, normalised so that:
@@ -508,20 +521,20 @@
             is ultimately locally nilpotent on the vector spaces of the kind $V_1 \tensor_{\bbC} V_2$, wherein $V_1, V_2 \in \Ob(\calO)$; as such, one sees that the infinite sum above actually becomes finite (and hence converges) after evaluation on elements of the $\rmY(\hat{\g}_{[1]})$-modules in the category $\calO$, and the maps $\Delta_{V_1, V_2}$ as in lemma \ref{lemma: category_O_affine_yangian} are therefore well-defined. 
         \end{remark}
         \begin{convention}
-            If $L$ is a Kac-Moody algebra of some simply laced untwisted affine type and then we will denote by $\tilde{\rmY}(L)$ the completion of $\rmY(L)$ with respect to its root grading, with \say{completion} being understood to be in the sense of \cite[Appendix A]{wendlandt_formal_shift_operators_on_yangian_doubles}.
+            If $L$ is a Kac-Moody algebra of some simply laced untwisted affine type and then we will denote by $\breve{\rmY}(L)$ the completion of $\rmY(L)$ with respect to its root grading, with \say{completion} being understood to be in the sense of \cite[Appendix A]{wendlandt_formal_shift_operators_on_yangian_doubles}.
         \end{convention}
-        \begin{lemma}[$\rmY(\hat{\g}_{[1]})$-modules are $\tilde{\rmY}(\hat{\g}_{[1]}$-modules] \label{lemma: lifting_representations_to_root_grading_completions}
+        \begin{lemma}[$\rmY(\hat{\g}_{[1]})$-modules are $\breve{\rmY}(\hat{\g}_{[1]})$-modules] \label{lemma: lifting_representations_of_affine_yangians_to_root_grading_completions}
             (Cf. \cite[Proposition 5.14]{guay_nakajima_wendlandt_affine_yangian_coproduct}) Any left-$\rmY(\hat{\g}_{[1]})$-module $V$ in the category $\calO$, given by a $\bbC$-algebra homomorphism:
                 $$\rho: \rmY(\hat{\g}_{[1]}) \to \End_{\bbC}(V)$$
-            gives rise to a unique left-$\tilde{\rmY}(\hat{\g}_{[1]})$-module structure on $V$, which is the same as a $\bbC$-algebra homomorphism:
-                $$\tilde{\rho}: \tilde{\rmY}(\hat{\g}_{[1]}) \to \End_{\bbC}(V)$$
+            gives rise to a unique left-$\breve{\rmY}(\hat{\g}_{[1]})$-module structure on $V$, which is the same as a $\bbC$-algebra homomorphism:
+                $$\breve{\rho}: \breve{\rmY}(\hat{\g}_{[1]}) \to \End_{\bbC}(V)$$
             fitting into the following commutative diagram of $\bbC$-algebras and homomorphisms between them, where the vertical arrow is the canonical one as in \cite[Section 5, Lemma 5.3]{guay_nakajima_wendlandt_affine_yangian_coproduct}:
                 $$
                     \begin{tikzcd}
-                	{\tilde{\rmY}(\hat{\g}_{[1]})} & {\End_{\bbC}(V)} \\
+                	{\breve{\rmY}(\hat{\g}_{[1]})} & {\End_{\bbC}(V)} \\
                 	{\rmY(\hat{\g}_{[1]})}
                 	\arrow[from=2-1, to=1-1]
-                	\arrow["{\tilde{\rho}}", dashed, from=1-1, to=1-2]
+                	\arrow["{\breve{\rho}}", dashed, from=1-1, to=1-2]
                 	\arrow["\rho"', from=2-1, to=1-2]
                     \end{tikzcd}
                 $$
@@ -531,9 +544,9 @@
             \end{proof}
         \begin{proposition}[Hopf coproduct on affine Yangians] \label{prop: hopf_coproduct_on_yangians}
             There exists a $\bbC$-algebra homomorphism:
-                $$\Delta: \rmY(\hat{\g}_{[1]}) \to \tilde{\rmY}(\hat{\g}_{[1]} \oplus \hat{\g}_{[1]})$$
+                $$\Delta: \rmY(\hat{\g}_{[1]}) \to \breve{\rmY}(\hat{\g}_{[1]} \oplus \hat{\g}_{[1]})$$
             satisfying:
-                $$\Delta_{V_1, V_2} = (\tilde{\rho}_1 \tensor \tilde{\rho}_2) \circ \Delta_{\hbar}$$
+                $$\Delta_{V_1, V_2} = (\breve{\rho}_1 \tensor \breve{\rho}_2) \circ \Delta$$
             for any objects $(V_1, \rho_1), (V_2, \rho_2)$ of the category $\calO$ of $\rmY(\hat{\g}_{[1]})$.
         \end{proposition}
             \begin{proof}
@@ -550,7 +563,7 @@
                 $$\forall i \in \hat{\Gamma}_0: \Delta_{V_1, V_2, \hbar}(E_{i, 0}^{\pm}) := \bar{\Delta}(E_{i, 0}^{\pm})$$
                 $$\forall i \in \hat{\Gamma}_0: \Delta_{V_1, V_2, \hbar}(T_{i, 0}) = \bar{\Delta}(T_{i, 0}) + [H_{i, 0} \tensor 1, \sfr_{ \hat{\g}_{[1]} }^-(\hbar)]$$
             wherein:
-                $$\sfr_{ \hat{\g}_{[1]} }^-(\hbar) := \sum_{i \in \hat{\Gamma}_0} h_i \tensor h_i + \hbar \sum_{\alpha \in \hat{\Phi}^+} \sum_{k = 1}^{ \dim_{\bbC} (\hat{\g}_{[1]})_{\alpha} } e_{\alpha, k}^- \tensor e_{\alpha, k}^+$$
+                $$\sfr_{ \hat{\g}_{[1]} }^-(\hbar) := \sum_{j \in \hat{\Gamma}_0} h_j \tensor h_j + \hbar \sum_{\alpha \in \hat{\Phi}^+} \sum_{k = 1}^{ \dim_{\bbC} (\hat{\g}_{[1]})_{\alpha} } e_{\alpha, k}^- \tensor e_{\alpha, k}^+$$
             (otherwise, our notations are the same as in lemma \ref{lemma: category_O_affine_yangian}). Furthermore, the tensor products in $\calO_{\hbar}$ are coassociative in the same sense as in lemma \ref{lemma: category_O_affine_yangian}.
         \end{lemma}
             \begin{proof}
@@ -559,15 +572,34 @@
                 (cf. lemma \ref{lemma: formal_yangians_as_rees_algebras}).
             \end{proof}
         \begin{convention}
-            If $L$ is a Kac-Moody algebra of some simply laced untwisted affine type and then we will denote by $\tilde{\rmY}_{\hbar}(L)$ the completion of $\rmY_{\hbar}(L)$ with respect to its root grading, with \say{completion} being understood to be in the sense of \cite[Appendix A]{wendlandt_formal_shift_operators_on_yangian_doubles}. Note that this root grading is the same as the one on $\rmY(L)$ due to the fact that:
+            If $L$ is a Kac-Moody algebra of some simply laced untwisted affine type and then we will denote by $\breve{\rmY}_{\hbar}(L)$ the completion of $\rmY_{\hbar}(L)$ with respect to its root grading, with \say{completion} being understood to be in the sense of \cite[Appendix A]{wendlandt_formal_shift_operators_on_yangian_doubles}. Note that this root grading is the same as the one on $\rmY(L)$ due to the fact that:
                 $$\forall h \in \hat{\h}_{[1]}: [h, E_{i, r}^{\pm}] = \pm \alpha_i(h) E_{i, r}^{\pm} \in \rmY_{\hbar}(L) \setminus \hbar\rmY_{\hbar}(L) \cong \rmY^0(L)$$
-            so the construction of $\tilde{\rmY}_{\hbar}(L)$ from $\rmY_{\hbar}(L)$ is the same as that of $\tilde{\rmY}(L)$ from $\rmY(L)$.
+            so the construction of $\breve{\rmY}_{\hbar}(L)$ from $\rmY_{\hbar}(L)$ is the same as that of $\breve{\rmY}(L)$ from $\rmY(L)$.
         \end{convention}
+        \begin{lemma}[$\rmY_{\hbar}(\hat{\g}_{[1]})$-modules are $\breve{\rmY}_{\hbar}(\hat{\g}_{[1]})$-modules] \label{lemma: lifting_representations_of_formal_affine_yangians_to_root_grading_completions}
+            Any left-$\rmY_{\hbar}(\hat{\g}_{[1]})$-module $V$ in the category $\calO$, given by a $\bbC$-algebra homomorphism:
+                $$\rho: \rmY_{\hbar}(\hat{\g}_{[1]}) \to \End_{\bbC}(V)$$
+            gives rise to a unique left-$\breve{\rmY}_{\hbar}(\hat{\g}_{[1]})$-module structure on $V$, which is the same as a $\bbC$-algebra homomorphism:
+                $$\breve{\rho}: \breve{\rmY}_{\hbar}(\hat{\g}_{[1]}) \to \End_{\bbC}(V)$$
+            fitting into the following commutative diagram of $\bbC$-algebras and homomorphisms between them, where the vertical arrow is the canonical inclusion (cf. \cite[Section 5, Lemma 5.3]{guay_nakajima_wendlandt_affine_yangian_coproduct}):
+                $$
+                    \begin{tikzcd}
+                	{\breve{\rmY}_{\hbar}(\hat{\g}_{[1]})} & {\End_{\bbC}(V)} \\
+                	{\rmY_{\hbar}(\hat{\g}_{[1]})}
+                	\arrow[from=2-1, to=1-1]
+                	\arrow["{\breve{\rho}}", dashed, from=1-1, to=1-2]
+                	\arrow["\rho"', from=2-1, to=1-2]
+                    \end{tikzcd}
+                $$
+        \end{lemma}
+            \begin{proof}
+                
+            \end{proof}
         \begin{theorem}[Hopf coproduct on formal affine Yangians] \label{theorem: hopf_coproduct_on_formal_yangians}
-            The $\bbC$-algebra homomorphism $\Delta: \rmY(\hat{\g}_{[1]}) \to \tilde{\rmY}(\hat{\g}_{[1]} \oplus \hat{\g}_{[1]})$ from proposition \ref{prop: hopf_coproduct_on_yangians} lifts\footnote{... in the sense that $\Delta_{\hbar} \pmod{(\hbar - \hbar_0)} \equiv \Delta$ for any $\hbar_0 \in \bbC^{\x}$.} to a $\bbC$-algebra homomorphism:
-                $$\Delta_{\hbar}: \rmY_{\hbar}(\hat{\g}_{[1]}) \to \tilde{\rmY}_{\hbar}(\hat{\g}_{[1]} \oplus \hat{\g}_{[1]})$$
+            The $\bbC$-algebra homomorphism $\Delta: \rmY(\hat{\g}_{[1]}) \to \breve{\rmY}(\hat{\g}_{[1]} \oplus \hat{\g}_{[1]})$ from proposition \ref{prop: hopf_coproduct_on_yangians} lifts\footnote{... in the sense that $\Delta_{\hbar} \pmod{(\hbar - \hbar_0)} \equiv \Delta$ for any $\hbar_0 \in \bbC^{\x}$.} to a $\bbC$-algebra homomorphism:
+                $$\Delta_{\hbar}: \rmY_{\hbar}(\hat{\g}_{[1]}) \to \breve{\rmY}_{\hbar}(\hat{\g}_{[1]} \oplus \hat{\g}_{[1]})$$
             satisfying:
-                $$\Delta_{V_1, V_2, \hbar} = (\tilde{\rho}_1 \tensor \tilde{\rho}_2) \circ \Delta_{\hbar}$$
+                $$\Delta_{V_1, V_2, \hbar} = (\breve{\rho}_1 \tensor \breve{\rho}_2) \circ \Delta_{\hbar}$$
             for any $(V_1, \rho_1), (V_2, \rho_2) \in \Ob(\calO_{\hbar})$.
         \end{theorem}
             \begin{proof}
@@ -575,17 +607,37 @@
             \end{proof}
         
         \begin{theorem}[Toroidal Lie algebras as classical limits of formal affine Yangians] \label{theorem: toroidal_lie_algebras_as_classical_limits_of_formal_affine_yangians}
-           
+           The Lie bialgebra $(\tilde{\g}_{[2]}^+, \tilde{\delta}^+)$ from theorem \ref{theorem: toroidal_lie_bialgebras} is the classical limit of the formal affine Yangian $\rmY_{\hbar}(\hat{\g}_{[1]})$ with the \say{coproduct} $\Delta_{\hbar}$ (as in theorem \ref{theorem: hopf_coproduct_on_formal_yangians}) in the sense that:
+                $$\frac{1}{\hbar}( \Delta_{\hbar} - \Delta_{\hbar}^{\cop} ) \equiv \tilde{\delta}^+ \pmod{\hbar}$$
         \end{theorem}
             \begin{proof}
-                
-            \end{proof}
+                Before we begin computing, let us make the preliminary observation that $T_{i, 1}(\hbar) \in \rmY_{\hbar}(\hat{\g}_{[1]})$ is a lift modulo $\hbar$ of $h_i t \in \tilde{\g}_{[2]}^+$:
+                    $$T_{i, 1}(\hbar) := H_{i, 1} - \frac12 \hbar H_{i, 0}^2 \equiv H_{i, 1} = h_i t \pmod{\hbar}$$
+            
+                The first computation to make is of:
+                    $$\Delta_{\hbar}^{\cop}$$
+                which is to satisfy:
+                    $$\Delta_{V_1, V_2, \hbar}^{\cop} = (\breve{\rho}_2 \tensor \breve{\rho}_1) \circ \Delta_{\hbar}^{\cop}$$
+                for some arbitrarily chosen objects $V_1, V_2 \in \Ob( \calO_{\hbar} )$. This firstly necessitates computing:
+                    $$\Delta_{V_1, V_2, \hbar}^{\cop} := (1 \: 2) \circ \Delta_{V_1, V_2, \hbar}$$
+                This latter computation is trivial on the generators $h \in \hat{\h}_{[1]}$ and $E_{i, 0}^{\pm}$ (for all $i \in \hat{\Gamma}_0$), and to compute:
+                    $$\Delta_{V_1, V_2, \hbar}^{\cop}(T_{i, 0}) := \bar{\Delta}(T_{i, 0}) + [1 \tensor H_{i, 0}, \sfr_{ \hat{\g}_{[1]} }^+(\hbar)]$$
+                for any $i \in \hat{\Gamma}_0$, let us firstly abbreviate:
+                    $$\sfr_{ \hat{\g}_{[1]} }^+(\hbar) := \sum_{j \in \hat{\Gamma}_0} h_j \tensor h_j + \hbar \sum_{\alpha \in \hat{\Phi}^+} \sum_{k = 1}^{ \dim_{\bbC} (\hat{\g}_{[1]})_{\alpha} } e_{\alpha, k}^+ \tensor e_{\alpha, k}^-$$
+                and note that $\sfr_{ \hat{\g}_{[1]} }^+(\hbar) = (1 \: 2)\left( \sfr_{ \hat{\g}_{[1]} }^-(\hbar) \right)$, and then consider the following:
+                    $$[1 \tensor H_{i, 0}, h_j, h_j] = 0$$
+                    $$
+                        \begin{aligned}
+                            \left[1 \tensor H_{i, 0}, \sum_{\alpha \in \hat{\Phi}^+} \sum_{k = 1}^{ \dim_{\bbC} (\hat{\g}_{[1]})_{\alpha} } e_{\alpha, k}^+ \tensor e_{\alpha, k}^-\right] & = \sum_{\alpha \in \hat{\Phi}^+} \sum_{k = 1}^{ \dim_{\bbC} (\hat{\g}_{[1]})_{\alpha} } [1 \tensor h_i, e_{\alpha, k}^+ \tensor e_{\alpha, k}^-]
+                            \\
+                            & = -\sum_{\alpha \in \hat{\Phi}^+} \sum_{k = 1}^{ \dim_{\bbC} (\hat{\g}_{[1]})_{\alpha} } (\alpha, \alpha_i) e_{\alpha, k}^+ \tensor e_{\alpha, k}^-
+                        \end{aligned}
+                    $$
+                From these, we gather that:
+                    $$\Delta_{V_1, V_2, \hbar}^{\cop}(T_{i, 0}) = \bar{\Delta}(T_{i, 0}) - \hbar \sum_{\alpha \in \hat{\Phi}^+} \sum_{k = 1}^{ \dim_{\bbC} (\hat{\g}_{[1]})_{\alpha} } (\alpha, \alpha_i) e_{\alpha, k}^+ \tensor e_{\alpha, k}^-$$
+                and hence:
+                    $$(\Delta_{V_1, V_2, \hbar} - \Delta_{V_1, V_2, \hbar}^{\cop})(T_{i, 1}) = \hbar \sum_{\alpha \in \hat{\Phi}^+} \sum_{k = 1}^{ \dim_{\bbC} (\hat{\g}_{[1]})_{\alpha} } (\alpha, \alpha_i) ( e_{\alpha, k}^+ \tensor e_{\alpha, k}^- - e_{\alpha, k}^- \tensor e_{\alpha, k}^+ )$$
 
-        \begin{question}
-            Is there a category of representations, say $\bar{\calO}$, for $\tilde{\g}_{[2]}^+$ such that, for every objects $(V_1, \rho_1), (V_2, \rho_2)$ therein, one obtains a Lie algebra homomorphism\footnote{$\rmU(\tilde{\g}_{[2]}^+)$ is a Hopf algebra already, so it should not be hard to define $\bar{\calO}$ that would guarantee that it is closed under $\tensor_{\bbC}$.}:
-                $$\delta_{V_1, V_2}: \tilde{\g}_{[2]}^+ \to \frakend_{\bbC}(V_1 \tensor_{\bbC} V_2)$$
-            such that:
-                $$\delta_{V_1, V_2} = (\rho_1 \tensor \rho_2) \circ \tilde{\delta}^+$$
-            ? The point here is that, should such a category $\bar{\calO}$ exist, it ought to be the \say{classical limit} of $\calO_{\hbar}$ in the sense that:
-                $$\frac{1}{\hbar}(\Delta_{V_1, V_2, \hbar} - \Delta_{V_1, V_2, \hbar}^{\cop}) \pmod{\hbar} \equiv \delta_{V_1, V_2}$$
-        \end{question}
+                Now, recall from theorem \ref{theorem: toroidal_lie_bialgebras} that:
+                    $$\tilde{\delta}^+(h_i t) = [h_i \tensor 1, \sfr_{\g} v_2 \1(v_1, v_2)]$$
+            \end{proof}
