@@ -614,30 +614,45 @@
                 Before we begin computing, let us make the preliminary observation that $T_{i, 1}(\hbar) \in \rmY_{\hbar}(\hat{\g}_{[1]})$ is a lift modulo $\hbar$ of $h_i t \in \tilde{\g}_{[2]}^+$:
                     $$T_{i, 1}(\hbar) := H_{i, 1} - \frac12 \hbar H_{i, 0}^2 \equiv H_{i, 1} = h_i t \pmod{\hbar}$$
             
-                The first computation to make is of:
+                Firstly, let us attempt to make sense of the expression:
                     $$\Delta_{\hbar}^{\cop}$$
                 which is to satisfy:
                     $$\Delta_{V_1, V_2, \hbar}^{\cop} = (\breve{\rho}_2 \tensor \breve{\rho}_1) \circ \Delta_{\hbar}^{\cop}$$
-                for some arbitrarily chosen objects $V_1, V_2 \in \Ob( \calO_{\hbar} )$. This firstly necessitates computing:
+                for some arbitrarily chosen objects $V_1, V_2 \in \Ob( \calO_{\hbar} )$. Giving an explicit formula for the map $\Delta_{\hbar}^{\cop}$ thus firstly necessitates computing:
                     $$\Delta_{V_1, V_2, \hbar}^{\cop} := (1 \: 2) \circ \Delta_{V_1, V_2, \hbar}$$
-                This latter computation is trivial on the generators $h \in \hat{\h}_{[1]}$ and $E_{i, 0}^{\pm}$ (for all $i \in \hat{\Gamma}_0$), and to compute:
-                    $$\Delta_{V_1, V_2, \hbar}^{\cop}(T_{i, 0}) := \bar{\Delta}(T_{i, 0}) + [1 \tensor H_{i, 0}, \sfr_{ \hat{\g}_{[1]} }^+(\hbar)]$$
-                for any $i \in \hat{\Gamma}_0$, let us firstly abbreviate:
+                This latter computation is trivial on the generators $h \in \hat{\h}_{[1]}$ and $E_{i, 0}^{\pm}$ (for all $i \in \hat{\Gamma}_0$). To compute how this acts on the generators $T_{i, 1}$ for any $i \in \hat{\Gamma}_0$, firstly recall that:
+                    $$\Delta_{V_1, V_2, \hbar}(T_{i, 1}) = \bar{\Delta}(H_{i, 0}) + [H_{i, 0} \tensor 1, \sfr_{ \hat{\g}_{[1]} }^-] = \bar{\Delta}(T_{i, 0}) + \sum_{\alpha \in \hat{\Phi}^+} \sum_{k = 1}^{ \dim_{\bbC} (\hat{\g}_{[1]})_{\alpha} } (\alpha, \alpha_i) e_{\alpha, k}^- \tensor e_{\alpha, k}^+$$
+                with notations as in lemma \ref{lemma: category_O_formal_affine_yangian}. This tells us that:
+                    $$\Delta_{V_1, V_2, \hbar}^{\cop}(T_{i, 0}) = \bar{\Delta}(T_{i, 0}) + [1 \tensor H_{i, 0}, \sfr_{ \hat{\g}_{[1]} }^+(\hbar)]$$
+                wherein:
                     $$\sfr_{ \hat{\g}_{[1]} }^+(\hbar) := \sum_{j \in \hat{\Gamma}_0} h_j \tensor h_j + \hbar \sum_{\alpha \in \hat{\Phi}^+} \sum_{k = 1}^{ \dim_{\bbC} (\hat{\g}_{[1]})_{\alpha} } e_{\alpha, k}^+ \tensor e_{\alpha, k}^-$$
-                and note that $\sfr_{ \hat{\g}_{[1]} }^+(\hbar) = (1 \: 2)\left( \sfr_{ \hat{\g}_{[1]} }^-(\hbar) \right)$, and then consider the following:
+                Now, to compute the summand $[1 \tensor H_{i, 0}, \sfr_{ \hat{\g}_{[1]} }^+(\hbar)]$ explicitly, consider the following:
                     $$[1 \tensor H_{i, 0}, h_j, h_j] = 0$$
-                    $$
-                        \begin{aligned}
-                            \left[1 \tensor H_{i, 0}, \sum_{\alpha \in \hat{\Phi}^+} \sum_{k = 1}^{ \dim_{\bbC} (\hat{\g}_{[1]})_{\alpha} } e_{\alpha, k}^+ \tensor e_{\alpha, k}^-\right] & = \sum_{\alpha \in \hat{\Phi}^+} \sum_{k = 1}^{ \dim_{\bbC} (\hat{\g}_{[1]})_{\alpha} } [1 \tensor h_i, e_{\alpha, k}^+ \tensor e_{\alpha, k}^-]
-                            \\
-                            & = -\sum_{\alpha \in \hat{\Phi}^+} \sum_{k = 1}^{ \dim_{\bbC} (\hat{\g}_{[1]})_{\alpha} } (\alpha, \alpha_i) e_{\alpha, k}^+ \tensor e_{\alpha, k}^-
-                        \end{aligned}
-                    $$
+                    $$\left[1 \tensor H_{i, 0}, \sum_{\alpha \in \hat{\Phi}^+} \sum_{k = 1}^{ \dim_{\bbC} (\hat{\g}_{[1]})_{\alpha} } e_{\alpha, k}^+ \tensor e_{\alpha, k}^-\right] = \sum_{\alpha \in \hat{\Phi}^+} \sum_{k = 1}^{ \dim_{\bbC} (\hat{\g}_{[1]})_{\alpha} } [1 \tensor h_i, e_{\alpha, k}^+ \tensor e_{\alpha, k}^-] = -\sum_{\alpha \in \hat{\Phi}^+} \sum_{k = 1}^{ \dim_{\bbC} (\hat{\g}_{[1]})_{\alpha} } (\alpha, \alpha_i) e_{\alpha, k}^+ \tensor e_{\alpha, k}^-$$
                 From these, we gather that:
                     $$\Delta_{V_1, V_2, \hbar}^{\cop}(T_{i, 0}) = \bar{\Delta}(T_{i, 0}) - \hbar \sum_{\alpha \in \hat{\Phi}^+} \sum_{k = 1}^{ \dim_{\bbC} (\hat{\g}_{[1]})_{\alpha} } (\alpha, \alpha_i) e_{\alpha, k}^+ \tensor e_{\alpha, k}^-$$
-                and hence:
-                    $$(\Delta_{V_1, V_2, \hbar} - \Delta_{V_1, V_2, \hbar}^{\cop})(T_{i, 1}) = \hbar \sum_{\alpha \in \hat{\Phi}^+} \sum_{k = 1}^{ \dim_{\bbC} (\hat{\g}_{[1]})_{\alpha} } (\alpha, \alpha_i) ( e_{\alpha, k}^+ \tensor e_{\alpha, k}^- - e_{\alpha, k}^- \tensor e_{\alpha, k}^+ )$$
-
-                Now, recall from theorem \ref{theorem: toroidal_lie_bialgebras} that:
+                which then tells us that:
+                    $$\frac{1}{\hbar} (\Delta_{V_1, V_2, \hbar} - \Delta_{V_1, V_2, \hbar}^{\cop})(T_{i, 1}) = \sum_{\alpha \in \hat{\Phi}^+} \sum_{k = 1}^{ \dim_{\bbC} (\hat{\g}_{[1]})_{\alpha} } (\alpha, \alpha_i) ( e_{\alpha, k}^+ \tensor e_{\alpha, k}^- + e_{\alpha, k}^- \tensor e_{\alpha, k}^+ )$$
+                
+                Using the fact from theorem \ref{theorem: hopf_coproduct_on_formal_yangians} that:
+                    $$\Delta_{V_1, V_2, \hbar} = (\breve{\rho}_1 \tensor \breve{\rho}_2) \circ \Delta_{\hbar}$$
+                which on its own implies that:
+                    $$\Delta_{V_1, V_2, \hbar}^{\cop} = (\breve{\rho}_2 \tensor \breve{\rho}_1) \circ \Delta_{\hbar}^{\cop}$$
+                for any choice of $V_1, V_2 \in \Ob(\calO_{\hbar})$, one then sees that indeed:
+                    $$\frac{1}{\hbar}( \Delta_{\hbar} - \Delta_{\hbar}^{\cop} ) = \sum_{\alpha \in \hat{\Phi}^+} \sum_{k = 1}^{ \dim_{\bbC} (\hat{\g}_{[1]})_{\alpha} } (\alpha, \alpha_i) ( e_{\alpha, k}^+ \tensor e_{\alpha, k}^- + e_{\alpha, k}^- \tensor e_{\alpha, k}^+ )$$
+                Using the affine Kac-Moody loop realisation isomorphism $L(\hat{C}) \xrightarrow[]{\cong} \hat{\g}_{[1]}$ as in \cite[Chapter 7]{kac_infinite_dimensional_lie_algebras} ($L(\hat{C})$ denotes the Kac-Moody algebra associated to the indecomposable affine Cartan matrix $\hat{C}$), which yields us the following root space decomposition for $\hat{\g}_{[1]}$:
+                    $$\hat{\g}_{[1]} \cong \hat{\h}_{[1]} \oplus \left( \bigoplus_{m \in \Z \setminus \{0\}} \h v^m \right) \oplus \left( \bigoplus_{(\alpha, m) \in \Phi \x \Z} \g_{\alpha} v^m \right)$$
+                which then tells us that:
+                    $$
+                        \begin{aligned}
+                            \frac{1}{\hbar}( \Delta_{\hbar} - \Delta_{\hbar}^{\cop} ) & = \sum_{\alpha \in \hat{\Phi}^+} \sum_{k = 1}^{ \dim_{\bbC} (\hat{\g}_{[1]})_{\alpha} } (\alpha, \alpha_i) ( e_{\alpha, k}^+ \tensor e_{\alpha, k}^- + e_{\alpha, k}^- \tensor e_{\alpha, k}^+ )
+                            \\
+                            & = \sum_{(\alpha, m) \in \Phi^+ \x \Z} (\alpha, \alpha_i) ( e_{\alpha}^+ v_1^m \tensor e_{\alpha}^- v_2^{-m} + e_{\alpha}^- v_1^{-m} \tensor e_{\alpha}^+ v_2^m )
+                            \\
+                            & = [h_i \tensor 1, \sfr_{\g} v_2 \1(v_1, v_2)]
+                        \end{aligned}
+                    $$
+                From theorem \ref{theorem: toroidal_lie_bialgebras}, we know that:
                     $$\tilde{\delta}^+(h_i t) = [h_i \tensor 1, \sfr_{\g} v_2 \1(v_1, v_2)]$$
+                so we are done.
             \end{proof}
