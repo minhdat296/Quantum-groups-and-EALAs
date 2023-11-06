@@ -21,7 +21,85 @@
     \tableofcontents %sort sections alphabetically
     }
 
-    \section{Introduction}
+    \begin{convention} \label{conv: a_fixed_untwisted_affine_kac_moody_algebra}
+            We introduce the following notations, which deviate slightly from those of e.g. \cite[Chapter 7]{kac_infinite_dimensional_lie_algebras}, so as to be consistent with the rest of our notes.
+        
+            Let us write:
+                $$\hat{\g}_{[1]} := \tilde{\g}_{[1]} \rtimes \d_{[1]}$$
+            to mean the untwisted affine Kac-Moody algebra attached to the finite-dimensional simple Lie algebra $\g$ from convention \ref{conv: a_fixed_finite_dimensional_simple_lie_algebra} (cf. \cite[Chapter 7]{kac_infinite_dimensional_lie_algebras}). Here, $\g_{[1]} := \g[v^{\pm 1}]$ is equipped with the invariant inner product given by:
+                $$(x v^m, y v^n)_{\g_{[1]}} := (x, y)_{\g} \delta_{m + n = 0}$$
+            for all $x, y \in \g$ and all $m, n \in \Z$, and $\d_{[1]}$ is the $1$-dimensional Lie algebra spanned by the derivation (with notations as in remark \ref{remark: dual_of_toroidal_centres_contains_derivations}):
+                $$D_{0, -1} \in \der_{\bbC}(\tilde{\g}_{[1]})$$
+            on $\tilde{\g}_{[1]} := \uce(\g_{[1]})$ acting as $\id_{\g} \tensor \left( -v \frac{d}{dv} \right)$ on $\g_{[1]}$ and as zero on $\z_{[1]} := \z(\tilde{\g}_{[1]})$; recall also that this centre is $1$-dimensional, and in particular, it is identifiable as:
+                $$\z_{[1]} \cong \bbC K_{0, -1}$$
+            (see remark \ref{remark: centres_of_dual_toroidal_lie_algebras} for how the elements $K_{r, s}$ are given).
+
+            Fix a Cartan subalgebra $\hat{\h}_{[1]}$ of $\hat{\g}_{[1]}$. The affine Dynkin diagram associated to $\hat{\g}_{[1]}$ (cf. \cite[Chapter 4]{kac_infinite_dimensional_lie_algebras}) shall be denoted by:
+                $$\hat{\Gamma} := ( \hat{\Gamma}_0, \hat{\Gamma}_1 )$$
+            with $\hat{\Gamma}_0$ denoting the set of vertices and $\hat{\Gamma}_1$ denoting the set of undirected edges.
+
+            Also, let us denote the highest root by $\theta$. Note that we have a bijection (but not literally an equality; cf. \cite[Chapters 4, 5, 7]{kac_infinite_dimensional_lie_algebras}):
+                $$\hat{\Gamma}_0 \cong \Gamma_0 \cup \{\theta\}$$
+        \end{convention}
+    \begin{theorem}[Toroidal Lie algebras as classical limits of formal affine Yangians] \label{theorem: toroidal_lie_algebras_as_classical_limits_of_formal_affine_yangians}
+           The Lie bialgebra $(\tilde{\g}_{[2]}^+, \tilde{\delta}^+)$ from theorem \ref{theorem: toroidal_lie_bialgebras} is the classical limit of the formal affine Yangian $\rmY_{\hbar}(\hat{\g}_{[1]})$ with the \say{coproduct} $\Delta_{\hbar}$ (as in theorem \ref{theorem: hopf_coproduct_on_formal_yangians}), in the sense that:
+                $$\frac{1}{\hbar}( \Delta_{\hbar} - \Delta_{\hbar}^{\cop} ) \equiv \tilde{\delta}^+ \pmod{\hbar}$$
+        \end{theorem}
+            \begin{proof}
+                Before we begin computing, let us make the preliminary observation that $T_{i, 1}(\hbar) \in \rmY_{\hbar}(\hat{\g}_{[1]})$ is a lift modulo $\hbar$ of $H_{i, 1} \in \t^+ \cong \tilde{\g}_{[2]}^+$ (cf. corollary \ref{coro: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras}):
+                    $$T_{i, 1}(\hbar) := H_{i, 1} - \frac12 \hbar H_{i, 0}^2 \equiv H_{i, 1} \pmod{\hbar}$$
+                Also, let us note that, we know from lemma \ref{lemma: levendorskii_presentation} and corollary \ref{coro: levendorskii_presentation__for_central_extensions_of_multiloop_algebras} that it is enough to only check the value of $\Delta_{\hbar}^{\cop}$ on the generators $H_{i, 0}, E_{i, 0}^{\pm}$, and $T_{i, 1} \equiv H_{i, 1} \pmod{\hbar}$, for all $i \in \hat{\Gamma}_0$.
+            
+                Firstly, from theorem \ref{theorem: hopf_coproduct_on_formal_yangians}, we know that:
+                    $$\forall h \in \hat{\h}_{[1]}: \Delta_{\hbar}(h) := \bar{\Delta}(h)$$
+                    $$\forall i \in \hat{\Gamma}_0: \Delta_{\hbar}(E_{i, 0}^{\pm}) := \bar{\Delta}(E_{i, 0}^{\pm})$$
+                    $$\forall i \in \hat{\Gamma}_0: \Delta_{\hbar}(T_{i, 0}) = \bar{\Delta}(T_{i, 0}) + [H_{i, 0} \tensor 1, \sfr_{ \hat{\g}_{[1]} }^-]$$
+                This tells us that:
+                    $$\forall h \in \hat{\h}_{[1]}: \Delta_{\hbar}^{\cop}(h) := \bar{\Delta}(h)$$
+                    $$\forall i \in \hat{\Gamma}_0: \Delta_{\hbar}^{\cop}(E_{i, 0}^{\pm}) := \bar{\Delta}(E_{i, 0}^{\pm})$$
+                    $$\forall i \in \hat{\Gamma}_0: \Delta_{\hbar}^{\cop}(T_{i, 0}) = \bar{\Delta}(T_{i, 0}) + [1 \tensor H_{i, 0}, \sfr_{ \hat{\g}_{[1]} }^+]$$
+                with $\sfr_{\hat{\g}_{[1]}}^+$ being the Casimir tensor associated to the non-degenerate Kac-Moody pairing on $\hat{\n}_{[1]}^+ \hattensor_{\bbC} \hat{\n}_{[1]}^-$.
+
+                It is then trivial that:
+                    $$\frac{1}{\hbar}( \Delta_{\hbar} - \Delta_{\hbar}^{\cop} )(X) = 0$$
+                for:
+                    $$X \in \h \cup \{E_{i, 0}^{\pm}\}_{i \in \hat{\Gamma}_0}$$
+                which implies that:
+                    $$\frac{1}{\hbar}( \Delta_{\hbar} - \Delta_{\hbar}^{\cop} )(X) \equiv \tilde{\delta}^+(X) \pmod{\hbar}$$
+                which is because it is known from theorem \ref{theorem: toroidal_lie_bialgebras} that:
+                    $$\tilde{\delta}^+(X) = 0$$
+                whenever $\deg X = 0$, which is the case here.
+                
+                Now, let us verify that:
+                    $$\frac{1}{\hbar}(\Delta_{\hbar} - \Delta_{\hbar}^{\cop})(T_{i, 1}) \equiv \tilde{\delta}^+(H_{i, 1})$$
+                It is not hard to see that\footnote{One can prove this by e.g. picking the root bases foor $\hat{\n}_{[1]}^{\pm}$.}:
+                    $$[1 \tensor H_{i, 0}, \sfr_{ \hat{\g}_{[1]} }^+] = -[H_{i, 0} \tensor 1, \sfr_{ \hat{\g}_{[1]} }^+]$$
+                which tells us that:
+                    $$\frac{1}{\hbar}( \Delta_{\hbar} - \Delta_{\hbar}^{\cop} )(T_{i, 1}) = [H_{i, 0} \tensor 1, \sfr_{ \hat{\g}_{[1]} }^- + \sfr_{ \hat{\g}_{[1]} }^+]$$
+                Since $H_{i, 0}$ commutes with every element of $\hat{\h}_{[1]}$, we can equivalently rewrite the above into:
+                    $$\frac{1}{\hbar}( \Delta_{\hbar} - \Delta_{\hbar}^{\cop} )(T_{i, 1}) = [H_{i, 0} \tensor 1, \sfr_{\hat{\h}_{[1]}} + \sfr_{ \hat{\g}_{[1]} }^- + \sfr_{ \hat{\g}_{[1]} }^+] = [H_{i, 0} \tensor 1, \sfr_{ \hat{\g}_{[1]} }]$$
+                wherein $\sfr_{\hat{\h}_{[1]}}$ is the Casimir element associated to the Kac-Moody pairing on $\hat{\h}_{[1]} \tensor_{\bbC} \hat{\h}_{[1]}$. 
+
+                We know from theorem \ref{theorem: toroidal_lie_bialgebras} that:
+                    $$\tilde{\delta}^+(H_{i, 1}) = [ H_{i, 0} \tensor 1, \sfr_{\g} v_2 \1(v_1, v_2) ]$$
+                so we will be done if we can show that:
+                    $$[H_{i, 0} \tensor 1, \sfr_{ \hat{\g}_{[1]} }] = [ H_{i, 0} \tensor 1, \sfr_{\g} v_2 \1(v_1, v_2) ]$$
+                From the fact that:
+                    $$\hat{\g}_{[1]} \cong \g_{[1]} \oplus \z_{[1]} \oplus \d_{[1]} \cong \g_{[1]} \oplus \bbC c_v \oplus \bbC D_{0, -1}$$
+                (with notations as in conventions \ref{conv: a_fixed_untwisted_affine_kac_moody_algebra} and \ref{conv: orthogonal_complement_of_toroidal_centres}) and implicitly from the solution to question \ref{question: multiloop_lie_bialgebras} (notice that the bilinear form on $\g_{[2]}$ in \textit{loc. cit.} is nothing but the Kac-Moody form; cf. \cite[Chapter 7]{kac_infinite_dimensional_lie_algebras}), which is given by:
+                    $$\forall x, y \in \g: \forall m, n \in \Z: (x v^m, y v^n)_{\hat{\g}_{[1]}} = (x, y)_{\g} \delta_{m + n, 0}$$
+                    $$(K_{0, -1}, D_{0, -1})_{\hat{\g}_{[1]}} = 1$$
+                we infer that:
+                    $$\sfr_{ \hat{\g}_{[1]} } = \sfr_{\g} v_2 \1(v_1, v_2) + \sfr_{\z_{[1]}} + \sfr_{\d_{[1]}} = \sfr_{\g} v_2 \1(v_1, v_2) + K_{0, -1} \tensor D_{0, -1} + D_{0, -1} \tensor K_{0, -1}$$
+                wherein $\sfr_{\z_{[1]}}, \sfr_{\d_{[1]}}$ respectively denote the Casimir elements corresponding to the Kac-Moody form on $\z_{[1]} \tensor_{\bbC} \d_{[1]}$ and on $\d_{[1]} \tensor_{\bbC} \z_{[1]}$ respectively. The element $K_{0, -1} \in \tilde{\g}_{[1]} := \g_{[1]} \oplus \z_{[1]}$ is central and therefore commutes with $H_{i, 0}$, which implies that:
+                    $$[H_{i, 0} \tensor 1, \sfr_{\z_{[1]}}] = [H_{i, 0} \tensor 1, K_{0, -1} \tensor D_{0, -1}] = 0$$
+                At the same time, we also know that $D_{0, -1}$ acts as $\id_{\g} \tensor (-v \del_v)$ on $\g_{[1]}$ and hence as zero on the elements of $\g$ (i.e. degree-$0$ elements of $\g_{[1]}$), and so:
+                    $$[H_{i, 0} \tensor 1, \sfr_{\d_{[1]}}] = [H_{i, 0} \tensor 1, D_{0, -1} \tensor K_{0, -1}] = 0$$
+                as well. As such, we have demonstrated that:
+                    $$[H_{i, 0} \tensor 1, \sfr_{ \hat{\g}_{[1]} }] = [ H_{i, 0} \tensor 1, \sfr_{\g} v_2 \1(v_1, v_2) ]$$
+                as we sought to. As mentioned above, this allows us to conclude that:
+                    $$\frac{1}{\hbar}( \Delta_{\hbar} - \Delta_{\hbar}^{\cop} )(T_{i, 1}) \equiv \tilde{\delta}^+(H_{i, 1}) \pmod{\hbar}$$
+            \end{proof}
     
     \addcontentsline{toc}{section}{References}
     \printbibliography

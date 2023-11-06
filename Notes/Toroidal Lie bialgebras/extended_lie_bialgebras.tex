@@ -291,7 +291,7 @@
                 $$\deg c_v = \deg c_t = -1$$
         \end{remark}
 
-    \subsection{Extending \texorpdfstring{$\tilde{\g}_{[2]}$}{} to fix degeneracy}
+    \subsection{Extending \texorpdfstring{$\tilde{\g}_{[2]}$}{} to fix degeneracy} \label{subsection: extended_toroidal_lie_algebras}
         We now attempt to fix the issue whereby any bilinear form on $\tilde{\g}_{[2]}:= \uce(\g_{[2]})$ is necessarily degenerate. We do this by formally introducing a \say{complementary} vector space $\d_{[2]}$ whose elements shall pair non-degenerately with those of $\z_{[2]}$. 
         \begin{convention} \label{conv: orthogonal_complement_of_toroidal_centres}
             From now on, $\d_{[2]}$ shall be the $\bbC$-vector space:
@@ -447,7 +447,7 @@
             \end{enumerate}
         \end{remark}
         \begin{remark}
-            We see now also that $\t$ is a Lie algebra ideal of $\hat{\g}_{[2]}$ with respect to $[-, -]_{\hat{\g}_{[2]}}$.
+            We see now also that $\tilde{\g}_{[2]}$ is a Lie algebra ideal of $\hat{\g}_{[2]}$ with respect to $[-, -]_{\hat{\g}_{[2]}}$.
         \end{remark}
 
         \begin{remark}[Lie bracket(s) on $\d_{[2]}$] \label{remark: dual_of_toroidal_centres_contains_derivations}
@@ -455,40 +455,62 @@
                 $$[D, D']_{\hat{\g}_{[2]}}$$
             should be given, for any $D, D' \in \d_{[2]}$; we note that even when:
                 $$\hat{\g}_{[2]} \cong \tilde{\g}_{[2]} \rtimes \d_{[2]}$$
-            the Lie brackets of pairs of the form $[D, D']_{\hat{\g}_{[2]}}$ ought not be uniquely determined, which is ultimately due to the fact that we have no reason to expect that:
-                $$H^2_{\Lie}(\der_{\bbC}(A_{[2]}), \z_{[2]}) \cong 0$$
+            the Lie brackets of pairs of the form $[D, D']_{\hat{\g}_{[2]}}$ ought not be uniquely determined, which is ultimately due to the fact that we have no reason to claim that\footnote{... though there are also good reasons to suspect that this ought to be the case, since the $C^{\infty}$-analogue of this statement is true (cf. \cite[Corollary D.3]{billig_neeb_vector_field_cyclic_cohomology_parallelisable_manifolds}).}:
+                $$H^2_{\Lie}(\der_{\bbC}(A_{[2]}), \bar{\Omega}_{[2]}) \cong 0$$
                 
             \textit{A priori}, one can suppose that:
                 $$[D, D']_{\hat{\g}_{[2]}} := X(v, t) + K(D, D') + \xi(D, D')$$
-            for some $X(v, t) \in \g_{[2]}$, some $K(D, D') \in \z_{[2]}$, and some $\xi(D, D') \in \d_{[2]}$. Then, consider the following for any arbitrary $Y(v, t) \in \g_{[2]}$, and without any loss of generality we can take $Y(v, t) := y g(v, t)$ for some $y \in \g$ and some $g(v, t) \in A_{[2]}$:
-                $$
-                    \begin{aligned}
-                        ( [D, D']_{\hat{\g}_{[2]}}, Y(v, t) )_{\hat{\g}_{[2]}} & = ( X(v, t) + K(D, D') + \xi(D, D'), Y(v, t) )_{\hat{\g}_{[2]}}
-                        \\
-                        & = (X(v, t), Y(v, t))_{\g_{[2]}}
-                    \end{aligned}
-                $$
-            At the same time, we have by invariance that:
-                $$
-                    \begin{aligned}
-                        ( [D, D']_{\hat{\g}_{[2]}}, Y(v, t) )_{\hat{\g}_{[2]}} & = ( D, [D', Y(v, t)]_{\hat{\g}_{[2]}} )_{\hat{\g}_{[2]}}
-                        \\
-                        & = ( D, [D', y g(v, t)]_{\hat{\g}_{[2]}} )_{\hat{\g}_{[2]}}
-                        \\
-                        & = ( D, y D'(g(v, t)) )_{\hat{\g}_{[2]}}
-                        \\
-                        & = 0
-                    \end{aligned}
-                $$
-            with the second-to-last equality coming from the computations in remark \ref{remark: derivation_action_on_multiloop_algebras} and the last being due to $y D'(g(v, t)) \in \g_{[2]}$. Since $Y(v, t) := y g(v, t)$ was chosen arbitrarily, the above implies that:
-                $$(X(v, t), Y(v, t))_{\hat{\g}_{[2]}} = 0$$
-            and hence:
-                $$X(v, t) = 0$$
-            meaning that:
-                $$[D, D']_{\hat{\g}_{[2]}} = K(D, D') + \xi(D, D') \in \z_{[2]} \oplus \d_{[2]}$$
-            for any $D, D' \in \d_{[2]}$. 
+            for some $X(v, t) \in \g_{[2]}$, some $K(D, D') \in \z_{[2]}$, and some $\xi(D, D') \in \d_{[2]}$. 
+            \begin{enumerate}
+                \item We claim that the $\g_{[2]}$-component $X(v, t)$ actually vanishes. To prove that this is the case, consider the following for any arbitrary $Y(v, t) \in \g_{[2]}$, and without any loss of generality we can take $Y(v, t) := y g(v, t)$ for some $y \in \g$ and some $g(v, t) \in A_{[2]}$:
+                    $$
+                        \begin{aligned}
+                            ( [D, D']_{\hat{\g}_{[2]}}, Y(v, t) )_{\hat{\g}_{[2]}} & = ( X(v, t) + K(D, D') + \xi(D, D'), Y(v, t) )_{\hat{\g}_{[2]}}
+                            \\
+                            & = (X(v, t), Y(v, t))_{\g_{[2]}}
+                        \end{aligned}
+                    $$
+                At the same time, we have by invariance that:
+                    $$
+                        \begin{aligned}
+                            ( [D, D']_{\hat{\g}_{[2]}}, Y(v, t) )_{\hat{\g}_{[2]}} & = ( D, [D', Y(v, t)]_{\hat{\g}_{[2]}} )_{\hat{\g}_{[2]}}
+                            \\
+                            & = ( D, [D', y g(v, t)]_{\hat{\g}_{[2]}} )_{\hat{\g}_{[2]}}
+                            \\
+                            & = ( D, y D'(g(v, t)) )_{\hat{\g}_{[2]}}
+                            \\
+                            & = 0
+                        \end{aligned}
+                    $$
+                with the second-to-last equality coming from the computations in remark \ref{remark: derivation_action_on_multiloop_algebras} and the last being due to $y D'(g(v, t)) \in \g_{[2]}$. Since $Y(v, t) := y g(v, t)$ was chosen arbitrarily, the above implies that:
+                    $$(X(v, t), Y(v, t))_{\hat{\g}_{[2]}} = 0$$
+                and hence:
+                    $$X(v, t) = 0$$
+                meaning that:
+                    $$[D, D']_{\hat{\g}_{[2]}} = K(D, D') + \xi(D, D') \in \z_{[2]} \oplus \d_{[2]}$$
+                for any $D, D' \in \d_{[2]}$. 
+                \item As for the $\z_{[2]}$-component $K(D, D')$, we may compute it by firstly specifying it as a linear combination of the basis elements $K_{r, s}, c_v, c_t \in \z_{[2]}$, e.g. by setting:
+                    $$K(D, D') := \sum_{(r, s) \in \Z^2} \lambda_{r, s} K_{r, s} + \lambda_v c_v + \lambda_t c_t$$
+                (for some $\lambda_{r, s}, \lambda_v, \lambda_t \in \bbC$), and then by using invariance again, specifically by pairing $[D, D']_{\hat{\g}_{[2]}}$ with some arbitrary $D'' \in \d_{[2]}$. Doing so yields:
+                    $$
+                        \begin{aligned}
+                            ([D, D']_{\hat{\g}_{[2]}}, D'')_{\hat{\g}_{[2]}} & = (K(D, D') + \xi(D, D'), D'')_{\hat{\g}_{[2]}}
+                            \\
+                            & = (K(D, D'), D'')_{\hat{\g}_{[2]}}
+                            \\
+                            & = \sum_{(r, s) \in \Z^2} \lambda_{r, s} (K_{r, s}, D'')_{\hat{\g}_{[2]}} + \lambda_v (c_v, D'')_{\hat{\g}_{[2]}} + \lambda_t (c_t, D'')_{\hat{\g}_{[2]}}
+                        \end{aligned}
+                    $$
+                This implies that:
+                    $$([D, D']_{\hat{\g}_{[2]}}, D_{a, b})_{\hat{\g}_{[2]}} = \sum_{(r, s) \in \Z^2} \lambda_{r, s} \delta_{(r, s) + (a, b), (0, 0)} = \lambda_{-a, -b}$$
+                    $$([D, D']_{\hat{\g}_{[2]}}, D_v)_{\hat{\g}_{[2]}} = \lambda_v$$
+                    $$([D, D']_{\hat{\g}_{[2]}}, D_t)_{\hat{\g}_{[2]}} = \lambda_t$$
+                None of these expressions necessarily vanishes, so in general, neither does the central term $K(D, D')$. Thus:
+                    $$[D, D']_{\hat{\g}_{[2]}} \in \z_{[2]} \oplus \d_{[2]}$$
+                \textit{a priori}. Down below, however, we shall see that elements of $\d_{[2]}$ are in fact derivations on $A_{[2]}$ whose commutators lie within $\d_{[2]}$. 
+            \end{enumerate}
             
-            We now claim that, given how $\d_{[2]}$ acts on $\g_{[2]}$ (cf. remark \ref{remark: derivation_action_on_multiloop_algebras}), it can then be shown that the elements of $\d_{[2]}$ are in fact derivations on $A_{[2]}$ (which is perhaps to be expected, since elements of $\z_{[2]}$ are certain equivalence classes of differential $1$-forms on $A_{[2]}$).
+            We now claim that, given how $\d_{[2]}$ acts on $\g_{[2]}$ (cf. remark \ref{remark: derivation_action_on_multiloop_algebras}), it can then be shown that the elements of $\d_{[2]}$ are in fact derivations on $A_{[2]}$. This is perhaps to be expected, since elements of $\z_{[2]}$ are certain equivalence classes of differential $1$-forms on $A_{[2]}$.
             \begin{enumerate}
                 \item Firstly, consider the map:
                     $$D_{r, s}: A_{[2]} \to A_{[2]}$$
@@ -554,13 +576,8 @@
 
             Now that we know that the basis elements $D_{r, s}, D_v, D_t \in \d_{[2]}$ are actually certain derivations on $A_{[2]}$, we can also check if $\d_{[2]}$ is in fact a Lie subalgebra of $\der_{\bbC}(A_{[2]})$ (equipped with the usual commutator Lie bracket) by checking whether or not commutators of the elements $D_{r, s}, D_v, D_t$ are still elements of $\d_{[2]}$. Doing so gives one Lie bracket on $\d_{[2]}$, namely the one such that:
                 $$[D, D']_{\hat{\g}_{[2]}} = \xi(D, D') \in \d_{[2]}$$
-            for any $D, D' \in \d_{[2]}$, with $\xi(D, D')$ being as above. One sees then that the freedom lies in the element:
-                $$K(D, D') \in \z_{[2]}$$
-            mentioned earlier. 
+            for any $D, D' \in \d_{[2]}$, with $\xi(D, D')$ being as above.
         \end{remark}
-        \begin{convention}
-            From now on, we will be working with the usual commutator bracket on $\d_{[2]}$. 
-        \end{convention}
         
         \begin{remark}[How does $\d_{[2]}$ act on $\z_{[2]}$ ?] \label{remark: derivation_action_on_toroidal_centres}
             We can now use what we know about how $\d_{[2]}$ acts on $\g_{[2]}$ in conjunction with the Jacobi identity in order to compute Lie brackets of the form:
@@ -642,6 +659,9 @@
             as claimed. 
         \end{remark}
 
+        \begin{convention}
+            For our eventual purposes, we will be working with the usual commutator bracket on $\d_{[2]}$ (inherited from $\der_{\bbC}(A_{[2]})$) from now on.
+        \end{convention}
         Putting everything together then yields us the following result:
         \begin{theorem}[Extended toroidal Lie algebras] \label{theorem: extended_toroidal_lie_algebras}
             Let $\d_{[2]}$ - viewed as a Lie subalgebra of $\der_{\bbC}(A_{[2]})$ (cf. remark \ref{remark: dual_of_toroidal_centres_contains_derivations}) - act on $\g_{[2]}$ and on $\z_{[2]}$ (and hence on $\tilde{\g}_{[2]}\cong \g_{[2]} \oplus \z_{[2]}$) as in remarks \ref{remark: derivation_action_on_multiloop_algebras} and \ref{remark: derivation_action_on_toroidal_centres} respectively. These actions give rise to a Lie algebra extension:
