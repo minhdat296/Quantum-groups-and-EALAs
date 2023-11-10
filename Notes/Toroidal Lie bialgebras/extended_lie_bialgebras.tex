@@ -45,7 +45,7 @@
             More algebraically\footnote{So that the definition would work still when we replace $\bbC$ with a general algebraically closed field of characteristic $0$.}, we can define this as:
                 $$(x v^m, y v^n)_{\g[v^{\pm 1}]} := (x, y)_{\g} \delta_{m + n, 0}$$
         \end{definition}
-        \begin{definition} \label{def: residue_form_on_multi_loop_algebra}
+        \begin{definition} \label{def: residue_form_on_multiloop_algebra}
             Now, let $(-, -)_{\g[v^{\pm 1}]}$ be as in definition \ref{def: residue_form_on_loop_algebra}. This can be extended furthermore to $\g_{[2]}$ in the following manner: for all $X(v), Y(v) \in \g[v^{\pm 1}]$ and all $f(t), g(t) \in \bbC[t^{\pm 1}]$, define:
                 $$(X(v) f(t), Y(v) g(t))_{\g_{[2]}} := -(X(v), Y(v))_{\g[v^{\pm 1}]} \Res_{t = 0}( f(t) g(t) )$$
             More algebraically, we can define this as:
@@ -64,7 +64,7 @@
         \end{question}
             \begin{proof}
                 \begin{enumerate}
-                    \item The symmetry and bilinearity of $(-, -)_{\g_{[2]}}$ are clear from the construction of this bilinear pairing as in definition \ref{def: residue_form_on_multi_loop_algebra}. $(-, -)_{\g_{[2]}}$-invariance follows from the $\g$-invariance of $(-, -)_{\g}$, which is by hypothesis. Finally, non-degeneracy follows from the non-degeneracy of $(-, -)_{\g}$ (also by hypothesis) as well as the non-degeneracy of the residual pairings on $\bbC[v^{\pm 1}]$ (as in definition \ref{def: residue_form_on_loop_algebra}) and on $\bbC[t^{\pm 1}]$ (as in definition \ref{def: residue_form_on_multi_loop_algebra}); to see that the latter point holds, simply note that there exists no $m \in \Z$ such that $\delta_{m + n, - 1} = 0$ (respectively, such that $\delta_{m + n, 0}$) for all $n \in \Z$.
+                    \item The symmetry and bilinearity of $(-, -)_{\g_{[2]}}$ are clear from the construction of this bilinear pairing as in definition \ref{def: residue_form_on_multiloop_algebra}. $(-, -)_{\g_{[2]}}$-invariance follows from the $\g$-invariance of $(-, -)_{\g}$, which is by hypothesis. Finally, non-degeneracy follows from the non-degeneracy of $(-, -)_{\g}$ (also by hypothesis) as well as the non-degeneracy of the residual pairings on $\bbC[v^{\pm 1}]$ (as in definition \ref{def: residue_form_on_loop_algebra}) and on $\bbC[t^{\pm 1}]$ (as in definition \ref{def: residue_form_on_multiloop_algebra}); to see that the latter point holds, simply note that there exists no $m \in \Z$ such that $\delta_{m + n, - 1} = 0$ (respectively, such that $\delta_{m + n, 0}$) for all $n \in \Z$.
                     \item It is not hard to see that: with respect to $(-, -)_{\g_{[2]}}$ as in 1, one has that:
                         $$(\g_{[2]}^+)^{\star} \cong \bigoplus_{m \in \Z, p \in \Z_{\geq 0}} (\g v^m t^p)^* \cong \bigoplus_{m \in \Z, p \in \Z_{\geq 0}} \g v^{-m} t^{-p - 1} \cong \g_{[2]}^-$$
                     with respect to the invariant inner product $(-, -)_{\g_{[2]}}$. It is also easy to see that:
@@ -649,19 +649,20 @@
             At the same time, using invariance yields us:
                 $$( [ D, X(v, t) ]_{\hat{\g}_{[2]}}, \xi )_{\hat{\g}_{[2]}} = (X(v, t), [\xi, D]_{\hat{\g}_{[2]}})_{\hat{\g}_{[2]}} = 0$$
             wherein the last equality is due to the fact that:
-                $$[\xi, D]_{\hat{\g}_{[2]}} \in \d_{[2]}$$
-            (cf. remark \ref{remark: dual_of_toroidal_centres_contains_derivations}). We thus see that:
+                $$[\xi, D]_{\hat{\g}_{[2]}} \in \z_{[2]} \oplus \d_{[2]}$$
+            (cf. remark \ref{remark: dual_of_toroidal_centres_contains_derivations}). We thus see - via the fact that $[\g_{[2]}, \z_{[2]}]_{\hat{\g}_{[2]}} = 0$ - that:
                 $$(K(X), \xi)_{\hat{\g}_{[2]}} = 0$$
-            for every $\xi \in \d_{[2]}$, which then implies via the non-degeneracy of $(-, -)_{\hat{\g}_{[2]}}$ that:
+            for every $\xi \in \d_{[2]}$. Via the non-degeneracy of $(-, -)_{\hat{\g}_{[2]}}$, this then implies that:
                 $$K(X) = 0$$
-            As such:
+            As such, we have that:
                 $$[ \d_{[2]}, \g_{[2]} ]_{\hat{\g}_{[2]}} \subseteq \g_{[2]}$$
             as claimed. 
         \end{remark}
-
-        \begin{convention}
-            For our eventual purposes, we will be working with the usual commutator bracket on $\d_{[2]}$ (inherited from $\der_{\bbC}(A_{[2]})$) from now on.
-        \end{convention}
+        The remark above can be packaged more neatly into the following result:
+        \begin{proposition}[$\tilde{\g}_{[2]}$ as a $\d_{[2]}$-module] \label{prop: toroidal_lie_algebras_as_modules_over_div_0_vector_field_lie_algebras}
+            Both $\g_{[2]}$ and $\z_{[2]}$ are $\d_{[2]}$-modules. 
+        \end{proposition}
+        
         Putting everything together then yields us the following result:
         \begin{theorem}[Extended toroidal Lie algebras] \label{theorem: extended_toroidal_lie_algebras}
             Let $\d_{[2]}$ - viewed as a Lie subalgebra of $\der_{\bbC}(A_{[2]})$ (cf. remark \ref{remark: dual_of_toroidal_centres_contains_derivations}) - act on $\g_{[2]}$ and on $\z_{[2]}$ (and hence on $\tilde{\g}_{[2]}\cong \g_{[2]} \oplus \z_{[2]}$) as in remarks \ref{remark: derivation_action_on_multiloop_algebras} and \ref{remark: derivation_action_on_toroidal_centres} respectively. These actions give rise to a Lie algebra extension:
