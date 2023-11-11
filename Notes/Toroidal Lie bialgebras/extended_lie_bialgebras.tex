@@ -9,12 +9,6 @@
         Eventually, we will also be concerned with the Dynkin diagram associated to the root system of $\g$. Let us denote this by:
             $$\Gamma := (\Gamma_0, \Gamma_1)$$
         wherein $\Gamma_0$ means the (finite) set of vertices and $\Gamma_1$ means the set of undirected edges between said vertices. 
-
-        Finally, denote the associated Cartan matrix by:
-            $$C := (c_{ij})_{1 \leq i, j \leq |\Gamma_0|}$$
-        Since finite-type Cartan matrices are symmetrisable, we can fix a symmetrisation:
-            $$C := D A$$
-        wherein $D$ is an invertible diagonal $|\Gamma_0| \x |\Gamma_0|$ matrix and $A$ is symmetric. 
     \end{convention}
 
     \begin{convention}
@@ -30,26 +24,26 @@
     \begin{convention} \label{conv: multiloop_algebras}
         We fix once and for all the following notations:
         \begin{itemize}
-            \item $A_{[2]} := \bbC[v^{\pm 1}, t^{\pm 1}]$, $A_{[2]}^+ := \bbC[v^{\pm 1}, t], A_{[2]}^- := t^{-1}\bbC[v^{\pm 1}, t^{-1}]$;
-            \item $\g_{[2]} := \g \tensor_{\bbC} A_{[2]}$, $\g_{[2]}^{\pm} := \g \tensor_{\bbC} A_{[2]}^{\pm}, \tilde{\g}_{[2]}^{\pm} := \uce(\g_{[2]}^{\pm})$ (with $\uce$ meaning \say{universal central extension});
-            \item $\z_{[2]}^{\pm} := \z(\tilde{\g}_{[2]}^{\pm})$ (cf. remark \ref{remark: centres_of_dual_toroidal_lie_algebras}).
+            \item $A_{[n]} := \bbC[v_1^{\pm 1}, ..., v_n^{\pm 1}]$, $A_{[2]}^+ := \bbC[v_1^{\pm 1}, ..., v_n], A_{[n]}^- := v_n^{-1}\bbC[v_1^{\pm 1}, ..., v_n^{-1}]$, and in particular, when $n \leq 2$, let us set $v_1 := v$ and $v_2 := t$ per the usual Yangian conventions (cf. e.g. \cite{wendlandt_formal_shift_operators_on_yangian_doubles});
+            \item $\g_{[n]} := \g \tensor_{\bbC} A_{[n]}$, $\g_{[n]}^{\pm} := \g \tensor_{\bbC} A_{[n]}^{\pm}, \tilde{\g}_{[n]}^{\pm} := \uce(\g_{[n]}^{\pm})$ (with $\uce$ meaning \say{universal central extension}\footnote{These are indeed universal \textit{a priori}, thanks to the fact that the Lie algebras $\g_{[n]}, \g_{[n]}^{\pm}$ are perfect.});
+            \item $\z_{[n]}^{\pm} := \z(\tilde{\g}_{[n]}^{\pm})$ (cf. remark \ref{remark: centres_of_dual_toroidal_lie_algebras}).
         \end{itemize}
     \end{convention}
 
     \subsection{A Lie bialgebra structure on the \texorpdfstring{$2$}{}-loop Lie algebra \texorpdfstring{$\g_{[2]}$}{}}
         \begin{definition} \label{def: residue_form_on_loop_algebra}
-            For $v$ a formal variable, we can extend the invariant inner product $(-, -)_{\g}$ to the following pairing on $\g[v^{\pm 1}]$ by defining:
-                $$(x f(v), y g(v))_{\g[v^{\pm 1}]} := (x, y)_{\g} \Res_{v = 0}( v^{-1} f(v) g(v) )$$
-            for all $x, y \in \g$ and all $f(v), g(v) \in \bbC[v^{\pm 1}]$, and recall that:
+            For $v$ a formal variable, we can extend the invariant inner product $(-, -)_{\g}$ to the following pairing on $\g_{[1]}$ by defining:
+                $$(x f(v), y g(v))_{\g_{[1]}} := (x, y)_{\g} \Res_{v = 0}( v^{-1} f(v) g(v) )$$
+            for all $x, y \in \g$ and all $f(v), g(v) \in A_{[1]}$, and recall that:
                 $$\Res_{v = 0}\left( \sum_{n \in \Z} a_n v^n \right) := a_{-1}$$
             More algebraically\footnote{So that the definition would work still when we replace $\bbC$ with a general algebraically closed field of characteristic $0$.}, we can define this as:
-                $$(x v^m, y v^n)_{\g[v^{\pm 1}]} := (x, y)_{\g} \delta_{m + n, 0}$$
+                $$(x v^m, y v^n)_{\g_{[1]}} := (x, y)_{\g} \delta_{m + n, 0}$$
         \end{definition}
         \begin{definition} \label{def: residue_form_on_multiloop_algebra}
-            Now, let $(-, -)_{\g[v^{\pm 1}]}$ be as in definition \ref{def: residue_form_on_loop_algebra}. This can be extended furthermore to $\g_{[2]}$ in the following manner: for all $X(v), Y(v) \in \g[v^{\pm 1}]$ and all $f(t), g(t) \in \bbC[t^{\pm 1}]$, define:
-                $$(X(v) f(t), Y(v) g(t))_{\g_{[2]}} := -(X(v), Y(v))_{\g[v^{\pm 1}]} \Res_{t = 0}( f(t) g(t) )$$
+            Now, let $(-, -)_{\g_{[1]}}$ be as in definition \ref{def: residue_form_on_loop_algebra}. This can be extended furthermore to $\g_{[2]}$ in the following manner: for all $X(v), Y(v) \in \g_{[1]}$ and all $f(t), g(t) \in \bbC[t^{\pm 1}]$, define:
+                $$(X(v) f(t), Y(v) g(t))_{\g_{[2]}} := -(X(v), Y(v))_{\g_{[1]}} \Res_{t = 0}( f(t) g(t) )$$
             More algebraically, we can define this as:
-                $$(X(v) f(t), Y(v) g(t))_{\g_{[2]}} := -(X(v), Y(v))_{\g[v^{\pm 1}]} \delta_{m + n, -1}$$
+                $$(X(v) f(t), Y(v) g(t))_{\g_{[2]}} := -(X(v), Y(v))_{\g_{[1]}} \delta_{m + n, -1}$$
             In both cases, the appearance of the minus sign is a crucial choice for our purposes. 
         \end{definition}
 
@@ -64,7 +58,7 @@
         \end{question}
             \begin{proof}
                 \begin{enumerate}
-                    \item The symmetry and bilinearity of $(-, -)_{\g_{[2]}}$ are clear from the construction of this bilinear pairing as in definition \ref{def: residue_form_on_multiloop_algebra}. $(-, -)_{\g_{[2]}}$-invariance follows from the $\g$-invariance of $(-, -)_{\g}$, which is by hypothesis. Finally, non-degeneracy follows from the non-degeneracy of $(-, -)_{\g}$ (also by hypothesis) as well as the non-degeneracy of the residual pairings on $\bbC[v^{\pm 1}]$ (as in definition \ref{def: residue_form_on_loop_algebra}) and on $\bbC[t^{\pm 1}]$ (as in definition \ref{def: residue_form_on_multiloop_algebra}); to see that the latter point holds, simply note that there exists no $m \in \Z$ such that $\delta_{m + n, - 1} = 0$ (respectively, such that $\delta_{m + n, 0}$) for all $n \in \Z$.
+                    \item The symmetry and bilinearity of $(-, -)_{\g_{[2]}}$ are clear from the construction of this bilinear pairing as in definition \ref{def: residue_form_on_multiloop_algebra}. $(-, -)_{\g_{[2]}}$-invariance follows from the $\g$-invariance of $(-, -)_{\g}$, which is by hypothesis. Finally, non-degeneracy follows from the non-degeneracy of $(-, -)_{\g}$ (also by hypothesis) as well as the non-degeneracy of the residual pairings on $A_{[1]}$ (as in definition \ref{def: residue_form_on_loop_algebra}) and on $\bbC[t^{\pm 1}]$ (as in definition \ref{def: residue_form_on_multiloop_algebra}); to see that the latter point holds, simply note that there exists no $m \in \Z$ such that $\delta_{m + n, - 1} = 0$ (respectively, such that $\delta_{m + n, 0}$) for all $n \in \Z$.
                     \item It is not hard to see that: with respect to $(-, -)_{\g_{[2]}}$ as in 1, one has that:
                         $$(\g_{[2]}^+)^{\star} \cong \bigoplus_{m \in \Z, p \in \Z_{\geq 0}} (\g v^m t^p)^* \cong \bigoplus_{m \in \Z, p \in \Z_{\geq 0}} \g v^{-m} t^{-p - 1} \cong \g_{[2]}^-$$
                     with respect to the invariant inner product $(-, -)_{\g_{[2]}}$. It is also easy to see that:
@@ -121,7 +115,7 @@
                 and such that $\tilde{\g}_{[2]}^-$ is paired isotropically with $\s$ by $(-, -)_{\tilde{\g}_{[2]}}$. 
                 \item Why is the triple:
                     $$(\tilde{\g}_{[2]}, \tilde{\g}_{[2]}^+, \tilde{\g}_{[2]}^-)$$
-                with $\t$ being equipped with $(-, -)_{\tilde{\g}_{[2]}}$ not a Manin triple ?
+                with $\tilde{\g}_{[2]}$ being equipped with $(-, -)_{\tilde{\g}_{[2]}}$ not a Manin triple ?
             \end{enumerate}
         \end{question}
             \begin{proof}
@@ -458,217 +452,261 @@
             the Lie brackets of pairs of the form $[D, D']_{\hat{\g}_{[2]}}$ ought not be uniquely determined, which is ultimately due to the fact that we have no reason to claim that\footnote{... though there are also good reasons to suspect that this ought to be the case, since the $C^{\infty}$-analogue of this statement is true (cf. \cite[Corollary D.3]{billig_neeb_vector_field_cyclic_cohomology_parallelisable_manifolds}).}:
                 $$H^2_{\Lie}(\der_{\bbC}(A_{[2]}), \bar{\Omega}_{[2]}) \cong 0$$
                 
-            \textit{A priori}, one can suppose that:
-                $$[D, D']_{\hat{\g}_{[2]}} := X(v, t) + K(D, D') + \xi(D, D')$$
-            for some $X(v, t) \in \g_{[2]}$, some $K(D, D') \in \z_{[2]}$, and some $\xi(D, D') \in \d_{[2]}$. 
             \begin{enumerate}
-                \item We claim that the $\g_{[2]}$-component $X(v, t)$ actually vanishes. To prove that this is the case, consider the following for any arbitrary $Y(v, t) \in \g_{[2]}$, and without any loss of generality we can take $Y(v, t) := y g(v, t)$ for some $y \in \g$ and some $g(v, t) \in A_{[2]}$:
-                    $$
-                        \begin{aligned}
-                            ( [D, D']_{\hat{\g}_{[2]}}, Y(v, t) )_{\hat{\g}_{[2]}} & = ( X(v, t) + K(D, D') + \xi(D, D'), Y(v, t) )_{\hat{\g}_{[2]}}
-                            \\
-                            & = (X(v, t), Y(v, t))_{\g_{[2]}}
-                        \end{aligned}
-                    $$
-                At the same time, we have by invariance that:
-                    $$
-                        \begin{aligned}
-                            ( [D, D']_{\hat{\g}_{[2]}}, Y(v, t) )_{\hat{\g}_{[2]}} & = ( D, [D', Y(v, t)]_{\hat{\g}_{[2]}} )_{\hat{\g}_{[2]}}
-                            \\
-                            & = ( D, [D', y g(v, t)]_{\hat{\g}_{[2]}} )_{\hat{\g}_{[2]}}
-                            \\
-                            & = ( D, y D'(g(v, t)) )_{\hat{\g}_{[2]}}
-                            \\
-                            & = 0
-                        \end{aligned}
-                    $$
-                with the second-to-last equality coming from the computations in remark \ref{remark: derivation_action_on_multiloop_algebras} and the last being due to $y D'(g(v, t)) \in \g_{[2]}$. Since $Y(v, t) := y g(v, t)$ was chosen arbitrarily, the above implies that:
-                    $$(X(v, t), Y(v, t))_{\hat{\g}_{[2]}} = 0$$
-                and hence:
-                    $$X(v, t) = 0$$
-                meaning that:
-                    $$[D, D']_{\hat{\g}_{[2]}} = K(D, D') + \xi(D, D') \in \z_{[2]} \oplus \d_{[2]}$$
-                for any $D, D' \in \d_{[2]}$. 
-                \item As for the $\z_{[2]}$-component $K(D, D')$, we may compute it by firstly specifying it as a linear combination of the basis elements $K_{r, s}, c_v, c_t \in \z_{[2]}$, e.g. by setting:
-                    $$K(D, D') := \sum_{(r, s) \in \Z^2} \lambda_{r, s} K_{r, s} + \lambda_v c_v + \lambda_t c_t$$
-                (for some $\lambda_{r, s}, \lambda_v, \lambda_t \in \bbC$), and then by using invariance again, specifically by pairing $[D, D']_{\hat{\g}_{[2]}}$ with some arbitrary $D'' \in \d_{[2]}$. Doing so yields:
-                    $$
-                        \begin{aligned}
-                            ([D, D']_{\hat{\g}_{[2]}}, D'')_{\hat{\g}_{[2]}} & = (K(D, D') + \xi(D, D'), D'')_{\hat{\g}_{[2]}}
-                            \\
-                            & = (K(D, D'), D'')_{\hat{\g}_{[2]}}
-                            \\
-                            & = \sum_{(r, s) \in \Z^2} \lambda_{r, s} (K_{r, s}, D'')_{\hat{\g}_{[2]}} + \lambda_v (c_v, D'')_{\hat{\g}_{[2]}} + \lambda_t (c_t, D'')_{\hat{\g}_{[2]}}
-                        \end{aligned}
-                    $$
-                This implies that:
-                    $$([D, D']_{\hat{\g}_{[2]}}, D_{a, b})_{\hat{\g}_{[2]}} = \sum_{(r, s) \in \Z^2} \lambda_{r, s} \delta_{(r, s) + (a, b), (0, 0)} = \lambda_{-a, -b}$$
-                    $$([D, D']_{\hat{\g}_{[2]}}, D_v)_{\hat{\g}_{[2]}} = \lambda_v$$
-                    $$([D, D']_{\hat{\g}_{[2]}}, D_t)_{\hat{\g}_{[2]}} = \lambda_t$$
-                None of these expressions necessarily vanishes, so in general, neither does the central term $K(D, D')$. Thus:
-                    $$[D, D']_{\hat{\g}_{[2]}} \in \z_{[2]} \oplus \d_{[2]}$$
-                \textit{a priori}. Down below, however, we shall see that elements of $\d_{[2]}$ are in fact derivations on $A_{[2]}$ whose commutators lie within $\d_{[2]}$. 
+                \item \textit{A priori}, one can suppose that:
+                    $$[D, D']_{\hat{\g}_{[2]}} := X(D, D') + K(D, D') + \xi(D, D')$$
+                for some $X(D, D') \in \g_{[2]}$, some $K(D, D') \in \z_{[2]}$, and some $\xi(D, D') \in \d_{[2]}$. 
+                \begin{enumerate}
+                    \item We claim that the $\g_{[2]}$-component $X(D, D')$ actually vanishes. To prove that this is the case, consider the following for any arbitrary $Y \in \g_{[2]}$, and without any loss of generality, we might as well take $Y := y g(v, t)$ for some $y \in \g$ and $g(v, t) \in A_{[2]}$:
+                        $$
+                            \begin{aligned}
+                                ( [D, D']_{\hat{\g}_{[2]}}, Y )_{\hat{\g}_{[2]}} & = ( X(D, D') + K(D, D') + \xi(D, D'), Y )_{\hat{\g}_{[2]}}
+                                \\
+                                & = (X(D, D'), Y)_{\g_{[2]}}
+                            \end{aligned}
+                        $$
+                    At the same time, we have by invariance that:
+                        $$
+                            \begin{aligned}
+                                ( [D, D']_{\hat{\g}_{[2]}}, Y )_{\hat{\g}_{[2]}} & = ( D, [D', Y]_{\hat{\g}_{[2]}} )_{\hat{\g}_{[2]}}
+                                \\
+                                & = ( D, [D', Y]_{\hat{\g}_{[2]}} )_{\hat{\g}_{[2]}}
+                                \\
+                                & = ( D, y D( g(v, t) ) + K(Y) )_{\hat{\g}_{[2]}}
+                                \\
+                                & = ( D, K(Y) )_{\hat{\g}_{[2]}}
+                            \end{aligned}
+                        $$
+                    wherein $K(Y)$ is some element\footnote{When $D = D_{r, s}$ and $g(v, t) = v^m t^p$, we have that $K(Y) = K_{(m, p), (r, s)}(y)$ as in \textit{loc. cit.}} of $\z_{[2]}$ depending on our choice of $y \in \g$ and $(m, p) \in \Z^2$ (cf. remark \ref{remark: derivation_action_on_multiloop_algebras}). We have thus that:
+                        $$( X(D, D'), Y )_{\g_{[2]}} = ( D, K(Y) )_{\hat{\g}_{[2]}}$$
+                    Suppose now that:
+                        $$X(D, D') := \sum_{(m, p) \in \Z^2} x_{m, p} v^m t^p$$
+                        $$Y := y v^n t^q$$
+                    with the sum being understood to be finitely supported and for some $(n, q) \in \Z^2$, and also that:
+                        $$D := \sum_{(a, b) \in \Z^2} \mu_{a, b} D_{a, b} + \mu_v D_v + \mu_t D_t$$
+                        $$K(Y) := \sum_{(r, s) \in \Z^2} \lambda_{r, s} K_{r, s} + \lambda_v c_v + \lambda_t c_t$$
+                    for some $\mu_{a, b}, \mu_v, \mu_t, \lambda_{r, s}, \lambda_v, \lambda_t \in \bbC$. We now have that:
+                        $$\sum_{(m, p) \in \Z^2} (x_{m, p} y)_{\g} \delta_{(m, p) + (n, q), (0, -1)} = \sum_{(a, b) \in \Z^2} \sum_{(r, s) \in \Z^2} ( \mu_{a, b} D_{a, b} + \mu_v D_v + \mu_t D_t, \lambda_{r, s} K_{r, s} + \lambda_v c_v + \lambda_t c_t )_{\hat{\g}_{[2]}}$$
+                    which gives:
+                        $$(x_{-n, -q - 1}, y)_{\g} = \mu_{a, b} \lambda_{-a, -b} + \mu_v \lambda_v + \mu_t \lambda_t$$
+                        
+                    Let us now prove by contradiction that the summand $X(D, D') \in \g_{[2]}$ of $[D, D']_{\hat{\g}_{[2]}}$ actually vanishes. To this end, suppose for the sake of deriving a contradiction that:
+                        $$\mu_{a, b} \lambda_{-a, -b} + \mu_v \lambda_v + \mu_t \lambda_t \not = 0$$
+                    for all $(a, b) \in \Z^2$. This means that:
+                        $$(x_{-n, -q - 1}, y)_{\g} \not = 0$$
+                    for all $(n, q) \in \Z^2$ and all $x_{-n, -q - 1}, y \in \g$ as well. However, this can not be the case, e.g. when $x_{-n, -q - 1} \in \h$ and $y \in \n^{\pm}$, so we have a contradiction. The fact that:
+                        $$\mu_{a, b} \lambda_{-a, -b} + \mu_v \lambda_v + \mu_t \lambda_t = 0$$
+                    for all $(a, b) \in \Z^2$ now implies that:
+                        $$( [D, D']_{\hat{\g}_{[2]}}, Y )_{\hat{\g}_{[2]}} = 0$$
+                    for all $Y \in \g_{[2]}$, which in turn means that:
+                        $$X(D, D') = 0$$
+                    necessarily, seeing how $(-, Y)_{\hat{\g}_{[2]}}$ acts as zero on $\z_{[2]} \oplus \d_{[2]}$. 
+                    \item As for the $\z_{[2]}$-component $K(D, D')$, we may compute it by firstly specifying it as a linear combination of the basis elements $K_{r, s}, c_v, c_t \in \z_{[2]}$, e.g. by setting:
+                        $$K(D, D') := \sum_{(r, s) \in \Z^2} \lambda_{r, s} K_{r, s} + \lambda_v c_v + \lambda_t c_t$$
+                    (for some $\lambda_{r, s}, \lambda_v, \lambda_t \in \bbC$), and then by using invariance again, specifically by pairing $[D, D']_{\hat{\g}_{[2]}}$ with some arbitrary $D'' \in \d_{[2]}$. Doing so yields:
+                        $$
+                            \begin{aligned}
+                                ([D, D']_{\hat{\g}_{[2]}}, D'')_{\hat{\g}_{[2]}} & = (K(D, D') + \xi(D, D'), D'')_{\hat{\g}_{[2]}}
+                                \\
+                                & = (K(D, D'), D'')_{\hat{\g}_{[2]}}
+                                \\
+                                & = \sum_{(r, s) \in \Z^2} \lambda_{r, s} (K_{r, s}, D'')_{\hat{\g}_{[2]}} + \lambda_v (c_v, D'')_{\hat{\g}_{[2]}} + \lambda_t (c_t, D'')_{\hat{\g}_{[2]}}
+                            \end{aligned}
+                        $$
+                    This implies that:
+                        $$([D, D']_{\hat{\g}_{[2]}}, D_{a, b})_{\hat{\g}_{[2]}} = \sum_{(r, s) \in \Z^2} \lambda_{r, s} \delta_{(r, s) + (a, b), (0, 0)} = \lambda_{-a, -b}$$
+                        $$([D, D']_{\hat{\g}_{[2]}}, D_v)_{\hat{\g}_{[2]}} = \lambda_v$$
+                        $$([D, D']_{\hat{\g}_{[2]}}, D_t)_{\hat{\g}_{[2]}} = \lambda_t$$
+                    None of these expressions necessarily vanishes, so in general, neither does the central term $K(D, D')$. Thus we can only conclude that:
+                        $$[D, D']_{\hat{\g}_{[2]}} \in \z_{[2]} \oplus \d_{[2]}$$
+                    Ultimately, this does not matter too much when it comes to considering how $\d_{[2]}$ acts on $\tilde{\g}_{[2]}$, since $\z_{[2]}$ is the centre thereof and hence:
+                        $$[ [\d_{[2]}, \d_{[2]}]_{\hat{\g}_{[2]}}, \tilde{\g}_{[2]} ]_{\hat{\g}_{[2]}} \subset [ \z_{[2]} \oplus \d_{[2]}, \tilde{\g}_{[2]} ]_{\hat{\g}_{[2]}} = [\d_{[2]}, \tilde{\g}_{[2]}]_{\hat{\g}_{[2]}}$$
+                \end{enumerate}
+                
+                \item We now claim that, given how $\d_{[2]}$ acts on $\g_{[2]}$ (cf. remark \ref{remark: derivation_action_on_multiloop_algebras}), it can then be shown that the elements of $\d_{[2]}$ are in fact derivations on $A_{[2]}$. This is perhaps to be expected, since elements of $\z_{[2]}$ are certain equivalence classes of differential $1$-forms on $A_{[2]}$.
+                \begin{enumerate}
+                    \item Firstly, consider the map:
+                        $$D_{r, s}: A_{[2]} \to A_{[2]}$$
+                    given for all $(m, p) \in \Z^2$ by:
+                        $$D_{r, s}(v^m t^p) := ( ms - rp ) v^{m - r} t^{p - s - 1}$$
+                    Then, consider the following wherein $(m, p), (n, q) \in \Z^2$ are arbitrary:
+                        $$
+                            \begin{aligned}
+                                D_{r, s}(v^m t^p) v^n t^q + v^m t^p D_{r, s}(v^n t^q) & = ( ms - rp ) v^{m + n - r} t^{p + q - s - 1} + ( ns - rq ) v^{m + n - r} t^{p + q - s - 1}
+                                \\
+                                & = ( (m + n)s - r(p + q) ) v^{m + n - r} t^{p + q - s - 1}
+                                \\
+                                & = D_{r, s}( v^{m + n} t^{p + q} )
+                            \end{aligned}
+                        $$
+                    This clearly shows that $D_{r, s}$ is a derivation on $A_{[2]}$.
+                    \item Next, consider the map:
+                        $$D_v: A_{[2]} \to A_{[2]}$$
+                    given for all $(m, p) \in \Z^2$ by:
+                        $$D_v(v^m t^p) := -m v^m t^{p - 1}$$
+                    Then, consider the following wherein $(m, p), (n, q) \in \Z^2$ are arbitrary:
+                        $$
+                            \begin{aligned}
+                                D_v(v^m t^p) v^n t^q + v^m t^p D_v(v^n t^q) & = -(m + n) v^{m + n} t^{p + q - 1}
+                                \\
+                                & = D_v( v^{m + n} t^{p + q} )
+                            \end{aligned}
+                        $$
+                    This clearly shows that $D_v$ is a derivation on $A_{[2]}$.
+                    \item Likewise, we can show that the map:
+                        $$D_t: A_{[2]} \to A_{[2]}$$
+                    given for all $(m, p) \in \Z^2$ by:
+                        $$D_t(v^m t^p) := p v^m t^{p - 1}$$
+                    is a derivation on $A_{[2]}$.
+                \end{enumerate}
+
+                \item We can also identify the derivations $D_{r, s}, D_v, D_t$ explicitly in terms of $\del_v := \frac{\del}{\del v}, \del_t := \frac{\del}{\del t}$. For this, let us firstly equip $\der_{\bbC}(A_{[2]})$ - the $\bbC$-vector space of all $\bbC$-linear derivations on $A_{[2]}$ - with the following basis:
+                $$\{ v^m t^p \del_v, v^n t^q \del_t \}_{(m, p), (n, q) \in \Z^2}$$
+                \begin{enumerate}
+                    \item To compute $D_{r, s}$ in terms of $\del_v, \del_t$, suppose firstly that:
+                        $$D_{r, s} := f(v, t) \del_v + g(v, t) \del_t$$
+                    with $f(v, t), g(v, t) \in A_{[2]}$. Next, fix some $(m, p) \in \Z^2$ and then consider the following:
+                        $$
+                            \begin{aligned}
+                                D_{r, s}( v^m t^p ) & = f(v, t) \del_v( v^m t^p ) + g(v, t) \del_t( v^m t^p )
+                                \\
+                                & = f(v, t) m v^{m - 1} t^p + g(v, t) p v^m t^{p - 1}
+                            \end{aligned}
+                        $$
+                    At the same time, we also have that:
+                        $$D_{r, s}(v^m t^p) := ( ms - rp ) v^{m - r} t^{p - s - 1}$$
+                    and hence:
+                        $$f(v, t) m v^{m - 1} t^p + g(v, t) p v^m t^{p - 1} = ( ms - rp ) v^{m - r} t^{p - s - 1}$$
+                    From this, one infers that:
+                        $$f(v, t) = s v^{-r + 1} t^{-s - 1}, g(v, t) = -r v^{-r} t^{-s}$$
+                    and therefore:
+                        $$D_{r, s} = s v^{-r + 1} t^{-s - 1} \del_v - r v^{-r} t^{-s} \del_t$$
+                    \item One easily checks that:
+                        $$D_v = -v t^{-1} \del_v$$
+                    \item Likewise:
+                        $$D_t = -\del_t$$
+                \end{enumerate}
+
+                \item Now that we know that the basis elements $D_{r, s}, D_v, D_t \in \d_{[2]}$ are actually certain derivations on $A_{[2]}$, we can also check that the commutators of the elements $D_{r, s}, D_v, D_t$ are still elements of $\d_{[2]}$. This ensures us that we can \textit{choose} to endow $\d_{[2]}$ with the structure of a Lie subalgebra of $\der_{\bbC}(A_{[2]})$, i.e. the Lie algebra structure such that:
+                    $$[D, D']_{\hat{\g}_{[2]}} \in \d_{[2]}$$
+                for any $D, D' \in \d_{[2]}$. In general, however, we are only guaranteed that:
+                    $$[D, D']_{\hat{\g}_{[2]}} = \z_{[2]} \oplus \d_{[2]}$$
             \end{enumerate}
             
-            We now claim that, given how $\d_{[2]}$ acts on $\g_{[2]}$ (cf. remark \ref{remark: derivation_action_on_multiloop_algebras}), it can then be shown that the elements of $\d_{[2]}$ are in fact derivations on $A_{[2]}$. This is perhaps to be expected, since elements of $\z_{[2]}$ are certain equivalence classes of differential $1$-forms on $A_{[2]}$.
-            \begin{enumerate}
-                \item Firstly, consider the map:
-                    $$D_{r, s}: A_{[2]} \to A_{[2]}$$
-                given for all $(m, p) \in \Z^2$ by:
-                    $$D_{r, s}(v^m t^p) := ( ms - rp ) v^{m - r} t^{p - s - 1}$$
-                Then, consider the following wherein $(m, p), (n, q) \in \Z^2$ are arbitrary:
-                    $$
-                        \begin{aligned}
-                            D_{r, s}(v^m t^p) v^n t^q + v^m t^p D_{r, s}(v^n t^q) & = ( ms - rp ) v^{m + n - r} t^{p + q - s - 1} + ( ns - rq ) v^{m + n - r} t^{p + q - s - 1}
-                            \\
-                            & = ( (m + n)s - r(p + q) ) v^{m + n - r} t^{p + q - s - 1}
-                            \\
-                            & = D_{r, s}( v^{m + n} t^{p + q} )
-                        \end{aligned}
-                    $$
-                This clearly shows that $D_{r, s}$ is a derivation on $A_{[2]}$.
-                \item Next, consider the map:
-                    $$D_v: A_{[2]} \to A_{[2]}$$
-                given for all $(m, p) \in \Z^2$ by:
-                    $$D_v(v^m t^p) := -m v^m t^{p - 1}$$
-                Then, consider the following wherein $(m, p), (n, q) \in \Z^2$ are arbitrary:
-                    $$
-                        \begin{aligned}
-                            D_v(v^m t^p) v^n t^q + v^m t^p D_v(v^n t^q) & = -(m + n) v^{m + n} t^{p + q - 1}
-                            \\
-                            & = D_v( v^{m + n} t^{p + q} )
-                        \end{aligned}
-                    $$
-                This clearly shows that $D_v$ is a derivation on $A_{[2]}$.
-                \item Likewise, we can show that the map:
-                    $$D_t: A_{[2]} \to A_{[2]}$$
-                given for all $(m, p) \in \Z^2$ by:
-                    $$D_t(v^m t^p) := p v^m t^{p - 1}$$
-                is a derivation on $A_{[2]}$.
-            \end{enumerate}
-
-            We can also identify the derivations $D_{r, s}, D_v, D_t$ explicitly in terms of $\del_v := \frac{\del}{\del v}, \del_t := \frac{\del}{\del t}$. For this, let us firstly equip $\der_{\bbC}(A_{[2]})$ - the $\bbC$-vector space of all $\bbC$-linear derivations on $A_{[2]}$ - with the following basis:
-                $$\{ v^m t^p \del_v, v^n t^q \del_t \}_{(m, p), (n, q) \in \Z^2}$$
-            \begin{enumerate}
-                \item To compute $D_{r, s}$ in terms of $\del_v, \del_t$, suppose firstly that:
-                    $$D_{r, s} := f(v, t) \del_v + g(v, t) \del_t$$
-                with $f(v, t), g(v, t) \in A_{[2]}$. Next, fix some $(m, p) \in \Z^2$ and then consider the following:
-                    $$
-                        \begin{aligned}
-                            D_{r, s}( v^m t^p ) & = f(v, t) \del_v( v^m t^p ) + g(v, t) \del_t( v^m t^p )
-                            \\
-                            & = f(v, t) m v^{m - 1} t^p + g(v, t) p v^m t^{p - 1}
-                        \end{aligned}
-                    $$
-                At the same time, we also have that:
-                    $$D_{r, s}(v^m t^p) := ( ms - rp ) v^{m - r} t^{p - s - 1}$$
-                and hence:
-                    $$f(v, t) m v^{m - 1} t^p + g(v, t) p v^m t^{p - 1} = ( ms - rp ) v^{m - r} t^{p - s - 1}$$
-                From this, one infers that:
-                    $$f(v, t) = s v^{-r + 1} t^{-s - 1}, g(v, t) = -r v^{-r} t^{-s}$$
-                and therefore:
-                    $$D_{r, s} = s v^{-r + 1} t^{-s - 1} \del_v - r v^{-r} t^{-s} \del_t$$
-                \item One easily checks that:
-                    $$D_v = -v t^{-1} \del_v$$
-                \item Likewise:
-                    $$D_t = -\del_t$$
-            \end{enumerate}
-
-            Now that we know that the basis elements $D_{r, s}, D_v, D_t \in \d_{[2]}$ are actually certain derivations on $A_{[2]}$, we can also check if $\d_{[2]}$ is in fact a Lie subalgebra of $\der_{\bbC}(A_{[2]})$ (equipped with the usual commutator Lie bracket) by checking whether or not commutators of the elements $D_{r, s}, D_v, D_t$ are still elements of $\d_{[2]}$. Doing so gives one Lie bracket on $\d_{[2]}$, namely the one such that:
-                $$[D, D']_{\hat{\g}_{[2]}} = \xi(D, D') \in \d_{[2]}$$
-            for any $D, D' \in \d_{[2]}$, with $\xi(D, D')$ being as above.
         \end{remark}
         
         \begin{remark}[How does $\d_{[2]}$ act on $\z_{[2]}$ ?] \label{remark: derivation_action_on_toroidal_centres}
             We can now use what we know about how $\d_{[2]}$ acts on $\g_{[2]}$ in conjunction with the Jacobi identity in order to compute Lie brackets of the form:
                 $$[D, Z]_{\hat{\g}_{[2]}}$$
-            for any $D \in \d_{[2]}$ and any $Z \in \z_{[2]}$. For the computations that follow, \textit{we will need to assume that}:
-                $$\hat{\g}_{[2]} \cong \tilde{\g}_{[2]}\rtimes \d_{[2]}$$
-            in which case it can be easily shown that:
-                $$[\d_{[2]}, \g_{[2]}]_{\hat{\g}_{[2]}} \subseteq \g_{[2]}$$
-            Different methods will have to be employed in the absence of this assumption.
+            for any $D \in \d_{[2]}$ and any $Z \in \z_{[2]}$. 
+        
+            \begin{enumerate}
+                \item For the computations that follow, \textit{we will need to assume that}:
+                    $$\hat{\g}_{[2]} \cong \tilde{\g}_{[2]}\rtimes \d_{[2]}$$
+                in which case it can be easily shown that:
+                    $$[\d_{[2]}, \g_{[2]}]_{\hat{\g}_{[2]}} \subseteq \g_{[2]}$$
+                Different methods will have to be employed in the absence of this assumption.
+    
+                The idea here is to use the fact that:
+                    $$[-, -]_{\tilde{\g}_{[2]}} = [-, -]_{\g_{[2]}} + \e$$
+                wherein $\e: \bigwedge^2 \g_{[2]} \to \z_{[2]}$ is given by:
+                    $$\e(x v^m t^p, y v^n t^q) := (x, y)_{\g} v^m t^p \bar{d}(v^n t^q)$$
+                for any $x, y \in \g$ and any $(m, p), (n, q) \in \Z^2$. With this in mind, consider the following for any $D \in \d_{[2]}$, which holds thanks to the Jacobi identity:
+                    $$
+                        \begin{aligned}
+                            & [ D, [x v^m t^p, y v^n t^q]_{\tilde{\g}_{[2]}} ]_{\hat{\g}_{[2]}}
+                            \\
+                            = & [ [D, x v^m t^p]_{\hat{\g}_{[2]}}, y v^n t^q ]_{\tilde{\g}_{[2]}} + [ x v^m t^p, [D, y v^n t^q]_{\hat{\g}_{[2]}} ]_{\tilde{\g}_{[2]}}
+                            \\
+                            = & [x D(v^m t^p), y v^n t^q]_{\hat{\g}_{[2]}} + [x v^m t^p, y D(v^n t^q)]_{\hat{\g}_{[2]}}
+                            \\
+                            = & [x, y]_{\g} (D(v^m t^p) v^n t^q + v^m t^p D(v^n t^q)) + (x, y)_{\g} ( D(v^m t^p) \bar{d}(v^n t^q) + v^m t^p \bar{d}(D(v^n t^q)) )
+                            \\
+                            = & [x, y]_{\g} D(v^{m + n} t^{p + q}) + (x, y)_{\g} ( D(v^m t^p) \bar{d}(v^n t^q) + v^m t^p \bar{d}(D(v^n t^q)) )
+                        \end{aligned}
+                    $$
+                Note that for the second equality, we implicitly invoked the fact that the basis elements of $\d_{[2]}$ (and hence all elements thereof) act on $\g_{[2]}$ in the following manner:
+                    $$[D, x v^m t^p] = x D(v^m t^p), D \in \{D_{r, s}\}_{(r, s) \in \Z^2} \cup \{D_v, D_t\}$$
+                (cf. remark \ref{remark: derivation_action_on_multiloop_algebras}), and it makes sense to write this because we now know (after remark \ref{remark: dual_of_toroidal_centres_contains_derivations}) that elements of $\d_{[2]}$ are certain derivations on $A_{[2]}$. At the same time, we have that:
+                    $$
+                        \begin{aligned}
+                            [ D, [x v^m t^p, y v^n t^q]_{\tilde{\g}_{[2]}} ]_{\hat{\g}_{[2]}} & = [ D, [x, y]_{\g} v^{m + n} t^{p + q} + (x, y)_{\g} v^m t^p \bar{d}(v^n t^q) ]_{\hat{\g}_{[2]}}
+                            \\
+                            & = [x, y]_{\g} D(v^{m + n} t^{p + q}) + (x, y)_{\g} [D, v^m t^p \bar{d}(v^n t^q)]_{\hat{\g}_{[2]}}
+                        \end{aligned}
+                    $$
+                By putting the two computations together, one yields:
+                    $$[D, v^m t^p \bar{d}(v^n t^q)]_{\hat{\g}_{[2]}} = D(v^m t^p) \bar{d}(v^n t^q) + v^m t^p \bar{d}(D(v^n t^q))$$
+                Since we know how the basis elements of $\d_{[2]}$ act on $\g_{[2]}$ (see remark \ref{remark: derivation_action_on_multiloop_algebras}), the above is enough to determine how $\d_{[2]}$ acts on $\z_{[2]}$. 
+                
+                \item Now, let us \textit{not} assume that:
+                    $$\hat{\g}_{[2]} \cong \tilde{\g}_{[2]}\rtimes \d_{[2]}$$
+                i.e. that $\tilde{\g}_{[2]}$ might not be a $\d_{[2]}$-module from the start. Without any loss of generality, let us consider the following for any $h, h' \in \h$ so that\footnote{We can make this assumption because ultimately, elements of $\z_{[2]}$ do not depend on those of $\g$.}:
+                    $$(h, h')_{\g} = 1$$
+                any $f(v, t), g(v, t) \in A_{[2]}$, and any $D \in \d_{[2]}$:
+                    $$[ D, [h f(v, t), h' g(v, t)]_{\tilde{\g}_{[2]}} ]_{\hat{\g}_{[2]}} = [ D, f(v, t) \bar{d}( g(v, t) ) ]_{\hat{\g}_{[2]}}$$
+                At the same time, we have via the Jacobi identity that:
+                    $$
+                        \begin{aligned}
+                            [ D, [h f(v, t), h' g(v, t)]_{\tilde{\g}_{[2]}} ]_{\hat{\g}_{[2]}} & = [ h f(v, t), [D, h' g(v, t)]_{\hat{\g}_{[2]}} ]_{\tilde{\g}_{[2]}} + [ [D, h f(v, t)]_{\hat{\g}_{[2]}}, h' g(v, t) ]_{\tilde{\g}_{[2]}}
+                            \\
+                            & = [ h f(v, t), h' D( g(v, t) ) ]_{\tilde{\g}_{[2]}} + [ h D( f(v, t) ), h' g(v, t) ]_{\tilde{\g}_{[2]}}
+                            \\
+                            & = f(v, t) \bar{d}( D( g(v, t) ) ) + D( f(v, t) ) \bar{d}(g(v, t))
+                        \end{aligned}
+                    $$
+                One thus sees that:
+                    $$[ D, f(v, t) \bar{d}( g(v, t) ) ]_{\hat{\g}_{[2]}} = f(v, t) \bar{d}( D( g(v, t) ) ) + D( f(v, t) ) \bar{d}(g(v, t))$$
+                and since the element $f(v, t) \bar{d}( g(v, t) )$ is central (via the map $\e$ mentioned earlier), this gives another description of:
+                    $$[ \d_{[2]}, \z_{[2]} ]_{\hat{\g}_{[2]}}$$
+                With this in mind, we return quickly to remark \ref{remark: derivation_action_on_multiloop_algebras}; there, we previously demonstrated that:
+                    $$[ \d_{[2]}, \g_{[2]} ]_{\hat{\g}_{[2]}} \subseteq \g_{[2]} \oplus \z_{[2]}$$
+                but we claim now that the following stronger fact holds:
+                    $$[ \d_{[2]}, \g_{[2]} ]_{\hat{\g}_{[2]}} \subseteq \g_{[2]}$$
+                To see why this is the case, suppose firstly that for any $D \in \d_{[2]}$, any $X := x f(v, t) \in \g_{[2]}$ (for some $f(v, t) \in A_{[2]}$), there is $K(X) \in \z_{[2]}$ depending on $X$ (and indeed, such a $K(X)$ exists by remark \ref{remark: derivation_action_on_multiloop_algebras}) such that:
+                    $$[ D, X ]_{\hat{\g}_{[2]}} = x D( f(v, t) ) + K(X)$$
+                Next, pick an arbitrary element $\xi \in \d_{[2]}$ and then consider the following:
+                    $$( [ D, X ]_{\hat{\g}_{[2]}}, \xi )_{\hat{\g}_{[2]}} = (D(X) + K(X), \xi)_{\hat{\g}_{[2]}} = (K(X), \xi)_{\hat{\g}_{[2]}}$$
+                wherein the last equality holds as a consequence of the fact that:
+                    $$( \g_{[2]}, \d_{[2]} )_{\hat{\g}_{[2]}} = 0$$
+                per the construction of the bilnear form $(-, -)_{\hat{\g}_{[2]}}$ as in convention \ref{conv: orthogonal_complement_of_toroidal_centres}. At the same time, using invariance yields us:
+                    $$( [ D, X ]_{\hat{\g}_{[2]}}, \xi )_{\hat{\g}_{[2]}} = (X, [\xi, D]_{\hat{\g}_{[2]}})_{\hat{\g}_{[2]}} = 0$$
+                wherein the last equality is due to the fact that:
+                    $$[\xi, D]_{\hat{\g}_{[2]}} \in \z_{[2]} \oplus \d_{[2]}$$
+                (cf. remark \ref{remark: dual_of_toroidal_centres_contains_derivations}) and the fact that:
+                    $$( \g_{[2]}, \z_{[2]} \oplus \d_{[2]} )_{\hat{\g}_{[2]}} = 0$$
+                per the construction of the bilnear form $(-, -)_{\hat{\g}_{[2]}}$ as in convention \ref{conv: orthogonal_complement_of_toroidal_centres}. We thus have that:
+                    $$(K(X), \xi)_{\hat{\g}_{[2]}} = (X, [\xi, D]_{\hat{\g}_{[2]}})_{\hat{\g}_{[2]}} = 0$$
+                for every $\xi \in \d_{[2]}$. The non-degeneracy of $(-, -)_{\hat{\g}_{[2]}}$ then implies through this fact that:
+                    $$K(X) = 0$$
+                As such, we have that:
+                    $$[ \d_{[2]}, \g_{[2]} ]_{\hat{\g}_{[2]}} \subseteq \g_{[2]}$$
+                as claimed. 
+            \end{enumerate}
 
-            The idea here is to use the fact that:
-                $$[-, -]_{\tilde{\g}_{[2]}} = [-, -]_{\g_{[2]}} + \e$$
-            wherein $\e: \bigwedge^2 \g_{[2]} \to \z_{[2]}$ is given by:
-                $$\e(x v^m t^p, y v^n t^q) := -v^m t^p \bar{d}(v^n t^q)$$
-            for any $x, y \in \g$ and any $(m, p), (n, q) \in \Z^2$. With this in mind, consider the following for any $D \in \d_{[2]}$, which holds thanks to the Jacobi identity:
-                $$
-                    \begin{aligned}
-                        [ D, [x v^m t^p, y v^n t^q]_{\tilde{\g}_{[2]}} ]_{\hat{\g}_{[2]}} & = [ [D, x v^m t^p]_{\hat{\g}_{[2]}}, y v^n t^q ]_{\tilde{\g}_{[2]}} + [ x v^m t^p, [D, y v^n t^q]_{\hat{\g}_{[2]}} ]_{\tilde{\g}_{[2]}}
-                        \\
-                        & = [x D(v^m t^p), y v^n t^q]_{\hat{\g}_{[2]}} + [x v^m t^p, y D(v^n t^q)]_{\hat{\g}_{[2]}}
-                        \\
-                        & = [x, y]_{\g} (D(v^m t^p) v^n t^q + v^m t^p D(v^n t^q)) + (x, y)_{\g} ( D(v^m t^p) \bar{d}(v^n t^q) + v^m t^p \bar{d}(D(v^n t^q)) )
-                        \\
-                        & = [x, y]_{\g} D(v^{m + n} t^{p + q}) + (x, y)_{\g} ( D(v^m t^p) \bar{d}(v^n t^q) + v^m t^p \bar{d}(D(v^n t^q)) )
-                    \end{aligned}
-                $$
-            Note that for the second equality, we implicitly invoked the fact that the basis elements of $\d_{[2]}$ (and hence all elements thereof) act on $\g_{[2]}$ in the following manner:
-                $$[D, x v^m t^p] = x D(v^m t^p), D \in \{D_{r, s}\}_{(r, s) \in \Z^2} \cup \{D_v, D_t\}$$
-            (cf. remark \ref{remark: derivation_action_on_multiloop_algebras}), and it makes sense to write this because we now know (after remark \ref{remark: dual_of_toroidal_centres_contains_derivations}) that elements of $\d_{[2]}$ are certain derivations on $A_{[2]}$. At the same time, we have that:
-                $$
-                    \begin{aligned}
-                        [ D, [x v^m t^p, y v^n t^q]_{\tilde{\g}_{[2]}} ]_{\hat{\g}_{[2]}} & = [ D, [x, y]_{\g} v^{m + n} t^{p + q} + (x, y)_{\g} v^m t^p \bar{d}(v^n t^q) ]_{\hat{\g}_{[2]}}
-                        \\
-                        & = [x, y]_{\g} D(v^{m + n} t^{p + q}) + (x, y)_{\g} [D, v^m t^p \bar{d}(v^n t^q)]_{\hat{\g}_{[2]}}
-                    \end{aligned}
-                $$
-            By putting the two computations together, one yields:
-                $$[D, v^m t^p \bar{d}(v^n t^q)]_{\hat{\g}_{[2]}} = D(v^m t^p) \bar{d}(v^n t^q) + v^m t^p \bar{d}(D(v^n t^q))$$
-            Since we know how the basis elements of $\d_{[2]}$ act on $\g_{[2]}$ (see remark \ref{remark: derivation_action_on_multiloop_algebras}), the above is enough to determine how $\d_{[2]}$ acts on $\z_{[2]}$. 
-
-            Now, let us \textit{not} assume that:
-                $$\hat{\g}_{[2]} \cong \tilde{\g}_{[2]}\rtimes \d_{[2]}$$
-            Without any loss of generality, let us consider the following for any $h, h' \in \h$ so that\footnote{We can make this assumption because ultimately, elements of $\z_{[2]}$ do not depend on those of $\g$.}:
-                $$(h, h')_{\g} = 1$$
-            any $f(v, t), g(v, t) \in A_{[2]}$, and any $D \in \d_{[2]}$:
-                $$[ D, [h f(v, t), h' g(v, t)]_{\tilde{\g}_{[2]}} ]_{\hat{\g}_{[2]}} = [ D, f(v, t) \bar{d}( g(v, t) ) ]_{\hat{\g}_{[2]}}$$
-            At the same time, we have via the Jacobi identity that:
-                $$
-                    \begin{aligned}
-                        [ D, [h f(v, t), h' g(v, t)]_{\tilde{\g}_{[2]}} ]_{\hat{\g}_{[2]}} & = [ h f(v, t), [D, h' g(v, t)]_{\hat{\g}_{[2]}} ]_{\tilde{\g}_{[2]}} + [ [D, h f(v, t)]_{\hat{\g}_{[2]}}, h' g(v, t) ]_{\tilde{\g}_{[2]}}
-                        \\
-                        & = [ h f(v, t), h' D( g(v, t) ) ]_{\tilde{\g}_{[2]}} + [ h D( f(v, t) ), h' g(v, t) ]_{\tilde{\g}_{[2]}}
-                        \\
-                        & = f(v, t) \bar{d}( D( g(v, t) ) ) + D( f(v, t) ) \bar{d}(g(v, t))
-                    \end{aligned}
-                $$
-            One thus sees that:
-                $$[ D, f(v, t) \bar{d}( g(v, t) ) ]_{\hat{\g}_{[2]}} = f(v, t) \bar{d}( D( g(v, t) ) ) + D( f(v, t) ) \bar{d}(g(v, t))$$
-            and since the element $f(v, t) \bar{d}( g(v, t) )$ is central (via the map $\e$ mentioned earlier), this gives another description of:
-                $$[ \d_{[2]}, \z_{[2]} ]_{\hat{\g}_{[2]}}$$
-            With this in mind, we return quickly to remark \ref{remark: derivation_action_on_multiloop_algebras}; there, we previously demonstrated that:
-                $$[ \d_{[2]}, \g_{[2]} ]_{\hat{\g}_{[2]}} \subseteq \g_{[2]} \oplus \z_{[2]}$$
-            but we claim now that the following stronger fact holds:
-                $$[ \d_{[2]}, \g_{[2]} ]_{\hat{\g}_{[2]}} \subseteq \g_{[2]}$$
-            To see why this is the case, suppose firstly that for any $D \in \d_{[2]}$, any $X(v, t) \in \g_{[2]}$, there is $K(X) \in \z_{[2]}$ depending on $X := X(v, t)$ (and indeed, such a $K$ exists by remark \ref{remark: derivation_action_on_multiloop_algebras}) such that:
-                $$[ D, X(v, t) ]_{\hat{\g}_{[2]}} = D( X(v, t) ) + K(X)$$
-            Next, pick an arbitrary element $\xi \in \d_{[2]}$ and then consider the following:
-                $$( [ D, X(v, t) ]_{\hat{\g}_{[2]}}, \xi )_{\hat{\g}_{[2]}} = (D( X(v, t) ) + K(X), \xi)_{\hat{\g}_{[2]}} = (K(X), \xi)_{\hat{\g}_{[2]}}$$
-            At the same time, using invariance yields us:
-                $$( [ D, X(v, t) ]_{\hat{\g}_{[2]}}, \xi )_{\hat{\g}_{[2]}} = (X(v, t), [\xi, D]_{\hat{\g}_{[2]}})_{\hat{\g}_{[2]}} = 0$$
-            wherein the last equality is due to the fact that:
-                $$[\xi, D]_{\hat{\g}_{[2]}} \in \z_{[2]} \oplus \d_{[2]}$$
-            (cf. remark \ref{remark: dual_of_toroidal_centres_contains_derivations}). We thus see - via the fact that $[\g_{[2]}, \z_{[2]}]_{\hat{\g}_{[2]}} = 0$ - that:
-                $$(K(X), \xi)_{\hat{\g}_{[2]}} = 0$$
-            for every $\xi \in \d_{[2]}$. Via the non-degeneracy of $(-, -)_{\hat{\g}_{[2]}}$, this then implies that:
-                $$K(X) = 0$$
-            As such, we have that:
-                $$[ \d_{[2]}, \g_{[2]} ]_{\hat{\g}_{[2]}} \subseteq \g_{[2]}$$
-            as claimed. 
         \end{remark}
-        The remark above can be packaged more neatly into the following result:
+        
         \begin{proposition}[$\tilde{\g}_{[2]}$ as a $\d_{[2]}$-module] \label{prop: toroidal_lie_algebras_as_modules_over_div_0_vector_field_lie_algebras}
-            Both $\g_{[2]}$ and $\z_{[2]}$ are $\d_{[2]}$-modules. 
+            When we assume that:
+                $$\hat{\g}_{[2]} \cong \tilde{\g}_{[2]} \rtimes \d_{[2]}$$
+            i.e. when $\d_{[2]}$ is a Lie subalgebra of $\der_{\bbC}(A_{[2]})$ with the usual commutator bracket, we will have that $\tilde{\g}_{[2]}$ is a $\d_{[2]}$-module, decomposing into a direct sum of the submodules $\g_{[2]}$ and $\z_{[2]}$. 
         \end{proposition}
         
-        Putting everything together then yields us the following result:
-        \begin{theorem}[Extended toroidal Lie algebras] \label{theorem: extended_toroidal_lie_algebras}
-            Let $\d_{[2]}$ - viewed as a Lie subalgebra of $\der_{\bbC}(A_{[2]})$ (cf. remark \ref{remark: dual_of_toroidal_centres_contains_derivations}) - act on $\g_{[2]}$ and on $\z_{[2]}$ (and hence on $\tilde{\g}_{[2]}\cong \g_{[2]} \oplus \z_{[2]}$) as in remarks \ref{remark: derivation_action_on_multiloop_algebras} and \ref{remark: derivation_action_on_toroidal_centres} respectively. These actions give rise to a Lie algebra extension:
-                $$\hat{\g}_{[2]} := \tilde{\g}_{[2]}\rtimes \d_{[2]}$$
-            Furthermore, there is an invariant non-degenerate symmetric $\bbC$-bilinear form $(-, -)_{\hat{\g}_{[2]}}$ as in convention \ref{conv: orthogonal_complement_of_toroidal_centres}. 
+        In summary, we have yielded the following result:
+        \begin{theorem} \label{theorem: extended_toroidal_lie_algebras}
+            There is a Lie bracket on the vector space:
+                $$\hat{\g}_{[2]} := \tilde{\g}_{[2]} \oplus \d_{[2]}$$
+            given as in remarks \ref{remark: derivation_action_on_multiloop_algebras} and \ref{remark: derivation_action_on_toroidal_centres}, uniquely determined by the choice of an invariant non-degenerate symmetric $\bbC$-bilinear form $(-, -)_{\hat{\g}_{[2]}}$ as in convention \ref{conv: orthogonal_complement_of_toroidal_centres}, up to choices of central summands for the elements of $[\d_{[2]}, \d_{[2]}]_{\hat{\g}_{[2]}}$ (cf. remark \ref{remark: dual_of_toroidal_centres_contains_derivations}).
+
+            When said central summands are chosen to vanish, i.e. when $\d_{[2]}$ is a Lie subalgebra of $\der_{\bbC}(A_{[2]})$ with the usual commutator bracket, one shall obtain:
+                $$\hat{\g}_{[2]} := \tilde{\g}_{[2]} \rtimes \d_{[2]}$$
         \end{theorem}
+        \begin{definition}[Extended toroidal Lie algebras] \label{def: extended_toroidal_lie_algebras}
+            We refer to $\hat{\g}_{[2]}$ as in theorem \ref{theorem: extended_toroidal_lie_algebras} as an \textbf{extended ($2$-)toroidal Lie algebra}. 
+        \end{definition}
+        \begin{remark}
+            Our notion of extended $2$-toroidal Lie algebras does not quite coincide with the very similar notion of an \say{extended affine Lie algebra of nullity $2$}. Ultimately, this is because the bilinear form that we have endowed $\g_{[2]}$ with is of degree $-1$ (as opposed to $0$) in the second variable. For the latter, $\d_{[2]}$ would be the Lie algebra of divergence-free vector fields on $\Spec A_{[2]}$.
+        \end{remark}
 
         Even though we are now perfectly ready to endow $\hat{\g}_{[2]}^+$ with a Lie bialgebra structure (which eventually will be shown to descend down to a Lie bialgebra structure on $\tilde{\g}_{[2]}^+$; cf. theorem \ref{theorem: toroidal_lie_bialgebras}) arising from some Manin triple of the kind:
             $$(\hat{\g}_{[2]}, \hat{\g}_{[2]}^+, \hat{\g}_{[2]}^-)$$
