@@ -461,21 +461,6 @@
             $$\frac{1}{\hbar}(\Delta_{\hbar} - \Delta_{\hbar}^{\cop}) \pmod{\hbar} \equiv \tilde{\delta}^+$$
         and hence be able to realise the topological Lie bialgebra $(\tilde{\g}_{[2]}^+, \tilde{\delta}^+)$ from theorem \ref{theorem: toroidal_lie_bialgebras} as the classical limit of the formal Yangian $\rmY_{\hbar}(\hat{\g}_{[1]})$ in some sense (which, let us caution, is not exactly the same as in \cite{etingof_kazhdan_quantisation_1}).
         
-        The fundamental inspiration behind this construction of \cite{guay_nakajima_wendlandt_affine_yangian_coproduct} is - to our understanding - the fact that, should $(H, \mu, \eta, \Delta, \e, \sigma)$ be a Hopf algebra, then given any two left-$H$-modules:
-            $$\rho_V: H \to \End(V)$$
-            $$\rho_W: H \to \End(W)$$
-        (and likewise for right-modules), one can always form the $H$-modules tensor product using the following series of compositions:
-            $$H \xrightarrow[]{\Delta} H \tensor H \xrightarrow[]{\id_H \tensor \sigma} H \tensor H^{\op, \cop} \xrightarrow[]{\rho_V \tensor \rho_W^{\op}} \End(V) \tensor \End(W) \to \End(V \tensor W)$$
-        wherein the last arrow is the natural one.
-        
-        In \textit{loc. cit.}, the authors first established that the so-called \say{category $\calO$} of $\rmY(\hat{\g}_{[1]})$ (the definition is similar to the usual BGG category $\calO$ of $\g$; cf. lemma \ref{lemma: category_O_affine_yangian}) is closed under tensor products. One as such is able to write down a $\bbC$-algebra homomorphism:
-            $$\Delta_{V_1, V_2}: \rmY(\hat{\g}_{[1]}) \to \End_{\bbC}(V_1 \tensor_{\bbC} V_2)$$
-        corresponding to any pair of objects $V_1, V_2$ in the aforementioned category $\calO$ of $\rmY(\hat{\g}_{[1]})$; furthermore, such algebra homomorphisms satisfy coassociativity in the sense that any $\bbC$-vector space isomorphism:
-            $$(V_1 \tensor_{\bbC} V_2) \tensor_{\bbC} V_3 \xrightarrow[]{\cong} V_1 \tensor_{\bbC} (V_2 \tensor_{\bbC} V_3)$$
-        between objects $V_1, V_2, V_3$ of the category $\calO$ of $\rmY(\hat{\g}_{[1]})$ upgrades to an isomorphism of left-$\rmY(\hat{\g}_{[1]})$-modules. As such, one obtains a kind of \say{\textit{faux} coproduct} on $\rmY(\hat{\g}_{[1]})$. 
-
-        Now, how may we \say{package} the maps $\Delta_{V_1, V_2}$ together (say, by varying the representations $V_1, V_2 \in \Ob(\calO)$ somehow) to obtain a bialgebra coproduct on the Yangian $\rmY(\hat{\g}_{[1]})$ ? To this end, note firstly that, due to the Serre relations in the definition of Yangians (cf. e.g. \cite[Equation 2.7]{guay_nakajima_wendlandt_affine_yangian_coproduct}), the adjoint representation of $\rmY(\hat{\g}_{[1]})$ is \say{integrable} \todo{Not done}
-        
         \begin{lemma}[The category $\calO$ for the affine Yangian $\rmY(\hat{\g}_{[1]})$] \label{lemma: category_O_affine_yangian}
             (Cf. \cite[Theorem 4.9]{guay_nakajima_wendlandt_affine_yangian_coproduct}).
         
