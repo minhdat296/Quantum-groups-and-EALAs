@@ -443,7 +443,10 @@
                 $$\breve{V} := \projlim_{n \in \Z_{\geq 0}} ( V / \bigoplus_{n \geq m} V_n )$$
             will be a topologically free and flat $k[\![\hbar]\!]$-module, and that should $V$ be a $\Z_{\geq 0}$-graded flat deformation of some $k$-vector space $\bar{V}$ (in the sense that $V/\hbar \cong \bar{V}$) then the $k$-vector space:
                 $$\breve{\bar{V}} := \breve{V}/\hbar$$
-            will be a topologically complete $\Z_{\geq 0}$-graded $k$-vector space. 
+            will be a topologically complete $\Z_{\geq 0}$-graded $k$-vector space. Furthermore, there is a $k[\hbar]$-linear embedding:
+                $$V \subset \breve{V}$$
+            and a $k$-linear embedding:
+                $$\bar{V} \subset \breve{\bar{V}}$$
         \end{remark}
         \begin{lemma}[Primitive elements in tensor products of filtered algebras] \label{lemma: primitive_elements_in_tensor_products_of_filtered_algebras}
             Suppose that $M, N$ are commutative monoids and that $A, B$ respectively are cocommutative $M$- and $N$-filtered bialgebras over a commutative ring $k$. Then:
@@ -498,12 +501,15 @@
             Then, there will be a $\Z_{\geq 0}$-graded topological $k$-vector space isomorphisms:
                 $$\a \brevetensor_k \b \cong \Prim( \rmU(\a) \tensor_k \rmU(\b) ) \cong \a \tensor_k 1 + 1 \tensor_k \b$$
         \end{proposition}
+            \begin{proof}
+                Combine lemmas \ref{lemma: primitive_elements_in_tensor_products_of_filtered_algebras} and \ref{lemma: grading_completion_of_positively_graded_lie_algebras}.
+            \end{proof}
         \begin{corollary}[Codomain of $\tilde{\delta}^+$] \label{coro: toroidal_topological_lie_bialgebras}
             Consider the Lie algebra $\tilde{\g}_{[2]}^+$ with its natural $\Z_{\geq 0}$-grading given by:
                 $$\deg v := 0, \deg t := 1$$
             (cf. remark \ref{remark: Z_gradings_on_toroidal_lie_algebras}) and recall from theorem \ref{theorem: toroidal_lie_bialgebras} the Lie cobracket:
                 $$\tilde{\delta}^+: \tilde{\g}_{[2]}^+ \to \tilde{\g}_{[2]}^+ \tensor_{\bbC} \tilde{\g}_{[2]}^+$$
-            To make this cobracket well-defined, one must enlarge the codomain of this mapping to the grading-completion:
+            To make this Lie cobracket well-defined, one must enlarge the codomain to the grading-completion:
                 $$\tilde{\g}_{[2]}^+ \brevetensor_{\bbC} \tilde{\g}_{[2]}^+ \cong \tilde{\g}_{[2]}^+ \tensor_{\bbC} 1 + 1 \tensor_{\bbC} \tilde{\g}_{[2]}^+$$
             abd one obtains, subsequently, a continuous Lie cobracket:
                 $$\tilde{\delta}^+: \tilde{\g}_{[2]}^+ \to \tilde{\g}_{[2]}^+ \brevetensor_{\bbC} \tilde{\g}_{[2]}^+$$
