@@ -338,6 +338,12 @@
     \IfValueT{#2}{^{#2}}
   }%
 }
+\NewDocumentCommand{\brevetensor}{e{_^}}{%
+  \mathbin{\mathop{\breve{\otimes}}\displaylimits
+    \IfValueT{#1}{_{#1}}
+    \IfValueT{#2}{^{#2}}
+  }%
+}
 \NewDocumentCommand{\semidirect}{e{_^}}{%
   \mathbin{\mathop{\rtimes}\displaylimits
     \IfValueT{#1}{_{#1}}
@@ -404,6 +410,7 @@
 \newcommand{\A}{\mathbb{A}}
 \renewcommand{\P}{\mathbb{P}}
 \newcommand{\calL}{\mathcal{L}}
+\newcommand{\scrL}{\mathscr{L}}
 \newcommand{\E}{\mathcal{E}}
 \renewcommand{\H}{\mathbf{H}}
 \newcommand{\scrS}{\mathscr{S}}
@@ -516,7 +523,6 @@
 \newcommand{\bfn}{\mathbf{n}}
 \renewcommand{\o}{\mathfrak{o}}
 \newcommand{\bbDelta}{\amsmathbb{}}
-\newcommand{\sfdelta}{\mathsf{\delta}} %dirac delta
 
 \newcommand{\aff}{\mathrm{aff}}
 \newcommand{\ft}{\mathrm{ft}} %finite type
