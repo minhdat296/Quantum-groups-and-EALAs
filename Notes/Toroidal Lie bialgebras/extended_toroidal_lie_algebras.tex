@@ -478,6 +478,7 @@
                     $$[D, D']_{\hat{\g}_{[2]}} \in \d_{[2]}$$
                 for any $D, D' \in \d_{[2]}$. In general, however, we are only guaranteed that:
                     $$[D, D']_{\hat{\g}_{[2]}} = \z_{[2]} \oplus \d_{[2]}$$
+                We note also that it is not even guaranteed \textit{a priori} that the $\d_{[2]}$-summand of the commutators of the form $[D, D']_{\hat{\g}_{[2]}}$ has to be the usual commutator inherited from $\der_{\bbC}(A_{[2]})$; this turns out to be true, but is a somewhat non-trivial fact (cf. proposition \ref{prop: lie_bracket_on_orthogonal_complement_of_toroidal_centre}). 
             \end{enumerate}
         \end{remark}
         
@@ -523,7 +524,11 @@
                     $$
                 By putting the two computations together, one yields:
                     $$[D, v^m t^p \bar{d}(v^n t^q)]_{\hat{\g}_{[2]}} = D(v^m t^p) \bar{d}(v^n t^q) + v^m t^p \bar{d}(D(v^n t^q))$$
-                Since we know how the basis elements of $\d_{[2]}$ act on $\g_{[2]}$ (see remark \ref{remark: derivation_action_on_multiloop_algebras}), the above is enough to determine how $\d_{[2]}$ acts on $\z_{[2]}$. 
+                Since we know how the basis elements of $\d_{[2]}$ act on $A_{[2]}$ (cf. remark \ref{remark: dual_of_toroidal_centres_contains_derivations}), the above is enough to determine how $\d_{[2]}$ acts on $\z_{[2]}$. 
+
+                Let us also note the similarity between the formulae:
+                    $$[D, f \bar{d}(g)]_{\hat{\g}_{[2]}} = D(f) \bar{d}(g) + f \bar{d}(D(g))$$
+                and those for Lie derivatives.
                 
                 \item Now, let us \textit{not} assume that:
                     $$\hat{\g}_{[2]} \cong \tilde{\g}_{[2]}\rtimes \d_{[2]}$$
@@ -572,90 +577,98 @@
 
         \end{remark}
 
+        Remarks \ref{remark: derivation_action_on_multiloop_algebras}, \ref{remark: dual_of_toroidal_centres_contains_derivations}, and \ref{remark: derivation_action_on_toroidal_centres} can now be packaged together into the following result.
+        \begin{proposition}[$\tilde{\g}_{[2]}$ as a $\der_{\bbC}(A_{[2]})$-module] \label{prop: toroidal_lie_algebras_as_modules_over_vector_field_lie_algebras}
+            $\tilde{\g}_{[2]}$ is a $\der_{\bbC}(A_{[2]})$-module, decomposing into a direct sum of the submodules $\g_{[2]}$ and $\z_{[2]}$. 
+        \end{proposition}
+
         Now, let us see if and how $\d_{[2]}$ might be endowed with a Lie algebra structure of its own, so that we might have that:
             $$\hat{\g}_{[2]} \cong \tilde{\g}_{[2]} \rtimes \d_{[2]}$$
         The upshot is that in general, the vector space $\d_{[2]}$ fails to be a Lie algebra, namely due to the commutators $[D, D']_{\hat{\g}_{[2]}}$ (for any two $D, D' \in \d_{[2]}$) having a non-vanishing $\z_{[2]}$-summand in general, and their $\d_{[2]}$-summand is actually nothing but the usual commutator of derivations inherited from $\der_{\bbC}(A_{[2]})$, and $\d_{[2]}$ will only be a Lie algebra if we choose to endow it with said commutator bracket (so that the $\z_{[2]}$ would be made to vanish). 
-        \begin{lemma}[How does $\d_{[2]}$ act on itself] \label{lemma: lie_bracket_on_orthogonal_complement_of_toroidal_centre}
+        \newpage
+        \begin{proposition}[How does $\d_{[2]}$ act on itself] \label{prop: lie_bracket_on_orthogonal_complement_of_toroidal_centre}
             Let $\d_{[2]}$ be given as in convention \ref{conv: orthogonal_complement_of_toroidal_centres}. Then:
                 $$[ \d_{[2]}, \d_{[2]} ]_{\hat{\g}_{[2]}} \subset \z_{[2]} \oplus \d_{[2]}$$
             i.e. the $\g_{[2]}$-summand of any commutator of the kind $[D, D']_{\hat{\g}_{[2]}}$ (for any two $D, D' \in \d_{[2]}$) actually vanishes. Furthermore, neither the $\z_{[2]}$- nor the $\d_{[2]}$-summand of those commutators $[D, D']_{\hat{\g}_{[2]}}$ necessarily vanish in general. 
-        \end{lemma}
+        \end{proposition}
             \begin{proof}
                 Pick arbitrary elements $D, D' \in \d_{[2]}$ and set:
-                    $$[D, D']_{\hat{\g}_{[2]}} := X_{D, D'} + K_{D, D'} + \xi_{D, D'}$$
-                for some $X_{D, D'} \in \g_{[2]}, K_{D, D'} \in \z_{[2]}$, and $\xi_{D, D'} \in \d_{[2]}$ depending on $D, D'$. Pick also a test element $y g(v, t) \in \g_{[2]}$, for some arbitrary $y \in \g$ and $g(v, t) \in A_{[2]}$ and set:
-                    $$[D, y g(v, t)] := y D( g(v, t) ) + K_{D, Y}$$
-                    $$[D', y g(v, t)] := y D'( g(v, t) ) + K_{D', Y}$$
+                    $$[D, D']_{\hat{\g}_{[2]}} := X(D, D') + K(D, D') + \xi(D, D')$$
+                for some $X(D, D') \in \g_{[2]}, K(D, D') \in \z_{[2]}$, and $\xi(D, D') \in \d_{[2]}$ depending on $D, D'$. Pick also a test element $y g(v, t) \in \g_{[2]}$, for some arbitrary $y \in \g$ and $g(v, t) \in A_{[2]}$ and set:
+                    $$[D, y g(v, t)]_{\hat{\g}_{[2]}} := y D( g(v, t) ) + K_{D, Y}$$
+                    $$[D', y g(v, t)]_{\hat{\g}_{[2]}} := y D'( g(v, t) ) + K_{D', Y}$$
                 for some $K_{D, Y} \in \z_{[2]}$ depending on $Y$ (cf. remark \ref{remark: derivation_action_on_multiloop_algebras}).
                 
                 Via the Jacobi identity, we get that:
                     $$
                         \begin{aligned}
-                            & 0
+                            & [ [D, D']_{\hat{\g}_{[2]}}, y g(v, t) ]_{\hat{\g}_{[2]}}
                             \\
-                            = & [ y g(v, t), [D, D']_{\hat{\g}_{[2]}} ]_{\hat{\g}_{[2]}} + [ D, [ D', y g(v, t) ]_{\hat{\g}_{[2]}} ]_{\hat{\g}_{[2]}} + [ D', [ y g(v, t), D ]_{\hat{\g}_{[2]}} ]_{\hat{\g}_{[2]}}
+                            = & [ D, [ D', y g(v, t) ]_{\hat{\g}_{[2]}} ]_{\hat{\g}_{[2]}} + [ D', [ y g(v, t), D ]_{\hat{\g}_{[2]}} ]_{\hat{\g}_{[2]}}
                             \\
-                            = & [ y g(v, t), [D, D']_{\hat{\g}_{[2]}} ]_{\hat{\g}_{[2]}} + [ D, y D'( g(v, t) ) + K_{D', Y} ]_{\hat{\g}_{[2]}} - [ D', y D( g(v, t) ) + K_{D, Y} ]_{\hat{\g}_{[2]}}
+                            = & [ D, y D'( g(v, t) ) + K_{D', Y} ]_{\hat{\g}_{[2]}} - [ D', y D( g(v, t) ) + K_{D, Y} ]_{\hat{\g}_{[2]}}
+                            \\
+                            = & \left( y D( D'(g(v, t)) ) + K_{DD', Y} + [ D, K_{D', Y} ]_{\hat{\g}_{[2]}} \right) - \left( y D'( D(g(v, t)) ) + K_{D'D, Y} + [ D', K_{D, Y} ]_{\hat{\g}_{[2]}} \right)
+                            \\
+                            = & y (DD' - D'D)( g(v, t) ) + ( K_{DD', Y} - K_{D'D, Y} ) + ( [ D, K_{D', Y} ]_{\hat{\g}_{[2]}} - [ D', K_{D, Y} ]_{\hat{\g}_{[2]}} )
                         \end{aligned}
                     $$
-                Now, consider:
-                    $$[ D, y D'( g(v, t) ) + K_{D', Y} ]_{\hat{\g}_{[2]}} = y D( D'(g(v, t)) ) + [ D, K_{D', Y} ]_{\hat{\g}_{[2]}}$$
-                    $$[ D', y D( g(v, t) ) + K_{D, Y} ]_{\hat{\g}_{[2]}} = y D'( D(g(v, t)) ) + [ D', K_{D, Y} ]_{\hat{\g}_{[2]}}$$
-                and hence by subtracting the second expression from the first, we shall obtain:
-                    $$
-                        \begin{aligned}
-                            & [ D, y D'( g(v, t) ) + K_{D, Y} ]_{\hat{\g}_{[2]}} - [ D', y D( g(v, t) ) + K_{D', Y} ]_{\hat{\g}_{[2]}}
-                            \\
-                            = & y (DD' - D'D)( g(v, t) ) + [ D, K_{D', Y} ]_{\hat{\g}_{[2]}} - [ D', K_{D, Y} ]_{\hat{\g}_{[2]}}
-                        \end{aligned}
-                    $$
-                From this and from the computation with the Jacobi identity from before, we obtain:
-                    $$[ [D, D']_{\hat{\g}_{[2]}}, y g(v, t) ]_{\hat{\g}_{[2]}} = y (DD' - D'D)( g(v, t) ) + [ D, K_{D', Y} ]_{\hat{\g}_{[2]}} - [ D', K_{D, Y} ]_{\hat{\g}_{[2]}}$$
-                But at the same time, we have that:
+                for some $K_{DD', Y}, K_{D'D, Y} \in \z_{[2]}$ such that:
+                    $$[ D, y D'( g(v, t) ) ]_{\hat{\g}_{[2]}} := y D( D'( g(v, t) ) ) + K_{DD', Y}$$
+                    $$[ D', y D( g(v, t) ) ]_{\hat{\g}_{[2]}} := y D( D'( g(v, t) ) ) + K_{D'D, Y}$$
+                At the same time, we have that:
                     $$
                         \begin{aligned}
                             & [ [D, D']_{\hat{\g}_{[2]}}, y g(v, t) ]_{\hat{\g}_{[2]}}
                             \\
-                            = & [ X_{D, D'} + K_{D, D'} + \xi_{D, D'} , y g(v, t) ]_{\hat{\g}_{[2]}}
+                            = & [ X(D, D') + K(D, D') + \xi(D, D') , y g(v, t) ]_{\hat{\g}_{[2]}}
                             \\
-                            = & [ X_{D, D'} + \xi_{D, D'} , y g(v, t) ]_{\hat{\g}_{[2]}}
+                            = & [ X(D, D') + \xi(D, D') , y g(v, t) ]_{\hat{\g}_{[2]}}
                             \\
-                            = & [ X_{D, D'} , y g(v, t) ]_{\hat{\g}_{[2]}} + \left( y \xi_{D, D'}(g(v, t)) + K_{\xi_{D, D'}, Y} \right)
+                            = & [ X(D, D') , y g(v, t) ]_{\hat{\g}_{[2]}} + \left( y \xi(D, D')(g(v, t)) + K_{\xi(D, D'), Y} \right)
                         \end{aligned}
                     $$
-                wherein the second equality holds thanks to the fact that $[\z_{[2]}, \g_{[2]}]_{\hat{\g}_{[2]}} = 0$, and $K_{\xi_{D, D'}, Y} \in \z_{[2]}$ is some element (cf. remark \ref{remark: derivation_action_on_multiloop_algebras}). Putting everything together then yields:
+                wherein the second equality holds thanks to the fact that $[\z_{[2]}, \g_{[2]}]_{\hat{\g}_{[2]}} = 0$, and $K_{\xi(D, D'), Y} \in \z_{[2]}$ is some element (cf. remark \ref{remark: derivation_action_on_multiloop_algebras}). Combining the two observations together then yields:
                     $$
                         \begin{aligned}
-                            & [ X_{D, D'} , y g(v, t) ]_{\hat{\g}_{[2]}} + \left( y \xi_{D, D'}(g(v, t)) + K_{\xi_{D, D'}, Y} \right)
+                            & [ X(D, D') , y g(v, t) ]_{\hat{\g}_{[2]}} + \left( y \xi(D, D')(g(v, t)) + K_{\xi(D, D'), Y} \right)
                             \\
-                            = & y (DD' - D'D)( g(v, t) ) + [ D, K_{D', Y} ]_{\hat{\g}_{[2]}} - [ D', K_{D, Y} ]_{\hat{\g}_{[2]}}
+                            = & y (DD' - D'D)( g(v, t) ) + ( K_{DD', Y} - K_{D'D, Y} ) + ( [ D, K_{D', Y} ]_{\hat{\g}_{[2]}} - [ D', K_{D, Y} ]_{\hat{\g}_{[2]}} )
                         \end{aligned}
                     $$
-                From remark \ref{remark: centres_of_dual_toroidal_lie_algebras}, we know that there exists $K_{X_{D, D'}, Y} \in \z_{[2]}$ such that:
-                    $$[ X_{D, D'} , y g(v, t) ]_{\hat{\g}_{[2]}} = [ X_{D, D'} , Y ]_{\hat{\g}_{[2]}} = [X_{D, D'}, Y]_{\g_{[2]}} + K_{X_{D, D'}, Y}$$
+                From remark \ref{remark: centres_of_dual_toroidal_lie_algebras}, we know that there exists $K_{X(D, D'), Y} \in \z_{[2]}$ such that:
+                    $$[ X(D, D') , y g(v, t) ]_{\hat{\g}_{[2]}} = [ X(D, D') , Y ]_{\hat{\g}_{[2]}} = [X(D, D'), Y]_{\g_{[2]}} + K_{X(D, D'), Y}$$
                 using which we can write:
                     $$
                         \begin{aligned}
-                            & [X_{D, D'}, Y]_{\g_{[2]}} + \left( K_{X_{D, D'}, Y} + K_{\xi_{D, D'}, Y} \right) - \left( [ D, K_{D', Y} ]_{\hat{\g}_{[2]}} - [ D', K_{D, Y} ]_{\hat{\g}_{[2]}} \right)
+                            & [X(D, D'), Y]_{\g_{[2]}} - y \left( ( DD' - D'D) - \xi(D, D') \right)( g(v, t) )
                             \\
-                            = & y \left( ( DD' - D'D) - \xi_{D, D'} \right)( g(v, t) )
+                            = & \left( [ D, K_{D', Y} ]_{\hat{\g}_{[2]}} - [ D', K_{D, Y} ]_{\hat{\g}_{[2]}} \right) - \left( K_{X(D, D'), Y} + K_{\xi(D, D'), Y} \right)
                         \end{aligned}
                     $$
+                    
+                We note right away that the LHS lies entirely in $\g_{[2]}$, whereas the RHS is an element of $\z_{[2]}$ due to the fact that $[\d_{[2]}, \z_{[2]}]_{\hat{\g}_{[2]}} \subseteq \z_{[2]}$ (cf. remark \ref{remark: derivation_action_on_toroidal_centres}), which tells us that $[ D, K_{D', Y} ]_{\hat{\g}_{[2]}}, [ D', K_{D, Y} ]_{\hat{\g}_{[2]}} \in \z_{[2]}$ in particular. Because $\g_{[2]}$ is centreless (as $\g$ is simple and the Lie bracket on $\g_{[2]}$ is given by extension of scalars), this observation subsequently implies that the LHS must vanish, i.e.:
+                    $$[X(D, D'), Y]_{\g_{[2]}} - y \left( ( DD' - D'D) - \xi(D, D') \right)( g(v, t) ) = 0$$
+                Because we have by construction that:
+                    $$DD' - D'D - \xi(D, D') \in \d_{[2]}$$
+                we now make the following claim: \textit{if we fix some arbitrary $E \in \g_{[2]}$ and some $P \in \d_{[2]}$ then:}
+                    $$\forall H := h \varphi \in \g_{[2]}: [E, H]_{\g_{[2]}} = h P( \varphi ) \implies E = 0$$
 
-                \textit{We now claim that:
-                    $$\xi_{D, D'} = DD' - D'D$$
-                i.e. that the $\d_{[2]}$-summand $\xi_{D, D'}$ of $[D, D']_{\hat{\g}_{[2]}}$ is nothing but the usual commutator of derivations}; should we be able to prove this fact, we would then have that:
-                    $$[X_{D, D'}, Y]_{\g_{[2]}} + \left( K_{X_{D, D'}, Y} + K_{\xi_{D, D'}, Y} \right) - \left( [ D, K_{D', Y} ]_{\hat{\g}_{[2]}} - [ D', K_{D, Y} ]_{\hat{\g}_{[2]}} \right) = 0$$
-                and since $[ D, K_{D', Y} ]_{\hat{\g}_{[2]}}, [ D', K_{D, Y} ]_{\hat{\g}_{[2]}} \in \z_{[2]}$ (cf. remark \ref{remark: derivation_action_on_toroidal_centres}) and $K_{X_{D, D'}, Y}, K_{\xi_{D, D'}, Y} \in \z_{[2]}$ by assumption, the above would then imply that:
-                    $$[X_{D, D'}, Y]_{\g_{[2]}} \in \z_{[2]}$$
-                as well, but this is the case if and only if:
-                    $$[X_{D, D'}, Y]_{\g_{[2]}} = 0$$
-                and because $Y \in \g_{[2]}$ was chosen arbitrarily and because $\g_{[2]}$ is centre-less\footnote{... meaning, in particular, that the only element of $\g_{[2]}$ commuting with every other element is $0$.} (as $\g$ is simple and the bracket on $\g_{[2]}$ is given by extension of scalars by assumption), this in turn implies that:
-                    $$X_{D, D'} = 0$$
-                i.e. that \textit{the $\g_{[2]}$-component of $[D, D']_{\hat{\g}_{[2]}}$ necessarily vanishes}.
+                Using the root space decomposition for $\g$, we see that if $h \in \h$ then we then will have that $[E, H]_{\g_{[2]}} \in \n^{\pm}_{[2]}$, but at the same time, that $h P(\varphi) \in \h_{[2]}$. The only way for this to be true is that $[E, H]_{\g_{[2]}} = 0$, which is the case if and only if $E = 0$. If $h \in \n^{\pm}$, then $[E, H]_{\g_{[2]}} \in \n^{\pm}_{[2]} \oplus \h_{[2]}$ and the $\h_{[2]}$-summand will be non-zero in general; at the same time, $h P(\varphi) \in \n^{\pm}_{[2]}$ in this case, and again, the only way for these to facts to be true simultaneously is that $E = 0$ necessarily. 
 
-                To prove the claim stated above, 
+                Apply the claim to the fact that:
+                    $$[X(D, D'), Y]_{\g_{[2]}} = y \left( ( DD' - D'D) - \xi(D, D') \right)( g(v, t) )$$
+                - and again, note that $( DD' - D'D) - \xi(D, D') \in \d_{[2]}$ - then yields:
+                    $$X(D, D') = 0$$
+                precisely as desired. 
             \end{proof}
+        \begin{corollary}
+            For any $D, D' \in \d_{[2]}$, the $\d_{[2]}$-summand of $[D, D']_{\hat{\g}_{[2]}}$ is nothing but the commutator $DD' - D'D$.
+        \end{corollary} 
+        \newpage
+        \begin{question}[A different Lie bracket on $\der_{\bbC}(A_{[2]})$ ?]
+            Is there a Lie algebra structure $\der_{\bbC}(A_{[2]})$ (different from the standard one given by commutators $[D, D'] := DD' - D'D$) with respect to which $\d_{[2]}$ is always a Lie subalgebra ? 
+        \end{question}
         
         \begin{proposition}[$\tilde{\g}_{[2]}$ as a $\d_{[2]}$-module] \label{prop: toroidal_lie_algebras_as_modules_over_div_0_vector_field_lie_algebras}
             When we assume that:

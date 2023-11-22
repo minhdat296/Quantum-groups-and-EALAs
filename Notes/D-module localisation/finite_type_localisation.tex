@@ -1,0 +1,38 @@
+\section{Beilinson-Bernstein localisation: the finite-type case}
+    \subsection{Weights as line bundles on flag varieties}
+        Let $\g$ be a finite-dimensional simple Lie algebra over an algebraically closed field $k$ of characteristic $0$. Let $G$ be the simple algebraic group $k$-scheme (recall also that algebraic groups over fields of characteristic $0$ are smooth \textit{a priori}) such that:
+            $$\Lie(G/k) \cong \g$$
+        and choose once and for all a (positive) Borel subgroup $B^+ < G$.
+
+    \subsection{Equivariant and twisted D-modules; quantisation}
+        If $X$ is a smooth $k$-scheme\footnote{Recall that on such schemes, left and right-D-modules form equivalent categories related by tensoring with the dualising sheaf $\omega_{X/k}$.} then let us write:
+            $$\Dmod(X) := {}^l\scrD_X\mod$$
+        for the category of left-modules over the sheaf $\scrD_X$ of differential operators on $X$. If $X$ has a group $k$-scheme $B$ (say, with Lie algebra $\b$) acting on it, then there will be an induced Lie algebra homomorphism:
+            $$\b \to \Gamma_{\Dmod(X)}(X, \scrD^1_X)$$
+        wherein $\scrD_X^1$ is the sheaf of degree-$1$ \textit{homogeneous} differential operators on $X$, on which the Lie bracket is given by commutators; note that this is nothing but the Lie algebra of vector fields on $X$, identifiable with the tangent sheaf of $X$. Using PBW, this upgrades to an associative $k$-algebra homomorphism:
+            $$\rmU(\b) \to \Gamma_{\Dmod(X)}(X, \scrD_X)$$
+        wherein $\scrD_X$ denotes the sheaf of differential operators on $X$. From this, we infer that should $\scrM$ be a left-$\scrD_X$-module then its global section:
+            $$\Gamma_{\Dmod(X)}(X, \scrM)$$
+        will carry a natural $\b$-module\footnote{... or to be less abusive with terminologies, right-$\rmU(\b)$-module.} structure, and we thus obtain a functor:
+            $$\Gamma_{\Dmod(X)}(X, -): \Dmod(X) \to \b\mod$$
+        This gives a crude link between geometry and representation theory, in the sense that there is some kind of a relationship between sheaves on $X$ and $\b$-modules. In order to obtain an inverse relationship, let us first see how we can go from $\b$-modules to $\scrD_X$-modules via some procedure of \say{extension of scalars}: the obvious thing to try is:
+            $$P_X: \b\mod \to \Dmod(X)$$
+            $$M \mapsto \scrD_X \tensor_{\underline{\rmU(\b)}} \underline{M}$$
+        (with $\underline{(-)}$ denoting constant sheaves), seeing how:
+            $$\Gamma_{\Dmod(X)}(X, -) \cong \Hom_{\scrD_X}(\scrD_X, -)$$
+        by definition. The goal now is to somehow realise the vision that not only should we have an adjunction:
+            $$P_X \ladjoint \Gamma_{\Dmod(X)}(X, -)$$
+        but also to restrict both the domain and codomains of these functors down to categories on which this adjunction becomes an adjoint equivalence. 
+
+        To flesh out this idea more, recall firstly that the sheaf $\scrD_X$ is a \textbf{quantisation} of the structure sheaf $\scrO_{T^*X}$ of the cotangent bundle of $X$ in the sense that:
+            $$\gr \scrD_X \cong \Sym_{\scrO_X} \Omega_{X/k}^1 \cong \scrO_{T^*X}$$
+        \begin{question}
+            Are there other quantisations of $\scrO_{T^*X}$ in the above sense, aside from $\scrD_X$ ?
+        \end{question}
+            
+    \subsection{Localising \texorpdfstring{$\g$}{}-modules}
+        Denote by $\calO$ the usual BGG category. Recall that this category is interesting because its various homological properties, such as being Artinian, having enough projectives, being compactly generated (particular by Verma modules via finite colimits), etc. It is known that $\calO$ is semi-simple, particularly in the following manner:
+            $$\calO \cong \bigoplus_{\chi \in \Spec \rmZ(\g)} \calO_{\chi}$$
+        wherein $\calO_{\chi}$ is the full subcategory of $\calO$ (so-called \say{block}) spanned by those objects on which the centre $\rmZ(\g)$ of the universal enveloping algebra $\rmU(\g)$ acts via the character:
+            $$\chi: \rmZ(\g) \to k$$
+        (corresponding to points of $\Spec \rmZ(\g)$, since $k$ is algebraically closed; this is due to Hilbert's \textit{Nullstellensatz}).
