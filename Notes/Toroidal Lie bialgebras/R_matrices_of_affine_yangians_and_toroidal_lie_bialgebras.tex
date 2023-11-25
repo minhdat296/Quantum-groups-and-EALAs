@@ -1,1 +1,61 @@
 \section{R-matrices of toroidal Lie bialgebras and of affine Yangians}
+    \subsection{Tensor products of representations of \texorpdfstring{$\bar{\Omega}_{[2]}^1 \rtimes \scrD_{[2]}$}{} and classical R-matrices of toroidal Lie bialgebras}
+        \begin{convention}
+            Let us now write:
+                $$\scrD_{[2]} := \scrD_{\G_m^2}^1 \cong \der_{\bbC}(A_{[2]})$$
+            The notation is supposed to capture the fact that $\der_{\bbC}(A_{[2]})$ is the Lie algebra of global vector fields of the affine algebraic group $\G_m^2 \cong \Spec A_{[2]}$, which is identifiable with the Lie algebra of homogeneous-order-$1$ global differential operators on $\G_m^2$ (i.e. the homogeneously degree-$1$ filtrant of the global section of the sheaf $\scrD_{\G_m^2}$ of differential operators on $\G_m^2$).  
+
+            Likewise, we will be adopting the notations:
+                $$\scrD_{[2]}^{\pm} := \der_{\bbC}(A_{[2]}^{\pm})$$
+        \end{convention}
+    
+        Through proposition \ref{prop: lie_bracket_on_orthogonal_complement_of_toroidal_centre}, it was established that for general elements $D, D' \in \d_{[2]}$, one has that:
+            $$[D, D']_{\hat{\g}_{[2]}} \in \z_{[2]} \oplus \d_{[2]}$$
+        and that the $\d_{[2]}$-summands of such commutators are the usual commutators in $\scrD_{[2]}$, i.e.:
+            $$DD' - D'D$$
+        Because we also know that $[\d_{[2]}, \g_{[2]}]_{\hat{\g}_{[2]}} \subseteq \g_{[2]}$ and that $[\d_{[2]}, \z_{[2]}]_{\hat{\g}_{[2]}} \subseteq \z_{[2]}$ (cf. remarks \ref{remark: derivation_action_on_multiloop_algebras} and \ref{remark: derivation_action_on_toroidal_centres} respectively), the above implies that the vector space:
+            $$\z_{[2]} \oplus \d_{[2]}$$
+        is a $\scrD_{[2]}$-module, which does \textit{not} admit $\d_{[2]}$ as a submodule, but is itself a $\scrD_{[2]}$-submodule of the Lie algebra extension:
+            $$\z_{[2]} \rtimes \scrD_{[2]}$$
+
+        We also know from theorem \ref{theorem: extended_toroidal_manin_triples} that:
+            $$\hat{\g}_{[2]}^{\pm} := \g_{[2]}^{\pm} \oplus \z_{[2]}^{\pm} \oplus \d_{[2]}^{\pm}$$
+        are Lie subalgebras of:
+            $$\hat{\g}_{[2]} := \g_{[2]} \oplus \z_{[2]} \oplus \d_{[2]}$$
+        particularly because:
+            $$[D, D']_{\hat{\g}_{[2]}} \in \z_{[2]}^{\pm} \oplus \d_{[2]}^{\pm}$$
+        for any $D, D' \in \d_{[2]}^{\pm}$ and because:
+            $$[\d_{[2]}, \g_{[2]}^{\pm}]_{\hat{\g}_{[2]}} \subseteq \g_{[2]}^{\pm}$$
+            $$[\d_{[2]}, \z_{[2]}^{\pm}]_{\hat{\g}_{[2]}} \subseteq \z_{[2]}^{\pm}$$
+        and so there are $\scrD_{[2]}^{\pm}$-module inclusions:
+            $$\z_{[2]}^{\pm} \oplus \d_{[2]}^{\pm} \subset \z_{[2]}^{\pm} \rtimes \scrD_{[2]}^{\pm}$$
+        Furthermore, the vector spaces $\z_{[2]}^{\pm} \oplus \d_{[2]}^{\pm}$ and $\z_{[2]}^{\pm} \rtimes \scrD_{[2]}^{\pm}$ are $\scrD_{[2]}$-submodules of $\z_{[2]} \oplus \d_{[2]}$ and $\z_{[2]} \rtimes \scrD_{[2]}$ respectively as well. 
+
+        Now, via theorem \ref{theorem: toroidal_lie_bialgebras}, we know that the restriction of the Lie bialgebra structure on $\hat{\g}_{[2]}^+$ restricts down to $\tilde{\g}_{[2]}$, so the classical R-matrix of these two Lie bialgebras coincide, i.e.:
+            $$\sfr_{\tilde{\g}_{[2]}^+} = \sfr_{\g_{[2]}^+} + \sfr_{\z_{[2]}^+} + \sfr_{\d_{[2]}^+}$$
+        (with notations as in corollary \ref{coro: extended_toroidal_lie_bialgebras}). Ultimately, we would like to study how the classical R-matrix:
+            $$\sfr_{\tilde{\g}_{[2]}^+}$$
+        encodes the extent to which the category of $\tilde{\g}_{[2]}$-modules veers away from being symmetric-monoidal. Given how $\sfr_{\g_{[2]}^+}$ is just an \say{extension of scalars from $\bbC$ to $A_{[2]}$} of the Casimir tensor $\sfr_{\g}$ (which is well-understood) in the sense that:
+            $$\sfr_{\g_{[2]}^+} = \sfr_{\g} v_2 \1(v_1, v_2) \1^+(t_1, t_2)$$
+        (cf. question \ref{question: multiloop_lie_bialgebras}), we need to only focus our attention on the component:
+            $$\sfr_{\z_{[2]}^+} + \sfr_{\d_{[2]}^+}$$
+        Towards this end, the \textit{na\"ive} guess would then be that one ought to study tensor products of representations of the Lie algebra:
+            $$\z_{[2]}^+ \oplus \d_{[2]}^+$$
+        (or perhaps its \say{full toroidal} version $\z_{[2]} \oplus \d_{[2]}$), but given the analysis in the preceding paragraphs, it is perhaps better to study tensor products of representations of:
+            $$\z_{[2]} \rtimes \scrD_{[2]}$$
+        seeing how this Lie algebra is of a natural geometric origin; furthermore, there has already been some attempts to understand representations of Lie algebras of vector fields on general smooth affine schemes over algebraically closed fields of characteristic $0$ (see \cite{billig_lie_algebras_of_vector_fields_on_smooth_affine_varieties}, for instance), of which $\scrD_{[2]}$ is a particular example\footnote{$\G_m$ is smooth over $\Spec \bbC$, and hence so is $\G_m^2$, as smoothness is preserve under taking arbitrary pullbacks in the category of $\bbC$-schemes.}. 
+
+        \begin{remark}[Pairing of cyclic $1$-forms and vector fields] \label{remark: pairing_cyclic_1_forms_and_vector_fields} 
+            Fix some $n \geq 1$. Between $\Omega_{[n]} := \Omega^1_{A_{[n]}/\bbC}$ and $\scrD_{[n]} := \der_{\bbC}(A_{n})$, there is a natural non-degenerate and symmetric bilinear pairing of $1$-forms and vector fields:
+                $$\<-, -\>: \Omega_{[n]} \tensor_{\bbC} \scrD_{[n]} \to \bbC$$
+            determined by:
+                $$\< dv_i, \del_{v_j} \> := \delta_{ij}$$
+            This induces another non-degenerate and symmetric bilinear pairing between $\bar{\Omega}_{[n]} := \Omega^1_{A_{[n]}/\bbC}/\im d_{A_{[n]}/\bbC}$ that we will abusively denote by:
+                $$\<-, -\>: \bar{\Omega}_{[n]} \tensor_{\bbC} \scrD_{[n]} \to \bbC$$
+
+            Now, we specialise to $n = 2$. The bilinear pairing $\<-, -\>$ now gains the extra property of being invariant with respect to the Lie algebra structure on $\bar{\Omega}_{[2]} \rtimes \scrD_{[2]}$, specified by the computations done in the proof of proposition \ref{prop: lie_bracket_on_orthogonal_complement_of_toroidal_centre}. This Lie algebra structure induces the one on $\bar{\Omega}_{[2]} \oplus \d_{[2]}$, so in fact, the invariant bilinear form $(-, -)_{\hat{\g}_{[2]}}$, when restricted down to $\bar{\Omega}_{[2]} \oplus \d_{[2]}$, coincides with the invariant bilinear form $\<-, -\>$ on $\bar{\Omega}_{[2]} \rtimes \scrD_{[2]}$. We are therefore able to study the R-matrix:
+                $$\sfr_{\z_{[2]}^+} + \sfr_{\d_{[2]}^+}$$
+            using the pairing $\<-, -\>$. 
+        \end{remark}
+
+    \subsection{Quantum R-matrices of affine Yangians}

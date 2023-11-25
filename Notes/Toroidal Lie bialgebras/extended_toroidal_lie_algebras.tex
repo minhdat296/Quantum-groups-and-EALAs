@@ -585,7 +585,7 @@
         Now, let us see if and how $\d_{[2]}$ might be endowed with a Lie algebra structure of its own, so that we might have that:
             $$\hat{\g}_{[2]} \cong \tilde{\g}_{[2]} \rtimes \d_{[2]}$$
         The upshot is that in general, the vector space $\d_{[2]}$ fails to be a Lie algebra, namely due to the commutators $[D, D']_{\hat{\g}_{[2]}}$ (for any two $D, D' \in \d_{[2]}$) having a non-vanishing $\z_{[2]}$-summand in general, and their $\d_{[2]}$-summand is actually nothing but the usual commutator of derivations inherited from $\der_{\bbC}(A_{[2]})$, and $\d_{[2]}$ will only be a Lie algebra if we choose to endow it with said commutator bracket (so that the $\z_{[2]}$ would be made to vanish). 
-        \newpage
+        
         \begin{proposition}[How does $\d_{[2]}$ act on itself] \label{prop: lie_bracket_on_orthogonal_complement_of_toroidal_centre}
             Let $\d_{[2]}$ be given as in convention \ref{conv: orthogonal_complement_of_toroidal_centres}. Then:
                 $$[ \d_{[2]}, \d_{[2]} ]_{\hat{\g}_{[2]}} \subset \z_{[2]} \oplus \d_{[2]}$$
@@ -665,8 +665,8 @@
         \begin{corollary}
             For any $D, D' \in \d_{[2]}$, the $\d_{[2]}$-summand of $[D, D']_{\hat{\g}_{[2]}}$ is nothing but the commutator $DD' - D'D$.
         \end{corollary} 
-        \newpage
-        \begin{question}[A different Lie bracket on $\der_{\bbC}(A_{[2]})$ ?]
+        
+        \begin{question}[A different Lie bracket on $\der_{\bbC}(A_{[2]})$ ?] \label{question: alternative_derivation_lie_bracket}
             Is there a Lie algebra structure $\der_{\bbC}(A_{[2]})$ (different from the standard one given by commutators $[D, D'] := DD' - D'D$) with respect to which $\d_{[2]}$ is always a Lie subalgebra ? 
         \end{question}
         
@@ -696,7 +696,30 @@
             $$(\hat{\g}_{[2]}, \hat{\g}_{[2]}^+, \hat{\g}_{[2]}^-)$$
         wherein $\hat{\g}_{[2]}$ is equipped with the non-degenerate invariant bilinear form $(-, -)_{\hat{\g}_{[2]}}$, let us defer this construction to theorem \ref{theorem: extended_toroidal_manin_triples} for organisational purposes.
 
+        One question that is not too relevant to our eventual study of affine Yangians, but is nevertheless natural and interesting in its own right, is the following:
+        \begin{question}[Uniqueness of extended toroidal Lie algebras] \label{question: uniqueness_of_extended_toroidal_lie_algebras}
+            How freely does the $\z_{[2]}$-summand of the commutators of the kind:
+                $$[D, D']_{ \hat{\g}_{[2]} } \in \z_{[2]} \oplus \d_{[2]}$$
+            vary ? Alternatively (and perhaps not equivalently), what is the dimension of the $\bbC$-vector space:
+                $$H^2_{\Lie}( \der_{\bbC}(A_{[2]}), \bar{\Omega}_{[2]} )$$
+            wherein the $\der_{\bbC}(A_{[2]})$-action on $\bar{\Omega}_{[2]}$ is determined by how $\d_{[2]}$ acts on $\z_{[2]}$ (cf. remark \ref{remark: centres_of_dual_toroidal_lie_algebras}).
+
+            This question ought to also be equivalent to question \ref{question: alternative_derivation_lie_bracket}. 
+        \end{question}
+        \begin{question}
+            More generally, one can pose the following problem about the cyclic cohomology of smooth varieties. Suppose that $X$ is a smooth variety over an algebraically closed field $k$ of characteristic $0$ and write:
+                $$\bar{\Omega}_{X/k}^n := \Omega_{X/k}^n/\Omega_{X/k}^{n - 1}$$
+            as well as:
+                $$\scrD_{X/k}^1$$
+            for the tangent sheaf of $X$ (which is naturally a sheaf of Lie algebras via local commutators of vector fields). $\scrD_{X/k}^1$ acts naturally on $\bar{\Omega}_{X/k}^n$ via Lie derivatives, so it is natural to inquire about the dimension of the $k$-vector spaces:
+                $$H^{\bullet}_{\Lie}( \scrD_{X/k}^1, \bar{\Omega}_{X/k}^n )$$
+            and furthermore, if there is any dependence thereof on $n \geq 1$.  
+        \end{question}
+
     \subsection{The centre $\hat{\z}_{[2]}$}
         \begin{question}
-            What is the centre $\hat{\z}_{[2]} := \z( \hat{\g}_{[2]} )$ ? (this ought to be smaller than $\z_{[2]}$ somehow). 
+            What is the centre $\hat{\z}_{[2]} := \z( \hat{\g}_{[2]} )$ ? This ought to be smaller than $\z_{[2]}$ somehow, since elements of $\z_{[2]}$ need not be central in $\hat{\g}_{[2]}$. 
         \end{question}
+            \begin{proof}
+                
+            \end{proof}
