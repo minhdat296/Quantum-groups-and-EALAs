@@ -153,7 +153,7 @@
                 $$\sfr_{\d_{[2]}^+} := \sum_{(r, s) \in \Z \x \Z_{\leq 0}} D_{r, s} \tensor K_{r, s} + D_t \tensor c_t$$
         \end{corollary}
     
-        \begin{convention}[Dirac distributions]
+        \begin{convention}[Formal Dirac distributions] \label{conv: formal_dirac_distributions}
             We will be using the following shorthands:
                 $$\1(z, w) = \sum_{m \in \Z} z^m w^{-m - 1}$$
                 $$\1^+(z, w) = \sum_{m \in \Z_{\geq 0}} z^m w^{-m - 1}$$
@@ -350,9 +350,9 @@
                         $$
                             K_{r, s} :=
                             \begin{cases}
-                                \text{$\frac1s v^{r - 1} t^s \bar{d}(v)$ if $(r, s) \in \Z \x \Z$}
+                                \text{$\frac1s v^{r - 1} t^s \bar{d}(v)$ if $(r, s) \in \Z \x (\Z \setminus \{0\})$}
                                 \\
-                                \text{$-\frac1r v^r t^{-1} \bar{d}(t)$ if $(r, s) \in \Z \x \{0\}$}
+                                \text{$-\frac1r v^r t^{-1} \bar{d}(t)$ if $(r, s) \in (\Z \setminus \{0\}) \x \{0\}$}
                                 \\
                                 \text{$0$ if $(r, s) = (0, 0)$}
                             \end{cases}
