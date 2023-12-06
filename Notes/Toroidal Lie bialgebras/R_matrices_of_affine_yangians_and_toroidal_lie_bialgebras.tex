@@ -157,24 +157,25 @@
             and likewise, to obtain the corresponding subsets of the standard basis for $\der_k(A_{[2]}^{\pm})$, simply change the indexing set from $\Z^2$ to $\Z \x \Z_{\geq 0}$ and $\Z \x \Z_{< 0}$ respectively.
 
             Given the above, the canonical element for the restricted pairing:
-                $$\iota_{[2]}: d(A_{[2]}^+) \x \der_k( A_{[2]}^- )/\d_{[2]}^- \to k$$
+                $$\iota_{[2]}^+: d(A_{[2]}^+) \x \der_k( A_{[2]}^- )/\d_{[2]}^- \to k$$
             (which is still non-degenerate and symmetric) then takes the form:
                 $$
                     \begin{aligned}
                         \sfr_{[2]}^{+ \varnothing} & = \sum_{(m, p) \in \Z \x \Z_{\geq 0}} \left( v_1^{m - 1} t_1^p dv_1 \tensor v_2^{-m + 1} t_2^{-p - 1} \del_{v_2} + v_1^m t_1^{p - 1} dt_1 \tensor v_2^{-m} t_2^{-p} \del_{t_2} \right)
                         \\
-                        & = v_1^{-1} v_2^2 \1(v_1, v_2) \1^+(t_1, t_2) dv_1 \tensor \del_{v_2} + v_2 \1(v_1, v_2) 
+                        & = v_1^{-1} v_2^2 \1(v_1, v_2) \1^+(t_1, t_2) dv_1 \tensor \del_{v_2} + v_2 \1(v_1, v_2) t_1^{-1} t_2 \1^+(t_1, t_2) dt_1 \tensor \del_{t_2}
                     \end{aligned}
                 $$
+            By applying the flip map, one gets $\sfr_{[2]}^{- \varnothing}$, the canonical element for the restricted pairing:
+                $$\iota_{[2]}^-: \der_k( A_{[2]}^- )/\d_{[2]}^- \x d(A_{[2]}^+) \to k$$
         \end{remark}
+        We have therefore arrived at the following result:
         \begin{proposition}[Toroidal classical R-matrices in terms of formal distributions] \label{prop: toroidal_classical_R_matrices_in_terms_of_formal_distributions}
             The canonical elements $\sfr_{\z_{[2]}^+}$ and $\sfr_{\d_{[2]}^+}$ (cf. corollary \ref{coro: extended_toroidal_lie_bialgebras}) can be alternatively written in the following manner, using formal Dirac distributions (cf. convention \ref{conv: formal_dirac_distributions})\footnote{Note that the total degrees of $\sfr_{\z_{[2]}^+}$ and $\sfr_{\d_{[2]}^+}$ are both $0$ in $v$ and $-1$ in $t$ (ultimately because $\deg \1(w, z) = \deg \1^+(z, w) = -1$ by construction), agreeing with remark \ref{remark: total_degrees_of_classical_yangian_R_matrices}.}:
-                $$\sfr_{\z_{[2]}^+} = $$
-                $$\sfr_{\d_{[2]}^+} = $$
+                $$\sfr_{\z_{[2]}^+} = \sfr_{[2]}^+ - \sfr_{[2]}^{+ \varnothing}$$
+                $$\sfr_{\d_{[2]}^+} = \sfr_{[2]}^- - \sfr_{[2]}^{- \varnothing}$$
+            with $\sfr_{[2]}^{\pm}$ and $\sfr_{[2]}^{\pm \varnothing}$ as in lemma \ref{lemma: canonical_elements_for_the_canonical_pairing_of_1_forms_and_vector_fields} and remark \ref{remark: basis_for_global_functions_on_split_tori}. 
         \end{proposition}
-            \begin{proof}
-                
-            \end{proof}
         \begin{remark}[Toroidal classical R-matrices as meromorphic functions] \label{remark: toroidal_classical_R_matrices_as_meromorphic_functions}
             The appearance of formal Dirac distributions in the expressions for $\sfr_{\z_{[2]}^+}$ and $\sfr_{\d_{[2]}^+}$ (as well as for $\sfr_{\g_{[2]}^+}$; cf. question \ref{question: multiloop_lie_bialgebras}), and hence for $\sfr_{\tilde{\g}_{[2]}^+} = \sfr_{\hat{\g}_{[2]}^+}$ suggests to us that when regarded complex-analytically, these are meromorphic $\bbC$-valued functions in the variables $v, t$. It is thus natural to inquire into where the singularities of these functions lie. 
         \end{remark}
