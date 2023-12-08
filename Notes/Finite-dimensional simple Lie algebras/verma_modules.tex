@@ -1,0 +1,195 @@
+\section{Representations of finite-dimensional semi-simple Lie algebras}
+    For this section, our main references will be \cite[Chapter VI]{humphreys_lie_algebras} as well as the lecture notes \cite{gaitsgory_semi_simple_lie_algebras_notes}, wherein the terminologies used are more modern and the perspective is more geometric/categorical.
+
+    \begin{convention} \label{conv: a_fixed_semi_simple_lie_algebra}
+        From now on until further notice, we work with the following:
+            \begin{itemize}
+                \item a semi-simple and finite-dimensional Lie algebra $\g$ (over an algebraically closed field $k$ of characteristic $0$) whose Chevalley-Serre generators shall be denoted by $e_i^{\pm}, h_i$ (with $1 \leq i \leq l$),
+                \item a choice of Cartan subalgebra $\h \subset \g$ of rank $l$,
+                \item with respect to the choice of $\h$ above, a root system $\Phi$ with a choice of positive/negative roots $\Phi^{\pm}$,
+                \item the corresponding (positive/negative) root lattices $\Lambda := \span_{\N} \Phi$ (respectively, by $\Lambda^{\pm} := \span_{\N} \Phi^{\pm}$), 
+                \item the half-sums of positive (co)roots $\rho := \frac12 \sum_{\alpha \in \Phi^+} \alpha$ (respectively, $\rho^{\vee} := \frac12 \sum_{\alpha \in \Phi^+} \alpha^{\vee}$),
+                \item positive/negative Borel subalgebras $\b^{\pm} \subset \g$ (maximal solvable subalgebras), unipotent radicals $\n^{\pm} := [\b^{\pm}, \b^{\pm}]$, and a triangular decomposition $\g \cong \n^- \oplus \h \oplus \n^+$; recall also that $\b^{\pm}/\n^{\pm} \cong \h$ and hence that $\b^{\pm} \cong \n^{\pm} \oplus \h$. 
+            \end{itemize}
+    \end{convention}
+
+    \subsection{Highest-weight modules}
+        In order to discuss the theory of highest-weight spaces and its implications towards the representation category of $\g$, we firstly need the following definitions.
+        \begin{definition}[Weights and weight spaces] \label{def: weights_and_weight_modules}
+            A \textbf{weight} of $\g$ is nothing but a linear functional $\lambda \in \h^*$. If $V$ is a $\g$-module then its \textbf{submodule of weight $\lambda$} shall be:
+                $$V_{\lambda} := \{v \in V \mid \h \cdot v = \lambda v\}$$
+            This submodule may be zero; when it is zero, we might say that the corresponding weight $\lambda$ is an \textbf{abstract weight} and when it is not zero, we might call $\lambda$ a \textbf{concrete weight}. The set of concrete weights of a given $\g$-module $V$ is denoted by $\Pi(V)$ (or perhaps $\Pi(V, \pi)$ when we write the representation as $(V, \pi)$)\footnote{In this notation, we have that $\Phi = \Pi(\g, \ad)$, i.e. roots are nothing but (concrete) weights of the adjoint representation.}. Also, for a fixed $\g$-module $V$ and a weight $\lambda \in \h^*$, we call the quantity:
+                $$\dim_k V_{\lambda}$$
+            the \textbf{multiplicity} of the weight $\lambda$ of $V$.
+        \end{definition}
+        \begin{definition}[Highest weights and highest-weight spaces] \label{def: highest_weights_and_highest_weight_modules}
+            If $\lambda, \mu \in \h^*$ are weights such that $\lambda - \mu \in \Lambda^+$ then we will write:
+                $$\lambda \geq \mu$$
+            and for a $\g$-module $V$, a weight $\lambda \in \h^*$ is said to be \textbf{highest} if and only if $V_{\lambda} \not \cong 0$ and $\lambda \geq \mu$ for all $\mu \in \h^*$ such that $V_{\mu} \not \cong 0$. A $\g$-module $V$ is said to be of \textbf{highest-weight $\lambda$} if and only if $\lambda \geq \mu$ for all $\mu \in \Pi(V)$.
+        \end{definition}
+        \begin{remark}[Highest-weight spaces in terms of $\g$-actions]
+            It is clear by definition that, if $V$ is of highest-weight $\lambda \in \h^*$ then there must exist a vector $v(\lambda) \in V$, called the \textbf{highest-weight vector}, such that:
+                $$\h \cdot v(\lambda) = \lambda v(\lambda), \n^+ \cdot v(\lambda) = 0$$
+            The latter condition can equivalently characterised as follows:
+                $$\forall \alpha \in \Phi^+: \g_{\alpha} \cdot v(\lambda) = 0$$
+        \end{remark}
+
+        Now that we have some of the basic terminologies at our disposal, let us turn our attention towards the first technical ingredient in our study, namely the notion of Verma modules. These are to be thought of (and in fact, they literally are) objects of an appropriate category of $\g$-modules (namely, that of the so-called \say{type I representations}) that generate said category via finite colimits (the aforementioned category is actually abelian, so finite colimits can be built out of finite direct sums and quotients).
+        \begin{definition}[Verma modules] \label{def: verma_modules}
+            Let $\lambda \in \h^*$ be a weight of $\g$. The \textbf{Verma module}\footnote{Humphrey called these \say{\textbf{standard cyclic modules}}; cf. \cite[Subsection 20.2]{humphreys_lie_algebras}.} associated to the weight $\lambda$ is the left-$\rmU(\g)$-module given by:
+                $$\V^{\lambda} := \rmU(\g) \tensor_{\rmU(\b^+)} k(\lambda)$$
+            wherein by $k(\lambda)$, we mean the $1$-dimensional left-$\rmU(\b^+)$-module given by the canonical composition $\b^+ \to \h \xrightarrow[]{\lambda} k$.
+        \end{definition}
+        \begin{remark}
+            It is not hard to see, using the triangular decomposition of $\g$ and the fact that the universal enveloping algebra functor $\rmU(-)$ is a left-adjoint, that one can choose a vector $v(\lambda) \in \V^{\lambda}$ (the canonical choice being $v(\lambda) := 1 \tensor 1$) such that:
+                $$\V^{\lambda} \cong \rmU(\n^-) \tensor_k k(\lambda) =: \rmU(\n^-) \cdot v(\lambda)$$
+            as left-$\rmU(\g)$-modules, i.e. $\V^{\lambda}$ is a cyclic left-$\rmU(\g)$-module. In light of this, let us provide the following (somewhat \textit{post hoc}) justification for the definition of Verma modules. Also, this identification of the Verma module $\V^{\lambda}$ shows us that:
+                $$\h \cdot v(\lambda) = \lambda v(\lambda), \n^+ \cdot v(\lambda) = 0$$
+            and hence $\V^{\lambda}$ is of highest-weight $\lambda$ in the sense of definition \ref{def: highest_weights_and_highest_weight_modules}.
+        
+            Verma modules are supposed to capture the fact that - at least in the finite-dimensional case (which is what we care about anyway) - all highest-weight spaces are necessarily cyclic. Intuitively, one might suspect this to be the case by noticing that, with respect to the partial ordering of weights as in definition \ref{def: highest_weights_and_highest_weight_modules}, elements $y \in \n^+$ can be thought of as \say{raising operators} in the sense that they raise the weight of vectors in $\g$-modules (this is an easy consequence of Serre's Theorem) and \textit{vice versa} for the elements $x \in \n^-$, which can be thought of as \say{lowering operators}; as such, one ought to be able to obtain every element $v \in V$ of a highest-weight $\g$-module $V$ (say, of weight $\lambda$) by simply acting on the highest-weight vector $v(\lambda) \in V$ using the \say{lowering operators} $x \in \n^-$ via left-multiplication.
+        \end{remark}
+        
+        An easy-to-see important property of Verma modules is that they are uniquely characterised by their highest weights. 
+        \begin{proposition}[Highest weights determine Verma modules] \label{prop: highest_weights_determine_verma_modules}
+            Let $\lambda, \mu \in \h^*$ be weights. Then, $\V^{\lambda} \cong \V^{\mu}$ if and only if $\lambda = \mu$.  
+        \end{proposition}
+            \begin{proof}
+                Suppose to the contrary that $\lambda \not = \mu$ but $\V^{\lambda} \cong \V^{\mu}$. Then $\V^{\lambda}$ will be simultaneously of highest-weights $\lambda \not = \mu$, but since Verma modules are cyclic, this can not be the case. We are therefore left with a contradiction, and hence $\lambda \not = \mu$ implies $\V^{\lambda} \not \cong \V^{\mu}$, i.e. $\V^{\lambda} \cong \V^{\mu}$ implies that $\lambda = \mu$, by contraposition.
+
+                The converse direction is a direct consequence of the definition of Verma modules. 
+            \end{proof}
+        
+        Let us firstly see how $\h$ acts on $\V^{\lambda}$, particularly in order to be able to obtain highest-weight spaces from Verma modules. 
+        \begin{proposition}[Cartan action on Verma modules] \label{prop: cartan_action_on_verma_modules}
+            $\h$ acts locally finitely and semi-simply on the Verma module $\V^{\lambda}$ for any weight $\lambda \in \h^*$. In particular, the eigenvalues of $\h$ on $\V^{\lambda}$ are of the form:
+                $$\lambda - \sum_{\alpha \in \Phi^+} n_{\alpha} \alpha$$
+            wherein each $n_{\alpha} \in \Z_{> 0}$.
+        \end{proposition}
+            \begin{proof}
+                Denote the PBW filtration by $\rmU(\g) := \{\rmU(\g)_n\}_{n \in \Z}$ and write $\rmU(\n^-)_n := \rmU(\n^-) \cap \rmU(\g)_n$ for each $n \in \Z$. Per the construction of the Verma module $\V^{\lambda}$, we have that:
+                    $$\V^{\lambda} \cong \rmU(\n^-) \cdot v(\lambda)$$
+                for some vector $v(\lambda) \in \V^{\lambda}$ and hence:
+                    $$\V^{\lambda} \cong \bigcup_{n \in \Z} \rmU(\n^-)_n \cdot v(\lambda)$$
+                Since $\g$ is finite-dimensional, each of the filtrants $\rmU(\n^-)_n$ is finite-dimensional (by PBW) and therefore it remains to show that they are $\h$-stable in order to show that $\h$ acts locally finitely on $\V^{\lambda}$; in doing so, we will also be able to compute the eigenvalues of $\h$ on $\V^{\lambda}$. To this end, note that by PBW, we have that the set $\{ e_{i_1}^- \cdot ... \cdot e_{i_m}^- \}_{1 \leq m \leq n}$ is a basis of $\rmU(\n^-)_n$ as a vector space. As such, elements $h \in \h$ act on the elements $(e_{i_1}^- \cdot ... \cdot e_{i_m}^-) \cdot v(\lambda) \in \V^{\lambda}$ in the following manner:
+                    $$(e_{i_1}^- \cdot ... \cdot e_{i_m}^-) \cdot h(v(\lambda)) + \sum_{1 \leq m' \leq m} (e_{i_1}^- \cdot ... \cdot [h, e_{i_{m'}}] \cdot ... \cdot e_{i_m}^-) \cdot v(\lambda) = (\lambda - \sum_{\alpha \in \Phi^+} n_{\alpha} \alpha) (e_{i_1}^- \cdot ... \cdot e_{i_m}^-) \cdot v(\lambda)$$
+                wherein $n_{\alpha} \in \Z_{> 0}$ and the equality comes from Serre's Theorem and the fact that $v(\lambda)$ is of weight $\lambda$. It is then clear that each $\rmU(\n^-)_n$ is $\h$-stable, and thus we are done. 
+            \end{proof}
+        For convenience, let us now introduce the following terminology:
+        \begin{definition}[$\h$-semi-simple modules] \label{def: cartan_semi_simple_modules}
+            A $\g$-module $V$ is said to be \textbf{$\h$-semi-simple} or \textbf{$\h$-diagonalisable} if and only if:
+                $$V \cong \bigoplus_{\lambda \in \Pi(V)} V_{\lambda}$$
+            We might also say that $V$ admits a \textbf{weight space decomposition}. Note that the weight spaces $ V_{\lambda}$ are \textit{a priori} only well-defined as $k$-vector spaces since the $\g$-action thereon can change the weight $\lambda$. 
+        \end{definition}
+        \begin{example}[Adjoint representation]
+            The representation $(\g, \ad)$ is $\h$-semi-simple, seeing how $\g$ has its root space decomposition. 
+        \end{example}
+        One then sees that the following corollary of proposition \ref{prop: cartan_action_on_verma_modules} holds:
+        \begin{corollary}[Verma modules are $\h$-semi-simple] \label{coro: verma_modules_are_cartan_semi_simple}
+            For any weight $\lambda \in \h^*$, the corresponding Verma module $\V^{\lambda} \cong \rmU(\n^-)$ is $\h$-semi-simple. Furthermore, the weight spaces $\V^{\lambda}_{\mu}$ are all finite-dimensional\footnote{... though there are $\aleph_0$-many of such weight spaces, since $\dim_k \V^{\lambda} = \aleph_0$ by PBW.} (i.e. the weights $\mu \in \Pi(\V^{\lambda})$ are of finite multiplicities); in particular, we have that:
+                $$\V^{\lambda}_{\lambda} \cong \span_k v(\lambda)$$
+            and hence the highest weight $\lambda$ is of multiplicity $1$. 
+        \end{corollary}
+            
+        Interestingly, Verma modules admit unique simple quotients which also happen to be finite-dimensional when the weights they are associated to are \say{dominant} and \say{integral}. Thanks to the universal property of Verma modules, we thus see that all finite-dimensional simple $\g$-modules arise as these quotients. Together, these two statements form what is summarily known as the Theorem of the Highest Weight. 
+        \begin{lemma}[$\h$-semi-simplicity of submodules of Verma modules] \label{lemma: cartan_semi_simplicity_of_submodules_of_verma_modules}
+            For any weight $\lambda \in \h^*$, submodules of $\V^{\lambda}$ are $\h$-stable.
+        \end{lemma}
+            \begin{proof}
+                
+            \end{proof}
+        \begin{proposition}[Unique simple quotients of Verma modules] \label{prop: unique_simple_quotients_of_verma_modules}
+            For any weight $\lambda \in \h^*$, the corresponding left-$\rmU(\g)$-module $\V^{\lambda}$ admits a unique simple quotient, which shall be denoted\footnote{\say{W} for \say{weight}.} by $\bbS^{\lambda}$.
+            
+            Of course, $\bbS^{\lambda}$ is also cyclic (by virtue of being a quotient of a cyclic module): namely, it is generated as a left-$\rmU(\g)$-module by the image of the highest-weight vector $v(\lambda)$ under the quotient map $\V^{\lambda} \to \bbS^{\lambda}$; as such, $\bbS^{\lambda}$ is also of highest-weight $\lambda$. 
+
+            Additionally, for any two weights $\lambda, \mu \in \h^*$, one has that $\bbS^{\lambda} \cong \bbS^{\mu}$ if and only if $\lambda = \mu$. 
+        \end{proposition}
+            \begin{proof}
+                Of course simple quotients exist, since there are always maximal (proper) submodules. As such, the only thing to show is that there is but one maximal left-$\rmU(\g)$-submodule of $\V^{\lambda}$. Suppose for the sake of deriving a contradiction that there exist two distinct maximal left-$\rmU(\g)$-submodules $M \not \cong M' \subset \V^{\lambda}$. Submodules of $\V^{\lambda}$ are $\h$-stable \textit{a priori} (cf. lemma \ref{lemma: cartan_semi_simplicity_of_submodules_of_verma_modules}), so $M, M'$ admit the following weight space decompositions:
+                    $$M \cong \bigoplus_{\mu \in \Pi(M)} (M \cap \V^{\lambda}_{\mu}), M' \cong \bigoplus_{\mu' \in \Pi(M')} (M' \cap \V^{\lambda}_{\mu'})$$
+                Now, because $M, M'$ are proper submodules of a cyclic module, they can not contain the generator of said cyclic module; in other words, since $\V^{\lambda} \cong \rmU(\n^-) \cdot v(\lambda)$, we have that:
+                    $$v(\lambda) \not \in M, M'$$
+                The vector $v(\lambda)$ is of weight $\lambda$ per the construction of the Verma module $\V^{\lambda}$, so this means that:
+                    $$\lambda \not \in \Pi(M), \Pi(M')$$
+                At the same time, because we have assumed that $M \not \cong M'$ and hence $\bigoplus_{\mu \in \Pi(M)} (M \cap \V^{\lambda}_{\mu}) \not \cong \bigoplus_{\mu' \in \Pi(M')} (M' \cap \V^{\lambda}_{\mu'})$, we have that:
+                    $$\Pi(M) \not = \Pi(M')$$
+                which means that $\Pi(M) \cup \Pi(M')$ contains both $\Pi(M)$ and $\Pi(M')$ as proper subsets. As $\lambda \not \in \Pi(M) \cup \Pi(M')$, we see that there exists a proper left-$\rmU(\g)$-module:
+                    $$M'' := M \cup M' \cong \bigoplus_{\mu'' \in \Pi(M) \cup \Pi(M')} ( (M \cup M') \cap \V^{\lambda}_{\mu''})$$
+                containing both $M, M'$ as proper submodules of its own. This contradicts the assumption that $M, M'$ are maximal as submodules of $\V^{\lambda}$, thereby implying that $\V^{\lambda}$ admits only a unique maximal submodule.
+
+                The rest of this part of the proposition is then trivial. 
+            \end{proof}
+
+        It turns out that, in a certain sense, the converse statement to proposition \ref{prop: unique_simple_quotients_of_verma_modules} also holds: namely, amongst all the simple $\g$-modules, the finite-dimensional ones always carry a highest weight and hence arise as the unique simple quotient of certain Verma modules.
+        \begin{lemma}[Finite-dimensional $\g$-modules are $\h$-semi-simple] \label{lemma: finite_dimensional_g_modules_are_cartan_semi_simple}
+            Any finite-dimensional $\g$-module $V$ is $\h$-semi-simple, i.e. it admits a weight space decomposition:
+                $$V \cong \bigoplus_{\lambda \in \h^*} V_{\lambda}$$
+        \end{lemma}
+            \begin{proof}
+                
+            \end{proof}
+        \begin{proposition}[Finite-dimensional simple $\g$-modules are the simple quotients of Verma modules] \label{prop: finite_dimensional_simple_g_modules_are_simple_quotients_of_verma_modules}
+            Let $W$ be a finite-dimensional simple $\g$-module. Then, there exists some $\lambda \in \h^*$ such that:
+                $$\bbS^{\lambda} \cong W$$
+        \end{proposition}
+            \begin{proof}
+                Since $W$ is simple, it is cyclic. Since $W$ is finite-dimensional, it is $\h$-semi-simple by lemma \ref{lemma: finite_dimensional_g_modules_are_cartan_semi_simple}; write its weight space decomposition as:
+                    $$W \cong \bigoplus_{\mu \in \h^*} W_{\mu}$$
+            \end{proof}
+        \begin{corollary}[Weyl's Theorem on semi-simplicity of representations] \label{corollary: weyl_semi_simplicity_theorem}
+            The category $\g\mod^{\fd}$ of finite-dimensional $\g$-modules is semi-simple and in particular, generated via finite direct sums by the finite-dimensional simple $\g$-modules $\bbS^{\lambda}$ (for $\lambda \in \h^*$), i.e. if $V$ is any finite-dimensional $\g$-module then:
+                $$V \cong \bigoplus_{\lambda \in \Pi(V)} \bbS^{\lambda}$$
+        \end{corollary}
+            \begin{proof}
+                
+            \end{proof}
+
+    \subsection{Characters; theorems of Chevalley and Harish-Chandra}
+        \begin{theorem}[The Chevalley Isomorphism] \label{theorem: chevalley_isomorphism}
+            There is an isomorphism of $k$-schemes:
+                $$\phi: \h/\!/\rmW \xrightarrow[]{\cong} \g/\!/G$$
+            wherein actions of $\rmW$ and of $G$ on $\h$ and $G$, respectively, are permutations of roots and the adjoint action. 
+        \end{theorem}
+            \begin{proof}
+                
+            \end{proof}
+        \begin{theorem}[The Harish-Chandra Isomorphism] \label{theorem: harish_chandra_isomorphism}
+            
+        \end{theorem}
+            \begin{proof}
+                
+            \end{proof}
+
+    \subsection{The BGG category O}
+        \begin{definition}[Category $\calO$] \label{def: category_O}
+            There is a full subcategory $\calO \subset \g\mod^{\fin}$ (finitely generated left-$\rmU(\g)$-modules) wherein objects are those $\g$-modules $V$ such that:
+                \begin{itemize}
+                    \item $V$ is $\h$-semi-simple,
+                    \item $\h$ acts locally finitely on $V$,
+                    \item $\n^+$ acts locally finitely on $V$.
+                \end{itemize}
+            This is usually called \textbf{the BGG\footnote{Beilinson-Gelfand-Gelfand.} category $\calO$}.
+        \end{definition}
+        \begin{remark}[Motivation for the category $\calO$]
+            The point of introducing this category $\calO$ is that the larger category $\g\mod^{\fin}$ is somehow too untenable while at the same time, the category $\g\mod^{\fd}$ of finite-dimensional $\g$-modules is too inflexible (e.g. it does not contain Verma modules and hence the simple objects of $\g\mod^{\fd}$ can not be classified internally within $\g\mod^{\fd}$, in light of proposition \ref{prop: unique_simple_quotients_of_verma_modules}). For instance, it is difficult to classify the simple objects of $\g\mod^{\fin}$, since infinite-dimensional simple $\g$-modules might not be cyclic and hence can not arise from Verma modules. 
+
+            Another reason is that, as we shall see below, the category $\calO$ is abelian and Noetherian, and hence gives rise to reasonable derived categories. 
+        \end{remark}
+        \begin{proposition}[Categorical properties of the category $\calO$] \label{prop: categorical_properties_of_the_category_O}
+            The category $\calO$ is abelian and Noetherian (i.e. every ascending chain of monomorphisms stabilises after finitely many terms).
+        \end{proposition}
+            \begin{proof}
+                $\g$ is finite-dimensional, so $\rmU(\g)$ is Noetherian, and hence every finitely generated $\g$-module is Noetherian. Since $\calO$ is a full subcategory of $\g\mod^{\fin}$, this implies that $\calO$ itself is also a Noetherian category. 
+
+                To show that it is abelian, note that objects of $\calO$ are quotients of $\rmU(\g)^{\oplus n}$ (for some $n \geq 0$) on which $\h, \n^+$ act according to definition \ref{def: category_O}. 
+            \end{proof}
+
+        Let us now investigate how objects of the category $\calO$ arise from Verma modules, which as alluded to earlier, ought to be thought of generating this category via finite colimits.
+        \begin{lemma}[Verma modules are objects of the category $\calO$] \label{lemma: verma_modules_are_in_category_O}
+            For any weight $\lambda \in \h^*$, one has that $\V^{\lambda} \in \Ob(\calO)$.
+        \end{lemma}
+            \begin{proof}
+                We know by corollary \ref{coro: verma_modules_are_cartan_semi_simple} that $\V^{\lambda}$ is $\h$-semi-simple and locally $\h$-finite, and Verma modules are cyclic by construction so they are automatically finitely generated. Thus, the only thing to show is that $\n^+$ acts locally finitely on $\V^{\lambda}$. For this, it shall suffice to show that each of the finite-dimensional PBW filtrants $\rmU(\n^+)_n$ ($n \in \Z$) is $\n^+$-stable. To this end, fix an arbitrary degree-$n$ element $u \in \rmU(\n^-)$ and consider the following for any $y \in \n^+$:
+                    $$y \cdot (u \cdot v(\lambda))$$
+            \end{proof}
