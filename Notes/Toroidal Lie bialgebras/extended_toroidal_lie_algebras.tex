@@ -716,10 +716,34 @@
             and furthermore, if there is any dependence thereof on $n \geq 1$.  
         \end{question}
 
-    \subsection{The centre $\hat{\z}_{[2]}$}
         \begin{question}
             What is the centre $\hat{\z}_{[2]} := \z( \hat{\g}_{[2]} )$ ? This ought to be smaller than $\z_{[2]}$ somehow, since elements of $\z_{[2]}$ need not be central in $\hat{\g}_{[2]}$. 
         \end{question}
+        \begin{remark}[Computing the centre without computing all the brackets ...]
+            Since $\g_{[2]}$ is centreless, we have that:
+                $$\hat{\z}_{[2]} = \z( \z_{[2]} \oplus \d_{[2]} )$$
+            As $\z_{[2]}$ is an abelian Lie algebra, this implies that in order to compute $\hat{\z}_{[2]}$, it suffices to explicitly compute the commutators of the form:
+                $$[D, K]_{\hat{\g}_{[2]}}, [D, D']_{\hat{\g}_{[2]}}$$
+            for $D, D' \in \d_{[2]}$ and $K \in \z_{[2]}$, to see which ones vanish. However, this is rather tedious and not very insightful.
+            
+            An alternative method is as follows: exploiting the fact that the symmetric bilinear form $(-, -)_{\hat{\g}_{[2]}}$ is both invariant and non-degenerate (by construction; cf. convention \ref{conv: orthogonal_complement_of_toroidal_centres}), we can characterise the centre $\hat{\z}_{[2]}$ as the Lie ideal of $\hat{\g}_{[2]}$ containing elements $Z$ such that:
+                $$0 = ([Z, X]_{\hat{\g}_{[2]}}, Y)_{\hat{\g}_{[2]}} = (Z, [X, Y]_{\hat{\g}_{[2]}})_{\hat{\g}_{[2]}}$$
+            for any $X, Y \in \hat{\g}_{[2]}$, with the first equality holding thanks to the fact that $Z$ is supposed to commute with every other element of $\hat{\g}_{[2]}$ by assumption of being central. Per the construction of $(-, -)_{\hat{\g}_{[2]}}$, we have that:
+                $$(\z_{[2]} \oplus \d_{[2]}, \g_{[2]})_{\hat{\g}_{[2]}} = 0$$
+                $$\z_{[2]}^{\bot} = \d_{[2]}$$
+            At the same time, we also know that:
+            \begin{itemize}
+                \item $[\g_{[2]}, \g_{[2]}]_{\hat{\g}_{[2]}} \subset \g_{[2]} \oplus \z_{[2]}$ which is by construction,
+                \item $[\d_{[2]}, \z_{[2]}]_{\hat{\g}_{[2]}} \subseteq \z_{[2]}$ (cf. remark \ref{remark: derivation_action_on_toroidal_centres}),
+                \item $[\d_{[2]}, \d_{[2]}]_{\hat{\g}_{[2]}} \subseteq \d_{[2]} \oplus \z_{[2]}$ (cf. proposition \ref{prop: lie_bracket_on_orthogonal_complement_of_toroidal_centre}). 
+            \end{itemize}
+            Therefore, we can make the conclusion that $\hat{\z}_{[2]}$ must only be the span of certain basis elements of $\z_{[2]}$. 
+        \end{remark}
+        \begin{proposition}
+            The centre $\hat{\z}_{[2]}$ is two-dimensional, namely spanned by $c_v$ and $c_t$. 
+        \end{proposition}
             \begin{proof}
-                
+                Since $c_v, c_t$ are orthogonal to $D_v, D_t$ respectively and parallel to $D_{r, s}$ with respect to $(-, -)_{\hat{\g}_{[2]}}$, for all $(r, s) \in \Z^2$, per the construction of $(-, -)_{\hat{\g}_{[2]}}$, it suffices to show that:
+                    $$[D_v, D_t]_{\hat{\g}_{[2]}} \in \bbC D_v \oplus \bbC D_t$$
+                but does not lie within either direct summand alone. This can be done easily by explicit computation, for which we simply need to know that the $\d_{[2]}$-summands of the bracket of elements of $\d_{[2]}$ are nothing but the commutator brackets of derivations (cf. proposition \ref{prop: lie_bracket_on_orthogonal_complement_of_toroidal_centre}). 
             \end{proof}
