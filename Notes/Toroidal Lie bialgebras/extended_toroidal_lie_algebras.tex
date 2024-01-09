@@ -665,6 +665,19 @@
         \begin{corollary}
             For any $D, D' \in \d_{[2]}$, the $\d_{[2]}$-summand of $[D, D']_{\hat{\g}_{[2]}}$ is nothing but the commutator $DD' - D'D$.
         \end{corollary} 
+        In light of the above, it is also valuable to know how the $\d_{[2]}$-summand of the commutators:
+            $$[D, D']_{\hat{\g}_{[2]}}$$
+        are given explicitly. We make these computations also just for the sake of completeness.  
+        \begin{proposition}[Explicitly commutators between basis elements of $\d_{[2]}$]
+            The usual commutator (i.e. $[D, D'] := DD' - D'D$) between the basis elements $D_{r, s}, D_v, D_t \in \d_{[2]}$ are given as follows:
+                $$[D_{a, b}, D_{r, s}] = (br - sa) D_{a + r, b + s + 1}$$
+                $$[D_v, D_{r, s}] = r D_{r, s + 1}$$
+                $$[D_t, D_{r, s}] = D_{r, s + 1}$$
+                $$[D_v, D_t] = 0$$
+        \end{proposition}
+            \begin{proof}
+                \todo[inline]{Can we prove this quickly using invariance somehow ?} 
+            \end{proof}
         
         \begin{question}[A different Lie bracket on $\der_{\bbC}(A_{[2]})$ ?] \label{question: alternative_derivation_lie_bracket}
             Is there a Lie algebra structure $\der_{\bbC}(A_{[2]})$ (different from the standard one given by commutators $[D, D'] := DD' - D'D$) with respect to which $\d_{[2]}$ is always a Lie subalgebra ? 
@@ -718,29 +731,30 @@
                 $$H^{\bullet}_{\Lie}( \scrD_{X/k}^1, \bar{\Omega}_{X/k}^n )$$
             and furthermore, if there is any dependence thereof on $n \geq 1$.  
         \end{question}
-        \begin{remark}[Some explicit elements of $H^2_{\Lie}(\d_{[2]}, \z_{[2]})$]
+        \begin{remark}[Some explicit elements of $H^2_{\Lie}(\d_{[2]}, \z_{[2]})$] \label{remark: non_uniqueness_of_yangian_extended_lie_algebras}
             From proposition \ref{prop: lie_bracket_on_orthogonal_complement_of_toroidal_centre}, we know that:
                 $$[\d_{[2]}, \d_{[2]}]_{\hat{\g}_{[2]}} \subset \z_{[2]} \oplus \d_{[2]}$$
-            we can obtain some $2$-cocyles $\bar{\tau} \in H^2_{\Lie}(\d_{[2]}, \z_{[2]})$ by restricting elements $\tau \in H^2_{\Lie}(\der_{\bbC}(A_{[2]}), \z_{[2]})$, some of which are known.
+            we can obtain some $2$-cocyles $\bar{\sigma} \in H^2_{\Lie}(\d_{[2]}, \z_{[2]})$ by restricting elements $\sigma \in H^2_{\Lie}(\der_{\bbC}(A_{[2]}), \z_{[2]})$, some of which are known.
 
-            It pays to abstract the situation out to the $n$-variable case for a moment, mostly for us to make the point that the dimension of the vector space $H^2_{\Lie}(\der_{\bbC}(A_{[n]}), \bar{\Omega}_{[n]})$ depends not on the number of variables. In \cite[pp. 5, below Equation 1.3]{billig_energy_momentum_tensor}, it was noted that:
-                $$H^2_{\Lie}(\der_{\bbC}(A_{[n]}), \bar{\Omega}_{[n]}) \cong \bbC \tau_1 \oplus \bbC \tau_2$$
-            with the $2$-cocyles $\tau_1, \tau_2$ twisting the Lie brackets:
-                $$[v_1^{m_1} ... v_n^{m_n} v_p \del_{v_p}, v_1^{m'_1} ... v_n^{m'_n} v_q \del_{v_q}] \in \der_{\bbC}(A_{[n]})$$
+            It pays to abstract the situation out to the $n$-variable case for a moment, mostly for us to make the point that the dimension of the vector space $H^2_{\Lie}(\der_{\bbC}(A_{[n]}), \bar{\Omega}_{[n]})$ depends not on the number of variables. In \cite[pp. 5, below Equation 1.3]{billig_energy_momentum_tensor}, it was noted that\todo{Find a proper citation for this. \textit{Loc. cit.} does not provide one.}:
+                $$H^2_{\Lie}(\der_{\bbC}(A_{[n]}), \bar{\Omega}_{[n]}) \cong \bbC \sigma_1 \oplus \bbC \sigma_2$$
+            with the $2$-cocyles $\sigma_1, \sigma_2$ twisting the Lie brackets:
+                $$[v_1^{m_1} ... v_n^{m_n} v_p \del_{v_p}, v_1^{r_1} ... v_n^{r_n} v_q \del_{v_q}] \in \der_{\bbC}(A_{[n]})$$
             being given by:
-                $$\tau_1(v_1^{m_1} ... v_n^{m_n} v_p \del_{v_p}, v_1^{m'_1} ... v_n^{m'_n} v_q \del_{v_q}) = m'_p m_q \sum_{1 \leq i \leq n} m'_i v_1^{m_1 + m'_1} ... v_n^{m_n + m'_n} v_i^{-1} \bar{d}(v_i)$$
-                $$\tau_2(v_1^{m_1} ... v_n^{m_n} v_p \del_{v_p}, v_1^{m'_1} ... v_n^{m'_n} v_q \del_{v_q}) = m_p m'_q \sum_{1 \leq i \leq n} m'_i v_1^{m_1 + m'_1} ... v_n^{m_n + m'_n} v_i^{-1} \bar{d}(v_i)$$
-            for every $1 \leq p, q \leq n$ and every $(m_1, ..., m_n), (m'_1, ..., m'_n) \in \Z^n$. 
+                $$\sigma_1(v_1^{m_1} ... v_n^{m_n} v_p \del_{v_p}, v_1^{r_1} ... v_n^{r_n} v_q \del_{v_q}) = r_p m_q \sum_{1 \leq i \leq n} r_i v_1^{m_1 + r_1} ... v_n^{m_n + r_n} v_i^{-1} \bar{d}(v_i)$$
+                $$\sigma_2(v_1^{m_1} ... v_n^{m_n} v_p \del_{v_p}, v_1^{r_1} ... v_n^{r_n} v_q \del_{v_q}) = m_p r_q \sum_{1 \leq i \leq n} r_i v_1^{m_1 + r_1} ... v_n^{m_n + r_n} v_i^{-1} \bar{d}(v_i)$$
+            for every $1 \leq p, q \leq n$ and every $(m_1, ..., m_n), (r_1, ..., r_n) \in \Z^n$. 
 
-            Now, back to the $2$-variable case. Here, we know how the basis elements $D_{r, s}, D_v, D_t$ of $\d_{[2]}$ are given in terms of $A_{[2]}$-multiples of the partial derivatives $\del_v, \del_t$ (cf. remark \ref{remark: dual_of_toroidal_centres_contains_derivations}), so we can exploit the bilinearity of $2$-cocycles in order to see how $\tau_1, \tau_2$ act on elements of $\d_{[2]}$. Knowing that the aforementioned basis elements are given by:
+            Now, back to the $2$-variable case. Here, we know how the basis elements $D_{r, s}, D_v, D_t$ of $\d_{[2]}$ are given in terms of $A_{[2]}$-multiples of the partial derivatives $\del_v, \del_t$ (cf. remark \ref{remark: dual_of_toroidal_centres_contains_derivations}), so we can exploit the bilinearity of $2$-cocycles in order to see how $\sigma_1, \sigma_2$ act on elements of $\d_{[2]}$. Knowing that the aforementioned basis elements are given by:
                 $$D_{r, s} = s v^{-r + 1} t^{-s - 1} \del_v - r v^{-r} t^{-s} \del_t$$
                 $$D_v = -v t^{-1} \del_v$$
                 $$D_t = -\del_t$$
             we see thus that:
-                $$\tau_a(\bbC D_t, -) = 0$$
-                $$\tau_a(\bbC D_v, -), \tau_a(\bbC D_{r, s}, -) \not = 0$$
-            as elements of $\Hom_{\bbC}(\d_{[2]}, \z_{[2]})$, where $a \in \{1, 2\}$; one proves this by looking at the powers of $v, t$ in the multiples of $\del_v, \del_t$ in the expressions for $D_{r, s}, D_v, D_t$. Subsequently, we can conclude that neither of the $2$-cocycles $\tau_1, \tau_2$ vanish entirely on the Lie subalgebra $\d_{[2]}$ of $\der_{\bbC}(A_{[2]})$, and hence:
-                $$H^2_{\Lie}(\d_{[2]}, \z_{[2]}) \cong \bbC \tau_1 \oplus \bbC \tau_2$$
+                $$\sigma_a(D_t, -) = 0$$
+                $$\sigma_a(D_{r, s}, -), \sigma_a(D_v, -) \not = 0$$
+            as elements of $\Hom_{\bbC}(\d_{[2]}, \z_{[2]})$, where $a \in \{1, 2\}$; one proves this by looking at the powers of $v, t$ in the multiples of $\del_v, \del_t$ in the expressions for $D_{r, s}, D_v, D_t$. Subsequently, we can conclude that neither of the $2$-cocycles $\sigma_1, \sigma_2$ vanish entirely on the Lie subalgebra $\d_{[2]}$ of $\der_{\bbC}(A_{[2]})$, and hence:
+                $$H^2_{\Lie}(\d_{[2]}, \z_{[2]}) \cong \bbC \sigma_1 \oplus \bbC \sigma_2$$
+            We delegate the relevant detailed computations to the proof of theorem \ref{theorem: non_uniqueness_of_yangian_extended_lie_algebras} down below.  
         \end{remark}
         \begin{theorem}[Non-uniqueness of Yangian extended Lie algebras] \label{theorem: non_uniqueness_of_yangian_extended_lie_algebras}
             Let the vector space:
@@ -750,6 +764,39 @@
             or, in cohomological terms, one has that:
                 $$\dim_{\bbC} H^2_{\Lie}(\d_{[2]}, \tilde{\g}_{[2]}) = 2$$
         \end{theorem}
+            \begin{proof}
+                As indicated in remark \ref{remark: non_uniqueness_of_yangian_extended_lie_algebras}, it only remains to prove that:
+                    $$\sigma_a(D_t, -) = 0$$
+                    $$\sigma_a(D_v, -), \sigma_a(D_{r, s}, -) \not = 0$$
+                (where $a \in \{1, 2\}$) via explicit computations. For our own convenience, let us temporarily relabel the variables as:
+                    $$v := v_1, t := v_2$$
+                \begin{itemize}
+                    \item Firstly, note that:
+                        $$\sigma_1(\del_{v_2}, v_1^{r_1} v_2^{r_2} \del_{v_q}) = \sigma_1(v_1^0 v_2^0 \del_{v_2}, -) = r_1 \cdot 0 \cdot \sum_{1 \leq i \leq 2} (...) = 0$$
+                        $$\sigma_2(\del_{v_2}, v_1^{r_1} v_2^{r_2} \del_{v_q}) = \sigma_2(v_1^0 v_2^0 \del_{v_2}, -) = 0 \cdot r_2 \cdot \sum_{1 \leq i \leq 2} (...) = 0$$
+                    and hence we indeed have that:
+                        $$\sigma_a(D_t, -) = \sigma_a(-\del_{v_2}, -) = -\sigma_a(\del_{v_2}, -) = 0$$
+                    \item Secondly, to show that:
+                        $$\sigma_a(D_{r, s}, -) \not = 0$$
+                    it suffices to only show that:
+                        $$\sigma_a(D_{r, s}, D_v) \not = 0$$
+                    To this end, recall that:
+                        $$D_{r, s} = s v_1^{-r + 1} v_2^{-s - 1} \del_{v_1} - r v_1^{-r} v_2^{-s} \del_{v_2}$$
+                        $$D_v = -v_1 v_2^{-1} \del_{v_1}$$
+                    which tells us that:
+                        $$
+                            \begin{aligned}
+                                \sigma_1(D_{r, s}, D_v) & = ( s \cdot 1 \cdot (-r + 1) - r \cdot (-1) \cdot (-s) ) \sum_{1 \leq i \leq 2} r_i v_1^{(-r + 1) + 1} v_2^{(-s - 1) - 1} v_i^{-1} \bar{d}(v_i)
+                                \\
+                                & = (-2sr + 1) \sum_{1 \leq i \leq 2} r_i v_1^{-r} v_2^{-s - 2} v_i^{-1} \bar{d}(v_i)
+                            \end{aligned}
+                        $$
+                    \item Lastly, to show that:
+                        $$\sigma_a(D_v, -) \not = 0$$
+                    simply note that:
+                        $$\sigma_a(D_{r, s}, D_v) = -\sigma_a(D_v, D_{r, s})$$
+                \end{itemize}
+            \end{proof}
         \begin{corollary}
             More compactly, and given how $\d_{[2]}$ acts on $\g_{[2]} \subset \tilde{\g}_{[2]} \cong \g_{[2]} \oplus \z_{[2]}$ (cf. remark \ref{remark: derivation_action_on_multiloop_algebras}), the formula in theorem \ref{theorem: non_uniqueness_of_yangian_extended_lie_algebras} can be equivalently stated as:
                 $$\dim_{\bbC} H^2_{\Lie}(\d_{[2]}, \z_{[2]}) = 2$$
