@@ -190,6 +190,112 @@
         \end{question}
 
     \subsection{\textit{Interlude}: Root space and triangular decompositions for Yangian extended toroidal Lie algebras}
-        As is now standard practice in infinite-dimensional Lie theory, infinite-dimensional Lie algebra induced from finite-dimensional simple Lie algebras ought to carry a grading by some kind of induced \say{higher root lattice} (e.g. affine Kac-Moody algebras are graded by the affinisations of the root lattices of the underlying finite-dimensional simple Lie algebras; cf. \cite[Chapter 6]{kac_infinite_dimensional_lie_algebras}). Therfore, it is natural to ask the question of whether or not our Yangian extended toroidal Lie algebra $\hat{\g}_{[2]}$ can also be endowed with such an induced grading. 
+        As is now standard practice in infinite-dimensional Lie theory, infinite-dimensional Lie algebra induced from finite-dimensional simple Lie algebras ought to carry a grading by some kind of induced \say{higher root lattice} (e.g. affine Kac-Moody algebras are graded by the affinisations of the root lattices of the underlying finite-dimensional simple Lie algebras; cf. \cite[Chapter 6]{kac_infinite_dimensional_lie_algebras}). Therfore, it is natural to ask the question of whether or not our Yangian extended toroidal Lie algebra $\hat{\g}_{[2]}$ can also be endowed with such an induced grading, primarily because $\hat{\g}_{[2]}$ carries a non-degenerate invariant symmetric bilinear form.  
+
+        \begin{convention}
+            Suppose that:
+                $$\fraku := \bigoplus_{\alpha \in A} \fraku_{\alpha}$$
+            is a Lie algebra graded by some abelian monoid $A$. If the component $\fraku_0$ is an abelian Lie subalgebra of $\fraku$, whose elements admit the subspaces $\fraku_{\alpha}$ as simultaneous eigenspaces (i.e. weight spaces), say with eigenvalue $\lambda_{\alpha}$, then for any $\fraku$-module $V$, we shall denote the subspace thereof on which $\fraku_0$ acts as $\lambda_{\alpha}$ (i.e. the subspace of weight $\lambda_{\alpha}$) by:
+                $$V[\lambda_{\alpha}]$$
+            If we have:
+                $$V \cong \bigoplus_{\alpha \in A} V[\lambda_{\alpha}]$$
+            then we shall say that $V$ is a \textbf{weight module} of $\fraku$. 
+        \end{convention}
+
+        \begin{remark}[$\tilde{\g}_{[2]}$ as a $\tilde{\g}_{[1]}$-module]
+            In light of the Chevalley-Serre presentation for $\tilde{\g}_{[2]}$ (as in lemma \ref{lemma: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras}), we see that $\tilde{\g}_{[2]}$ is a weight module for $\hat{\g}_{[1]}$ and therefore, it is reasonable to propose that there exists a $\hat{\Lambda}_{[1]}$-grading:
+                $$\tilde{\g}_{[2]} \cong \tilde{\g}_{[2]}[0] \oplus \bigoplus_{\alpha \in \hat{\Phi}} \tilde{\g}_{[2]}[\alpha]$$
+            where for each positive root $\alpha \in \hat{\Phi}^+$, the corresponding weight space is given by:
+                $$\tilde{\g}_{[2]}[\pm \alpha] := \bigoplus_{r \in \Z} \bbC E_{\alpha, r}^{\pm}$$
+            (note that the elements $E_{\alpha, r}^{\pm}$ are yet to be defined), and:
+                $$\tilde{\g}_{[2]}[0] := \bbC K \oplus \bigoplus_{(i, r) \in \hat{\Gamma}_0 \x \Z} \bbC H_{i, r}$$
+            with notations as in the aforementioned lemma. In fact, since the derivation $D_{0, -1} \in \hat{\g}_{[1]}$ (cf. convention \ref{conv: a_fixed_untwisted_affine_kac_moody_algebra}) acts as $0$ on the vector space $\tilde{\g}_{[2]}$ (cf. lemma \ref{lemma: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras}), we might as well regard $\tilde{\g}_{[2]}$ as a module over $\tilde{\g}_{[1]} := \uce(\g_{[1]})$; in doing so, $\tilde{\g}_{[2]}$ remains a weight module of $\tilde{\g}_{[1]}$. 
+        \end{remark}
+        \begin{remark}[Root vectors for $\tilde{\g}_{[2]}$] \label{remark: root_vectors_for_toroidal_lie_algebras}
+            Before one can state a proper proposition, one needs to make sense of the \say{root vectors}:
+                $$E_{\alpha, r}^{\pm}$$
+            \begin{enumerate}
+                \item If $\alpha \in \Phi^+$ is a positive finite root, then because we have that (cf. lemma \ref{lemma: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras}):
+                    $$E_{i, r}^{\pm} \mapsto e_i^{\pm} t^r$$
+                we can \textit{choose}:
+                    $$E_{\alpha, r}^{\pm} := \ad(E_{i_m, r_m}^{\pm}) \cdot ... \cdot \ad(E_{i_2, r_2}^{\pm}) \cdot E_{i_1, r_1}^{\pm}$$
+                such that:
+                    $$\alpha = \sum_{1 \leq j \leq m} \alpha_{i_j}, r = \sum_{1 \leq j \leq m} r_j$$
+                so that \textit{any} such choice would result in:
+                    $$E_{\alpha, r}^{\pm} = \ad(e_{i_m}^{\pm}) \cdot ... \cdot \ad(e_{i_2}^{\pm}) \cdot e_{i_1} t^r$$
+                Since finite roots (i.e. real roots) of any symmetrisable Kac-Moody are identically of multiplicity $1$ \textit{a priori} (cf. \cite[Chapter 4]{kac_infinite_dimensional_lie_algebras}), meaning that the element:
+                    $$\ad(e_{i_m}^{\pm}) \cdot ... \cdot \ad(e_{i_2}^{\pm}) \cdot e_{i_1}^{\pm}$$
+                span the entire root space $\hat{\g}_{[1]}[\alpha]$. The aforementioned choices of parititions $\alpha = \sum_{1 \leq j \leq m} \alpha_{i_j}$ and $r = \sum_{1 \leq j \leq m} r_j$ are consequently immaterial.
+                
+                \item On the other hand, if $\alpha = \theta$ then:
+                    $$E_{\theta, r}^{\pm} \mapsto e_{\theta}^{\mp} v^{\pm 1} t^r$$
+                and since every imaginary root in $\hat{\Phi}$ is a $\Z$-multiple of $\theta$, 
+            \end{enumerate}
+        \end{remark}
+        \begin{proposition}
+            Let us use the same notations as in lemma \ref{lemma: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras} and as a shorthand, let us write:
+                $$\tilde{\h}_{[1]} := \bbC K \oplus \bigoplus_{r \in \Z} \bbC H_{i, r}$$
+            Let $\tilde{\h}_{[1]}$ act on $\tilde{\g}_{[2]}$ via the adjoint action (well defined because the former is a Lie subalgebra of the latter). Then, there is a direct sum decomposition of $\tilde{\h}_{[1]}$-modules:
+                $$\tilde{\g}_{[2]} \cong \tilde{\g}_{[2]}[0] \oplus \bigoplus_{\alpha \in \hat{\Phi}} \tilde{\g}_{[2]}[\alpha]$$
+            where for each positive root $\alpha \in \hat{\Phi}^+$, the corresponding weight space is given by:
+                $$\tilde{\g}_{[2]}[\pm \alpha] := \bigoplus_{r \in \Z} \bbC E_{\alpha, r}^{\pm}$$
+            (with the root vectors $E_{\alpha, r}^{\pm}$ being understood to be in the sense of remark \ref{remark: root_vectors_for_toroidal_lie_algebras}), while:
+                $$\tilde{\g}_{[2]}[0] := \tilde{\h}_{[1]}$$
+        \end{proposition}
+            \begin{proof}
+                Using the relations from lemma \ref{lemma: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras}, we can check that the vector spaces $\tilde{\g}_{[2]}[\alpha]$ (for $\alpha \in \hat{\Phi} \cup \{0\}$) are indeed closed under the adjoint action of $\tilde{\h}_{[1]}$:
+                \begin{itemize}
+                    \item Obviously, $\tilde{\g}_{[2]}[0] \cong \tilde{\h}_{[1]}$ is an abelian Lie subalgebra of $\tilde{\g}_{[2]}$ so there is nothing to check there.
+                    \item From lemma \ref{lemma: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras}, we know that:
+                        $$K \mapsto c_t$$
+                    is central as an element of $\tilde{\g}_{[2]}$, so it acts as zero on the vector spaces $\tilde{\g}_{[2]}[\alpha]$. As such, it suffices to check how the elements $H_{i, r}$ act on these vector spaces. 
+                    
+                    To this end, fix a vertex $i \in \hat{\Gamma}_0$. Next, recall that we have the relations:
+                        $$[H_{i, r}, E_{j, s}^{\pm}]_{\tilde{\g}_{[2]}} = \pm \frac12 (\alpha_i^{\vee}, \alpha_j) E_{j, r + s}^{\pm}$$
+                    If we now pick an arbitrary positive finite root $\alpha \in \Phi^+$, an integer $s \in \Z$, as well as partitions: 
+                        $$\alpha = \sum_{1 \leq k \leq m} \alpha_{j_k}, s = \sum_{1 \leq k \leq m} s_k$$
+                    then we will have - per remark \ref{remark: root_vectors_for_toroidal_lie_algebras} - that:
+                        $$
+                            \begin{aligned}
+                                [H_{i, r}, E_{\alpha, s}^{\pm}]_{\tilde{\g}_{[2]}} & = [ H_{i, r}, \ad(E_{j_m, s_m}^{\pm}) \cdot ... \cdot \ad(E_{j_2, s_2}^{\pm}) \cdot E_{i_1, s_1}^{\pm} ]_{\tilde{\g}_{[2]}}
+                                \\
+                                & = [ H_{i, r}, \ad(e_{j_m}^{\pm}) \cdot ... \cdot \ad(e_{j_2}^{\pm}) \cdot e_{j_1}^{\pm} t^s ]_{\tilde{\g}_{[2]}}
+                                \\
+                                & = 
+                                \begin{cases}
+                                    \text{$[ h_i t^r, \ad(e_{j_m}^{\pm}) \cdot ... \cdot \ad(e_{j_2}^{\pm}) \cdot e_{j_1}^{\pm} t^s ]_{\tilde{\g}_{[2]}}$ if $i \in \Gamma_0$}
+                                    \\
+                                    \text{$[ h_{\theta} t^r + c_v t^r, \ad(e_{j_m}^{\pm}) \cdot ... \cdot \ad(e_{j_2}^{\pm}) \cdot e_{j_1}^{\pm} t^s ]_{\tilde{\g}_{[2]}}$ if $i = \theta$}
+                                \end{cases}
+                                \\
+                                & = 
+                                \begin{cases}
+                                    \text{$[ h_i, \ad(e_{j_m}^{\pm}) \cdot ... \cdot \ad(e_{j_2}^{\pm}) \cdot e_{j_1}^{\pm} ]_{\g} t^{r + s} + K(H_{i, r}, E_{\alpha, s}^{\pm})$ if $i \in \Gamma_0$}
+                                    \\
+                                    \text{$[ h_{\theta} + c_v, \ad(e_{j_m}^{\pm}) \cdot ... \cdot \ad(e_{j_2}^{\pm}) \cdot e_{j_1}^{\pm} ]_{\g} t^{r + s} + K(H_{i, r}, E_{\alpha, s}^{\pm})$ if $i = \theta$}
+                                \end{cases}
+                                \\
+                                & = [ h_i, e_{\alpha}^{\pm} ]_{\g} t^{r + s} + K(H_{i, r}, E_{\alpha, s}^{\pm}) \: \text{(since $c_v$ is central)}
+                                \\
+                                & = \pm \frac12 (\alpha_i^{\vee}, \alpha) e_{\alpha}^{\pm} t^{r + s} + K(H_{i, r}, E_{\alpha, s}^{\pm})
+                                \\
+                                & = \pm \frac12 (\alpha_i^{\vee}, \alpha) E_{\alpha, r + s}^{\pm} + K(H_{i, r}, E_{\alpha, s}^{\pm})
+                            \end{aligned}
+                        $$
+                    wherein we have set:
+                        $$e_{\alpha}^{\pm} := \ad(e_{j_m}^{\pm}) \cdot ... \cdot \ad(e_{j_2}^{\pm}) \cdot e_{j_1}^{\pm}$$
+                    and:
+                        $$K(H_{i, r}, E_{\alpha, s}^{\pm}) \in \z_{[2]}$$
+                    is the central summand of the commutator $[ h_i t^r, \ad(e_{j_m}^{\pm}) \cdot ... \cdot \ad(e_{j_2}^{\pm}) \cdot e_{j_1}^{\pm} t^s ]_{\tilde{\g}_{[2]}}$. Actually, we have that:
+                        $$K(H_{i, r}, E_{\alpha, s}^{\pm}) = (h_i, e_{\alpha}^{\pm})_{\g} \cdot (...) = 0 \cdot (...) = 0$$
+                    so in fact:
+                        $$[H_{i, r}, E_{\alpha, s}^{\pm}]_{\tilde{\g}_{[2]}} = \pm \frac12 (\alpha_i^{\vee}, \alpha) E_{\alpha, r + s}^{\pm}$$
+                    This shows that $\tilde{\g}_{[2]}[\alpha]$ is a well-defined $\tilde{\h}_{[1]}$-module. 
+                \end{itemize}
+
+                Now that we know that $\tilde{\g}_{[2]}$ is a well-defined $\tilde{\h}_{[1]}$-module and that the vector subspaces $\tilde{\g}_{[2]}[\alpha]$ (for $\alpha \in \hat{\Phi} \cup \{0\}$) are well-defined submodules, it remains to only demonstrate that:
+                    $$\tilde{\g}_{[2]}[\alpha] \cap \tilde{\g}_{[2]}[\beta] = \{0\}$$
+                for any $\alpha \not = \beta \in \hat{\Phi} \cup \{0\}$.  
+            \end{proof}
 
     \subsection{Classical limits of universal quantum R-matrices of affine Yangians}
