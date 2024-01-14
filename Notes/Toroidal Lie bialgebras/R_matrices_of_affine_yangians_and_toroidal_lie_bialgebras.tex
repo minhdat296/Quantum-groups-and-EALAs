@@ -185,7 +185,7 @@
             Classify the singularities of $\sfr_{\tilde{\g}_{[2]}^+} = \sfr_{\hat{\g}_{[2]}^+}$ and compare them to those of the universal quantum R-matrix of $\rmY_{\hbar}(\hat{\g}_{[1]})$. 
         \end{question}
 
-    \subsection{\textit{Interlude}: Root space and triangular decompositions for Yangian extended toroidal Lie algebras; toroidal Casimir tensors}
+    \subsection{\textit{Interlude}: Root space and triangular decompositions for Yangian extended toroidal Lie algebras}
         As is now standard practice in infinite-dimensional Lie theory, infinite-dimensional Lie algebra induced from finite-dimensional simple Lie algebras ought to carry a grading by some kind of induced \say{higher root lattice} (e.g. affine Kac-Moody algebras are graded by the affinisations of the root lattices of the underlying finite-dimensional simple Lie algebras; cf. \cite[Chapter 6]{kac_infinite_dimensional_lie_algebras}). Therfore, it is natural to ask the question of whether or not our Yangian extended toroidal Lie algebra $\hat{\g}_{[2]}$ can also be endowed with such an induced grading, primarily because $\hat{\g}_{[2]}$ carries a non-degenerate invariant symmetric bilinear form.  
 
         \begin{convention}
@@ -342,22 +342,28 @@
                     $$\forall i,j \in \Gamma_0: (H_{i, r}, H_{j, s})_{\hat{\g}_{[2]}} = (\alpha_i^{\vee}, \alpha_j) \delta_{r + s, -1}$$
                 and also that:
                     $$(H_{\theta, r}, H_{\theta, s})_{\hat{\g}_{[2]}} = (h_{\theta} t^r + c_v t^r, h_{\theta} t^s + c_v t^s)_{\hat{\g}_{[2]}} = (\theta^{\vee}, \theta) \delta_{r + s, -1}$$
-                    $$\forall i \in \Gamma_0: (H_{i, r}, H_{\theta, s})_{\hat{\g}_{[2]}} = (h_i t^r, h_{\theta} t^s + c_v t^s)_{\hat{\g}_{[2]}} = (\alpha_i^{\vee}, \theta) \delta_{r + s, -1}$$
-                wherein the last equalities hold thanks to $c_v$ being central in $\hat{\g}_{[2]}$ (cf. proposition \ref{prop: centres_of_extended_toroidal_lie_algebras}) and the bilinear form $(-, -)_{\hat{\g}_{[2]}}$ being invariant and non-degenerate by construction. 
+                wherein the last equality holds thanks to $c_v$ being central in $\hat{\g}_{[2]}$ (cf. proposition \ref{prop: centres_of_extended_toroidal_lie_algebras}) and the bilinear form $(-, -)_{\hat{\g}_{[2]}}$ being invariant and non-degenerate by construction. 
 
                 The element $c_t$ is also central in $\hat{\g}_{[2]}$, according to proposition \ref{prop: centres_of_extended_toroidal_lie_algebras}, so using invariance again, we get that:
                     $$\forall H \in \tilde{\h}_{[1]}: (H, K)_{\hat{\g}_{[2]}} = 0$$
             \end{enumerate}
-
-            From the computations above and from the fact that we have the triangular decompositions:
-                $$\tilde{\g}_{[2]}^{\pm} \cong \tilde{\g}_{[2]}^{\pm}[\hat{\Phi}^-] \oplus \tilde{\h}_{[1]}^{\pm} \oplus \tilde{\g}_{[2]}^{\pm}[\hat{\Phi}^+]$$
-            (cf. corollary \ref{coro: triangular_decompositions_for_toroidal_lie_algebras}), we see that the restriction of the bilinear form $(-, -)_{\hat{\g}_{[2]}}$ to $\tilde{\g}_{[2]}$ is not only still symmetric, non-degenerate, and invariant (which has already been inferrable from theorem \ref{theorem: toroidal_lie_bialgebras}) but also, pairs the positive and negative root spaces $\tilde{\g}_{[2]}^+[\pm \alpha]$ orthogonally with one another, in the sense that:
-                $$\forall \alpha, \beta \in \hat{\Phi}: ( \tilde{\g}_{[2]}^+[\alpha], \tilde{\g}_{[2]}^+[\beta] )_{\hat{\g}_{[2]}} \not = 0 \iff \alpha + \beta = 0$$
-            The same can not be said for the \say{negative} counterpart $\tilde{\g}_{[2]}^-$ (and indeed, nor for the whole of $\tilde{\g}_{[2]}$), as it contains the element $K$, which we know to pair as zero with every other element (cf. corollary \ref{coro: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras}).
         \end{remark}
         The remark above immediately prompts the following result:
-        \begin{theorem}[Toroidal Casimir tensors] \label{theorem: toroidal_casimir_tensors}
-            The classical R-matrix $\sfr_{\tilde{\g}_{[2]}^+}$ as in 
-        \end{theorem}
+        \begin{proposition}[Punctured toroidal Lie algebras] \label{prop: punctured_toroidal_lie_algebras}
+            Consider the Lie algebra:
+                $$\punc{\g}_{[2]} := \tilde{\g}_{[2]}/\bbC K$$
+            Clearly, this Lie algebra admits the following triangular decomposition:
+                $$\punc{\g}_{[2]} \cong \tilde{\g}_{[2]}[\hat{\Phi}^-] \oplus \h_{[1]} \oplus \tilde{\g}_{[2]}[\hat{\Phi}^+]$$
+            where $\h_{[1]} := \h \tensor_{\bbC} \bbC[v^{\pm 1}] \cong \tilde{\h}_{[1]}/\bbC K$.
+        
+            Now, there is a symmetric, non-degenerate, and invariant bilinear form $\<-, -\>$ on the Lie algebra $\punc{\g}_{[2]}$ induced from the bilinear form $(-, -)_{\hat{\g}_{[2]}}$ via the canonical quotient map $\tilde{\g}_{[2]} \to \punc{\g}_{[2]}$. It is given in terms of the equivalence class modulo $K$ of the \say{Chevalley-Serre} generators of $\tilde{\g}_{[2]}$ (cf. lemma \ref{lemma: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras}) explicitly by:
+                $$\< E_{\alpha, r}^-, E_{\beta, s}^+ \> = \delta_{(\alpha, r) + (\beta, s), (0, -1)}$$
+                $$\< H_{i, r}, H_{j, s} \> = (\alpha_i^{\vee}, \alpha_j) \delta_{r + s, -1}$$
+        \end{proposition}
+        \begin{corollary}[Punctured toroidal Casimir tensors]
+            The Casimir $2$-tensor associated to the bilinear form $\<-, -\>$ (cf. proposition \ref{prop: punctured_toroidal_lie_algebras}) is given by:
+                $$\sfr_{\punc{\g}_{[2]}} = \sfr_{\hat{\g}_{[1]}} \1(t_1, t_2)$$
+            where $\sfr_{\hat{\g}_{[1]}}$ denotes the Casimir $2$-tensor of the affine Kac-Moody algebra $\hat{\g}_{[1]}$.
+        \end{corollary}
 
     \subsection{Classical limits of universal quantum R-matrices of affine Yangians}
