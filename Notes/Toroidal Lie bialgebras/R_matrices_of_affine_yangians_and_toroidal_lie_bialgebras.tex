@@ -356,7 +356,9 @@
                 $$\punc{\g}_{[2]} \cong \tilde{\g}_{[2]}[\hat{\Phi}^-] \oplus \h_{[1]} \oplus \tilde{\g}_{[2]}[\hat{\Phi}^+]$$
             where $\h_{[1]} := \h \tensor_{\bbC} \bbC[v^{\pm 1}] \cong \tilde{\h}_{[1]}/\bbC K$.
         
-            Now, there is a symmetric, non-degenerate, and invariant bilinear form $\<-, -\>$ on the Lie algebra $\punc{\g}_{[2]}$ induced from the bilinear form $(-, -)_{\hat{\g}_{[2]}}$ via the canonical quotient map $\tilde{\g}_{[2]} \to \punc{\g}_{[2]}$. It is given in terms of the equivalence class modulo $K$ of the \say{Chevalley-Serre} generators of $\tilde{\g}_{[2]}$ (cf. lemma \ref{lemma: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras}) explicitly by:
+            Now, there is a symmetric and non-degenerate bilinear form:
+                $$\<-, -\>$$
+            on the Lie algebra $\punc{\g}_{[2]}$ induced from the bilinear form $(-, -)_{\hat{\g}_{[2]}}$ via the canonical quotient map $\tilde{\g}_{[2]} \to \punc{\g}_{[2]}$. It is given in terms of the equivalence class modulo $K$ of the \say{Chevalley-Serre} generators of $\tilde{\g}_{[2]}$ (cf. lemma \ref{lemma: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras}) explicitly by:
                 $$\< E_{\alpha, r}^-, E_{\beta, s}^+ \> = \delta_{(\alpha, r) + (\beta, s), (0, -1)}$$
                 $$\< H_{i, r}, H_{j, s} \> = (\alpha_i^{\vee}, \alpha_j) \delta_{r + s, -1}$$
         \end{proposition}
@@ -365,5 +367,15 @@
                 $$\sfr_{\punc{\g}_{[2]}} = \sfr_{\hat{\g}_{[1]}} \1(t_1, t_2)$$
             where $\sfr_{\hat{\g}_{[1]}}$ denotes the Casimir $2$-tensor of the affine Kac-Moody algebra $\hat{\g}_{[1]}$.
         \end{corollary}
+        \begin{remark}
+            $\tilde{\g}_{[2]}$ has an infinite-dimensional centre (namely $\z_{[2]} \cong \bigoplus_{(r, s) \in \Z^2} \bbC K_{r, s} \oplus \bbC c_v \oplus \bbC c_t$), so even after taking the quotient modulo $K$ to obtain $\punc{\g}_{[2]}$, one is still left with a Lie algebra with a non-trivial centre (isomorphic to $\bigoplus_{(r, s) \in \Z^2} \bbC K_{r, s} \oplus \bbC c_v$). Since the bilinear form $\<-, -\>$ is non-degenerate, it therefore can \textit{not} be invariant. 
+        \end{remark}
+        \begin{remark}[Root space decompositions for punctured toroidal Lie algebras]
+            It is also clear by construction that:
+                $$\forall \alpha \in \hat{\Phi}: \punc{\g}_{[2]}[\alpha] \cong \tilde{\g}_{[2]}[\alpha]$$
+                $$\punc{\g}_{[2]}[0] \cong \h_{[1]}$$
+            and hence we have the following root space decomposition for $\punc{\g}_{[2]}$:
+                $$\punc{\g}_{[2]} \cong \punc{\g}_{[2]}[0] \oplus \bigoplus_{\alpha \in \hat{\Phi}} \punc{\g}_{[2]}[\alpha]$$
+        \end{remark}
 
     \subsection{Classical limits of universal quantum R-matrices of affine Yangians}
