@@ -213,7 +213,7 @@
             \begin{enumerate}
                 \item If $\alpha \in \Phi^+$ is a positive finite root, then because we have that (cf. lemma \ref{lemma: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras}):
                     $$E_{i, r}^{\pm} \mapsto e_i^{\pm} t^r$$
-                we can \textit{choose}:
+                under the isomorphism $\t \xrightarrow[]{\cong} \tilde{\g}_{[2]}$, we can \textit{choose}:
                     $$E_{\alpha, r}^{\pm} := \ad(E_{i_m, r_m}^{\pm}) \cdot ... \cdot \ad(E_{i_2, r_2}^{\pm}) \cdot E_{i_1, r_1}^{\pm}$$
                 such that:
                     $$\alpha = \sum_{1 \leq j \leq m} \alpha_{i_j}, r = \sum_{1 \leq j \leq m} r_j$$
@@ -223,9 +223,13 @@
                     $$\ad(e_{i_m}^{\pm}) \cdot ... \cdot \ad(e_{i_2}^{\pm}) \cdot e_{i_1}^{\pm}$$
                 span the entire root space $\hat{\g}_{[1]}[\alpha]$. The aforementioned choices of parititions $\alpha = \sum_{1 \leq j \leq m} \alpha_{i_j}$ and $r = \sum_{1 \leq j \leq m} r_j$ are consequently immaterial.
                 
-                \item On the other hand, if $\alpha = \theta$ then:
+                \item On the other hand, if $\alpha$ is a positive imaginary root then because we have that:
                     $$E_{\theta, r}^{\pm} \mapsto e_{\theta}^{\mp} v^{\pm 1} t^r$$
-                and since every imaginary root in $\hat{\Phi}$ is a $\Z$-multiple of $\theta$, 
+                under the isomorphism $\t \xrightarrow[]{\cong} \tilde{\g}_{[2]}$, and because every imaginary root $\theta'$ is a $\Z$-multiple of the lowest positive imaginary root $\theta$ (cf. \cite[Chapter 6]{kac_infinite_dimensional_lie_algebras}), we can always write:
+                    $$E_{\alpha, r}^{\pm} = \ad(e_{\theta}^+)^{n - 1} e_{\theta}^+ v^{\pm n} t^r$$
+                supposing that:
+                    $$\alpha = n \theta$$
+                for some $n \in \Z_{\geq 0}$.
             \end{enumerate}
         \end{remark}
         \begin{proposition}
@@ -242,11 +246,15 @@
                 Using the relations from lemma \ref{lemma: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras}, we can check that the vector spaces $\tilde{\g}_{[2]}[\alpha]$ (for $\alpha \in \hat{\Phi} \cup \{0\}$) are indeed closed under the adjoint action of $\tilde{\h}_{[1]}$:
                 \begin{itemize}
                     \item Obviously, $\tilde{\g}_{[2]}[0] \cong \tilde{\h}_{[1]}$ is an abelian Lie subalgebra of $\tilde{\g}_{[2]}$ so there is nothing to check there. 
-                    \item From lemma \ref{lemma: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras}, we know that:
-                        $$K \mapsto c_t$$
-                    is central as an element of $\tilde{\g}_{[2]}$, so it acts as zero on the vector spaces $\tilde{\g}_{[2]}[\alpha]$. As such, it suffices to check how the elements $H_{i, r}$ act on these vector spaces. 
+                    \item Let us now show that $\tilde{\g}_{[2]}[\alpha]$ is a $\tilde{\h}_{[1]}$-module when $\alpha$ is a real root.
                     
-                    To this end, fix a vertex $i \in \hat{\Gamma}_0$. Next, recall that we have the relations:
+                    From lemma \ref{lemma: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras}, we know that:
+                        $$K \mapsto c_t$$
+                    under the isomorphism $\t \xrightarrow[]{\cong} \tilde{\g}_{[2]}$ and hence is central as an element of $\tilde{\g}_{[2]}$, so it acts as zero on the vector spaces $\tilde{\g}_{[2]}[\alpha]$. As such, it suffices to check how the elements $H_{i, r}$ act on these vector spaces. 
+                    
+                    To this end, fix a vertex:
+                        $$i \in \hat{\Gamma}_0$$
+                    Next, recall that we have the relations:
                         $$[H_{i, r}, E_{j, s}^{\pm}]_{\tilde{\g}_{[2]}} = \pm \frac12 (\alpha_i^{\vee}, \alpha_j) E_{j, r + s}^{\pm}$$
                     If we now pick an arbitrary positive finite root $\alpha \in \Phi^+$, an integer $s \in \Z$, as well as partitions: 
                         $$\alpha = \sum_{1 \leq k \leq m} \alpha_{j_k}, s = \sum_{1 \leq k \leq m} s_k$$
@@ -286,18 +294,61 @@
                         $$K(H_{i, r}, E_{\alpha, s}^{\pm}) = (h_i, e_{\alpha}^{\pm})_{\g} \cdot (...) = 0 \cdot (...) = 0$$
                     so in fact:
                         $$[H_{i, r}, E_{\alpha, s}^{\pm}]_{\tilde{\g}_{[2]}} = \pm \frac12 (\alpha_i^{\vee}, \alpha) E_{\alpha, r + s}^{\pm}$$
-                    This shows that $\tilde{\g}_{[2]}[\alpha]$ is a well-defined $\tilde{\h}_{[1]}$-module. 
+                    This shows that $\tilde{\g}_{[2]}[\alpha]$ is a well-defined $\tilde{\h}_{[1]}$-module whenever $\alpha$ is a real root. 
+                    \item Since every imaginary root in $\hat{\Phi}$ is a $\Z$-multiple of the lowest positive imaginary root, it remains now to only show that:
+                        $$\tilde{\g}_{[2]}[\theta]$$
+                    is a $\tilde{\h}_{[1]}$-module. To this end, fix some $E_{\theta, s}^+ \in \tilde{\g}_{[2]}[\theta]$ as well as some $H_{i, r} \in \tilde{\h}_{[1]}$ and consider the following:
+                        $$
+                            \begin{aligned}
+                                [H_{i, r}, E_{\theta, s}^+]_{\tilde{\g}_[2]} & =
+                                \begin{cases}
+                                    \text{$[h_i t^r, e_{\theta} v^{-1} t^s]_{\tilde{\g}_[2]}$ if $i \in \Gamma_0$}
+                                    \\
+                                    \text{$[h_{\theta} t^r + c_v t^r, e_{\theta} v^{-1} t^s]_{\tilde{\g}_[2]}$ if $i = \theta$}
+                                \end{cases}
+                                \\
+                                & =
+                                \begin{cases}
+                                    \text{$[h_i, e_{\theta}^+]_{\g} v^{-1} t^{r + s} + K(H_{i, r}, E_{\theta, s}^+)$ if $i \in \Gamma_0$}
+                                    \\
+                                    \text{$[h_{\theta}, e_{\theta}^+]_{\g} v^{-1} t^{r + s} + K(H_{\theta, r}, E_{\theta, s}^+)$ if $i = \theta$}
+                                \end{cases}
+                                \\
+                                & = 
+                                \begin{cases}
+                                    \text{$(\alpha_i^{\vee}, \theta) e_{\theta}^+ v^{-1} t^{r + s} + K(H_{i, r}, E_{\theta, s}^+)$ if $i \in \Gamma_0$}
+                                    \\
+                                    \text{$(\theta^{\vee}, \theta) e_{\theta}^+ v^{-1} t^{r + s} + K(H_{\theta, r}, E_{\theta, s}^+)$ if $i = \theta$}
+                                \end{cases}
+                                \\
+                                & = 
+                                \begin{cases}
+                                    \text{$K(H_{i, r}, E_{\theta, s}^+)$ if $i \in \Gamma_0$}
+                                    \\
+                                    \text{$(\theta^{\vee}, \theta) e_{\theta}^+ v^{-1} t^{r + s} + K(H_{\theta, r}, E_{\theta, s}^+)$ if $i = \theta$}
+                                \end{cases}
+                            \end{aligned}
+                        $$
+                    in which $K(H_{i, r}, E_{\theta, s}^+)$ is the central summand of the commutator $[h_i t^r, e_{\theta} v^{-1} t^s]_{\tilde{\g}_[2]}$ (where $i \in \hat{\Gamma}_0$ is any vertex of the affine Dynkin diagram); also, the second equality holds thanks to the fact that $c_v \in \tilde{\g}_{[2]}$ is central. Now, by arguing as in the previous case, we can also show that:
+                        $$\forall i \in \hat{\Gamma}_0: K(H_{i, r}, E_{\theta, s}^+) = 0$$
+                    and so in fact, we have that:
+                        $$
+                            [H_{i, r}, E_{\theta, s}^+]_{\tilde{\g}_[2]}
+                            =
+                            \begin{cases}
+                                \text{$0$ if $i \in \Gamma_0$}
+                                \\
+                                \text{$(\theta^{\vee}, \theta) e_{\theta}^+ v^{-1} t^{r + s}$ if $i = \theta$}
+                            \end{cases}
+                        $$
+                    From this, we infer that indeed, $\tilde{\g}_{[2]}[\theta]$ is a well-defined $\tilde{\h}_{[1]}$-module just as we desired for it to be. 
                 \end{itemize}
 
                 The analysis above shows also that firstly, for each root $\alpha \in \hat{\Phi}$, the corresponding vector space $\tilde{\g}_{[2]}[\alpha]$ is indeed the weight space of the $\tilde{\g}_{[1]}$-module $\tilde{\g}_{[2]}$ that is of weight $\alpha$ and secondly, that the weight-$0$ subspace of $\tilde{\g}_{[2]}$ is precisely $\tilde{\g}_{[2]}[0] \cong \tilde{\h}_{[1]}$. Our notations are thus justified. 
 
                 Now that we know that $\tilde{\g}_{[2]}$ is a well-defined $\tilde{\h}_{[1]}$-module and that the vector subspaces $\tilde{\g}_{[2]}[\alpha]$ (for $\alpha \in \hat{\Phi} \cup \{0\}$) are well-defined submodules, it remains to only demonstrate that:
                     $$\tilde{\g}_{[2]}[\alpha] \cap \tilde{\g}_{[2]}[\beta] = \{0\}$$
-                for any $\alpha \not = \beta \in \hat{\Phi} \cup \{0\}$. We have seen that:
-                    $$[H_{i, r}, E_{\alpha, s}^{\pm}]_{\tilde{\g}_{[2]}} = \pm \frac12 (\alpha_i^{\vee}, \alpha) E_{\alpha, r + s}^{\pm}$$
-                for each positive root $\alpha \in \hat{\Phi}^+$, so elements of $\tilde{\g}_{[2]}[\alpha]$ when acted on by elements $H_{i, r} \in \tilde{\h}_{[1]}$ will have eigenvalue $\frac12 (\alpha_i^{\vee}, \alpha)$ and if $\alpha \not = \beta$ are two distinct positive roots, then:
-                    $$(\alpha_i^{\vee}, \alpha) \not = (\alpha_i^{\vee}, \beta)$$
-                \textit{a priori}. Because eigenspaces of different eigenvalues intersect only at $0$, we are done.
+                for any $\alpha \not = \beta \in \hat{\Phi} \cup \{0\}$. This is automatically true if we assume that $\alpha \not = \beta$, as this implies that elements of $\tilde{\g}_{[2]}[\alpha], \tilde{\g}_{[2]}[\beta]$, when acted upon by those of $\tilde{\h}_{[1]}$, will be of different eigenvalues.
             \end{proof}
         \begin{corollary}
             Set:
@@ -367,8 +418,8 @@
                 $$\sfr_{\punc{\g}_{[2]}} = \sfr_{\hat{\g}_{[1]}} \1(t_1, t_2)$$
             where $\sfr_{\hat{\g}_{[1]}}$ denotes the Casimir $2$-tensor of the affine Kac-Moody algebra $\hat{\g}_{[1]}$.
         \end{corollary}
-        \begin{remark}
-            $\tilde{\g}_{[2]}$ has an infinite-dimensional centre (namely $\z_{[2]} \cong \bigoplus_{(r, s) \in \Z^2} \bbC K_{r, s} \oplus \bbC c_v \oplus \bbC c_t$), so even after taking the quotient modulo $K$ to obtain $\punc{\g}_{[2]}$, one is still left with a Lie algebra with a non-trivial centre (isomorphic to $\bigoplus_{(r, s) \in \Z^2} \bbC K_{r, s} \oplus \bbC c_v$). Since the bilinear form $\<-, -\>$ is non-degenerate, it therefore can \textit{not} be invariant. 
+        \begin{remark}[Failure of invariance]
+            $\tilde{\g}_{[2]}$ has an infinite-dimensional centre (namely $\z_{[2]} \cong \bigoplus_{(r, s) \in \Z^2} \bbC K_{r, s} \oplus \bbC c_v \oplus \bbC c_t$), so even after taking the quotient modulo $K$ to obtain $\punc{\g}_{[2]}$, one is still left with a Lie algebra with a non-trivial centre (isomorphic to $\bigoplus_{(r, s) \in \Z^2} \bbC K_{r, s} \oplus \bbC c_v$). Since the bilinear form $\<-, -\>$ is non-degenerate, it therefore can \textit{not} be invariant.
         \end{remark}
         \begin{remark}[Root space decompositions for punctured toroidal Lie algebras]
             It is also clear by construction that:
