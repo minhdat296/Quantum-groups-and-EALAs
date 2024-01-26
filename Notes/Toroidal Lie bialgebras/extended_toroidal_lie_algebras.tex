@@ -9,6 +9,16 @@
         Eventually, we will also be concerned with the Dynkin diagram associated to the root system of $\g$. Let us denote this by:
             $$\Gamma := (\Gamma_0, \Gamma_1)$$
         wherein $\Gamma_0$ means the (finite) set of vertices and $\Gamma_1$ means the set of undirected edges between said vertices. 
+
+        The set of all roots and respectively, positive/negative roots, and simple roots of $\g$ shall be denoted by:
+            $$\Phi, \Phi^{\pm}, \Phi^{\circ}$$
+        The set $\Phi^{\circ}$ is $\Z$-linearly independent and its $\Z$-span:
+            $$Q := \Z \Phi^{\circ}$$
+        is typically referred to as the root lattice of $\g$. Recall also that there is a set of fundamental weights: if we write:
+            $$\check{\Phi}$$
+        for the set of coroots of $\g$, then the so-called weight lattice of $\g$ shall be given by\footnote{We avoid the usual $\Delta$ notation, as we would like to reserve this symbol for a coproduct construction on affine Yangians.}:
+            $$\Pi := \Hom_{\Z}(\check{Q}, \Z), \check{Q} := \Z\check{\Phi}$$
+        inside which lies the set of fundamental weights, whose elements are dual to those of $\check{\Phi}^{\circ}$ (i.e. dual to simple coroots) with respect to $(-, -)_{\g}$\footnote{Which we might as well normalise so that $(\alpha_j, \check{\alpha}_j)_{\g} = 2$ for every $j \in \Gamma_0$, and hence the fundamental weights $\lambda_i$ will be simply be subjected to the relation $\delta_{ij} = 2 \frac{(\lambda_i, \check{\alpha}_i)_{\g}}{(\alpha_j, \check{\alpha}_j)_{\g}} = (\lambda_i, \check{\alpha}_i)_{\g}$.}.
     \end{convention}
 
     \begin{convention}
@@ -667,17 +677,107 @@
         \end{corollary} 
         In light of the above, it is also valuable to know how the $\d_{[2]}$-summand of the commutators:
             $$[D, D']_{\hat{\g}_{[2]}}$$
-        are given explicitly. We make these computations also just for the sake of completeness.  
-        \begin{proposition}[Explicitly commutators between basis elements of $\d_{[2]}$]
+        are given explicitly. Later on, these computations will be used to prove that the centre of $\hat{\g}_{[2]}$ is $2$-dimensional, namely given by $\bbC c_v \oplus \bbC c_v$.
+        \begin{lemma}[Explicitly commutators between basis elements of $\d_{[2]}$] \label{lemma: explicit_commutators_between_basis_elements_of_toroidal_central_orthogonal_complement}
             The usual commutator (i.e. $[D, D'] := DD' - D'D$) between the basis elements $D_{r, s}, D_v, D_t \in \d_{[2]}$ are given as follows:
-                $$[D_{a, b}, D_{r, s}] = (br - sa) D_{a + r, b + s + 1}$$
+                $$[D_v, D_t] = 0$$
                 $$[D_v, D_{r, s}] = r D_{r, s + 1}$$
                 $$[D_t, D_{r, s}] = D_{r, s + 1}$$
-                $$[D_v, D_t] = 0$$
-        \end{proposition}
+                $$[D_{a, b}, D_{r, s}] = (br - sa) D_{a + r, b + s + 1}$$
+        \end{lemma}
             \begin{proof}
-                \todo[inline]{Can we prove this quickly using invariance somehow ?} 
+                \begin{enumerate}
+                    \item Since we know that:
+                        $$D_v = -vt^{-1} \del_v, D_t = -\del_t$$
+                    (cf. remark \ref{remark: dual_of_toroidal_centres_contains_derivations}), it is therefore trivial that:
+                        $$[D_v, D_t] = 0$$
+                    \item From remark \ref{remark: derivation_action_on_multiloop_algebras}, we know that:
+                        $$D_v(v^m t^p) = -m v^m t^{p - 1}$$
+                        $$D_{r, s}(v^m t^p) = ( ms - rp ) v^{m - r} t^{p - s - 1}$$
+                    From this, we infer that:
+                        $$
+                            \begin{aligned}
+                                [D_v, D_{r, s}](v^m t^p) & = D_v( D_{r, s}(v^m t^p) ) - D_{r, s}( D_v(v^m t^p) )
+                                \\
+                                & = (ms - rp) D_v( v^{m - r} t^{p - s - 1} ) + m D_{r, s}( v^m t^{p - 1} )
+                                \\
+                                & = -(m - r)(ms - rp) v^{m - r} t^{p - s - 2} + (ms - r(p - 1)) m v^{m - r} t^{p - s - 2}
+                                \\
+                                & = r(m(s + 1) - rp) v^{m - r} t^{p - (s + 1) - 1}
+                                \\
+                                & = r D_{r, s + 1}(v^m t^p)
+                            \end{aligned}
+                        $$
+                    and hence:
+                        $$[D_v, D_{r, s}] = r D_{r, s + 1}$$
+                    \item Likewise, we can show that:
+                        $$[D_t, D_{r, s}] = D_{r, s + 1}$$
+                    \item Lastly, we can also show, using a completely analogous argument, that:
+                        $$[D_{a, b}, D_{r, s}] = (br - sa) D_{a + r, b + s + 1}$$
+                \end{enumerate}
             \end{proof}
+        By exploiting invariance again, we are able to obtain the following corollary to the lemma above, concerning commutators between elements of $\z_{[2]}$ and those of $\d_{[2]}$ (which are already known to be elements of $\z_{[2]}$; cf. remark \ref{remark: derivation_action_on_toroidal_centres}). Due to its usefulness, we nevertheless grant it lemma-hood.
+        \begin{lemma}[Explicit commutators between basis elements of $\d_{[2]}$ and $\z_{[2]}$] \label{lemma: explicit_commutators_between_central_basis_elements_and_derivations}
+            In the Lie algebra $\hat{\g}_{[2]}$, one has the following non-trivial relations between elements of $\z_{[2]}$ and those of $\d_{[2]}$:
+                $$
+                    \forall (a, b) \in \Z^2: [D, K_{a, b}]_{\hat{\g}_{[2]}} =
+                    \begin{cases}
+                        \text{$((b - 1)r - sa) D_{a - r, b - s - 1}$ if $D = D_{r, s}$}
+                        \\
+                        \text{$-r K_{a, b - 1}$ if $D = D_v$}
+                        \\
+                        \text{$- D_{a, b - 1}$ if $D = D_t$}
+                    \end{cases}
+                $$
+                $$[\d_{[2]}, c_v]_{\hat{\g}_{[2]}} = [\d_{[2]}, c_t]_{\hat{\g}_{[2]}} = 0 = 0$$
+        \end{lemma}
+            \begin{proof}
+                Firstly, let us note that we need not assume that:
+                    $$\hat{\g}_{[2]} \cong \tilde{\g}_{[2]}$$
+            
+                For a moment, consider two arbitrary derivations $D', D \in \d_{[2]}$ along with an arbitrary element $K \in \z_{[2]}$. Suppose also that:
+                    $$[D', D]_{\hat{\g}_{[2]}} = [D', D] + K(D', D)$$
+                for some $K(D', D) \in \z_{[2]}$ (cf. proposition \ref{prop: lie_bracket_on_orthogonal_complement_of_toroidal_centre}). Using the invariance property of the bilinear form $(-, -)_{\hat{\g}_{[2]}}$ as well as the fact that:
+                    $$(\z_{[2]}, \z_{[2]})_{\hat{\g}_{[2]}} = 0$$
+                per the construction of $(-, -)_{\hat{\g}_{[2]}}$ (cf. convention \ref{conv: orthogonal_complement_of_toroidal_centres}), one gets:
+                    $$([D', D], K)_{\hat{\g}_{[2]}} = ([D', D] + K(D', D), K)_{\hat{\g}_{[2]}} = ([D', D]_{\hat{\g}_{[2]}}, K)_{\hat{\g}_{[2]}} = (D', [D, K]_{\hat{\g}_{[2]}})_{\hat{\g}_{[2]}}$$
+                Since we know how the ordinary commutators:
+                    $$[D', D]$$
+                are given and particularly, how if $D', D \in \d_{[2]}$ are basis elements then their commutator $[D', D]$ will be in the span of a single basis element of $\d_{[2]}$ (cf. lemma \ref{lemma: explicit_commutators_between_basis_elements_of_toroidal_central_orthogonal_complement}), as well as how $\d_{[2]}$ is the orthogonal complement of $\z_{[2]}$ with respect to $(-, -)_{\hat{\g}_{[2]}}$ by construction, it remains now to simply specialise to the case wherein $K$ is some basis element of $\z_{[2]}$. 
+                \begin{enumerate}
+                    \item If:
+                        $$K = K_{a, b}$$
+                    for some fixed $(a, b) \in \Z^2$ then:
+                        $$([D', D], K_{a, b})_{\hat{\g}_{[2]}} = 1 \iff [D', D] = D_{a, b}$$
+                    Hence, we have that:
+                        $$1 = (D_{a, b}, K_{a, b})_{\hat{\g}_{[2]}} = ([D', D], K_{a, b})_{\hat{\g}_{[2]}} = (D', [D, K_{a, b}]_{\hat{\g}_{[2]}})_{\hat{\g}_{[2]}}$$
+                    Using the commutators computed in lemma \ref{lemma: explicit_commutators_between_basis_elements_of_toroidal_central_orthogonal_complement}, we then see that:
+                        $$
+                            [D, K_{a, b}]_{\hat{\g}_{[2]}} =
+                            \begin{cases}
+                                \text{$((b - 1)r - sa) D_{a - r, b - s - 1}$ if $D = D_{r, s}$}
+                                \\
+                                \text{$-r K_{a, b - 1}$ if $D = D_v$}
+                                \\
+                                \text{$- D_{a, b - 1}$ if $D = D_t$}
+                            \end{cases}
+                        $$
+                    \item If:
+                        $$K = c_v$$
+                    then we have that:
+                        $$([D', D], c_v)_{\hat{\g}_{[2]}} = 1 \iff [D', D] = D_v$$
+                    which in turn implies that:
+                        $$1 = (D_v, K_v)_{\hat{\g}_{[2]}} = ([D', D], c_v)_{\hat{\g}_{[2]}} = (D', [D, c_v]_{\hat{\g}_{[2]}})_{\hat{\g}_{[2]}}$$
+                    Once again, by using the commutators computed in lemma \ref{lemma: explicit_commutators_between_basis_elements_of_toroidal_central_orthogonal_complement}, we then see that:
+                        $$\forall D \in \{D_{r, s}\}_{(r, s) \in \Z^2} \cup \{D_v, D_t\}: [D, c_v]_{\hat{\g}_{[2]}} = 0$$
+                    and since the set $\{D_{r, s}\}_{(r, s) \in \Z^2} \cup \{D_v, D_t\}$ is a basis for $\d_{[2]}$, one thus has that:
+                        $$[\d_{[2]}, c_v]_{\hat{\g}_{[2]}} = 0$$
+                    as none of said commutators are elements of $\bbC D_v$.
+                    \item Likewise, one can show that:
+                        $$[\d_{[2]}, c_t]_{\hat{\g}_{[2]}} = 0$$
+                \end{enumerate}
+            \end{proof}
+        We will also see that in fact, the centre of $\hat{\g}_{[2]}$ is actually just spanend by $c_v$ and $c_t$. See proposition \ref{prop: centres_of_extended_toroidal_lie_algebras} and the discussion preceding it for more details. 
         
         \begin{question}[A different Lie bracket on $\der_{\bbC}(A_{[2]})$ ?] \label{question: alternative_derivation_lie_bracket}
             Is there a Lie algebra structure $\der_{\bbC}(A_{[2]})$ (different from the standard one given by commutators $[D, D'] := DD' - D'D$) with respect to which $\d_{[2]}$ is always a Lie subalgebra ? 
@@ -736,7 +836,7 @@
                 $$[\d_{[2]}, \d_{[2]}]_{\hat{\g}_{[2]}} \subset \z_{[2]} \oplus \d_{[2]}$$
             we can obtain some $2$-cocyles $\bar{\sigma} \in H^2_{\Lie}(\d_{[2]}, \z_{[2]})$ by restricting elements $\sigma \in H^2_{\Lie}(\der_{\bbC}(A_{[2]}), \z_{[2]})$, some of which are known.
 
-            It pays to abstract the situation out to the $n$-variable case for a moment, mostly for us to make the point that the dimension of the vector space $H^2_{\Lie}(\der_{\bbC}(A_{[n]}), \bar{\Omega}_{[n]})$ depends not on the number of variables. In \cite[pp. 5, below Equation 1.3]{billig_energy_momentum_tensor}, it was noted that\todo{Find a proper citation for this. \textit{Loc. cit.} does not provide one.}:
+            It pays to abstract the situation out to the $n$-variable case for a moment, mostly for us to make the point that the dimension of the vector space $H^2_{\Lie}(\der_{\bbC}(A_{[n]}), \bar{\Omega}_{[n]})$ depends not on the number of variables. In \cite[pp. 5, below Equation 1.3]{billig_energy_momentum_tensor}, it was noted that\todo{Find a proper citation for this. \cite{billig_energy_momentum_tensor} does not provide one.}:
                 $$H^2_{\Lie}(\der_{\bbC}(A_{[n]}), \bar{\Omega}_{[n]}) \cong \bbC \sigma_1 \oplus \bbC \sigma_2$$
             with the $2$-cocyles $\sigma_1, \sigma_2$ twisting the Lie brackets:
                 $$[v_1^{m_1} ... v_n^{m_n} v_p \del_{v_p}, v_1^{r_1} ... v_n^{r_n} v_q \del_{v_q}] \in \der_{\bbC}(A_{[n]})$$
@@ -839,12 +939,15 @@
             The centre $\hat{\z}_{[2]}$ is a two-dimensional Lie subalgebra of $\z_{[2]}$, namely spanned by $c_v$ and $c_t$. 
         \end{proposition}
             \begin{proof}
-                Since we know that $(\z_{[2]}, \g_{[2]} \oplus \z_{[2]})_{\hat{\g}_{[2]}} = 0$, in order to see that $\hat{\z}_{[2]} = \bbC c_v \oplus \bbC c_t$, it suffices to consider $(\hat{\z}_{[2]}, [\d_{[2]}, \d_{[2]}]_{\hat{\g}_{[2]}})$, as we know that $[\d_{[2]}, \d_{[2]}]_{\hat{\g}_{[2]}} \subset \z_{[2]} \oplus \d_{[2]}$, (cf. proposition \ref{prop: lie_bracket_on_orthogonal_complement_of_toroidal_centre}). Towards this end, we can assume without any loss of generality to only consider the case:
-                    $$[\d_{[2]}, \d_{[2]}]_{\hat{\g}_{[2]}} \subset \d_{[2]}$$
-                (according to proposition \ref{prop: lie_bracket_on_orthogonal_complement_of_toroidal_centre}, we have the freedom to choose the $\z_{[2]}$-component of the brackets of the elements of $\d_{[2]}$). Some straightforward (but tedious) computations shall show that:
-                    $$[\d_{[2]}, \d_{[2]}]_{\hat{\g}_{[2]}} \subseteq \bigoplus_{(r, s) \in \Z^2} \bbC D_{r, s}$$
-                thus implying that:
-                    $$(\bbC c_v \oplus \bbC c_v, [\d_{[2]}, \d_{[2]}]_{\hat{\g}_{[2]}})_{\hat{\g}_{[2]}} = 0$$
-                and hence:
-                    $$\hat{\z}_{[2]} = \bbC c_v \oplus \bbC c_v$$
+                Since we know that:
+                    $$\hat{\z}_{[2]} \subset \z_{[2]}$$
+                and that the only possibly non-zero bracket with elements of $\z_{[2]}$ are elements of $[\d_{[2]}, \z_{[2]}]_{\hat{\g}_{[2]}}$, and since we also know from lemma \ref{lemma: explicit_commutators_between_central_basis_elements_and_derivations} that:
+                    $$[\d_{[2]}, K]_{\hat{\g}_{[2]}} = 0 \iff K \in \bbC c_v \oplus \bbC c_v$$
+                we can conclude immediately that:
+                    $$\hat{\z}_{[2]} = \bbC c_v \oplus \bbC c_t$$
             \end{proof}
+        \begin{remark}
+            It is rather interesting that:
+                $$\hat{\z}_{[2]} \cong \bbC c_v \oplus \bbC c_t$$
+            as this is in good analogy with the affine Kac-Moody case, where the centre of $\hat{\g}_{[1]}$ is $1$-dimensional, namely spanned by the element $c_v$. 
+        \end{remark}

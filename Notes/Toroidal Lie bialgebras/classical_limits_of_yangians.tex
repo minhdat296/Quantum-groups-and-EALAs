@@ -33,7 +33,7 @@
             whose elements are subjected to the following relations, given for all $(i, r), (j, s) \in \hat{\Gamma}_0 \x \Z$:
                 $$[\t, K] = 0$$
                 $$[ H_{i, r}, H_{j, s} ] = 0$$
-                $$[ H_{i, r}, E_{j, s}^{\pm} ] = \pm 2 d_{ij} E_{j, r + s}^{\pm}$$
+                $$[ H_{i, r}, E_{j, s}^{\pm} ] = \pm (\alpha_j, \check{\alpha}_i) E_{j, r + s}^{\pm}$$
                 $$[ E_{i, r}^+, E_{j, s}^- ] = \delta_{ij} H_{i, r + s}$$
                 $$[ E_{i, r + 1}^{\pm}, E_{j, s}^{\pm} ] - [ E_{i, r}^{\pm}, E_{j, s + 1}^{\pm} ] = 0$$
             The isomorphism $\t \xrightarrow[]{\cong} \tilde{\g}_{[2]}$ in question is given as follows, for all $(i, r) \in \hat{\Gamma}_0 \x \Z$:
@@ -77,9 +77,9 @@
                 \item such that, for any $i < j \in \Gamma_0$ (with respect to some choice of total ordering on $\Gamma_0$) the following $2 \x 2$ matrix is invertible:
                     $$
                         \begin{pmatrix}
-                            a_{ii} & a_{ij}
+                            c_{ii} & c_{ij}
                             \\
-                            a_{ji} & a_{ji}
+                            c_{ji} & c_{ji}
                         \end{pmatrix}
                     $$
             \end{itemize}
@@ -100,7 +100,7 @@
                 $$[\t, K] = 0$$
                 $$H_{i, 0} = h_i, E_{i, 0}^{\pm} = e_i^{\pm}$$
                 $$[ H_{i, r}, H_{j, s} ] = 0$$
-                $$[ H_{i, 0}, E_{j, s}^{\pm} ] = \pm 2 d_{ij} E_{j, s}^{\pm}$$
+                $$[ H_{i, 0}, E_{j, s}^{\pm} ] = \pm (\alpha_j, \check{\alpha}_i) E_{j, s}^{\pm}$$
                 $$[ E_{i, r}^+, E_{j, s}^- ] = \delta_{ij} H_{i, r + s}$$
                 $$[ E_{i, 1}^{\pm}, E_{j, 0}^{\pm} ] - [ E_{i, 0}^{\pm}, E_{j, 1}^{\pm} ] = 0$$
             The isomorphism $\t \xrightarrow[]{\cong} \tilde{\g}_{[2]}$ in question is as in lemma \ref{lemma: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras}.
@@ -468,7 +468,7 @@
             \begin{itemize}
                 \item Every object $V \in \Ob(\calO)$ is $\hat{\h}_{[1]}$-diagonalisable and with finite-dimensional ($\h$-)weight spaces, and
                 \item For every object $V \in \Ob(\calO)$, there exist \textbf{maximal weights} $\lambda_1, ..., \lambda_k \in \hat{\h}_{[1]}^*$ such that, for any $\mu \in \Pi(V)$, one has that:
-                    $$\forall 1 \leq i \leq k: \lambda_i - \mu \in \hat{\Lambda}^+$$
+                    $$\forall 1 \leq i \leq k: \lambda_i - \mu \in \hat{Q}^+$$
             \end{itemize}
 
             The aforementioned category $\calO$ of $\rmY(\hat{\g}_{[1]})$ is closed under tensor products over $\bbC$, i.e. if $V_1, V_2$ are any two objects of the category $\calO$, then there will be a $\bbC$-algebra homomorphism:
