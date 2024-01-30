@@ -185,7 +185,7 @@
             Classify the singularities of $\sfr_{\tilde{\g}_{[2]}^+} = \sfr_{\hat{\g}_{[2]}^+}$ and compare them to those of the universal quantum R-matrix of $\rmY_{\hbar}(\hat{\g}_{[1]})$. 
         \end{question}
 
-    \subsection{\textit{Interlude}: Root space and triangular decompositions for Yangian extended toroidal Lie algebras}
+    \subsection{\textit{Interlude}: A root space decomposition for Yangian extended toroidal Lie algebras}
         As is now standard practice in infinite-dimensional Lie theory, infinite-dimensional Lie algebra induced from finite-dimensional simple Lie algebras ought to carry a grading by some kind of induced \say{higher root lattice} (e.g. affine Kac-Moody algebras are graded by the affinisations of the root lattices of the underlying finite-dimensional simple Lie algebras; cf. \cite[Chapter 6]{kac_infinite_dimensional_lie_algebras}). There are many reasons as to why one might seek to endow Lie algebras with such gradings, but one rather important reason is that without a root grading of some sort - which in turn would give rise to some kind of triangular decomposition - one would have no hope of setting up a theory of highest-weight modules which, from practical experiences with cases such as $\g$ and $\hat{\g}_{[1]}$, we know to be an extremely powerful method for attacking the problem of classifying say, simple modules over Lie algebras. Therfore, it is natural to ask the question of whether or not our Yangian extended toroidal Lie algebra $\hat{\g}_{[2]}$ can also be endowed with such an induced grading, primarily because $\hat{\g}_{[2]}$ carries a non-degenerate invariant symmetric bilinear form.
 
         \newpage
@@ -236,15 +236,15 @@
                 (i.e. $x, y \in \h$) then:
                     $$[x, y] \in \h$$
                 and hence:
-                    $$\deg [x, y]_{\g} v^{m + n} t^{p + q} = \deg K_{m + n, p + q} = (0, -(m + n))$$
+                    $$\deg [x, y]_{\g} v^{m + n} t^{p + q} = \deg K_{m + n, p + q} = (0, m + n)$$
                 On the other hand, if:
                     $$\alpha + \beta \not = 0$$
                 then:
                     $$[x, y] \in \n^- \oplus \n^+$$
-                which means in particular that $x, y$ are nilpotent under the vector representation of $\g$, and hence:
+                which means in particular that at leeast either $x$ or $y$ is nilpotent under the vector representation of $\g$, and hence:
                     $$(x, y)_{\g} = 0$$
                 as $(-, -)_{\g}$ is some non-zero multiple of the trace form, and traces of nilpotent matrices are equally $0$. Hence, in this case, we have that:
-                    $$\deg [x v^m t^p, y v^n t^q]_{\tilde{\g}_{[2]}} = \deg [x, y]_{\g} v^{m + n} t^{p + q} = (\alpha + \beta, -(m + n))$$
+                    $$\deg [x v^m t^p, y v^n t^q]_{\tilde{\g}_{[2]}} = \deg [x, y]_{\g} v^{m + n} t^{p + q} = (\alpha + \beta, m + n)$$
                 Both cases together show that the constructed $Q \x \Z$-grading on $\tilde{\g}_{[2]}$ is well-defined. 
                 
                 Secondly, note that from how commutators of elements of $\d_{[2]} := \bigoplus_{(r, s) \in \Z^2} \bbC D_{r, s} \oplus \bbC D_v \oplus \bbC D_t$ are given (cf. lemma \ref{lemma: explicit_commutators_between_basis_elements_of_toroidal_central_orthogonal_complement}), one sees that:
@@ -275,12 +275,7 @@
             The weight spaces of the adjoint action of $\hat{\g}_{[1]}$ on $\hat{\g}_{[2]}$ can be given explicitly in terms of the basis elements of the latter in the following manner:
                 $$\forall (\alpha, m) \in \Phi \x \Z: \hat{\g}_{[2]}[\alpha + m\delta] \cong \hat{\g}_{[1]}[\alpha + m\delta] \tensor_{\bbC} \bbC[t^{\pm 1}]$$
                 $$
-                    \forall r \in \Z \setminus \{0\}: \hat{\g}_{[2]}[r \delta] \cong
-                    \begin{cases}
-                        \text{$\hat{\g}_{[1]}[r \delta] \oplus \bigoplus_{s \in \Z} \bbC K_{r, s}$ if $r > 0$}
-                        \\
-                        \text{$\hat{\g}_{[1]}[r \delta] \oplus \bigoplus_{s \in \Z} \bbC D_{r, s}$ if $r < 0$}
-                    \end{cases}
+                    \forall r \in \Z \setminus \{0\}: \hat{\g}_{[2]}[r \delta] \cong \hat{\g}_{[1]}[r \delta] \tensor_{\bbC} \bbC[t^{\pm 1}] \oplus \bigoplus_{s \in \Z} \bbC (K_{r, s} \oplus D_{-r, s})
                 $$
                 $$\hat{\g}_{[2]}[0] \cong \h \oplus (\bbC c_v \oplus \bbC c_t) \oplus (\bbC D_v \oplus \bbC D_t)$$
             Furthermore, $\hat{\g}_{[2]}$ is a weight module of $\hat{\g}_{[1]}$, i.e.:
@@ -363,23 +358,90 @@
             \end{enumerate}
 
             In conclusion, we have that:
-                $$\hat{\Phi}_{[2]} \cong \Phi \cup \{\delta_v, \delta_t\} \cong \hat{\Phi}_{[1]} \cup \{\delta_t\}$$
-            where $\hat{\Phi}_{[1]} := \hat{\Phi}$ is the root system of the affine Kac-Moody algebra $\hat{\g}_{[1]}$.
+                $$\hat{\Phi}_{[2]} \cong \Phi \cup (\Z \delta_v \setminus \{0\}) \cup (\Z \delta_t \setminus \{0\}) \cong \hat{\Phi}_{[1]} \cup \Z \delta_t \setminus \{0\}$$
+            where $\hat{\Phi}_{[1]} := \hat{\Phi}$ is the root system of the affine Kac-Moody algebra $\hat{\g}_{[1]}$. This allows us to rewrite the root space decomposition of $\hat{\g}_{[2]}$, as discussed in theorem \ref{theorem: root_space_decomposition_for_extended_toroidal_lie_algebras}, in the following more meaningful manner:
+                $$\hat{\g}_{[2]} \cong \bigoplus_{\beta \in \hat{\Phi}_{[2]} \cup \{0\}} \hat{\g}_{[2]}[\beta]$$
+
+            Note also that the set $\hat{\Phi}_{[2]}$ satisfies also some (but not all) the properties expected of an abstract root system. 
+
+            \todo[inline]{What are the simple roots, positive/negative roots ?}
         \end{remark}
+        The following result is nothing but a formal consequence of the discussion above.
+        \begin{proposition}[Triangular decomposition of extended toroidal Lie algebras] \label{prop: triangular_decomposition_of_extended_toroidal_lie_algebras}
+            Set:
+                $$\hat{\g}_{[2]}[\hat{\Phi}_{[2]}^{\pm}] := \bigoplus_{\beta \in \hat{\Phi}_{[2]}^{\pm}} \hat{\g}_{[2]}[\beta]$$
+        
+            The root space decomposition of the Lie algebra $\hat{\g}_{[2]}$ (respectively, of $\hat{\g}_{[2]}^{\pm}$) induces a triangular decomposition thereof as follows:
+                $$\hat{\g}_{[2]} \cong \hat{\g}_{[2]}[\hat{\Phi}_{[2]}^-] \oplus \hat{\g}_{[2]}[0] \oplus \hat{\g}_{[2]}[\hat{\Phi}_{[2]}^+]$$
+        \end{proposition}
+        Remark \ref{remark: toroidal_root_systems} also prompts the following result.
+        \begin{lemma}[Chevalley-Serre presentation for extended toroidal Lie algebras] \label{lemma: chevalley_serre_presentation_for_extended_toroidal_lie_algebras}
+            The extended toroidal Lie algebra $\hat{\g}_{[2]}$ is isomorphic to the Lie algebra $\hat{\t}$ generated by the set:
+                $$\{ H_{i, r}, E_{i, r}^{\pm} \}_{(i, r) \in \hat{\Gamma}_0 \x \Z} \cup \{K, D\}$$
+            whose elements are subjected to the following relations, given for all $(i, r), (j, s) \in \hat{\Gamma}_0 \x \Z$:
+                $$[ H_{i, r}, H_{j, s} ] = 0$$
+                $$[ H_{i, r}, E_{j, s}^{\pm} ] = \pm (\alpha_j, \check{\alpha}_i) E_{j, r + s}^{\pm}$$
+                $$[ E_{i, r}^+, E_{j, s}^- ] = \delta_{ij} H_{i, r + s}$$
+                $$[ E_{i, r + 1}^{\pm}, E_{j, s}^{\pm} ] - [ E_{i, r}^{\pm}, E_{j, s + 1}^{\pm} ] = 0$$
+                $$[K, \hat{\t}] = 0$$
+                $$[D, H_{i, r}] = -r H_{i, r}, [D, E_{i, r}^{\pm}] = -r E_{i, r}^{\pm}$$
+            The isomorphism $\hat{\t} \xrightarrow[]{\cong} \hat{\g}_{[2]}$ in question is given as follows, for all $(i, r) \in \hat{\Gamma}_0 \x \Z$:
+                $$\forall (i, r) \in \Gamma_0 \x \Z: E_{i, r}^{\pm} \mapsto e_i^{\pm} t^r, H_{i, r} \mapsto h_i t^r$$
+                $$\forall (i, r) \in \{\theta\} \x \Z: E_{\theta, r}^{\pm} \mapsto e_{\theta}^{\mp} v^{\pm 1} t^r, H_{\theta, r} \mapsto h_{\theta} t^r + c_v t^r$$
+                $$K \mapsto c_t$$
+                $$D \mapsto D_t$$
+        \end{lemma}
+            \begin{proof}
+                Clear from a combination of lemma \ref{lemma: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras} and remark \ref{remark: toroidal_root_systems}.
+            \end{proof}
+        \begin{corollary} \label{coro: chevalley_serre_presentation_for_extended_toroidal_lie_algebras}
+            The Lie algebras $\hat{\g}_{[2]}^{\pm}$ is isomorphic to the Lie algebras $\hat{\t}^{\pm}$ generated, respectively, by the sets:
+                $$\{ E_{i, r}^{\pm}, H_{i, r} \}_{(i, r) \in \Gamma_0 \x \Z_{\geq 0}} \cup \{D\}$$
+                $$\{ E_{i, r}^{\pm}, H_{i, r} \}_{(i, r) \in \Gamma_0 \x \Z_{< 0}} \cup \{K\}$$
+            whose elements are subjected to the same relations as in lemma \ref{lemma: chevalley_serre_presentation_for_extended_toroidal_lie_algebras}. The isomorphisms $\hat{\t}^{\pm} \xrightarrow[]{\cong} \hat{\g}_{[2]}^{\pm}$ in question are just codomain restrictions of the isomorphism $\hat{\t} \xrightarrow[]{\cong} \hat{\g}_{[2]}$ from \textit{loc. cit.}
+        \end{corollary}
+        \begin{remark}[Comparison to the Chevalley-Serre presentation for affine Yangians]
+            
+        \end{remark}
+            
         \begin{convention}
             To streamline notations, let us from now on write:
                 $$\hat{\h}_{[2]} := \hat{\g}_{[2]}[0]$$
             
-            Also, let us use the subscript \say{$[1]$} to denote objects related to the affine Kac-Moody algebra $\hat{\g}_{[1]}$ (e.g. its root system is to be $\hat{\Phi}_{[1]}$, its root lattice is to be $\hat{Q}_{[1]}$, etc.). The unique lowest positive imaginary root of $\hat{\g}_{[1]}$ will be denoted by $\delta_1$ from now on (note that $\delta_1 \not = \delta_v$).
+            Also, let us use the subscript \say{$[1]$} to denote objects related to the affine Kac-Moody algebra $\hat{\g}_{[1]}$ (e.g. its root system is to be $\hat{\Phi}_{[1]}$, its root lattice is to be $\hat{Q}_{[1]}$, etc.). The unique lowest positive imaginary root of $\hat{\g}_{[1]}$ will be denoted by $\delta_{[1]}$ from now on (note that $\delta_{[1]} \not = \delta_v$).
         \end{convention}
-
-        \begin{proposition}[Chevalley-Serre presentations for extended toroidal Lie algebras]
-            
-        \end{proposition}
-            \begin{proof}
-                
-            \end{proof}
 
         \newpage
 
     \subsection{Classical limits of universal quantum R-matrices of affine Yangians}
+        In preparation for comparing the classical R-matrix $\sfr_{ \hat{\g}_{[2]}^+ }$ and the quantum R-matrix of $\rmY_{\hbar}(\hat{\g}_{[1]})$, let us firstly study a Gaussian/LU decomposition of $\sfr_{ \hat{\g}_{[2]}^+ }$:
+            $$\sfr_{ \hat{\g}_{[2]}^+ } := \sfr_{ \hat{\g}_{[2]}^+ }^- + \sfr_{ \hat{\g}_{[2]}^+ }^0 + \sfr_{ \hat{\g}_{[2]}^+ }^+$$
+        This is in fact one of the reasons for studying root space decompositions for $\hat{\g}_{[2]}$ and for $\hat{\g}_{[2]}^{\pm}$, as it affords us a description of the summands:
+            $$\sfr_{ \hat{\g}_{[2]}^+ }^{\pm}$$
+        as canonical tensors of the pairings:
+            $$\bigoplus_{(\alpha, m) \in \Phi^+ \x \Z} \hat{\g}_{[2]}^{\mp}[-\alpha + m\delta] \hattensor_{\bbC} \hat{\g}_{[2]}^{\pm}[\alpha + m\delta]$$
+        \begin{convention}
+            Suppose that $\fraku$ is a symmetrisable Kac-Moody algebra whose Cartan matrix is indecomposable. Fix for it a Cartan subalgebra $\fraku^0$ and denote the corresponding triangular decomposition by:
+                $$\fraku := \fraku^- \oplus \fraku^0 \oplus \fraku^+$$
+        
+            Denote by:
+                $$\sfr_{\fraku}^{\pm}$$
+            the Casimir tensor associated to the non-degenerate Kac-Moody pairing on $\fraku^{\mp} \hattensor_{\bbC} \fraku^{\pm}$ (where $\hattensor_{\bbC}$ denotes an appropriate completion with respect to the root grading on $\fraku^{\pm}$), and by:
+                $$\sfr_{\fraku}^0$$
+            the Casimir tensor associated to the non-degenerate Kac-Moody pairing on $\fraku^0 \tensor_{\bbC} (\fraku^0)^*$.
+
+            Note that the classical R-matrix of the usual Lie bialgebra structure on $\fraku$ is nothing but:
+                $$\sfr_{\fraku} := \sfr_{\fraku}^- + \sfr_{\fraku}^0 + \sfr_{\fraku}^+$$
+        \end{convention}
+        \begin{theorem}[A Gaussian decomposition for $\sfr_{ \hat{\g}_{[2]}^+ }$]
+            The classical R-matrix $\sfr_{ \hat{\g}_{[2]}^+ }$ from corollary \ref{coro: extended_toroidal_lie_bialgebras} admits an additive decomposition:
+                $$\sfr_{ \hat{\g}_{[2]}^+ } := \sfr_{ \hat{\g}_{[2]}^+ }^- + \sfr_{ \hat{\g}_{[2]}^+ }^0 + \sfr_{ \hat{\g}_{[2]}^+ }^+$$
+            corresponding to the triangular decomposition of $\hat{\g}_{[2]}^+$ (cf. proposition \ref{prop: triangular_decomposition_of_extended_toroidal_lie_algebras}) in which:
+                $$\sfr_{ \hat{\g}_{[2]}^+ }^{\pm} := \sfr_{\hat{\g}_{[1]}}^{\pm} v_2 \1(v_1, v_2) \1^+(t_1, t_2)$$
+                $$\sfr_{ \hat{\g}_{[2]}^+ }^0 := \sfr_{\hat{\g}_{[1]}}^0 + D_t \tensor c_t$$
+            In other words, $\sfr_{\hat{\g}_{[1]}}^{\pm}$ are - respectively, the Casimir tensor associated to the non-degenerate pairing\footnote{See remark \ref{remark: toroidal_root_systems} for more details.} on $\hat{\g}_{[2]}^{\pm}[\hat{\Phi}_{[1]}^{\pm}] \hattensor_{\bbC} \hat{\g}_{[2]}^{\mp}[\hat{\Phi}_{[1]}^{\mp}]$ via $(-, -)_{\hat{\g}_{[2]}}$ and likewise, $\sfr_{ \hat{\g}_{[2]}^+ }^0$ is the Casimir tensor associated to the non-degenerate pairing on $\hat{\h}_{[2]}^+ \tensor_{\bbC} \hat{\h}_{[2]}^-$ via $(-, -)_{\hat{\g}_{[2]}}$. 
+        \end{theorem}
+        \begin{corollary}
+            The classical R-matrix $\sfr_{ \hat{\g}_{[2]}^+ }$ from corollary \ref{coro: extended_toroidal_lie_bialgebras} can be rewritten as:
+                $$\sfr_{ \hat{\g}_{[2]}^+ } = \sfr_{\hat{\g}_{[1]}} v_2 \1(v_1, v_2) \1^+(t_1, t_2) + D_t \tensor c_t$$
+        \end{corollary}
