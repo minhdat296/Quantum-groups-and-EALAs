@@ -183,6 +183,10 @@
         \end{example}
 
     \subsection{Perfect Lie algebras and their central extensions}
+        \begin{convention}
+            We assume that the reader is familiar with basic homological algebra of modules over associative rings, and perhaps even the general abstract formulation of homological algebra in abelian categories, but we will not touch on derived categories. In particular, we assume familiarity with computations of Lie algebra cohomologies using Chevalley-Eilenberg resolutions. Furthermore, we assume that the reader is familiar with the interpretations of the low-dimensional cohomologies of a given Lie algebra (e.g. in terms of invariants, extensions, etc.).
+        \end{convention}
+    
         \begin{definition}[Extensions of modules]
             Let $R$ be an arbitrary associative ring. An \textbf{extension} of a left/right-$R$-module $M$ by another left/right-$R$-module $M'$ is a short exact sequence:
                 $$
@@ -195,12 +199,12 @@
                     \end{tikzcd}
                 $$
             in the abelian category of left/right-$R$-modules. Such extensions form a natural category:
-                $$\Ext_R^1(M, M')$$
-            wherein the objects are extensions of $M$ by $M'$, and morphisms are morphisms of chain complexes whose components on $M$ and on $M'$ are identities, e.g.:
+                $$\Ext_R^1(M, -)$$
+            wherein the objects are extensions of $M$ some other left/right-$R$-module, and morphisms are morphisms of chain complexes whose component on $M$ is $\id_M$, e.g.:
                 $$
                     \begin{tikzcd}
-                	0 & {M'} & {E_1} & M & 0 \\
-                	0 & {M'} & {E_2} & M & 0
+                	0 & {M_1} & {E_1} & M & 0 \\
+                	0 & {M_2} & {E_2} & M & 0
                 	\arrow[from=1-1, to=1-2]
                 	\arrow[tail, from=1-2, to=1-3]
                 	\arrow[two heads, from=1-3, to=1-4]
@@ -209,36 +213,58 @@
                 	\arrow[tail, from=2-2, to=2-3]
                 	\arrow[two heads, from=2-3, to=2-4]
                 	\arrow[from=2-4, to=2-5]
-                	\arrow["{\id_{M'}}", from=1-2, to=2-2]
+                	\arrow["{}", from=1-2, to=2-2]
                 	\arrow["{\id_M}", from=1-4, to=2-4]
                 	\arrow[from=1-3, to=2-3]
                     \end{tikzcd}
                 $$
                 
-            If $\Ext_R^1(M, M')$ admits initial objects, then those initial objects will be referred to as being \textbf{universal}. 
+            If $\Ext_R^1(M, -)$ admits initial objects, then those initial objects will be referred to as being \textbf{universal}. 
 
             An extension $0 \to M' \to E \xrightarrow[]{\pi} M \to 0$ is said to \textbf{split} if and only if $\pi$ has a section. Equivalently, if and only if $E \cong M \oplus M'$. 
         \end{definition}
         \begin{definition}[Extensions of Lie algebras]
-            Let $k$ be a commutative ring and $\a$ be a Lie algebra over $k$. An \textbf{extension} of $\a$ by another Lie algebra $\a'$ over $k$ is an extension of $k$-modules:
-                $$0 \to \a' \to \frake \to \a \to 0$$
-            such that $\frake$ is also a Lie algebra over $k$. If:
-                $$\a' \subseteq \z(\frake)$$
-            then we will say that the extension is \textbf{central}.
+            Let $k$ be a commutative ring and $\a$ be a Lie algebra over $k$. An \textbf{extension} of $\a$ by another Lie algebra $\z$ over $k$ is an extension of $k$-modules:
+                $$0 \to \z \to \frake \to \a \to 0$$
+            such that $\frake$ is also a Lie algebra over $k$. There is an obvious non-full subcategory of $\Ext^1_k(\a, -)$ spanned by Lie algebra extensions and morphisms of chain complexes of Lie algebras between them; we denote this category by $\Lie\Ext^1_k(\a, -)$.
+            
+            If:
+                $$\z \subseteq \z(\frake)$$
+            then we will say that the extension is \textbf{central}. The full subcategory of $\Lie\Ext^1_k(\a, -)$ spanned by central extensions is denoted by $\Cent\Lie\Ext^1_k(\a, -)$.  
         \end{definition}
-        \begin{lemma}
-            \cite[Theorem VIII.3.3]{hilton_stammbach_homological_algebra} Suppose that $\a$ is a Lie algebra over a commutative ring $k$. Then, the isomorphism classes of Lie algebra extensions of $\a$ (regarded as a left-$\rmU(\a)$-module) by some left-$\rmU(\a)$-module $M$ is in bijection with elements of:
-                $$H^2_{\Lie}(\a, M) := \Ext^2_{{}^l\rmU(\a)\mod}(k, M)$$
+        \begin{lemma}[$Z^2_{\Lie}$ = all extensions]
+            Suppose that $\a$ is a Lie algebra over a commutative ring $k$. Then, the isomorphism classes of Lie algebra extensions of $\a$ (regarded as a left-$\rmU(\a)$-module) by some left-$\rmU(\a)$-module $M$:
+                $$\pi_0\Ob( \Lie\Ext^1_k(\a, M) )$$
+            is in bijection with the space of $2$-cocyles:
+                $$Z^2_{\Lie}(\a, M)$$
         \end{lemma}
+        \begin{corollary}[Extensions = semi-direct products]
+            Suppose that $\a$ is a Lie algebra over a commutative ring $k$ and let:
+                $$0 \to \z \to \frake \to \a \to 0$$
+            be an extension thereof. Then, the Lie bracket on $\frake$, up to a choice of $2$-cocyle:
+                $$\sigma \in Z^2(\a, \z)$$
+            
+        \end{corollary}
+        \begin{proposition}[$H^2_{\Lie}$ = central extensions]
+            \cite[Theorem VIII.3.3]{hilton_stammbach_homological_algebra} Suppose that $\a$ is a Lie algebra over a commutative ring $k$. Then, the isomorphism classes of Lie algebra \textit{central} extensions of $\a$ (regarded as a left-$\rmU(\a)$-module) by some left-$\rmU(\a)$-module $M$:
+                $$\pi_0\Ob( \Cent\Lie\Ext^1_k(\a, M) )$$
+            is in bijection with:
+                $$H^2_{\Lie}(\a, M) := \Ext^2_{{}^l\rmU(\a)\mod}(k, M)$$
+        \end{proposition}
         \begin{example}
             If $\g$ is a finite-dimensional simple Lie algebra over an algebraically closed field $k$ of characteristic $0$, then the category of finite-dimensional $k$-linear representations of $\g$ will be semi-simple, and therefore the injective dimension of $\g$ will be $0$, i.e.:
                 $$\injdim(\g\mod^{\fd}) = 0$$
-            This implies that every Lie algebra extension of $\g$ over $k$ is trivial. 
+            This implies that every central Lie algebra extension of $\g$ by a finite-dimensional centre over $k$ is necessarily trivial. 
         \end{example}
         \begin{example}
             If $\g$ is a finite-dimensional simple Lie algebra over an algebraically closed field $k$ of characteristic $0$, then the category of finite-dimensional $k$-linear representations of $\g[t] := \g \tensor_k k[t]$ will in fact \textit{not} be semi-simple. 
         \end{example}
-    
+
+        At this point, a natural question to pose is as follows.
+        \begin{question}
+            Which class of Lie algebras naturally admits universal central extensions ? 
+        \end{question}
+        The notion of \say{perfect} Lie algebras is defined precisely to provide a source of examples that would answer this question. 
         \begin{definition}[Perfect Lie algebras]
             A Lie algebra over a commutative ring is said to be \textbf{perfect} if it is equal to its derived subalgebra. 
         \end{definition}
