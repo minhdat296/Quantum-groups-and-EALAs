@@ -1,0 +1,38 @@
+\section{Kassel's realisation in terms of cyclic differential 1-forms}
+    \begin{convention} \label{conv: a_fixed_finite_dimensional_simple_lie_algebra}
+        From now on, we fix a finite-dimensional simple Lie algebra:
+            $$\g$$
+        over $\bbC$, equipped with a symmetric and non-degenerate invariant $\bbC$-bilinear form $(-, -)_{\g}$. It is known that such a bilinear form is unique up to $\bbC^{\x}$-multiples, so for all intents and purposes, it can be assumed to be the Killing form, though this assumption is not necessary. 
+
+        Suppose also that $\g$ is equipped with a basis $\{x_i\}_{1 \leq i \leq \dim_{\bbC} \g}$ and with respect to $(-, -)_{\g}$, we identify a dual basis $\{x_i^*\}_{1 \leq i \leq \dim_{\bbC} \g}$. Recall that the Casimir tensor/canonical element of $\g$ is:
+            $$\sfr_{\g} := \sum_{1 \leq i \leq \dim_{\bbC} \g} x_i \tensor x_i^* \in \g \tensor_{\bbC} \g^*$$
+        and recall that $\sfr_{\g}$ is independent of what we choose the basis vectors $x_i$ to be.
+
+        Eventually, we will also be concerned with the Dynkin diagram associated to the root system of $\g$. Let us denote this by:
+            $$\Gamma := (\Gamma_0, \Gamma_1)$$
+        wherein $\Gamma_0$ means the (finite) set of vertices and $\Gamma_1$ means the set of undirected edges between said vertices. 
+
+        The set of all roots and respectively, positive/negative roots, and simple roots of $\g$ shall be denoted by:
+            $$\Phi, \Phi^{\pm}, \Phi^{\circ}$$
+        The set $\Phi^{\circ}$ is $\Z$-linearly independent and its $\Z$-span:
+            $$Q := \Z \Phi^{\circ}$$
+        is typically referred to as the root lattice of $\g$. Recall also that there is a set of fundamental weights: if we write:
+            $$\check{\Phi}$$
+        for the set of coroots of $\g$, then the so-called weight lattice of $\g$ shall be given by\footnote{We avoid the usual $\Delta$ notation, as we would like to reserve this symbol for a coproduct construction on affine Yangians.}:
+            $$\Pi := \Hom_{\Z}(\check{Q}, \Z), \check{Q} := \Z\check{\Phi}$$
+        inside which lies the set of fundamental weights, whose elements are dual to those of $\check{\Phi}^{\circ}$ (i.e. dual to simple coroots) with respect to $(-, -)_{\g}$\footnote{Which we might as well normalise so that $(\alpha_j, \check{\alpha}_j)_{\g} = 2$ for every $j \in \Gamma_0$, and hence the fundamental weights $\lambda_i$ will be simply be subjected to the relation $\delta_{ij} = 2 \frac{(\lambda_i, \check{\alpha}_i)_{\g}}{(\alpha_j, \check{\alpha}_j)_{\g}} = (\lambda_i, \check{\alpha}_i)_{\g}$.}.
+    \end{convention}
+
+    \subsection{A recollection of K\"ahler differentials}
+        \begin{definition}[Modules of K\"ahler differentials] \label{def: kahler_differentials}
+            
+        \end{definition}
+        The following well-known lemmas are very useful. A proof can be be found in any standard reference on general commutative algebra (cf. e.g. \cite[\href{https://stacks.math.columbia.edu/tag/00AO}{Tag 00AO}]{stacks}).
+        \begin{lemma}[$1$-forms over polynomial algebras]
+            \cite[\href{https://stacks.math.columbia.edu/tag/00RX}{Tag 00RX}]{stacks} Let $k$ be a commutative ring and fix some $n \in \Z_{\geq 0}$, and consider the canonical ring homomorphism $k \to k[v_1, ..., v_n]$. In this case, $\Omega^1_{[n]} := \Omega^1_{k[v_1, ..., v_n]/k}$ will be free and of finite rank $n$ as an $k[v_1, ..., v_n]$-module; in particular, it admits the set $\{dv_1, ..., dv_n\}$ as an $k[v_1, ..., v_n]$-linear basis. 
+        \end{lemma}
+
+    \subsection{Centres of UCEs of perfect Lie algebras}
+        \begin{example}[Derived subalgebra of affine Kac-Moody algebras]
+            
+        \end{example}
