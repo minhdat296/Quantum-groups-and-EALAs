@@ -226,24 +226,25 @@
         \begin{definition}[Extensions of Lie algebras]
             Let $k$ be a commutative ring and $\a$ be a Lie algebra over $k$. An \textbf{extension} of $\a$ by another Lie algebra $\z$ over $k$ is an extension of $k$-modules:
                 $$0 \to \z \to \frake \to \a \to 0$$
-            such that $\frake$ is also a Lie algebra over $k$. There is an obvious non-full subcategory of $\Ext^1_k(\a, -)$ spanned by Lie algebra extensions and morphisms of chain complexes of Lie algebras between them; we denote this category by $\Lie\Ext^1_k(\a, -)$.
+            such that $\frake$ is also a Lie algebra over $k$. There is an obvious non-full subcategory of $\Ext^1_k(\a, -)$ spanned by Lie algebra extensions and morphisms of chain complexes of Lie algebras between them; we denote this category by $\Lie\Ext^1_k(\a, -)$. If this category admits initial objects, then those objects will be referred to as \textbf{universal extensions}.
             
             If:
                 $$\z \subseteq \z(\frake)$$
-            then we will say that the extension is \textbf{central}. The full subcategory of $\Lie\Ext^1_k(\a, -)$ spanned by central extensions is denoted by $\Cent\Lie\Ext^1_k(\a, -)$.  
+            then we will say that the extension is \textbf{central}. The full subcategory of $\Lie\Ext^1_k(\a, -)$ spanned by central extensions is denoted by $\Cent\Lie\Ext^1_k(\a, -)$. Universal \textit{central} extensions are especially interesting and as such deserves their own notation: as they are necessarily isomorphic to one another should they exist, let us collectively denote the universal central extensions of $\a$ by $\uce(\a)$\footnote{$\uce$ = universal central extension.}.
         \end{definition}
         \begin{lemma}[$Z^2_{\Lie}$ = all extensions]
             Suppose that $\a$ is a Lie algebra over a commutative ring $k$. Then, the isomorphism classes of Lie algebra extensions of $\a$ (regarded as a left-$\rmU(\a)$-module) by some left-$\rmU(\a)$-module $M$:
                 $$\pi_0\Ob( \Lie\Ext^1_k(\a, M) )$$
             is in bijection with the space of $2$-cocyles:
-                $$Z^2_{\Lie}(\a, M)$$
+                $$Z^2_{\Lie}(\a, M) := \Hom_k( \bigwedge^2 \a, M )$$
         \end{lemma}
         \begin{corollary}[Extensions = semi-direct products]
             Suppose that $\a$ is a Lie algebra over a commutative ring $k$ and let:
                 $$0 \to \z \to \frake \to \a \to 0$$
             be an extension thereof. Then, the Lie bracket on $\frake$, up to a choice of $2$-cocyle:
                 $$\sigma \in Z^2(\a, \z)$$
-            
+            the Lie bracket on $\frake$ will be given by:
+                $$\forall X, Y \in \a: \forall K, K' \in \z: [ (X, K), (Y, K') ]_{\frake} := [X, Y]_{\a} + \sigma(X, Y)$$
         \end{corollary}
         \begin{proposition}[$H^2_{\Lie}$ = central extensions]
             \cite[Theorem VIII.3.3]{hilton_stammbach_homological_algebra} Suppose that $\a$ is a Lie algebra over a commutative ring $k$. Then, the isomorphism classes of Lie algebra \textit{central} extensions of $\a$ (regarded as a left-$\rmU(\a)$-module) by some left-$\rmU(\a)$-module $M$:
@@ -264,10 +265,38 @@
         \begin{question}
             Which class of Lie algebras naturally admits universal central extensions ? 
         \end{question}
-        The notion of \say{perfect} Lie algebras is defined precisely to provide a source of examples that would answer this question. 
+        The notion of \say{perfect} Lie algebras is defined precisely to provide a source of examples that would answer this question.
         \begin{definition}[Perfect Lie algebras]
             A Lie algebra over a commutative ring is said to be \textbf{perfect} if it is equal to its derived subalgebra. 
         \end{definition}
         \begin{example}
             Since semi-simple Lie algebras lack non-zero ideals by definition, they are perfect. 
         \end{example}
+        \begin{example}
+            Let $A$ be any commutative algebra over some base commutative ring $k$, and let $\g$ be a semi-simple Lie algebra over $k$. Endow the $k$-module $\g_A := \g \tensor_k A$ with the Lie bracket:
+                $$\forall x, y \in \g: \forall f, g \in A: [x f, y g]_{\g_A} := [x, y]_{\g} fg$$
+            Then, $\g_A$ will be perfect when regraded as a Lie algebra over $k$, precisely because $\g$ is semi-simple.
+        \end{example}
+        \begin{definition}[Covering Lie algebras]
+            Suppose that:
+                $$0 \to \z \to \frake \xrightarrow[]{\pi} \a \to 0$$
+            is a central extension of Lie algebras over some base commutative ring $k$. If $\frake$ is perfect then we will call the Lie algebra epimorphism:
+                $$\pi: \frake \to \a$$
+            a \textbf{covering} or a \textbf{cover} of $\a$. 
+
+            There is an evident full subcategory of $\Cent\Lie\Ext^1_k(\a, -)$ where the objects are coverings of $\a$. Let us denote it by $\Cov_k(\a)$
+        \end{definition}
+        \begin{proposition}[Perfect Lie algebras admit universal central extensions]
+            If $k$ is a field and $\a$ is a perfect Lie algebra over $k$, then $\Cov_k(\a)$ will have initial objects. Any such object will be referred to as a \textbf{universal cover} of $\a$, but still typically denoted by $\uce(\a)$.
+        \end{proposition}
+        \begin{definition}[Simply connected Lie algebras]
+            A Lie algebra $\a$ over a commutative ring $k$ is said to be \textbf{simply connected} if every object of $\Cent\Lie\Ext^1_k(\a, -)$ splits as a Lie algebra extension, i.e. given any such object:
+                $$0 \to \z \to \frake \xrightarrow[]{\pi} \a \to 0$$
+            there exists a Lie algebra homomorphism:
+                $$\sigma: \a \to \frake$$
+            such that:
+                $$\pi \circ \sigma = \id_{\a}$$
+        \end{definition}
+        \begin{proposition}[Universal central extensions are simply connected]
+            Suppose that $\a$ is a Lie algebra over a field $k$. An object $\fraku \in \Ob( \Cov_k(\a) )$ is then initial (i.e. a universal central extension of $\a$) if and only if it is simply connected. 
+        \end{proposition}
