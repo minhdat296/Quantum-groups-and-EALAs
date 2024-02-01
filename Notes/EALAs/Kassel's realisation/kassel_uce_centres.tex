@@ -1,4 +1,4 @@
-\section{The Kassel-Zusmanovich realisation of UCEs of current Lie algebras}
+\section{The Kassel realisation of UCEs of current Lie algebras}
     \subsection{A recollection of K\"ahler differentials}
         There are many perspectives on algebraic differential forms, but for our purposes, the following will be the easiest to use.
         \begin{definition}[Modules of K\"ahler differentials] \label{def: kahler_differentials}
@@ -76,6 +76,25 @@
                 $$\forall x, y \in \g: \forall f, g \in A: [x f, y g]_{\g_A} := [x, y]_{\g} fg$$
         \end{convention}
 
-        \begin{theorem}[The Kassel-Zusmanovich realisation] \label{theorem: kassel_realisation}
+        \begin{lemma}[$H^{-2}_{\Lie}$ = kernels of UCEs] \label{lemma: kenel_of_UCEs_of_perfect_lie_algebras_is_2nd_homology}
+            Suppose for a moment that $k$ is simply a general field.
+
+            Let $\a$ be a perfect Lie algebra over $k$. From proposition \ref{prop: perfect_lie_algebras_admit_UCEs}, we know that such a Lie algebra admits a UCE:
+                $$0 \to \z \to \uce(\a) \xrightarrow[]{\pi} \a \to 0$$
+            over $k$. We have a \textit{canonical} characterisation of the UCE kernel $\z$ as follows:
+                $$\z \cong H^{-2}_{\Lie}(\a, k)$$
+        \end{lemma}
+        \begin{lemma}[$2^{nd}$ cyclic cohomology]
             
+        \end{lemma}
+        \begin{theorem}[The Kassel realisation] \label{theorem: kassel_realisation}
+            \cite[Corollary 3.5]{kassel_universal_central_extensions_of_lie_algebras} Let $k$ now an algebraically closed field of characteristic $0$ again, as in convention \ref{conv: a_fixed_finite_dimensional_simple_lie_algebra}. 
+
+            For the perfect Lie $k$-algebra $\g_A$, we have that:
+                $$H^{-2}_{\Lie}(\g_A, k) \cong \bar{\Omega}^1_{A/k}$$
+            As an immediate corollary, this implies that:
+                $$\uce(\g_A) \cong \g_A \oplus \bar{\Omega}^1_{A/k}$$
         \end{theorem}
+            \begin{proof}[Proof sketch]
+                
+            \end{proof}

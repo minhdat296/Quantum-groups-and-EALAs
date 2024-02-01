@@ -233,37 +233,33 @@
                 $$\z \subseteq \z(\frake)$$
             then we will say that the extension is \textbf{central}. The full subcategory of $\Lie\Ext^1_k(\a, -)$ spanned by central extensions is denoted by $\Cent\Lie\Ext^1_k(\a, -)$. Universal \textit{central} extensions are especially interesting and as such deserves their own notation: as they are necessarily isomorphic to one another should they exist, let us collectively denote the universal central extensions (UCEs) of $\a$ by $\uce(\a)$.
         \end{definition}
-        \begin{lemma}[$Z^2_{\Lie}$ = all extensions]
-            Suppose that $\a$ is a Lie algebra over a commutative ring $k$. Then, the isomorphism classes of Lie algebra extensions of $\a$ (regarded as a left-$\rmU(\a)$-module) by some left-$\rmU(\a)$-module $M$:
-                $$\pi_0\Ob( \Lie\Ext^1_k(\a, M) )$$
-            is in bijection with the space of $2$-cocyles:
-                $$Z^2_{\Lie}(\a, M) := \Hom_k( \bigwedge^2 \a, M )$$
-        \end{lemma}
-        \begin{corollary}[Extensions = $2$-cocycles]
-            Suppose that $\a$ is a Lie algebra over a commutative ring $k$ and let:
-                $$0 \to \z \to \frake \to \a \to 0$$
-            be an extension thereof. Then, the Lie bracket on $\frake$, up to a choice of $2$-cocyle:
-                $$\sigma \in Z^2_{\Lie}(\a, \z)$$
+        \begin{proposition}[$H^2_{\Lie}$ = extensions]
+            \cite[Theorem VIII.3.3]{hilton_stammbach_homological_algebra} Suppose that $\a$ is a Lie algebra over a commutative ring $k$. Then, the isomorphism classes of Lie algebra extensions of $\a$ (regarded as a left-$\rmU(\a)$-module) by some left-$\rmU(\a)$-module $M$:
+                $$\pi_0\Ob( \Cent\Lie\Ext^1_k(\a, M) )$$
+            is in bijection with elements of\footnote{... understood to be computed using the Chevalley-Eilenberg complex.}:
+                $$H^2_{\Lie}(\a, M) := \Ext^2_{{}^l\rmU(\a)\mod}(k, M)$$
+            More explicitly, given an extension:
+                $$0 \to M \to \frake \to \a \to 0$$
+            then up to a choice of $2$-cocyle:
+                $$\sigma \in H^2_{\Lie}(\a, M)$$
             the Lie bracket on $\frake$ will be given by:
-                $$\forall X, Y \in \a: \forall K, K' \in \z: [ (X, K), (Y, K') ]_{\frake} := [X, Y]_{\a} + \sigma(X, Y)$$
+                $$\forall X, Y \in \a: \forall m, m' \in M: [ (X, m), (Y, m') ]_{\frake} := [X, Y]_{\a} + ( m \cdot Y - m' \cdot Y + \sigma(X, Y) )$$
+        \end{proposition}
+        \begin{corollary}[Trivial cohomological coefficients = central extensions]
+            The isomorphism classes of central extensions of $\a$ are parametrised bijectively by elements of $H^2_{\Lie}(\a, k)$.
         \end{corollary}
         \begin{example}[Semi-direct products of Lie algebras]
-            Let $k$ be a base commutative ring.
-
-            Let $\d$ be a Lie algebra over $k$ and let $\t$ be another Lie algebra carrying a $k$-linear action of $\d$, i.e. a Lie algebra homomorphism:
-                $$\rho: \d \to \der_k(\g)$$
-            The \textbf{semi-direct product} $\t \rtimes_{\rho} \d$ then arises from the extension of $\d$ by $\t$:
-                $$0 \to \t \to \t \rtimes_{\rho} \d \to \d \to 0$$
-            corresponding to the $2$-cocyle $\sigma \in Z^2_{\Lie}(\d, \t)$ given by:
-                $$\forall D, D' \in \d: \sigma(D, D') := \rho(D) - \rho(D')$$
+            Let $k$ be an arbitrary commutative ring. 
+            
+            Let $\d$ be a Lie $k$-algebra acting on another Lie $k$-algebra $\z$, i.e. let $\t$ be a $\d$-module that happens also to be a Lie algebra over $k$. The canonical extension of $\d$ by $\z$ corresponding to the element:
+                $$0 \in H^2_{\Lie}(\d, \z)$$
+            is known as the \textbf{semi-direct product} of $\d$ by $\z$, and commonly denoted by:
+                $$\z \rtimes \d$$
+            For the sake of completeness, let us note that the Lie bracket here is given by:
+                $$\forall D, D' \in \d: \forall K, K' \in \z: [ (D, K), (D', K') ]_{\z \rtimes \d} := [D, D']_{\d} + ( D \cdot K' - D' \cdot K )$$
+            
             Interestingly, semi-direct products are split extensions, in the sense that there is a section Lie algebra homomorphism $\d \to \t \rtimes_{\rho} \d$, given by $D \mapsto (0, D)$.
         \end{example}
-        \begin{proposition}[$H^2_{\Lie}$ = central extensions]
-            \cite[Theorem VIII.3.3]{hilton_stammbach_homological_algebra} Suppose that $\a$ is a Lie algebra over a commutative ring $k$. Then, the isomorphism classes of Lie algebra \textit{central} extensions of $\a$ (regarded as a left-$\rmU(\a)$-module) by some left-$\rmU(\a)$-module $M$:
-                $$\pi_0\Ob( \Cent\Lie\Ext^1_k(\a, M) )$$
-            is in bijection with:
-                $$H^2_{\Lie}(\a, M) := \Ext^2_{{}^l\rmU(\a)\mod}(k, M)$$
-        \end{proposition}
         \begin{example}
             If $\g$ is a finite-dimensional simple Lie algebra over an algebraically closed field $k$ of characteristic $0$, then the category of finite-dimensional $k$-linear representations of $\g$ will be semi-simple, and therefore the injective dimension of $\g$ will be $0$, i.e.:
                 $$\injdim(\g\mod^{\fd}) = 0$$
@@ -295,7 +291,7 @@
 
             There is an evident full subcategory of $\Cent\Lie\Ext^1_k(\a, -)$ where the objects are coverings of $\a$. Let us denote it by $\Cov_k(\a)$
         \end{definition}
-        \begin{proposition}[Perfect Lie algebras admit UCEs]
+        \begin{proposition}[Perfect Lie algebras admit UCEs] \label{prop: perfect_lie_algebras_admit_UCEs}
             \cite[Lemma 1.10]{garland_arithmetics_of_loop_groups} If $k$ is a field and $\a$ is a perfect Lie algebra over $k$, then $\Cov_k(\a)$ will have initial objects. Any such object will be referred to as a \textbf{universal cover} of $\a$, but still typically denoted by $\uce(\a)$.
         \end{proposition}
         \begin{definition}[Simply connected Lie algebras]
