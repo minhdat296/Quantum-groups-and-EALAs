@@ -223,6 +223,7 @@
 
             An extension $0 \to M' \to E \xrightarrow[]{\pi} M \to 0$ is said to \textbf{split} if and only if $\pi$ has a section. Equivalently, if and only if $E \cong M \oplus M'$. 
         \end{definition}
+        
         \begin{definition}[Extensions of Lie algebras]
             Let $k$ be a commutative ring and $\a$ be a Lie algebra over $k$. An \textbf{extension} of $\a$ by another Lie algebra $\z$ over $k$ is an extension of $k$-modules:
                 $$0 \to \z \to \frake \to \a \to 0$$
@@ -230,7 +231,7 @@
             
             If:
                 $$\z \subseteq \z(\frake)$$
-            then we will say that the extension is \textbf{central}. The full subcategory of $\Lie\Ext^1_k(\a, -)$ spanned by central extensions is denoted by $\Cent\Lie\Ext^1_k(\a, -)$. Universal \textit{central} extensions are especially interesting and as such deserves their own notation: as they are necessarily isomorphic to one another should they exist, let us collectively denote the universal central extensions of $\a$ by $\uce(\a)$\footnote{$\uce$ = universal central extension.}.
+            then we will say that the extension is \textbf{central}. The full subcategory of $\Lie\Ext^1_k(\a, -)$ spanned by central extensions is denoted by $\Cent\Lie\Ext^1_k(\a, -)$. Universal \textit{central} extensions are especially interesting and as such deserves their own notation: as they are necessarily isomorphic to one another should they exist, let us collectively denote the universal central extensions (UCEs) of $\a$ by $\uce(\a)$.
         \end{definition}
         \begin{lemma}[$Z^2_{\Lie}$ = all extensions]
             Suppose that $\a$ is a Lie algebra over a commutative ring $k$. Then, the isomorphism classes of Lie algebra extensions of $\a$ (regarded as a left-$\rmU(\a)$-module) by some left-$\rmU(\a)$-module $M$:
@@ -238,14 +239,25 @@
             is in bijection with the space of $2$-cocyles:
                 $$Z^2_{\Lie}(\a, M) := \Hom_k( \bigwedge^2 \a, M )$$
         \end{lemma}
-        \begin{corollary}[Extensions = semi-direct products]
+        \begin{corollary}[Extensions = $2$-cocycles]
             Suppose that $\a$ is a Lie algebra over a commutative ring $k$ and let:
                 $$0 \to \z \to \frake \to \a \to 0$$
             be an extension thereof. Then, the Lie bracket on $\frake$, up to a choice of $2$-cocyle:
-                $$\sigma \in Z^2(\a, \z)$$
+                $$\sigma \in Z^2_{\Lie}(\a, \z)$$
             the Lie bracket on $\frake$ will be given by:
                 $$\forall X, Y \in \a: \forall K, K' \in \z: [ (X, K), (Y, K') ]_{\frake} := [X, Y]_{\a} + \sigma(X, Y)$$
         \end{corollary}
+        \begin{example}[Semi-direct products of Lie algebras]
+            Let $k$ be a base commutative ring.
+
+            Let $\d$ be a Lie algebra over $k$ and let $\t$ be another Lie algebra carrying a $k$-linear action of $\d$, i.e. a Lie algebra homomorphism:
+                $$\rho: \d \to \der_k(\g)$$
+            The \textbf{semi-direct product} $\t \rtimes_{\rho} \d$ then arises from the extension of $\d$ by $\t$:
+                $$0 \to \t \to \t \rtimes_{\rho} \d \to \d \to 0$$
+            corresponding to the $2$-cocyle $\sigma \in Z^2_{\Lie}(\d, \t)$ given by:
+                $$\forall D, D' \in \d: \sigma(D, D') := \rho(D) - \rho(D')$$
+            Interestingly, semi-direct products are split extensions, in the sense that there is a section Lie algebra homomorphism $\d \to \t \rtimes_{\rho} \d$, given by $D \mapsto (0, D)$.
+        \end{example}
         \begin{proposition}[$H^2_{\Lie}$ = central extensions]
             \cite[Theorem VIII.3.3]{hilton_stammbach_homological_algebra} Suppose that $\a$ is a Lie algebra over a commutative ring $k$. Then, the isomorphism classes of Lie algebra \textit{central} extensions of $\a$ (regarded as a left-$\rmU(\a)$-module) by some left-$\rmU(\a)$-module $M$:
                 $$\pi_0\Ob( \Cent\Lie\Ext^1_k(\a, M) )$$
@@ -257,13 +269,10 @@
                 $$\injdim(\g\mod^{\fd}) = 0$$
             This implies that every central Lie algebra extension of $\g$ by a finite-dimensional centre over $k$ is necessarily trivial. 
         \end{example}
-        \begin{example}
-            If $\g$ is a finite-dimensional simple Lie algebra over an algebraically closed field $k$ of characteristic $0$, then the category of finite-dimensional $k$-linear representations of $\g[t] := \g \tensor_k k[t]$ will in fact \textit{not} be semi-simple. 
-        \end{example}
 
         At this point, a natural question to pose is as follows.
         \begin{question}
-            Which class of Lie algebras naturally admits universal central extensions ? 
+            Which class of Lie algebras naturally admits UCEs ? 
         \end{question}
         The notion of \say{perfect} Lie algebras is defined precisely to provide a source of examples that would answer this question.
         \begin{definition}[Perfect Lie algebras]
@@ -286,8 +295,8 @@
 
             There is an evident full subcategory of $\Cent\Lie\Ext^1_k(\a, -)$ where the objects are coverings of $\a$. Let us denote it by $\Cov_k(\a)$
         \end{definition}
-        \begin{proposition}[Perfect Lie algebras admit universal central extensions]
-            If $k$ is a field and $\a$ is a perfect Lie algebra over $k$, then $\Cov_k(\a)$ will have initial objects. Any such object will be referred to as a \textbf{universal cover} of $\a$, but still typically denoted by $\uce(\a)$.
+        \begin{proposition}[Perfect Lie algebras admit UCEs]
+            \cite[Lemma 1.10]{garland_arithmetics_of_loop_groups} If $k$ is a field and $\a$ is a perfect Lie algebra over $k$, then $\Cov_k(\a)$ will have initial objects. Any such object will be referred to as a \textbf{universal cover} of $\a$, but still typically denoted by $\uce(\a)$.
         \end{proposition}
         \begin{definition}[Simply connected Lie algebras]
             A Lie algebra $\a$ over a commutative ring $k$ is said to be \textbf{simply connected} if every object of $\Cent\Lie\Ext^1_k(\a, -)$ splits as a Lie algebra extension, i.e. given any such object:
@@ -297,6 +306,14 @@
             such that:
                 $$\pi \circ \sigma = \id_{\a}$$
         \end{definition}
-        \begin{proposition}[Universal central extensions are simply connected]
-            Suppose that $\a$ is a Lie algebra over a field $k$. An object $\fraku \in \Ob( \Cov_k(\a) )$ is then initial (i.e. a universal central extension of $\a$) if and only if it is simply connected. 
+        \begin{proposition}[UCEs are simply connected]
+            \cite[Theorem 1.16]{garland_arithmetics_of_loop_groups} Suppose that $\a$ is a Lie algebra over a field $k$. An object $\fraku \in \Ob( \Cov_k(\a) )$ is then initial (i.e. a UCE of $\a$) if and only if it is simply connected. 
         \end{proposition}
+        \begin{example}
+            If $\g$ is a finite-dimensional simple Lie algebra over an algebraically closed field $k$ of characteristic $0$, then the category of finite-dimensional $k$-linear representations of $\g[t] := \g \tensor_k k[t]$ will in fact \textit{not} be semi-simple. This suggests that $\g[t]$ admits non-trivial central extensions and in fact, since it is perfect, it admits a UCE, which can be shown to be by a $1$-dimensional centre:
+                $$\uce(\g[t]) := \g[t] \oplus \bbC c$$
+            Clearly, there is also a section:
+                $$\g[t] \to \g[t] \oplus \bbC c$$
+            given by:
+                $$X \mapsto (X, 0)$$
+        \end{example}
