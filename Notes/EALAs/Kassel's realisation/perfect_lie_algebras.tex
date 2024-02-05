@@ -133,12 +133,6 @@
             It is also not hard to show that the Cartan matrix associated to a root system is an instance of an adjacency matrix of an undirected graph. The graph in question is usually referred to as the \textbf{Dynkin diagram} of $\g$, and it is given by letting the set of vertices be in bijection with the set of simple roots, and the set of undirected edges between vertex $\alpha_i$ and $\alpha_j$, say, to be the integer $a_{ij} := 2 \delta_{ij} - c_{ij}$. From this fact, one can infer that $C$ is necessarily \textit{positive-definite}.
 
             Though it is less trivial of a task, it is nevertheless very well-known at this point that Dynkin diagrams attached to finite-dimensional simple Lie algebras over algebraically closed fields of characteristic $0$ are completely classifiable. There are $4$ \say{classical} families/types ($\sfA_l, \sfB_l, \sfC_l, \sfD_l$), and $3$ \say{exceptional} families/types ($\sfF_4, \sfG_2, \sfE_6, \sfE_7, \sfE_8$); among these, the types $\sfA_l, \sfD_l$, and $\sfE_6, \sfE_7, \sfE_8$ are said to be \say{simply laced} as between any two of their distinct vertices, there can be only at most one edge.
-            \begin{figure}[H]
-                \centering
-                \includegraphics[width=0.5\linewidth]{Notes/Finite-dimensional simple Lie algebras/finite_type_dynkin_diagrams.png}
-                \caption{Finite-type Dynkin diagrams}
-                \label{fig: finite_type_dynkin_diagrams}
-            \end{figure}
             
             An easy consequence of the construction of Dynkin diagrams from finite-dimensional semi-simple Lie algebras (one checks whether or not the associated Cartan matrix decomposes into a block sum of two submatrices along the diagonal) is that the function:
                 $$\{ \text{Dynkin diagrams} \} \to \{ \text{finite-dimensional semi-simple Lie algebras over $k$} \}/\cong$$
@@ -233,6 +227,10 @@
                 $$\z \subseteq \z(\frake)$$
             then we will say that the extension is \textbf{central}. The full subcategory of $\Lie\Ext^1_k(\a, -)$ spanned by central extensions is denoted by $\Cent\Lie\Ext^1_k(\a, -)$. Universal \textit{central} extensions are especially interesting and as such deserves their own notation: as they are necessarily isomorphic to one another should they exist, let us collectively denote the universal central extensions (UCEs) of $\a$ by $\uce(\a)$.
         \end{definition}
+        \begin{example}[A non-central extension of Lie algebras]
+            Let $n \geq 2$ and let $k$ be a field of characteristic $\not = 2$. Then, one can construct the Lie algebra $\gl_n(k)$ of $n \x n$ matrices with coefficients in $k$ as the non-central extension:
+                $$0 \to \sl_n(k) \to \gl_n(k) \xrightarrow[]{\trace} k \to 0$$
+        \end{example}
         \begin{proposition}[$H^2_{\Lie}$ = extensions]
             \cite[Theorem VIII.3.3]{hilton_stammbach_homological_algebra} Suppose that $\a$ is a Lie algebra over a commutative ring $k$. Then, the isomorphism classes of Lie algebra extensions of $\a$ (regarded as a left-$\rmU(\a)$-module) by some left-$\rmU(\a)$-module $M$:
                 $$\pi_0\Ob( \Cent\Lie\Ext^1_k(\a, M) )$$
@@ -294,7 +292,7 @@
         \begin{proposition}[Perfect Lie algebras admit UCEs] \label{prop: perfect_lie_algebras_admit_UCEs}
             \cite[Lemma 1.10]{garland_arithmetics_of_loop_groups} If $k$ is a field and $\a$ is a perfect Lie algebra over $k$, then $\Cov_k(\a)$ will have initial objects. Any such object will be referred to as a \textbf{universal cover} of $\a$, but still typically denoted by $\uce(\a)$.
         \end{proposition}
-        \begin{definition}[Simply connected Lie algebras]
+        \begin{definition}[Simply connected Lie algebras] \label{def: simply_connected_lie_algebras}
             A Lie algebra $\a$ over a commutative ring $k$ is said to be \textbf{simply connected} if every object of $\Cent\Lie\Ext^1_k(\a, -)$ splits as a Lie algebra extension, i.e. given any such object:
                 $$0 \to \z \to \frake \xrightarrow[]{\pi} \a \to 0$$
             there exists a Lie algebra homomorphism:
@@ -302,8 +300,9 @@
             such that:
                 $$\pi \circ \sigma = \id_{\a}$$
         \end{definition}
-        \begin{proposition}[UCEs are simply connected]
-            \cite[Theorem 1.16]{garland_arithmetics_of_loop_groups} Suppose that $\a$ is a Lie algebra over a field $k$. An object $\fraku \in \Ob( \Cov_k(\a) )$ is then initial (i.e. a UCE of $\a$) if and only if it is simply connected. 
+        The following tells us that if $\a$ is a Lie algebra and $\fraku$ is a UCE thereof, then there will exist an embedding $\a \subseteq \fraku$ of Lie algebras. In other words, the Lie bracket on $\fraku$, when restricted down to $\a$, equals the Lie bracket on $\a$; the subtlety lies in the fact that when $\fraku$ is not universal, the restriction may not be well-defined. 
+        \begin{proposition}[UCEs are simply connected] \label{prop: UCEs_are_simply_connected}
+            \cite[Theorem 1.16]{garland_arithmetics_of_loop_groups} Suppose that $\a$ is a Lie algebra over a field $k$. An object $\fraku \in \Ob( \Cov_k(\a) )$ is then initial (i.e. a UCE of $\a$) if and only if it is simply connected.
         \end{proposition}
         \begin{example}
             If $\g$ is a finite-dimensional simple Lie algebra over an algebraically closed field $k$ of characteristic $0$, then the category of finite-dimensional $k$-linear representations of $\g[t] := \g \tensor_k k[t]$ will in fact \textit{not} be semi-simple. This suggests that $\g[t]$ admits non-trivial central extensions and in fact, since it is perfect, it admits a UCE, which can be shown to be by a $1$-dimensional centre:
