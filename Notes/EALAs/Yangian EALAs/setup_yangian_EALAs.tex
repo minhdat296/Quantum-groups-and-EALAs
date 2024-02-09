@@ -1,32 +1,10 @@
 \section{The initial setup}
-    \begin{convention} \label{conv: a_fixed_finite_dimensional_simple_lie_algebra}
-        From now on, we fix a finite-dimensional simple Lie algebra:
-            $$\g$$
-        over an algebraically closed field $k$ of characteristic $0$, equipped with a symmetric and non-degenerate invariant $k$-bilinear form $(-, -)_{\g}$. It is known that such a bilinear form is unique up to $k^{\x}$-multiples, so for all intents and purposes, it can be assumed to be the Killing form, though this assumption is not necessary. 
-
-        Suppose also that $\g$ is equipped with a basis $\{x_i\}_{1 \leq i \leq \dim_k \g}$ and with respect to $(-, -)_{\g}$, we identify a dual basis $\{x_i^*\}_{1 \leq i \leq \dim_k \g}$. Recall that the Casimir tensor/canonical element of $\g$ is:
-            $$\sfr_{\g} := \sum_{1 \leq i \leq \dim_k \g} x_i \tensor x_i^* \in \g \tensor_k \g^*$$
-        and recall that $\sfr_{\g}$ is independent of what we choose the basis vectors $x_i$ to be.
-
-        Eventually, we will also be concerned with the Dynkin diagram associated to the root system of $\g$. Let us denote this by:
-            $$\Gamma := (\Gamma_0, \Gamma_1)$$
-        wherein $\Gamma_0$ means the (finite) set of vertices and $\Gamma_1$ means the set of undirected edges between said vertices. 
-
-        The set of all roots and respectively, positive/negative roots, and simple roots of $\g$ shall be denoted by:
-            $$\Phi, \Phi^{\pm}, \Phi^{\circ}$$
-        The set $\Phi^{\circ}$ is $\Z$-linearly independent and its $\Z$-span:
-            $$Q := \Z \Phi^{\circ}$$
-        is typically referred to as the root lattice of $\g$. Recall also that there is a set of fundamental weights: if we write:
-            $$\check{\Phi}$$
-        for the set of coroots of $\g$, then the so-called weight lattice of $\g$ shall be given by\footnote{We avoid the usual $\Delta$ notation, as we would like to reserve this symbol for a coproduct construction on affine Yangians.}:
-            $$\Pi := \Hom_{\Z}(\check{Q}, \Z), \check{Q} := \Z\check{\Phi}$$
-        inside which lies the set of fundamental weights, whose elements are dual to those of $\check{\Phi}^{\circ}$ (i.e. dual to simple coroots) with respect to $(-, -)_{\g}$\footnote{Which we might as well normalise so that $(\alpha_j, \check{\alpha}_j)_{\g} = 2$ for every $j \in \Gamma_0$, and hence the fundamental weights $\lambda_i$ will be simply be subjected to the relation $\delta_{ij} = 2 \frac{(\lambda_i, \check{\alpha}_i)_{\g}}{(\alpha_j, \check{\alpha}_j)_{\g}} = (\lambda_i, \check{\alpha}_i)_{\g}$.}.
-    \end{convention}
+    Again, $\g$ is a finite-dimensional simple Lie algebra over an algebraically closed field of characteristic $0$. It is accompanied by all the data listed in convention \ref{conv: a_fixed_finite_dimensional_simple_lie_algebra}.
 
     We will be firstly concerned with the Lie algebra:
-        $$\g_{[2]} \cong \g[v^{\pm 1}, t^{\pm 1}]$$
+        $$\g_{[2]} := \g[v^{\pm 1}, t^{\pm 1}]$$
     whose Lie bracket is given by:
-        $$\forall x, y \in \g: \forall f, g \in A_{[2]}: [x f, y g]_{\g_{[2]}} := [x, y]_{\g} fg$$
+        $$\forall x, y \in \g: \forall f, g \in A: [x f, y g]_{\g_{[2]}} := [x, y]_{\g} fg$$
     A crucial detail for us is that instead of being equipped with the usual residue bilinear form of degree $(0, 0)$, this Lie algebra will be equipped with the residue bilinear form of degree $(0, -1)$:
         $$\forall x, y \in \g: \forall (m, p), (n, q) \in \Z^2: (x v^m t^p, y v^n t^q)_{\g_{[2]}} := (x, y)_{\g} \delta_{(m, p) + (n, q), (0, -1)}$$
     It is easy to see that the bilinear form:

@@ -275,7 +275,7 @@
             The weight spaces of the adjoint action of $\hat{\g}_{[1]}$ on $\hat{\g}_{[2]}$ can be given explicitly in terms of the basis elements of the latter in the following manner:
                 $$\forall (\alpha, m) \in \Phi \x \Z: \hat{\g}_{[2]}[\alpha + m\delta] \cong \hat{\g}_{[1]}[\alpha + m\delta] \tensor_{\bbC} \bbC[t^{\pm 1}]$$
                 $$
-                    \forall r \in \Z \setminus \{0\}: \hat{\g}_{[2]}[r \delta] \cong \hat{\g}_{[1]}[r \delta] \tensor_{\bbC} \bbC[t^{\pm 1}] \oplus \bigoplus_{s \in \Z} \bbC (K_{r, s} \oplus D_{-r, s})
+                    \forall r \in \Z \setminus \{0\}: \hat{\g}_{[2]}[r \delta] \cong \hat{\g}_{[1]}[r \delta] \tensor_{\bbC} \bbC[t^{\pm 1}] \oplus \bigoplus_{s \in \Z} (\bbC K_{r, s} \oplus \bbC D_{-r, s})
                 $$
                 $$\hat{\g}_{[2]}[0] \cong \h \oplus (\bbC c_v \oplus \bbC c_t) \oplus (\bbC D_v \oplus \bbC D_t)$$
             Furthermore, $\hat{\g}_{[2]}$ is a weight module of $\hat{\g}_{[1]}$, i.e.:
@@ -296,24 +296,12 @@
                 $$
                     \forall r \in \Z \setminus \{0\}:
                     \begin{cases}
-                        \text{$
-                        \begin{cases}
-                            \hat{\g}_{[2]}^+[r \delta] \cong \hat{\g}_{[1]}[r \delta] \oplus \bigoplus_{s \in \Z_{> 0}} \bbC K_{r, s}
-                            \\
-                            \hat{\g}_{[2]}^-[r \delta] \cong \hat{\g}_{[1]}[r \delta] \oplus \bigoplus_{s \in \Z_{\leq 0}} \bbC K_{r, s}
-                        \end{cases}
-                        $ if $r > 0$}
+                        \text{$\hat{\g}_{[2]}^+ \cong \hat{\g}_{[1]}[r \delta] \tensor_{\bbC} \bbC[t^{\pm 1}] \oplus \bigoplus_{s \in \Z_{\leq 0}} (\bbC K_{r, s} \oplus \bbC D_{-r, s})$ if $r > 0$}
                         \\
-                        \text{$
-                        \begin{cases}
-                            \hat{\g}_{[2]}^+[r \delta] \cong \hat{\g}_{[1]}[r \delta] \oplus \bigoplus_{s \in \Z_{\leq 0}} \bbC D_{r, s}
-                            \\
-                            \hat{\g}_{[2]}^-[r \delta] \cong \hat{\g}_{[1]}[r \delta] \oplus \bigoplus_{s \in \Z_{> 0}} \bbC D_{r, s}
-                        \end{cases}
-                        $ if $r < 0$}
+                        \text{$\hat{\g}_{[2]}^- \cong \hat{\g}_{[1]}[r \delta] \tensor_{\bbC} \bbC[t^{\pm 1}] \oplus \bigoplus_{s \in \Z_{> 0}} (\bbC K_{r, s} \oplus \bbC D_{-r, s})$ if $r < 0$}
                     \end{cases}
                 $$
-                $$\hat{\g}_{[2]}^+[0] \cong \h \oplus \bbC c_v \oplus \bbC D_t, \hat{\g}_{[2]}^-[0] \cong \h \oplus \bbC c_t \bbC D_v$$
+                $$\hat{\g}_{[2]}^+[0] \cong \h \oplus \bbC c_v \oplus \bbC D_t, \hat{\g}_{[2]}^-[0] \cong \h \oplus \bbC c_t \oplus \bbC D_v$$
             Of course, one has also from these constructions that:
                 $$\hat{\g}_{[2]}^{\pm} \cong \bigoplus_{\beta \in \hat{\Phi} \cup \{0\}} \hat{\g}_{[2]}^{\pm}[\beta]$$
         \end{corollary}

@@ -1,19 +1,19 @@
-\section{Yangian divergence-zero vector fields}
-    \subsection{Extending \texorpdfstring{$\toroidal$}{} to fix degeneracy; Yangian extended toroidal Lie algebras}
-        The point to constructing the so-called \say{Yangian extended affine Lie algebras} is to fix the issue, whereby any bilinear form on:
+\section{Construction Yangian extended toroidal Lie algebras}
+    \subsection{Extending \texorpdfstring{$\toroidal$}{} to fix degeneracy}
+        The point to constructing the so-called \say{Yangian extended affine Lie algebras} is to fix the issue, whereby any \textit{invariant}\footnote{Let $\a$ be a Lie algebra with non-zero centre and $(-, -)$ be such an invariant symmetric bilinear form thereon. Then, for all $x, y \in \a$ and all $K \in \z(\a)$, we will have that $(K, [x, y]) = ([K, x], y) = (0, y) = 0$, thus proving that $(-, -)$ is degenerate.} symmetric bilinear form on:
             $$\toroidal:= \uce(\g_{[2]})$$
         is necessarily degenerate. We do this by formally introducing a \say{complementary} vector space $\d_{[2]}$ whose elements shall pair non-degenerately with those of $\z_{[2]}$. 
         \begin{convention} \label{conv: orthogonal_complement_of_toroidal_centres}
-            From now on, $\d_{[2]}$ shall be the $\bbC$-vector space:
-                $$\d_{[2]} \cong ( \bigoplus_{(r, s) \in \Z^2} \bbC D_{r, s} ) \oplus \bbC D_v \oplus \bbC D_t$$
+            From now on, $\d_{[2]}$ shall be the $k$-vector space:
+                $$\d_{[2]} \cong ( \bigoplus_{(r, s) \in \Z^2} k D_{r, s} ) \oplus k D_v \oplus k D_t$$
             such that we can endow:
                 $$\extendedtoroidal := \toroidal\oplus \d_{[2]}$$
-            with a $\bbC$-bilinear form $(-, -)_{\extendedtoroidal}$ such that:
+            with a $k$-bilinear form $(-, -)_{\extendedtoroidal}$ such that:
             \begin{itemize}
                 \item the elements $D_{r, s}, D_v, D_t$ are graded-dual with respect to $(-, -)_{\extendedtoroidal}$ to the elements $K_{r, s}, c_v, c_t$, respectively;
                 \item $(\g_{[2]}, \z_{[2]} \oplus \d_{[2]})_{\extendedtoroidal} := 0$;
                 \item $(\z_{[2]}, \z_{[2]})_{\extendedtoroidal} = (\d_{[2]}, \d_{[2]})_{\extendedtoroidal} := 0$;
-                \item $(-, -)_{\extendedtoroidal}|_{\Sym^2_{\bbC}(\g_{[2]})} := (-, -)_{\g_{[2]}}$
+                \item $(-, -)_{\extendedtoroidal}|_{\Sym^2_{k}(\g_{[2]})} := (-, -)_{\g_{[2]}}$
             \end{itemize}
         \end{convention}
         \begin{convention}
@@ -162,12 +162,12 @@
 
         \begin{remark}[$\d_{[2]}$ acts by derivations] \label{remark: dual_of_toroidal_centres_contains_derivations}
             \begin{enumerate}
-                \item We can identify the derivations $D_{r, s}, D_v, D_t$ explicitly in terms of $\del_v := \frac{\del}{\del v}, \del_t := \frac{\del}{\del t}$. For this, let us firstly equip $\der_{\bbC}(A_{[2]})$ - the $\bbC$-vector space of all $\bbC$-linear derivations on $A_{[2]}$ - with the following basis:
+                \item We can identify the derivations $D_{r, s}, D_v, D_t$ explicitly in terms of $\del_v := \frac{\del}{\del v}, \del_t := \frac{\del}{\del t}$. For this, let us firstly equip $\der_{k}(A)$ - the $k$-vector space of all $k$-linear derivations on $A$ - with the following basis:
                     $$\{ v^m t^p \del_v, v^n t^q \del_t \}_{(m, p), (n, q) \in \Z^2}$$
                 \begin{enumerate}
                     \item To compute $D_{r, s}$ in terms of $\del_v, \del_t$, suppose firstly that:
                         $$D_{r, s} := f(v, t) \del_v + g(v, t) \del_t$$
-                    with $f(v, t), g(v, t) \in A_{[2]}$. Next, fix some $(m, p) \in \Z^2$ and then consider the following:
+                    with $f(v, t), g(v, t) \in A$. Next, fix some $(m, p) \in \Z^2$ and then consider the following:
                         $$
                             \begin{aligned}
                                 D_{r, s}( v^m t^p ) & = f(v, t) \del_v( v^m t^p ) + g(v, t) \del_t( v^m t^p )
@@ -188,13 +188,13 @@
                     \item Likewise:
                         $$D_t = -\del_t$$
                 \end{enumerate}
-                Consequently, we see that elements of $\d_{[2]}$ are derivations on $A_{[2]}$.
+                Consequently, we see that elements of $\d_{[2]}$ are derivations on $A$.
     
-                \item Now that we know that the basis elements $D_{r, s}, D_v, D_t \in \d_{[2]}$ are actually certain derivations on $A_{[2]}$, we can also check that the commutators of the elements $D_{r, s}, D_v, D_t$ are still elements of $\d_{[2]}$. This ensures us that we can \textit{choose} to endow $\d_{[2]}$ with the structure of a Lie subalgebra of $\der_{\bbC}(A_{[2]})$, i.e. the Lie algebra structure such that:
+                \item Now that we know that the basis elements $D_{r, s}, D_v, D_t \in \d_{[2]}$ are actually certain derivations on $A$, we can also check that the commutators of the elements $D_{r, s}, D_v, D_t$ are still elements of $\d_{[2]}$. This ensures us that we can \textit{choose} to endow $\d_{[2]}$ with the structure of a Lie subalgebra of $\der_{k}(A)$, i.e. the Lie algebra structure such that:
                     $$[D, D']_{\extendedtoroidal} \in \d_{[2]}$$
                 for any $D, D' \in \d_{[2]}$. In general, however, we are only guaranteed that:
                     $$[D, D']_{\extendedtoroidal} = \z_{[2]} \oplus \d_{[2]}$$
-                We note also that it is not even guaranteed \textit{a priori} that the $\d_{[2]}$-summand of the commutators of the form $[D, D']_{\extendedtoroidal}$ has to be the usual commutator inherited from $\der_{\bbC}(A_{[2]})$; this turns out to be true, but is a somewhat non-trivial fact (cf. proposition \ref{prop: lie_bracket_on_orthogonal_complement_of_toroidal_centre}). 
+                We note also that it is not even guaranteed \textit{a priori} that the $\d_{[2]}$-summand of the commutators of the form $[D, D']_{\extendedtoroidal}$ has to be the usual commutator inherited from $\der_{k}(A)$; this turns out to be true, but is a somewhat non-trivial fact (cf. proposition \ref{prop: lie_bracket_on_orthogonal_complement_of_toroidal_centre}). 
             \end{enumerate}
         \end{remark}
         
@@ -230,7 +230,7 @@
                     $$
                 Note that for the second equality, we implicitly invoked the fact that the basis elements of $\d_{[2]}$ (and hence all elements thereof) act on $\g_{[2]}$ in the following manner:
                     $$[D, x v^m t^p] = x D(v^m t^p), D \in \{D_{r, s}\}_{(r, s) \in \Z^2} \cup \{D_v, D_t\}$$
-                (cf. remark \ref{remark: derivation_action_on_multiloop_algebras}), and it makes sense to write this because we now know (after remark \ref{remark: dual_of_toroidal_centres_contains_derivations}) that elements of $\d_{[2]}$ are certain derivations on $A_{[2]}$. At the same time, we have that:
+                (cf. remark \ref{remark: derivation_action_on_multiloop_algebras}), and it makes sense to write this because we now know (after remark \ref{remark: dual_of_toroidal_centres_contains_derivations}) that elements of $\d_{[2]}$ are certain derivations on $A$. At the same time, we have that:
                     $$
                         \begin{aligned}
                             [ D, [x v^m t^p, y v^n t^q]_{\toroidal} ]_{\extendedtoroidal} & = [ D, [x, y]_{\g} v^{m + n} t^{p + q} + (x, y)_{\g} v^m t^p \bar{d}(v^n t^q) ]_{\extendedtoroidal}
@@ -240,7 +240,7 @@
                     $$
                 By putting the two computations together, one yields:
                     $$[D, v^m t^p \bar{d}(v^n t^q)]_{\extendedtoroidal} = D(v^m t^p) \bar{d}(v^n t^q) + v^m t^p \bar{d}(D(v^n t^q))$$
-                Since we know how the basis elements of $\d_{[2]}$ act on $A_{[2]}$ (cf. remark \ref{remark: dual_of_toroidal_centres_contains_derivations}), the above is enough to determine how $\d_{[2]}$ acts on $\z_{[2]}$. 
+                Since we know how the basis elements of $\d_{[2]}$ act on $A$ (cf. remark \ref{remark: dual_of_toroidal_centres_contains_derivations}), the above is enough to determine how $\d_{[2]}$ acts on $\z_{[2]}$. 
 
                 Let us also note the similarity between the formulae:
                     $$[D, f \bar{d}(g)]_{\extendedtoroidal} = D(f) \bar{d}(g) + f \bar{d}(D(g))$$
@@ -250,7 +250,7 @@
                     $$\extendedtoroidal \cong \toroidal\rtimes \d_{[2]}$$
                 i.e. that $\toroidal$ might not be a $\d_{[2]}$-module from the start. Without any loss of generality, let us consider the following for any $h, h' \in \h$ so that\footnote{We can make this assumption because ultimately, elements of $\z_{[2]}$ do not depend on those of $\g$.}:
                     $$(h, h')_{\g} = 1$$
-                any $f(v, t), g(v, t) \in A_{[2]}$, and any $D \in \d_{[2]}$:
+                any $f(v, t), g(v, t) \in A$, and any $D \in \d_{[2]}$:
                     $$[ D, [h f(v, t), h' g(v, t)]_{\toroidal} ]_{\extendedtoroidal} = [ D, f(v, t) \bar{d}( g(v, t) ) ]_{\extendedtoroidal}$$
                 At the same time, we have via the Jacobi identity that:
                     $$
@@ -270,7 +270,7 @@
                     $$[ \d_{[2]}, \g_{[2]} ]_{\extendedtoroidal} \subseteq \g_{[2]} \oplus \z_{[2]}$$
                 but we claim now that the following stronger fact holds:
                     $$[ \d_{[2]}, \g_{[2]} ]_{\extendedtoroidal} \subseteq \g_{[2]}$$
-                To see why this is the case, suppose firstly that for any $D \in \d_{[2]}$, any $X := x f(v, t) \in \g_{[2]}$ (for some $f(v, t) \in A_{[2]}$), there is $K(X) \in \z_{[2]}$ depending on $X$ (and indeed, such a $K(X)$ exists by remark \ref{remark: derivation_action_on_multiloop_algebras}) such that:
+                To see why this is the case, suppose firstly that for any $D \in \d_{[2]}$, any $X := x f(v, t) \in \g_{[2]}$ (for some $f(v, t) \in A$), there is $K(X) \in \z_{[2]}$ depending on $X$ (and indeed, such a $K(X)$ exists by remark \ref{remark: derivation_action_on_multiloop_algebras}) such that:
                     $$[ D, X ]_{\extendedtoroidal} = x D( f(v, t) ) + K(X)$$
                 Next, pick an arbitrary element $\xi \in \d_{[2]}$ and then consider the following:
                     $$( [ D, X ]_{\extendedtoroidal}, \xi )_{\extendedtoroidal} = (D(X) + K(X), \xi)_{\extendedtoroidal} = (K(X), \xi)_{\extendedtoroidal}$$
@@ -294,13 +294,14 @@
         \end{remark}
 
         Remarks \ref{remark: derivation_action_on_multiloop_algebras}, \ref{remark: dual_of_toroidal_centres_contains_derivations}, and \ref{remark: derivation_action_on_toroidal_centres} can now be packaged together into the following result.
-        \begin{proposition}[$\toroidal$ as a $\der_{\bbC}(A_{[2]})$-module] \label{prop: toroidal_lie_algebras_as_modules_over_vector_field_lie_algebras}
-            $\toroidal$ is a $\der_{\bbC}(A_{[2]})$-module, decomposing into a direct sum of the submodules $\g_{[2]}$ and $\z_{[2]}$. 
+        \begin{proposition}[$\toroidal$ as a $\der_{k}(A)$-module] \label{prop: toroidal_lie_algebras_as_modules_over_vector_field_lie_algebras}
+            $\toroidal$ is a $\der_{k}(A)$-module, decomposing into a direct sum of the submodules $\g_{[2]}$ and $\z_{[2]}$. 
         \end{proposition}
 
+    \subsection{Non-uniqueness of Yangian extended toroidal Lie brackets}
         Now, let us see if and how $\d_{[2]}$ might be endowed with a Lie algebra structure of its own, so that we might have that:
             $$\extendedtoroidal \cong \toroidal \rtimes \d_{[2]}$$
-        The upshot is that in general, the vector space $\d_{[2]}$ fails to be a Lie algebra, namely due to the commutators $[D, D']_{\extendedtoroidal}$ (for any two $D, D' \in \d_{[2]}$) having a non-vanishing $\z_{[2]}$-summand in general, and their $\d_{[2]}$-summand is actually nothing but the usual commutator of derivations inherited from $\der_{\bbC}(A_{[2]})$, and $\d_{[2]}$ will only be a Lie algebra if we choose to endow it with said commutator bracket (so that the $\z_{[2]}$ would be made to vanish). 
+        The upshot is that in general, the vector space $\d_{[2]}$ fails to be a Lie algebra, namely due to the commutators $[D, D']_{\extendedtoroidal}$ (for any two $D, D' \in \d_{[2]}$) having a non-vanishing $\z_{[2]}$-summand in general, and their $\d_{[2]}$-summand is actually nothing but the usual commutator of derivations inherited from $\der_{k}(A)$, and $\d_{[2]}$ will only be a Lie algebra if we choose to endow it with said commutator bracket (so that the $\z_{[2]}$ would be made to vanish). 
         
         \begin{proposition}[How does $\d_{[2]}$ act on itself] \label{prop: lie_bracket_on_orthogonal_complement_of_toroidal_centre}
             Let $\d_{[2]}$ be given as in convention \ref{conv: orthogonal_complement_of_toroidal_centres}. Then:
@@ -310,7 +311,7 @@
             \begin{proof}
                 Pick arbitrary elements $D, D' \in \d_{[2]}$ and set:
                     $$[D, D']_{\extendedtoroidal} := X(D, D') + K(D, D') + \xi(D, D')$$
-                for some $X(D, D') \in \g_{[2]}, K(D, D') \in \z_{[2]}$, and $\xi(D, D') \in \d_{[2]}$ depending on $D, D'$. Pick also a test element $y g(v, t) \in \g_{[2]}$, for some arbitrary $y \in \g$ and $g(v, t) \in A_{[2]}$ and set:
+                for some $X(D, D') \in \g_{[2]}, K(D, D') \in \z_{[2]}$, and $\xi(D, D') \in \d_{[2]}$ depending on $D, D'$. Pick also a test element $y g(v, t) \in \g_{[2]}$, for some arbitrary $y \in \g$ and $g(v, t) \in A$ and set:
                     $$[D, y g(v, t)]_{\extendedtoroidal} := y D( g(v, t) ) + K_{D, Y}$$
                     $$[D', y g(v, t)]_{\extendedtoroidal} := y D'( g(v, t) ) + K_{D', Y}$$
                 for some $K_{D, Y} \in \z_{[2]}$ depending on $Y$ (cf. remark \ref{remark: derivation_action_on_multiloop_algebras}).
@@ -383,7 +384,7 @@
         \end{corollary} 
         In light of the above, it is also valuable to know how the $\d_{[2]}$-summand of the commutators:
             $$[D, D']_{\extendedtoroidal}$$
-        are given explicitly. Later on, these computations will be used to prove that the centre of $\extendedtoroidal$ is $2$-dimensional, namely given by $\bbC c_v \oplus \bbC c_v$.
+        are given explicitly. Later on, these computations will be used to prove that the centre of $\extendedtoroidal$ is $2$-dimensional, namely given by $k c_v \oplus k c_v$.
         \begin{lemma}[Explicitly commutators between basis elements of $\d_{[2]}$] \label{lemma: explicit_commutators_between_basis_elements_of_toroidal_central_orthogonal_complement}
             The usual commutator (i.e. $[D, D'] := DD' - D'D$) between the basis elements $D_{r, s}, D_v, D_t \in \d_{[2]}$ are given as follows:
                 $$[D_v, D_t] = 0$$
@@ -478,71 +479,71 @@
                         $$\forall D \in \{D_{r, s}\}_{(r, s) \in \Z^2} \cup \{D_v, D_t\}: [D, c_v]_{\extendedtoroidal} = 0$$
                     and since the set $\{D_{r, s}\}_{(r, s) \in \Z^2} \cup \{D_v, D_t\}$ is a basis for $\d_{[2]}$, one thus has that:
                         $$[\d_{[2]}, c_v]_{\extendedtoroidal} = 0$$
-                    as none of said commutators are elements of $\bbC D_v$.
+                    as none of said commutators are elements of $k D_v$.
                     \item Likewise, one can show that:
                         $$[\d_{[2]}, c_t]_{\extendedtoroidal} = 0$$
                 \end{enumerate}
             \end{proof}
         We will also see that in fact, the centre of $\extendedtoroidal$ is actually just spanend by $c_v$ and $c_t$. See proposition \ref{prop: centres_of_extended_toroidal_lie_algebras} and the discussion preceding it for more details. 
         
-        \begin{question}[A different Lie bracket on $\der_{\bbC}(A_{[2]})$ ?] \label{question: alternative_derivation_lie_bracket}
-            Is there a Lie algebra structure $\der_{\bbC}(A_{[2]})$ (different from the standard one given by commutators $[D, D'] := DD' - D'D$) with respect to which $\d_{[2]}$ is always a Lie subalgebra ? 
+        \begin{question}[A different Lie bracket on $\der_{k}(A)$ ?] \label{question: alternative_derivation_lie_bracket}
+            Is there a Lie algebra structure $\der_{k}(A)$ (different from the standard one given by commutators $[D, D'] := DD' - D'D$) with respect to which $\d_{[2]}$ is always a Lie subalgebra ? 
         \end{question}
         
         \begin{proposition}[$\toroidal$ as a $\d_{[2]}$-module] \label{prop: toroidal_lie_algebras_as_modules_over_div_0_vector_field_lie_algebras}
             When we assume that:
                 $$\extendedtoroidal \cong \toroidal \rtimes \d_{[2]}$$
-            i.e. when $\d_{[2]}$ is a Lie subalgebra of $\der_{\bbC}(A_{[2]})$ with the usual commutator bracket, we will have that $\toroidal$ is a $\d_{[2]}$-module, decomposing into a direct sum of the submodules $\g_{[2]}$ and $\z_{[2]}$. 
+            i.e. when $\d_{[2]}$ is a Lie subalgebra of $\der_{k}(A)$ with the usual commutator bracket, we will have that $\toroidal$ is a $\d_{[2]}$-module, decomposing into a direct sum of the submodules $\g_{[2]}$ and $\z_{[2]}$. 
         \end{proposition}
         
         In summary, we have yielded the following result:
         \begin{theorem}[Yangian extended toroidal Lie algebras] \label{theorem: extended_toroidal_lie_algebras}
             There is a Lie bracket on the vector space:
                 $$\extendedtoroidal := \toroidal \oplus \d_{[2]}$$
-            given as in remarks \ref{remark: derivation_action_on_multiloop_algebras} and \ref{remark: derivation_action_on_toroidal_centres}, uniquely determined by the choice of an invariant non-degenerate symmetric $\bbC$-bilinear form $(-, -)_{\extendedtoroidal}$ as in convention \ref{conv: orthogonal_complement_of_toroidal_centres}, up to choices of central summands for the elements of $[\d_{[2]}, \d_{[2]}]_{\extendedtoroidal}$ (cf. remark \ref{remark: dual_of_toroidal_centres_contains_derivations}).
+            given as in remarks \ref{remark: derivation_action_on_multiloop_algebras} and \ref{remark: derivation_action_on_toroidal_centres}, uniquely determined by the choice of an invariant non-degenerate symmetric $k$-bilinear form $(-, -)_{\extendedtoroidal}$ as in convention \ref{conv: orthogonal_complement_of_toroidal_centres}, up to choices of central summands for the elements of $[\d_{[2]}, \d_{[2]}]_{\extendedtoroidal}$ (cf. remark \ref{remark: dual_of_toroidal_centres_contains_derivations}).
 
-            When said central summands are chosen to vanish, i.e. when $\d_{[2]}$ is a Lie subalgebra of $\der_{\bbC}(A_{[2]})$ with the usual commutator bracket, one shall obtain:
+            When said central summands are chosen to vanish, i.e. when $\d_{[2]}$ is a Lie subalgebra of $\der_{k}(A)$ with the usual commutator bracket, one shall obtain:
                 $$\extendedtoroidal := \toroidal \rtimes \d_{[2]}$$
         \end{theorem}
         \begin{definition}[Yangian extended toroidal Lie algebras] \label{def: extended_toroidal_lie_algebras}
-            We refer to $\extendedtoroidal$ as in theorem \ref{theorem: extended_toroidal_lie_algebras} as a \textbf{Yangian extended ($2$-)toroidal Lie algebra}. 
+            We refer to $\extendedtoroidal$ as in theorem \ref{theorem: extended_toroidal_lie_algebras} as a \textbf{Yangian extended toroidal Lie algebra}. 
         \end{definition}
         \begin{remark}
-            Our notion of Yangian extended $2$-toroidal Lie algebras does not quite coincide with the very similar notion of an \say{toroidal extended affine Lie algebra} that appeared, for instance, in \cite{billig_representations_of_toroidal_extended_affine_lie_algebras}. Ultimately, this is because the bilinear form that we have endowed $\g_{[2]}$ with is of degree $-1$ (as opposed to $0$) in the second variable. For the latter, $\d_{[2]}$ would be the Lie algebra of divergence-free vector fields on the (smooth) affine $\bbC$-scheme $\Spec A_{[2]}$.
+            Our notion of Yangian extended toroidal Lie algebras does not quite coincide with the very similar notion of an \say{toroidal extended affine Lie algebra} that appeared, for instance, in \cite{billig_representations_of_toroidal_extended_affine_lie_algebras}. Ultimately, this is because the bilinear form that we have endowed $\g_{[2]}$ with is of degree $-1$ (as opposed to $0$) in the second variable. For the latter, $\d_{[2]}$ would be the Lie algebra of divergence-free algebraic vector fields on the (smooth) affine $k$-scheme $\Spec A \cong \G_m^2$.
         \end{remark}
         
         \begin{remark}[Some explicit elements of $H^2_{\Lie}(\d_{[2]}, \z_{[2]})$] \label{remark: non_uniqueness_of_yangian_extended_lie_algebras}
             From proposition \ref{prop: lie_bracket_on_orthogonal_complement_of_toroidal_centre}, we know that:
                 $$[\d_{[2]}, \d_{[2]}]_{\extendedtoroidal} \subset \z_{[2]} \oplus \d_{[2]}$$
-            we can obtain some $2$-cocyles $\bar{\sigma} \in H^2_{\Lie}(\d_{[2]}, \z_{[2]})$ by restricting elements $\sigma \in H^2_{\Lie}(\der_{\bbC}(A_{[2]}), \z_{[2]})$, some of which are known.
+            we can obtain some $2$-cocyles $\bar{\sigma} \in H^2_{\Lie}(\d_{[2]}, \z_{[2]})$ by restricting elements $\sigma \in H^2_{\Lie}(\der_{k}(A), \z_{[2]})$, some of which are known.
 
-            It pays to abstract the situation out to the $n$-variable case for a moment, mostly for us to make the point that the dimension of the vector space $H^2_{\Lie}(\der_{\bbC}(A_{[n]}), \bar{\Omega}_{[n]})$ depends not on the number of variables. In \cite[pp. 5, below Equation 1.3]{billig_energy_momentum_tensor}, it was noted that\todo{Find a proper citation for this. \cite{billig_energy_momentum_tensor} does not provide one.}:
-                $$H^2_{\Lie}(\der_{\bbC}(A_{[n]}), \bar{\Omega}_{[n]}) \cong \bbC \sigma_1 \oplus \bbC \sigma_2$$
+            It pays to abstract the situation out to the $n$-variable case for a moment, mostly for us to make the point that the dimension of the vector space $H^2_{\Lie}(\der_{k}(k[v_1^{\pm 1}, ..., v_n^{\pm 1}]), \bar{\Omega}_{[n]})$ depends not on the number of variables. In \cite[pp. 5, below Equation 1.3]{billig_energy_momentum_tensor}, it was noted that\todo{Find a proper citation for this. \cite{billig_energy_momentum_tensor} does not provide one.}:
+                $$H^2_{\Lie}(\der_{k}(k[v_1^{\pm 1}, ..., v_n^{\pm 1}]), \bar{\Omega}_{[n]}) \cong k \sigma_1 \oplus k \sigma_2$$
             with the $2$-cocyles $\sigma_1, \sigma_2$ twisting the Lie brackets:
-                $$[v_1^{m_1} ... v_n^{m_n} v_p \del_{v_p}, v_1^{r_1} ... v_n^{r_n} v_q \del_{v_q}] \in \der_{\bbC}(A_{[n]})$$
+                $$[v_1^{m_1} ... v_n^{m_n} v_p \del_{v_p}, v_1^{r_1} ... v_n^{r_n} v_q \del_{v_q}] \in \der_{k}(k[v_1^{\pm 1}, ..., v_n^{\pm 1}])$$
             being given by:
                 $$\sigma_1(v_1^{m_1} ... v_n^{m_n} v_p \del_{v_p}, v_1^{r_1} ... v_n^{r_n} v_q \del_{v_q}) = r_p m_q \sum_{1 \leq i \leq n} r_i v_1^{m_1 + r_1} ... v_n^{m_n + r_n} v_i^{-1} \bar{d}(v_i)$$
                 $$\sigma_2(v_1^{m_1} ... v_n^{m_n} v_p \del_{v_p}, v_1^{r_1} ... v_n^{r_n} v_q \del_{v_q}) = m_p r_q \sum_{1 \leq i \leq n} r_i v_1^{m_1 + r_1} ... v_n^{m_n + r_n} v_i^{-1} \bar{d}(v_i)$$
             for every $1 \leq p, q \leq n$ and every $(m_1, ..., m_n), (r_1, ..., r_n) \in \Z^n$. 
 
-            Now, back to the $2$-variable case. Here, we know how the basis elements $D_{r, s}, D_v, D_t$ of $\d_{[2]}$ are given in terms of $A_{[2]}$-multiples of the partial derivatives $\del_v, \del_t$ (cf. remark \ref{remark: dual_of_toroidal_centres_contains_derivations}), so we can exploit the bilinearity of $2$-cocycles in order to see how $\sigma_1, \sigma_2$ act on elements of $\d_{[2]}$. Knowing that the aforementioned basis elements are given by:
+            Now, back to the $2$-variable case. Here, we know how the basis elements $D_{r, s}, D_v, D_t$ of $\d_{[2]}$ are given in terms of $A$-multiples of the partial derivatives $\del_v, \del_t$ (cf. remark \ref{remark: dual_of_toroidal_centres_contains_derivations}), so we can exploit the bilinearity of $2$-cocycles in order to see how $\sigma_1, \sigma_2$ act on elements of $\d_{[2]}$. Knowing that the aforementioned basis elements are given by:
                 $$D_{r, s} = s v^{-r + 1} t^{-s - 1} \del_v - r v^{-r} t^{-s} \del_t$$
                 $$D_v = -v t^{-1} \del_v$$
                 $$D_t = -\del_t$$
             we see thus that:
                 $$\sigma_a(D_t, -) = 0$$
                 $$\sigma_a(D_{r, s}, -), \sigma_a(D_v, -) \not = 0$$
-            as elements of $\Hom_{\bbC}(\d_{[2]}, \z_{[2]})$, where $a \in \{1, 2\}$; one proves this by looking at the powers of $v, t$ in the multiples of $\del_v, \del_t$ in the expressions for $D_{r, s}, D_v, D_t$. Subsequently, we can conclude that neither of the $2$-cocycles $\sigma_1, \sigma_2$ vanish entirely on the Lie subalgebra $\d_{[2]}$ of $\der_{\bbC}(A_{[2]})$, and hence:
-                $$H^2_{\Lie}(\d_{[2]}, \z_{[2]}) \cong \bbC \sigma_1 \oplus \bbC \sigma_2$$
+            as elements of $\Hom_{k}(\d_{[2]}, \z_{[2]})$, where $a \in \{1, 2\}$; one proves this by looking at the powers of $v, t$ in the multiples of $\del_v, \del_t$ in the expressions for $D_{r, s}, D_v, D_t$. Subsequently, we can conclude that neither of the $2$-cocycles $\sigma_1, \sigma_2$ vanish entirely on the Lie subalgebra $\d_{[2]}$ of $\der_{k}(A)$, and hence:
+                $$H^2_{\Lie}(\d_{[2]}, \z_{[2]}) \cong k \sigma_1 \oplus k \sigma_2$$
             We delegate the relevant detailed computations to the proof of theorem \ref{theorem: non_uniqueness_of_yangian_extended_lie_algebras} down below.  
         \end{remark}
         \begin{theorem}[Non-uniqueness of Yangian extended Lie algebras] \label{theorem: non_uniqueness_of_yangian_extended_lie_algebras}
             Let the vector space:
-                $$\d_{[2]} := (\bigoplus_{(r, s) \in \Z^2} \bbC D_{r, s}) \oplus \bbC D_v \oplus \bbC D_t$$
-            as in convention \ref{conv: orthogonal_complement_of_toroidal_centres} (see remark \ref{remark: dual_of_toroidal_centres_contains_derivations} also, for how the elements $D_{r, s}, D_v, D_t$ are given in terms of $\del_v, \del_t$) be viewed as a Lie subalgebra of $\der_{\bbC}(A_{[2]})$ (possible thanks to proposition \ref{prop: lie_bracket_on_orthogonal_complement_of_toroidal_centre}), which we endow with the usual commutator bracket. Then, there are two isomorphism classes of Lie algebra extensions:
+                $$\d_{[2]} := (\bigoplus_{(r, s) \in \Z^2} k D_{r, s}) \oplus k D_v \oplus k D_t$$
+            as in convention \ref{conv: orthogonal_complement_of_toroidal_centres} (see remark \ref{remark: dual_of_toroidal_centres_contains_derivations} also, for how the elements $D_{r, s}, D_v, D_t$ are given in terms of $\del_v, \del_t$) be viewed as a Lie subalgebra of $\der_{k}(A)$ (possible thanks to proposition \ref{prop: lie_bracket_on_orthogonal_complement_of_toroidal_centre}), which we endow with the usual commutator bracket. Then, there are two isomorphism classes of Lie algebra extensions:
                 $$0 \to \toroidal \to \extendedtoroidal \to \d_{[2]} \to 0$$
             or, in cohomological terms, one has that:
-                $$\dim_{\bbC} H^2_{\Lie}(\d_{[2]}, \toroidal) = 2$$
+                $$\dim_{k} H^2_{\Lie}(\d_{[2]}, \toroidal) = 2$$
         \end{theorem}
             \begin{proof}
                 As indicated in remark \ref{remark: non_uniqueness_of_yangian_extended_lie_algebras}, it only remains to prove that:
@@ -579,11 +580,11 @@
             \end{proof}
         \begin{corollary}
             More compactly, and given how $\d_{[2]}$ acts on $\g_{[2]} \subset \toroidal \cong \g_{[2]} \oplus \z_{[2]}$ (cf. remark \ref{remark: derivation_action_on_multiloop_algebras}), the formula in theorem \ref{theorem: non_uniqueness_of_yangian_extended_lie_algebras} can be equivalently stated as:
-                $$\dim_{\bbC} H^2_{\Lie}(\d_{[2]}, \z_{[2]}) = 2$$
+                $$\dim_{k} H^2_{\Lie}(\d_{[2]}, \z_{[2]}) = 2$$
         \end{corollary}
         \begin{corollary}
             One also has that:
-                $$\dim_{\bbC} H^2_{\Lie}(\der_{\bbC}(A_{[2]}), \toroidal) = \dim_{\bbC} H^2_{\Lie}(\der_{\bbC}(A_{[2]}), \z_{[2]}) = 2$$
+                $$\dim_{k} H^2_{\Lie}(\der_{k}(A), \toroidal) = \dim_{k} H^2_{\Lie}(\der_{k}(A), \z_{[2]}) = 2$$
             as a consequence of a combination of proposition \ref{prop: lie_bracket_on_orthogonal_complement_of_toroidal_centre} and theorem \ref{theorem: non_uniqueness_of_yangian_extended_lie_algebras}.
         \end{corollary}
 
@@ -622,12 +623,12 @@
                 Since we know that:
                     $$\hat{\z}_{[2]} \subset \z_{[2]}$$
                 and that the only possibly non-zero bracket with elements of $\z_{[2]}$ are elements of $[\d_{[2]}, \z_{[2]}]_{\extendedtoroidal}$, and since we also know from lemma \ref{lemma: explicit_commutators_between_central_basis_elements_and_derivations} that:
-                    $$[\d_{[2]}, K]_{\extendedtoroidal} = 0 \iff K \in \bbC c_v \oplus \bbC c_v$$
+                    $$[\d_{[2]}, K]_{\extendedtoroidal} = 0 \iff K \in k c_v \oplus k c_v$$
                 we can conclude immediately that:
-                    $$\hat{\z}_{[2]} = \bbC c_v \oplus \bbC c_t$$
+                    $$\hat{\z}_{[2]} = k c_v \oplus k c_t$$
             \end{proof}
         \begin{remark}
             It is rather interesting that:
-                $$\hat{\z}_{[2]} \cong \bbC c_v \oplus \bbC c_t$$
+                $$\hat{\z}_{[2]} \cong k c_v \oplus k c_t$$
             as this is in good analogy with the affine Kac-Moody case, where the centre of $\hat{\g}_{[1]}$ is $1$-dimensional, namely spanned by the element $c_v$. 
         \end{remark}

@@ -19,6 +19,10 @@
             Indeed, for every $f, g \in A$, the Leibniz rule is satisfied:
                 $$g df + f dg = g(1 \tensor f - f \tensor 1) + f(1 \tensor g - g \tensor 1) = gf \tensor 1 - fg \tensor 1 = d(fg)$$
         \end{remark}
+        \begin{remark}[Generators and relations for modules of $1$-forms]
+            
+        \end{remark}
+        
         The following well-known lemmas are very useful. A proof can be be found in any standard reference on general commutative algebra (cf. e.g. \cite[\href{https://stacks.math.columbia.edu/tag/00AO}{Tag 00AO}]{stacks}).
         \begin{lemma}[Universal property of modules of K\"ahler differentials]
             Let $k$ be a base commutative ring and let $A$ be a commutative $k$-algebra. Then, the $A$-module of K\"ahler differentials relative to the ring map $k \to A$ corepresents the functor of $k$-linear derivations from $A$, i.e. there is a natural isomorphism of functors $A\mod \to A\mod$ as follows:
@@ -38,19 +42,33 @@
         \end{corollary}
 
     \subsection{Centres of UCEs of current Lie algebras}
-        \begin{convention} 
+        \begin{convention} \label{conv: a_fixed_finite_dimensional_simple_lie_algebra}
             From now on, we fix a finite-dimensional simple Lie algebra:
                 $$\g$$
             over an algebraically closed field $k$ of characteristic $0$, equipped with a symmetric and non-degenerate invariant $k$-bilinear form $(-, -)_{\g}$. It is known that such a bilinear form is unique up to $k^{\x}$-multiples, so for all intents and purposes, it can be assumed to be the Killing form, though this assumption is not necessary. 
+    
+            Suppose also that $\g$ is equipped with a basis $\{x_i\}_{1 \leq i \leq \dim_k \g}$ and with respect to $(-, -)_{\g}$, we identify a dual basis $\{x_i^*\}_{1 \leq i \leq \dim_k \g}$. Recall that the Casimir tensor/canonical element of $\g$ is:
+                $$\sfr_{\g} := \sum_{1 \leq i \leq \dim_k \g} x_i \tensor x_i^* \in \g \tensor_k \g^*$$
+            and recall that $\sfr_{\g}$ is independent of what we choose the basis vectors $x_i$ to be.
+    
+            The set of all roots and respectively, positive/negative roots, and simple roots of $\g$ shall be denoted by:
+                $$\Phi, \Phi^{\pm}, \simpleroots$$
+            The set $\simpleroots$ is $\Z$-linearly independent and its $\Z$-span:
+                $$Q := \Z \simpleroots$$
+            is typically referred to as the root lattice of $\g$. Recall also that there is a set of fundamental weights: if we write:
+                $$\check{\Phi}$$
+            for the set of coroots of $\g$, then the so-called weight lattice of $\g$ shall be given by\footnote{We avoid the usual $\Delta$ notation, as we would like to reserve this symbol for a coproduct construction on affine Yangians.}:
+                $$\Pi := \Hom_{\Z}(\check{Q}, \Z), \check{Q} := \Z\check{\Phi}$$
+            inside which lies the set of fundamental weights, whose elements are dual to those of $\check{\Phi}^{\circ}$ (i.e. dual to simple coroots) with respect to $(-, -)_{\g}$\footnote{Which we might as well normalise so that $(\alpha_j, \check{\alpha}_j)_{\g} = 2$ for every $j \in \Gamma_0$, and hence the fundamental weights $\lambda_i$ will be simply be subjected to the relation $\delta_{ij} = 2 \frac{(\lambda_i, \check{\alpha}_i)_{\g}}{(\alpha_j, \check{\alpha}_j)_{\g}} = (\lambda_i, \check{\alpha}_i)_{\g}$.}.
         \end{convention}
 
         \begin{convention}
             Let us fix a commutative $k$-algebra $A$.
 
-            We shall be writing:
-                $$\g_A := \g \tensor_k A$$
-            and endow this $k$-vector space with the following Lie bracket:
-                $$\forall x, y \in \g: \forall f, g \in A: [x f, y g]_{\g_A} := [x, y]_{\g} fg$$
+            We shall endow the $k$-vector space:
+                $$\g \tensor_k A$$
+            with the following Lie bracket:
+                $$\forall x, y \in \g: \forall f, g \in A: [x f, y g]_{\g \tensor_k A} := [x, y]_{\g} fg$$
         \end{convention}
 
         \begin{convention}
@@ -60,34 +78,43 @@
         \end{convention}
         
         \begin{theorem}[The Kassel realisation] \label{theorem: kassel_realisation}
-            \cite[Corollary 3.5]{kassel_universal_central_extensions_of_lie_algebras} Let $k$ now an algebraically closed field of characteristic $0$ again, as in convention \ref{conv: a_fixed_finite_dimensional_simple_lie_algebra}. 
-
-            For the perfect Lie $k$-algebra $\g_A$, we have that:
-                $$\z(\uce(\g_A)) \cong \bar{\Omega}^1_{A/k}$$
+            \cite[Corollary 3.5]{kassel_universal_central_extensions_of_lie_algebras} For the perfect Lie $k$-algebra $\g \tensor_k A$, we have that:
+                $$\z(\uce(\g \tensor_k A)) \cong \bar{\Omega}^1_{A/k}$$
         \end{theorem}
-            \begin{proof}[Proof sketch]
-                Kassel constructed in the proof of \cite[Theorem 3.3]{kassel_universal_central_extensions_of_lie_algebras} a $k$-linear map:
-                    $$\e: \bigwedge^2 \g_A \to \bar{\Omega}^1_{A/k}$$
-                by the formula:
-                    $$\forall x, y \in \g, \forall f, g \in A: \e(x f, y g) := (x, y)_{\g} f \bar{d}g$$
-                which can be shown - relying on the $\g$-invariance of the bilinear form $(-, -)_{\g}$ - to be an element of $H^2_{\Lie}(\g_A, k)$ and hence gives a central extension $\fraku$ of $\g_A$ by $\bar{\Omega}_{A/k}^1$, whose underlying $k$-vector space is:
-                    $$\g_A \oplus \bar{\Omega}_{A/k}^1$$
-                and whose Lie bracket is:
-                    $$[-, -]_{\fraku} = [-, -]_{\g_A} + \e$$
-                It is also not hard to see that there is a section map $\g_A \to \fraku$, implying that $\fraku$ is simply connected in the sense of definition \ref{def: simply_connected_lie_algebras}. Via proposition \ref{prop: UCEs_are_simply_connected}, we then see that:
-                    $$\fraku \cong \uce(\g_A)$$
-                concluding the proof.
-            \end{proof}
+        Kassel constructed in the proof of \cite[Theorem 3.3]{kassel_universal_central_extensions_of_lie_algebras} a $k$-linear map:
+            $$\e: \bigwedge^2 (\g \tensor_k A) \to \bar{\Omega}^1_{A/k}$$
+        by the formula:
+            $$\forall x, y \in \g, \forall f, g \in A: \e(x f, y g) := (x, y)_{\g} f \bar{d}g$$
+        which can be shown - relying on the $\g$-invariance of the bilinear form $(-, -)_{\g}$ - to be an element of $H^2_{\Lie}(\g \tensor_k A, k)$ and hence gives a central extension $\fraku$ of $\g \tensor_k A$ by $\bar{\Omega}_{A/k}^1$, whose underlying $k$-vector space is:
+            $$\g \tensor_k A \oplus \bar{\Omega}_{A/k}^1$$
+        and whose Lie bracket is:
+            $$[-, -]_{\fraku} := [-, -]_{\g \tensor_k A} + \e$$
+        We will not go into the details of why this Lie algebra extension is initial amongst central extensions of $\g \tensor_k A$, but let us at least convince ourselves that $[-, -]_{\fraku}$ is a well-defined Lie bracket. By construction, it is already bilinear and skew-symmetric, so the only thing to show is that it satisfies the Jacobi identity. To this end, pick $x, y, z \in \g$ and $f, g, h \in A$ and then consider the following:
+            $$
+                \begin{aligned}
+                    & [xf, [yg, zh]_{\fraku}]_{\fraku} + [yg, [zh, xf]_{\fraku}]_{\fraku} + [zh, [xf, yg]_{\fraku}]_{\fraku}
+                    \\
+                    & = [xf, [y, z]_{\g} gh + \e(yg, zh)]_{\fraku} + [yg, [z, x]_{\g} hf + \e(zh, xf)]_{\fraku} + [zh, [x, y]_{\g} fg + \e(xf, yg)]_{\fraku}
+                    \\
+                    & = [xf, [y, z]_{\g} gh]_{\fraku} + [yg, [z, x]_{\g} hf]_{\fraku} + [zh, [x, y]_{\g} fg]_{\fraku}
+                    \\
+                    & = \left( [x, [y, z]_{\g}]_{\g} fgh + \e(xf, [y, z]_{\g} gh) \right) + \left( [y, [z, x]_{\g}]_{\g} ghf + \e(yg, [z, x]_{\g} hf) \right) + \left( [z, [x, y]_{\g}]_{\g} hfg + \e(zh, [x, y]_{\g} fg) \right)
+                    \\
+                    & = \e(xf, [y, z]_{\g} gh) + \e(yg, [z, x]_{\g} hf) + \e(zh, [x, y]_{\g} fg)
+                    \\
+                    & = (x, [y, z]_{\g})_{\g} f \bar{d}(gh) + (y, [z, x]_{\g})_{\g} g \bar{d}(hf) + (z, [x, y]_{\g})_{\g} h \bar{d}(fg)
+                    \\
+                    & = (x, [y, z]_{\g})_{\g} ( f \bar{d}(gh) + g \bar{d}(hf) + h \bar{d}(fg) )
+                    \\
+                    & = 0
+                \end{aligned}
+            $$
         \begin{example}[UCEs of multiloop Lie algebras]
             Fix some $n \in \Z_{\geq 0}$.
         
             Consider the case:
-                $$A := A_{[n]} := k[v_1^{\pm 1}, ..., v_n^{\pm 1}]$$
-            (let $A_{[0]} := k$). Set:
-                $$\g_{[n]} := \g \tensor_k A_{[n]}$$
-                $$\tilde{\g}_{[n]} := \uce(\g_{[n]})$$
-                $$\Omega^1_{[n]} := \Omega^1_{A_{[n]}/k}, \bar{\Omega}^1_{[n]} := \bar{\Omega}^1_{A_{[n]}/k}$$
-            Much can be said about the centre $\bar{\Omega}^1_{[n]}$ of the UCE $\tilde{\g}_{[n]}$ of $\g_{[n]}$, especially in the cases where $n \leq 2$, where it is rather easy to provide an explicit basis for the $k$-vector space $\bar{\Omega}^1_{[n]}$. 
+                $$A := k[v_1^{\pm 1}, ..., v_n^{\pm 1}]$$
+            Much can be said about the centre $\bar{\Omega}^1_{[n]}$ of the UCE of $\g[v_1^{\pm 1}, ..., v_n^{\pm 1}] \cong \g \tensor_k k[v_1^{\pm 1}, ..., v_n^{\pm 1}]$, especially in the cases where $n \leq 2$, where it is rather easy to provide an explicit basis for the $k$-vector space $\bar{\Omega}^1_{[n]}$. 
 
             We know that $\Omega^1_{[n]}$ is free and of rank $n$ on the set:
                 $$\{dv_1, ..., dv_n\}$$
@@ -101,9 +128,14 @@
 
             When $n = 0$ or $n = 1$, it is trivial to see that:
                 $$\dim_k \bar{\Omega}^1_{[0]} \cong 0, \dim_k \bar{\Omega}^1_{[1]} = 1$$
+            from which one sees that:
+                $$\uce(\g) \cong \g$$
+            i.e. $\g$ is its own universal central extension, and hence every central extension of $\g$ is trivial, and respectively, that:
+                $$\uce(\g[v^{\pm 1}]) \cong \g[v^{\pm 1}] \oplus k c$$
+            for some choice of $c \in k^{\x}$. 
 
             When $n = 2$, consider the following: the $k$-vector space:
-                $$\bar{\Omega}_{[2]} := \bar{\Omega}^1_{A_{[2]}/k}$$
+                $$\bar{\Omega}_{[2]} := \bar{\Omega}^1_{A/k}$$
             now decomposes as a $k$-vector space in the following manner:
                 $$\bar{\Omega}_{[2]} \cong ( \bigoplus_{(r, s) \in \Z^2} k K_{r, s}) \oplus k c_v \oplus k c_t$$
             wherein:
@@ -141,7 +173,7 @@
             for all $a, b \in A$.
 
             Now, let us focus once more on the case:
-                $$A := A_{[2]}$$
+                $$A := k[v, t]$$
             wherein the relevant $\Z$-grading is given by:
                 $$\deg v := 0, \deg t := 1$$
             Since we know that the basis elements of $\bar{\Omega}_{[2]}$ are given by:
@@ -171,25 +203,25 @@
         \end{remark}
 
     \subsection{Chevalley-Serre presentations for UCEs of current Lie algebras}
-        Finally, let us demonstrate how Kassel's realisation is useful for writing down presentations in the style of Chevalley-Serre for Lie algebras of the kind $\g_A$.
+        Finally, let us demonstrate how Kassel's realisation is useful for writing down presentations in the style of Chevalley-Serre for Lie algebras of the kind $\g \tensor_k A$.
 
         \begin{convention}[Weight spaces]
             If $\fraku$ is a symmetrisable Kac-Moody algebra and $V$ is a $\fraku$-module, then for each weight $\lambda \in \Pi(V)$, we shall be denoting the corresponding weight space by $V[\lambda]$.
         \end{convention}
 
-        \begin{theorem}[Chevalley-Serre presentations for current Lie algebras] \label{theorem: chevalley_serre_presentations_for_UCEs}
+        \begin{theorem}[Kassel's presentations for current Lie algebras] \label{theorem: kassel_presentations_for_UCEs}
             (Cf. \cite[Definition 3.1 and Corollary 3.4]{kassel_universal_central_extensions_of_lie_algebras}) Again, let $k$ be an algebraically closed field of characteristic $0$ and $A$ be a commutative $k$-algebra. 
 
             The Lie algebra:
-                $$\tilde{\g}_A := \uce(\g_A)$$
-            (which we know to exist, since $\g_A$ is perfect; cf. proposition \ref{prop: perfect_lie_algebras_admit_UCEs}) is then isomorphic to the Lie algebra generated by the set:
-                $$\{ E_{\alpha, f}, H_{\alpha, f} \}_{(\alpha, f) \in \Phi \x A}$$
+                $$\tilde{\g}_A := \uce(\g \tensor_k A)$$
+            (which we know to exist, since $\g \tensor_k A$ is perfect; cf. proposition \ref{prop: perfect_lie_algebras_admit_UCEs}) is then isomorphic to the Lie algebra generated by the set:
+                $$\{ X_{\alpha, f}, H_{\alpha, f} \}_{(\alpha, f) \in \Phi \x A}$$
             whose elements are subjected to the following relations:
-                $$\forall \alpha \in \Phi: \forall \lambda, \mu \in k: \forall f, g \in A: E_{\alpha, \lambda f + \mu g} = \lambda E_{\alpha, f} + \mu E_{\alpha, g}$$
+                $$\forall \alpha \in \Phi: \forall \lambda, \mu \in k: \forall f, g \in A: X_{\alpha, \lambda f + \mu g} = \lambda X_{\alpha, f} + \mu X_{\alpha, g}$$
                 $$
-                    \forall (\alpha, f), (\beta, g) \in \Phi \x A: [E_{\alpha, f}, E_{\beta, g}] =
+                    \forall (\alpha, f), (\beta, g) \in \Phi \x A: [X_{\alpha, f}, X_{\beta, g}] =
                     \begin{cases}
-                        \text{$N_{\alpha, \beta} E_{\alpha + \beta, fg}$ if $\alpha + \beta \in \Phi$}
+                        \text{$N_{\alpha, \beta} X_{\alpha + \beta, fg}$ if $\alpha + \beta \in \Phi$}
                         \\
                         \text{$H_{\alpha, fg}$ if $\alpha + \beta = 0$}
                         \\
@@ -199,14 +231,14 @@
                 $$
                     \forall (\alpha, f), (\beta, g) \in \Phi \x A:
                     \begin{cases}
-                        [H_{\alpha, f}, E_{\beta, g}] = (\alpha, \check{\beta})_{\g} E_{\alpha, fg}
+                        [H_{\alpha, f}, X_{\beta, g}] = (\alpha, \check{\beta})_{\g} X_{\alpha, fg}
                         \\
                         [H_{\alpha, f}, H_{\beta, g}] = 0
                     \end{cases}    
                 $$
-            wherein $N_{\alpha, \beta}$ are the structural constants\footnote{Note that there is only one such constant for each commutator, since the root spaces of $\g$ are equally $1$-dimensional \textit{a priori}.} of the commutators $[e_{\alpha}, e_{\beta}]_{\g}$, for some choices of root vectors $e_{\alpha} \in \g[\alpha], e_{\beta} \in \g[\beta]$, i.e.:
-                $$[e_{\alpha}, e_{\beta}]_{\g} := N_{\alpha, \beta} e_{\alpha + \beta}$$
-            for some root vector $e_{\alpha + \beta} \in \g[\alpha + \beta]$.
+            wherein $N_{\alpha, \beta}$ are the structural constants\footnote{Note that there is only one such constant for each commutator, since the root spaces of $\g$ are equally $1$-dimensional \textit{a priori}.} of the commutators $[x_{\alpha}, x_{\beta}]_{\g}$, for some choices of root vectors $x_{\alpha} \in \g_{\alpha}, x_{\beta} \in \g_{\beta}$, i.e.:
+                $$[x_{\alpha}, x_{\beta}]_{\g} := N_{\alpha, \beta} x_{\alpha + \beta}$$
+            for some root vector $x_{\alpha + \beta} \in \g[\alpha + \beta]$.
         \end{theorem}
         \begin{corollary}
             If $A$ is graded by some abelian group $Z$, then the Lie algebra $\tilde{\g}_A$ will be graded by the abelian group $Q \x Z$. 
@@ -217,48 +249,46 @@
             Let us write:
                 $$\hat{\g} \cong \g[v^{\pm 1}] \oplus k \hat{c} \rtimes k \hat{D}$$
             to denote the untwisted affine Kac-Moody algebra associated to $\g$. For details, we refer the reader to \cite[Chapter 7]{kac_infinite_dimensional_lie_algebras}.
-
-            Fix a Cartan subalgebra $\hat{\h}$ of $\hat{\g}$. The affine Dynkin diagram associated to $\hat{\g}$ (cf. \cite[Chapter 4]{kac_infinite_dimensional_lie_algebras}) shall be denoted by:
-                $$\hat{\Gamma} := ( \hat{\Gamma}_0, \hat{\Gamma}_1 )$$
-            with $\hat{\Gamma}_0$ denoting the set of vertices and $\hat{\Gamma}_1$ denoting the set of undirected edges.
-
-            Also, let us denote the highest root of in $\Phi$ by $\theta$. Note that we have a bijection (but not literally an equality; cf. \cite[Chapter 6]{kac_infinite_dimensional_lie_algebras}):
-                $$\hat{\Gamma}_0 \cong \Gamma_0 \cup \{\theta\}$$
+            
+            We shall also fix once and for all a Cartan subalgebra $\hat{\h}$ of $\hat{\g}$, along with a non-degenerate, invariant, and symmetric $k$-bilinear form:
+                $$(-, -)_{\hat{\g}}$$
+            on $\hat{\g}$ (cf. \cite[Chapter 2]{kac_infinite_dimensional_lie_algebras}). The set of simple roots of $\hat{\g}$ with respect to the aforementioned choices of Cartan subalgebra and non-degenerate invariant bilinear form will be denoted by:
+                $$\hat{\simpleroots}$$
         \end{convention}
 
-        Before we move on, let us consider a quick example illustrating theorem \ref{theorem: chevalley_serre_presentations_for_UCEs}.
+        Before we move on, let us consider a quick example illustrating theorem \ref{theorem: kassel_presentations_for_UCEs}.
         \begin{example}
             For what follows, let us recall from \cite[Chapter 7]{kac_infinite_dimensional_lie_algebras} that the root space decomposition of the untwisted affine Kac-Moody algebra $\hat{\g}$ takes the form:
-                $$\hat{\g} \cong \hat{\h} \oplus \bigoplus_{\beta \in \Re(\hat{\Phi})} \hat{\g}[\beta] \oplus \bigoplus_{\beta \in \Im(\hat{\Phi})} \hat{\g}[\beta]$$
+                $$\hat{\g} \cong \hat{\h} \oplus \bigoplus_{\beta \in \Re(\hat{\Phi})} \hat{\g}_{\beta} \oplus \bigoplus_{\beta \in \Im(\hat{\Phi})} \hat{\g}_{\beta}$$
             in which the untwisted affine root system $\hat{\Phi}$ decomposes into a disjoint union of the subsets of real and imaginary roots:
                 $$\hat{\Phi} \cong \Re(\hat{\Phi}) \cup \Im(\hat{\Phi})$$
             where:
                 $$\Re(\hat{\Phi}) \cong \Phi + \Z\delta \cong \Phi \x \Z$$
                 $$\Im(\hat{\Phi}) \cong (\Z \setminus \{0\})\delta$$
             and the corresponding root spaces are given by:
-                $$\forall \alpha + m\delta \in \Re(\hat{\Phi}): \hat{\g}[\alpha + m\delta] \cong \g[\alpha] v^m$$
+                $$\forall \alpha + m\delta \in \Re(\hat{\Phi}): \hat{\g}[\alpha + m\delta] \cong \g_{\alpha} v^m$$
                 $$\forall r\delta \in \Im(\hat{\Phi}): \hat{\g}[r\delta] \cong \h v^r$$
             Recall also - from \cite[Chapter 5]{kac_infinite_dimensional_lie_algebras} - that:
                 $$\forall \alpha + m \delta \in \Re(\hat{\Phi}): \dim_k \hat{\g}[\alpha + m\delta] = 1$$
-            entirely as a consequence of the fact that $\dim_k \g[\alpha] = 1$. 
+            entirely as a consequence of the fact that $\dim_k \g_{\alpha} = 1$. 
         
             Now, consider the Lie algebra:
                 $$\tilde{\g} := \uce(\g[v^{\pm 1}])$$
-            which is nothing but the derived subalgebra of $\hat{\g}$. Per theorem \ref{theorem: chevalley_serre_presentations_for_UCEs}, $\tilde{\g}$ admits the following Chevalley-Serre presentation. It is isomorphic to the Lie algebra generated by the set:
-                $$\{ E_{i, r}^{\pm} \}_{(i, r) \in \hat{\Gamma}_0 \x \Z}$$
+            which is nothing but the derived subalgebra of $\hat{\g}$. Per theorem \ref{theorem: kassel_presentations_for_UCEs}, $\tilde{\g}$ admits the following presentation. It is isomorphic to the Lie algebra generated by the set:
+                $$\{ X_{i, r}^{\pm} \}_{(i, r) \in \hat{\simpleroots} \x \Z}$$
             whose elements are subjected to the following relations:
-                $$[E_{i, r}^{\pm}, E_{j, s}^{\pm}] = \pm N_{\alpha_i, \alpha_j} E_{i + j, r + s}^{\pm}$$
+                $$[X_{i, r}^{\pm}, X_{j, s}^{\pm}] = \pm N_{\alpha_i, \alpha_j} X_{i + j, r + s}^{\pm}$$
             The isomorphism in question is given by:
-                $$\forall (i, r) \in \Gamma_0 \x \Z: E_{i, r}^{\pm} \mapsto e_i^{\pm} v^r$$
-                $$E_{\theta, r}^{\pm} \mapsto e_{\theta}^{\mp} v^r + \hat{c}$$
-            where $e_{\theta}^{\mp} \in \g[\mp \theta]$ are choices of root vectors (well-defined since $\dim_k \g[\mp \theta] = 1$).
+                $$\forall (i, r) \in \simpleroots \x \Z: X_{i, r}^{\pm} \mapsto x_i^{\pm} v^r$$
+                $$X_{\theta, r}^{\pm} \mapsto x_{\theta}^{\mp} v^r + \hat{c}$$
+            where $x_{\theta}^{\mp} \in \g[\mp \theta]$ are choices of root vectors (well-defined since $\dim_k \g[\mp \theta] = 1$).
         \end{example}
 
         \begin{convention}[Toroidal and positive-toroidal Lie algebras]
             From now on, we will be writing:
-                $$A_{[2]} := k[v^{\pm 1}, t^{\pm 1}], A_{[2]}^+ := k[v^{\pm 1}, t]$$
-                $$\g_{[2]} := \g \tensor_k A_{[2]}, \g_{[2]}^+ := \g \tensor_k A_{[2]}^+$$
-                $$\bar{\Omega}_{[2]} := \bar{\Omega}^1_{A_{[2]}/k}, \bar{\Omega}^+_{[2]} := \bar{\Omega}^1_{A_{[2]^+}/k}$$
+                $$A := k[v^{\pm 1}, t^{\pm 1}], A^+ := k[v^{\pm 1}, t]$$
+                $$\g_{[2]} := \g \tensor_k A, \g_{[2]}^+ := \g \tensor_k A^+$$
+                $$\bar{\Omega}_{[2]} := \bar{\Omega}^1_{A/k}, \bar{\Omega}^+_{[2]} := \bar{\Omega}^1_{A_{[2]^+}/k}$$
 
             We will be considering the Lie algebras:
                 $$\toroidal := \uce(\g_{[2]})$$
@@ -271,111 +301,27 @@
             It is not hard to see, from the description of $\bar{\Omega}_{[2]}$ in remark \ref{remark: Z_gradings_on_toroidal_lie_algebras}, that:
                 $$\z_{[2]}^+ := \bigoplus_{(r, s) \in \Z \x \Z_{> 0}} k K_{r, s} \oplus k c_v$$
         \end{remark}
-
-        For our own convenience, let us note that when:
-            $$A \cong k[v^{\pm 1}, t^{\pm 1}]$$
-        the Chevalley-Serre presentation for $\toroidal$ can be described more succinctly as follows. This simplified presentation is an intermediary step towards a presentation for $\toroidal$ in terms of only elements of degrees $0$ and $1$ (in $t$), which ought to be simpler to work with than the full Chevalley-Serre presentation (cf. proposition \ref{prop: levendorskii_presentation__for_central_extensions_of_multiloop_algebras}). It should be noted that the existence of such a presentation in terms of low-degree generators is a rather curious phenomenon, as it originates from the fact that - at least when $\hat{\g}$ is made to satisfy some mild technical restrictions (cf. lemma \ref{lemma: levendorskii_presentation_for_yangians_of_symmetrisable_kac_moody_algebras}) - the universal enveloping algebra:
-            $$\rmU(\toroidal^+)$$
-        admits the \say{formal Yangian}:
-            $$\rmY_{\hbar}(\hat{\g})$$
-        associated to $\hat{\g}$ as a  flat deformation over $k[\hbar]$, and that the latter is known to possess a presentation in terms of low-degree generators (cf. lemma \ref{lemma: levendorskii_presentation_for_yangians_of_symmetrisable_kac_moody_algebras}).
+        For $\toroidal$ and $\toroidal^+$, Kassel's presentation from theorem \ref{theorem: kassel_presentations_for_UCEs} can be futhermore refined into Chevalley-Serre-style presentations from which one can obtain $\hat{Q}$-gradings for these two Lie algebras. These presentations were originally due to Moody-Rao-Yokonuma (see \cite{moody_rao_yokonuma_vertex_representations_of_toroidal_lie_algebras}). 
         \begin{lemma}[Chevalley-Serre presentation for $\toroidal$] \label{lemma: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras}
-            (Cf. \cite[Proposition 6.6]{wendlandt_formal_shift_operators_on_yangian_doubles}) The Lie algebra $\toroidal$ is isomorphic to the Lie algebra generated by the set:
-                $$\{ E_{i, r}^{\pm}, H_{i, r} \}_{(i, r) \in \hat{\Gamma}_0 \x \Z} \cup \{ K \}$$
-            whose elements are subjected to the following relations, given for all $(i, r), (j, s) \in \hat{\Gamma}_0 \x \Z$:
+            The Lie algebra $\toroidal$ is isomorphic to the Lie algebra generated by the set:
+                $$\{ X_{i, r}^{\pm}, H_{i, r} \}_{(i, r) \in \hat{\simpleroots} \x \Z} \cup \{ K \}$$
+            whose elements are subjected to the following relations, given for all $(i, r), (j, s) \in \hat{\simpleroots} \x \Z$:
                 $$[ H_{i, r}, H_{j, s} ] = 0$$
-                $$[ H_{i, r}, E_{j, s}^{\pm} ] = \pm (\alpha_j, \check{\alpha}_i) E_{j, r + s}^{\pm}$$
-                $$[ E_{i, r}^+, E_{j, s}^- ] = \delta_{ij} H_{i, r + s}$$
-                $$[ E_{i, r + 1}^{\pm}, E_{j, s}^{\pm} ] - [ E_{i, r}^{\pm}, E_{j, s + 1}^{\pm} ] = 0$$
+                $$[ H_{i, r}, X_{j, s}^{\pm} ] = \pm (\alpha_j, \check{\alpha}_i) X_{j, r + s}^{\pm}$$
+                $$[ X_{i, r}^+, X_{j, s}^- ] = \delta_{ij} H_{i, r + s}$$
+                $$[ X_{i, r + 1}^{\pm}, X_{j, s}^{\pm} ] - [ X_{i, r}^{\pm}, X_{j, s + 1}^{\pm} ] = 0$$
+                $$\ad(X_{i, 0}^{\pm})^{1 - c_{ij}}( X_{j, s}^{\pm} ) = 0$$
                 $$[K, \toroidal] = 0$$
-            The isomorphism in question is given as follows, for all $(i, r) \in \hat{\Gamma}_0 \x \Z$:
-                $$\forall (i, r) \in \Gamma_0 \x \Z: E_{i, r}^{\pm} \mapsto e_i^{\pm} t^r, H_{i, r} \mapsto h_i t^r$$
-                $$\forall (i, r) \in \{\theta\} \x \Z: E_{\theta, r}^{\pm} \mapsto e_{\theta}^{\mp} v^{\pm 1} t^r, H_{\theta, r} \mapsto h_{\theta} t^r + c_v t^r$$
+            The isomorphism in question is given as follows, for all $(i, r) \in \hat{\simpleroots} \x \Z$:
+                $$\forall (i, r) \in \simpleroots \x \Z: X_{i, r}^{\pm} \mapsto x_i^{\pm} t^r, H_{i, r} \mapsto h_i t^r$$
+                $$\forall (i, r) \in \{\theta\} \x \Z: X_{\theta, r}^{\pm} \mapsto x_{\theta}^{\mp} v^{\pm 1} t^r, H_{\theta, r} \mapsto h_{\theta} t^r + c_v t^r$$
                 $$K \mapsto c_t$$
         \end{lemma}
-
-        Let us now demonstrate how a low-degree presentation for the Lie algebra $\toroidal$ may be obtained, as eluded to earlier. This necessitates introducing the (formal) Yangian associated to the untwisted affine Kac-Moody algebra $\hat{\g}$ because as explained above, we will be relying on the existence of such a low-degree presentation for those (formal) Yangians.
-        \begin{convention}[Yangians associated to symmetrisable Kac-Moody algebras]
-            If $\fraku$ a general symmetrisable Kac-Moody algebra whose associated Cartan matrix is indecomposable. We refer the reader to \cite[Section 2]{guay_nakajima_wendlandt_affine_yangian_coproduct} for the definition of the \textbf{formal Yangian} $\rmY_{\hbar}(\fraku)$ and \textbf{Yangian} $\rmY(\fraku)$, as well as all relevant discussions about the various \say{basic} presentations of these associative algebras (living over $k[\hbar]$ and $k$ respectively). The only thing that we will note is that we will be denoting the Chevalley-Serre generators by:
-                $$E_{i, r}^{\pm}, H_{i, r}$$
-        \end{convention}
-        \begin{convention}
-            From now on, let us write:
-                $$T_{i, 1}(\hbar) := H_{i, 1} - \frac12 \hbar H_{i, 0}^2$$
-                $$T_{i, 1} := T_{i, 1}(1) = H_{i, 1} - \frac12 H_{i, 0}^2$$
-        \end{convention}
-
-        One key property of formal (affine) Yangians that we will be relying on is the fact that 
-        \begin{lemma}[Formal Yangians as Rees algebras] \label{lemma: formal_yangians_as_rees_algebras}
-            \cite[Theorem 6.10]{guay_nakajima_wendlandt_affine_yangian_vertex_representations_and_PBW} If $\fraku$ is a general indecomposable symmetrisable Kac-Moody algebra. If $\fraku$ is either of finite type but not $\sfA_1$ or of untwisted affine type but not $\sfA_1^{(1)}$ and not $\sfA_1^{(2)}$ then the natural \textit{graded} $k$-algebra homomoprhism:
-                $$\rmY_{\hbar}(\fraku) \to \Rees_{\hbar} \rmY(\fraku)$$
-            will be an isomorphism. 
-        \end{lemma}
-         \begin{corollary}[Formal affine Yangians as flat graded deformations] \label{coro: formal_affine_yangians_as_flat_graded_deformations}
-            Suppose that $\g \not \cong \sl_2(k)$. Then the $k[\hbar]$-algebra:
-                $$\rmY_{\hbar}(\hat{\g})$$
-            will be a flat $\Z$-graded deformation of the $\Z$-graded $k$-algebra:
-                $$\rmU(\toroidal^+)$$
-         \end{corollary}
-         
-        The hypotheses of the following lemma are satisfied at least when $\fraku$ is a symmetrisable Kac-Moody algebra of either finite type or affine type, save for the types $\sfA_1^{(1)}$ and $\sfA_1^{(2)}$.
-        \begin{lemma}[A Levendorskii-type presentation for Yangians of symmetrisable Kac-Moody algebras] \label{lemma: levendorskii_presentation_for_yangians_of_symmetrisable_kac_moody_algebras}
-            \cite[Theorem 2.13]{guay_nakajima_wendlandt_affine_yangian_coproduct} Suppose for a moment that $\fraku$ is a general symmetrisable Kac-Moody algebra whose Cartan matrix is:
-            \begin{itemize}
-                \item indecomposable,
-                \item such that, for any $i < j \in \Gamma_0$ (with respect to some choice of total ordering on $\Gamma_0$) the following $2 \x 2$ matrix is invertible:
-                    $$
-                        \begin{pmatrix}
-                            c_{ii} & c_{ij}
-                            \\
-                            c_{ji} & c_{ji}
-                        \end{pmatrix}
-                    $$
-            \end{itemize}
-            The formal Yangian $\rmY_{\hbar}(\fraku)$ of $\fraku$ will then be isomorphic to the associative $k$-algebra generated by the set:
-                $$\{ H_{i, r}, E_{i, r}^{\pm} \}_{(i, r) \in \Gamma_0 \x \N}$$
-            whose elements are subjected to the following relations\footnote{... and it is understood that the elements $H_{i, 0} = h_i, E_{i, 0}^{\pm} = e_i^{\pm}$ satisfy the Chevalley-Serre relations defining $\fraku$; cf. \cite[Chapter 1]{kac_infinite_dimensional_lie_algebras}.}:
-                $$H_{i, 0} = h_i, E_{i, 0}^{\pm} = e_i^{\pm}$$
-                $$[ H_{i, r}, H_{j, s} ] = 0$$
-                $$[ H_{i, 0}, E_{j, s}^{\pm} ] = \pm c_{ij} E_{j, s}^{\pm}$$
-                $$[ E_{i, r}^+, E_{j, s}^- ] = \pm \delta_{ij} H_{i, r + s}$$
-                $$\left[ T_{i, 1}(\hbar), E_{j, 0}^{\pm} \right] = \pm \hbar c_{ij} E_{j, 1}^{\pm}$$
-                $$[ E_{i, 1}^{\pm}, E_{j, 0}^{\pm} ] - [ E_{i, 0}^{\pm}, E_{j, 1}^{\pm} ] = \pm \frac12 \hbar c_{ij} \{E_{i, 0}^{\pm}, E_{j, 0}^{\pm}\}$$
-        \end{lemma}
-        \begin{proposition}[Levendorskii presentation for $\toroidal^+$] \label{prop: levendorskii_presentation__for_central_extensions_of_multiloop_algebras}
-            Suppose that $\hat{\g}$ is not of type $\sfA_1^{(1)}$. 
-        
-            The Lie algebra $\toroidal^+$ is isomorphic to the Lie algebra  generated by the set:
-                $$\{ E_{i, r}^{\pm}, H_{i, r} \}_{(i, r) \in \hat{\Gamma}_0 \x \Z_{\geq 0}}$$
-            whose elements are subjected to the following relations, given for all $(i, r), (j, s) \in \hat{\Gamma}_0 \x \Z_{\geq 0}$:
-                $$H_{i, 0} = h_i, E_{i, 0}^{\pm} = e_i^{\pm}$$
-                $$[ H_{i, r}, H_{j, s} ] = 0$$
-                $$[ H_{i, 0}, E_{j, s}^{\pm} ] = \pm (\alpha_j, \check{\alpha}_i) E_{j, s}^{\pm}$$
-                $$[ E_{i, r}^+, E_{j, s}^- ] = \delta_{ij} H_{i, r + s}$$
-                $$[ E_{i, 1}^{\pm}, E_{j, 0}^{\pm} ] - [ E_{i, 0}^{\pm}, E_{j, 1}^{\pm} ] = 0$$
-            The isomorphism in question is as in lemma \ref{lemma: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras}.
-        \end{proposition}
-            \begin{proof}
-                Combine corollary \ref{coro: formal_affine_yangians_as_flat_graded_deformations} with lemma \ref{lemma: levendorskii_presentation_for_yangians_of_symmetrisable_kac_moody_algebras}. Note that flatness (in particular, $\hbar$-torsion-freeness) is crucial for our application of corollary \ref{coro: formal_affine_yangians_as_flat_graded_deformations}.
-            \end{proof}
-        \begin{corollary}[Levendorskii presentation for $\toroidal$]
-            Suppose that $\hat{\g}$ is not of type $\sfA_1^{(1)}$. 
-        
-            The Lie algebra $\toroidal$ is isomorphic to the Lie algebra  generated by the set:
-                $$\{ E_{i, r}^{\pm}, H_{i, r} \}_{(i, r) \in \hat{\Gamma}_0 \x \Z} \cup \{ K \}$$
-            whose elements are subjected to the following relations, given for all $(i, r), (j, s) \in \hat{\Gamma}_0 \x \Z$:
-                $$H_{i, 0} = h_i, E_{i, 0}^{\pm} = e_i^{\pm}$$
-                $$[ H_{i, r}, H_{j, s} ] = 0$$
-                $$[ H_{i, 0}, E_{j, s}^{\pm} ] = \pm (\alpha_j, \check{\alpha}_i) E_{j, s}^{\pm}$$
-                $$[ E_{i, r}^+, E_{j, s}^- ] = \delta_{ij} H_{i, r + s}$$
-                $$[ E_{i, 1}^{\pm}, E_{j, 0}^{\pm} ] - [ E_{i, 0}^{\pm}, E_{j, 1}^{\pm} ] = 0$$
-                $$[K, \toroidal] = 0$$
-            The isomorphism in question is as in lemma \ref{lemma: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras}.
+        \begin{corollary}[Chevalley-Serre presentation for $\toroidal^+$]
+            The Lie algebra $\toroidal^+$ is isomorphic to the Lie algebra generated by the set:
+                $$\{ X_{i, r}^{\pm}, H_{i, r} \}_{(i, r) \in \hat{\simpleroots} \x \Z_{\geq 0}}$$
+            whose elements are subjected to the following relations lemma \ref{lemma: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras}. The isomorphism in question is given also as in \textit{loc. cit.}
         \end{corollary}
             \begin{proof}
-                Combine proposition \ref{prop: levendorskii_presentation__for_central_extensions_of_multiloop_algebras} with lemma \ref{lemma: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras}. 
+                Apply remark \ref{remark: Z_gradings_on_toroidal_lie_algebras} to lemma \ref{lemma: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras}.
             \end{proof}
-
-        \begin{question}
-            Is a low-degree presentation in the style of proposition \ref{prop: levendorskii_presentation__for_central_extensions_of_multiloop_algebras} available for the Lie algebras $\uce(\g_{[n]})$ for $n > 2$ ? Does this depend on the existence of a construction of \say{$(n - 1)$-affine Yangians} which are graded flat deformations of $\rmU(\g[v_1^{\pm 1}, ..., v_{n - 1}^{\pm 1}, v_n])$ ?
-        \end{question}
