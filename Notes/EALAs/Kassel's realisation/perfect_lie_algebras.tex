@@ -6,7 +6,7 @@
             A Lie algebra over an arbitrary commutative ring $k$ is said to be \textbf{simple} if and only if it admits no non-zero Lie ideals. 
         \end{definition}
 
-        Over a field $k$ that is algebraically closed and of characteristic $0$, much is known about the structure of a simple Lie algebra $\g$ that is finite-dimensional when regarded as a $k$-vector space. The bulk of the content presented above is discussed in further details in any standard textbook on Lie algebras (cf. e.g. \cite{humphreys_lie_algebras} or the first half of \cite{carter_affine_lie_algebras}). 
+        Over a field $k$ that is algebraically closed and of characteristic $0$, much is known about the structure of a simple Lie algebra $\g$ that is finite-dimensional when regarded as a $k$-vector space. The bulk of the content presented above is discussed in further details in any standard textbook on Lie algebras (cf. e.g. \cite{humphreys_lie_algebras} or the first half of \cite{carter_affine_lie_algebras}). Let us give a very brief recap of this theory.
 
         Firsly, one of the most important features of finite-dimensional simple Lie algebras (henceforth implicitly understood to be defined over a characteristic-$0$ and algebraically closed field $k$) is that each such Lie algebra, say $\g$, posses an invariant and non-degenerate $k$-bilinear form which is unique up to $k^{\x}$-multiples. The canonical choice is the so-called Killing form, given as follows for all $x, y \in \g$:
             $$\kappa(x, y) := \trace(\ad(x) \circ \ad(y))$$
@@ -31,40 +31,34 @@
         \begin{definition}[Weight spaces and root spaces]
             Let $V$ be a $\g$-module. Then, one can abstractly define the vector subspace of $V$ consisting of elements of \textbf{weight} $\mu \in \h^*$ to be:
                 $$V_{\mu} := \{v \in V \mid \forall h \in \h: h \cdot v = \mu(h) v\}$$
-            The set of weights $\mu \in \h^*$ such that $V_{\mu} \not \cong 0$ is denoted by $\Pi(V)$, and if:
-                $$V \cong \bigoplus_{\mu \in \Pi(V)} V_{\mu}$$
+            If we have a direct sum decomposition of $\h$-module:
+                $$V \cong \bigoplus_{\mu \in \h^*} V_{\mu}$$
             then we will say that $V$ is a \textbf{weight module} for $\g$. 
 
             When $V \cong \g$ and carries the adjoint action of $\g$, we will instead refer to the non-zero weights as \textbf{roots}. These are the same as the roots constructed from the Cartan matrix of $\g$.
         \end{definition}
         The $Q$-grading of $\g$ that was mentioned earlier then takes the following form:
         \begin{theorem}[Root space decomposition for finite-dimensional simple Lie algebras] \label{theorem: root_space_decomposition_for_finite_dimensional_simple_lie_algebras}
-            Under the adjoint action, $\g$ becomes a weight module over itself. Furthermore, for each $\alpha \in \Pi(\g) \setminus \{0\}$, one has that:
+            Under the adjoint action, $\g$ becomes a weight module over itself. Furthermore, for each non-zero weight $\alpha$ of this $\g$-module, one has that:
                 $$\dim_k \g_{\alpha} = 1$$
         \end{theorem}
         \begin{convention}
             Let $\g$ act via the adjoint action on itself. Since Cartan subalgebras are abelian by definition, it is not hard to see that:
                 $$\h \cong \g_0$$
             and in light of this, one then often writes:
-                $$\Phi := \Pi(\g) \setminus \{0\}$$
+                $$\Phi$$
             to denote the set of roots of $\g$. The root space decomposition of $\g$ then takes the form:
                 $$\g \cong \h \oplus \bigoplus_{\alpha \in \Phi} \g_{\alpha}$$
         \end{convention}
-        The following is a very useful and conceptual way to think about elements:
-            $$x \in \g_{\alpha}$$
-        (i.e. \say{root vectors}). 
+        The following is a very useful and conceptual way to think about elements $x \in \g_{\alpha}$, i.e. \say{root vectors}. 
         \begin{lemma}[Action of root vectors]
             Let $V$ be an arbitrary $\g$-module. Then:
-                $$\forall \alpha \in \Phi: \forall \mu \in \Pi(V): \g_{\alpha} \cdot V_{\mu} \subseteq V[\mu + \alpha]$$
+                $$\forall \alpha \in \Phi: \forall \mu \in \h^*: \g_{\alpha} \cdot V_{\mu} \subseteq V_{\mu + \alpha}$$
         \end{lemma}
         \begin{corollary}
-            For any given root:
-                $$\alpha \in \Phi$$
-            and corresponding root vectors $x_{\alpha} \in \g_{\alpha}, x_{\beta} \in \g_{\beta}$, one has that:
+            For any given root $\alpha \in \Phi$ and corresponding root vectors $x_{\alpha} \in \g_{\alpha}, x_{\beta} \in \g_{\beta}$, one has that:
                 $$[x_{\alpha}, x_{-\alpha}] = (x_{\alpha}, x_{\beta})_{\g} \check{\alpha}$$
-            where:
-                $$\check{\alpha} \in \h$$
-            is such that:
+            where $\check{\alpha} \in \h$ is such that:
                 $$(\alpha, \check{\alpha})_{\g} = 2$$
         \end{corollary}
         The next result is a fundamental theorem in the study of finite-dimensional simple Lie algebras over algebraically closed fields of characteristic $0$. It essentially gives a bijective classification:

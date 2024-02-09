@@ -156,16 +156,16 @@
                 $$\extendedtoroidal^{\positive/\negative} \cong \bigoplus_{\beta \in \hat{\Phi} \cup \{0\}} \extendedtoroidal^{\positive/\negative}_{\beta}$$
         \end{corollary}
         
-        \begin{remark}[Toroidal root systems] \label{remark: toroidal_root_systems}
-            The $\hat{Q}$-grading of $\extendedtoroidal$ as in theorem \ref{theorem: root_grading_for_extended_toroidal_lie_algebras} suggests to us that it is possible to construct a \say{toroidal root system}:
-                $$\hat{\Phi}_{[2]}$$
-            for $\extendedtoroidal$ with the following features.
+        \begin{remark} \label{remark: toroidal_root_systems}
+            The $\hat{Q}$-grading of $\extendedtoroidal$ as in theorem \ref{theorem: root_grading_for_extended_toroidal_lie_algebras} induces pairing of weight spaces in the following manner.
             \begin{enumerate}
-                \item \textbf{(Anisotropic roots):} Firstly, there is a set of anisotropic roots - which are in bijection with the real roots of $\hat{\g}$ or equivalently, the roots of $\g$. Interestingly, the corresponding root spaces:
-                    $$\extendedtoroidal_{\alpha + m\delta}, (\alpha, m) \in \Phi \x \Z$$
+                \item  Firstly, note that for each real root:
+                    $$\alpha + m\delta \in \Re(\hat{\Phi})$$
+                the corresponding root spaces:
+                    $$\extendedtoroidal_{\alpha + m\delta}$$
                 are free and of rank $1$ over $k[t^{\pm 1}]$, in good analogy with how real roots of an affine Kac-Moody algebras are equally of multiplicity $1$.
 
-                Such roots are \textbf{anisotropic} in the following sense. If we fix:
+                If we fix:
                     $$(\alpha, m, p), (\beta, n, q) \in \Phi \x \Z^2$$
                 along with root vectors:
                     $$x_{\alpha} \in \g_{\alpha}, x_{\beta} \in \g_{\beta}$$
@@ -175,59 +175,29 @@
                     $$\alpha + m\delta \in \hat{\Phi}^+ \cong \Phi^+ \x \Z_{\geq 0}$$
                 one has the following non-trivial pairing of subspaces:
                     $$\left( \extendedtoroidal^{\negative}_{\mp (\alpha + m\delta)}, \extendedtoroidal^{\positive}_{\pm (\alpha + m\delta)} \right)_{\extendedtoroidal} \not = 0$$
-                thus justifying our use of the term \say{anisotropic}.
-                \item \textbf{(Isotropic roots):} Observe that the \say{Cartan subalgebra}:
+                \item Observe that weight-$0$ subspace:
                     $$\extendedtoroidal_0$$
                 is finite-dimensional, namely of dimension $\dim_{k} \h + 2 + 2$, with each summand of $2$ corresponding to one of the direct summands $k c_v \oplus k D_v$ and $k c_t \oplus k D_t$ of $\extendedtoroidal_0$, similar to how:
                     $$\dim_{k} \hat{\h} = \dim_{k} \h + 2$$
-                in the affine Kac-Moody case, where the summand of $2$ corressponds to the direct summand of the $1$-dimensional centre and the subspace spanned by the canonical degree derivation. From this, we infer that $\extendedtoroidal$ ought to admit two distinct weights with respect to the adjoint action of $\hat{\g}$ that can be reasonably called \textbf{isotropic roots}. In particular, these anisotropic roots are to be the image of the derivations:
+                in the affine Kac-Moody case, where the summand of $2$ corressponds to the direct summand of the $1$-dimensional centre and the subspace spanned by the canonical degree derivation. From this, we infer that $\extendedtoroidal$ ought to admit two distinct weights:
+                    $$\delta_v, \delta_t$$
+                with respect to the adjoint action of $\hat{\g}$. In particular, these weights are to be the image of the derivations:
                     $$D_v, D_t \in \extendedtoroidal_0$$
-                under the dualising map $\extendedtoroidal_0 \xrightarrow[]{\cong} \extendedtoroidal_0^*$. Let us denote these roots, respectively, by:
-                    $$\delta_v, \delta_t \in \extendedtoroidal_0^*$$
-                and note that because:
+                under the dualising map $\extendedtoroidal_0 \xrightarrow[]{\cong} \extendedtoroidal_0^*$. Note that because:
                     $$(\d_{[2]}, \d_{[2]})_{\extendedtoroidal} = 0$$
                 per the construction of the bilinear form $(-, -)_{\extendedtoroidal}$ (cf. convention \ref{conv: orthogonal_complement_of_toroidal_centres}), we have that:
                     $$(\delta_v, \delta_v)_{\extendedtoroidal} = (\delta_t, \delta_t)_{\extendedtoroidal} = 0$$
-                thus justifying our use of the term \say{isotropic}.
 
                 Note also that, once again because $(\d_{[2]}, \d_{[2]})_{\extendedtoroidal} = 0$, we also have that:
                     $$(\delta_v, \delta_t)_{\extendedtoroidal} = 0$$
-                i.e. the two isotropic roots of $\extendedtoroidal$ are perpendicular to one another. 
             \end{enumerate}
-
-            In conclusion, we have that:
-                $$\hat{\Phi}_{[2]} \cong \Phi \cup (\Z \delta_v \setminus \{0\}) \cup (\Z \delta_t \setminus \{0\}) \cong \hat{\Phi} \cup \Z \delta_t \setminus \{0\}$$
-            where $\hat{\Phi} := \hat{\Phi}$ is the root system of the affine Kac-Moody algebra $\hat{\g}$. This allows us to rewrite the $\hat{Q}$-grading of $\extendedtoroidal$, as discussed in theorem \ref{theorem: root_grading_for_extended_toroidal_lie_algebras}, in the following more succinct manner:
-                $$\extendedtoroidal \cong \bigoplus_{\beta \in \hat{\Phi}_{[2]} \cup \{0\}} \extendedtoroidal_{\beta}$$
-
-            Note also that the set $\hat{\Phi}_{[2]}$ satisfies the properties expected of an abstract root system:
-            \begin{itemize}
-                \item if $\beta, \beta' \in \hat{\Phi}_{[2]}$ then $\beta + \beta' \in \hat{\Phi}_{[2]}$ as well;
-                \item if $\beta \in \hat{\Phi}_{[2]}$ is anisotropic then $n \beta \in \hat{\Phi}_{[2]}$ as well if and only if $n \in \{\pm 1\}$.
-                \item if $\beta \in \hat{\Phi}_{[2]}$ is isotropic then $n\beta \in \hat{\Phi}_{[2]}$ as well, for all $n \in \Z \setminus \{0\}$;
-                \item for any $\beta \in \hat{\Phi}_{[2]}$, one has that $(\beta, \beta)_{\extendedtoroidal} \in \Z$;
-                \item \todo[inline]{Is it closed under reflections ?}
-            \end{itemize}
-            By choosing a basis for $\extendedtoroidal_0^*$ amongst the elements of $\hat{\Phi}_{[2]}$ - which we note, amounts to a choice of basis for the finite free $\Z$-module $Q \x \Z^2$ - we obtain also a set of \textbf{simple roots} which we shall denote by:
-                $$\hat{\simpleroots}_{[2]}$$
-
-            We thus also have the following definition of the \textbf{toroidal root lattice} of $\extendedtoroidal$:
-                $$\hat{Q}_{[2]} := \Z \hat{\simpleroots}_{[2]}$$
-            for which there are isomorphisms of finite free $\Z$-modules:
-                $$Q \x \Z^2 \cong \hat{Q} \x \Z \cong \hat{Q}_{[2]}$$
-                $$(\alpha, m, p) \mapsto (\alpha + m \delta, p) \mapsto \alpha + m \delta_v + p \delta_t$$
         \end{remark}
-        \begin{definition}[Upper/lower toroidal roots] \label{def: upper_and_lower_toroidal_roots}
-            The subset of $\hat{\Phi}_{[2]}$ consisting of \textbf{upper} elements is:
-                $$\hat{\Phi}_{[2]}^{\up} := \hat{\Phi}_{[2]} \cap (\hat{Q}^+ \x \Z)$$
-            and conversely, the \textbf{lower} elements form the subset:
-                $$\hat{\Phi}_{[2]}^{\low} := \hat{\Phi}_{[2]} \cap (\hat{Q}^- \x \Z)$$
-        \end{definition}
         
         The following result is nothing but a formal consequence of the discussion above.
-        \begin{proposition}[Triangular decomposition of extended toroidal Lie algebras] \label{prop: triangular_decomposition_of_extended_toroidal_lie_algebras}
+        \begin{proposition}[Triangular decomposition for extended toroidal Lie algebras] \label{prop: triangular_decomposition_of_extended_toroidal_lie_algebras}
             With respect to the choices of positive/negative roots as in remark \ref{remark: toroidal_root_systems}, let us set:
-                $$\extendedtoroidal^{\up/\low} := \bigoplus_{\beta \in \hat{\Phi}_{[2]}^{\up/\low}} \extendedtoroidal_{\beta}$$
+                $$\extendedtoroidal_{\up/\low} := \bigoplus_{\beta \in \hat{Q}^{\pm} \x \Z} \extendedtoroidal_{\beta}$$
             The $\hat{Q}$-grading of the Lie algebra $\extendedtoroidal$ (respectively, of $\extendedtoroidal^{\positive/\negative}$) induces a triangular decomposition thereof as follows:
-                $$\extendedtoroidal \cong \extendedtoroidal^{\low} \oplus \extendedtoroidal_0 \oplus \extendedtoroidal^{\up}$$
+                $$\extendedtoroidal \cong \extendedtoroidal_{\low} \oplus \extendedtoroidal_0 \oplus \extendedtoroidal_{\up}$$
+                $$\extendedtoroidal^{\positive/\negative} \cong \extendedtoroidal^{\positive/\negative}_{\low} \oplus \extendedtoroidal^{\positive/\negative}_0 \oplus \extendedtoroidal^{\positive/\negative}_{\up}$$
         \end{proposition}
