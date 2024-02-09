@@ -67,7 +67,7 @@
             is such that:
                 $$(\alpha, \check{\alpha})_{\g} = 2$$
         \end{corollary}
-        The following result is a fundamental theorem in the study of finite-dimensional simple Lie algebras over algebraically closed fields of characteristic $0$. It essentially gives a bijective classification:
+        The next result is a fundamental theorem in the study of finite-dimensional simple Lie algebras over algebraically closed fields of characteristic $0$. It essentially gives a bijective classification:
             $$\{ \text{connected Dynkin diagrams} \} \xrightarrow[]{\cong} \{ \text{finite-dimensional simple Lie algebras over $k$} \}/\cong$$
         which means that to give such a Lie algebra via a presentation by generators and relations is the same as giving its associated Cartan matrix. This is not only practically useful, but also is the mean by which one approaches Kac-Moody algebras, where the Cartan matrix is no longer required to be positive-definite (cf. \cite[Chapters 1-5]{kac_infinite_dimensional_lie_algebras}). 
         \begin{theorem}[Serre's Theorem]
@@ -145,48 +145,38 @@
         \begin{remark}
             Universal extensions are unique up to unique isomorphisms. 
         \end{remark}
+        \begin{remark}[Lie brackets on extensions]
+            Suppose that:
+                $$0 \to \z \to \frake \to \a \to 0$$
+            is an extension of Lie algebras. Then, up to a choice of so-called \say{$2$-cocycle} $\sigma$, which can be regarded as a $k$-linear map:
+                $$\sigma: \bigwedge^2 \a \to \z$$:
+            satisfying a certain condition, the Lie bracket on $\frake$ will be given by:
+                $$\forall X, Y \in \a: \forall K, K' \in \z: [ (X, K), (Y, K') ]_{\frake} := [X, Y]_{\a} + ( K \cdot Y - K' \cdot Y + \sigma(X, Y) )$$
+            The aforementioned condition is that the bracket operation $[-, -]_{\frake}$ satisfies the Jacobi identity (note that it is already bilinear and skew-symmetric by construction).
+        \end{remark}
         \begin{definition}[Central extensions of Lie algebras]
             A Lie algebra extension:
                 $$0 \to \z \to \frake \to \a \to 0$$
             is \textbf{central} if:
                 $$\z \subseteq \z(\frake)$$
-            A \textbf{universal central extension} of a Lie algebra $\a$ by another Lie algebra $\z$ (UCE) is an extension that is initial amongst all central extensions.
+            A \textbf{universal central extension} of a Lie algebra $\a$ by another Lie algebra $\z$ (UCE), typically denoted by $\uce(\a)$, is an extension that is initial amongst all such central extensions.
         \end{definition}
         \begin{example}[A non-central extension of Lie algebras]
             Let $n \geq 2$ and let $k$ be a field of characteristic $\not = 2$. Then, one can construct the Lie algebra $\gl_n(k)$ of $n \x n$ matrices with coefficients in $k$ as the non-central extension:
                 $$0 \to \sl_n(k) \to \gl_n(k) \xrightarrow[]{\trace} k \to 0$$
         \end{example}
-        \begin{proposition}[$H^2_{\Lie}$ = extensions]
-            \cite[Theorem VIII.3.3]{hilton_stammbach_homological_algebra} Suppose that $\a$ is a Lie algebra over a commutative ring $k$. Then, the isomorphism classes of Lie algebra extensions of $\a$ (regarded as a left-$\rmU(\a)$-module) by some left-$\rmU(\a)$-module $M$ is in bijection with elements of\footnote{... understood to be computed using the Chevalley-Eilenberg complex.}:
-                $$H^2_{\Lie}(\a, M) := \Ext^2_{{}^l\rmU(\a)\mod}(k, M)$$
-            More explicitly, given an extension:
-                $$0 \to M \to \frake \to \a \to 0$$
-            then up to a choice of $2$-cocyle:
-                $$\sigma \in H^2_{\Lie}(\a, M)$$
-            the Lie bracket on $\frake$ will be given by:
-                $$\forall X, Y \in \a: \forall m, m' \in M: [ (X, m), (Y, m') ]_{\frake} := [X, Y]_{\a} + ( m \cdot Y - m' \cdot Y + \sigma(X, Y) )$$
-        \end{proposition}
-        \begin{corollary}[Trivial cohomological coefficients = central extensions]
-            The isomorphism classes of central extensions of $\a$ are parametrised bijectively by elements of $H^2_{\Lie}(\a, k)$.
-        \end{corollary}
         \begin{example}[Semi-direct products of Lie algebras]
             Let $k$ be an arbitrary commutative ring. 
             
-            Let $\d$ be a Lie $k$-algebra acting on another Lie $k$-algebra $\z$, i.e. let $\t$ be a $\d$-module that happens also to be a Lie algebra over $k$. The canonical extension of $\d$ by $\z$ corresponding to the element:
-                $$0 \in H^2_{\Lie}(\d, \z)$$
+            Let $\d$ be a Lie $k$-algebra acting on another Lie $k$-algebra $\z$, i.e. let $\t$ be a $\d$-module that happens also to be a Lie algebra over $k$. The canonical extension of $\d$ by $\z$ corresponding to the $2$-cocycle:
+                $$\sigma = 0$$
             is known as the \textbf{semi-direct product} of $\d$ by $\z$, and commonly denoted by:
                 $$\z \rtimes \d$$
             For the sake of completeness, let us note that the Lie bracket here is given by:
                 $$\forall D, D' \in \d: \forall K, K' \in \z: [ (D, K), (D', K') ]_{\z \rtimes \d} := [D, D']_{\d} + ( D \cdot K' - D' \cdot K )$$
-            
-            Interestingly, semi-direct products are split extensions, in the sense that there is a section Lie algebra homomorphism $\d \to \t \rtimes_{\rho} \d$, given by $D \mapsto (0, D)$.
         \end{example}
 
-        At this point, a natural question to pose is as follows.
-        \begin{question}
-            Which class of Lie algebras naturally admits UCEs ? 
-        \end{question}
-        As it so happens, so-called \say{perfect Lie algebras} form one such class of Lie algebras.
+        A particular class of Lie algebras that happen to admit UCEs are the so-called \say{perfect} ones.
         \begin{definition}[Perfect Lie algebras]
             A Lie algebra over a commutative ring is said to be \textbf{perfect} if it is equal to its derived subalgebra. 
         \end{definition}
@@ -198,15 +188,9 @@
                 $$\forall x, y \in \g: \forall f, g \in A: [x f, y g]_{\g_A} := [x, y]_{\g} fg$$
             Then, $\g_A$ will be perfect when regraded as a Lie algebra over $k$, precisely because $\g$ is simple.
         \end{example}
-        \begin{definition}[Covering Lie algebras]
-            Suppose that:
-                $$0 \to \z \to \frake \xrightarrow[]{\pi} \a \to 0$$
-            is a central extension of Lie algebras over some base commutative ring $k$. If $\frake$ is perfect then we will call the Lie algebra epimorphism:
-                $$\pi: \frake \to \a$$
-            a \textbf{covering} or a \textbf{cover} of $\a$. 
-
-            There is an evident full subcategory of $\Cent\Lie\Ext^1_k(\a, -)$ where the objects are coverings of $\a$. Let us denote it by $\Cov_k(\a)$
-        \end{definition}
+        \begin{example}
+            Counter-examples include nilpotent and abelian Lie algebras. For the former, their derived subalgebras are always proper Lie subalgebras, while for the latter, their derived subalgebras are zero. 
+        \end{example}
         \begin{proposition}[Perfect Lie algebras admit UCEs] \label{prop: perfect_lie_algebras_admit_UCEs}
-            \cite[Lemma 1.10]{garland_arithmetics_of_loop_groups} If $k$ is a field and $\a$ is a perfect Lie algebra over $k$, then $\Cov_k(\a)$ will have initial objects. Any such object will be referred to as a \textbf{universal cover} of $\a$, but still typically denoted by $\uce(\a)$.
+            \cite[Lemma 1.10]{garland_arithmetics_of_loop_groups} If $k$ is a field and $\a$ is a perfect Lie algebra over $k$, then it will admit a UCE.
         \end{proposition}
