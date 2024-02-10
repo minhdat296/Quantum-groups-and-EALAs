@@ -8,62 +8,50 @@
 
         Over a field $k$ that is algebraically closed and of characteristic $0$, much is known about the structure of a simple Lie algebra $\g$ that is finite-dimensional when regarded as a $k$-vector space. The bulk of the content presented above is discussed in further details in any standard textbook on Lie algebras (cf. e.g. \cite{humphreys_lie_algebras} or the first half of \cite{carter_affine_lie_algebras}). Let us give a very brief recap of this theory.
 
-        Firsly, one of the most important features of finite-dimensional simple Lie algebras (henceforth implicitly understood to be defined over a characteristic-$0$ and algebraically closed field $k$) is that each such Lie algebra, say $\g$, posses an invariant and non-degenerate $k$-bilinear form which is unique up to $k^{\x}$-multiples. The canonical choice is the so-called Killing form, given as follows for all $x, y \in \g$:
-            $$\kappa(x, y) := \trace(\ad(x) \circ \ad(y))$$
-        but in various other context, other natural choices such as the trace form are also very useful. What is important to us is that the Killing form is essentially unique: if $\kappa'$ is any invariant and non-degenerate symmetric $k$-bilinear form on $\g$ then there will exist $c \in k^{\x}$ such that:
-            $$\kappa' = c \kappa$$
+        Firsly, one of the most important features of finite-dimensional simple Lie algebras (henceforth implicitly understood to be defined over a characteristic-$0$ and algebraically closed field $k$) is that each such Lie algebra, say $\g$, posses an invariant and non-degenerate $k$-bilinear form:
+            $$(-, -)_{\g}$$
+        which is unique up to $k^{\x}$-multiples. The canonical choice is the so-called Killing form, given by $\kappa(x, y) := \trace(\ad(x) \circ \ad(y))$ for all $x, y \in \g$, but in various other context, other natural choices such as the trace form $\trace(xy)$ are also very useful. What is important to us is that the Killing form is essentially unique: if $\kappa'$ is any invariant and non-degenerate symmetric $k$-bilinear form on $\g$ then there will exist a \textit{unique} $c \in k^{\x}$ such that $\kappa' = c \kappa$.
 
-        Now, the existence and uniqueness (up to non-zero scalings) of a non-degenerate and invariant symmetric bilinear form allows us to construct a natural grading of any simple Lie algebra $\g$ by its \say{root lattice} (to be defined shortly), which is a certain finite free $\Z$-module of combinatorial origin. One does this choosing a \textbf{Cartan subalgebra} $\h$ for $\g$, which is a maximal abelian Lie subalgebra of $\g$ (and it is well-known that all Cartan subalgebras of $\g$ are conjugate to one another).  
-        \begin{lemma}[Non-degeneracy of invariant bilinear forms on Cartan subalgebras] \label{lemma: non_degeneracy_of_invariant_bilinear_forms_on_cartan_subalgebras}
-            Choose a non-degenerate and invariant symmetric $k$-bilinear form $(-, -)_{\g}$ on $\g$, regarded as a $k$-linear map:
-                $$(-, -)_{\g}: \Sym_k^2(\g) \to k$$
-            Then, the domain restriction of this form to $\Sym_k^2(\h)$ remains non-degenerate. 
-        \end{lemma}
-        Thanks to this lemma, we see that with respect to a choice of a Cartan subalgebra $\h$ and a non-degenerate and invariant symmetric $k$-bilnear form on $\g$, one can canonically identify:
-            $$\h \xrightarrow[]{\cong} \h^*$$
-        via said bilinear form. By picking a basis for our choice of a Catan subalgebra $\h$ and hence a dual basis $\simpleroots$ for $\h^*$, which we shall regard as a choice of a set of \textbf{simple roots}, and writing our bilinear form $(-, -)_{\g}$ in terms of that matrix, we shall get the \textbf{Cartan matrix} of $\g$:
+        Now, such a bilinear form $(-, -)_{\g}$ allows us to construct a natural grading of any simple Lie algebra $\g$ by its \say{root lattice} (to be defined shortly). One begins this process by choosing a \textbf{Cartan subalgebra} $\h$ for $\g$, which is a maximal abelian Lie subalgebra\footnote{... and it is well-known that all Cartan subalgebras of $\g$ are conjugate to one another, so this choice does not matter.} of $\g$. The restriction of $(-, -)_{\g}$ to $\h$ remains non-degenerate, so we can canonically identify $\h \xrightarrow[]{\cong} \h^*$ via said bilinear form. By picking a basis for our choice of a Catan subalgebra $\h$ and hence a dual basis:
+            $$\simpleroots := \{\alpha_i\}_{i \in \simpleroots}$$
+        for $\h^*$, which we shall regard as a choice of a set of \textbf{simple roots}, and writing our bilinear form $(-, -)_{\g}$ in terms of that matrix, we shall get the \textbf{Cartan matrix} of $\g$:
             $$C := (c_{ij})_{i, j \in \simpleroots}$$
         The aforementioned \textbf{root lattice} is then given by:
             $$Q := \Z \simpleroots$$
-        It can then also be shown that $2\id - C$ is the adjacency matrix of an undirected graph without loops, called the \textbf{Dynkin diagram} of $\g$, and the \textbf{roots} of $\g$ are the roots of this Dynkin diagram.
+        Given an element:
+            $$\mu := \sum_{i \in \simpleroots} m_i \alpha_i \in Q$$
+        we define its \textbf{height} to be the sum of the coefficients:
+            $$\height \mu := \sum_{i \in \simpleroots} m_i$$
+        It can also be shown that $2\id - C$ is the adjacency matrix of an undirected graph without loops, called the \textbf{Dynkin diagram} of $\g$, and the \textbf{roots} of $\g$ are the roots of this Dynkin diagram.
             
-        The following definition is mostly for the sake of setting up notations:
-        \begin{definition}[Weight spaces and root spaces]
-            Let $V$ be a $\g$-module. Then, one can abstractly define the vector subspace of $V$ consisting of elements of \textbf{weight} $\mu \in \h^*$ to be:
-                $$V_{\mu} := \{v \in V \mid \forall h \in \h: h \cdot v = \mu(h) v\}$$
-            If we have a direct sum decomposition of $\h$-module:
-                $$V \cong \bigoplus_{\mu \in \h^*} V_{\mu}$$
-            then we will say that $V$ is a \textbf{weight module} for $\g$. 
-
-            When $V \cong \g$ and carries the adjoint action of $\g$, we will instead refer to the non-zero weights as \textbf{roots}. These are the same as the roots constructed from the Cartan matrix of $\g$.
-        \end{definition}
-        The $Q$-grading of $\g$ that was mentioned earlier then takes the following form:
+        Let $V$ be a $\g$-module. Then, one can abstractly define the vector subspace of $V$ consisting of elements of \textbf{weight} $\mu \in \h^*$ to be:
+            $$V_{\mu} := \{v \in V \mid \forall h \in \h: h \cdot v = \mu(h) v\}$$
+        If we have a direct sum decomposition of $\h$-module:
+            $$V \cong \bigoplus_{\mu \in \h^*} V_{\mu}$$
+        then we will say that $V$ is a \textbf{weight module} for $\g$. Interestingly, elements of $\g_{\alpha}$ (with $\g$ acting on itself by the adjoint action) act by raising/lowering the weights of elements of $\g$-modules $V$ in the sense that:
+            $$\g_{\alpha} \cdot V_{\mu} \subseteq V_{\mu + \alpha}$$
+        for all weights $\alpha, \mu \in \h^*$. 
+        
+        As it turns out, the $Q$-grading of $\g$ that was mentioned earlier is actually a weight space decomposition for $\g$, regarded as a module over itself via the adjoint representation.
         \begin{theorem}[Root space decomposition for finite-dimensional simple Lie algebras] \label{theorem: root_space_decomposition_for_finite_dimensional_simple_lie_algebras}
-            Under the adjoint action, $\g$ becomes a weight module over itself. Furthermore, for each non-zero weight $\alpha$ of this $\g$-module, one has that:
-                $$\dim_k \g_{\alpha} = 1$$
+            Let $\g$ be a module over itself via the adjoint representation.
+            \begin{enumerate}
+                \item $\g$ is a weight module over itself. As a particular consequence, $\g$ is graded by the abelian group $Q$: for every $x \in \g_{\alpha}$, one has that $\deg x = \height \alpha$.
+                \item The weight space $\g_0$ is nothing but the Cartan subalgebra $\h$.
+                \item For each non-zero weight $\alpha$ of this $\g$-module, $\dim_k \g_{\alpha} = 1$.
+            \end{enumerate}
         \end{theorem}
-        \begin{convention}
-            Let $\g$ act via the adjoint action on itself. Since Cartan subalgebras are abelian by definition, it is not hard to see that:
-                $$\h \cong \g_0$$
-            and in light of this, one then often writes:
-                $$\Phi$$
-            to denote the set of roots of $\g$. The root space decomposition of $\g$ then takes the form:
-                $$\g \cong \h \oplus \bigoplus_{\alpha \in \Phi} \g_{\alpha}$$
-        \end{convention}
-        The following is a very useful and conceptual way to think about elements $x \in \g_{\alpha}$, i.e. \say{root vectors}. 
-        \begin{lemma}[Action of root vectors]
-            Let $V$ be an arbitrary $\g$-module. Then:
-                $$\forall \alpha \in \Phi: \forall \mu \in \h^*: \g_{\alpha} \cdot V_{\mu} \subseteq V_{\mu + \alpha}$$
-        \end{lemma}
-        \begin{corollary}
-            For any given root $\alpha \in \Phi$ and corresponding root vectors $x_{\alpha} \in \g_{\alpha}, x_{\beta} \in \g_{\beta}$, one has that:
-                $$[x_{\alpha}, x_{-\alpha}] = (x_{\alpha}, x_{\beta})_{\g} \check{\alpha}$$
-            where $\check{\alpha} \in \h$ is such that:
-                $$(\alpha, \check{\alpha})_{\g} = 2$$
-        \end{corollary}
-        The next result is a fundamental theorem in the study of finite-dimensional simple Lie algebras over algebraically closed fields of characteristic $0$. It essentially gives a bijective classification:
-            $$\{ \text{connected Dynkin diagrams} \} \xrightarrow[]{\cong} \{ \text{finite-dimensional simple Lie algebras over $k$} \}/\cong$$
-        which means that to give such a Lie algebra via a presentation by generators and relations is the same as giving its associated Cartan matrix. This is not only practically useful, but also is the mean by which one approaches Kac-Moody algebras, where the Cartan matrix is no longer required to be positive-definite (cf. \cite[Chapters 1-5]{kac_infinite_dimensional_lie_algebras}). 
+        Typically, the non-zero weights $\alpha$ of the adjoint representations of $\g$ such that $\g_{\alpha} \not \cong 0$ are called \textbf{roots}. The set of roots is usually denoted by $\Phi$. These are the same as the roots that can be constructed from the Cartan matrix of $\g$.
+
+        Elements of $Q^+ := \Z_{\geq 0} \simpleroots$ are typically regarded as being \textbf{positive} (and in particular, the simple roots are positive by convention) and conversely, elements of $Q^- := \Z_{\leq 0} \simpleroots$ are typically said to be \textbf{negative}. One can subsequently construct the sets of positive/negative roots as:
+            $$\Phi^{\pm} := \Phi \cap Q^{\pm}$$
+        and note that $\Phi = \Phi^+ \cup \Phi^-$.
+
+        From theorem \ref{theorem: root_space_decomposition_for_finite_dimensional_simple_lie_algebras}, we see that for any given positive root $\alpha \in \Phi^+$ and corresponding choice of root vectors\footnote{Choices of which are unique up to non-zero scalar multiples, since subspaces of non-zero weights are equally $1$-dimensional.} $x_{\pm\alpha} \in \g_{\pm\alpha}$, one has that:
+            $$[x_{\alpha}, x_{-\alpha}] = \frac12 (x_{\alpha}, x_{-\alpha})_{\g} \check{\alpha}$$
+        where $\check{\alpha} \in \h$ is such that $(\alpha, \check{\alpha})_{\g} = 2$. For simplicity, the root vectors $x_{\pm \alpha}$ are typically chosen so that $(x_{\alpha}, x_{-\alpha})_{\g} = 2$.
+        
+        The next result is a fundamental theorem in the study of finite-dimensional simple Lie algebras over algebraically closed fields of characteristic $0$. It essentially asserts that to give such a Lie algebra via a presentation by generators and relations is the same as to specify its Cartan matrix. The result is not only practically useful, but also is the mean by which one approaches Kac-Moody algebras, where the Cartan matrix is no longer required to be positive-definite (cf. \cite[Chapters 1-5]{kac_infinite_dimensional_lie_algebras}). 
         \begin{theorem}[Serre's Theorem]
             $\g$ is isomorphic to the Lie algebra generated by the set:
                 $$\{h_i, x_i^{\pm}\}_{1 \leq i \leq l}$$
@@ -73,30 +61,21 @@
                 $$\ad(x_i^{\pm})^{1 - c_{ij}}(x_j^{\pm}) = 0$$
             This is usually referred to as the \textbf{Chevalley-Serre} presentation for $\g$; final set of relations is usually known as the \textbf{Serre relations}.
         \end{theorem}
-        \begin{corollary}
-            For every root $\alpha \in \Phi$, any element $x \in \g_{\alpha}$ is nilpotent under the vector representation of $\g$. 
-        \end{corollary}
-        \begin{corollary}[Triangular decomposition for finite-dimensional simple Lie algebras]
-            Let $\n^{\pm}$ denote the Lie subalgebras of $\g$ generated by the sets $\{x_i^{\pm}\}_{1 \leq i \leq l}$ respectively. Then:
-                $$\g \cong \n^- \oplus \h \oplus \n^+$$
-            This is usually called the \textbf{triangular decomposition} for $\g$. 
-        \end{corollary}
 
         We end this subsection with a brief analysis of the easiest possible example of a finite-dimensional simple Lie algebra. 
         \begin{example}[$\sl_2$]
             Recall that $\sl_2(k)$ is the kernel of the trace map:
                 $$\trace: \gl_2(k) \to k$$
             i.e. it is the Lie algebra of trace-zero $2 \x 2$-matrices whose Lie bracket is the usual commutator of matrices. It is of dimension $\dim_k \gl_2(k) - \dim_k k = 4 - 1 = 3$, and happens to be also generated by a set of cardinality $3$ (though this is a coincidence, due entirely to how \say{degenerate} of an example $\sl_2(k)$ is):
-                $$\{h, e^+, e^-\}$$
+                $$\{h, x^+, x^-\}$$
             and the elements of this set are subjected to the relations:
-                $$[h, e^{\pm}] = \pm 2 e^{\pm}, [e^+, e^-] = h$$
+                $$[h, x^{\pm}] = \pm 2 x^{\pm}, [x^+, x^-] = h$$
             One proves both of these statements by showing firstly that a basis for $\sl_2(k)$ is:
                 $$\left\{ \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}, \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}, \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix} \right\}$$
             and then seeing that any Cartan subalgebra of $\sl_2(k)$ must therefore be isomorphic to $k \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}$; the rest then follows. In particular, the Cartan matrix is just:
                 $$\begin{pmatrix} 2 \end{pmatrix}$$
             and the Dynkin diagram consists of only a single vertex and no edges:
                 $$\bullet$$
-            From this, one gathers that $\sl_2(k)$ is of type $\sfA_1$. 
         \end{example}
 
     \subsection{Perfect Lie algebras and their central extensions}
@@ -148,27 +127,19 @@
                 $$\forall X, Y \in \a: \forall K, K' \in \z: [ (X, K), (Y, K') ]_{\frake} := [X, Y]_{\a} + ( K \cdot Y - K' \cdot Y + \sigma(X, Y) )$$
             The aforementioned condition is that the bracket operation $[-, -]_{\frake}$ satisfies the Jacobi identity (note that it is already bilinear and skew-symmetric by construction).
         \end{remark}
-        \begin{definition}[Central extensions of Lie algebras]
-            A Lie algebra extension:
-                $$0 \to \z \to \frake \to \a \to 0$$
-            is \textbf{central} if:
-                $$\z \subseteq \z(\frake)$$
-            A \textbf{universal central extension} of a Lie algebra $\a$ by another Lie algebra $\z$ (UCE), typically denoted by $\uce(\a)$, is an extension that is initial amongst all such central extensions.
-        \end{definition}
-        \begin{example}[A non-central extension of Lie algebras]
-            Let $n \geq 2$ and let $k$ be a field of characteristic $\not = 2$. Then, one can construct the Lie algebra $\gl_n(k)$ of $n \x n$ matrices with coefficients in $k$ as the non-central extension:
-                $$0 \to \sl_n(k) \to \gl_n(k) \xrightarrow[]{\trace} k \to 0$$
-        \end{example}
         \begin{example}[Semi-direct products of Lie algebras]
-            Let $k$ be an arbitrary commutative ring. 
-            
-            Let $\d$ be a Lie $k$-algebra acting on another Lie $k$-algebra $\z$, i.e. let $\t$ be a $\d$-module that happens also to be a Lie algebra over $k$. The canonical extension of $\d$ by $\z$ corresponding to the $2$-cocycle:
+            Let $\d$ be a Lie algebra acting on another Lie algebra $\z$, i.e. let $\t$ be a $\d$-module that happens also to be a Lie algebra over $k$. The canonical extension of $\d$ by $\z$ corresponding to the $2$-cocycle:
                 $$\sigma = 0$$
             is known as the \textbf{semi-direct product} of $\d$ by $\z$, and commonly denoted by:
                 $$\z \rtimes \d$$
             For the sake of completeness, let us note that the Lie bracket here is given by:
                 $$\forall D, D' \in \d: \forall K, K' \in \z: [ (D, K), (D', K') ]_{\z \rtimes \d} := [D, D']_{\d} + ( D \cdot K' - D' \cdot K )$$
         \end{example}
+        \begin{definition}[Central extensions of Lie algebras]
+            A Lie algebra extension:
+                $$0 \to \z \to \frake \to \a \to 0$$
+            is \textbf{central} if the elements of $\z$ are central in $\frake$. A \textbf{universal central extension} (UCE) of a Lie algebra $\a$ by another Lie algebra $\z$, typically denoted by $\uce(\a)$, is an extension that is initial amongst all such central extensions.
+        \end{definition}
 
         A particular class of Lie algebras that happen to admit UCEs are the so-called \say{perfect} ones.
         \begin{definition}[Perfect Lie algebras]
