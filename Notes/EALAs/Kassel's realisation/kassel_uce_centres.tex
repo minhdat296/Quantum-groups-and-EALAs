@@ -206,7 +206,19 @@
                 $$\forall f, g \in k[v]: \Res_{v = 0}(fg) = 0$$
         \end{example}
         \begin{example}[Toroidal Lie algebras]
-            Consider the $k$-vector space $\bar{\Omega}^1_{k[v^{\pm 1}, t^{\pm 1}]/k}$. It decomposes as a $k$-vector space in the following manner:
+            Next, let us compute the UCE of $\g[v^{\pm 1}, t^{\pm 1}]$. 
+            
+            Firstly, let us compute its underlying vector space, for which the only non-trivial computation to make is that of the $k$-vector space $\bar{\Omega}^1_{k[v^{\pm 1}, t^{\pm 1}]/k}$, which we know to be isomorphic to the centre of $\uce(\g[v^{\pm 1}, t^{\pm 1}])$. We know that:
+                $$\Omega^1_{k[v^{\pm 1}, t^{\pm 1}]/k} \cong k[v^{\pm 1}, t^{\pm 1}] dv \oplus k[v^{\pm 1}, t^{\pm 1}] dt$$
+            and since:
+                $$k[v^{\pm 1}, t^{\pm 1}] \cong \bigoplus_{(m, p) \in \Z^2} k \cdot v^m t^p$$
+            we consequently have that:
+                $$\Omega^1_{k[v^{\pm 1}, t^{\pm 1}]/k} \cong \bigoplus_{(m, p) \in \Z^2} (k \cdot v^m t^p dv \oplus k \cdot v^m t^p dt)$$
+            It can also be seen that:
+                $$d k[v^{\pm 1}, t^{\pm 1}] \cong \bigoplus_{(m, p) \in \Z^2} k \cdot d(v^m t^p) \cong \bigoplus_{(m, p) \in \Z^2} ( k \cdot m v^{m - 1} t^p dv \oplus k \cdot p v^m t^{p - 1} dt )$$
+            As such, the $k$-vector space:
+                $$\bar{\Omega}^1_{k[v^{\pm 1}, t^{\pm 1}]/k} := \Omega^1_{k[v^{\pm 1}, t^{\pm 1}]/k}/d k[v^{\pm 1}, t^{\pm 1}]$$
+            decomposes in the following manner:
                 $$\bar{\Omega}^1_{k[v^{\pm 1}, t^{\pm 1}]/k} \cong ( \bigoplus_{(r, s) \in \Z^2} k K_{r, s}) \oplus k c_v \oplus k c_t$$
             wherein:
                 $$
@@ -221,12 +233,22 @@
                 $$
                 $$c_v := v^{-1} \bar{d}v, c_t := t^{-1} \bar{d}t$$
             In fact, any element of the form:
-                $$v^m t^p \bar{d}(v^n t^q) \in \bar{\Omega}_{[2]}$$
+                $$v^m t^p \bar{d}(v^n t^q) \in \bar{\Omega}^1_{k[v^{\pm 1}, t^{\pm 1}]/k}$$
             can be written in terms of the basis vectors $K_{r, s}, c_v, c_t$ in the following manner:
                 $$v^m t^p \bar{d}(v^n t^q) = \delta_{(m, p) + (n, q), (0, 0)} ( n c_v + q c_t ) + (np - mq) K_{m + n, p + q}$$
-        \end{example}
-        \begin{example}[Positive toroidal Lie algebras]
-            
+            (cf. \cite[pp. 35]{wendlandt_formal_shift_operators_on_yangian_doubles}).
+
+            Finally, let us note that the Lie bracket on $\uce(\g[v^{\pm 1}, t^{\pm 1}])$ is given by:
+                $$
+                    \begin{aligned}
+                        [x v^m t^p, y v^n t^q]_{\uce(\g[v^{\pm 1}, t^{\pm 1}])} & = [x, y]_{\g} v^{m + n} t^{p + q} + (x, y)_{\g} v^m t^p \bar{d}(v^n t^q)
+                        \\
+                        & = [x, y]_{\g} v^{m + n} t^{p + q} + ( \delta_{(m, p) + (n, q), (0, 0)} ( n c_v + q c_t ) + (np - mq) K_{m + n, p + q} )
+                    \end{aligned}
+                $$
+            for all $x, y \in \g$ and all $(m, p), (n, q) \in \Z^2$. As a side note, let us note that interestingly, unlike how $\g[v]$ admits only the trivial UCE, $\g[v^{\pm 1}, t]$ admits a non-trivial UCE, on which the Lie bracket is given by:
+                $$[x v^m t^p, y v^n t^q]_{\uce(\g[v^{\pm 1}, t^{\pm 1}])} = [x, y]_{\g} v^{m + n} t^{p + q} + (np - mq) K_{m + n, p + q}$$
+            for all $x, y \in \g$ and all $(m, p), (n, q) \in \Z \x \Z_{\geq 0}$.
         \end{example}
         \begin{remark}[The $\Z$-grading on toroidal Lie algebras] \label{remark: Z_gradings_on_toroidal_lie_algebras}
             If $k$ is an arbitrary commutative ring and $A$ is a $\Z$-graded commutative $k$-algebra, say:
