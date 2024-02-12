@@ -1,8 +1,39 @@
-\section{(Extended) toroidal Lie biaglebras}
-    \subsection{Manin triples and quantisations of Lie bialgebras}
-        
+\section{Affine Yangians as quantisations}
+    \begin{convention}
+        As a shorthand, we will be writing:
+            $$\bar{\Delta}(X) := X \tensor 1 + 1 \tensor X$$
+    \end{convention}
 
-    \subsection{Toroidal Lie bialgebras}
+    \subsection{Manin triples and quantisations of Lie bialgebras} \label{subsection: manin_triples_and_quantisations_of_lie_bialgebras}
+        \begin{remark}
+            Technically speaking, we do not need our field $k$ to be algebraically closed for the abstract machineries presented in this subsection to be true. This hypothesis is only needed for some of the examples. 
+        \end{remark}
+    
+        \begin{definition}[Lie bialgebras] \label{def: lie_bialgebras}
+            Let $\a$ be a Lie algebra over $k$ equipped with a $k$-linear map:
+                $$\delta: \a \to \a \tensor_k \a$$
+            $\a$ will then be a \textbf{Lie bialgebra} (over $k$) with \textbf{Lie cobracket} $\delta$ if the following two conditions are satisfied:
+            \begin{itemize}
+                \item Firstly, we insist that $\delta$ is a Lie $1$-cocycle\footnote{In cohomological terms, one can write $\delta \in H^1_{\Lie}(\a, \a \tensor_k \a)$.} of $\a$ with coefficients in $\a \tensor_k \a$, which is to say that the following identity is to hold in $\rmU(\a) \tensor_k \rmU(\a)$:
+                    $$\delta( [x, y] ) = [\bar{\Delta}(x), \delta(y)] + [\delta(x), \bar{\Delta}(y)]$$
+                for all $x, y \in \a$.
+                \item Secondly, we require that the map:
+                    $$\delta^*: \a^* \tensor_k \a^* \to \a^*$$
+                is a Lie bracket on the $k$-vector space $\a^*$.
+            \end{itemize}
+        \end{definition}
+
+        \begin{definition}[Manin triples] \label{def: manin_triples}
+            
+        \end{definition}
+
+        \begin{definition}[Quantisations] \label{def: quantisations}
+            
+        \end{definition}
+
+        \todo[inline]{Not done}
+
+    \subsection{(Extended) toroidal Lie bialgebras}
         \begin{theorem} \label{theorem: extended_toroidal_manin_triples}
             There is a complete topological Manin triple:
                 $$(\extendedtoroidal, \extendedtoroidal^{\positive}, \extendedtoroidal^{\negative})$$
@@ -57,7 +88,7 @@
                 $$\hat{\delta}^{\positive} := \delta_{\extendedtoroidal^{\positive}}$$
             with $\delta_{\extendedtoroidal^{\positive}}$ as in corollary \ref{coro: extended_toroidal_lie_bialgebras}. Let:
                 $$\tilde{\delta}^{\positive} := \hat{\delta}^{\positive}|_{\toroidal}$$
-            Then $(\toroidal^{\positive}, \tilde{\delta}^{\positive})$ will be a complete topological Lie sub-bialgebra of $(\extendedtoroidal^{\positive}, \hat{\delta}^{\positive})$ as given in corollary \ref{coro: extended_toroidal_lie_bialgebras}. Thanks to corollary \ref{coro: levendorskii_presentation__for_central_extensions_of_multiloop_algebras}, we know that it is enough to specify how $\tilde{\delta}^{\positive}$ is given on the set of generators:
+            Then $(\toroidal^{\positive}, \tilde{\delta}^{\positive})$ will be a complete topological Lie sub-bialgebra of $(\extendedtoroidal^{\positive}, \hat{\delta}^{\positive})$ as given in corollary \ref{coro: extended_toroidal_lie_bialgebras}. Thanks to corollary \ref{coro: levendorskii_presentation_for_central_extensions_of_multiloop_algebras}, we know that it is enough to specify how $\tilde{\delta}^{\positive}$ is given on the set of generators:
                 $$\{X_{i, 0}^{\pm}\}_{i \in \hat{\simpleroots}} \cup \{H_{i, r}\}_{ (i, r) \in \hat{\simpleroots} \x \{0, 1\} }$$
             and since we know that under the isomorphism $\t^+ \xrightarrow[]{\cong} \toroidal^{\positive}$ in \textit{loc. cit.}, we have the following assignments:
                 $$\forall i \in \hat{\simpleroots}: X_{i, 0}^{\pm} \mapsto x_i^{\pm}, H_{i, 0} \mapsto h_i$$
@@ -299,6 +330,9 @@
                     per remark \ref{remark: total_degrees_of_classical_yangian_R_matrices}.
                 \end{enumerate}
             \end{proof}
+
+    \subsection{Topological issues}
+        \todo[inline]{Not written}
     
     \subsection{Hopf coproducts and classical limits of completed affine Yangians}
         \begin{convention}
