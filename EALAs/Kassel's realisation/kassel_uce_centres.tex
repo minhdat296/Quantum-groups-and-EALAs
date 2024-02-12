@@ -69,6 +69,8 @@
             From now on, we fix a finite-dimensional simple Lie algebra:
                 $$\g$$
             over an algebraically closed field $k$ of characteristic $0$, equipped with a symmetric and non-degenerate invariant $k$-bilinear form $(-, -)_{\g}$. It is known that such a bilinear form is unique up to $k^{\x}$-multiples, so for all intents and purposes, it can be assumed to be the Killing form, though this assumption is not necessary. 
+
+            We fix once and for all a Cartan subalgebra $\h$ of $\g$. 
     
             Suppose also that $\g$ is equipped with a basis $\{x_i\}_{1 \leq i \leq \dim_k \g}$ and with respect to $(-, -)_{\g}$, we identify a dual basis $\{x_i^*\}_{1 \leq i \leq \dim_k \g}$. Recall that the Casimir tensor/canonical element of $\g$ is:
                 $$\sfr_{\g} := \sum_{1 \leq i \leq \dim_k \g} x_i \tensor x_i^* \in \g \tensor_k \g^*$$
@@ -172,7 +174,7 @@
                 $$\uce(\g) \cong \g$$
             i.e. $\g$ is its own universal central extension, and hence every central extension of $\g$ is trivial.
         \end{example}
-        \begin{example}[Affine Lie algebras]
+        \begin{example}[Affine Lie algebras] \label{example: affine_lie_algebras_centres}
             Let us compute the UCE of $\g[v^{\pm 1}]$. From this, we can construct the so-called \say{untwisted affine Kac-Moody algebra} attached to $\g$ (cf. \cite[Chapter 7]{kac_infinite_dimensional_lie_algebras}). 
 
             To this end, let us firstly compute the underlying vector space of the centre of $\uce(\g[v^{\pm 1}])$. Abstractly, we know that it is isomorphic to $\bar{\Omega}^1_{k[v^{\pm 1}]/k}$, and it is also known that:
@@ -194,18 +196,18 @@
 
             Note that there is an invariant symmetric $k$-bilinear form on $\uce(\g[v^{\pm 1}])$ given by:
                 $$(x f, y g)_{\uce(\g[v^{\pm 1}])} := (x, y)_{\g} c(f, g)$$
-            By invariance, this bilinear form is necessarily degenerate, but by adding an extra element $D$ to the Lie algebra $\uce(\g[v^{\pm 1}])$ and by requiring that:
-                $$(v^{-1} \bar{d}v, D)_{\uce(\g[v^{\pm 1}]) \oplus k D} = 1$$
-                $$(v^{-1} \bar{d}v, v^{-1} \bar{d}v)_{\uce(\g[v^{\pm 1}]) \oplus k D} = (D, D)_{\uce(\g[v^{\pm 1}]) \oplus k D} = 0$$
+            By invariance, this bilinear form is necessarily degenerate, but by adding an extra element $\hat{D}$ to the Lie algebra $\uce(\g[v^{\pm 1}])$ and by requiring that:
+                $$(v^{-1} \bar{d}v, \hat{D})_{\uce(\g[v^{\pm 1}]) \oplus k \hat{D}} = 1$$
+                $$(v^{-1} \bar{d}v, v^{-1} \bar{d}v)_{\uce(\g[v^{\pm 1}]) \oplus k \hat{D}} = (\hat{D}, \hat{D})_{\uce(\g[v^{\pm 1}]) \oplus k \hat{D}} = 0$$
             one obtains the \textbf{untwisted affine Kac-Moody algebra} (in the sense of \cite[Chapter 7]{kac_infinite_dimensional_lie_algebras}):
-                $$\hat{\g} := \uce(\g[v^{\pm 1}]) \rtimes k D$$
-            If $c(f, g) := \Res_{v = 0}(fg)$, the element $D$ can be shown to be the derivation on $\g[v^{\pm 1}]$ given by $\id_{\g} \tensor v \frac{d}{dv}$. It can also be shown, in general, that:
-                $$[D, v^{-1} \bar{d}v]_{\uce(\g[v^{\pm 1}]) \oplus k D} = 0$$
+                $$\hat{\g} := \uce(\g[v^{\pm 1}]) \rtimes k \hat{D}$$
+            If $c(f, g) := \Res_{v = 0}(fg)$, the element $\hat{D}$ can be shown to be the derivation on $\g[v^{\pm 1}]$ given by $\id_{\g} \tensor v \frac{d}{dv}$. It can also be shown, in general, that:
+                $$[\hat{D}, v^{-1} \bar{d}v]_{\uce(\g[v^{\pm 1}]) \oplus k \hat{D}} = 0$$
 
             Let us also note that unlike $\uce(\g[v^{\pm 1}])$, the UCE of the perfect Lie algebra $\g[v]$ is trivial, since:
                 $$\forall f, g \in k[v]: \Res_{v = 0}(fg) = 0$$
         \end{example}
-        \begin{example}[Toroidal Lie algebras]
+        \begin{example}[Toroidal Lie algebras] \label{example: toroidal_lie_algebras_centres}
             Next, let us compute the UCE of $\g[v^{\pm 1}, t^{\pm 1}]$. 
             
             Firstly, let us compute its underlying vector space, for which the only non-trivial computation to make is that of the $k$-vector space $\bar{\Omega}^1_{k[v^{\pm 1}, t^{\pm 1}]/k}$, which we know to be isomorphic to the centre of $\uce(\g[v^{\pm 1}, t^{\pm 1}])$. We know that:
@@ -300,10 +302,6 @@
     \subsection{Chevalley-Serre presentations for UCEs of current Lie algebras}
         Finally, let us demonstrate how Kassel's realisation is useful for writing down presentations in the style of Chevalley-Serre for Lie algebras of the kind $\g \tensor_k A$.
 
-        \begin{convention}[Weight spaces]
-            If $\fraku$ is a symmetrisable Kac-Moody algebra and $V$ is a $\fraku$-module, then for each weight $\lambda \in \Pi(V)$, we shall be denoting the corresponding weight space by $V[\lambda]$.
-        \end{convention}
-
         \begin{theorem}[Kassel's presentations for current Lie algebras] \label{theorem: kassel_presentations_for_UCEs}
             (Cf. \cite[Definition 3.1 and Corollary 3.4]{kassel_universal_central_extensions_of_lie_algebras}) Again, let $k$ be an algebraically closed field of characteristic $0$ and $A$ be a commutative $k$-algebra. 
 
@@ -342,8 +340,8 @@
         A construction that we will frequent throughout the remainder of the subsection is the untwisted affine Kac-Moody algebra associated to a finite-dimensional simple Lie algebra.
         \begin{convention} \label{conv: a_fixed_untwisted_affine_kac_moody_algebra}
             Let us write:
-                $$\hat{\g} \cong \g[v^{\pm 1}] \oplus k \hat{c} \rtimes k \hat{D}$$
-            to denote the untwisted affine Kac-Moody algebra associated to $\g$. For details, we refer the reader to \cite[Chapter 7]{kac_infinite_dimensional_lie_algebras}.
+                $$\hat{\g} \cong \g[v^{\pm 1}] \oplus k c_v \rtimes k \hat{D}$$
+            to denote the untwisted affine Kac-Moody algebra associated to $\g$; here, $c_v := v^{-1} \bar{d}v$ is as in example \ref{example: toroidal_lie_algebras_centres} and $\hat{D}$ is as in example \ref{example: affine_lie_algebras_centres}. For details, we refer the reader to \cite[Chapter 7]{kac_infinite_dimensional_lie_algebras}.
             
             We shall also fix once and for all a Cartan subalgebra $\hat{\h}$ of $\hat{\g}$, along with a non-degenerate, invariant, and symmetric $k$-bilinear form:
                 $$(-, -)_{\hat{\g}}$$
@@ -392,10 +390,6 @@
                 $$\z_{[2]} := \z(\uce(\toroidal)) \cong \bar{\Omega}_{[2]}$$
                 $$\z_{[2]}^{\positive} := \z(\uce(\toroidal^{\positive})) \cong \bar{\Omega}_{[2]}^{\positive}$$
         \end{convention}
-        \begin{remark}[The centre of $\toroidal^{\positive}$]
-            It is not hard to see, from the description of $\bar{\Omega}_{[2]}$ in remark \ref{remark: Z_gradings_on_toroidal_lie_algebras}, that:
-                $$\z_{[2]}^{\positive} := \bigoplus_{(r, s) \in \Z \x \Z_{> 0}} k K_{r, s} \oplus k c_v$$
-        \end{remark}
         For $\toroidal$ and $\toroidal^{\positive}$, Kassel's presentation from theorem \ref{theorem: kassel_presentations_for_UCEs} can be futhermore refined into Chevalley-Serre-style presentations from which one can obtain $\hat{Q}$-gradings for these two Lie algebras. These presentations were originally due to Moody-Rao-Yokonuma (see \cite{moody_rao_yokonuma_vertex_representations_of_toroidal_lie_algebras}). 
         \begin{lemma}[Chevalley-Serre presentation for $\toroidal$] \label{lemma: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras}
             The Lie algebra $\toroidal$ is isomorphic to the Lie algebra generated by the set:
@@ -418,5 +412,5 @@
             whose elements are subjected to the following relations lemma \ref{lemma: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras}. The isomorphism in question is given also as in \textit{loc. cit.}
         \end{corollary}
             \begin{proof}
-                Apply remark \ref{remark: Z_gradings_on_toroidal_lie_algebras} to lemma \ref{lemma: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras}.
+                Apply the computations in example \ref{example: toroidal_lie_algebras_centres} to lemma \ref{lemma: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras}.
             \end{proof}

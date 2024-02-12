@@ -3,10 +3,13 @@
 \setcounter{section}{-1}
 
 \input{commands}
+\newcommand{\toroidal}{\t}
+\newcommand{\extendedtoroidal}{\hat{\t}}
+\newcommand{\simpleroots}{\mathbb{I}}
 
 \begin{document}
 
-    \title{Finite-dimensional simple Lie algebras}
+    \title{Yangian extended toroidal Lie algebras}
     
     \author{Dat Minh Ha}
     \maketitle
@@ -23,9 +26,11 @@
 
     \section{Introduction}
 
-    \input{Notes/Finite-dimensional simple Lie algebras/category_O}
+    \input{EALAs/Yangian EALAs/setup_yangian_EALAs}
 
-    \input{Notes/Finite-dimensional simple Lie algebras/BB_localisation}
+    \input{EALAs/Yangian EALAs/yangian_div_zero_vector_fields}
+
+    \input{EALAs/Yangian EALAs/root_gradings_for_yangian_EALAs}
     
     \addcontentsline{toc}{section}{References}
     \printbibliography
