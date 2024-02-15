@@ -1,8 +1,16 @@
 \section{Affine Yangians as quantisations}
     \begin{convention}
+        Let $V$ be a vector space.
+    
         As a shorthand, we will be writing:
             $$\bar{\Delta}(X) := X \tensor 1 + 1 \tensor X$$
-        If $X$ is an element of a Lie algebra, this expression will always be understood to be an element in the tensor-square of the universal enveloping algebra, unless stated otherwise.
+        and this will be understood to be an element of $\rmT(V)^{\tensor 2}$. If we have:
+            $$X := \sum_{i, j} X_i \tensor X_j \in \rmT(V)^{\tensor 2}$$
+        then we will be writing:
+            $$X_{12} := \sum_{i, j} X_i \tensor X_j \tensor 1 \in \rmT(V)^{\tensor 3}$$
+            $$X_{23} := \sum_{i, j} 1 \tensor X_i \tensor X_j \in \rmT(V)^{\tensor 3}$$
+            $$X_{13} := \sum_{i, j} X_i \tensor 1 \tensor X_j \in \rmT(V)^{\tensor 3}$$
+        and likewise for the other permutations. If $V$ is a Lie algebra then instead of the tensor algebra, we will typically think of these elements as living in tensor powers of the universal enveloping algebra.
     \end{convention}
 
     \begin{convention}[Graded duals]
@@ -73,13 +81,39 @@
                 $$\delta_{\frakDr(\a)} := \delta_{\a} \oplus \delta_{\a^*}^{\cop}$$
             with $\delta_{\a^*}^{\cop} := -\delta_{\a^*}$ being the opposite Lie cobracket on $\a^*$, and it can be verified that this is a $1$-cocycle of $\frakDr(\a)$ with values in $\frakDr(\a) \tensor_k \frakDr(\a)$, thus making $\frakDr(\a)$ a Lie bialgebra. This Lie bialgebra is typically called the \textbf{Drinfeld double}\footnote{Sometimes also called the \textbf{classical double}.} of $\a$ (or equivalently, of $\a^*$).
         \end{remark}
+        \begin{remark}[Coboundary Lie algebras and classical R-matrices] \label{remark: classical_R_matrices}
+            Let $(\a, [-, -]_{\a}, \delta_{\a})$ be a Lie bialgebra.
+        
+            Let us note here that there is an alternative way to write the Lie cobracket on $\frakDr(\a)$ as follows, which is more useful in practice (cf. e.g. example \ref{example: finite_type_yangian_manin_triple} and corollary \ref{coro: extended_toroidal_lie_bialgebras}). Namely, one makes use of the canonical elements:
+                $$\sfr_{\a} \in \a \tensor_k \a^*, \sfr_{\a^*} \in \a^* \tensor_k \a$$
+            which are to be the preimage of $\id_{\a} \in \End_k(\a), \id_{\a^*} \in \End_k(\a^*)$ under the canonical maps\footnote{Note that these maps are both injective, precisely because $(-, -)_{\frakDr(\a)}$ is non-degenerate by construction, and hence $\sfr_{\a}$ is well-defined.} $\a \tensor_k \a^* \to \End_k(\a), \a^* \tensor_k \a \to \End_k(\a^*)$ given by $x \tensor \varphi \mapsto (-, \varphi)_{\frakDr(\a)} x$ and by $x \tensor \varphi \mapsto (x, -)_{\frakDr(\a)} \varphi$, respectively, for all $x \in \a$ and all $\varphi \in \a^*$. A theorem of Drinfeld asserts that:
+            \begin{enumerate}
+                \item if:
+                    $$\delta_{\a} = [\bar{\Delta}, \sfr_{\a}], \delta_{\a^*} = [\bar{\Delta}, \sfr_{\a^*}]$$
+                then $\delta_{\a}$ and $\delta_{\a^*}$ will be Lie cobrackets, and
+                \item if furthermore, the so-called \textbf{classical Yang-Baxter equation}:
+                    $$[\sfr_{12}, \sfr_{13}] + [\sfr_{12}, \sfr_{23}] + [\sfr_{13}, \sfr_{13}]$$
+                (where $\sfr := \sfr_{\a} - \sfr_{\a^*}$) is $\frakDr(\a)$-invariant, then:
+                    $$\delta_{\frakDr(\a)} = \delta_{\a} \oplus \delta_{\a^*}^{\cop} = [\bar{\Delta}, \sfr]$$
+                will be a Lie bialgebra structure on $\frakDr(\a)$.
+            \end{enumerate}
+            Consequently, $\delta_{\a}$ and $\delta_{\a^*}$ will be Lie bialgebra structures on $\a$ and $\a^*$, per the discussions in remark \ref{remark: drinfeld_doubles}.
+        \end{remark}
+        \begin{definition}[Classical R-matrices] \label{def: classical_R_matrices}
+            Let $\a$ be a Lie bialgebra equipped with a \textit{non-degenerate} and \textit{invariant} symmetric bilinear form $(-, -)$. Then, the canonical element $\sfr_{\a} \in \a \tensor_k \a^*$ with respect to $(-, -)$ as in remark \ref{remark: classical_R_matrices} shall be referred to as the \textbf{classical R-matrix} of $\a$.
+        \end{definition}
+        \begin{definition}[(Quasi-)triangular Lie bialgebras] \label{def: (quasi)_triangular_lie_bialgebras}
+            \todo{Will we need this ?}
+        \end{definition}
         \begin{remark}[Graded Drinfeld doubles] \label{remark: graded_drinfeld_doubles}
             A graded analogue of Drinfeld doubles is also available for graded Lie bialgebras:
                 $$(\a, [-, -]_{\a}, \delta_{\a})$$
             with finite-dimensional graded components. When $\a$ is finite-dimensional, there is no difference from the construction given in remark \ref{remark: drinfeld_doubles}. When $\a$ is infinite-dimensional, instead of considering full linear duals as in remark \ref{remark: drinfeld_doubles}, one considers graded duals. The rest can then be carried out in the same manner, yielding a graded Lie bialgebra structure on:
                 $$\frakDr(\a) := \a \oplus \a^{\star}$$
         \end{remark}
-        The construction of (graded) Drinfeld doubles leads to the following definition:
+        Even though we use the same notation for Drinfeld doubles of ungraded and graded Lie bialgebras, how the underlying vector space is given should be clear from context. We will specify if needed.
+        
+        The construction of (graded) Drinfeld doubles leads to the following notion of \say{Manin triples}, which in some ways is easier to work with than Lie bialgebras. We do not lose information by passing to these Manin triples, however, since each of them gives rise to a Lie bialgebra and \textit{vice versa}.
         \begin{definition}[Manin triples] \label{def: manin_triples}
             A \textbf{(graded) Manin triple} is the data of a triple of (graded) Lie algebras:
                 $$(\a, \a^+, \a^-)$$
@@ -93,12 +127,21 @@
         \end{definition}
         \begin{lemma}[Lie bialgebras from Manin triples] \label{lemma: lie_bialgebras_from_manin_triples}
             \begin{enumerate}
-                \item There is a bijective function from the set of finite-dimensional Lie bialgebras to the set of finite-dimensional Manin triples, which maps a given Lie bialgebra $(\a, [-, -], \delta)$ to the Manin triple $(\frakDr(\a), \a, \a^*)$, with the underlying vector space of $\frakDr(\a)$ being $\a \oplus \a^*$.
+                \item \cite[Proposition 1.3.4 and Lemma 1.3.5]{chari_pressley_quantum_groups} There is a bijective function from the set of finite-dimensional Lie bialgebras to the set of finite-dimensional Manin triples. This function maps a given Lie bialgebra $(\a, [-, -], \delta)$ to the Manin triple $(\frakDr(\a), \a, \a^*)$.
                 \item Let $Z$ be an abelian group. 
 
-                There is a bijective function from the set of $Z$-graded Lie bialgebras with finite-dimensional graded components to the set of $Z$-graded Manin triples $(\p, \p^+, \p^-)$ where each of $\p, \p^+, \p^-$ has finite-dimensional graded components, which maps such a $Z$-graded Lie bialgebra $(\a, [-, -], \delta)$ to the Manin triple $(\frakDr(\a), \a, \a^*)$, with the underlying vector space of $\frakDr(\a)$ being $\a \oplus \a^{\star}$.
+                There is a bijective function from the set of $Z$-graded Lie bialgebras with finite-dimensional graded components to the set of $Z$-graded Manin triples $(\p, \p^+, \p^-)$ where each of $\p, \p^+, \p^-$ has finite-dimensional graded components. This function maps such a $Z$-graded Lie bialgebra $(\a, [-, -], \delta)$ to the Manin triple $(\frakDr(\a), \a, \a^*)$.
             \end{enumerate}
         \end{lemma}
+        \begin{definition}[Lie sub-bialgebras and Lie coideals] \label{def: lie_sub_bialgebras_and_lie_coideals}
+            Let $(\a, [-, -], \delta)$ be a Lie bialgebra.
+            \begin{itemize}
+                \item A \textbf{Lie sub-bialgebra} of $\a$ is then determined by an injective Lie bialgebra homomorphism $\b \to \a$. 
+                \item A \textbf{Lie coideal} therein is then a vector subspace $\b \subseteq \a$ such that:
+                    $$\delta(\b) \subseteq \a \tensor_k \b \oplus \b \tensor_k \a$$
+                or equivalently, if $\b$ is a Lie sub-bialgebra such that $\a/\b$ inherits a Lie bialgebra structure from the one on $\a$.
+            \end{itemize}
+        \end{definition}
         \begin{example}[The Kac-Moody Manin triple] \label{example: kac_moody_manin_triple}
             
         \end{example}
