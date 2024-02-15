@@ -5,6 +5,14 @@
         If $X$ is an element of a Lie algebra, this expression will always be understood to be an element in the tensor-square of the universal enveloping algebra, unless stated otherwise.
     \end{convention}
 
+    \begin{convention}[Graded duals]
+        If $Z$ is an abelian group and:
+            $$V := \bigoplus_{d \in Z} V_d$$
+        is a $Z$-graded vector space, then we will be writing:
+            $$V^{\star} := \bigoplus_{d \in Z} V_d^*$$
+        for its $Z$-graded dual.
+    \end{convention}
+
     \subsection{Manin triples and quantisations of Lie bialgebras} \label{subsection: manin_triples_and_quantisations_of_lie_bialgebras}
         \begin{remark}
             Technically speaking, we do not need our field $k$ to be algebraically closed for the abstract machineries presented in this subsection to be true. This hypothesis is only needed for some of the examples. 
@@ -15,18 +23,82 @@
                 $$\delta: \a \to \a \tensor_k \a$$
             $\a$ will then be a \textbf{Lie bialgebra} (over $k$) with \textbf{Lie cobracket} $\delta$ if the following two conditions are satisfied:
             \begin{itemize}
-                \item Firstly, we insist that $\delta$ is a Lie $1$-cocycle\footnote{In cohomological terms, one can write $\delta \in H^1_{\Lie}(\a, \a \tensor_k \a)$.} of $\a$ with coefficients in $\a \tensor_k \a$, which is to say that the following identity is to hold in $\rmU(\a) \tensor_k \rmU(\a)$:
+                \item Firstly, we require that the map:
+                    $$\delta^*: (\a \tensor_k \a)^* \to \a^*$$
+                induces a Lie bracket $\a^* \tensor_k \a^* \to \a^*$ on the $k$-vector space $\a^*$. Equivalently, this is saying $\delta: \a \to \a \tensor_k \a$ must firstly be \textbf{Lie cobracket}, i.e. it is to be skew-symmetric (i.e. its codomain is actually $\a \wedge \a$) and to satisfy the \textbf{co-Jacobi identity}:
+                    $$( (1 \: 2 \: 3) + (2 \: 3 \: 1) + (3 \: 1 \: 2) ) \circ (\delta \circ \id_{\a}) \circ \delta = 0$$
+                \item Secondly, we insist that the Lie cobracket $\delta$ is a Lie $1$-cocycle\footnote{In cohomological terms, one can write $\delta \in H^1_{\Lie}(\a, \a \tensor_k \a)$.} of $\a$ with coefficients in $\a \tensor_k \a$, which is to say that the following identity is to hold in $\rmU(\a) \tensor_k \rmU(\a)$:
                     $$\delta( [x, y] ) = [\bar{\Delta}(x), \delta(y)] + [\delta(x), \bar{\Delta}(y)]$$
                 for all $x, y \in \a$.
-                \item Secondly, we require that the map:
-                    $$\delta^*: \a^* \tensor_k \a^* \to \a^*$$
-                is a Lie bracket on the $k$-vector space $\a^*$.
+            \end{itemize}
+            If $(\a, [-, -], \delta)$ and $(\a', [-, -]', \delta')$ are Lie bialgebras then a homomorphism between them will be a homomorphism between the underlying Lie algebras $\phi: (\a, [-, -]) \to (\a', [-, -]')$ such that:
+                $$\phi^{\tensor 2} \circ \delta = \delta' \circ \phi$$
+        \end{definition}
+        \begin{definition}[Graded Lie bialgebras] \label{def: graded_lie_bialgberas}
+            Let $(\a, [-, -], \delta)$ be a Lie bialgebra over $k$, whose underlying vector space is graded by some abelian group $Z$, i.e.:
+                $$\a := \bigoplus_{d \in Z} \a_d$$
+            in such a way that the graded components $\a_d$ are all finite-dimensional as vector spaces over $k$. This Lie bialgebra is then said to be \textbf{$Z$-graded} if and only if the following conditions are satisfied:
+            \begin{itemize}
+                \item $[-, -]$ is a graded Lie bracket, i.e.:
+                    $$[\a_m, \a_n] \subseteq \a_{m + n}$$
+                for all $m, n \in Z$.
+                \item $\delta$ is a graded Lie cobracket, in the sense that for any $d \in Z$, one has that:
+                    $$\delta(\a_d) \subseteq \bigoplus_{m + n = d} \a_m \tensor_k \a_n$$
             \end{itemize}
         \end{definition}
+        \begin{remark}[Duals of Lie bialgebras and Drinfeld's double construction] \label{remark: drinfeld_doubles}
+            Let:
+                $$(\a, [-, -]_{\a}, \delta_{\a})$$
+            be a Lie bialgebra over $k$.
+        
+            Suppose firstly that $\a$ is a finite-dimensional. Then clearly, the full linear dual $\a^*$ will also be a Lie bialgebra, whose Lie cobracket:
+                $$\delta_{\a^*}: \a^* \to \a^* \tensor_k \a^*$$
+            is induced by the dual $[-, -]_{\a}^*: \a^* \to (\a \tensor_k \a)^*$ of the Lie bracket on $\a$. Furthermore, we note that there is no natural non-discrete topology on the linear dual of a finite-dimensional vector space.
 
+            If $\a$ is an infinite-dimensional Lie bialgebra, on the other hand, then the full linear dual $\a^*$ will not generally be a Lie bialgebra but rather a \textbf{topological Lie bialgebra}, in the sense that the codomain of its Lie cobracket $\delta_{\a^*}$ may not $\a^* \tensor_k \a^*$, but rather in some appropriate topological completion $\a^* \hattensor_k \a^*$.
+
+            In either event, the $k$-vector space:
+                $$\frakDr(\a) := \a \oplus \a^*$$
+            can be made into a Lie algebra over $k$, with Lie bracket given by\footnote{Note that $\frakDr(\a)^{\tensor 2} \cong \a^{\tensor 2} \oplus (\a^*)^{\tensor 2} \oplus (\a^* \tensor_k \a \oplus \a \tensor_k \a^*)$}:
+                $$[-, -]_{\frakDr(\a)} := [-, -]_{\a} \oplus [-, -]_{\a^*} \oplus ( [-, -]_{\a} \circ (S_{\a^*} \tensor \id_{\a}) \oplus [-, -]_{\a^*}^{\op} \circ (\id_{\a^*} \tensor S_{\a}) )$$
+            where:
+                $$[-, -]_{\a^*}$$
+            is the Lie bracket on $\a^*$ induced by $\delta_{\a}^*$ (well-defined since $\a$ is a Lie bialgebra by hypothesis) with opposite $[-, -]_{\a^*}^{\op} := -[-, -]_{\a^*}$, and:
+                $$S_{\a}, S_{\a^*}$$
+            denote the antipodes on the universal enveloping algebras of $\a, \a^*$ respectively. A natural non-degenerate and symmetric $k$-bilinear form $(-, -)_{\frakDr(\a)}$ on $\frakDr(\a)$ which is invariant with respect to $[-, -]_{\frakDr(\a)}$ can then be constructed by declaring that:
+                $$(x + \varphi, y + \psi)_{\frakDr(\a)} := \psi(x) + \varphi(y)$$
+            for all $x, y \in \a$ and all $\varphi, \psi \in \a^*$. 
+
+            A topological Lie cobracket on $\frakDr(\a)$ can also be given as:
+                $$\delta_{\frakDr(\a)} := \delta_{\a} \oplus \delta_{\a^*}^{\cop}$$
+            with $\delta_{\a^*}^{\cop} := -\delta_{\a^*}$ being the opposite Lie cobracket on $\a^*$, and it can be verified that this is a $1$-cocycle of $\frakDr(\a)$ with values in $\frakDr(\a) \tensor_k \frakDr(\a)$, thus making $\frakDr(\a)$ a Lie bialgebra. This Lie bialgebra is typically called the \textbf{Drinfeld double}\footnote{Sometimes also called the \textbf{classical double}.} of $\a$ (or equivalently, of $\a^*$).
+        \end{remark}
+        \begin{remark}[Graded Drinfeld doubles] \label{remark: graded_drinfeld_doubles}
+            A graded analogue of Drinfeld doubles is also available for graded Lie bialgebras:
+                $$(\a, [-, -]_{\a}, \delta_{\a})$$
+            with finite-dimensional graded components. When $\a$ is finite-dimensional, there is no difference from the construction given in remark \ref{remark: drinfeld_doubles}. When $\a$ is infinite-dimensional, instead of considering full linear duals as in remark \ref{remark: drinfeld_doubles}, one considers graded duals. The rest can then be carried out in the same manner, yielding a graded Lie bialgebra structure on:
+                $$\frakDr(\a) := \a \oplus \a^{\star}$$
+        \end{remark}
+        The construction of (graded) Drinfeld doubles leads to the following definition:
         \begin{definition}[Manin triples] \label{def: manin_triples}
-            
+            A \textbf{(graded) Manin triple} is the data of a triple of (graded) Lie algebras:
+                $$(\a, \a^+, \a^-)$$
+            as well as a non-degenerate and invariant symmetric bilinear form $(-, -)$ satisfying the following conditions:
+            \begin{itemize}
+                \item Either the Lie algebras $\a, \a^+, \a^-$ are finite-dimensional, or the graded components of the Lie algebras $\a, \a^+, \a^-$ are finite-dimensional.
+                \item $\a \cong \a^+ \oplus \a^-$.
+                \item The bilinear form $(-, -)$ pairs the Lie subalgebras $\a^{\pm}$ isotropically, i.e. $(\a^{\pm}, \a^{\pm}) = 0$. 
+                \item Via $(-, -)$, one gets an identification $\a^- \cong (\a^+)^*$; respectively, to obtain a graded Manin triple, we require that $\a^- \cong (\a^+)^{\star}$ via $(-, -)$.
+            \end{itemize}
         \end{definition}
+        \begin{lemma}[Lie bialgebras from Manin triples] \label{lemma: lie_bialgebras_from_manin_triples}
+            \begin{enumerate}
+                \item There is a bijective function from the set of finite-dimensional Lie bialgebras to the set of finite-dimensional Manin triples, which maps a given Lie bialgebra $(\a, [-, -], \delta)$ to the Manin triple $(\frakDr(\a), \a, \a^*)$, with the underlying vector space of $\frakDr(\a)$ being $\a \oplus \a^*$.
+                \item Let $Z$ be an abelian group. 
+
+                There is a bijective function from the set of $Z$-graded Lie bialgebras with finite-dimensional graded components to the set of $Z$-graded Manin triples $(\p, \p^+, \p^-)$ where each of $\p, \p^+, \p^-$ has finite-dimensional graded components, which maps such a $Z$-graded Lie bialgebra $(\a, [-, -], \delta)$ to the Manin triple $(\frakDr(\a), \a, \a^*)$, with the underlying vector space of $\frakDr(\a)$ being $\a \oplus \a^{\star}$.
+            \end{enumerate}
+        \end{lemma}
         \begin{example}[The Kac-Moody Manin triple] \label{example: kac_moody_manin_triple}
             
         \end{example}
@@ -36,12 +108,14 @@
             wherein $\g[t^{\pm 1}]$ is equipped with the following \textit{a priori} invariant inner product, given for all $x, y \in \g$ and all $p, q \in \Z$:
                 $$(x t^p, y t^q)_{\g[t^{\pm 1}]} := (x, y)_{\g} \delta_{p + q, -1}$$
             Corresponding to this Manin triple is a topological Lie bialgebra structure on $\g[t]$, wherein the Lie cobracket:
-                $$\delta: \g[t] \to \g[t] \hattensor_{k} \g[t']$$
+                $$\delta: \g[t] \to \g[t_1] \hattensor_{k} \g[t_2]$$
             is given by:
-                $$\delta(X(t)) = [ X(t_1) \tensor 1 + 1 \tensor X(t_2), \sfr_{\g[t]} ]$$
-            for all $X(t) \in \g[t]$, wherein:
-                $$\sfr_{\g[t]} := \sfr_{\g} \frac{1}{t_2 - t_1} \in \g[t] \hattensor_{k} \g[t']$$
-            with $\frac{1}{t_2 - t_1}$ being understood as a shorthand for a geometric series.
+                $$\delta(X)(t_1, t_2) = [ X(t_1) \tensor 1 + 1 \tensor X(t_2), \sfr_{\g} \frac{1}{t_2 - t_1} ]$$
+            for all $X(t) \in \g[t]$, with $\frac{1}{t_2 - t_1}$ being understood as a shorthand for a geometric series.
+
+            In this situation, we have that:
+                $$\g[t^{\pm 1}] \cong \frakDr(\g[t])$$
+            or equivalently, it is the Drinfeld double of $t^{-1}\g[t]$, with the Lie bialgebra structure graded-dual to that on $\g[t]$. 
         \end{example}
 
         \begin{definition}[Quantisations] \label{def: quantisations}
@@ -76,14 +150,13 @@
                 $$w_i^{\pm} := -\frac12 d_{ii} \{x_i^{\pm}, h_i\} + \frac14 \sum_{\alpha \in \Phi^+} \height(\alpha)^2 d_{ii}^{-1} \alpha(h_i) \{[x_i^{\pm}, x_{\alpha}^{\pm}], x_{\alpha}^{\mp}\}$$
             with choices of roots vectors $x_{\alpha}^{\pm} \in \g_{\pm \alpha}$ such that $(x_{\alpha}^-, x_{\alpha}^+)_{\g} = 1$. One notes also that $\varphi$ respects the $\Z_{\geq 0}$-grading on both algebras.
         
-            As a consequence, there is an $\Z_{\geq 0}$-graded Hopf $k[\hbar]$-algebra structure:
+            As a consequence, there is a $\Z_{\geq 0}$-graded Hopf $k[\hbar]$-algebra structure:
                 $$(\Delta_{\hbar}, S_{\hbar}, \e_{\hbar})$$
             on $\rmY_{\hbar}(\g)$ given by:
-                $$\Delta_{\hbar}(x_{\lambda}) := x_{\lambda} \tensor 1 + 1 \tensor x_{\lambda}$$
-                $$\Delta_{\hbar}(y_{\lambda}) := y_{\lambda} \tensor 1 + 1 \tensor y_{\lambda} + \frac12 \hbar [x_{\lambda} \tensor 1, \sfr_{\g}]$$
+                $$\Delta_{\hbar}(x_{\lambda}) := \bar{\Delta}(x_{\lambda}), \Delta_{\hbar}(y_{\lambda}) := \bar{\Delta}(y_{\lambda}) + \frac12 \hbar [x_{\lambda} \tensor 1, \sfr_{\g}]$$
                 $$S_{\hbar}(x_{\lambda}) = -x_{\lambda}, S_{\hbar}(y_{\lambda}) = -y_{\lambda} + \frac14 c_{} x_{\lambda}$$
                 $$\e_{\hbar}(x_{\lambda}) = \e_{\hbar}(y_{\lambda}) = 0$$
-            with $c$ being the eigenvalue of $\ad(\sfr_{\g})$. This induces an $\Z_{\geq 0}$-graded Hopf $k$-bialgebra structure $(\Delta_1, S_1, \e_1)$ on $\rmY(\g)$. Its classical limit is the Lie bialgebra structure on $\g[t]$ as constructed in example \ref{example: finite_type_yangian_manin_triple}, and so the Hopf bialgebra $\rmY_{\hbar}(\g)$ is a quantisation of the current Lie bialgebra $\g[t]$. 
+            with $c$ being the eigenvalue of $\ad(\sfr_{\g})$. Its classical limit is the Lie bialgebra structure on $\g[t]$ as constructed in example \ref{example: finite_type_yangian_manin_triple}, and so the Hopf bialgebra $\rmY_{\hbar}(\g)$ is a quantisation of the current Lie bialgebra $\g[t]$; this can be proven by setting $\hbar = 0$, which degenerates $\rmY_{\hbar}(\g)$ to $\rmU(\g[t])$ with its usual Hopf structure. Also, by specialising to $\hbar = 1$, one obtains a $\Z_{\geq 0}$-filtered Hopf $k$-bialgebra structure $(\Delta_1, S_1, \e_1)$ on $\rmY(\g)$.
         \end{example}
         By cohomological arguments, one can also show that both of these quantisations are unique, but we will not go into those details.
 
@@ -137,7 +210,7 @@
         \end{remark}
         
         We are now finally able to put a Lie cobracket on the toroidal Lie algebra $\toroidal^{\positive}$, compatible with the Lie bracket thereon in a manner that produces a Lie bialgebra structure. This Lie bialgebra structure is the classical limit of the coproduct on the formal Yangian:
-            $$\rmY_{\hbar}(\hat{\g}) := \rmY_{\hbar}(\hat{\g})(\hat{\g})$$
+            $$\rmY_{\hbar}(\hat{\g}) := \rmY_{\hbar}(\hat{\g})$$
         associated to the affine Kac-Moody algebra $\hat{\g}$. 
         \begin{theorem}[Toroidal Lie bialgebras] \label{theorem: toroidal_lie_bialgebras}
             Assume convention \ref{conv: a_fixed_untwisted_affine_kac_moody_algebra} and let us abbreviate:
@@ -404,7 +477,7 @@
         
             There is a full subcategory of the category of $\rmY(\hat{\g})$-modules, called the \textbf{category $\calO$}. This category satisfies the following properties:
             \begin{itemize}
-                \item Every object $V \in \Ob(\calO)$ is $\hat{\h}$-diagonalisable and with finite-dimensional ($\h$-)weight spaces, and
+                \item Every object $V \in \Ob(\calO)$ is $\hat{\h}$-diagonalisable and with finite-dimensional ($\hat{\h}$-)weight spaces, and
                 \item For every object $V \in \Ob(\calO)$, there exist \textbf{maximal weights} $\lambda_1, ..., \lambda_k \in \hat{\h}^*$ such that, for any $\mu \in \Pi(V)$, one has that:
                     $$\forall 1 \leq i \leq k: \lambda_i - \mu \in \hat{Q}^+$$
             \end{itemize}
