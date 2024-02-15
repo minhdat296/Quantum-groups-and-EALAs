@@ -82,15 +82,17 @@
             with $\delta_{\a^*}^{\cop} := -\delta_{\a^*}$ being the opposite Lie cobracket on $\a^*$, and it can be verified that this is a $1$-cocycle of $\frakDr(\a)$ with values in $\frakDr(\a) \tensor_k \frakDr(\a)$, thus making $\frakDr(\a)$ a Lie bialgebra. This Lie bialgebra is typically called the \textbf{Drinfeld double}\footnote{Sometimes also called the \textbf{classical double}.} of $\a$ (or equivalently, of $\a^*$).
         \end{remark}
         \begin{remark}[Coboundary Lie algebras and classical R-matrices] \label{remark: classical_R_matrices}
-            Let $(\a, [-, -]_{\a}, \delta_{\a})$ be a Lie bialgebra.
+            Let $\a$ be a Lie algebra.
         
-            Let us note here that there is an alternative way to write the Lie cobracket on $\frakDr(\a)$ as follows, which is more useful in practice (cf. e.g. example \ref{example: finite_type_yangian_manin_triple} and corollary \ref{coro: extended_toroidal_lie_bialgebras}). Namely, one makes use of the canonical elements:
+            Let us note here that there is an alternative way to construct a Lie bialgebra structure on the vector space:
+                $$\frakDr(\a) := \a \oplus \a^*$$
+            as follows, which turns out to be more useful in practice (cf. e.g. example \ref{example: finite_type_yangian_manin_triple} and corollary \ref{coro: extended_toroidal_lie_bialgebras}). Namely, one makes use of the canonical elements:
                 $$\sfr_{\a} \in \a \tensor_k \a^*, \sfr_{\a^*} \in \a^* \tensor_k \a$$
-            which are to be the preimage of $\id_{\a} \in \End_k(\a), \id_{\a^*} \in \End_k(\a^*)$ under the canonical maps\footnote{Note that these maps are both injective, precisely because $(-, -)_{\frakDr(\a)}$ is non-degenerate by construction, and hence $\sfr_{\a}$ is well-defined.} $\a \tensor_k \a^* \to \End_k(\a), \a^* \tensor_k \a \to \End_k(\a^*)$ given by $x \tensor \varphi \mapsto (-, \varphi)_{\frakDr(\a)} x$ and by $x \tensor \varphi \mapsto (x, -)_{\frakDr(\a)} \varphi$, respectively, for all $x \in \a$ and all $\varphi \in \a^*$. A theorem of Drinfeld asserts that:
+            which are to be the preimage of $\id_{\a} \in \End_k(\a), \id_{\a^*} \in \End_k(\a^*)$ under the canonical maps\footnote{Note that these maps are both injective, precisely because $(-, -)_{\frakDr(\a)}$ is non-degenerate by construction\footnote{Note that we are not making use of invariance here, and hence we do not need to assume that $\a$ is a Lie bialgebra from the start (this assumption is needed for the construction of the Lie bracket on $\frakDr(\a)$).}, and hence $\sfr_{\a}$ is well-defined.} $\a \tensor_k \a^* \to \End_k(\a), \a^* \tensor_k \a \to \End_k(\a^*)$ given by $x \tensor \varphi \mapsto (-, \varphi)_{\frakDr(\a)} x$ and by $x \tensor \varphi \mapsto (x, -)_{\frakDr(\a)} \varphi$, respectively, for all $x \in \a$ and all $\varphi \in \a^*$. A theorem of Drinfeld asserts that:
             \begin{enumerate}
                 \item if:
-                    $$\delta_{\a} = [\bar{\Delta}, \sfr_{\a}], \delta_{\a^*} = [\bar{\Delta}, \sfr_{\a^*}]$$
-                then $\delta_{\a}$ and $\delta_{\a^*}$ will be Lie cobrackets, and
+                    $$\delta_{\a} := [\bar{\Delta}, \sfr_{\a}], \delta_{\a^*} := [\bar{\Delta}, \sfr_{\a^*}]$$
+                then $\delta_{\a}$ and $\delta_{\a^*}$ will be Lie cobrackets on $\a$ and on $\a^*$ respectively, and
                 \item if furthermore, the so-called \textbf{classical Yang-Baxter equation}:
                     $$[\sfr_{12}, \sfr_{13}] + [\sfr_{12}, \sfr_{23}] + [\sfr_{13}, \sfr_{13}]$$
                 (where $\sfr := \sfr_{\a} - \sfr_{\a^*}$) is $\frakDr(\a)$-invariant, then:
@@ -162,8 +164,19 @@
         \end{example}
 
         \begin{definition}[Quantisations] \label{def: quantisations}
-            
+            Let $\a$ be a Lie bialgebra over $k$, say with Lie cobracket $\delta$. A \textbf{(graded) quantisation} of $\a$ is a Hopf $k[\![\hbar]\!]$-bialgebra $Y_{\hbar}$, say with coproduct $\Delta_{\hbar}$, such that:
+            \begin{itemize}
+                \item $Y_{\hbar}$ is a (graded) flat deformation\footnote{In the sense of definition \ref{def: graded_and_PBW_deformations}.} of $\rmU(\a)$, and
+                \item For any $x \in \a$, one has that:
+                    $$\delta(x) \equiv \frac{1}{\hbar}(\Delta_{\hbar} - \Delta_{\hbar}^{\cop})(x) \pmod{\hbar}$$
+            \end{itemize}
+            We say also, that $(\a, \delta)$ is the \textbf{classical limit} of $(Y_{\hbar}, \Delta_{\hbar})$. 
         \end{definition}
+        \begin{remark}
+            The question of existence and uniqueness of quantisations of Lie bialgebras is a difficult one. We refer the reader to \cite{etingof_kazhdan_quantisation_1} and its sequels for details.
+        \end{remark}
+
+        Let us now consider some examples of (non-cocommutative) Hopf algebras that quantise the Lie bialgebras constructed in examples \ref{example: kac_moody_manin_triple} and \ref{example: finite_type_yangian_manin_triple}.
         \begin{example}[Quantised enveloping algebras] \label{example: finite_type_QUEs}
             
         \end{example}
@@ -202,8 +215,10 @@
             with $c$ being the eigenvalue of $\ad(\sfr_{\g})$. Its classical limit is the Lie bialgebra structure on $\g[t]$ as constructed in example \ref{example: finite_type_yangian_manin_triple}, and so the Hopf bialgebra $\rmY_{\hbar}(\g)$ is a quantisation of the current Lie bialgebra $\g[t]$; this can be proven by setting $\hbar = 0$, which degenerates $\rmY_{\hbar}(\g)$ to $\rmU(\g[t])$ with its usual Hopf structure. Also, by specialising to $\hbar = 1$, one obtains a $\Z_{\geq 0}$-filtered Hopf $k$-bialgebra structure $(\Delta_1, S_1, \e_1)$ on $\rmY(\g)$.
         \end{example}
         By cohomological arguments, one can also show that both of these quantisations are unique, but we will not go into those details.
-
+        
         \todo[inline]{Not done}
+
+        \todo[inline]{Write about how affine Yangians are not exactly quantisations.}
 
     \subsection{(Extended) toroidal Lie bialgebras}
         \begin{theorem} \label{theorem: extended_toroidal_manin_triples}
