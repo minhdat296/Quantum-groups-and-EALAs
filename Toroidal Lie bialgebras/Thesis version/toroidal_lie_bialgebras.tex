@@ -22,9 +22,7 @@
     \end{convention}
 
     \begin{convention}[Casimir tensor] \label{conv: casimir_tensor}
-        Suppose also that $\g$ is equipped with a basis $\{x_i\}_{1 \leq i \leq \dim_k \g}$ and with respect to $(-, -)_{\g}$, we identify a dual basis $\{x_i^*\}_{1 \leq i \leq \dim_k \g}$. Recall that the Casimir tensor/canonical element of $\g$ is:
-            $$\sfr_{\g} := \sum_{1 \leq i \leq \dim_k \g} x_i \tensor x_i^* \in \g \tensor_k \g^*$$
-        and recall that $\sfr_{\g}$ is independent of what we choose the basis vectors $x_i$ to be.
+        We will be writing $\sfr_{\g}$ to mean the element of $\g \tensor_k \g^*$ that is the preimage of $\id_{\g} \in \End_k(\g)$ under the vector space isomorphism $\g \tensor_k \g^* \xrightarrow[]{\cong} \End_k(\g)$ given by $x \tensor \varphi \mapsto (-, \varphi)_{\g} x$. The element $\sfr_{\g}$ is typically referred to as the \textbf{Casimir tensor} of $\g$ (with respect to $(-, -)_{\g}$). 
     \end{convention}
 
     \subsection{Manin triples and quantisations of Lie bialgebras} \label{subsection: manin_triples_and_quantisations_of_lie_bialgebras}
@@ -283,7 +281,7 @@
                 $$\tilde{\delta}^{\positive} := \hat{\delta}^{\positive}|_{\toroidal}$$
             Then $(\toroidal^{\positive}, \tilde{\delta}^{\positive})$ will be a complete topological Lie sub-bialgebra of $(\extendedtoroidal^{\positive}, \hat{\delta}^{\positive})$ as given in corollary \ref{coro: extended_toroidal_lie_bialgebras}. Thanks to corollary \ref{coro: levendorskii_presentation_for_central_extensions_of_multiloop_algebras}, we know that it is enough to specify how $\tilde{\delta}^{\positive}$ is given on the set of generators:
                 $$\{X_{i, 0}^{\pm}\}_{i \in \hat{\simpleroots}} \cup \{H_{i, r}\}_{ (i, r) \in \hat{\simpleroots} \x \{0, 1\} }$$
-            and since we know that under the isomorphism $\t^+ \xrightarrow[]{\cong} \toroidal^{\positive}$ in \textit{loc. cit.}, we have the following assignments:
+            and since we know that under the isomorphism in \textit{loc. cit.}, we have the following assignments:
                 $$\forall i \in \hat{\simpleroots}: X_{i, 0}^{\pm} \mapsto x_i^{\pm}, H_{i, 0} \mapsto h_i$$
                 $$\forall i \in \simpleroots: H_{i, 1} \mapsto h_i t$$
                 $$H_{\theta, 1} \mapsto h_{\theta} t + t c_v$$
@@ -514,13 +512,7 @@
                         $$[\bar{\Delta}(ht), \sfr_{\extendedtoroidal^{\positive}}] = [ \bar{\Delta}(ht), \sfr_{\g_{[2]}^{\positive}} + (\sfr_{\z_{[2]}^{\positive}} + \sfr_{\d_{[2]}^{\positive}}) ] =  [h_1 \tensor 1] v_2 \1(v_1, v_2)$$
                     precisely as claimed. 
                     
-                    \item Finally, in order to compute $\hat{\delta}^{\positive}(t c_v)$, let us simply note that because:
-                        $$\deg t = 1, \deg c_v = -1$$
-                    in $\z_{[2]}$ (cf. remark \ref{remark: Z_gradings_on_toroidal_lie_algebras}), we have that:
-                        $$\deg t c_v = 0$$
-                    and hence:
-                        $$\hat{\delta}^{\positive}(t c_v) = 0$$
-                    per remark \ref{remark: total_degrees_of_classical_yangian_R_matrices}.
+                    \item Finally, in order to compute $\hat{\delta}^{\positive}(t c_v)$, \todo{Not done}
                 \end{enumerate}
             \end{proof}
 

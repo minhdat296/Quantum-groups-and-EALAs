@@ -146,22 +146,33 @@
         \begin{remark}
             Universal extensions are unique up to unique isomorphisms. 
         \end{remark}
-        \begin{remark}[Lie brackets on extensions]
+        \begin{remark}
+            Since we are working over a field, all short exact sequences split when regarded as short exact sequences of vector spaces. In particular, this implies that given a Lie algebra extension:
+                $$0 \to \z \to \frake \to \a \to 0$$
+            the underlying vector space of $\frake$ will always be isomorphic to $\a \oplus \z$. From now on, this identification will be used without explicit mention.
+        \end{remark}
+        We will also need to know how the Lie brackets on extensions are given explicitly. 
+        \begin{proposition}[Lie brackets on extensions] \label{prop: lie_brackets_on_extensions}
             Suppose that:
                 $$0 \to \z \to \frake \to \a \to 0$$
-            is an extension of Lie algebras. Then, up to a choice of so-called \say{$2$-cocycle} $\sigma$, which can be regarded as a $k$-linear map:
-                $$\sigma: \bigwedge^2 \a \to \z$$:
+            is an extension of Lie algebras. Then, up to a choice of so-called \say{$2$-cocycle} $\sigma$ (of $\a$ with coefficients in $\z$), which can be regarded as a $k$-linear map:
+                $$\sigma: \bigwedge^2 \a \to \z$$
             satisfying a certain condition, the Lie bracket on $\frake$ will be given by:
-                $$\forall X, Y \in \a: \forall K, K' \in \z: [ (X, K), (Y, K') ]_{\frake} := [X, Y]_{\a} + ( K \cdot Y - K' \cdot Y + \sigma(X, Y) )$$
-            The aforementioned condition is that the bracket operation $[-, -]_{\frake}$ satisfies the Jacobi identity (note that it is already bilinear and skew-symmetric by construction).
-        \end{remark}
+                $$[ (X, K), (Y, K') ]_{\frake} := [X, Y]_{\a} + ( [K, K']_{\z} + \ad(Y)(K) - \ad(X)(K') + \sigma(X, Y) )$$
+            for all $X, Y \in \a$ and all $K, K' \in \z$.
+            
+            The aforementioned condition on $[-, -]_{\frake}$ is that it satisfies the Jacobi identity\footnote{Note that $[-, -]_{\frake}$ is already bilinear and skew-symmetric by construction}.
+        \end{proposition}
         \begin{example}[Semi-direct products of Lie algebras]
-            Let $\d$ be a Lie algebra acting on another Lie algebra $\z$, i.e. let $\t$ be a $\d$-module that happens also to be a Lie algebra over $k$. The canonical extension of $\d$ by $\z$ corresponding to the $2$-cocycle:
+            Let:
+                $$\rho: \d \to \der_k(\z)$$
+            be a Lie algebra homomorphism from a Lie algebra $\d$ to the Lie algebra of derivations on another Lie algebra $\z$, determining an action of $\d$ on $\z$. The canonical extension of $\d$ by $\z$ corresponding to the $2$-cocycle:
                 $$\sigma = 0$$
             is known as the \textbf{semi-direct product} of $\d$ by $\z$, and commonly denoted by:
                 $$\z \rtimes \d$$
             For the sake of completeness, let us note that the Lie bracket here is given by:
-                $$\forall D, D' \in \d: \forall K, K' \in \z: [ (D, K), (D', K') ]_{\z \rtimes \d} := [D, D']_{\d} + ( D \cdot K' - D' \cdot K )$$
+                $$[ (D, K), (D', K') ]_{\z \rtimes \d} := [D, D']_{\d} + ( [K, K]_{\z} + \rho(D')(K) - \rho(D)(K') )$$
+            for all $D, D' \in \d$ and all $K, K' \in \z$.
         \end{example}
         \begin{definition}[Central extensions of Lie algebras]
             A Lie algebra extension:
@@ -178,7 +189,7 @@
         \end{example}
         \begin{example}
             Let $A$ be any commutative algebra over a field $k$, and let $\g$ be a simple Lie algebra over $k$. Endow the $k$-vector space $\g \tensor_k A$ with the Lie bracket:
-                $$\forall x, y \in \g: \forall f, g \in A: [x f, y g]_{\g \tensor_k A} := [x, y]_{\g} fg$$
+                $$\forall x, y \in \g: \forall f, g \in A: [x f, y g]_{\g \tensor_k A} := [x, y]_{\g} \tensor fg$$
             Then, $\g \tensor_k A$ will be perfect when regraded as a Lie algebra over $k$, precisely because $\g$ is simple.
         \end{example}
         \begin{example}
