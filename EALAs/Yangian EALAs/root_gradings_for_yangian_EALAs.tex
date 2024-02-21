@@ -10,7 +10,7 @@
         $$(c_v, c_v)_{\uce(\g[v^{\pm 1}]) \oplus k \hat{D}} = (\hat{D}, \hat{D})_{\uce(\g[v^{\pm 1}]) \oplus k \hat{D}} = 0$$
     one obtains the \textbf{untwisted affine Kac-Moody algebra} (in the sense of \cite[Chapter 7]{kac_infinite_dimensional_lie_algebras}):
         $$\hat{\g} := \uce(\g[v^{\pm 1}]) \rtimes k \hat{D}$$
-    The element $\hat{D}$ can be shown to be the derivation on $\g[v^{\pm 1}]$ given by $\id_{\g} \tensor v \frac{d}{dv}$. It can also be shown that:
+    The element $\hat{D}$ can be shown to be the derivation on $\g[v^{\pm 1}]$ given by $\id_{\g} \tensor v \frac{d}{dv}$\footnote{Note that therefore $\hat{D} \not = D_v$.}. It can also be shown that:
         $$[\hat{D}, c_v]_{\hat{\g}} = 0$$
 
     \begin{convention} \label{conv: a_fixed_untwisted_affine_kac_moody_algebra}
@@ -80,13 +80,15 @@
             (given for all $\alpha \in \Phi$ and all $m \in \Z$), with $\delta$ denoting the lowest positive imaginary root. As such, $\g$ can be equivalently viewed as being $\hat{Q}$-graded in the sense that for each $\alpha \in Q$, each $x \in \g_{\alpha}$, and each $m \in \Z$, one has that:
                 $$\deg x v^m = \alpha + m\delta$$
         \end{remark}
+        For what follows, let us remind the reader that it is important that we make the assumption that:
+            $$\extendedtoroidal \cong \toroidal \rtimes \d_{[2]}$$
         \begin{proposition}[Induced $Q \x \Z$-grading on $\extendedtoroidal$] \label{prop: root_grading_on_extended_toroidal_lie_algebras}
-            For what follows, we will need to make the choice\footnote{See proposition \ref{prop: lie_bracket_on_orthogonal_complement_of_toroidal_centre} for an elaboration.} that the restriction of $[-, -]_{\extendedtoroidal}$ to the vector subspace $\d_{[2]}$ is just the ordinary commutator of derivations.
-        
-            Define the following grading on $\toroidal$\footnote{Note that we can not simply define a grading on $\g_{[2]}$ alone, since $[\g_{[2]}, \g_{[2]}]_{\toroidal} \not \subset \g_{[2]}$.}, naturally induced by the natural $Q \x \Z$-grading on $\g$. Firstly, let us declare that:
-                $$\forall \alpha \in \Phi: \forall x \in \g_{\alpha}: \deg x := (\alpha, 0)$$
-                $$\deg v := (0, 1)$$
-                $$\deg t := (0, 0)$$
+            Define the following grading on $\toroidal$\footnote{Note that we can not simply define a grading on $\g_{[2]}$ alone, since $[\g_{[2]}, \g_{[2]}]_{\toroidal} \not \subset \g_{[2]}$.}, naturally induced by the natural $Q \x \Z$-grading on $\g$.
+            
+            Firstly, let us declare that:
+                $$\deg x v^m t^p := (\alpha, m)$$
+            for all $\alpha \in \Phi$, all $x \in \g_{\alpha}$, and all $(m, p) \in \Z^2$. This defines a $Q \x \Z$-grading on $\g_{[2]}$. 
+            
             If we are to extend the $Q \x \Z$-grading on $\toroidal$ as above to $\extendedtoroidal$ then the Lie bracket $[-, -]_{\extendedtoroidal}$ ought to be $Q \x \Z$-graded in a compatible manner. Given the adjoint actions of the derivations $D_{r, s}, D_v, D_t$ on the monomials $x v^m t^p \in \g_{[2]}$ (in particular, how said actions affect the $Q \x \Z$-degrees of said monomials; cf. remarks \ref{remark: derivation_action_on_multiloop_algebras} and \ref{remark: dual_of_toroidal_centres_contains_derivations}), let us declare that:
                 $$\forall (r, s) \in \Z^2: \deg D_{r, s} := (0, -r)$$
                 $$\deg D_v = \deg D_t := (0, 0)$$
@@ -100,12 +102,12 @@
                 Firstly, let us check that the grading is well-define on $\toroidal := \g_{[2]} \oplus \z_{[2]}$. To this end, pick $x, y \in \g$ and that $x \in \g_{\alpha}, y \in \g_{\beta}$ for some $\alpha, \beta \in \Phi \cup \{0\}$; also, choose some arbitrary $(m, p), (n, q) \in \Z^2$. Next, consider:
                     $$
                         \begin{aligned}
-                            [x v^m t^p, y v^n t^q]_{\toroidal} & = [x, y]_{\g} v^{m + n} t^{p + q} + (x, y)_{\g} v^m t^p \bar{d}(v^n t^p)
+                            [x v^m t^p, y v^n t^q]_{\toroidal} & = [x, y]_{\g} v^{m + n} t^{p + q} + (x, y)_{\g} v^n t^p \bar{d}(v^m t^p)
                             \\
                             & = [x, y]_{\g} v^{m + n} t^{p + q} + (x, y)_{\g} \delta_{(m, p) + (n, q), (0, 0)} ( n c_v + q c_t ) + (np - mq) K_{m + n, p + q}
                         \end{aligned}
                     $$
-                Now, note that if either:
+                (cf. example \ref{example: toroidal_lie_algebras_centres}). Now, note that if either:
                     $$\alpha + \beta = 0, \alpha \not = 0$$
                 or:
                     $$\alpha = \beta = 0$$

@@ -85,6 +85,27 @@
                 $$\delta_{\frakDr(\a)} := \delta_{\a} \oplus \delta_{\a^*}^{\cop}$$
             with $\delta_{\a^*}^{\cop} := -\delta_{\a^*}$ being the opposite Lie cobracket on $\a^*$, and it can be verified that this is a $1$-cocycle of $\frakDr(\a)$ with values in $\frakDr(\a) \tensor_k \frakDr(\a)$, thus making $\frakDr(\a)$ a Lie bialgebra. This Lie bialgebra is typically called the \textbf{Drinfeld double}\footnote{Sometimes also called the \textbf{classical double}.} of $\a$ (or equivalently, of $\a^*$).
         \end{remark}
+        
+        \begin{remark}[Graded Drinfeld doubles] \label{remark: graded_drinfeld_doubles}
+            A graded analogue of Drinfeld doubles is also available for graded Lie bialgebras:
+                $$(\a, [-, -]_{\a}, \delta_{\a})$$
+            with finite-dimensional graded components. When $\a$ is finite-dimensional, there is no difference from the construction given in remark \ref{remark: drinfeld_doubles}. When $\a$ is infinite-dimensional, instead of considering full linear duals as in remark \ref{remark: drinfeld_doubles}, one considers graded duals. The rest can then be carried out in the same manner, yielding a graded Lie bialgebra structure on:
+                $$\frakDr(\a) := \a \oplus \a^{\star}$$
+        \end{remark}
+        Even though we use the same notation for Drinfeld doubles of ungraded and graded Lie bialgebras, how the underlying vector space is given should be clear from context. We will specify if needed.
+        
+        The construction of (graded) Drinfeld doubles leads to the following notion of \say{Manin triples}, which in some ways is easier to work with than Lie bialgebras. We do not lose information by passing to these Manin triples, however, since each of them gives rise to a Lie bialgebra and \textit{vice versa}.
+        \begin{definition}[Manin triples] \label{def: manin_triples}
+            A \textbf{(graded) Manin triple} is the data of a triple of (graded) Lie algebras:
+                $$(\a, \a^+, \a^-)$$
+            as well as a non-degenerate and invariant symmetric bilinear form $(-, -)$ satisfying the following conditions:
+            \begin{itemize}
+                \item Either the Lie algebras $\a, \a^+, \a^-$ are finite-dimensional, or the graded components of the Lie algebras $\a, \a^+, \a^-$ are finite-dimensional.
+                \item $\a \cong \a^+ \oplus \a^-$.
+                \item The bilinear form $(-, -)$ pairs the Lie subalgebras $\a^{\pm}$ isotropically, i.e. $(\a^{\pm}, \a^{\pm}) = 0$. 
+                \item Via $(-, -)$, one gets an identification $\a^- \cong (\a^+)^*$; respectively, to obtain a graded Manin triple, we require that $\a^- \cong (\a^+)^{\star}$ via $(-, -)$.
+            \end{itemize}
+        \end{definition}
         \begin{remark}[Coboundary Lie algebras and classical R-matrices] \label{remark: classical_R_matrices}
             Let $\a$ be a Lie algebra.
         
@@ -106,38 +127,18 @@
             Consequently, $\delta_{\a}$ and $\delta_{\a^*}$ will be Lie bialgebra structures on $\a$ and $\a^*$, per the discussions in remark \ref{remark: drinfeld_doubles}.
         \end{remark}
         \begin{definition}[Classical R-matrices] \label{def: classical_R_matrices}
-            Let $\a$ be a Lie bialgebra equipped with a \textit{non-degenerate} and \textit{invariant} symmetric bilinear form $(-, -)$. Then, the canonical element $\sfr_{\a} \in \a \tensor_k \a^*$ with respect to $(-, -)$ as in remark \ref{remark: classical_R_matrices} shall be referred to as the \textbf{classical R-matrix} of $\a$.
-        \end{definition}
-        \begin{definition}[(Quasi-)triangular Lie bialgebras] \label{def: (quasi)_triangular_lie_bialgebras}
-            \todo{Will we need this ?}
-        \end{definition}
-        \begin{remark}[Graded Drinfeld doubles] \label{remark: graded_drinfeld_doubles}
-            A graded analogue of Drinfeld doubles is also available for graded Lie bialgebras:
-                $$(\a, [-, -]_{\a}, \delta_{\a})$$
-            with finite-dimensional graded components. When $\a$ is finite-dimensional, there is no difference from the construction given in remark \ref{remark: drinfeld_doubles}. When $\a$ is infinite-dimensional, instead of considering full linear duals as in remark \ref{remark: drinfeld_doubles}, one considers graded duals. The rest can then be carried out in the same manner, yielding a graded Lie bialgebra structure on:
-                $$\frakDr(\a) := \a \oplus \a^{\star}$$
-        \end{remark}
-        Even though we use the same notation for Drinfeld doubles of ungraded and graded Lie bialgebras, how the underlying vector space is given should be clear from context. We will specify if needed.
-        
-        The construction of (graded) Drinfeld doubles leads to the following notion of \say{Manin triples}, which in some ways is easier to work with than Lie bialgebras. We do not lose information by passing to these Manin triples, however, since each of them gives rise to a Lie bialgebra and \textit{vice versa}.
-        \begin{definition}[Manin triples] \label{def: manin_triples}
-            A \textbf{(graded) Manin triple} is the data of a triple of (graded) Lie algebras:
+            Let:
                 $$(\a, \a^+, \a^-)$$
-            as well as a non-degenerate and invariant symmetric bilinear form $(-, -)$ satisfying the following conditions:
-            \begin{itemize}
-                \item Either the Lie algebras $\a, \a^+, \a^-$ are finite-dimensional, or the graded components of the Lie algebras $\a, \a^+, \a^-$ are finite-dimensional.
-                \item $\a \cong \a^+ \oplus \a^-$.
-                \item The bilinear form $(-, -)$ pairs the Lie subalgebras $\a^{\pm}$ isotropically, i.e. $(\a^{\pm}, \a^{\pm}) = 0$. 
-                \item Via $(-, -)$, one gets an identification $\a^- \cong (\a^+)^*$; respectively, to obtain a graded Manin triple, we require that $\a^- \cong (\a^+)^{\star}$ via $(-, -)$.
-            \end{itemize}
+            be a Manin triple, where $\a$ is equipped with a non-degenerate and invariant symmetric bilinear form $(-, -)$. Then, the canonical element $\sfr_{\a} \in \a \tensor_k \a^*$ with respect to $(-, -)$ as in remark \ref{remark: classical_R_matrices} shall be referred to as the \textbf{classical R-matrix} of $\a$.
         \end{definition}
         \begin{lemma}[Lie bialgebras from Manin triples] \label{lemma: lie_bialgebras_from_manin_triples}
             \begin{enumerate}
-                \item \cite[Proposition 1.3.4 and Lemma 1.3.5]{chari_pressley_quantum_groups} There is a bijective function from the set of finite-dimensional Lie bialgebras to the set of finite-dimensional Manin triples. This function maps a given Lie bialgebra $(\a, [-, -], \delta)$ to the Manin triple $(\frakDr(\a), \a, \a^*)$.
+                \item \cite[Proposition 1.3.4 and Lemma 1.3.5]{chari_pressley_quantum_groups} There is a bijective function from the set of finite-dimensional Lie bialgebras to the set of finite-dimensional Manin triples.
                 \item Let $Z$ be an abelian group. 
 
-                There is a bijective function from the set of $Z$-graded Lie bialgebras with finite-dimensional graded components to the set of $Z$-graded Manin triples $(\p, \p^+, \p^-)$ where each of $\p, \p^+, \p^-$ has finite-dimensional graded components. This function maps such a $Z$-graded Lie bialgebra $(\a, [-, -], \delta)$ to the Manin triple $(\frakDr(\a), \a, \a^*)$.
+                There is a bijective function from the set of $Z$-graded Lie bialgebras with finite-dimensional graded components to the set of $Z$-graded Manin triples $(\p, \p^+, \p^-)$ where each of $\p, \p^+, \p^-$ has finite-dimensional graded components.
             \end{enumerate}
+            Both functions map Lie bialgebras $(\a, [-, -], \delta)$ to the Manin triples $(\frakDr(\a), \a, \a^*)$. Their inverses map Manin triples $(\a, \a^+, \a^-)$ to the Lie bialgebra $(\a^+, \delta^+)$, with $\delta^+ := [\bar{\Delta}, \sfr^+]$, where $\sfr^+$ being the classical R-matrix of $\a^+$.
         \end{lemma}
         \begin{definition}[Lie sub-bialgebras and Lie coideals] \label{def: lie_sub_bialgebras_and_lie_coideals}
             Let $(\a, [-, -], \delta)$ be a Lie bialgebra.
@@ -149,7 +150,43 @@
             \end{itemize}
         \end{definition}
         \begin{example}[The Kac-Moody Manin triple] \label{example: kac_moody_manin_triple}
+            Let $\fraku$ be a symmetrisable Kac-Moody algebra, with all the accompanying data as in convention \ref{conv: a_fixed_symmetrisable_kac_moody_algebra}. Also, denote by:
+                $$\b_{\up/\low} := \fraku_0 \oplus \fraku_{\up/\low}$$
+            be the upper/lower Borel subalgebras of $\fraku$, i.e. the direct sums of the Cartan subalgebra $\fraku_0$ with the direct sums of the positive/negative root spaces:
+                $$\fraku_{\up/\low} := \bigoplus_{\alpha \in \Phi_{\fraku}^{\pm}} \fraku_{\alpha}$$
+            Also, let us regard $\fraku$ as a Lie algebra graded by its root lattice $Q_{\fraku} := \Z\simpleroots_{\fraku}$; note that with respect to this grading, the graded components are all finite-dimensional.
+
+            Via the \textit{a priori} non-degenerate Kac-Moody form $(-, -)_{\fraku}$, one has that:
+                $$\fraku_{-\alpha} \xrightarrow[]{\cong} \fraku_{\alpha}^*$$
+            for any (positive) root $\alpha$ (cf. \cite[Theorem 2.2]{kac_infinite_dimensional_lie_algebras}), and hence:
+                $$\fraku_{\low} \xrightarrow[]{\cong} \fraku_{\up}^{\star}$$
+            with the isomorphisms in question being given by $x \mapsto (x, -)_{\fraku}$ for all $x \in \fraku_{\alpha}$ and all roots $\alpha \in \Phi_{\fraku}$. \cite[Theorem 2.2]{kac_infinite_dimensional_lie_algebras} also asserts that:
+                $$\fraku_0 \xrightarrow[]{\cong} \fraku_0^*$$
+            via $h \mapsto (h, -)_{\fraku}$, given for all $h \in \fraku_0$. As such, we have that:
+                $$\b_{\low} \cong \b_{\up}^{\star}$$
+            Additionally, the same result from \cite{kac_infinite_dimensional_lie_algebras} tells us that:
+                $$(\fraku_0, \fraku_{\up/\low})_{\fraku} = (\fraku_{\low}, \fraku_{\low})_{\fraku} = (\fraku_{\up}, \fraku_{\up})_{\fraku} = 0$$
+            and that the restriction of $(-, -)_{\fraku}$ to the Cartan subalgebra $\fraku_0$ remains non-degenerate. One can therefore define a bilinear form on $\b_{\up} \oplus \b_{\low}$ by:
+                $$\<x + y, x' + y'\> := (y, x')_{\fraku} + (y', x)_{\fraku}$$
+            for all $x, x' \in \b_{\up}$ and all $y, y' \in \b_{\low}$. This is for the purpose of pairing the upper/lower Borel subalgebras isotropically:
+                $$\<\b_{\low}, \b_{\low}\> = \<\b_{\up}, \b_{\up}\> = 0$$
+                $$\<\b_{\low}, \b_{\up}\> \not = 0$$
+            This new bilinear form can also be seen to be non-degenerate, and one has that:
+                $$\b_{\low} \xrightarrow[]{\cong} \b_{\up}$$
+            via $x \mapsto \<x, -\>$. By endowing the vector space $\b_{\up} \oplus \b_{\low}$ with the Lie bracket:
+                $$[x + y, x' + y']_{\b_{\up} \oplus \b_{\low}} := [x + y, x' + y']_{\fraku}$$
+            given for all $x, x' \in \b_{\up}$ and all $y, y' \in \b_{\low}$, one can also show that $\<-, -\>$ is $\b_{\up} \oplus \b_{\low}$-invariant.
+
+            With the above, we have constructed a Manin triple:
+                $$(\b_{\up} \oplus \b_{\low}, \b_{\up}, \b_{\low})$$
+            Per remark \ref{remark: classical_R_matrices} and lemma \ref{lemma: lie_bialgebras_from_manin_triples}, we know that there is thus a Lie bialgebra structure on $\b_{\up} \oplus \b_{\low}$ given by:
+                $$\tilde{\delta} := [\bar{\Delta}, \sfr_{\fraku}]$$
+            where $\sfr_{\fraku}$ is the Casimir tensor of $\sfr_{\fraku}$ (cf. \cite[Section 2.5]{kac_infinite_dimensional_lie_algebras}). It is not hard to see that $\fraku_0$ is a Lie coideal of $\b_{\up} \oplus \b_{\low}$, and hence we get an induced Lie bialgebra structure $\delta$, given by the same formula, on $\fraku \cong (\b_{\up} \oplus \b_{\low})/\fraku_0$.
             
+            It can also be shown that, on the Chevalley-Serre generators of $\fraku$, the Lie cobracket $\delta$ is given by:
+                $$\delta(h_i) = 0, \delta(x_i^{\pm}) = h \tensor x_i^{\pm}$$
+
+            Typically, this Lie bialgebra structure on $\fraku$ is called the \textbf{standard} one.
         \end{example}
         \begin{example}[The Yangian Manin triple] \label{example: finite_type_yangian_manin_triple}
             There is a $\Z$-graded Manin triple:
@@ -157,10 +194,10 @@
             wherein $\g[t^{\pm 1}]$ is equipped with the following \textit{a priori} invariant inner product, given for all $x, y \in \g$ and all $p, q \in \Z$:
                 $$(x t^p, y t^q)_{\g[t^{\pm 1}]} := (x, y)_{\g} \delta_{p + q, -1}$$
             Corresponding to this Manin triple is a topological Lie bialgebra structure on $\g[t]$, wherein the Lie cobracket:
-                $$\delta: \g[t] \to \g[t_1] \hattensor_{k} \g[t_2]$$
+                $$\delta: \g[t] \to \g[t] \hattensor_k \g[t] \subset \g^{\tensor 2}[\![t_1, t_2^{-1}]\!]$$
             is given by:
                 $$\delta(X)(t_1, t_2) = [ X(t_1) \tensor 1 + 1 \tensor X(t_2), \sfr_{\g} \frac{1}{t_2 - t_1} ]$$
-            for all $X(t) \in \g[t]$, with $\frac{1}{t_2 - t_1}$ being understood as a shorthand for a geometric series.
+            for all $X(t) \in \g[t]$, with $\frac{1}{t_2 - t_1}$ being a shorthand for the geometric series $\sum_{p \in \Z_{\geq 0}} t_1^p t_2^{-p - 1}$.
 
             In this situation, we have that:
                 $$\g[t^{\pm 1}] \cong \frakDr(\g[t])$$
@@ -168,7 +205,7 @@
         \end{example}
 
         \begin{definition}[Quantisations] \label{def: quantisations}
-            Let $\a$ be a Lie bialgebra over $k$, say with Lie cobracket $\delta$. A \textbf{(graded) quantisation} of $\a$ is a Hopf $k[\![\hbar]\!]$-bialgebra $Y_{\hbar}$, say with coproduct $\Delta_{\hbar}$, such that:
+            Let $\a$ be a Lie bialgebra over $k$, say with Lie cobracket $\delta$. A \textbf{(graded) quantisation} of $\a$ is a (graded) Hopf $k[\![\hbar]\!]$-bialgebra $Y_{\hbar}$, say with coproduct $\Delta_{\hbar}$, such that:
             \begin{itemize}
                 \item $Y_{\hbar}$ is a (graded) flat deformation\footnote{In the sense of definition \ref{def: graded_and_PBW_deformations}.} of $\rmU(\a)$, and
                 \item For any $x \in \a$, one has that:
@@ -182,7 +219,9 @@
 
         Let us now consider some examples of (non-cocommutative) Hopf algebras that quantise the Lie bialgebras constructed in examples \ref{example: kac_moody_manin_triple} and \ref{example: finite_type_yangian_manin_triple}.
         \begin{example}[Quantised enveloping algebras] \label{example: finite_type_QUEs}
-            
+            Consider the finite-dimensional simple Lie algebra $\g$ with its standard Lie bialgebra structure, as constructed in example \ref{example: kac_moody_manin_triple}. In this situation, a quantisation:
+                $$\rmU_{\hbar}(\g)$$
+            of $\g$ is known. We are not interested in this quantum group here, so for more details, we refer the reader to \cite[Section XVII.2]{kassel_quantum_groups}. 
         \end{example}
         \begin{example}[Finite-type Yangians] \label{example: finite_type_yangians}
             Set:
