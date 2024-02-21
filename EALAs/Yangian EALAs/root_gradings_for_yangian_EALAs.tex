@@ -1,15 +1,35 @@
-\section{A root grading for Yangian extended toroidal Lie algebra}
-    As is now standard practice in infinite-dimensional Lie theory, infinite-dimensional Lie algebra induced from finite-dimensional simple Lie algebras ought to carry a grading by some kind of induced \say{higher root lattice} (e.g. affine Kac-Moody algebras are graded by the affinisations of the root lattices of the underlying finite-dimensional simple Lie algebras; cf. \cite[Chapter 6]{kac_infinite_dimensional_lie_algebras}). There are many reasons as to why one might seek to endow Lie algebras with such gradings, but one rather important reason is that without a root grading of some sort - which in turn would give rise to some kind of triangular decomposition - one would have no hope of setting up a theory of highest-weight modules which, from practical experiences with cases such as $\g$ and $\hat{\g}$, we know to be an extremely powerful method for attacking the problem of classifying say, simple modules over Lie algebras. Therfore, it is natural to ask the question of whether or not our Yangian extended toroidal Lie algebra $\extendedtoroidal$ can also be endowed with such an induced grading, primarily because $\extendedtoroidal$ carries a non-degenerate invariant symmetric bilinear form.
+\section{A root grading for Yangian extended toroidal Lie algebra} \label{section: root_grading_for_yangian_EALAs}
+    As is now standard practice in infinite-dimensional Lie theory, infinite-dimensional Lie algebra induced from finite-dimensional simple Lie algebras ought to carry a grading by some kind of induced \say{higher root lattice} (e.g. affine Kac-Moody algebras are graded by the affinisations of the root lattices of the underlying finite-dimensional simple Lie algebras; cf. lemma \ref{lemma: root_grading_for_affine_lie_algebras}). There are many reasons as to why one might seek to endow Lie algebras with such gradings, but one rather important reason is that without a root grading of some sort - which in turn would give rise to some kind of triangular decomposition - one would have no hope of setting up a theory of highest-weight modules which, from practical experiences with cases such as $\g$ and $\hat{\g}$, we know to be an extremely powerful method for attacking the problem of classifying say, simple modules over Lie algebras. Therfore, it is natural to ask the question of whether or not our Yangian extended toroidal Lie algebra $\extendedtoroidal$ can also be endowed with such an induced grading, primarily because $\extendedtoroidal$ carries a non-degenerate invariant symmetric bilinear form.
+
+    A construction that we will be making use of frequently is the untwisted affine Kac-Moody algebra associated to a finite-dimensional simple Lie algebra. Let us briefly recall how it is constructed. For details, we refer the reader to \cite[Chapter 7]{kac_infinite_dimensional_lie_algebras}.
+
+    Recall from example \ref{example: affine_lie_algebras_centres} that on the Lie algebra:
+        $$\uce(\g[v^{\pm 1}]) \cong \g[v^{\pm 1}] \oplus k c_v$$
+    (with $c_v := v^{-1} \bar{d}v$ as in example \ref{example: toroidal_lie_algebras_centres}) carries a uniquely determined invariant symmetric bilinear form $(-, -)_{\uce(\g[v^{\pm 1}])}$ which is necessarily degenerate. However, by adding an extra element $\hat{D}$ to the Lie algebra $\uce(\g[v^{\pm 1}])$ and by requiring that:
+        $$(c_v, \hat{D})_{\uce(\g[v^{\pm 1}]) \oplus k \hat{D}} = 1$$
+        $$(c_v, c_v)_{\uce(\g[v^{\pm 1}]) \oplus k \hat{D}} = (\hat{D}, \hat{D})_{\uce(\g[v^{\pm 1}]) \oplus k \hat{D}} = 0$$
+    one obtains the \textbf{untwisted affine Kac-Moody algebra} (in the sense of \cite[Chapter 7]{kac_infinite_dimensional_lie_algebras}):
+        $$\hat{\g} := \uce(\g[v^{\pm 1}]) \rtimes k \hat{D}$$
+    The element $\hat{D}$ can be shown to be the derivation on $\g[v^{\pm 1}]$ given by $\id_{\g} \tensor v \frac{d}{dv}$. It can also be shown that:
+        $$[\hat{D}, c_v]_{\hat{\g}} = 0$$
+
+    \begin{convention} \label{conv: a_fixed_untwisted_affine_kac_moody_algebra}
+        We shall also fix once and for all a Cartan subalgebra:
+            $$\hat{\h}$$
+        of the untwisted affine Kac-Moody algebra $\hat{\g}$, along with a non-degenerate, invariant, and symmetric $k$-bilinear form:
+            $$(-, -)_{\hat{\g}}$$
+        on $\hat{\g}$ (cf. \cite[Chapter 2]{kac_infinite_dimensional_lie_algebras}). The set of simple roots of $\hat{\g}$ with respect to the aforementioned choices of Cartan subalgebra and non-degenerate invariant bilinear form will be denoted by:
+            $$\hat{\simpleroots}$$
+    \end{convention}
 
     \subsection{Positive/negative extended toroidal Lie algebras}
         For the purposes of establishing a triangular decomposition for $\extendedtoroidal$, we will be firstly needing an auxiliary Lie subalgebra of $\toroidal$ that is orthogonally complementary to $\toroidal^{\positive}$ inside $\toroidal$, which is to give rise to a Lie subalgebra $\extendedtoroidal^{\negative}$ of $\extendedtoroidal$ that is orthogonally complementary to $\extendedtoroidal^{\positive}$.
-        \begin{convention}
-            Set:
-                $$A^{\negative} := t^{-1} k[v^{\pm 1}, t^{-1}]$$
-                $$\g_{[2]}^{\negative} := \g \tensor_k A^{\negative}$$
-            The $k$-vector space $\g_{[2]}^{\negative}$ will be endowed with the bracket given by:
-                $$\forall x, y \in \g: \forall f, g \in A^{\negative}: [x f, y g]_{\g_{[2]}^{\negative}} := [x, y]_{\g} fg$$
-        \end{convention}
+
+        Set:
+            $$A^{\negative} := t^{-1} k[v^{\pm 1}, t^{-1}]$$
+            $$\g_{[2]}^{\negative} := \g \tensor_k A^{\negative}$$
+        The $k$-vector space $\g_{[2]}^{\negative}$ will be endowed with the bracket given by:
+            $$\forall x, y \in \g: \forall f, g \in A^{\negative}: [x f, y g]_{\g_{[2]}^{\negative}} := [x, y]_{\g} fg$$
         It is not hard to see that there is a direct sum decomposition of Lie algebras:
             $$\g_{[2]} \cong \g_{[2]}^{\positive} \oplus \g_{[2]}^{\negative}$$
         Furthermore, the Lie algebra $\g_{[2]}^{\negative}$ (much like $\g_{[2]}$ and $\g_{[2]}^{\positive}$) is also perfect and hence admits a UCE (cf. proposition \ref{prop: perfect_lie_algebras_admit_UCEs}). This UCE - let us denote it by $\toroidal^{\negative}$ - can be identified as:
@@ -27,17 +47,22 @@
             \item
                 $$\extendedtoroidal^{\positive/\negative} := \toroidal^{\positive/\negative} \oplus \d_{[2]}^{\positive/\negative}$$
         \end{itemize}
-        These constructions give rise to two orthogonally complementary Lie subalgebras of $\extendedtoroidal$ that we will make use of to establish a triangular decomposition for $\extendedtoroidal$. 
+        These constructions give rise to two orthogonally complementary Lie subalgebras of $\extendedtoroidal$ that we will make use of to establish a triangular decomposition for $\extendedtoroidal$, provided that we make the assumption that:
+            $$\extendedtoroidal \cong \toroidal \rtimes \d_{[2]}$$
+        from now on.
+        
         \begin{lemma}[Positive/negative extended toroidal Lie algebras] \label{lemma: positive/negative_extended_toroidal_lie_algebras}
-            The $k$-vector spaces $\extendedtoroidal^{\positive/\negative}$ are Lie subalgebras of $\extendedtoroidal$ with respect to the Lie bracket $[-, -]_{\extendedtoroidal}$.
+            The vector spaces $\extendedtoroidal^{\positive/\negative}$ are Lie subalgebras of $\extendedtoroidal$ with respect to the Lie bracket $[-, -]_{\extendedtoroidal}$.
         \end{lemma}
             \begin{proof}
                 Given how $\d_{[2]}$ acts on $\g_{[2]}$ and on $\z_{[2]}$ (cf. remarks \ref{remark: derivation_action_on_multiloop_algebras} and \ref{remark: derivation_action_on_toroidal_centres} respectively), which implies in particular that:
                     $$[\d_{[2]}, \toroidal^{\positive/\negative}] \subseteq \toroidal^{\positive/\negative}$$
-                it shall suffice to only demonstrate that the vector spaces $\d_{[2]}^{\positive/\negative}$ are Lie subalgebras of $\d_{[2]}$ in order to show that $\extendedtoroidal^{\positive/\negative}$ are Lie subalgebras of $\extendedtoroidal$. To do this, the only computations that we will need to make are of the commutators:
-                    $$[D_{r, s}, D_t], (r, s) \in \Z \x \Z_{\leq 0}$$
-                    $$[D_{r, s}, D_v], (r, s) \in \Z \x \Z_{> 0}$$
-                but this has been done in lemma \ref{lemma: explicit_commutators_between_basis_elements_of_toroidal_central_orthogonal_complement} already.
+                it shall suffice to only demonstrate that the vector spaces $\d_{[2]}^{\positive/\negative}$ are Lie subalgebras of $\d_{[2]}$ in order to show that $\extendedtoroidal^{\positive/\negative}$ are Lie subalgebras of $\extendedtoroidal$. To do this, it suffices to verify that:
+                    $$(r, s) \in \Z \x \Z_{\leq 0} \implies [D_{r, s}, D_t] \in \d_{[2]}^{\positive}$$
+                    $$(r, s) \in \Z \x \Z_{> 0} \implies [D_{r, s}, D_v] \in \d_{[2]}^{\negative}$$
+                for which we rely on the assumption that:
+                    $$\extendedtoroidal \cong \toroidal \rtimes \d_{[2]}$$
+                This can be inferred from lemma \ref{lemma: explicit_commutators_between_basis_elements_of_toroidal_central_orthogonal_complement}.
             \end{proof}
 
     \subsection{Root space and triangular decompositions for Yangian extended toroidal Lie algebras}
@@ -183,7 +208,7 @@
                     $$\delta_v, \delta_t$$
                 with respect to the adjoint action of $\hat{\g}$. In particular, these weights are to be the image of the derivations:
                     $$D_v, D_t \in \extendedtoroidal_0$$
-                under the dualising map $\extendedtoroidal_0 \xrightarrow[]{\cong} \extendedtoroidal_0^*$. Note that because:
+                under the dualising map $\extendedtoroidal_0 \xrightarrow[]{\cong} \extendedtoroidal_0^*$ given by $H \mapsto (H, -)_{\extendedtoroidal}$ for every $H \in \extendedtoroidal_0$. Note that because:
                     $$(\d_{[2]}, \d_{[2]})_{\extendedtoroidal} = 0$$
                 per the construction of the bilinear form $(-, -)_{\extendedtoroidal}$ (cf. convention \ref{conv: orthogonal_complement_of_toroidal_centres}), we have that:
                     $$(\delta_v, \delta_v)_{\extendedtoroidal} = (\delta_t, \delta_t)_{\extendedtoroidal} = 0$$

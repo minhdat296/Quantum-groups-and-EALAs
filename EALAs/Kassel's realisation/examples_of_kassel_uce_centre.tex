@@ -1,0 +1,196 @@
+\section{Some useful examples of UCEs}
+    This section is for analysing some of the instances of UCEs of current algebras that are particularly useful to our purposes. Namely, we are interested in the UCEs of the Lie algebras:
+        $$\g, \g[v^{\pm 1}], \g[v^{\pm 1}, t^{\pm 1}]$$
+    (corresponding to $A$ being isomorphic to $k, k[v^{\pm 1}]$, and $k[v^{\pm 1}, t^{\pm 1}]$ respectively). Also, by computing the centres of these UCEs explicitly (through giving bases for them), we will also be able to demonstrate how Kassel's realisation is useful for endowing theses UCEs with a grading coming from the root lattice $Q$ of $\g$. For the Lie algebra $\g$, this is nothing but the root space decomposition (cf. theorem \ref{theorem: root_space_decomposition_for_finite_dimensional_simple_lie_algebras}); for the Lie algebras $\g[v^{\pm 1}]$ and $\g[v^{\pm 1}, t^{\pm 1}]$ one obtains gradings by the abelian group $Q \x \Z$ (cf. lemmas \ref{lemma: root_grading_for_affine_lie_algebras} and \ref{lemma: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras}).
+
+    \subsection{Finite-dimensional simple Lie algebras}
+        Consider, firstly, the case:
+            $$A \cong k$$
+        It is trivial to see that:
+            $$\dim_k \bar{\Omega}^1_{k/k} \cong 0$$
+        from which one sees that:
+            $$\uce(\g) \cong \g$$
+        i.e. $\g$ is its own universal central extension, and hence every central extension of $\g$ is trivial. Of course, there are other more conventional ways to see that $\g$ admits no non-trivial central extensions, but we thought we would include this example as a particularly degenerate case of Kassel's realisation of UCEs of current algebras.
+
+    \subsection{Affine Lie algebras}
+        \begin{example}[Affine Lie algebras] \label{example: affine_lie_algebras_centres}
+            Let us compute the UCE of $\g[v^{\pm 1}]$. From this, we can construct the so-called \say{untwisted affine Kac-Moody algebra} attached to $\g$ (cf. \cite[Chapter 7]{kac_infinite_dimensional_lie_algebras}). 
+
+            To this end, let us firstly compute the underlying vector space of the centre of $\uce(\g[v^{\pm 1}])$. Abstractly, we know that it is isomorphic to $\bar{\Omega}^1_{k[v^{\pm 1}]/k}$, and it is also known that:
+                $$\Omega^1_{k[v^{\pm 1}]/k} \cong k[v^{\pm 1}] dv \cong \bigoplus_{m \in \Z} k \cdot v^m dv$$
+            so the only non-trivial computation to make is that of $d k[v^{\pm 1}]$. For this, let us consider how $d$ acts on the basis elements $v^m \in k[v]$:
+                $$d(v^m) = m v^{m - 1} dv$$
+            We see that $d(v^m) = 0$ if and only if $m = 0$, and since the set $\{v^m\}_{m \in \Z}$ is a $k$-linear basis for $k[v^{\pm 1}]$, the set:
+                $$\{m v^{m - 1} dv\}_{m \in \Z \setminus \{0\}} \cong \{v^m dv\}_{m \in \Z \setminus \{-1\}}$$
+            therefore spans $d(k[v^{\pm 1}])$. It is also easy to see this subset of $d(k[v^{\pm 1}])$ is $k$-linearly independent and hence is a basis for $d(k[v^{\pm 1}])$. This then tells us that:
+                $$\bar{\Omega}^1_{k[v^{\pm 1}]/k} \cong k \cdot v^{-1} \bar{d}v$$
+            The underlying vector space of $\uce(\g[v^{\pm 1}])$ is thus isomorphic to:
+                $$\g[v^{\pm 1}] \oplus k \cdot v^{-1} \bar{d}v$$
+
+            We know that the Lie bracket on $\uce(\g[v^{\pm 1}])$ is given by:
+                $$[x f, y g]_{\g[v^{\pm 1}]} = [x, y]_{\g} fg + (x, y)_{\g} g \bar{d}f$$
+            for all $x, y \in \g$ and all $f, g \in k[v^{\pm 1}]$. Since:
+                $$g \bar{d}f \in k \cdot v^{-1} \bar{d}v$$
+            necessarily, the bracket can be given simplier as:
+                $$[x f, y g]_{\g[v^{\pm 1}]} = [x, y]_{\g} fg + (x, y)_{\g} c(f, g) v^{-1} \bar{d}v$$
+            for a uniquely determined scalar $c(f, g) \in k$, which can be computed explicitly. To do this, if suffices to perform the computation for basis elements of $k[v^{\pm 1}]$, i.e. we can pick $f := v^m, g := v^n$ for some $m, n \in \Z$ and then consider the following:
+                $$g \bar{d}f = v^n \bar{d}(v^m) = m v^{n + m} v^{-1} \bar{d}v$$
+            This expression vanishes if and only if $m + n = 0$, so we have that:
+                $$c(v^m, v^n) = m \delta_{n + m, 0}$$
+            For general $f, g \in k[v^{\pm 1}]$, we can write this more succinctly as:
+                $$c(f, g) = \Res_{v = 0}( gdf )$$
+            The Lie bracket on $\uce(\g[v^{\pm 1}])$ then takes the form:
+                $$[x f, y g]_{\g[v^{\pm 1}]} = [x, y]_{\g} fg + (x, y)_{\g} \Res_{v = 0}(g df) v^{-1} \bar{d}v$$
+                
+            Note also, that there is a non-degenerate and invariant\footnote{Because $(-, -)_{\g}$ is invariant.} symmetric bilinear form on $\g[v^{\pm 1}]$ given by:
+                $$(xf, yg)_{\g[v^{\pm 1}]} := (x, y)_{\g} \Res_{v = 0} f dg$$
+            for all $x, y \in \g$ and all $f, g \in k[v^{\pm 1}]$. By invariance, the extension of this bilinear form to $\uce(\g[v^{\pm 1}])$ is necessarily degenerate.
+
+            Let us also note that unlike $\uce(\g[v^{\pm 1}])$, the UCE of the perfect Lie algebra $\g[v]$ is trivial, since:
+                $$\forall f, g \in k[v]: \Res_{v = 0}(g df) = 0$$
+        \end{example}
+
+        \begin{lemma}[Root grading for affine Lie algebras] \label{lemma: root_grading_for_affine_lie_algebras}
+            The Lie algebra $\uce(\g[v^{\pm 1}])$ is isomorphic to the Lie algebra generated by the set:
+                $$\{ X_{i, r}^{\pm} \}_{(i, r) \in \hat{\simpleroots} \x \Z}$$
+            whose elements are subjected to the following relations:
+                $$[X_{i, r}^{\pm}, X_{j, s}^{\pm}] = \pm N_{\alpha_i, \alpha_j} X_{i + j, r + s}^{\pm}$$
+            The isomorphism in question is given by:
+                $$\forall (i, r) \in \simpleroots \x \Z: X_{i, r}^{\pm} \mapsto x_i^{\pm} v^r$$
+                $$X_{\theta, r}^{\pm} \mapsto x_{\theta}^{\mp} v^r$$
+            where $x_{\theta}^{\mp} \in \g_{\mp \theta}$ are choices of root vectors such that $(x_{\theta}, x_{-\theta})_{\g} = 1$.
+        \end{lemma}
+
+    \subsection{Toroidal Lie algebras}
+        \begin{example}[Toroidal Lie algebras] \label{example: toroidal_lie_algebras_centres}
+            Next, let us compute the UCE of $\g[v^{\pm 1}, t^{\pm 1}]$. 
+            
+            Firstly, let us compute its underlying vector space, for which the only non-trivial computation to make is that of the $k$-vector space $\bar{\Omega}^1_{k[v^{\pm 1}, t^{\pm 1}]/k}$, which we know to be isomorphic to the centre of $\uce(\g[v^{\pm 1}, t^{\pm 1}])$. We know that:
+                $$\Omega^1_{k[v^{\pm 1}, t^{\pm 1}]/k} \cong k[v^{\pm 1}, t^{\pm 1}] dv \oplus k[v^{\pm 1}, t^{\pm 1}] dt$$
+            and since:
+                $$k[v^{\pm 1}, t^{\pm 1}] \cong \bigoplus_{(m, p) \in \Z^2} k \cdot v^m t^p$$
+            we consequently have that:
+                $$\Omega^1_{k[v^{\pm 1}, t^{\pm 1}]/k} \cong \bigoplus_{(m, p) \in \Z^2} (k \cdot v^m t^p dv \oplus k \cdot v^m t^p dt)$$
+            It can also be seen that:
+                $$d(k[v^{\pm 1}, t^{\pm 1}]) \cong \bigoplus_{(m, p) \in \Z^2} k \cdot d(v^m t^p) \cong \bigoplus_{(m, p) \in \Z^2 \setminus \{(0, 0)\}} ( k \cdot m v^{m - 1} t^p dv \oplus k \cdot p v^m t^{p - 1} dt )$$
+            since:
+                $$m v^{m - 1} t^p dv + p v^m t^{p - 1} dt = 0$$
+            if and only if $(m, p) = (0, 0)$. As such, the $k$-vector space:
+                $$\bar{\Omega}^1_{k[v^{\pm 1}, t^{\pm 1}]/k} := \Omega^1_{k[v^{\pm 1}, t^{\pm 1}]/k}/d k[v^{\pm 1}, t^{\pm 1}]$$
+            decomposes in the following manner:
+                $$\bar{\Omega}^1_{k[v^{\pm 1}, t^{\pm 1}]/k} \cong ( \bigoplus_{(r, s) \in \Z^2} k K_{r, s}) \oplus k c_v \oplus k c_t$$
+            wherein:
+                $$
+                    K_{r, s} :=
+                    \begin{cases}
+                        \text{$\frac1s v^{r - 1} t^s \bar{d}v$ if $(r, s) \in \Z \x (\Z \setminus \{0\})$}
+                        \\
+                        \text{$-\frac1r v^r t^{-1} \bar{d}t$ if $(r, s) \in (\Z \setminus \{0\}) \x \{0\}$}
+                        \\
+                        \text{$0$ if $(r, s) = (0, 0)$}
+                    \end{cases}
+                $$
+                $$c_v := v^{-1} \bar{d}v, c_t := t^{-1} \bar{d}t$$
+            In fact, any element of the form:
+                $$v^n t^q \bar{d}(v^m t^p) \in \bar{\Omega}^1_{k[v^{\pm 1}, t^{\pm 1}]/k}$$
+            can be written in terms of the basis vectors $K_{r, s}, c_v, c_t$ in the following manner:
+                $$v^n t^q \bar{d}(v^m t^p) = \delta_{(m, p) + (n, q), (0, 0)} ( n c_v + q c_t ) + (np - mq) K_{m + n, p + q}$$
+            (cf. \cite[pp. 35]{wendlandt_formal_shift_operators_on_yangian_doubles}).
+
+            Finally, let us note that the Lie bracket on $\uce(\g[v^{\pm 1}, t^{\pm 1}])$ is given by:
+                $$
+                    \begin{aligned}
+                        [x v^m t^p, y v^n t^q]_{\uce(\g[v^{\pm 1}, t^{\pm 1}])} & = [x, y]_{\g} v^{m + n} t^{p + q} + (x, y)_{\g} v^n t^q \bar{d}(v^m t^p)
+                        \\
+                        & = [x, y]_{\g} v^{m + n} t^{p + q} + ( \delta_{(m, p) + (n, q), (0, 0)} ( n c_v + q c_t ) + (np - mq) K_{m + n, p + q} )
+                    \end{aligned}
+                $$
+            for all $x, y \in \g$ and all $(m, p), (n, q) \in \Z^2$. As a side note, let us note that interestingly, unlike how $\g[v]$ admits only the trivial UCE, $\g[v^{\pm 1}, t]$ admits a non-trivial UCE, on which the Lie bracket is given by:
+                $$[x v^m t^p, y v^n t^q]_{\uce(\g[v^{\pm 1}, t^{\pm 1}])} = [x, y]_{\g} v^{m + n} t^{p + q} + (np - mq) K_{m + n, p + q}$$
+            for all $x, y \in \g$ and all $(m, p), (n, q) \in \Z \x \Z_{\geq 0}$.
+        \end{example}
+        \begin{remark}[The $\Z$-grading on toroidal Lie algebras] \label{remark: Z_gradings_on_toroidal_lie_algebras}
+            If $k$ is a field and $A$ is a commutative $k$-algebra graded by an abelian group $Z$, say:
+                $$A := \bigoplus_{n \in Z} A_n$$
+            and if $\a$ is a Lie algebra over $k$, then $\a \tensor_k A$ will also be $\Z$-graded, namely in the following manner:
+                $$\a \tensor_k A \cong \bigoplus_{n \in \Z} \a \tensor_k A_n$$
+            This grading on $\a \tensor_k A$ actually extends to the whole of $\uce(\a_A)$. To see why this is the case, recall firstly that the $A$-module $\Omega^1_{A/k}$ is isomorphic to the quotient of $A \tensor_k A$\footnote{... which carries a grading induced by the one on $A$, with graded components given by $(A \tensor_k A)_d \cong \bigoplus_{m + n = d} (A_m \tensor_k A_n)$ for all $d \in Z$.} by the homogeneous\footnote{Because $\deg fg \tensor 1 = \deg g \tensor f = \deg f \tensor g = \deg f + \deg g$.} $A$-submodule generated by the relations:
+                $$fg \tensor 1 - g \tensor f - f \tensor g$$
+            given for all $f, g \in A$. This implies that $\Omega^1_{A/k}$ inherits a $Z$-grading from the one on $A \tensor_k A$, given by:
+                $$\deg f dg = \deg f \tensor g = \deg f + \deg g$$
+            Since the vector subspace $d(A)$ is also $Z$-graded ($\deg df = \deg f \tensor 1 = \deg f$ for all $f \in A$, as $d(A) \cong A \tensor 1$), the quotient vector space:
+                $$\bar{\Omega}^1_{A/k} := \Omega^1_{A/k}/d(A)$$
+            is also naturally graded by the abelian group $Z$, with graded components given by:
+                $$(\bar{\Omega}^1_{A/k})_n := (\Omega^1_{A/k})_n/d(A_n) \cong (\Omega^1_{A/k})_n/(A_n \tensor 1)$$
+            for all $n \in Z$. As we have that:
+                $$\uce(\g \tensor_k A) \cong (\g \tensor_k A) \oplus \bar{\Omega}^1_{A/k}$$
+            (cf. theorem \ref{theorem: kassel_realisation}), the $Z$-grading on $\g \tensor_k A$ thus extends to the larger Lie algebra $\uce(\g \tensor_k A)$, as claimed: namely, the graded components are given by:
+                $$\uce(\g \tensor_k A)_n := (\g \tensor_k A_n) \oplus (\bar{\Omega}^1_{A/k})_n$$
+            for all $n \in Z$. 
+
+            When:
+                $$A := k[v^{\pm 1}, t^{\pm 1}]$$
+            consider the $\Z$-grading given by:
+                $$\deg v := 0, \deg t := 1$$
+            The induced $\Z$-grading on $\bar{\Omega}^1_{k[v^{\pm 1}, t^{\pm 1}]/k}$ is therefore given by:
+                $$
+                    \deg K_{r, s} =
+                    \begin{cases}
+                        \text{$s$ if $(r, s) \in \Z \x (\Z \setminus \{0\})$}
+                        \\
+                        \text{$0$ if $(r, s) \in (\Z \setminus \{0\}) \x \{0\}$}
+                        \\
+                        \text{$0$ if $(r, s) = (0, 0)$}
+                    \end{cases}
+                $$
+                $$\deg c_v = 0, \deg c_t = 0$$
+        \end{remark}
+        
+        \begin{convention}[Toroidal and positive-toroidal Lie algebras]
+            From now on, we will be writing:
+                $$A := k[v^{\pm 1}, t^{\pm 1}], A^{\positive} := k[v^{\pm 1}, t]$$
+                $$\g_{[2]} := \g \tensor_k A, \g_{[2]}^{\positive} := \g \tensor_k A^{\positive}$$
+                $$\bar{\Omega}_{[2]} := \bar{\Omega}^1_{A/k}, \bar{\Omega}_{[2]}^{\positive} := \bar{\Omega}^1_{A^{\positive}/k}$$
+
+            We will be considering the Lie algebras:
+                $$\toroidal := \uce(\g_{[2]})$$
+                $$\toroidal^{\positive} := \uce(\g_{[2]}^{\positive})$$
+            As the Lie algebras $\g_{[2]}$ and $\g_{[2]}^{\positive}$ are perfect, the Lie algebras $\toroidal$ and $\toroidal^{\positive}$ are well-defined and per theorem \ref{theorem: kassel_realisation}, their centres are respectively given by:
+                $$\z_{[2]} := \z(\uce(\toroidal)) \cong \bar{\Omega}_{[2]}$$
+                $$\z_{[2]}^{\positive} := \z(\uce(\toroidal^{\positive})) \cong \bar{\Omega}_{[2]}^{\positive}$$
+        \end{convention}
+        \begin{convention}
+            As a shorthand, let us write:
+                $$\hat{\simpleroots} := \simpleroots \cup \{\theta\}$$
+            This turns out to be in bijection with the set of simpler roots of $\hat{\g}$, but we will not be thinking of it this way until section \ref{section: root_grading_for_yangian_EALAs}.
+        \end{convention}
+        \begin{lemma}[Root gradings for toroidal Lie algebras] \label{lemma: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras}
+            (Cf. \cite[Proposition 3.5]{moody_rao_yokonuma_vertex_representations_of_toroidal_lie_algebras}) The Lie algebra $\toroidal$ is isomorphic to the Lie algebra generated by the set:
+                $$\{ X_{i, r}^{\pm}, H_{i, r} \}_{(i, r) \in \hat{\simpleroots} \x \Z} \cup \{ K \}$$
+            whose elements are subjected to the following relations, given for all $(i, r), (j, s) \in \hat{\simpleroots} \x \Z$:
+                $$[ H_{i, r}, H_{j, s} ] = 0$$
+                $$[ H_{i, r}, X_{j, s}^{\pm} ] = \pm (\alpha_i, \alpha_j) X_{j, r + s}^{\pm}$$
+                $$[ X_{i, r}^+, X_{j, s}^- ] = \delta_{ij} H_{i, r + s}$$
+                $$[ X_{i, r + 1}^{\pm}, X_{j, s}^{\pm} ] - [ X_{i, r}^{\pm}, X_{j, s + 1}^{\pm} ] = 0$$
+                $$\ad(X_{i, 0}^{\pm})^{1 - c_{ij}}( X_{j, s}^{\pm} ) = 0$$
+                $$[K, \toroidal] = 0$$
+            The isomorphism in question is given as follows, for all $(i, r) \in \hat{\simpleroots} \x \Z$:
+                $$\forall (i, r) \in \simpleroots \x \Z: X_{i, r}^{\pm} \mapsto x_i^{\pm} t^r, H_{i, r} \mapsto h_i t^r$$
+                $$\forall (i, r) \in \{\theta\} \x \Z: X_{\theta, r}^{\pm} \mapsto x_{\theta}^{\mp} v^{\pm 1} t^r, H_{\theta, r} \mapsto h_{\theta} t^r + c_v t^r$$
+                $$K \mapsto c_t$$
+        \end{lemma}
+        \begin{corollary}[Root gradings for $\toroidal^{\positive}$]
+            The Lie algebra $\toroidal^{\positive}$ is isomorphic to the Lie algebra generated by the set:
+                $$\{ X_{i, r}^{\pm}, H_{i, r} \}_{(i, r) \in \hat{\simpleroots} \x \Z_{\geq 0}}$$
+            whose elements are subjected to the following relations lemma \ref{lemma: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras}. The isomorphism in question is given also as in \textit{loc. cit.}
+        \end{corollary}
+            \begin{proof}
+                Apply the computations in example \ref{example: toroidal_lie_algebras_centres} to lemma \ref{lemma: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras}. See also \cite[Remark 4.5]{guay_nakajima_wendlandt_affine_yangian_vertex_representations_and_PBW}.
+            \end{proof}
+        \begin{remark}
+            Let us note right away that it is not true generally that the Lie algebra $\toroidal^{\positive}$ is a Lie subalgebra of $\toroidal$, but it is known to be true when the untwisted affine Kac-Moody algebra $\hat{\g}$ associated to $\g$ is not of type $\sfA_1^{(1)}$ (i.e. not isomorphic to $\hat{\sl}_2$); see \cite[Corollary 4.6]{guay_nakajima_wendlandt_affine_yangian_vertex_representations_and_PBW}. The embedding in question:
+                $$\toroidal^{\positive} \to \toroidal$$
+            is given naturally by:
+                $$X_{i, r}^{\pm} \mapsto X_{i, r}^{\pm}, H_{i, r} \mapsto H_{i, r}$$
+            for all $(i, r) \in \hat{\simpleroots} \x \Z_{\geq 0}$.
+        \end{remark}

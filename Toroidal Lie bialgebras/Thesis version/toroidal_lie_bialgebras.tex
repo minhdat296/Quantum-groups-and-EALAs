@@ -512,7 +512,28 @@
                         $$[\bar{\Delta}(ht), \sfr_{\extendedtoroidal^{\positive}}] = [ \bar{\Delta}(ht), \sfr_{\g_{[2]}^{\positive}} + (\sfr_{\z_{[2]}^{\positive}} + \sfr_{\d_{[2]}^{\positive}}) ] =  [h_1 \tensor 1] v_2 \1(v_1, v_2)$$
                     precisely as claimed. 
                     
-                    \item Finally, in order to compute $\hat{\delta}^{\positive}(t c_v)$, \todo{Not done}
+                    \item Finally, in order to compute $\hat{\delta}^{\positive}(t c_v)$, let us first notice that:
+                        $$t c_v = K_{0, 1}$$
+                    Since $[K_{0, 1}, \g_{[2]}] = 0$, we have that:
+                        $$[\bar{\Delta}(K_{0, 1}), \sfr_{\extendedtoroidal^{\positive}}] = [\bar{\Delta}(K_{0, 1}), \sfr_{\z_{[2]}^{\positive}} + \sfr_{\d_{[2]}^{\positive}}] = [1 \tensor K_{0, 1}, \sfr_{\z_{[2]}^{\positive}}] + [K_{0, 1} \tensor 1, \sfr_{\d_{[2]}^{\positive}}]$$
+                    From lemma \ref{lemma: explicit_commutators_between_central_basis_elements_and_derivations}, we know that:
+                        $$
+                            \forall (a, b) \in \Z^2: [D, K_{a, b}] =
+                            \begin{cases}
+                                \text{$((b - 1)r - sa) D_{a - r, b - s - 1}$ if $D = D_{r, s}$}
+                                \\
+                                \text{$-r K_{a, b - 1}$ if $D = D_v$}
+                                \\
+                                \text{$- D_{a, b - 1}$ if $D = D_t$}
+                            \end{cases}
+                        $$
+                        $$[\d_{[2]}, c_v]_{\extendedtoroidal} = [\d_{[2]}, c_t]_{\extendedtoroidal} = 0 = 0$$
+                    and so:
+                        $$[1 \tensor K_{0, 1}, \sfr_{\z_{[2]}^{\positive}}] = \sum_{(r, s) \in \Z \x \Z_{> 0}} K_{r, s} \tensor [K_{0, 1}, D_{r, s}] = sum_{(r, s) \in \Z \x \Z_{> 0}} K_{r, s} \tensor 0 = 0$$
+                        $$[K_{0, 1} \tensor 1, \sfr_{\d_{[2]}^{\positive}}] = \sum_{(r, s) \in \Z \x \Z_{\leq 0}} [K_{0, 1}, D_{r, s}] \tensor K_{r, s} = \sum_{(r, s) \in \Z \x \Z_{\leq 0}} 0 \tensor K_{r, s} = 0$$
+                    We are thus able to conclude that:
+                        $$\tilde{\delta}^{\positive}(t c_v) = 0$$
+                    as claimed.
                 \end{enumerate}
             \end{proof}
 
