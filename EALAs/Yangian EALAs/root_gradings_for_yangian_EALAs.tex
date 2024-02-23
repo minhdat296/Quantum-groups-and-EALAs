@@ -29,14 +29,14 @@
             $$A^{\negative} := t^{-1} k[v^{\pm 1}, t^{-1}]$$
             $$\g_{[2]}^{\negative} := \g \tensor_k A^{\negative}$$
         The $k$-vector space $\g_{[2]}^{\negative}$ will be endowed with the bracket given by:
-            $$\forall x, y \in \g: \forall f, g \in A^{\negative}: [x f, y g]_{\g_{[2]}^{\negative}} := [x, y]_{\g} fg$$
-        It is not hard to see that there is a direct sum decomposition of Lie algebras:
+            $$[x f, y g]_{\g_{[2]}^{\negative}} := [x, y]_{\g} fg$$
+        for all $x, y \in \g$ and all $f, g \in A^{\neg}$. It is not hard to see that there is a direct sum decomposition of Lie algebras:
             $$\g_{[2]} \cong \g_{[2]}^{\positive} \oplus \g_{[2]}^{\negative}$$
-        Furthermore, the Lie algebra $\g_{[2]}^{\negative}$ (much like $\g_{[2]}$ and $\g_{[2]}^{\positive}$) is also perfect and hence admits a UCE (cf. proposition \ref{prop: perfect_lie_algebras_admit_UCEs}). This UCE - let us denote it by $\toroidal^{\negative}$ - can be identified as:
+        Furthermore, the Lie algebra $\g_{[2]}^{\negative}$ (much like $\g_{[2]}$ and $\g_{[2]}^{\positive}$) is also perfect and hence admits a UCE (cf. proposition \ref{prop: perfect_lie_algebras_admit_UCEs}), which shall be denoted by $\toroidal^{\negative}$. According to theorem \ref{theorem: kassel_realisation}, it can be identified as:
             $$\toroidal^{\negative} \cong \g_{[2]}^{\negative} \oplus \z_{[2]}^{\negative}$$
-        wherein $\z_{[2]}^{\negative}$ is the orthogonal complement of $\z_{[2]}^{\positive}$ inside $\z_{[2]}$, i.e.:
+        with $\z_{[2]}^{\negative}$ being the orthogonal complement of $\z_{[2]}^{\positive}$ inside $\z_{[2]}$, i.e.:
             $$\z_{[2]} \cong \z_{[2]}^{\positive} \oplus \z_{[2]}^{\negative}$$
-        This can be done using the $\Z$-grading (in the variable $t$) on the centre $\z_{[2]} \cong \bar{\Omega}_{[2]}$ (cf. remark \ref{remark: Z_gradings_on_toroidal_lie_algebras}).
+        This can be inferred from the computations of bases for $\z_{[2]}$ and $\z_{[2]}^{\positive}$ carried out in example \ref{example: toroidal_lie_algebras_centres}.
         
         Let us now make the following constructions:
         \begin{itemize}
@@ -55,7 +55,7 @@
             The vector spaces $\extendedtoroidal^{\positive/\negative}$ are Lie subalgebras of $\extendedtoroidal$ with respect to the Lie bracket $[-, -]_{\extendedtoroidal}$.
         \end{lemma}
             \begin{proof}
-                Given how $\d_{[2]}$ acts on $\g_{[2]}$ and on $\z_{[2]}$ (cf. remarks \ref{remark: derivation_action_on_multiloop_algebras} and \ref{remark: derivation_action_on_toroidal_centres} respectively), which implies in particular that:
+                Given how $\d_{[2]}$ acts on $\g_{[2]}$ and on $\z_{[2]}$ (cf. lemmas \ref{lemma: derivation_action_on_multiloop_algebras} and \ref{lemma: derivation_action_on_toroidal_centres} respectively), which implies in particular that:
                     $$[\d_{[2]}, \toroidal^{\positive/\negative}] \subseteq \toroidal^{\positive/\negative}$$
                 it shall suffice to only demonstrate that the vector spaces $\d_{[2]}^{\positive/\negative}$ are Lie subalgebras of $\d_{[2]}$ in order to show that $\extendedtoroidal^{\positive/\negative}$ are Lie subalgebras of $\extendedtoroidal$. To do this, it suffices to verify that:
                     $$(r, s) \in \Z \x \Z_{\leq 0} \implies [D_{r, s}, D_t] \in \d_{[2]}^{\positive}$$
@@ -89,7 +89,7 @@
                 $$\deg x v^m t^p := (\alpha, m)$$
             for all $\alpha \in \Phi$, all $x \in \g_{\alpha}$, and all $(m, p) \in \Z^2$. This defines a $Q \x \Z$-grading on $\g_{[2]}$. 
             
-            If we are to extend the $Q \x \Z$-grading on $\toroidal$ as above to $\extendedtoroidal$ then the Lie bracket $[-, -]_{\extendedtoroidal}$ ought to be $Q \x \Z$-graded in a compatible manner. Given the adjoint actions of the derivations $D_{r, s}, D_v, D_t$ on the monomials $x v^m t^p \in \g_{[2]}$ (in particular, how said actions affect the $Q \x \Z$-degrees of said monomials; cf. remarks \ref{remark: derivation_action_on_multiloop_algebras} and \ref{remark: dual_of_toroidal_centres_contains_derivations}), let us declare that:
+            If we are to extend the $Q \x \Z$-grading on $\toroidal$ as above to $\extendedtoroidal$ then the Lie bracket $[-, -]_{\extendedtoroidal}$ ought to be $Q \x \Z$-graded in a compatible manner. Given the adjoint actions of the derivations $D_{r, s}, D_v, D_t$ on the monomials $x v^m t^p \in \g_{[2]}$ (in particular, how said actions affect the $Q \x \Z$-degrees of said monomials; cf. lemma \ref{lemma: derivation_action_on_multiloop_algebras}), let us declare that:
                 $$\forall (r, s) \in \Z^2: \deg D_{r, s} := (0, -r)$$
                 $$\deg D_v = \deg D_t := (0, 0)$$
             We would also like the bilinear form $(-, -)_{\extendedtoroidal}$ to be of total degree $(0, 0)$, which forces:

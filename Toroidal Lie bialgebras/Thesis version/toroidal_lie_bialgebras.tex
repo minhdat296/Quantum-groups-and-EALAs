@@ -448,10 +448,10 @@
                         where the minus sign in the third equation appeared because:
                             $$[ht, D_{r, s}] = -[D_{r, s}, ht] = -h D_{r, s}(t)$$
                             $$[ht, D_v] = -[D_v, ht] = -h D_v(t)$$
-                        (cf. remark \ref{remark: derivation_action_on_multiloop_algebras}) and the last equality is due to the fact that:
+                        and the last equality is due to the fact that:
                             $$D_{r, s} = -s v^{-r + 1} t^{-s - 1} \del_v + r v^{-r} t^{-s} \del_t$$
                             $$D_v = -v t^{-1} \del_v$$
-                        (cf. remark \ref{remark: dual_of_toroidal_centres_contains_derivations}). 
+                        (for both, see lemma \ref{lemma: derivation_action_on_multiloop_algebras}). 
                         
                         \item \textbf{($\d_{[2]}^{\positive}$-component):} Recall from corollary \ref{coro: extended_toroidal_lie_bialgebras} that:
                             $$\sfr_{\z_{[2]}^{\positive}} := \sum_{(r, s) \in \Z \x \Z_{\leq 0}} D_{r, s} \tensor K_{r, s} + D_{t_1} \tensor c_{t_2}$$
@@ -470,10 +470,10 @@
                         where the minus sign in the third equation appeared because:
                             $$[ht, D_{r, s}] = -[D_{r, s}, ht] = -h D_{r, s}(t)$$
                             $$[ht, D_t] = -[D_t, ht] = -h D_t(t)$$
-                        (cf. remark \ref{remark: derivation_action_on_multiloop_algebras}) and the the last equality is due to the fact that:
+                        and the the last equality is due to the fact that:
                             $$D_{r, s} = -s v^{-r + 1} t^{-s - 1} \del_v + r v^{-r} t^{-s} \del_t$$
                             $$D_t = -\del_t$$
-                        (cf. remark \ref{remark: dual_of_toroidal_centres_contains_derivations}). 
+                        (for both, see lemma \ref{lemma: derivation_action_on_multiloop_algebras}).
                     \end{enumerate}
 
                     Since we know that:
@@ -610,9 +610,6 @@
                 $$\forall i \in \hat{\simpleroots}: \Delta_{V_1, V_2}(T_{i, 0}) = \bar{\Delta}(T_{i, 0}) + [H_{i, 0} \tensor 1, \sfr_{ \hat{\g} }^-]$$
             with $\sfr_{ \hat{\g} }^-$ being the Casimir tensor\footnote{This is denoted by $\Omega_+$ in \cite{guay_nakajima_wendlandt_affine_yangian_coproduct} and \cite{guay_nakajima_wendlandt_affine_yangian_vertex_representations_and_PBW}. We opted to designate this the \say{negative} half of the Casimir tensor of $\hat{\g}$ in accordance with the root-degree of the first tensor factor. Also, in \textit{loc. cit.}, the authors considered the Casimir tensor associated to the Kac-Moody pairing on $\hat{\h} \tensor_k \hat{\h} \oplus \hat{\n}^- \hattensor_k \hat{\n}^+$, but we need only the \say{triangular} component since the Cartan component will be killed by $[H_{i, 0} \tensor 1, -]$ anyway.} associated to the non-degenerate Kac-Moody pairing on $\hat{\n}^- \hattensor_k \hat{\n}^+$.
         \end{lemma}
-        \begin{remark}
-            The category $\calO$ as in lemma \ref{lemma: category_O_affine_yangian} is \textit{not} monoidal, since it lacks a monoidal unit. 
-        \end{remark}
         \begin{remark}[Why involve the category $\calO$ ?]
             For a moment, let us pick the root bases $\{ x_{\alpha, k}^{\pm} \}_{(\alpha, k) \in \hat{\Phi}^+ \x \{1, ..., \dim_k (\hat{\g})_{\alpha} \}}$ for $\hat{\n}^{\pm}$ in such a way that they are dual to one another with respect to the Kac-Moody pairing on $\hat{\g}$. In terms of these bases, one can write:
                 $$\sfr_{\hat{\g}}^- = \sum_{\alpha \in \hat{\Phi}^+} \sum_{k = 1}^{ \dim_k (\hat{\g})_{\alpha} } x_{\alpha, k}^- \tensor x_{\alpha, k}^+$$
