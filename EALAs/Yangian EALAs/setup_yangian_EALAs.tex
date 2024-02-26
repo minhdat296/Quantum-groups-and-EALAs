@@ -1,24 +1,114 @@
 \section{The initial setup}
     Again, $\g$ is a finite-dimensional simple Lie algebra over an algebraically closed field of characteristic $0$. It is accompanied by all the data recalled in subsection \ref{subsection: finite_dimensional_simple_lie_algebras}. 
 
-    \todo[inline]{All toroidal Lie algebra conventions have been moved here.}
-    For our own convenience, we will also be adopting the following abbreviations:
-        $$A := k[v^{\pm 1}, t^{\pm 1}], A^{\positive} := k[v^{\pm 1}, t]$$
-        $$\bar{\Omega}_{[2]} := \bar{\Omega}^1_{A/k}, \bar{\Omega}_{[2]}^{\positive} := \bar{\Omega}^1_{A^{\positive}/k}$$
-    and also that:
-        $$\g_{[2]} := \g \tensor_k A, \g_{[2]}^{\positive} := \g \tensor_k A^{\positive}$$
-    with both being understood as current algebras (in the sense of definition \ref{def: current_algebras}).
-
-    We will then be interested in the Lie algebras:
-        $$\toroidal := \uce(\g_{[2]})$$
-        $$\toroidal^{\positive} := \uce(\g_{[2]}^{\positive})$$
-    which, respectively, shall be referred to as the \textbf{toroidal Lie algebra} and \textbf{positive toroidal Lie algebra} associated to $\g$. In example \ref{example: toroidal_lie_algebras_centres} and remark \ref{remark: Z_gradings_on_toroidal_lie_algebras}, the structures of the underlying ($\Z$-grraded) vector spaces of these Lie algebras have already been described, and we refer the reader there for the details (in particular, the construction of a canonical basis for the underlying vector spaces of their centres). So that our notations would be suggestive, we shall be writing:
-        $$\z_{[2]} := \z(\toroidal)$$
-        $$\z_{[2]}^{\positive} := \z(\toroidal^{\positive})$$
-    from now on; often, we might refer to these as the \textbf{(positive) toroidal centre}.
+    \subsection{Conventions for toroidal Lie algebras}
+        \todo[inline]{All toroidal Lie algebra conventions have been moved here.}
+        For our own convenience, we will also be adopting the following abbreviations:
+            $$A := k[v^{\pm 1}, t^{\pm 1}], A^{\positive} := k[v^{\pm 1}, t]$$
+            $$\bar{\Omega}_{[2]} := \bar{\Omega}^1_{A/k}, \bar{\Omega}_{[2]}^{\positive} := \bar{\Omega}^1_{A^{\positive}/k}$$
+        and also that:
+            $$\g_{[2]} := \g \tensor_k A, \g_{[2]}^{\positive} := \g \tensor_k A^{\positive}$$
+        with both being understood as current algebras (in the sense of definition \ref{def: current_algebras}).
     
-    Now, instead of being equipped with the usual residue bilinear form of degree $(0, 0)$, the Lie algebra $\g_{[2]}$ will be equipped with the residue bilinear form of degree $(0, -1)$:
-        $$(x v^m t^p, y v^n t^q)_{\g_{[2]}} := (x, y)_{\g} \delta_{(m, p) + (n, q), (0, -1)}$$
-    given for all $x, y \in \g$ and all $(m, p), (n, q) \in \Z^2$; sometimes, we will refer to this as the \textbf{Yangian form} or the \textbf{Yangian pairing}. It is easy to see that the bilinear form:
-        $$(-, -)_{\g_{[2]}}$$
-    is symmetric, non-degenerate, and invariant. Because $\toroidal$ has a non-trivial centre, any invariant (symmetric) bilinear form thereon (so in particular, any extension of $(-, -)_{\g_{[2]}}$ to $\toroidal$) is necessarily degenerate. The purpose of constructing \say{Yangian extended toroidal Lie algebras} is to remedy such degeneracy.
+        We will then be interested in the Lie algebras:
+            $$\toroidal := \uce(\g_{[2]})$$
+            $$\toroidal^{\positive} := \uce(\g_{[2]}^{\positive})$$
+        which, respectively, shall be referred to as the \textbf{toroidal Lie algebra} and \textbf{positive toroidal Lie algebra} associated to $\g$. In example \ref{example: toroidal_lie_algebras_centres} and remark \ref{remark: Z_gradings_on_toroidal_lie_algebras}, the structures of the underlying ($\Z$-graded) vector spaces of these Lie algebras have already been described, and we refer the reader there for the details (in particular, the construction of a canonical basis for the underlying vector spaces of their centres). So that our notations would be suggestive, we shall be writing:
+            $$\z_{[2]} := \z(\toroidal)$$
+            $$\z_{[2]}^{\positive} := \z(\toroidal^{\positive})$$
+        from now on; often, we might refer to these as the \textbf{(positive) toroidal centre}.
+        
+        Now, instead of being equipped with the usual residue bilinear form of degree $(0, 0)$, the Lie algebra $\g_{[2]}$ will be equipped with the residue bilinear form of degree $(0, -1)$:
+            $$(x v^m t^p, y v^n t^q)_{\g_{[2]}} := (x, y)_{\g} \delta_{(m, p) + (n, q), (0, -1)}$$
+        given for all $x, y \in \g$ and all $(m, p), (n, q) \in \Z^2$; sometimes, we will refer to this as the \textbf{Yangian form} or the \textbf{Yangian pairing}. It is easy to see that the bilinear form:
+            $$(-, -)_{\g_{[2]}}$$
+        is symmetric, non-degenerate, and invariant. Because $\toroidal$ has a non-trivial centre, any invariant (symmetric) bilinear form thereon (so in particular, any extension of $(-, -)_{\g_{[2]}}$ to $\toroidal$) is necessarily degenerate. The purpose of constructing \say{Yangian extended toroidal Lie algebras} is to remedy such degeneracy.
+
+    \subsection{Untwisted affine Kac-Moody algebras} \label{subsection: a_fixed_untwisted_affine_kac_moody_algebra}
+        \todo[inline]{All untwisted affine Kac-Moody algebra conventions have been moved here.}
+        A construction that we will be making use of frequently is the untwisted affine Kac-Moody algebra associated to a finite-dimensional simple Lie algebra. Let us briefly recall how it is constructed. For details, we refer the reader to \cite[Chapters 6 and 7]{kac_infinite_dimensional_lie_algebras}.
+
+        Recall from example \ref{example: affine_lie_algebras_centres} that the Lie algebra:
+            $$\uce(\g[v^{\pm 1}]) \cong \g[v^{\pm 1}] \oplus k c_v$$
+        (with $c_v := v^{-1} \bar{d}v$ as in example \ref{example: toroidal_lie_algebras_centres}) carries a uniquely determined invariant symmetric bilinear form $(-, -)_{\uce(\g[v^{\pm 1}])}$ which is necessarily degenerate. However, by adding an extra element $D_{\aff}$ to the Lie algebra $\uce(\g[v^{\pm 1}])$ and by requiring that:
+            $$(c_v, D_{\aff})_{\uce(\g[v^{\pm 1}]) \oplus k D_{\aff}} = 1$$
+            $$(c_v, c_v)_{\uce(\g[v^{\pm 1}]) \oplus k D_{\aff}} = (D_{\aff}, D_{\aff})_{\uce(\g[v^{\pm 1}]) \oplus k D_{\aff}} = 0$$
+        one obtains the \textbf{untwisted affine Kac-Moody algebra} (in the sense of \cite[Chapter 7]{kac_infinite_dimensional_lie_algebras}):
+            $$\hat{\g} := \uce(\g[v^{\pm 1}]) \rtimes k D_{\aff}$$
+        The element $D_{\aff}$ can be shown to be the derivation on $\g[v^{\pm 1}]$ given by $\id_{\g} \tensor v \frac{d}{dv}$\footnote{Note that therefore $D_{\aff} \not = D_v$.}. It can also be shown that:
+            $$[D_{\aff}, c_v]_{\hat{\g}} = 0$$
+
+        We shall also fix once and for all the following non-degenerate, invariant, and symmetric $k$-bilinear form\footnote{Actually, any Kac-Moody algebra admits such a bilinear form, as noted in \cite[Chapter 2]{kac_infinite_dimensional_lie_algebras}. When the Kac-Moody algebra in question is of an untwisted affine type, the formula for bilinear form will be as we are presenting here.} on $\hat{\g}$:
+            $$(-, -)_{\hat{\g}} := (-, -)_{\uce(\g[v^{\pm 1}]) \rtimes D_{\aff}}$$
+        By construction, this restricts to $(-, -)_{\uce(\g[v^{\pm 1}])}$ on $\uce(\g[v^{\pm 1}])$, and for how this bilinear form is given, we refer the reader to the latter portion of example \ref{example: affine_lie_algebras_centres}. Also by construction\footnote{... and due also to the fact that $(-, -)_{\g}$ is non-degenerate when restricted down to $\h$.}, this bilinear form remains non-degenerate on the subspace:
+            $$\hat{\h} := \h \oplus k c_v \oplus k D_{\aff}$$
+        and hence induces a vector space isomorphism:
+            $$\hat{\h} \xrightarrow[]{\cong} \hat{\h}^*$$
+        given by:
+            $$h \mapsto (h, -)_{\hat{\g}}$$
+        It is not hard to see that $\hat{\h}$ is a maximal abelian Lie subalgebra of $\hat{\g}$ whose elements are $\ad$-diagonalisable, so it is reasonable to refer to $\hat{\h}$ as a \textbf{Cartan subalgebra} of $\hat{\g}$, in analogy with the Cartan subalgebra $\h$ of $\g$. The choice of Cartan subalgebra $\hat{\h}$ is fixed once and for all, and while it is true that all $\ad$-diagonalisable maximal abelian Lie subalgebras of $\hat{\g}$ are conjugate to one another in this setting as well (like for $\g$), this assertion is much more difficult (see \cite{kac_peterson_infinite_flag_varieties_and_conjugacy_of_cartan_subalgebras}), so we shall settle for defining \say{the} Cartan subalgebra of $\hat{\g}$ in the somewhat \textit{ad hoc} manner above.
+        
+        Now, any choice of basis for $\hat{\h}^*$ can be regarded as a choice of \textbf{simple roots} for $\hat{\g}$; let us fix once and for all such a basis:
+            $$\{\alpha_i\}_{1 \leq i \leq \dim_k \hat{\h}}$$
+        Like with finite-dimensional simple Lie algebras such as $\g$, this datum allows one to construct a Cartan matrix for $\hat{\g}$ in the same manner as was done for $\g$ in subsection \ref{subsection: finite_dimensional_simple_lie_algebras}:
+            $$\hat{C} := (c_{ij})_{1 \leq i, j \leq \dim_k \hat{\h}} := \left( \frac{2(\alpha_i, \alpha_j)_{\hat{\g}}}{(\alpha_i, \alpha_i)_{\hat{\g}}} \right)_{1 \leq i, j \leq \dim_k \hat{\h}}$$
+        Likewise, it can be shown that $\hat{C}$ is symmetrisable in the sense that there exists an invertible diagonal matrix:
+            $$\hat{D} := (d_{ij})_{1 \leq i, j \leq \dim_k \hat{\h}} = \left(\frac{2\delta_{i, j}}{(\alpha_i, \alpha_j)_{\hat{\g}}}\right)_{1 \leq i, j \leq \dim_k \hat{\h}}$$
+        and a symmetric matrix:
+            $$\hat{A} := (a_{ij})_{1 \leq i, j \leq \dim_k \hat{\h}} = \left((\alpha_i, \alpha_j)_{\hat{\g}}\right)_{1 \leq i, j \leq \dim_k \hat{\h}}$$
+        (which is nothing but the matrix representation of the bilinear form $(-, -)_{\hat{\g}}$ with respect to the basis $\{\alpha_i\}_{1 \leq i \leq \dim_k \hat{\h}}$), such that:
+            $$\hat{C} = \hat{D} \hat{A}$$
+        Furthermore, we have that $2\id - \hat{A}$ is the adjacency matrix of an undirected graph without loops, also typically referred to as the \textbf{Dynkin diagram} of $\hat{\g}$, and the \textbf{roots} of $\hat{\g}$ are the roots of this graph. The set of roots is denoted by:
+            $$\hat{\Phi}$$
+            
+        Observe that because the vector space isomorphism $\hat{\h} \xrightarrow[]{\cong} \hat{\h}^*$ given by $h \mapsto (h, -)_{\hat{\g}}$ restricts down to an isomorphism $\h \mapsto \h^*$ given by the same formula, due to the construction of the bilinear form $(-, -)_{\hat{\g}}$ (cf. example \ref{example: affine_lie_algebras_centres}), there exists an injection:
+            $$\Phi \subset \hat{\Phi}$$
+        Let us denote its image by:
+            $$\Re(\hat{\Phi})$$
+        and refer to the elements in this image (i.e. regard the roots of $\g$) as \textbf{real roots} of $\hat{\g}$.
+        
+        Now, a point of deviation from the finite-dimensional theory is that the Cartan matrix $\hat{C}$ is only positive-semi-definite in general, and since positive-semi-definite matrices are positive-definite if and only if they are invertible, $\hat{C}$ is generally not of full rank. Let us write:
+            $$\hat{l} := \rank \hat{C} \leq \dim_k \hat{\h}$$
+        and it will also be convenient to have the notation:
+            $$l := \rank C = \dim_k \h$$
+        Using the construction of the the non-degenerate bilinear form $(-, -)_{\hat{\g}}$ from the degenerate form $(-, -)_{\uce(\g[v^{\pm 1}])}$ - particularly how one as a single extra basis element $D_{\aff}$ to $\uce(\g[v^{\pm 1}])$ - it can be shown that:
+            $$\hat{l} = l + 1$$
+        $\hat{C}$ is therefore \textit{not of full rank}, and hence only \textit{positive-semi-definite}. The set of simple roots of $\hat{\g}$ can now be defined to be the following linearly independent subset of $\hat{\h}^*$:
+            $$\hat{\simpleroots} := \simpleroots \cup \{\delta - \theta\}$$
+        where:
+            $$\delta := (c_v, -)_{\hat{\g}} \in \hat{\h}^*$$
+        (cf. \cite[Section 7.4, p. 100]{kac_infinite_dimensional_lie_algebras}) is typically referred to as the \textbf{lowest positive imaginary root}, and $\theta$ is the highest element of $\Phi$. It can be shown that elements of the set:
+            $$\Im(\hat{\Phi}) := \Z\delta \setminus \{0\}$$
+        are in fact roots of $\hat{\g}$ (i.e. that $\Z\delta \setminus \{0\} = \Z\delta \cap \hat{\Phi}$); elements of this set are usually called \textbf{imaginary roots}. We remark that the reason for setting $\hat{\simpleroots} := \simpleroots \cup \{\delta - \theta\}$ as opposed to $\hat{\simpleroots} := \simpleroots \cup \{\theta\}$ or $\hat{\simpleroots} := \simpleroots \cup \{\theta\}$ is that 
+
+        An intrinsic way to characterise real and imaginary roots is that $\beta \in \Im(\hat{\Phi})$ if and only if $(\beta, \beta)_{\hat{\g}} = 0$ and $\beta \in \Re(\hat{\Phi})$ otherwise. The set of roots of $\hat{\g}$ thus decomposes into a disjoint union of the subsets of real and of imaginary roots:
+            $$\hat{\Phi} = \Re(\hat{\Phi}) \cup \Im(\hat{\Phi})$$
+        
+        The root lattice of $\hat{\g}$ can now be given as:
+            $$\hat{Q} := \Z\hat{\simpleroots}$$
+        Positive/negative roots are thus elements of:
+            $$\hat{\Phi}^+ := \hat{\Phi} \cap \hat{Q}^{\pm}$$
+        where:
+            $$\hat{Q}^{\pm} := \pm\Z_{\geq 0}\hat{\simpleroots}$$
+        Simple roots, in particular, are conventionally \textit{positive}.
+
+        The $Q$-grading on $\g$ and the natural $\Z$-grading on $k[v^{\pm 1}]$ induce, together, a $Q \x \Z$-grading on $\g$. Explicitly, for each $\lambda \in \Phi$, each $x \in \g_{\alpha}$, and each $m \in \Z$, one has that:
+            $$\deg x v^m = (\alpha, m)$$
+        Following \cite[Chapter 6]{kac_infinite_dimensional_lie_algebras}, we know that there is an isomorphism of $\Z$-modules:
+            $$\hat{Q} \xrightarrow[]{\cong} Q \x \Z$$
+            $$\alpha + m\delta \mapsto (\alpha, m)$$
+        (given for all $\alpha \in \Phi$ and all $m \in \Z$). As such, $\g$ can be equivalently viewed as being $\hat{Q}$-graded in the sense that for each $\alpha \in Q$, each $x \in \g_{\alpha}$, and each $m \in \Z$, one has that:
+            $$\deg x v^m = \alpha + m\delta$$
+        Additionally, let us recall from \cite[Chapter 7]{kac_infinite_dimensional_lie_algebras} that the root space decomposition of the untwisted affine Kac-Moody algebra $\hat{\g}$ takes the form:
+            $$\hat{\g} \cong \hat{\h} \oplus \bigoplus_{\beta \in \Re(\hat{\Phi})} \hat{\g}_{\beta} \oplus \bigoplus_{\beta \in \Im(\hat{\Phi})} \hat{\g}_{\beta}$$
+        with the root spaces being given by:
+            $$\forall \alpha + m\delta \in \Re(\hat{\Phi}): \hat{\g}_{\alpha + m\delta} \cong \g_{\alpha} v^m$$
+            $$\forall r\delta \in \Im(\hat{\Phi}): \hat{\g}_{r\delta} \cong \h v^r$$
+        In particular, this tells us that real roots are all of multiplicity $1$ (since $\dim_k \g_{\alpha} = 1$ for all $\alpha \in \Phi$), while imaginary roots are of multiplicity $l$.
+            
+        Finally, let us note that $\hat{\g}$ is isomorphic to the Lie algebra generated by the set of \textbf{Chevalley-Serre generators} (cf. \cite[Theorems 1.2, 1.4, and 9.11]{kac_infinite_dimensional_lie_algebras}\footnote{Theorem 9.11 is where the Serre relations for symmetrisable Kac-Moody algebras are established.}):
+            $$\{x_i^{\pm}, h_i\}_{i \in \hat{\simpleroots}}$$
+        The Lie algebrra isomorphism in question is given by:
+            $$x_{\delta}^{\pm} \mapsto x_{\theta}^{\pm} v^{\pm 1}$$
+        where $x_{\theta}^{\pm} \in \g_{\pm \theta}$ are chosen so that $(x_{\theta}^-, x_{\theta}^+)_{\g} = 1$. Because we are working under the assumption that $(x_i^-, x_i^+)_{\g} = 1$ for all $i \in \simpleroots$, the generators $x_i^{\pm} \in \hat{\g}$ are therefore automatically normalised so that:
+            $$(x_i^-, x_i^+)_{\hat{\g}} = 1$$

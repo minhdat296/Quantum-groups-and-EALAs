@@ -1,27 +1,6 @@
 \section{A root grading for Yangian extended toroidal Lie algebra} \label{section: root_grading_for_yangian_EALAs}
     As is now standard practice in infinite-dimensional Lie theory, infinite-dimensional Lie algebra induced from finite-dimensional simple Lie algebras ought to carry a grading by some kind of induced \say{higher root lattice} (e.g. affine Kac-Moody algebras are graded by the affinisations of the root lattices of the underlying finite-dimensional simple Lie algebras; cf. lemma \ref{lemma: root_grading_for_affine_lie_algebras}). There are many reasons as to why one might seek to endow Lie algebras with such gradings, but one rather important reason is that without a root grading of some sort - which in turn would give rise to some kind of triangular decomposition - one would have no hope of setting up a theory of highest-weight modules which, from practical experiences with cases such as $\g$ and $\hat{\g}$, we know to be an extremely powerful method for attacking the problem of classifying say, simple modules over Lie algebras. Therfore, it is natural to ask the question of whether or not our Yangian extended toroidal Lie algebra $\extendedtoroidal$ can also be endowed with such an induced grading, primarily because $\extendedtoroidal$ carries a non-degenerate invariant symmetric bilinear form.
 
-    A construction that we will be making use of frequently is the untwisted affine Kac-Moody algebra associated to a finite-dimensional simple Lie algebra. Let us briefly recall how it is constructed. For details, we refer the reader to \cite[Chapter 7]{kac_infinite_dimensional_lie_algebras}.
-
-    Recall from example \ref{example: affine_lie_algebras_centres} that on the Lie algebra:
-        $$\uce(\g[v^{\pm 1}]) \cong \g[v^{\pm 1}] \oplus k c_v$$
-    (with $c_v := v^{-1} \bar{d}v$ as in example \ref{example: toroidal_lie_algebras_centres}) carries a uniquely determined invariant symmetric bilinear form $(-, -)_{\uce(\g[v^{\pm 1}])}$ which is necessarily degenerate. However, by adding an extra element $\hat{D}$ to the Lie algebra $\uce(\g[v^{\pm 1}])$ and by requiring that:
-        $$(c_v, \hat{D})_{\uce(\g[v^{\pm 1}]) \oplus k \hat{D}} = 1$$
-        $$(c_v, c_v)_{\uce(\g[v^{\pm 1}]) \oplus k \hat{D}} = (\hat{D}, \hat{D})_{\uce(\g[v^{\pm 1}]) \oplus k \hat{D}} = 0$$
-    one obtains the \textbf{untwisted affine Kac-Moody algebra} (in the sense of \cite[Chapter 7]{kac_infinite_dimensional_lie_algebras}):
-        $$\hat{\g} := \uce(\g[v^{\pm 1}]) \rtimes k \hat{D}$$
-    The element $\hat{D}$ can be shown to be the derivation on $\g[v^{\pm 1}]$ given by $\id_{\g} \tensor v \frac{d}{dv}$\footnote{Note that therefore $\hat{D} \not = D_v$.}. It can also be shown that:
-        $$[\hat{D}, c_v]_{\hat{\g}} = 0$$
-
-    \begin{convention} \label{conv: a_fixed_untwisted_affine_kac_moody_algebra}
-        We shall also fix once and for all a Cartan subalgebra:
-            $$\hat{\h}$$
-        of the untwisted affine Kac-Moody algebra $\hat{\g}$, along with a non-degenerate, invariant, and symmetric $k$-bilinear form:
-            $$(-, -)_{\hat{\g}}$$
-        on $\hat{\g}$ (cf. \cite[Chapter 2]{kac_infinite_dimensional_lie_algebras}). The set of simple roots of $\hat{\g}$ with respect to the aforementioned choices of Cartan subalgebra and non-degenerate invariant bilinear form will be denoted by:
-            $$\hat{\simpleroots}$$
-    \end{convention}
-
     \subsection{Positive/negative extended toroidal Lie algebras}
         For the purposes of establishing a triangular decomposition for $\extendedtoroidal$, we will be firstly needing an auxiliary Lie subalgebra of $\toroidal$ that is orthogonally complementary to $\toroidal^{\positive}$ inside $\toroidal$, which is to give rise to a Lie subalgebra $\extendedtoroidal^{\negative}$ of $\extendedtoroidal$ that is orthogonally complementary to $\extendedtoroidal^{\positive}$.
 
@@ -65,21 +44,7 @@
                 This can be inferred from lemma \ref{lemma: explicit_commutators_between_basis_elements_of_toroidal_central_orthogonal_complement}.
             \end{proof}
 
-    \subsection{Root space and triangular decompositions for Yangian extended toroidal Lie algebras}
-        \begin{convention}
-            If $\fraku$ is a symmetrisable Kac-Moody algebra and $V$ is a $\fraku$-module, then for each weight $\lambda \in \Pi(V)$, we shall be denoting the corresponding weight space by $V[\lambda]$.
-        \end{convention}
-    
-        Let us firstly recall two equivalent natural gradings on the affine Kac-Moody algebra $\hat{\g}$. 
-        \begin{remark}[$\hat{Q}$-grading on $\hat{\g}$]
-            The $Q$-grading on $\g$ and the natural $\Z$-grading on $A := k[v^{\pm 1}]$ induce, together, a $Q \x \Z$-grading on $\g$. Explicitly, for each $\lambda \in \Phi$, each $x \in \g_{\alpha}$, and each $m \in \Z$, one has that:
-                $$\deg x v^m = (\alpha, m)$$
-            Following \cite[Chapter 6]{kac_infinite_dimensional_lie_algebras}, we know that there is an isomorphism of $\Z$-modules:
-                $$\hat{Q} \xrightarrow[]{\cong} Q \x \Z$$
-                $$\alpha + m\delta \mapsto (\alpha, m)$$
-            (given for all $\alpha \in \Phi$ and all $m \in \Z$), with $\delta$ denoting the lowest positive imaginary root. As such, $\g$ can be equivalently viewed as being $\hat{Q}$-graded in the sense that for each $\alpha \in Q$, each $x \in \g_{\alpha}$, and each $m \in \Z$, one has that:
-                $$\deg x v^m = \alpha + m\delta$$
-        \end{remark}
+    \subsection{Root grading and triangular decomposition for Yangian extended toroidal Lie algebras}
         For what follows, let us remind the reader that it is important that we make the assumption that:
             $$\extendedtoroidal \cong \toroidal \rtimes \d_{[2]}$$
         \begin{proposition}[Induced $Q \x \Z$-grading on $\extendedtoroidal$] \label{prop: root_grading_on_extended_toroidal_lie_algebras}
@@ -135,18 +100,6 @@
                 with the $\d_{[2]}$-summand being the usual commutator of derivations $[-, -]$ inherited from $\der_{k}(A)$, while the $\z_{[2]}$-summand is undetermined, but can be viewed as twist of $[-, -]$ by a cocycle $\sigma \in H^2_{\Lie}(\d_{[2]}, \z_{[2]})$ (cf. theorem \ref{theorem: non_uniqueness_of_yangian_extended_lie_algebras}). For this reason, we can and must choose the restriction of $[-, -]_{\extendedtoroidal}$ down to $\d_{[2]}$ to be the usual commutator $[-, -]$ for the construction of our $Q \x \Z$-grading. 
             \end{proof}
 
-        \begin{remark}
-            For what follows, let us recall from \cite[Chapter 7]{kac_infinite_dimensional_lie_algebras} that the root space decomposition of the untwisted affine Kac-Moody algebra $\hat{\g}$ takes the form:
-                $$\hat{\g} \cong \hat{\h} \oplus \bigoplus_{\beta \in \Re(\hat{\Phi})} \hat{\g}_{\beta} \oplus \bigoplus_{\beta \in \Im(\hat{\Phi})} \hat{\g}_{\beta}$$
-            in which the untwisted affine root system $\hat{\Phi}$ decomposes into a disjoint union of the subsets of real and imaginary roots:
-                $$\hat{\Phi} \cong \Re(\hat{\Phi}) \cup \Im(\hat{\Phi})$$
-            where:
-                $$\Re(\hat{\Phi}) \cong \Phi + \Z\delta \cong \Phi \x \Z$$
-                $$\Im(\hat{\Phi}) \cong (\Z \setminus \{0\})\delta$$
-            and the corresponding root spaces are given by:
-                $$\forall \alpha + m\delta \in \Re(\hat{\Phi}): \hat{\g}_{\alpha + m\delta} \cong \g_{\alpha} v^m$$
-                $$\forall r\delta \in \Im(\hat{\Phi}): \hat{\g}_{r\delta} \cong \h v^r$$
-        \end{remark}    
         The following is a corollary to proposition \ref{prop: root_grading_on_extended_toroidal_lie_algebras}. One can see it to be true simply by looking at the degrees of elements of $\extendedtoroidal$. 
         \begin{theorem}[Root grading for extended toroidal Lie algebras] \label{theorem: root_grading_for_extended_toroidal_lie_algebras}
             The weight spaces of the adjoint action of $\hat{\g}$ on $\extendedtoroidal$ can be given explicitly in terms of the basis elements of the latter in the following manner:
@@ -207,10 +160,8 @@
                 is finite-dimensional, namely of dimension $\dim_{k} \h + 2 + 2$, with each summand of $2$ corresponding to one of the direct summands $k c_v \oplus k D_v$ and $k c_t \oplus k D_t$ of $\extendedtoroidal_0$, similar to how:
                     $$\dim_{k} \hat{\h} = \dim_{k} \h + 2$$
                 in the affine Kac-Moody case, where the summand of $2$ corressponds to the direct summand of the $1$-dimensional centre and the subspace spanned by the canonical degree derivation. From this, we infer that $\extendedtoroidal$ ought to admit two distinct weights:
-                    $$\delta_v, \delta_t$$
-                with respect to the adjoint action of $\hat{\g}$. In particular, these weights are to be the image of the derivations:
-                    $$D_v, D_t \in \extendedtoroidal_0$$
-                under the dualising map $\extendedtoroidal_0 \xrightarrow[]{\cong} \extendedtoroidal_0^*$ given by $H \mapsto (H, -)_{\extendedtoroidal}$ for every $H \in \extendedtoroidal_0$. Note that because:
+                    $$\delta_v := (c_v, -)_{\extendedtoroidal}, \delta_t := (c_t, -)_{\extendedtoroidal}$$
+                i.e. they are dual to the central elements $c_v, c_t$ under the vector space isomorphism $\extendedtoroidal_0 \xrightarrow[]{\cong} \extendedtoroidal_0^*$ given by $H \mapsto (H, -)_{\extendedtoroidal}$. Note that because:
                     $$(\d_{[2]}, \d_{[2]})_{\extendedtoroidal} = 0$$
                 per the construction of the bilinear form $(-, -)_{\extendedtoroidal}$ (cf. convention \ref{conv: orthogonal_complement_of_toroidal_centres}), we have that:
                     $$(\delta_v, \delta_v)_{\extendedtoroidal} = (\delta_t, \delta_t)_{\extendedtoroidal} = 0$$
