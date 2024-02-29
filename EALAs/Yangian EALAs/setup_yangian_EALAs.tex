@@ -22,7 +22,7 @@
             $$(x v^m t^p, y v^n t^q)_{\g_{[2]}} := (x, y)_{\g} \delta_{(m, p) + (n, q), (0, -1)}$$
         given for all $x, y \in \g$ and all $(m, p), (n, q) \in \Z^2$; sometimes, we will refer to this as the \textbf{Yangian form} or the \textbf{Yangian pairing}. It is easy to see that the bilinear form:
             $$(-, -)_{\g_{[2]}}$$
-        is symmetric, non-degenerate, and invariant. Because $\toroidal$ has a non-trivial centre, any invariant (symmetric) bilinear form thereon (so in particular, any extension of $(-, -)_{\g_{[2]}}$ to $\toroidal$) is necessarily degenerate. The purpose of constructing \say{Yangian extended toroidal Lie algebras} is to remedy such degeneracy.
+        is symmetric, non-degenerate, and invariant. Because $\toroidal$ has a non-trivial centre, any invariant (symmetric) bilinear form thereon (so in particular, any extension of $(-, -)_{\g_{[2]}}$ to $\toroidal$) is necessarily degenerate (see remark \ref{remark: extending_bilinear_forms_to_central_extensions}). The purpose of constructing \say{Yangian extended toroidal Lie algebras} is to remedy such degeneracy.
 
     \subsection{Untwisted affine Kac-Moody algebras} \label{subsection: a_fixed_untwisted_affine_kac_moody_algebra}
         \todo[inline]{All untwisted affine Kac-Moody algebra conventions have been moved here.}
@@ -30,7 +30,7 @@
 
         Recall from example \ref{example: affine_lie_algebras_centres} that the Lie algebra:
             $$\uce(\g[v^{\pm 1}]) \cong \g[v^{\pm 1}] \oplus k c_v$$
-        (with $c_v := v^{-1} \bar{d}v$ as in example \ref{example: toroidal_lie_algebras_centres}) carries a uniquely determined invariant symmetric bilinear form $(-, -)_{\uce(\g[v^{\pm 1}])}$ which is necessarily degenerate. However, by adding an extra element $D_{\aff}$ to the Lie algebra $\uce(\g[v^{\pm 1}])$ and by requiring that:
+        (with $c_v := v^{-1} \bar{d}v$ as in example \ref{example: toroidal_lie_algebras_centres}) carries a uniquely determined invariant symmetric bilinear form $(-, -)_{\uce(\g[v^{\pm 1}])}$ which is necessarily degenerate (see remark \ref{remark: extending_bilinear_forms_to_central_extensions}). However, by adding an extra element $D_{\aff}$ to the Lie algebra $\uce(\g[v^{\pm 1}])$ and by requiring that:
             $$(c_v, D_{\aff})_{\uce(\g[v^{\pm 1}]) \oplus k D_{\aff}} = 1$$
             $$(c_v, c_v)_{\uce(\g[v^{\pm 1}]) \oplus k D_{\aff}} = (D_{\aff}, D_{\aff})_{\uce(\g[v^{\pm 1}]) \oplus k D_{\aff}} = 0$$
         one obtains the \textbf{untwisted affine Kac-Moody algebra} (in the sense of \cite[Chapter 7]{kac_infinite_dimensional_lie_algebras}):

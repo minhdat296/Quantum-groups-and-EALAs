@@ -203,3 +203,38 @@
         \begin{proposition}[Perfect Lie algebras admit UCEs] \label{prop: perfect_lie_algebras_admit_UCEs}
             \cite[Lemma 1.10]{garland_arithmetics_of_loop_groups} Let $k$ be a field and $\a$ is a Lie algebra over $k$. Then $\a$ admits a UCE if and only if it is perfect.
         \end{proposition}
+
+        Let us conclude this subsection by making note of the following fact about the process of extending invariant bilinear forms from Lie algebras to their central extensions.
+        \todo[inline]{Added remark about extending bilinear forms to central extensions.}
+        \begin{remark}[Extending invariant bilinear forms to central extensions] \label{remark: extending_bilinear_forms_to_central_extensions}
+            Let $k$ be a field.
+            
+            Let $\a$ be a Lie algebra over $k$ and $(-, -)$ is an invariant symmetric $k$-bilinear form thereon. Additionally, let:
+                $$0 \to \z \to \frake \to \a \to 0$$
+            be a central Lie algebra extension of $\a$ such that $\z \not \cong 0$. By proposition \ref{prop: lie_brackets_on_extensions}, we know that for all $X, Y \in \a$, we have that:
+                $$[X, Y]_{\frake} = [X, Y]_{\a} + K(X, Y)$$
+            for some $K(X, Y) \in \z$ depending on the choices of $X, Y$.
+            
+            Suppose that $\<-, -\>$ is any extension of $(-, -)$ to $\frake$, i.e. $\<-, -\>$ is a symmetric $k$-bilinear form on $\frake$ such that:
+                $$\<-, -\>|_{\Sym^2_k( \a )} = (-, -)$$
+            Assume furthermore, that:
+                $$\<\a, \z\> = 0, \<\z, \z\> = 0$$ 
+            Then, note firstly that $\<-, -\>$ is necessarily invariant: indeed, for any $X, Y, Z \in \a$, we have that:
+                $$
+                    \begin{aligned}
+                        \<[X, Y]_{\frake}, Z\> & = \< [X, Y]_{\a} + K(X, Y), Z \>
+                        \\
+                        & = ([X, Y]_{\a}, Z)
+                        \\
+                        & = (X, [Y, Z]_{\a})
+                        \\
+                        & = \< X, [Y, Z]_{\a} + K(Y, Z) \>
+                        \\
+                        & = \< X, [Y, Z]_{\frake} \>
+                    \end{aligned}
+                $$
+            Furthermore, $\<-, -\>$ must be degenerate, regardless of whether or not $(-, -)$ is degenerate to begin with: to see why, it suffices to show that the radical\footnote{If $V$ is a vector space and $B$ is a symmetric bilinear form on $V$, then the \textbf{radical} of $B$ is then given by $\Rad B := \{v \in V \mid \forall w \in V: B(v, w) = 0\}$.} of $\<-, -\>$ is non-zero, for which we can simply consider the following for any $X, Y \in \a$ and any $K \in \z$, and then exploit the invariance of $\<-, -\>$:
+                $$\<K, [X, Y]_{\frake}\> = \<[K, X]_{\frake}, Y\> = \<0, Y\> = 0$$
+
+            Not every Lie algebra with a non-trivial centre arises as a central extension (see \cite[Section 1]{garland_arithmetics_of_loop_groups} for details), so it is not true that any invariant symmetric bilinear form on such a Lie algebra must be degenerate. Central elements can pair non-trivially with other elements, such as in the construction of untwisted affine Kac-Moody algebras (cf. subsection \ref{subsection: a_fixed_untwisted_affine_kac_moody_algebra}) or in the construction of so-called \say{extended toroidal Lie algebras} (cf. definition \ref{def: extended_toroidal_lie_algebras}).
+        \end{remark}
