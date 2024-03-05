@@ -11,10 +11,12 @@
             $$[x f, y g]_{\g_{[2]}^{\negative}} := [x, y]_{\g} fg$$
         for all $x, y \in \g$ and all $f, g \in A^{\neg}$. It is not hard to see that there is a direct sum decomposition of Lie algebras:
             $$\g_{[2]} \cong \g_{[2]}^{\positive} \oplus \g_{[2]}^{\negative}$$
-        Furthermore, the Lie algebra $\g_{[2]}^{\negative}$ (much like $\g_{[2]}$ and $\g_{[2]}^{\positive}$) is also perfect and hence admits a UCE (cf. proposition \ref{prop: perfect_lie_algebras_admit_UCEs}), which shall be denoted by $\toroidal^{\negative}$. According to theorem \ref{theorem: kassel_realisation}, it can be identified as:
+        Furthermore, the Lie algebra $\g_{[2]}^{\negative}$ (much like $\g_{[2]}$ and $\g_{[2]}^{\positive}$) is also perfect and hence, according to proposition \ref{prop: perfect_lie_algebras_admit_UCEs}, admits a UCE:
+            $$\toroidal^{\negative} := \uce(\g_{[2]}^-)$$
+        According to theorem \ref{theorem: kassel_realisation}, it can be identified as:
             $$\toroidal^{\negative} \cong \g_{[2]}^{\negative} \oplus \z_{[2]}^{\negative}$$
         with $\z_{[2]}^{\negative}$ being the orthogonal complement of $\z_{[2]}^{\positive}$ inside $\z_{[2]}$, i.e.:
-            $$\z_{[2]} \cong \z_{[2]}^{\positive} \oplus \z_{[2]}^{\negative}$$
+            $$\z_{[2]} = \z_{[2]}^{\positive} \oplus \z_{[2]}^{\negative}$$
         This can be inferred from the computations of bases for $\z_{[2]}$ and $\z_{[2]}^{\positive}$ carried out in example \ref{example: toroidal_lie_algebras_centres}.
         
         Let us now make the following constructions:
@@ -22,13 +24,18 @@
             \item
                 $$\d_{[2]}^{\positive} := ( \bigoplus_{(r, s) \in \Z \x \Z_{\leq 0} } k D_{r, s} ) \oplus k D_t$$
                 $$\d_{[2]}^{\negative} := ( \bigoplus_{(r, s) \in \Z \x \Z_{> 0} } k D_{r, s} ) \oplus k D_v$$
-            shall respectively be the Lie subalgebras of $\d_{[2]}$ which are graded-dual to $\z_{[2]}^{\positive/\negative}$ with respect to $(-, -)_{\extendedtoroidal}$;
+            shall respectively be the \textit{vector subspaces}\footnote{Not yet Lie subalgebras!} of $\d_{[2]}$ which are graded-dual to $\z_{[2]}^{\positive/\negative}$ with respect to $(-, -)_{\extendedtoroidal}$;
             \item
                 $$\extendedtoroidal^{\positive/\negative} := \toroidal^{\positive/\negative} \oplus \d_{[2]}^{\positive/\negative}$$
         \end{itemize}
-        These constructions give rise to two orthogonally complementary Lie subalgebras of $\extendedtoroidal$ that we will make use of to establish a triangular decomposition for $\extendedtoroidal$, provided that we make the assumption that:
-            $$\extendedtoroidal \cong \toroidal \rtimes \d_{[2]}$$
-        from now on.
+        \begin{remark}
+            These constructions give rise to two orthogonally complementary Lie subalgebras of $\extendedtoroidal$ that we will make use of to establish a triangular decomposition for $\extendedtoroidal$ (cf. proposition \ref{prop: triangular_decomposition_of_extended_toroidal_lie_algebras}), provided that we make the assumption that:
+                $$\extendedtoroidal \cong \toroidal \rtimes \d_{[2]}$$
+            from now on. Our reasoning for making this assumption is that, without it, it is not clear (perhaps not even guaranteed) that given $D, D' \in \d_{[2]}^{\positive/\negative}$, we would then also have:
+                $$[D, D']_{\extendedtoroidal} \in \d_{[2]}^{\positive/\negative}$$
+            as we only know \textit{a priori} that $[D, D']_{\extendedtoroidal} \in \d_{[2]}^{\positive/\negative} \oplus \z_{[2]}$, not even whether or not it is true that $[D, D']_{\extendedtoroidal} \in \d_{[2]}^{\positive/\negative} \oplus \z_{[2]}^{\positive/\negative}$ (cf. remark \ref{remark: non_uniqueness_of_yangian_extended_lie_algebras} and theorem \ref{theorem: non_uniqueness_of_yangian_extended_lie_algebras}). In other words, without the assumption, it is not clear that $\d_{[2]}^{\positive/\negative}$ would be Lie subalgebras of $\d_{[2]}$, and consequently, whether or not the vector spaces $\extendedtoroidal^{\positive/\negative}$ would be Lie subalgebras of $\extendedtoroidal$ (as it is already known that the vector spaces $\toroidal^{\positive/\negative}$ are Lie subalgebras of $\toroidal$). If we do assume that $\extendedtoroidal \cong \toroidal \rtimes \d_{[2]}$, on the other hand, then through lemma \ref{lemma: positive/negative_extended_toroidal_lie_algebras}, we shall see that indeed, the vector spaces $\extendedtoroidal^{\positive/\negative}$ are closed under $[-, -]_{\extendedtoroidal}$ and hence are Lie subalgebras of $\extendedtoroidal$.
+        \end{remark}
+        \todo[inline]{Added explanation for the assumption that $\extendedtoroidal \cong \toroidal \rtimes \d_{[2]}$.}
         
         \begin{lemma}[Positive/negative extended toroidal Lie algebras] \label{lemma: positive/negative_extended_toroidal_lie_algebras}
             The vector spaces $\extendedtoroidal^{\positive/\negative}$ are Lie subalgebras of $\extendedtoroidal$ with respect to the Lie bracket $[-, -]_{\extendedtoroidal}$.
@@ -41,12 +48,14 @@
                     $$(r, s) \in \Z \x \Z_{> 0} \implies [D_{r, s}, D_v] \in \d_{[2]}^{\negative}$$
                 for which we rely on the assumption that:
                     $$\extendedtoroidal \cong \toroidal \rtimes \d_{[2]}$$
-                This can be inferred from lemma \ref{lemma: explicit_commutators_between_basis_elements_of_toroidal_central_orthogonal_complement}.
+                This can be inferred from the explicit computations done in the proof of lemma \ref{lemma: explicit_commutators_between_basis_elements_of_toroidal_central_orthogonal_complement}.
             \end{proof}
 
     \subsection{Root grading and triangular decomposition for Yangian extended toroidal Lie algebras}
         For what follows, let us remind the reader that it is important that we make the assumption that:
             $$\extendedtoroidal \cong \toroidal \rtimes \d_{[2]}$$
+        Also, for notions related to untwisted affine Kac-Moody algebras, we refer the reader back to subsection \ref{subsection: a_fixed_untwisted_affine_kac_moody_algebra}.
+            
         \begin{proposition}[Induced $Q \x \Z$-grading on $\extendedtoroidal$] \label{prop: root_grading_on_extended_toroidal_lie_algebras}
             Define the following grading on $\toroidal$\footnote{Note that we can not simply define a grading on $\g_{[2]}$ alone, since $[\g_{[2]}, \g_{[2]}]_{\toroidal} \not \subset \g_{[2]}$.}, naturally induced by the natural $Q \x \Z$-grading on $\g$.
             
@@ -103,9 +112,9 @@
         The following is a corollary to proposition \ref{prop: root_grading_on_extended_toroidal_lie_algebras}. One can see it to be true simply by looking at the degrees of elements of $\extendedtoroidal$. 
         \begin{theorem}[Root grading for extended toroidal Lie algebras] \label{theorem: root_grading_for_extended_toroidal_lie_algebras}
             The weight spaces of the adjoint action of $\hat{\g}$ on $\extendedtoroidal$ can be given explicitly in terms of the basis elements of the latter in the following manner:
-                $$\forall (\alpha, m) \in \Phi \x \Z: \extendedtoroidal_{\alpha + m\delta} \cong \hat{\g}_{\alpha + m\delta}[t^{\pm 1}]$$
+                $$\forall (\alpha, m) \in \Phi \x \Z: \extendedtoroidal_{\alpha + m\delta} \cong \hat{\g}_{\alpha + m\delta} \tensor_k k[t^{\pm 1}]$$
                 $$
-                    \forall r \in \Z \setminus \{0\}: \extendedtoroidal_{r\delta} \cong \hat{\g}_{r\delta}[t^{\pm 1}] \oplus \bigoplus_{s \in \Z} ( k K_{r, s} \oplus k D_{-r, s} )
+                    \forall r \in \Z \setminus \{0\}: \extendedtoroidal_{r\delta} \cong \hat{\g}_{r\delta} \tensor_k k[t^{\pm 1}] \oplus \bigoplus_{s \in \Z} ( k K_{r, s} \oplus k D_{-r, s} )
                 $$
                 $$\extendedtoroidal_0 \cong \h \oplus (k c_v \oplus k c_t) \oplus (k D_v \oplus k D_t)$$
             Furthermore, $\extendedtoroidal$ is a weight module of $\hat{\g}$, i.e.:
@@ -115,29 +124,41 @@
             Recall the triple of Lie algebras:
                 $$\extendedtoroidal, \extendedtoroidal^{\positive}, \extendedtoroidal^{\negative}$$
             from lemma \ref{lemma: positive/negative_extended_toroidal_lie_algebras}. Via theorem \ref{theorem: root_grading_for_extended_toroidal_lie_algebras}, we see that the Lie subalgebras $\extendedtoroidal^{\positive/\negative}$ admit the following weight space decompositions, when regarded as $\hat{\g}$-modules of $\extendedtoroidal$:
+                $$\extendedtoroidal^{\positive/\negative} \cong \bigoplus_{\beta \in \hat{\Phi} \cup \{0\}} \extendedtoroidal^{\positive/\negative}_{\beta}$$
+            where, for each $\beta \in \hat{\Phi}$, we have written:
+                $$\extendedtoroidal^{\positive/\negative}_{\beta} := \extendedtoroidal^{\positive/\negative} \cap \extendedtoroidal_{\beta}$$
+            Explicitly, the weight spaces are given as follows:
+            \todo[inline]{Fixed some typos in the descriptions of the $\hat{\g}$ weight spaces of $\extendedtoroidal^{\positive/\negative}$.}
                 $$
                     \forall (\alpha, m) \in \Phi \x \Z:
                     \begin{cases}
-                        \extendedtoroidal^{\positive}_{\alpha + m\delta} \cong \hat{\g}_{\alpha + m\delta} \tensor_{k} k[t]
+                        \extendedtoroidal^{\positive}_{\alpha + m\delta} \cong \hat{\g}_{\alpha + m\delta} \tensor_k k[t]
                         \\
-                        \extendedtoroidal^{\negative}_{\alpha + m\delta} \cong \hat{\g}_{\alpha + m\delta} \tensor_{k} t^{-1}k[t^{-1}]
+                        \extendedtoroidal^{\negative}_{\alpha + m\delta} \cong \hat{\g}_{\alpha + m\delta} \tensor_k t^{-1}k[t^{-1}]
                     \end{cases}
                 $$
                 $$
                     \forall r \in \Z \setminus \{0\}:
                     \begin{cases}
-                        \text{$\extendedtoroidal^{\positive} \cong \hat{\g}_{r\delta}[t^{\pm 1}] \oplus \bigoplus_{s \in \Z_{\leq 0}} (k K_{r, s} \oplus k D_{-r, s})$ if $r > 0$}
+                        \text{$\extendedtoroidal^{\positive}_{r\delta} \cong \hat{\g}_{r\delta} \tensor_k k[t] \oplus \bigoplus_{s \in \Z_{\leq 0}} (k K_{r, s} \oplus k D_{-r, s})$ if $r > 0$}
                         \\
-                        \text{$\extendedtoroidal^{\negative} \cong \hat{\g}_{r\delta}[t^{\pm 1}] \oplus \bigoplus_{s \in \Z_{> 0}} (k K_{r, s} \oplus k D_{-r, s})$ if $r < 0$}
+                        \text{$\extendedtoroidal^{\positive}_{r\delta} \cong \hat{\g}_{r\delta} \tensor_k k[t]$ if $r < 0$}
                     \end{cases}
                 $$
-                $$\extendedtoroidal^{\positive}_0 \cong \h \oplus k c_v \oplus k D_t, \extendedtoroidal^{\negative}_0 \cong \h \oplus k c_t \oplus k D_v$$
-            Of course, one has also from these constructions that:
-                $$\extendedtoroidal^{\positive/\negative} \cong \bigoplus_{\beta \in \hat{\Phi} \cup \{0\}} \extendedtoroidal^{\positive/\negative}_{\beta}$$
+                $$
+                    \forall r \in \Z \setminus \{0\}:
+                    \begin{cases}
+                        \text{$\extendedtoroidal^{\positive}_{r\delta} \cong \hat{\g}_{r\delta} \tensor_k t^{-1}k[t^{-1}]$ if $r > 0$}
+                        \\
+                        \text{$\extendedtoroidal^{\negative}_{r\delta} \cong \hat{\g}_{r\delta} \tensor_k t^{-1}k[t^{-1}] \oplus \bigoplus_{s \in \Z_{> 0}} (k K_{r, s} \oplus k D_{-r, s})$ if $r < 0$}
+                    \end{cases}
+                $$
+                $$\extendedtoroidal^{\positive}_0 \cong \h \oplus k c_v \oplus k D_t$$
+                $$\extendedtoroidal^{\negative}_0 \cong \h \oplus k c_t \oplus k D_v$$
         \end{corollary}
         
         \begin{remark} \label{remark: toroidal_root_systems}
-            The $\hat{Q}$-grading of $\extendedtoroidal$ as in theorem \ref{theorem: root_grading_for_extended_toroidal_lie_algebras} induces pairing of weight spaces in the following manner.
+            The $\hat{Q}$-grading of $\extendedtoroidal$ as in theorem \ref{theorem: root_grading_for_extended_toroidal_lie_algebras} induces pairings of weight spaces in the following manner.
             \begin{enumerate}
                 \item  Firstly, note that for each real root:
                     $$\alpha + m\delta \in \Re(\hat{\Phi})$$

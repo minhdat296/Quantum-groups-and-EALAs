@@ -43,7 +43,7 @@
                 $$[x f, y g]_{\g[v^{\pm 1}]} = [x, y]_{\g} fg + (x, y)_{\g} \Res_{v = 0}(g df) v^{-1} \bar{d}v$$
                 
             Note also, that there is a non-degenerate and invariant\footnote{Because $(-, -)_{\g}$ is invariant.} symmetric bilinear form on $\g[v^{\pm 1}]$ given by:
-                $$(xf, yg)_{\g[v^{\pm 1}]} := (x, y)_{\g} \Res_{v = 0} f dg$$
+                $$(xf, yg)_{\g[v^{\pm 1}]} := (x, y)_{\g} \Res_{v = 0}(g df)$$
             for all $x, y \in \g$ and all $f, g \in k[v^{\pm 1}]$. By invariance, the extension of this bilinear form to $\uce(\g[v^{\pm 1}])$ is necessarily invariant and degenerate (see remark \ref{remark: extending_bilinear_forms_to_central_extensions}).
 
             Let us also note that unlike $\uce(\g[v^{\pm 1}])$, the UCE of the perfect Lie algebra $\g[v]$ is trivial, since:
@@ -159,8 +159,9 @@
                 $$[ H_{i, r}, X_{j, s}^{\pm} ] = \pm (\alpha_i, \alpha_j) X_{j, r + s}^{\pm}$$
                 $$[ X_{i, r}^+, X_{j, s}^- ] = \delta_{ij} H_{i, r + s}$$
                 $$[ X_{i, r + 1}^{\pm}, X_{j, s}^{\pm} ] - [ X_{i, r}^{\pm}, X_{j, s + 1}^{\pm} ] = 0$$
-                $$\ad(X_{i, 0}^{\pm})^{1 - c_{ij}}( X_{j, s}^{\pm} ) = 0$$
                 $$[K, \uce(\g[v^{\pm}, t^{\pm 1}])] = 0$$
+            as well as the \say{Serre relations}, given for all $i \not = j \in \hat{\simpleroots}$ and all $r, s \in \Z_{\geq 0}$:
+                $$\ad(X_{i, 0}^{\pm})^{1 - c_{ij}}( X_{j, s}^{\pm} ) = 0$$
             The isomorphism in question is given as follows, for all $(i, r) \in \hat{\simpleroots} \x \Z$:
                 $$\forall (i, r) \in \simpleroots \x \Z: X_{i, r}^{\pm} \mapsto x_i^{\pm} t^r, H_{i, r} \mapsto h_i t^r$$
                 $$\forall (i, r) \in \{\theta\} \x \Z: X_{\theta, r}^{\pm} \mapsto x_{\mp \theta} v^{\pm 1} t^r, H_{\theta, r} \mapsto \check{\theta} t^r + c_v t^r$$
