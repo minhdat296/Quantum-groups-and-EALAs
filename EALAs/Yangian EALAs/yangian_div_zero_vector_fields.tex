@@ -245,30 +245,10 @@
         \begin{corollary}
             With respect to the bracket $[-, -]_{\extendedtoroidal}$, the vector subspace $\toroidal$ is actually a Lie ideal of $\extendedtoroidal$.
         \end{corollary}
-        In light of lemma \ref{lemma: derivation_action_on_toroidal_centres}, we see also that the $\z_{[2]}$-summands of the elements of $[\d_{[2]}, \g_{[2]}]_{\extendedtoroidal}$ (cf. lemma \ref{lemma: derivation_action_on_multiloop_algebras}) necessarily vanish., yielding us the following second corollary to the lemma. \todo{Previously a remark.}
-        \begin{corollary}[\texorpdfstring{$\z_{[2]}$}{}-summands of elements of \texorpdfstring{$[\d_{[2]}, \g_{[2]}]_{\extendedtoroidal}$}{}] \label{coro: derivation_action_on_multiloop_algebras}
-            The action of $\d_{[2]}$ on $\g_{[2]}$ as in lemma \ref{lemma: derivation_action_on_multiloop_algebras} satisfies:
-                $$[\d_{[2]}, \g_{[2]}]_{\extendedtoroidal} \subseteq \g_{[2]}$$
-        \end{corollary}
-            \begin{proof}
-                Firstly, let us note that by using invariance, we yield:
-                    $$( [ D, X ]_{\extendedtoroidal}, \xi )_{\extendedtoroidal} = (X, [\xi, D]_{\extendedtoroidal})_{\extendedtoroidal} = 0$$
-                wherein the last equality is due to the fact that:
-                    $$[\xi, D]_{\extendedtoroidal} \in \z_{[2]} \oplus \d_{[2]}$$
-                (cf. lemma \ref{lemma: derivation_action_on_multiloop_algebras}) and the fact that:
-                    $$( \g_{[2]}, \z_{[2]} \oplus \d_{[2]} )_{\extendedtoroidal} = 0$$
-                per the construction of the bilnear form $(-, -)_{\extendedtoroidal}$ as in convention \ref{conv: orthogonal_complement_of_toroidal_centres}. We thus have that:
-                    $$(K(X), \xi)_{\extendedtoroidal} = (X, [\xi, D]_{\extendedtoroidal})_{\extendedtoroidal} = 0$$
-                for every $\xi \in \d_{[2]}$. The non-degeneracy of $(-, -)_{\extendedtoroidal}$ then implies through this fact that:
-                    $$K(X) = 0$$
-                As such, we have that:
-                    $$[ \d_{[2]}, \g_{[2]} ]_{\extendedtoroidal} \subseteq \g_{[2]}$$
-                as claimed. 
-            \end{proof}
 
         We have now reached the following conclusion, as eluded to at the beginning of the subsection:
         \begin{proposition}[$\toroidal$ as a $\der_k(A)$-module] \label{prop: toroidal_lie_algebras_as_modules_over_vector_field_lie_algebras}
-            $\toroidal$ is a $\der_k(A)$-module, decomposing into a direct sum of the submodules $\g_{[2]}$ and $\z_{[2]}$. 
+            $\toroidal$ is a $\der_k(A)$-module.
         \end{proposition}
         We note that even in light of this proposition and the fact that $\extendedtoroidal$ admits $\toroidal$ as a Lie ideal, we still do not yet know enough to conclude that $\extendedtoroidal$ necessarily arises as a Lie algebra extension with kernel $\toroidal$. It remains to investigate how the brackets of the form:
             $$[D, D']_{\extendedtoroidal}$$
@@ -360,7 +340,31 @@
         \begin{corollary}
             For any $D, D' \in \d_{[2]}$, the $\d_{[2]}$-summand of $[D, D']_{\extendedtoroidal}$ is nothing but the commutator $DD' - D'D$.
         \end{corollary} 
-        In light of the above, it is also valuable to know how the $\d_{[2]}$-summand of the commutators:
+        \todo[inline]{Fixed statement and proof of the fact that $[\d_{[2]}, \g_{[2]}]_{\extendedtoroidal} \subseteq \g_{[2]}$.}
+        \begin{corollary}[\texorpdfstring{$\z_{[2]}$}{}-summands of elements of \texorpdfstring{$[\d_{[2]}, \g_{[2]}]_{\extendedtoroidal}$}{}] \label{coro: derivation_action_on_multiloop_algebras}
+            The action of $\d_{[2]}$ on $\g_{[2]}$ as in lemma \ref{lemma: derivation_action_on_multiloop_algebras} satisfies:
+                $$[\d_{[2]}, \g_{[2]}]_{\extendedtoroidal} \subseteq \g_{[2]}$$
+            From this, one can also infer that $\toroidal \cong \g_{[2]} \oplus \z_{[2]}$ is a direct sum of $\der_k(A)$-modules. 
+        \end{corollary}
+            \begin{proof}
+                From lemma \ref{lemma: derivation_action_on_multiloop_algebras}, we know that given some $D \in \d_{[2]}$ and some $x \in \g$ and $f \in A$, there shall exist $K(D, xf) \in \z_{[2]}$ (depending on the choices of $D$ and $x, f$) such that:
+                    $$[D, xf]_{\extendedtoroidal} = x D(f) + K(D, xf)$$
+                Next, consider the following:
+                    $$( \d_{[2]}, x D(f) + K(D, xf) )_{\extendedtoroidal} = ( \d_{[2]}, [D, xf]_{\extendedtoroidal} )_{\extendedtoroidal} = ( [\d_{[2]}, D]_{\extendedtoroidal}, xf )_{\extendedtoroidal} = 0$$
+                where the second equality holds thanks to invariance, and the third equality holds due to a combination of the fact that $[\d_{[2]}, \d_{[2]}]_{\extendedtoroidal} \subset \z_{[2]} \oplus \d_{[2]}$ (cf. proposition \ref{prop: lie_bracket_on_orthogonal_complement_of_toroidal_centre}) and the fact that $(\z_{[2]} \oplus \d_{[2]}, \g_{[2]})_{\extendedtoroidal}$ per the construction of the bilinear form $(-, -)_{\extendedtoroidal}$ (cf. convention \ref{conv: orthogonal_complement_of_toroidal_centres}). We also have the following, again per the construction of the bilinear form $(-, -)_{\extendedtoroidal}$:
+                    $$( \d_{[2]}, x D(f) + K(D, xf) )_{\extendedtoroidal} = ( \d_{[2]}, K(D, xf) )_{\extendedtoroidal}$$
+                which means that:
+                    $$( \d_{[2]}, K(D, xf) )_{\extendedtoroidal} = 0$$
+                The non-degeneracy of $(-, -)_{\extendedtoroidal}$ (or more particularly, the fact that $( \d_{[2]}, \z_{[2]} )_{\extendedtoroidal} \not = 0$) then implies that:
+                    $$K(D, xf) = 0$$
+                necessarily. This means that, indeed, we have that:
+                    $$[D, xf]_{\extendedtoroidal} = x D(f)$$
+                for all $D \in \d_{[2]}$ and all $x \in \g$ and all $f \in A$. Since $\g_{[2]}$ is generated by elements of the form $xf$, this implies that:
+                    $$[\d_{[2]}, \g_{[2]}]_{\extendedtoroidal} \subseteq \g_{[2]}$$
+                as claimed. 
+            \end{proof}
+        
+        In light of proposition \ref{prop: lie_bracket_on_orthogonal_complement_of_toroidal_centre}, it is also valuable to know how the $\d_{[2]}$-summand of the commutators:
             $$[D, D']_{\extendedtoroidal}$$
         are given explicitly. Later on, these computations will be used to prove that the centre of $\extendedtoroidal$ is $2$-dimensional, namely given by $k c_v \oplus k c_v$.
         \begin{lemma}[Explicitly commutators between basis elements of $\d_{[2]}$] \label{lemma: explicit_commutators_between_basis_elements_of_toroidal_central_orthogonal_complement}
