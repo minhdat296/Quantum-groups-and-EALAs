@@ -88,54 +88,36 @@
 
         In order to characterise centres of UCE Kassel constructed in the proof of \cite[Theorem 3.3(iii)]{kassel_universal_central_extensions_of_lie_algebras} a $k$-linear map:
             $$\e: \bigwedge^2 (\g \tensor_k A) \to \bar{\Omega}^1_{A/k}$$
-        by the formula\footnote{One can also take $\e(x f, y g) := -(x, y)_{\g} f \bar{d}g$, since $-f \bar{d}g \equiv g \bar{d}f \pmod{d(A)}$. This results in an isomorphic Lie algebra. We will switch back and forth between these choices depending on necessity.}:
+        by the formula\footnote{One can also take $\e(x f, y g) := -(x, y)_{\g} f \bar{d}g$, since $-f \bar{d}g \equiv g \bar{d}f \pmod{d(A)}$. This results in an isomorphic Lie algebra, but we have chosen $\e(x f, y g) := (x, y)_{\g} g \bar{d}f$ because this will make verifying that $\e$ is a $2$-cocycle easier.}:
             $$\e(x f, y g) := (x, y)_{\g} g \bar{d}f$$
-        for all $x, y \in \g$ and for all $f, g \in A$. This can be shown - relying on the $\g$-invariance of the bilinear form $(-, -)_{\g}$ - to be a $2$-cocycle of $\g \tensor_k A$ with coefficients in $\bar{\Omega}^1_{A/k}$\footnote{... i.e. a representative of an isomorphism class $[\e] \in H^2_{\Lie}(\g \tensor_k A, \bar{\Omega}^1_{A/k})$.} and hence gives a central extension $\fraku$ of $\g \tensor_k A$ by $\bar{\Omega}_{A/k}^1$ (cf. proposition \ref{prop: lie_brackets_on_extensions}), whose underlying $k$-vector space is:
-            $$(\g \tensor_k A) \oplus \bar{\Omega}_{A/k}^1$$
-        and whose Lie bracket is:
-            $$[-, -]_{\fraku} := [-, -]_{\g \tensor_k A} + \e$$
+        for all $x, y \in \g$ and for all $f, g \in A$. This can be shown - relying on the $\g$-invariance of the bilinear form $(-, -)_{\g}$ - to be a $2$-cocycle of $\g \tensor_k A$ with coefficients in $\bar{\Omega}^1_{A/k}$\footnote{... i.e. a representative of an isomorphism class $[\e] \in H^2_{\Lie}(\g \tensor_k A, \bar{\Omega}^1_{A/k})$.}. Per corollary \ref{coro: lie_brackets_on_central_extensions}, there is then a corresponding central extension:
+            $$\fraku \cong (\g \tensor_k A) \oplus^{\e} \bar{\Omega}_{A/k}^1$$
         \begin{lemma} \label{lemma: lie_brackets_on_UCEs_of_current_algebras}
-            $[-, -]_{\fraku}$ as constructed above is a well-defined Lie bracket.
+            The linear map $\e: \bigwedge^2 (\g \tensor_k A) \to \bar{\Omega}^1_{A/k}$ constructed above is a well-defined $2$-cocycle (cf. definition \ref{def: twisted_semi_direct_products}) of $\g \tensor_k A$ with values in $\bar{\Omega}^1_{A/k}$.
         \end{lemma}
+        \todo[inline]{Shortened proof of $\e$ being a $2$-cocycle.}
             \begin{proof}
-                By construction, it is already bilinear and skew-symmetric, so the only thing to show is that it satisfies the Jacobi identity. To this end, pick $x, y, z \in \g$ and $f, g, h \in A$ and then consider the following\footnote{We chose $\e(xf, yg) := (x, y)_{\g} g \bar{d}f$ because it makes the verification that $\e$ satisfies the Jacobi identity easier.} computations in $\bar{\Omega}^1_{A/k}$:
+                By construction, $\e$ is already bilinear and skew-symmetric, so the only thing to show is that it satisfies the Jacobi identity. To this end, pick $x, y, z \in \g$ and $f, g, h \in A$ and then consider the following\footnote{We chose $\e(xf, yg) := (x, y)_{\g} g \bar{d}f$ because it makes the verification that $\e$ satisfies the Jacobi identity easier.} computations in $\bar{\Omega}^1_{A/k}$:
                     $$
                         \begin{aligned}
-                            & [xf, [yg, zh]_{\fraku}]_{\fraku} + [yg, [zh, xf]_{\fraku}]_{\fraku} + [zh, [xf, yg]_{\fraku}]_{\fraku}
+                            & \e(xf, [y, z]_{\g} gh) + \e(yg, [z, x]_{\g} hf) + \e(zh, [x, y]_{\g} fg)
                             \\
-                            & = [xf, [y, z]_{\g} gh + \e(yg, zh)]_{\fraku} + [yg, [z, x]_{\g} hf + \e(zh, xf)]_{\fraku} + [zh, [x, y]_{\g} fg + \e(xf, yg)]_{\fraku}
+                            = & (x, [y, z]_{\g})_{\g} gh \bar{d}f + (y, [z, x]_{\g})_{\g} hf \bar{d}g + (z, [x, y]_{\g})_{\g} fg \bar{d}h
                             \\
-                            & = [xf, [y, z]_{\g} gh]_{\fraku} + [yg, [z, x]_{\g} hf]_{\fraku} + [zh, [x, y]_{\g} fg]_{\fraku}
+                            = & (x, [y, z]_{\g})_{\g} ( gh \bar{d}f + hf \bar{d}g + fg\bar{d}h )
                             \\
-                            & = 
-                            \begin{aligned}
-                                & \left( [x, [y, z]_{\g}]_{\g} fgh + \e(xf, [y, z]_{\g} gh) \right)
-                                \\
-                                + & \left( [y, [z, x]_{\g}]_{\g} ghf + \e(yg, [z, x]_{\g} hf) \right)
-                                \\
-                                + & \left( [z, [x, y]_{\g}]_{\g} hfg + \e(zh, [x, y]_{\g} fg) \right)
-                            \end{aligned}
-                            \\
-                            & = \e(xf, [y, z]_{\g} gh) + \e(yg, [z, x]_{\g} hf) + \e(zh, [x, y]_{\g} fg)
-                            \\
-                            & = (x, [y, z]_{\g})_{\g} gh \bar{d}f + (y, [z, x]_{\g})_{\g} hf \bar{d}g + (z, [x, y]_{\g})_{\g} fg \bar{d}h
-                            \\
-                            & = (x, [y, z]_{\g})_{\g} ( gh \bar{d}f + hf \bar{d}g + fg\bar{d}h )
-                            \\
-                            & = 0
+                            = & 0
                         \end{aligned}
                     $$
-                The fourth equality comes from the fact that $\g$ is a Lie algebra, and hence any triple of elements $x, y, z \in \g$ therein satisfies the Jacobi identity:
-                    $$[x, [y, z]_{\g}]_{\g} + [y, [z, x]_{\g}]_{\g} + [z, [x, y]_{\g}]_{\g} = 0$$
                 The last equality came from the fact that:
                     $$gh df + hf dg + fg dh = d(fgh)$$
                 in $\Omega^1_{A/k}$, per definition \ref{def: kahler_differentials} (see also remark \ref{remark: differentials_and_derivations}), which hence implies that:
                     $$gh \bar{d}f + hf \bar{d}g + fg \bar{d}h \equiv 0 \pmod{d(A)}$$
                 in $\bar{\Omega}^1_{A/k}$.
             \end{proof}
-        Kassel then showed that the Lie algebra $\fraku$ as above is a UCE of $\g \tensor_k A$. 
+        Kassel then showed that the central extension $(\g \tensor_k A) \oplus^{\e} \bar{\Omega}^1_{A/k}$ is in fact universal.
         \begin{theorem}[The Kassel realisation] \label{theorem: kassel_realisation}
             \cite[Corollary 3.5]{kassel_universal_central_extensions_of_lie_algebras} For the (perfect) Lie $k$-algebra $\g \tensor_k A$, we have that:
-                $$\uce(\g \tensor_k A) \cong (\g \tensor_k A) \oplus \bar{\Omega}^1_{A/k}$$
+                $$\uce(\g \tensor_k A) \cong (\g \tensor_k A) \oplus^{\e} \bar{\Omega}^1_{A/k}$$
             with Lie bracket as in lemma \ref{lemma: lie_brackets_on_UCEs_of_current_algebras}.
         \end{theorem}

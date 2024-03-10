@@ -1,7 +1,7 @@
 \section{The initial setup}
     Again, $\g$ is a finite-dimensional simple Lie algebra over an algebraically closed field of characteristic $0$. It is accompanied by all the data recalled in subsection \ref{subsection: finite_dimensional_simple_lie_algebras}. 
 
-    \subsection{Conventions for toroidal Lie algebras}
+    \subsection{Conventions for toroidal Lie algebras} \label{subsection: toroidal_lie_algebra_conventions}
         \todo[inline]{All toroidal Lie algebra conventions have been moved here.}
         For our own convenience, we will also be adopting the following abbreviations:
             $$A := k[v^{\pm 1}, t^{\pm 1}], A^{\positive} := k[v^{\pm 1}, t]$$
@@ -47,10 +47,22 @@
         given by:
             $$h \mapsto (h, -)_{\hat{\g}}$$
         It is not hard to see that $\hat{\h}$ is a maximal abelian Lie subalgebra of $\hat{\g}$ whose elements are $\ad$-diagonalisable, so it is reasonable to refer to $\hat{\h}$ as a \textbf{Cartan subalgebra} of $\hat{\g}$, in analogy with the Cartan subalgebra $\h$ of $\g$. The choice of Cartan subalgebra $\hat{\h}$ is fixed once and for all, and while it is true that all $\ad$-diagonalisable maximal abelian Lie subalgebras of $\hat{\g}$ are conjugate to one another in this setting as well (like for $\g$), this assertion is much more difficult (see \cite{kac_peterson_infinite_flag_varieties_and_conjugacy_of_cartan_subalgebras}), so we shall settle for defining \say{the} Cartan subalgebra of $\hat{\g}$ in the somewhat \textit{ad hoc} manner above.
+
+        Regardless, now that a Cartan subalgebra $\hat{\h}$ is fixed, one can speak of \textbf{roots} of $\hat{\g}$, which are to be elements $\beta \in \hat{\h}^*$ such that:
+            $$\hat{\g}_{\beta} := \{ x \in \hat{\g} \mid \forall h \in \hat{\h}: [h, x]_{\hat{\g}} = \beta(h) x \} \not \cong 0$$
+        The set of roots of $\hat{\g}$ shall be denoted by:
+            $$\hat{\Phi}$$
+        Observe that because the vector space isomorphism $\hat{\h} \xrightarrow[]{\cong} \hat{\h}^*$ given by $h \mapsto (h, -)_{\hat{\g}}$ restricts down to an isomorphism $\h \xrightarrow[]{\cong} \h^*$ given by the same formula, due to the construction of the bilinear form $(-, -)_{\hat{\g}}$ (cf. example \ref{example: affine_lie_algebras_centres}), there exists an injection:
+            $$\Phi \subset \hat{\Phi}$$
+        Let us denote its image by:
+            $$\Re(\hat{\Phi})$$
+        and refer to the elements in this image (i.e. regard the roots of $\g$) as \textbf{real roots} of $\hat{\g}$.
         
-        Now, any choice of basis for $\hat{\h}^*$ can be regarded as a choice of \textbf{simple roots} for $\hat{\g}$; let us fix once and for all such a basis:
+        Now, in order to construct a root system for $\hat{\g}$, let us firstly choose a basis for $\hat{\h}^*$:
             $$\{\alpha_i\}_{1 \leq i \leq \dim_k \hat{\h}}$$
-        Like with finite-dimensional simple Lie algebras such as $\g$, this datum allows one to construct a Cartan matrix for $\hat{\g}$ in the same manner as was done for $\g$ in subsection \ref{subsection: finite_dimensional_simple_lie_algebras}:
+        wherein the subset:
+            $$\{\alpha_i\}_{1 \leq i \leq \dim_k \h}$$
+        is a choice of simple roots for the underlying finite-dimensional simple Lie algebra $\g$. Like with $\g$, this datum allows one to construct a Cartan matrix for $\hat{\g}$ in the same manner as was done for $\g$ in subsection \ref{subsection: finite_dimensional_simple_lie_algebras}:
             $$\hat{C} := (c_{ij})_{1 \leq i, j \leq \dim_k \hat{\h}} := \left( \frac{2(\alpha_i, \alpha_j)_{\hat{\g}}}{(\alpha_i, \alpha_i)_{\hat{\g}}} \right)_{1 \leq i, j \leq \dim_k \hat{\h}}$$
         Likewise, it can be shown that $\hat{C}$ is symmetrisable in the sense that there exists an invertible diagonal matrix:
             $$\hat{D} := (d_{ij})_{1 \leq i, j \leq \dim_k \hat{\h}} = \left(\frac{2\delta_{i, j}}{(\alpha_i, \alpha_j)_{\hat{\g}}}\right)_{1 \leq i, j \leq \dim_k \hat{\h}}$$
@@ -58,14 +70,7 @@
             $$\hat{A} := (a_{ij})_{1 \leq i, j \leq \dim_k \hat{\h}} = \left((\alpha_i, \alpha_j)_{\hat{\g}}\right)_{1 \leq i, j \leq \dim_k \hat{\h}}$$
         (which is nothing but the matrix representation of the bilinear form $(-, -)_{\hat{\g}}$ with respect to the basis $\{\alpha_i\}_{1 \leq i \leq \dim_k \hat{\h}}$), such that:
             $$\hat{C} = \hat{D} \hat{A}$$
-        Furthermore, we have that $2\id - \hat{A}$ is the adjacency matrix of an undirected graph without loops, also typically referred to as the \textbf{Dynkin diagram} of $\hat{\g}$, and the \textbf{roots} of $\hat{\g}$ are the roots of this graph. The set of roots is denoted by:
-            $$\hat{\Phi}$$
-            
-        Observe that because the vector space isomorphism $\hat{\h} \xrightarrow[]{\cong} \hat{\h}^*$ given by $h \mapsto (h, -)_{\hat{\g}}$ restricts down to an isomorphism $\h \mapsto \h^*$ given by the same formula, due to the construction of the bilinear form $(-, -)_{\hat{\g}}$ (cf. example \ref{example: affine_lie_algebras_centres}), there exists an injection:
-            $$\Phi \subset \hat{\Phi}$$
-        Let us denote its image by:
-            $$\Re(\hat{\Phi})$$
-        and refer to the elements in this image (i.e. regard the roots of $\g$) as \textbf{real roots} of $\hat{\g}$.
+        One way to now construct the set of roots $\hat{\Phi}$ is to build, from the Cartan matrix $\hat{C}$, the adjacency matrix of an undirected graph with weighted edges\footnote{To account for the non-simply laced cases.} called the \textbf{Dynkin diagram} of $\hat{\g}$ (cf. \cite[Section 4.7]{kac_infinite_dimensional_lie_algebras}); the roots of $\hat{\g}$ are then the roots of this Dynkin diagram. This process works generally, but is rather involved, so let us proceed towards the construction of $\hat{\Phi}$ in another way, which admittedly is somewhat \textit{ad hoc}.
         
         Now, a point of deviation from the finite-dimensional theory is that the Cartan matrix $\hat{C}$ is only positive-semi-definite in general, and since positive-semi-definite matrices are positive-definite if and only if they are invertible, $\hat{C}$ is generally not of full rank. Let us write:
             $$\hat{l} := \rank \hat{C} \leq \dim_k \hat{\h}$$
@@ -111,7 +116,7 @@
         $\hat{\g}$ is then isomorphic to the Lie algebra generated by the set:
             $$\{x_i^{\pm}, h_i\}_{i \in \hat{\simpleroots}}$$
         whose elements are subjected to the same relations as in theorem \ref{theorem: serre_theorem_for_finite_dimensional_simple_lie_algebras} (but now given for $i, j \in \hat{\simpleroots}$); the isomorphism in question is given by
-            $$x_0^{\pm} \mapsto x_{\mp \theta} v^{\pm 1}, h_0 \mapsto -\check{\theta} + c_v$$
+            $$x_0^{\pm} \mapsto x_{\mp \theta} v^{\pm 1}, h_0 \mapsto -\theta^{\vee} + c_v$$
         where the root vectors $x_{\pm \theta} \in \g_{\pm \theta}$ have been chosen so that $(x_{\theta}, x_{-\theta})_{\g} = 1$, per the convention made in subsection \ref{subsection: finite_dimensional_simple_lie_algebras}. As for why the highest root $\theta \in \Phi$ might appear here in the first place, this is simply so that simultaneously, $h_0$ is not central in $\hat{\g}$ (which in particular, would imply that $h_0 \in k c_v$, which is absurd), and that:
             $$
                 [h_0, x_i]_{\hat{\g}} =
@@ -122,7 +127,7 @@
                 \end{cases}
             $$
         with the first case holding true thanks to the fact that the highest root $\theta$ being orthogonal to every other root $\alpha \in \Phi$ of the underlying finite-dimensional simple Lie algebra $\g$. Note also that, indeed, we have that:
-            $$[x_0^+, x_0^-]_{\hat{\g}} = -\check{\theta} + c_v = h_0$$
+            $$[x_0^+, x_0^-]_{\hat{\g}} = -\theta^{\vee} + c_v = h_0$$
         as well as:
             $$
                 [h_i, x_0^{\pm}]_{\hat{\g}}
@@ -130,7 +135,7 @@
                 \begin{cases}
                     \text{$\mp \theta(h_i) x_{\mp \theta} v^{\pm 1}$ if $i \in \simpleroots$}
                     \\
-                    \text{$\mp \theta(\check{\theta}) x_{\mp \theta} v^{\pm 1}$ if $i = 0$}
+                    \text{$\mp \theta(\theta^{\vee}) x_{\mp \theta} v^{\pm 1}$ if $i = 0$}
                 \end{cases}
                 =
                 \pm (-\theta + \delta)(h_i) x_{\mp \theta} v^{\pm 1} = \pm \alpha_0(h_i) x_{\mp \theta} v^{\pm 1}
@@ -139,6 +144,6 @@
             $$\omega \in \Aut_{\Lie\Alg}(\hat{\g})$$
         (cf. \cite[p. 7]{kac_infinite_dimensional_lie_algebras}) to act on the Chevalley-Serre generators by:
             $$\omega(x_i^{\pm}) = -x_i^{\mp}, \omega(h_i) = -h_i$$
-        for all $i \in \hat{\simpleroots}$, which forces $h_0 = -\check{\theta} + c_v$ and consequently, forces the extra simple root to be $-\theta + \delta$.
+        for all $i \in \hat{\simpleroots}$, which forces $h_0 = -\theta^{\vee} + c_v$ and consequently, forces the extra simple root to be $-\theta + \delta$.
         
         \todo[inline]{Added explanation for why the extra simple root of $\hat{\g}$ is $-\theta + \delta$.}
