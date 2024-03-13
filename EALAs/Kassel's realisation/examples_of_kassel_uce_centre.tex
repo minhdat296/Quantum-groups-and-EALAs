@@ -1,80 +1,89 @@
 \section{Some useful examples of UCEs}
     This section is for analysing some of the instances of UCEs of current algebras that are particularly useful to our purposes. Namely, we are interested in the UCEs of the Lie algebras:
         $$\g, \g[v^{\pm 1}], \g[v^{\pm 1}, t^{\pm 1}]$$
-    (corresponding to $A$ being isomorphic to $k, k[v^{\pm 1}]$, and $k[v^{\pm 1}, t^{\pm 1}]$ respectively). Also, by computing the centres of these UCEs explicitly (through giving bases for them), we will also be able to demonstrate how Kassel's realisation is useful for endowing theses UCEs with presentations in the style of Chevalley-Serre. For the Lie algebra $\g$, this is nothing but the usual Chevalley-Serre presentation as in theorem \ref{theorem: root_space_decomposition_for_finite_dimensional_simple_lie_algebras}; for the Lie algebras $\g[v^{\pm 1}]$ and $\g[v^{\pm 1}, t^{\pm 1}]$ one obtains the presentations as in lemmas \ref{lemma: root_grading_for_affine_lie_algebras} and \ref{lemma: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras} respectively.
+    (corresponding to $A$ being isomorphic to $k, \bbC[v^{\pm 1}]$, and $\bbC[v^{\pm 1}, t^{\pm 1}]$ respectively). Also, by computing the centres of these UCEs explicitly (through giving bases for them), we will also be able to demonstrate how Kassel's realisation is useful for endowing theses UCEs with presentations in the style of Chevalley-Serre. For the Lie algebra $\uce(\g)$, which happens to coincide with $\g$, this is nothing but the usual Chevalley-Serre presentation as in theorem \ref{theorem: root_space_decomposition_for_finite_dimensional_simple_lie_algebras}; for the Lie algebra $\uce(\g[v^{\pm 1}, t^{\pm 1}])$ one obtains the presentation as in lemma \ref{lemma: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras}\footnote{We will not be needing a Chevalley-Serre presentation for $\uce(\g[v^{\pm 1}])$}.
 
     \subsection{Finite-dimensional simple Lie algebras}
         Consider, firstly, the case:
-            $$A := k$$
+            $$A := \bbC$$
         It is trivial to see that:
-            $$\dim_k \bar{\Omega}^1_{k/k} \cong 0$$
+            $$\dim_{\bbC} \bar{\Omega}^1_{\bbC/\bbC} \cong 0$$
         from which one sees that:
             $$\uce(\g) \cong \g$$
         i.e. $\g$ is its own universal central extension, and hence every central extension of $\g$ is trivial. Of course, there are other more conventional ways to see that $\g$ admits no non-trivial central extensions, but we thought we would include this example as a particularly degenerate case of Kassel's realisation of UCEs of current algebras.
 
     \subsection{Affine Lie algebras}
         Now, consider:
-            $$A := k[v^{\pm 1}]$$
+            $$A := \bbC[v^{\pm 1}]$$
     
         \begin{example}[Affine Lie algebras] \label{example: affine_lie_algebras_centres}
             Let us compute the UCE of $\g[v^{\pm 1}]$. From this, we can construct the so-called \say{untwisted affine Kac-Moody algebra} attached to $\g$ (cf. \cite[Chapter 7]{kac_infinite_dimensional_lie_algebras}). 
 
-            To this end, let us firstly compute the underlying vector space of the centre of $\uce(\g[v^{\pm 1}])$. Abstractly, we know that it is isomorphic to $\bar{\Omega}^1_{k[v^{\pm 1}]/k}$, and it is also known that:
-                $$\Omega^1_{k[v^{\pm 1}]/k} \cong k[v^{\pm 1}] dv \cong \bigoplus_{m \in \Z} k \cdot v^m dv$$
-            so the only non-trivial computation to make is that of $d k[v^{\pm 1}]$. For this, let us consider how $d$ acts on the basis elements $v^m \in k[v]$:
+            To this end, let us firstly compute the underlying vector space of the centre of $\uce(\g[v^{\pm 1}])$. Abstractly, we know that it is isomorphic to $\bar{\Omega}^1_{\bbC[v^{\pm 1}]/\bbC}$, and it is also known that:
+                $$\Omega^1_{\bbC[v^{\pm 1}]/\bbC} \cong \bbC[v^{\pm 1}] dv \cong \bigoplus_{m \in \Z} k \cdot v^m dv$$
+            so the only non-trivial computation to make is that of $d \bbC[v^{\pm 1}]$. For this, let us consider how $d$ acts on the basis elements $v^m \in \bbC[v]$:
                 $$d(v^m) = m v^{m - 1} dv$$
-            We see that $d(v^m) = 0$ if and only if $m = 0$, and since the set $\{v^m\}_{m \in \Z}$ is a $k$-linear basis for $k[v^{\pm 1}]$, the set:
+            We see that $d(v^m) = 0$ if and only if $m = 0$, and since the set $\{v^m\}_{m \in \Z}$ is a $\bbC$-linear basis for $\bbC[v^{\pm 1}]$, the set:
                 $$\{m v^{m - 1} dv\}_{m \in \Z \setminus \{0\}}$$
-            therefore spans $d(k[v^{\pm 1}])$. It is also easy to see this subset of $d(k[v^{\pm 1}])$ is $k$-linearly independent and hence is a basis for $d(k[v^{\pm 1}])$. This then tells us that:
-                $$\bar{\Omega}^1_{k[v^{\pm 1}]/k} \cong k \cdot v^{-1} \bar{d}v$$
+            therefore spans $d(\bbC[v^{\pm 1}])$. It is also easy to see this subset of $d(\bbC[v^{\pm 1}])$ is $\bbC$-linearly independent and hence is a basis for $d(\bbC[v^{\pm 1}])$. This then tells us that:
+                $$\bar{\Omega}^1_{\bbC[v^{\pm 1}]/\bbC} \cong k \cdot v^{-1} \bar{d}v$$
             The underlying vector space of $\uce(\g[v^{\pm 1}])$ is thus isomorphic to:
                 $$\g[v^{\pm 1}] \oplus k \cdot v^{-1} \bar{d}v$$
 
             We know that the Lie bracket on $\uce(\g[v^{\pm 1}])$ is given by:
                 $$[x f, y g]_{\g[v^{\pm 1}]} = [x, y]_{\g} fg + (x, y)_{\g} g \bar{d}f$$
-            for all $x, y \in \g$ and all $f, g \in k[v^{\pm 1}]$. Since:
+            for all $x, y \in \g$ and all $f, g \in \bbC[v^{\pm 1}]$. Since:
                 $$g \bar{d}f \in k \cdot v^{-1} \bar{d}v$$
             necessarily, the bracket can be given simplier as:
                 $$[x f, y g]_{\g[v^{\pm 1}]} = [x, y]_{\g} fg + (x, y)_{\g} c(f, g) v^{-1} \bar{d}v$$
-            for a uniquely determined scalar $c(f, g) \in k$, which can be computed explicitly. To do this, if suffices to perform the computation for basis elements of $k[v^{\pm 1}]$, i.e. we can pick $f := v^m, g := v^n$ for some $m, n \in \Z$ and then consider the following:
+            for a uniquely determined scalar $c(f, g) \in k$, which can be computed explicitly. To do this, if suffices to perform the computation for basis elements of $\bbC[v^{\pm 1}]$, i.e. we can pick $f := v^m, g := v^n$ for some $m, n \in \Z$ and then consider the following:
                 $$g \bar{d}f = v^n \bar{d}(v^m) = m v^{n + m} v^{-1} \bar{d}v$$
             This expression vanishes if and only if $m + n = 0$, so we have that:
                 $$c(v^m, v^n) = m \delta_{n + m, 0}$$
-            For general $f, g \in k[v^{\pm 1}]$, we can write this more succinctly as:
+            For general $f, g \in \bbC[v^{\pm 1}]$, we can write this more succinctly as:
                 $$c(f, g) = \Res_{v = 0}( gdf )$$
             The Lie bracket on $\uce(\g[v^{\pm 1}])$ then takes the form:
                 $$[x f, y g]_{\g[v^{\pm 1}]} = [x, y]_{\g} fg + (x, y)_{\g} \Res_{v = 0}(g df) v^{-1} \bar{d}v$$
                 
             Note also, that there is a non-degenerate and invariant\footnote{Because $(-, -)_{\g}$ is invariant.} symmetric bilinear form on $\g[v^{\pm 1}]$ given by:
                 $$(xf, yg)_{\g[v^{\pm 1}]} := (x, y)_{\g} \Res_{v = 0}(g df)$$
-            for all $x, y \in \g$ and all $f, g \in k[v^{\pm 1}]$. By invariance, the extension of this bilinear form to $\uce(\g[v^{\pm 1}])$ is necessarily invariant and degenerate (see remark \ref{remark: extending_bilinear_forms_to_central_extensions}).
+            for all $x, y \in \g$ and all $f, g \in \bbC[v^{\pm 1}]$. By invariance, the extension of this bilinear form to $\uce(\g[v^{\pm 1}])$ is necessarily invariant and degenerate (see remark \ref{remark: extending_bilinear_forms_to_central_extensions}).
 
             Let us also note that unlike $\uce(\g[v^{\pm 1}])$, the UCE of the perfect Lie algebra $\g[v]$ is trivial, since:
-                $$\forall f, g \in k[v]: \Res_{v = 0}(g df) = 0$$
+                $$\forall f, g \in \bbC[v]: \Res_{v = 0}(g df) = 0$$
         \end{example}
-
-        \begin{lemma}[Chevalley-Serre presentations for affine Lie algebras] \label{lemma: chevalley_serre_presentation_for_affine_lie_algebras}
-            \todo[inline]{Not written}
-        \end{lemma}
 
     \subsection{Toroidal Lie algebras}
         \begin{example}[Toroidal Lie algebras] \label{example: toroidal_lie_algebras_centres}
             Next, let us compute the UCE of $\g[v^{\pm 1}, t^{\pm 1}]$. 
             
-            Firstly, let us compute its underlying vector space, for which the only non-trivial computation to make is that of the $k$-vector space $\bar{\Omega}^1_{k[v^{\pm 1}, t^{\pm 1}]/k}$, which we know to be isomorphic to the centre of $\uce(\g[v^{\pm 1}, t^{\pm 1}])$. We know that:
-                $$\Omega^1_{k[v^{\pm 1}, t^{\pm 1}]/k} \cong k[v^{\pm 1}, t^{\pm 1}] dv \oplus k[v^{\pm 1}, t^{\pm 1}] dt$$
+            Firstly, let us compute its underlying vector space, for which the only non-trivial computation to make is that of the $\bbC$-vector space $\bar{\Omega}^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC}$, which we know to be isomorphic to the centre of $\uce(\g[v^{\pm 1}, t^{\pm 1}])$. We know that:
+                $$\Omega^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC} \cong \bbC[v^{\pm 1}, t^{\pm 1}] dv \oplus \bbC[v^{\pm 1}, t^{\pm 1}] dt$$
             and since:
-                $$k[v^{\pm 1}, t^{\pm 1}] \cong \bigoplus_{(r, s) \in \Z^2} k \cdot v^r t^s$$
+                $$\bbC[v^{\pm 1}, t^{\pm 1}] \cong \bigoplus_{(r, s) \in \Z^2} k \cdot v^r t^s$$
             we consequently have that:
-                $$\Omega^1_{k[v^{\pm 1}, t^{\pm 1}]/k} \cong \bigoplus_{(r, s) \in \Z^2} (k \cdot v^r t^s dv \oplus k \cdot v^r t^s dt)$$
-            Now, in $\bar{\Omega}^1_{k[v^{\pm 1}, t^{\pm 1}]/k} := \Omega^1_{k[v^{\pm 1}, t^{\pm 1}]/k}/d k[v^{\pm 1}, t^{\pm 1}]$, the following relations hold for all $(r, s) \in \Z^2$
+                $$\Omega^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC} \cong \bigoplus_{(r, s) \in \Z^2} (k \cdot v^r t^s dv \oplus k \cdot v^r t^s dt)$$
+            
+            Now, in $\bar{\Omega}^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC} := \Omega^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC}/d \bbC[v^{\pm 1}, t^{\pm 1}]$, the following relations hold for all $(r, s) \in \Z^2$
                 $$0 = \bar{d}(v^r t^s) = r v^{r - 1} t^s \bar{d}v + s v^r t^{s - 1} \bar{d}t$$
             from which we can infer, in particular, that for all $(r, s) \in \Z^2 \setminus \{(0, 0)\}$, we have that:
                 $$\frac1s v^{r - 1} t^s \bar{d}v = -\frac1r v^r t^{s - 1} \bar{d}t$$
-            Consequently, the $k$-vector space $\bar{\Omega}^1_{k[v^{\pm 1}, t^{\pm 1}]/k}$ is spanned by the following set:
-                $$\left\{ \frac1s v^{r - 1} t^s \bar{d}v \right\}_{(r, s) \in \Z \x (\Z \setminus \{0\})} \cup \left\{ -\frac1r v^r t^{-1} \bar{d}t \right\}_{(r, s) \in (\Z \setminus \{0\}) \x \{0\}} \cup \{ v^{-1} \bar{d}v, t^{-1} \bar{d}t \}$$
-            This spanning set of $\bar{\Omega}^1_{k[v^{\pm 1}, t^{\pm 1}]/k}$ is also actually linearly independent, and hence a basis. We can thus write the vector space $\bar{\Omega}^1_{k[v^{\pm 1}, t^{\pm 1}]/k}$ as a direct sum as follows:
-                $$\bar{\Omega}^1_{k[v^{\pm 1}, t^{\pm 1}]/k} \cong ( \bigoplus_{(r, s) \in \Z^2} k K_{r, s}) \oplus k c_v \oplus k c_t$$
+            Consequently, the $\bbC$-vector space $\bar{\Omega}^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC}$ is spanned by the following set:
+                $$\left\{ \frac1s v^{r - 1} t^s \bar{d}v \right\}_{(r, s) \in \Z \x (\Z \setminus \{0\})} \cup \left\{ -\frac1r v^r t^{-1} \bar{d}t \right\}_{r \in \Z \setminus \{0\}} \cup \{ v^{-1} \bar{d}v, t^{-1} \bar{d}t \}$$
+            This spanning set of $\bar{\Omega}^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC}$ is also actually linearly independent, and hence a basis. To prove that this is the case, we can equally prove that the following subset of $\bar{\Omega}^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC}$ is linearly independent:
+                $$\left\{ v^{r - 1} t^s \bar{d}v \right\}_{(r, s) \in \Z \x (\Z \setminus \{0\})} \cup \left\{ v^r t^{-1} \bar{d}t \right\}_{r \in \Z \setminus \{0\}} \cup \{ v^{-1} \bar{d}v, t^{-1} \bar{d}t \}$$
+            as the coefficients $\frac1s$ and $-\frac1r$ are only to help us keep track of which of the indices $r, s$ are to be non-zero. For this, we proceed in the usual manner and consider an arbitrary linear combination:
+                $$\omega := \sum_{(r, s) \in \Z \x (\Z \setminus \{0\})} \lambda_{r, s} v^{r - 1} t^s \bar{d}v + \sum_{r \in \Z \setminus \{0\}} \mu_r v^r t^{-1} \bar{d}t + \nu_v v^{-1} \bar{d}v + \nu_t t^{-1} \bar{d}t$$
+            and check that, should it be the case that:
+                $$\omega = 0$$
+            then we would have to have that:
+                $$\lambda_{r, s} = \mu_r = \nu_v = \nu_t = 0$$
+            For the sake of deriving a contradiction, suppose to the contrary that there exist coefficients $\lambda_{r, s}, \mu_r, \nu_v, \nu_t$ not simultaneously equal to $0$, but $\omega = 0$ nevertheless. This would mean that:
+                $$-\sum_{(r, s) \in \Z \x (\Z \setminus \{0\})} \lambda_{r, s} v^{r - 1} t^s \bar{d}v - \nu_v v^{-1} \bar{d}v = \sum_{r \in \Z \setminus \{0\}} \mu_r v^r t^{-1} \bar{d}t + \nu_t t^{-1} \bar{d}t$$
+            One sees that this is impossible, simply by comparing the powers of $v$ and of $t$ on both sides, so we are done.
+            
+            We can thus write the vector space $\bar{\Omega}^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC}$ as a direct sum as follows:
+                $$\bar{\Omega}^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC} \cong ( \bigoplus_{(r, s) \in \Z^2} \bbC K_{r, s}) \oplus \bbC c_v \oplus \bbC c_t$$
             wherein:
                 $$
                     K_{r, s} :=
@@ -88,7 +97,7 @@
                 $$
                 $$c_v := v^{-1} \bar{d}v, c_t := t^{-1} \bar{d}t$$
             In fact, any element of the form:
-                $$v^n t^q \bar{d}(v^m t^p) \in \bar{\Omega}^1_{k[v^{\pm 1}, t^{\pm 1}]/k}$$
+                $$v^n t^q \bar{d}(v^m t^p) \in \bar{\Omega}^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC}$$
             can be written in terms of the basis vectors $K_{r, s}, c_v, c_t$ in the following manner:
                 $$v^n t^q \bar{d}(v^m t^p) = \delta_{(m, p) + (n, q), (0, 0)} ( n c_v + q c_t ) + (np - mq) K_{m + n, p + q}$$
             (cf. \cite[p. 35]{wendlandt_formal_shift_operators_on_yangian_doubles}).
@@ -106,37 +115,37 @@
             for all $x, y \in \g$ and all $(m, p), (n, q) \in \Z \x \Z_{\geq 0}$. This also demonstrates that the vector subspace $\uce(\g[v^{\pm 1}, t])$ is closed under the Lie bracket on the larger vector space $\uce(\g[v^{\pm 1}, t^{\pm 1}])$, and therefore is a Lie subalgebra thereof.
         \end{example}
         \begin{remark}[The $\Z$-grading on toroidal Lie algebras] \label{remark: Z_gradings_on_toroidal_lie_algebras}
-            If $k$ is a field and $A$ is a commutative $k$-algebra graded by an abelian group $Z$, say:
+            If $\bbC$ is a field and $A$ is a commutative $\bbC$-algebra graded by an abelian group $Z$, say:
                 $$A := \bigoplus_{n \in Z} A_n$$
-            and if $\a$ is a Lie algebra over $k$, then $\a \tensor_k A$ will also be $\Z$-graded, namely in the following manner:
-                $$\a \tensor_k A \cong \bigoplus_{n \in \Z} \a \tensor_k A_n$$
-            This grading on $\a \tensor_k A$ actually extends to the whole of $\uce(\a_A)$. To see why this is the case, recall firstly that the $A$-module $\Omega^1_{A/k}$ is isomorphic to the quotient of $A \tensor_k A$\footnote{... which carries a grading induced by the one on $A$, with graded components given by $(A \tensor_k A)_d \cong \bigoplus_{m + n = d} (A_m \tensor_k A_n)$ for all $d \in Z$.} by the homogeneous\footnote{Because $\deg fg \tensor 1 = \deg g \tensor f = \deg f \tensor g = \deg f + \deg g$.} $A$-submodule generated by the relations:
+            and if $\a$ is a Lie algebra over $\bbC$, then $\a \tensor_{\bbC} A$ will also be $\Z$-graded, namely in the following manner:
+                $$\a \tensor_{\bbC} A \cong \bigoplus_{n \in \Z} \a \tensor_{\bbC} A_n$$
+            This grading on $\a \tensor_{\bbC} A$ actually extends to the whole of $\uce(\a_A)$. To see why this is the case, recall firstly that the $A$-module $\Omega^1_{A/\bbC}$ is isomorphic to the quotient of $A \tensor_{\bbC} A$\footnote{... which carries a grading induced by the one on $A$, with graded components given by $(A \tensor_{\bbC} A)_d \cong \bigoplus_{m + n = d} (A_m \tensor_{\bbC} A_n)$ for all $d \in Z$.} by the homogeneous\footnote{Because $\deg fg \tensor 1 = \deg g \tensor f = \deg f \tensor g = \deg f + \deg g$.} $A$-submodule generated by the relations:
                 $$fg \tensor 1 - g \tensor f - f \tensor g$$
-            given for all $f, g \in A$. This implies that $\Omega^1_{A/k}$ inherits a $Z$-grading from the one on $A \tensor_k A$, given by:
+            given for all $f, g \in A$. This implies that $\Omega^1_{A/\bbC}$ inherits a $Z$-grading from the one on $A \tensor_{\bbC} A$, given by:
                 $$\deg f dg = \deg f \tensor g = \deg f + \deg g$$
             for all homogeneous elements $f, g \in A$. Since the vector subspace $d(A)$ is also $Z$-graded ($\deg df = \deg f \tensor 1 = \deg f$ for all $f \in A$, as $d(A) \cong A \tensor 1$), the quotient vector space:
-                $$\bar{\Omega}^1_{A/k} := \Omega^1_{A/k}/d(A)$$
+                $$\bar{\Omega}^1_{A/\bbC} := \Omega^1_{A/\bbC}/d(A)$$
             is also naturally graded by the abelian group $Z$, with graded components given by:
-                $$(\bar{\Omega}^1_{A/k})_n := (\Omega^1_{A/k})_n/d(A_n) \cong (\Omega^1_{A/k})_n/(A_n \tensor 1)$$
+                $$(\bar{\Omega}^1_{A/\bbC})_n := (\Omega^1_{A/\bbC})_n/d(A_n) \cong (\Omega^1_{A/\bbC})_n/(A_n \tensor 1)$$
             for all $n \in Z$. As we have that:
-                $$\uce(\g \tensor_k A) \cong (\g \tensor_k A) \oplus \bar{\Omega}^1_{A/k}$$
-            (cf. theorem \ref{theorem: kassel_realisation}), the $Z$-grading on $\g \tensor_k A$ thus extends to the larger vector space $\uce(\g \tensor_k A)$, as claimed: namely, the graded components are given by:
-                $$\uce(\g \tensor_k A)_n := (\g \tensor_k A_n) \oplus (\bar{\Omega}^1_{A/k})_n$$
+                $$\uce(\g \tensor_{\bbC} A) \cong (\g \tensor_{\bbC} A) \oplus \bar{\Omega}^1_{A/\bbC}$$
+            (cf. theorem \ref{theorem: kassel_realisation}), the $Z$-grading on $\g \tensor_{\bbC} A$ thus extends to the larger vector space $\uce(\g \tensor_{\bbC} A)$, as claimed: namely, the graded components are given by:
+                $$\uce(\g \tensor_{\bbC} A)_n := (\g \tensor_{\bbC} A_n) \oplus (\bar{\Omega}^1_{A/\bbC})_n$$
             for all $n \in Z$.
 
-            Now, recall from theorem \ref{theorem: kassel_realisation} that the Lie bracket on $\uce(\g \tensor_k A)$ is given by:
-                $$[xf, yg]_{\uce(\g \tensor_k A)} = [x, y]_{\g} fg + (x, y)_{\g} g \bar{d}f$$
+            Now, recall from theorem \ref{theorem: kassel_realisation} that the Lie bracket on $\uce(\g \tensor_{\bbC} A)$ is given by:
+                $$[xf, yg]_{\uce(\g \tensor_{\bbC} A)} = [x, y]_{\g} fg + (x, y)_{\g} g \bar{d}f$$
             for all $x, y \in \g$ and all $f, g \in A$. If $f, g$ are homogeneous, we will have that:
-                $$\deg [xf, yg]_{\uce(\g \tensor_k A)} = \deg( [x, y]_{\g} fg + (x, y)_{\g} g \bar{d}f ) = \deg f + \deg g$$
+                $$\deg [xf, yg]_{\uce(\g \tensor_{\bbC} A)} = \deg( [x, y]_{\g} fg + (x, y)_{\g} g \bar{d}f ) = \deg f + \deg g$$
             and since $\deg xf = \deg f$ and $\deg yg = \deg g$, the above proves that the vector space grading:
-                $$\uce(\g \tensor_k A)_n := (\g \tensor_k A_n) \oplus (\bar{\Omega}^1_{A/k})_n$$
-            is also a $Z$-grading of the Lie algebra $\uce(\g \tensor_k A)$.
+                $$\uce(\g \tensor_{\bbC} A)_n := (\g \tensor_{\bbC} A_n) \oplus (\bar{\Omega}^1_{A/\bbC})_n$$
+            is also a $Z$-grading of the Lie algebra $\uce(\g \tensor_{\bbC} A)$.
 
             When:
-                $$A := k[v^{\pm 1}, t^{\pm 1}], Z := \Z$$
+                $$A := \bbC[v^{\pm 1}, t^{\pm 1}], Z := \Z$$
             consider the $\Z$-grading given by:
                 $$\deg v := 0, \deg t := 1$$
-            The induced $\Z$-grading on $\bar{\Omega}^1_{k[v^{\pm 1}, t^{\pm 1}]/k}$ is therefore given by:
+            The induced $\Z$-grading on $\bar{\Omega}^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC}$ is therefore given by:
                 $$\deg K_{r, s} = s$$
                 $$\deg c_v = 0, \deg c_t = 0$$
         \end{remark}

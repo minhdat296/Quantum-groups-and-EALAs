@@ -14,13 +14,13 @@
     \subsection{Structure of finite-dimensional simple Lie algebras} \label{subsection: finite_dimensional_simple_lie_algebras}
         As a precursor to our main discussion, let us recall some features of the theory of finite-dimensional simple Lie algebras, particularly about their structure.
 
-        We will be working over a field $k$ that is algebraically closed and of characteristic $0$, and no serious loss of generality will come from assuming, say, that $k \cong \bbC$. The assumption that $k$ is algebraically closed is so that we will have enough eigenvalues and hence, certain operators will be diagonalisable. The second assumption, that $\chara k = 0$, is made so that we can avoid having certain relations, e.g. as in theorem \ref{theorem: serre_theorem_for_finite_dimensional_simple_lie_algebras}, vanish.
+        We will be working over $\bbC$, though this can be replaced by any algebraically closed field of characteristic $0$. The fact that $\bbC$ is algebraically closed is needed so that we will have enough eigenvalues and hence, certain operators will be diagonalisable. The second fact, that $\chara \bbC = 0$, is made so that we can avoid having certain relations, e.g. as in theorem \ref{theorem: serre_theorem_for_finite_dimensional_simple_lie_algebras}, vanish.
 
         \begin{definition}[Simple Lie algebras]
             A Lie algebra is said to be \textbf{simple} if and only if it admits no non-zero Lie ideals. 
         \end{definition}
 
-        Over a field $k$ that is algebraically closed and of characteristic $0$ (which can just be taken to be $\bbC$), much is known about the structure of a simple Lie algebra $\g$ that is finite-dimensional when regarded as a $k$-vector space. The bulk of the content presented above is discussed in further details in any standard textbook on Lie algebras (cf. e.g. \cite{humphreys_lie_algebras} or the first half of \cite{carter_affine_lie_algebras}). Let us give a very brief recap of this theory. Also, let us fix once and for all such a finite-dimensional simple Lie algebra:
+        Over a field $\bbC$, much is known about the structure of a simple Lie algebra $\g$ that is finite-dimensional when regarded as a $\bbC$-vector space. The bulk of the content presented above is discussed in further details in any standard textbook on Lie algebras (cf. e.g. \cite{humphreys_lie_algebras} or the first half of \cite{carter_affine_lie_algebras}). Let us give a very brief recap of this theory. Also, let us fix once and for all such a finite-dimensional simple Lie algebra:
             $$\g$$
 
         One begins this process by choosing a \textbf{Cartan subalgebra} $\h$ for $\g$, which is a maximal abelian Lie subalgebra $\h$\footnote{We note also that, it is well-known that all Cartan subalgebras of $\g$ are conjugate to one another.}, whose elements are diagonalisable under the adjoint representation $\ad: \g \to \gl(\g)$. Now, let $V$ be a $\g$-module. Then, one can abstractly define the vector subspace of $V$ consisting of elements of \textbf{weight} $\mu \in \h^*$ to be:
@@ -37,7 +37,7 @@
             \begin{enumerate}
                 \item $\g$ is a weight module over itself.
                 \item The weight space $\g_0$ is nothing but the Cartan subalgebra $\h$.
-                \item For each non-zero weight $\alpha$ of this $\g$-module, $\dim_k \g_{\alpha} = 1$.
+                \item For each non-zero weight $\alpha$ of this $\g$-module, $\dim_{\bbC} \g_{\alpha} = 1$.
             \end{enumerate}
         \end{theorem}
         Typically, the non-zero weights $\alpha$ of the adjoint representations of $\g$ such that $\g_{\alpha} \not \cong 0$ are called \textbf{roots}, and the subset of $\h^*$ consisting of such roots is denoted by:
@@ -64,9 +64,9 @@
             $$Q \tensor_{\Z} k \cong \h^*$$
         thus justifying the terminology \say{root lattice}.
 
-        Now, as eluded to above, one of the most important features of $\g$ is that it posses an invariant and non-degenerate $k$-bilinear form:
+        Now, as eluded to above, one of the most important features of $\g$ is that it posses an invariant and non-degenerate $\bbC$-bilinear form:
             $$(-, -)_{\g}$$
-        which is unique up to $k^{\x}$-multiples. The canonical choice is the so-called Killing form, given by $\kappa(x, y) := \trace(\ad(x) \circ \ad(y))$ for all $x, y \in \g$, but in various other context, other natural choices such as the more general trace form $\trace(\rho(x) \rho(y))$ (associated to some representation $\rho: \g \to \gl(V)$; one recovers $\kappa$ by taking $\rho := \ad$) are also very useful. What is important to us is that the Killing form is essentially unique: if $\kappa'$ is any invariant and non-degenerate symmetric $k$-bilinear form on $\g$ then there will exist a \textit{unique} $c \in k^{\x}$ such that $\kappa' = c \kappa$.
+        which is unique up to $k^{\x}$-multiples. The canonical choice is the so-called Killing form, given by $\kappa(x, y) := \trace(\ad(x) \circ \ad(y))$ for all $x, y \in \g$, but in various other context, other natural choices such as the more general trace form $\trace(\rho(x) \rho(y))$ (associated to some representation $\rho: \g \to \gl(V)$; one recovers $\kappa$ by taking $\rho := \ad$) are also very useful. What is important to us is that the Killing form is essentially unique: if $\kappa'$ is any invariant and non-degenerate symmetric $\bbC$-bilinear form on $\g$ then there will exist a \textit{unique} $c \in k^{\x}$ such that $\kappa' = c \kappa$.
 
         Now, such a bilinear form $(-, -)_{\g}$ helps us associate to $\g$ a \say{root system} (to be defined shortly), and the upshot is that these \say{roots systems} classify finite-dimensional simple Lie algebras (over algebraically closed fields of characteristic $0$) up to isomorphisms; again, we remark that root systems can be constructed in the absence of such a bilinear form, but we find it more convenient to make use of $(-, -)_{\g}$. A choice of \textbf{simple roots}:
         \todo[inline]{Fixed simple root construction.}
@@ -77,7 +77,7 @@
             $$\alpha = \sum_{i \in \simpleroots} m_i \alpha_i \in \Z\{\alpha_i\}_{i \in \simpleroots}$$
         where the coefficients $m_i \in \Z$ are (exclusively) either non-negative or non-positive. The sets:
             $$\Phi^{\pm} := \Phi \cap \pm \Z_{\geq 0} \{\alpha_i\}_{i \in \simpleroots}$$
-        shall be referred to, respectively, as the sets of \textbf{positive} and \textbf{negative} roots. Elements of $Q^+ := \Z_{\geq 0} \simpleroots$ are typically regarded as being \textbf{positive} (and in particular, the simple roots are positive by convention) and conversely, elements of $Q^- := \Z_{\leq 0} \simpleroots$ are typically said to be \textbf{negative}. One can also easily show that $\Phi^{\pm} = \Phi \cap Q^{\pm}$.
+        shall be referred to, respectively, as the sets of \textbf{positive} and \textbf{negative} roots. Elements of $Q^+ := \Z_{\geq 0} \{\alpha_i\}_{i \in \hat{\simpleroots}}$ are typically regarded as being \textbf{positive} (and in particular, the simple roots are positive by convention) and conversely, elements of $Q^- := \Z_{\leq 0} \{\alpha_i\}_{i \in \hat{\simpleroots}}$ are typically said to be \textbf{negative}. One can also easily show that $\Phi^{\pm} = \Phi \cap Q^{\pm}$.
         
         The \textbf{Cartan matrix} of $\g$ can then be defined to be:
             $$C := (c_{ij})_{i, j \in \simpleroots} := \left( \frac{2(\alpha_i, \alpha_j)_{\g}}{(\alpha_i, \alpha_i)_{\g}} \right)_{i, j \in \simpleroots}$$
@@ -130,7 +130,7 @@
         \begin{example}[$\sl_2$] \label{example: sl_2}
             Recall that $\sl_2(k)$ is the kernel of the trace map:
                 $$\trace: \gl_2(k) \to k$$
-            i.e. it is the Lie algebra of trace-zero $2 \x 2$-matrices whose Lie bracket is the usual commutator of matrices. It is of dimension $\dim_k \gl_2(k) - \dim_k k = 4 - 1 = 3$, and a common choice of basis is:
+            i.e. it is the Lie algebra of trace-zero $2 \x 2$-matrices whose Lie bracket is the usual commutator of matrices. It is of dimension $\dim_{\bbC} \gl_2(k) - \dim_{\bbC} k = 4 - 1 = 3$, and a common choice of basis is:
                 $$\left\{ \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}, \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}, \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix} \right\}$$
                 
             Because the first element is not nilpotent, whereas the other two elements are nilpotent, any Cartan subalgebra of $\sl_2(k)$ must therefore be spanned by the matrix $\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}$. One can then show that by setting $x^+ := \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}$ and $x^- := \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix}$, the set:
@@ -194,7 +194,7 @@
         We will also need to know how the Lie brackets on extensions are given explicitly, though only for a certain class of extensions. The fundamental example is the construction of semi-direct products of Lie algebras.
         \begin{example}[Semi-direct products of Lie algebras] \label{example: lie_algebra_semi_direct_products}
             Let:
-                $$\rho: \d \to \der_k(\t)$$
+                $$\rho: \d \to \der(\t)$$
             be a Lie algebra homomorphism from a Lie algebra $\d$ to the Lie algebra of derivations on another Lie algebra $\t$, making $\t$ a $\d$-module. The canonical extension of $\d$ by $\t$, known as the \textbf{semi-direct product} of $\d$ by $\t$, and commonly denoted by:
                 $$\t \rtimes \d$$
             is the extension with Lie bracket given by:
@@ -215,11 +215,11 @@
         \begin{definition}[$2$-cocycles and twisted semi-direct products] \label{def: twisted_semi_direct_products} 
             Suppose that:
                 $$0 \to \t \to \frake \to \d \to 0$$
-            is an extension of Lie algebras. This is said to be a \textbf{twisted semi-direct product} corresponding to a \textbf{$2$-cocycle}\footnote{The terminology stems from the fact that isomorphism classes of \textit{central} extensions, say of $\d$ by $\t$, are in bijection with the elements of $H^2_{\Lie}(\d, \t)$. This is a standard homological algebraic fact; see e.g. \cite{hilton_stammbach_homological_algebra}. We will not, however, be making use of any homological algebra. This remark is purely for an etymological purpose.} $\sigma$ of $\d$ with values in $\t$ if the Lie bracket on $\frake$ is of the form:
+            is an extension of Lie algebras. This is said to be a \textbf{twisted semi-direct product} corresponding to a \textbf{$2$-cocycle}\footnote{The terminology stems from the fact that isomorphism classes of \textit{central} extensions, say of $\d$ by $\t$, are in bijection with the elements of $H^2_{\Lie}(\d, \t)$. This is a standard homological algebraic fact; see e.g. \cite{hilton_stammbach_homological_algebra}. We will not, however, be making use of any homological algebra. This remark is purely for an etymological purpose.} $\sigma$ of $\d$ with values in $\t$ if the Lie bracket on $\frake$ is of the form\footnote{Note that in writing $[-, -]_{\frake} = [-, -]_{\t \rtimes \d} + \sigma$, we have actually slightly abused notations. Technically, this should have been $[-, -]_{\frake} = [-, -]_{\t \rtimes \d} + \sigma \circ ( \pi \wedge \pi )$, with $\pi: \frake \to \d$ being the canonical projection.}:
                 $$[-, -]_{\frake} = [-, -]_{\t \rtimes \d} + \sigma$$
             for some skew-symmetric bilinear map:
                 $$\sigma: \bigwedge^2 \d \to \t$$
-            making $[-, -]_{\frake}$ satisfy the Jacobi identity. Equivalently, one can simply insist that $\sigma$ itself satisfies the Jacobi identity.
+            making $[-, -]_{\frake}$ satisfy the Jacobi identity. Equivalently, one can simply insist that $\sigma$ itself satisfies the Jacobi identity. 
             
             In that case, we shall write:
                 $$\frake \cong \t \rtimes^{\sigma} \d$$
@@ -240,7 +240,9 @@
             \begin{proof}
                 Suppose firstly that $\t$ is a $\d$-module, say defined by a Lie algebra homomorphism:
                     $$\rho: \d \to \gl(\t)$$
-                Also, pick a section $\d \to \frake$. Given $K, K' \in \t$ and $D, D' \in \d$, one then has that:
+                Also, pick a linear section:
+                    $$\gamma: \d \to \frake$$
+                Given $K, K' \in \t$ and $D, D' \in \d$, one then has that:
                     $$
                         \begin{aligned}
                             [ K + D, K' + D' ]_{\frake} & = ( [K, K']_{\t} + [D, K']_{\frake} - [D', K]_{\frake} ) + [D, D']_{\frake}
@@ -251,11 +253,11 @@
                 If we can now define a skew-symmetric bilinear map:
                     $$\sigma: \bigwedge^2 \d \to \t$$
                 to measure the difference between $[D, D']_{\frake}$ and $[D, D']_{\d}$ (implicitly understood to be the image under the previously fixed section $\d \to \frake$), i.e. by the following formula:
-                    $$\sigma(D, D') := [D, D']_{\frake} - [D, D']_{\d}$$
+                    $$\sigma(D, D') := [\gamma(D), \gamma(D')]_{\frake} - \gamma( [D, D']_{\d} )$$
                 then the Lie bracket $[-, -]_{\frake}$ can then be specified by:
-                    $$[ K + D, K' + D' ]_{\frake} := ( [K, K']_{\t} + \rho(D)(K') - \rho(D')(K) ) + [D, D']_{\d} + \sigma(D, D')$$
+                    $$[ K + D, K' + D' ]_{\frake} := ( [K, K']_{\t} + \rho(D)(K') - \rho(D')(K) ) + \gamma( [D, D']_{\d} ) + \sigma(D, D')$$
                 Note also that because both $[-, -]_{\frake}$ and $[-, -]_{\d}$ are Lie brackets and hence satisfy the Jacobi identity, so must $\sigma$ too. $\sigma$ must then be a $2$-cocycle of $\d$ with values in $\t$ by definition, so it remains to show that $\sigma$ is well-defined, namely that the codomain of $\sigma$ lies inside $\t$. For this, simply note that the following holds for all $D, D' \in \d$:
-                    $$\pi( \sigma(D, D') ) = \pi( [D, D']_{\frake} ) - \pi( [D, D']_{\d} ) = [D, D']_{\d} - [D, D']_{\d} = 0$$
+                    $$\pi( \sigma(D, D') ) = \pi( [\gamma(D), \gamma(D')]_{\frake} ) - \pi( \gamma( [D, D']_{\d} ) = [D, D']_{\d} - [D, D']_{\d} = 0$$
                 where the second equality holds thanks to the fact that $\pi: \frake \to \d$ is a Lie algebra homomorphism. 
 
                 Conversely, suppose that the extension is a twisted semi-direct product, say:
@@ -289,29 +291,29 @@
             Since simple Lie algebras lack non-zero ideals by definition, they are perfect. 
         \end{example}
         \begin{example}
-            Let $A$ be any commutative algebra over a field $k$, and let $\g$ be a simple Lie algebra over $k$. Endow the $k$-vector space $\g \tensor_k A$ with the Lie bracket:
-                $$\forall x, y \in \g: \forall f, g \in A: [x f, y g]_{\g \tensor_k A} := [x, y]_{\g} \tensor fg$$
-            Then, $\g \tensor_k A$ will be perfect when regraded as a Lie algebra over $k$, precisely because $\g$ is simple.
+            Let $A$ be any commutative algebra over a field $\bbC$, and let $\g$ be a simple Lie algebra over $\bbC$. Endow the $\bbC$-vector space $\g \tensor_{\bbC} A$ with the Lie bracket:
+                $$\forall x, y \in \g: \forall f, g \in A: [x f, y g]_{\g \tensor_{\bbC} A} := [x, y]_{\g} \tensor fg$$
+            Then, $\g \tensor_{\bbC} A$ will be perfect when regraded as a Lie algebra over $\bbC$, precisely because $\g$ is simple.
         \end{example}
         \begin{example}
             Counter-examples include nilpotent Lie algebras (e.g. abelian Lie algebras). For such Lie algebras, their derived subalgebras are always proper Lie subalgebras (and in particular, derived subalgebras of abelian Lie algebras are zero). 
         \end{example}
         \begin{proposition}[Perfect Lie algebras admit UCEs] \label{prop: perfect_lie_algebras_admit_UCEs}
-            \cite[Lemma 1.10]{garland_arithmetics_of_loop_groups} Let $k$ be a field and $\a$ is a Lie algebra over $k$. Then $\a$ admits a UCE if and only if it is perfect.
+            \cite[Lemma 1.10]{garland_arithmetics_of_loop_groups} Let $\bbC$ be a field and $\a$ is a Lie algebra over $\bbC$. Then $\a$ admits a UCE if and only if it is perfect.
         \end{proposition}
 
         Let us conclude this subsection by making note of the following fact about the process of extending invariant bilinear forms from Lie algebras to their central extensions.
         \begin{remark}[Extending invariant bilinear forms to central extensions] \label{remark: extending_bilinear_forms_to_central_extensions}
-            Let $k$ be a field.
+            Let $\bbC$ be a field.
             
-            Let $\a$ be a Lie algebra over $k$ and $(-, -)$ is an invariant symmetric $k$-bilinear form thereon. Additionally, let:
+            Let $\a$ be a Lie algebra over $\bbC$ and $(-, -)$ is an invariant symmetric $\bbC$-bilinear form thereon. Additionally, let:
                 $$0 \to \Omega \to \frake \to \a \to 0$$
             be a central Lie algebra extension of $\a$ such that $\Omega \not \cong 0$. By proposition \ref{prop: twisted_semi_direct_product_criterion}, we know that for all $X, Y \in \a$, we have that:
                 $$[X, Y]_{\frake} = [X, Y]_{\a} + K(X, Y)$$
             for some $K(X, Y) \in \Omega$ depending on the choices of $X, Y$.
             
-            Suppose that $\<-, -\>$ is any extension of $(-, -)$ to $\frake$, i.e. $\<-, -\>$ is a symmetric $k$-bilinear form on $\frake$ such that:
-                $$\<-, -\>|_{\Sym^2_k( \a )} = (-, -)$$
+            Suppose that $\<-, -\>$ is any extension of $(-, -)$ to $\frake$, i.e. $\<-, -\>$ is a symmetric $\bbC$-bilinear form on $\frake$ such that:
+                $$\<-, -\>|_{\Sym^2_{\bbC}( \a )} = (-, -)$$
             Assume furthermore, that:
                 $$\<\a, \Omega\> = 0, \<\Omega, \Omega\> = 0$$ 
             Now, note that $\<-, -\>$ is necessarily invariant: indeed, for any $X, Y, Z \in \a$, we have that:
@@ -331,5 +333,5 @@
             Furthermore, $\<-, -\>$ must be degenerate, regardless of whether or not $(-, -)$ is degenerate to begin with: to see why, it suffices to show that the radical\footnote{If $V$ is a vector space and $B$ is a symmetric bilinear form on $V$, then the \textbf{radical} of $B$ is then given by $\Rad B := \{v \in V \mid \forall w \in V: B(v, w) = 0\}$.} of $\<-, -\>$ is non-zero, for which we can simply consider the following for any $X, Y \in \a$ and any $K \in \Omega$, and then exploit the invariance of $\<-, -\>$:
                 $$\<K, [X, Y]_{\frake}\> = \<[K, X]_{\frake}, Y\> = \<0, Y\> = 0$$
 
-            Not every Lie algebra with a non-trivial centre arises as a central extension (see \cite[Section 1]{garland_arithmetics_of_loop_groups} for details), so it is not true that any invariant symmetric bilinear form on such a Lie algebra must be degenerate. Central elements can pair non-trivially with other elements, such as in the construction of untwisted affine Kac-Moody algebras (cf. subsection \ref{subsection: a_fixed_untwisted_affine_kac_moody_algebra}) or in the construction of so-called \say{extended toroidal Lie algebras} (cf. definition \ref{def: extended_toroidal_lie_algebras}).
+            Not every Lie algebra with a non-trivial centre arises as a central extension (see \cite[Section 1]{garland_arithmetics_of_loop_groups} for details), so it is not true that any invariant symmetric bilinear form on such a Lie algebra must be degenerate. Central elements can pair non-trivially with other elements, such as in the construction of untwisted affine Kac-Moody algebras (cf. subsection \ref{subsection: a_fixed_untwisted_affine_kac_moody_algebra}) or in the construction of so-called \say{extended toroidal Lie algebras} (cf. definitions \ref{def: yangian_extended_toroidal_lie_algebras} and \ref{def: general_extended_toroidal_lie_algebras}).
         \end{remark}

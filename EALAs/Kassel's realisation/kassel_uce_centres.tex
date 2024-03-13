@@ -1,6 +1,6 @@
 \section{The Kassel realisation of UCEs of current Lie algebras}
     \subsection{A recollection of K\"ahler differentials}
-        In \cite{kassel_universal_central_extensions_of_lie_algebras}, Kassel showed that centres of UCEs of current algebras (i.e. Lie algebras of the form $\g \tensor_k A$ for some commutative $k$-algebra $A$) are identified with spaces of algebraic differential $1$-forms modulo exact forms, so before proceeding, let us take the time to recall some relevant details about algebraic differential forms. 
+        In \cite{kassel_universal_central_extensions_of_lie_algebras}, Kassel showed that centres of UCEs of current algebras (i.e. Lie algebras of the form $\g \tensor_{\bbC} A$ for some commutative $\bbC$-algebra $A$) are identified with spaces of algebraic differential $1$-forms modulo exact forms, so before proceeding, let us take the time to recall some relevant details about algebraic differential forms. 
 
         There are many approaches to algebraic differential forms. Ultimately, however, we will be relying on the description of modules of differential forms by generators and relations\footnote{One reason is that this makes it clear how, should a commutative $R$-algebra $S$ be graded by some abelian group $Z$, then that grading will induce a $Z$-grading on $\Omega^1_{S/R}$ as well (see remark \ref{remark: Z_gradings_on_toroidal_lie_algebras}).}, so let us define them that way.
         \begin{definition}[Modules of K\"ahler differentials] \label{def: kahler_differentials}
@@ -51,16 +51,12 @@
         \end{example}
 
     \subsection{UCEs of current Lie algebras}
-        \begin{convention} \label{conv: a_fixed_finite_dimensional_simple_lie_algebra}
-            From now on, we fix a finite-dimensional simple Lie algebra $\g$ over an algebraically closed field $k$ of characteristic $0$, equipped with a symmetric and non-degenerate invariant $k$-bilinear form $(-, -)_{\g}$. We fix also a Cartan subalgebra $\h$ of $\g$, along with all the accompanying data (e.g. root system, Cartan matrix, etc.) as in subsection \ref{subsection: finite_dimensional_simple_lie_algebras}. 
-        \end{convention}
-
         For the sake of establishing the terminology, let us make the following definition:
         \begin{definition}[Current algebras] \label{def: current_algebras}
-            Let $A$ be a commutative algebra over $k$. The vector space:
-                $$\g \tensor_k A$$
+            Let $A$ be a commutative algebra over $\bbC$. The vector space:
+                $$\g \tensor_{\bbC} A$$
             with the following Lie bracket:
-                $$[x f, y g]_{\g \tensor_k A} := [x, y]_{\g} \tensor fg$$
+                $$[x f, y g]_{\g \tensor_{\bbC} A} := [x, y]_{\g} \tensor fg$$
             (given for all $x, y \in \g$ and all $f, g \in A$) shall then be referred to as a \textbf{current algebra}. 
                 
             Also, we will be abbreviating:
@@ -68,7 +64,7 @@
             for $x \in \g$ and $f \in A$.
         \end{definition}
         \begin{remark}[(Multi)loop algebras]
-            When $A \cong k[v_1^{\pm 1}, ..., v_n^{\pm 1}]$, it is common to refer to $\g \tensor_k A$ as a \textbf{multiloop algebra}. When $n = 1$, we will only be saying \textbf{loop algebra}.
+            When $A \cong k[v_1^{\pm 1}, ..., v_n^{\pm 1}]$, it is common to refer to $\g \tensor_{\bbC} A$ as a \textbf{multiloop algebra}. When $n = 1$, we will only be saying \textbf{loop algebra}.
         \end{remark}
 
         \begin{convention}
@@ -86,14 +82,14 @@
                 $$
         \end{convention}
 
-        In order to characterise centres of UCE Kassel constructed in the proof of \cite[Theorem 3.3(iii)]{kassel_universal_central_extensions_of_lie_algebras} a $k$-linear map:
-            $$\e: \bigwedge^2 (\g \tensor_k A) \to \bar{\Omega}^1_{A/k}$$
+        In order to characterise centres of UCE Kassel constructed in the proof of \cite[Theorem 3.3(iii)]{kassel_universal_central_extensions_of_lie_algebras} a $\bbC$-linear map:
+            $$\e: \bigwedge^2 (\g \tensor_{\bbC} A) \to \bar{\Omega}^1_{A/k}$$
         by the formula\footnote{One can also take $\e(x f, y g) := -(x, y)_{\g} f \bar{d}g$, since $-f \bar{d}g \equiv g \bar{d}f \pmod{d(A)}$. This results in an isomorphic Lie algebra, but we have chosen $\e(x f, y g) := (x, y)_{\g} g \bar{d}f$ because this will make verifying that $\e$ is a $2$-cocycle easier.}:
             $$\e(x f, y g) := (x, y)_{\g} g \bar{d}f$$
-        for all $x, y \in \g$ and for all $f, g \in A$. This can be shown - relying on the $\g$-invariance of the bilinear form $(-, -)_{\g}$ - to be a $2$-cocycle of $\g \tensor_k A$ with coefficients in $\bar{\Omega}^1_{A/k}$\footnote{... i.e. a representative of an isomorphism class $[\e] \in H^2_{\Lie}(\g \tensor_k A, \bar{\Omega}^1_{A/k})$.}. Per corollary \ref{coro: lie_brackets_on_central_extensions}, there is then a corresponding central extension:
-            $$\fraku \cong (\g \tensor_k A) \oplus^{\e} \bar{\Omega}_{A/k}^1$$
+        for all $x, y \in \g$ and for all $f, g \in A$. This can be shown - relying on the $\g$-invariance of the bilinear form $(-, -)_{\g}$ - to be a $2$-cocycle of $\g \tensor_{\bbC} A$ with coefficients in $\bar{\Omega}^1_{A/k}$\footnote{... i.e. a representative of an isomorphism class $[\e] \in H^2_{\Lie}(\g \tensor_{\bbC} A, \bar{\Omega}^1_{A/k})$.}. Per corollary \ref{coro: lie_brackets_on_central_extensions}, there is then a corresponding central extension:
+            $$\fraku \cong (\g \tensor_{\bbC} A) \oplus^{\e} \bar{\Omega}_{A/k}^1$$
         \begin{lemma} \label{lemma: lie_brackets_on_UCEs_of_current_algebras}
-            The linear map $\e: \bigwedge^2 (\g \tensor_k A) \to \bar{\Omega}^1_{A/k}$ constructed above is a well-defined $2$-cocycle (cf. definition \ref{def: twisted_semi_direct_products}) of $\g \tensor_k A$ with values in $\bar{\Omega}^1_{A/k}$.
+            The linear map $\e: \bigwedge^2 (\g \tensor_{\bbC} A) \to \bar{\Omega}^1_{A/k}$ constructed above is a well-defined $2$-cocycle (cf. definition \ref{def: twisted_semi_direct_products}) of $\g \tensor_{\bbC} A$ with values in $\bar{\Omega}^1_{A/k}$.
         \end{lemma}
         \todo[inline]{Shortened proof of $\e$ being a $2$-cocycle.}
             \begin{proof}
@@ -115,9 +111,9 @@
                     $$gh \bar{d}f + hf \bar{d}g + fg \bar{d}h \equiv 0 \pmod{d(A)}$$
                 in $\bar{\Omega}^1_{A/k}$.
             \end{proof}
-        Kassel then showed that the central extension $(\g \tensor_k A) \oplus^{\e} \bar{\Omega}^1_{A/k}$ is in fact universal.
+        Kassel then showed that the central extension $(\g \tensor_{\bbC} A) \oplus^{\e} \bar{\Omega}^1_{A/k}$ is in fact universal.
         \begin{theorem}[The Kassel realisation] \label{theorem: kassel_realisation}
-            \cite[Corollary 3.5]{kassel_universal_central_extensions_of_lie_algebras} For the (perfect) Lie $k$-algebra $\g \tensor_k A$, we have that:
-                $$\uce(\g \tensor_k A) \cong (\g \tensor_k A) \oplus^{\e} \bar{\Omega}^1_{A/k}$$
+            \cite[Corollary 3.5]{kassel_universal_central_extensions_of_lie_algebras} For the (perfect) Lie $\bbC$-algebra $\g \tensor_{\bbC} A$, we have that:
+                $$\uce(\g \tensor_{\bbC} A) \cong (\g \tensor_{\bbC} A) \oplus^{\e} \bar{\Omega}^1_{A/k}$$
             with Lie bracket as in lemma \ref{lemma: lie_brackets_on_UCEs_of_current_algebras}.
         \end{theorem}

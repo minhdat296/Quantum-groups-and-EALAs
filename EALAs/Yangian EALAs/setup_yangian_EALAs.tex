@@ -4,10 +4,10 @@
     \subsection{Conventions for toroidal Lie algebras} \label{subsection: toroidal_lie_algebra_conventions}
         \todo[inline]{All toroidal Lie algebra conventions have been moved here.}
         For our own convenience, we will also be adopting the following abbreviations:
-            $$A := k[v^{\pm 1}, t^{\pm 1}], A^{\positive} := k[v^{\pm 1}, t]$$
+            $$A := \bbC[v^{\pm 1}, t^{\pm 1}], A^{\positive} := \bbC[v^{\pm 1}, t]$$
             $$\bar{\Omega}_{[2]} := \bar{\Omega}^1_{A/k}, \bar{\Omega}_{[2]}^{\positive} := \bar{\Omega}^1_{A^{\positive}/k}$$
         and also that:
-            $$\g_{[2]} := \g \tensor_k A, \g_{[2]}^{\positive} := \g \tensor_k A^{\positive}$$
+            $$\g_{[2]} := \g \tensor_{\bbC} A, \g_{[2]}^{\positive} := \g \tensor_{\bbC} A^{\positive}$$
         with both being understood as current algebras (in the sense of definition \ref{def: current_algebras}).
     
         We will then be interested in the Lie algebras:
@@ -20,28 +20,32 @@
         
         Now, instead of being equipped with the usual residue bilinear form of degree $(0, 0)$, the Lie algebra $\g_{[2]}$ will be equipped with the residue bilinear form of degree $(0, -1)$:
             $$(x v^m t^p, y v^n t^q)_{\g_{[2]}} := (x, y)_{\g} \delta_{(m, p) + (n, q), (0, -1)}$$
-        given for all $x, y \in \g$ and all $(m, p), (n, q) \in \Z^2$; sometimes, we will refer to this as the \textbf{Yangian form} or the \textbf{Yangian pairing}. It is easy to see that the bilinear form:
+        given for all $x, y \in \g$ and all $(m, p), (n, q) \in \Z^2$. It is easy to see that the bilinear form:
             $$(-, -)_{\g_{[2]}}$$
         is symmetric, non-degenerate, and invariant. Because $\toroidal$ has a non-trivial centre, any invariant (symmetric) bilinear form thereon (so in particular, any extension of $(-, -)_{\g_{[2]}}$ to $\toroidal$) is necessarily degenerate (see remark \ref{remark: extending_bilinear_forms_to_central_extensions}). The purpose of constructing \say{Yangian extended toroidal Lie algebras} is to remedy such degeneracy.
 
     \subsection{Untwisted affine Kac-Moody algebras} \label{subsection: a_fixed_untwisted_affine_kac_moody_algebra}
-        \todo[inline]{All untwisted affine Kac-Moody algebra conventions have been moved here.}
+        \todo[inline]{All untwisted affine Kac-Moody algebra conventions have been moved here. For now, I will keep this subsection here as I'm not sure where else to move it to.}
         A construction that we will be making use of frequently is the untwisted affine Kac-Moody algebra associated to a finite-dimensional simple Lie algebra. Let us briefly recall how it is constructed. For details, we refer the reader to \cite[Chapters 6 and 7]{kac_infinite_dimensional_lie_algebras}.
 
         Recall from example \ref{example: affine_lie_algebras_centres} that the Lie algebra:
-            $$\uce(\g[v^{\pm 1}]) \cong \g[v^{\pm 1}] \oplus k c_v$$
-        (with $c_v := v^{-1} \bar{d}v$ as in example \ref{example: toroidal_lie_algebras_centres}) carries a uniquely determined invariant symmetric bilinear form $(-, -)_{\uce(\g[v^{\pm 1}])}$ which is necessarily degenerate (see remark \ref{remark: extending_bilinear_forms_to_central_extensions}). However, by adding an extra element $D_{\aff}$ to the Lie algebra $\uce(\g[v^{\pm 1}])$ and by requiring that:
-            $$(c_v, D_{\aff})_{\uce(\g[v^{\pm 1}]) \oplus k D_{\aff}} = 1$$
-            $$(c_v, c_v)_{\uce(\g[v^{\pm 1}]) \oplus k D_{\aff}} = (D_{\aff}, D_{\aff})_{\uce(\g[v^{\pm 1}]) \oplus k D_{\aff}} = 0$$
-        one obtains the \textbf{untwisted affine Kac-Moody algebra} (in the sense of \cite[Chapter 7]{kac_infinite_dimensional_lie_algebras}):
-            $$\hat{\g} := \uce(\g[v^{\pm 1}]) \rtimes k D_{\aff}$$
-        The element $D_{\aff}$ can be shown to be the derivation on $\g[v^{\pm 1}]$ given by $\id_{\g} \tensor v \frac{d}{dv}$\footnote{Note that therefore $D_{\aff} \not = D_v$.}. It can also be shown that:
-            $$[D_{\aff}, c_v]_{\hat{\g}} = 0$$
+            $$\uce(\g[v^{\pm 1}])$$
+        carries a uniquely determined invariant symmetric bilinear form $(-, -)_{\uce(\g[v^{\pm 1}])}$ which is necessarily degenerate (see remark \ref{remark: extending_bilinear_forms_to_central_extensions}). However, by adding an extra element $D_{\aff}$ to the Lie algebra $\uce(\g[v^{\pm 1}])$ and by requiring that:
+            $$(c_v, D_{\aff})_{\hat{\g}} = 1$$
+            $$(\g_{[2]}, D_{\aff})_{\hat{\g}} = 0$$
+            $$(D_{\aff}, D_{\aff})_{\hat{\g}} = 0$$
+        where $\hat{\g} := \uce(\g[v^{\pm 1}]) \oplus \bbC D_{\aff}$ is the enlarged vector space. Any Lie algebra structure on the vector space $\uce(\g[v^{\pm 1}]) \oplus \bbC D_{\aff}$, with respect to which the bilinear form constructed is invariant, can then be shown to satisfy the following properties:
+        \begin{itemize}
+            \item The element $D_{\aff}$ can be shown to be the derivation on $\g[v^{\pm 1}]$ given by $\id_{\g} \tensor v \frac{d}{dv}$\footnote{Note that therefore $D_{\aff}$ is not the same as the element $D_v$ that will be introduced in convention \ref{conv: orthogonal_complement_of_toroidal_centres} (see also lemma \ref{lemma: derivation_action_on_multiloop_algebras} for a description of $D_v$ in terms of $\del_v$).}.
+            \item It can also be shown that:
+                $$[D_{\aff}, c_v] = 0$$
+        \end{itemize}
+        Together, the two facts above imply that $\uce(\g[v^{\pm 1}]) \cong \g[v^{\pm 1}] \oplus \bbC c_v$ is a module over the $1$-dimensional Lie algebra $\bbC D_{\aff}$. via proposition \ref{prop: twisted_semi_direct_product_criterion} (see also: example \ref{example: lie_algebra_semi_direct_products}), one sees thus that there is a unique Lie algebra structure on $\uce(\g[v^{\pm 1}]) \oplus \bbC D_{\aff}$ resulting from the construction above, namely the semi-direct product of $\bbC D_{\aff}$ by $\uce(\g[v^{\pm 1}])$. The Lie algebra:
+            $$\hat{\g} \cong \uce(\g[v^{\pm 1}]) \rtimes \bbC D_{\aff}$$
+        is typically called the \textbf{untwisted affine Kac-Moody algebra} attached to $\g$.
 
-        We shall also fix once and for all the following non-degenerate, invariant, and symmetric $k$-bilinear form\footnote{Actually, any Kac-Moody algebra admits such a bilinear form, as noted in \cite[Chapter 2]{kac_infinite_dimensional_lie_algebras}. When the Kac-Moody algebra in question is of an untwisted affine type, the formula for bilinear form will be as we are presenting here.} on $\hat{\g}$:
-            $$(-, -)_{\hat{\g}} := (-, -)_{\uce(\g[v^{\pm 1}]) \rtimes D_{\aff}}$$
-        By construction, this restricts to $(-, -)_{\uce(\g[v^{\pm 1}])}$ on $\uce(\g[v^{\pm 1}])$, and for how this bilinear form is given, we refer the reader to the latter portion of example \ref{example: affine_lie_algebras_centres}. Also by construction\footnote{... and due also to the fact that $(-, -)_{\g}$ is non-degenerate when restricted down to $\h$.}, this bilinear form remains non-degenerate on the subspace:
-            $$\hat{\h} := \h \oplus k c_v \oplus k D_{\aff}$$
+        By construction, the bilinear form $(-, -)_{\hat{\g}}$ restricts to $(-, -)_{\uce(\g[v^{\pm 1}])}$ on $\uce(\g[v^{\pm 1}])$, and for how this bilinear form is given, we refer the reader to the latter portion of example \ref{example: affine_lie_algebras_centres}. Also by construction\footnote{... and due also to the fact that $(-, -)_{\g}$ is non-degenerate when restricted down to $\h$.}, this bilinear form remains non-degenerate on the subspace:
+            $$\hat{\h} := \h \oplus \bbC c_v \oplus \bbC D_{\aff}$$
         and hence induces a vector space isomorphism:
             $$\hat{\h} \xrightarrow[]{\cong} \hat{\h}^*$$
         given by:
@@ -52,30 +56,24 @@
             $$\hat{\g}_{\beta} := \{ x \in \hat{\g} \mid \forall h \in \hat{\h}: [h, x]_{\hat{\g}} = \beta(h) x \} \not \cong 0$$
         The set of roots of $\hat{\g}$ shall be denoted by:
             $$\hat{\Phi}$$
-        Observe that because the vector space isomorphism $\hat{\h} \xrightarrow[]{\cong} \hat{\h}^*$ given by $h \mapsto (h, -)_{\hat{\g}}$ restricts down to an isomorphism $\h \xrightarrow[]{\cong} \h^*$ given by the same formula, due to the construction of the bilinear form $(-, -)_{\hat{\g}}$ (cf. example \ref{example: affine_lie_algebras_centres}), there exists an injection:
-            $$\Phi \subset \hat{\Phi}$$
-        Let us denote its image by:
-            $$\Re(\hat{\Phi})$$
-        and refer to the elements in this image (i.e. regard the roots of $\g$) as \textbf{real roots} of $\hat{\g}$.
         
         Now, in order to construct a root system for $\hat{\g}$, let us firstly choose a basis for $\hat{\h}^*$:
-            $$\{\alpha_i\}_{1 \leq i \leq \dim_k \hat{\h}}$$
+            $$\{\alpha_i\}_{1 \leq i \leq \dim_{\bbC} \hat{\h}}$$
         wherein the subset:
-            $$\{\alpha_i\}_{1 \leq i \leq \dim_k \h}$$
+            $$\{\alpha_i\}_{1 \leq i \leq \dim_{\bbC} \h}$$
         is a choice of simple roots for the underlying finite-dimensional simple Lie algebra $\g$. Like with $\g$, this datum allows one to construct a Cartan matrix for $\hat{\g}$ in the same manner as was done for $\g$ in subsection \ref{subsection: finite_dimensional_simple_lie_algebras}:
-            $$\hat{C} := (c_{ij})_{1 \leq i, j \leq \dim_k \hat{\h}} := \left( \frac{2(\alpha_i, \alpha_j)_{\hat{\g}}}{(\alpha_i, \alpha_i)_{\hat{\g}}} \right)_{1 \leq i, j \leq \dim_k \hat{\h}}$$
+            $$\hat{C} := (c_{ij})_{1 \leq i, j \leq \dim_{\bbC} \hat{\h}} := \left( \frac{2(\alpha_i, \alpha_j)_{\hat{\g}}}{(\alpha_i, \alpha_i)_{\hat{\g}}} \right)_{1 \leq i, j \leq \dim_{\bbC} \hat{\h}}$$
         Likewise, it can be shown that $\hat{C}$ is symmetrisable in the sense that there exists an invertible diagonal matrix:
-            $$\hat{D} := (d_{ij})_{1 \leq i, j \leq \dim_k \hat{\h}} = \left(\frac{2\delta_{i, j}}{(\alpha_i, \alpha_j)_{\hat{\g}}}\right)_{1 \leq i, j \leq \dim_k \hat{\h}}$$
+            $$\hat{D} := (d_{ij})_{1 \leq i, j \leq \dim_{\bbC} \hat{\h}} = \left(\frac{2\delta_{i, j}}{(\alpha_i, \alpha_j)_{\hat{\g}}}\right)_{1 \leq i, j \leq \dim_{\bbC} \hat{\h}}$$
         and a symmetric matrix:
-            $$\hat{A} := (a_{ij})_{1 \leq i, j \leq \dim_k \hat{\h}} = \left((\alpha_i, \alpha_j)_{\hat{\g}}\right)_{1 \leq i, j \leq \dim_k \hat{\h}}$$
-        (which is nothing but the matrix representation of the bilinear form $(-, -)_{\hat{\g}}$ with respect to the basis $\{\alpha_i\}_{1 \leq i \leq \dim_k \hat{\h}}$), such that:
+            $$\hat{A} := (a_{ij})_{1 \leq i, j \leq \dim_{\bbC} \hat{\h}} = \left((\alpha_i, \alpha_j)_{\hat{\g}}\right)_{1 \leq i, j \leq \dim_{\bbC} \hat{\h}}$$
+        (which is nothing but the matrix representation of the bilinear form $(-, -)_{\hat{\g}}$ with respect to the basis $\{\alpha_i\}_{1 \leq i \leq \dim_{\bbC} \hat{\h}}$), such that:
             $$\hat{C} = \hat{D} \hat{A}$$
-        One way to now construct the set of roots $\hat{\Phi}$ is to build, from the Cartan matrix $\hat{C}$, the adjacency matrix of an undirected graph with weighted edges\footnote{To account for the non-simply laced cases.} called the \textbf{Dynkin diagram} of $\hat{\g}$ (cf. \cite[Section 4.7]{kac_infinite_dimensional_lie_algebras}); the roots of $\hat{\g}$ are then the roots of this Dynkin diagram. This process works generally, but is rather involved, so let us proceed towards the construction of $\hat{\Phi}$ in another way, which admittedly is somewhat \textit{ad hoc}.
         
         Now, a point of deviation from the finite-dimensional theory is that the Cartan matrix $\hat{C}$ is only positive-semi-definite in general, and since positive-semi-definite matrices are positive-definite if and only if they are invertible, $\hat{C}$ is generally not of full rank. Let us write:
-            $$\hat{l} := \rank \hat{C} \leq \dim_k \hat{\h}$$
+            $$\hat{l} := \rank \hat{C} < \dim_{\bbC} \hat{\h}$$
         and it will also be convenient to have the notation:
-            $$l := \rank C = \dim_k \h$$
+            $$l := \rank C = \dim_{\bbC} \h$$
         Using the construction of the the non-degenerate bilinear form $(-, -)_{\hat{\g}}$ from the degenerate form $(-, -)_{\uce(\g[v^{\pm 1}])}$ - particularly how one as a single extra basis element $D_{\aff}$ to $\uce(\g[v^{\pm 1}])$ - it can be shown that:
             $$\hat{l} = l + 1$$
         $\hat{C}$ is therefore \textit{not of full rank}, and hence only \textit{positive-semi-definite}. The set of simple roots of $\hat{\g}$ can now be defined to be the following linearly independent subset of $\hat{\h}^*$:
@@ -86,18 +84,22 @@
             $$\Im(\hat{\Phi}) := \Z\delta \setminus \{0\}$$
         are in fact roots of $\hat{\g}$ (i.e. that $\Z\delta \setminus \{0\} = \Z\delta \cap \hat{\Phi}$); elements of this set are usually called \textbf{imaginary roots}. We will explain why the extra simple root needs to be $-\theta + \delta$ (as opposed to, say, $\delta$) shortly; for now, let us remark that this choice results in the slightly unfortunate fact that the lowest imaginary root $\delta$ is \textit{not} simple, though there is certainly a bijection $\hat{\simpleroots} \cong \simpleroots \cup \{\delta\}$.
 
+        Observe that because the vector space isomorphism $\hat{\h} \xrightarrow[]{\cong} \hat{\h}^*$ given by $h \mapsto (h, -)_{\hat{\g}}$ restricts down to an isomorphism $\h \xrightarrow[]{\cong} \h^*$ given by the same formula, due to the construction of the bilinear form $(-, -)_{\hat{\g}}$ (cf. example \ref{example: affine_lie_algebras_centres}), there exists an injection:
+            $$\Phi \subset \hat{\Phi}$$
+        This image allows us to define the set of so-called \textbf{real roots} of $\hat{\g}$ as follows:
+            $$\Re(\hat{\Phi}) := \Phi + \Z\delta$$
         An intrinsic way to characterise real and imaginary roots is that $\beta \in \Im(\hat{\Phi})$ if and only if $(\beta, \beta)_{\hat{\g}} = 0$ and $\beta \in \Re(\hat{\Phi})$ otherwise. The set of roots of $\hat{\g}$ thus decomposes into a disjoint union of the subsets of real and of imaginary roots:
             $$\hat{\Phi} = \Re(\hat{\Phi}) \cup \Im(\hat{\Phi})$$
         
         The root lattice of $\hat{\g}$ can now be given as:
-            $$\hat{Q} := \Z\hat{\simpleroots}$$
+            $$\hat{Q} := \Z\{\alpha_i\}_{i \in \hat{\simpleroots}}$$
         Positive/negative roots are thus elements of:
             $$\hat{\Phi}^+ := \hat{\Phi} \cap \hat{Q}^{\pm}$$
         where:
-            $$\hat{Q}^{\pm} := \pm\Z_{\geq 0}\hat{\simpleroots}$$
+            $$\hat{Q}^{\pm} := \pm\Z_{\geq 0}\{\alpha_i\}_{i \in \hat{\simpleroots}}$$
         Simple roots, in particular, are conventionally \textit{positive}.
 
-        The $Q$-grading on $\g$ and the natural $\Z$-grading on $k[v^{\pm 1}]$ induce, together, a $Q \x \Z$-grading on $\g$. Explicitly, for each $\lambda \in \Phi$, each $x \in \g_{\alpha}$, and each $m \in \Z$, one has that:
+        The $Q$-grading on $\g$ and the natural $\Z$-grading on $\bbC[v^{\pm 1}]$ induce, together, a $Q \x \Z$-grading on $\g$. Explicitly, for each $\lambda \in \Phi$, each $x \in \g_{\alpha}$, and each $m \in \Z$, one has that:
             $$\deg x v^m = (\alpha, m)$$
         Following \cite[Chapter 6]{kac_infinite_dimensional_lie_algebras}, we know that there is an isomorphism of $\Z$-modules:
             $$\hat{Q} \xrightarrow[]{\cong} Q \x \Z$$
@@ -109,7 +111,7 @@
         with the root spaces being given by:
             $$\forall \alpha + m\delta \in \Re(\hat{\Phi}): \hat{\g}_{\alpha + m\delta} \cong \g_{\alpha} v^m$$
             $$\forall r\delta \in \Im(\hat{\Phi}): \hat{\g}_{r\delta} \cong \h v^r$$
-        In particular, this tells us that real roots are all of multiplicity $1$ (since $\dim_k \g_{\alpha} = 1$ for all $\alpha \in \Phi$), while imaginary roots are of multiplicity $l$.
+        In particular, this tells us that real roots are all of multiplicity $1$ (since $\dim_{\bbC} \g_{\alpha} = 1$ for all $\alpha \in \Phi$), while imaginary roots are of multiplicity $l$.
             
         Finally, let us note that $\hat{\g}$ is isomorphic to the Lie algebra generated by a set of \textbf{Chevalley-Serre generators} (cf. \cite[Theorems 1.2, 1.4, and 9.11]{kac_infinite_dimensional_lie_algebras}\footnote{Theorem 9.11 is where the Serre relations for symmetrisable Kac-Moody algebras are established.}). To describe these generators, write:
             $$\alpha_0 := -\theta + \delta$$
@@ -117,16 +119,19 @@
             $$\{x_i^{\pm}, h_i\}_{i \in \hat{\simpleroots}}$$
         whose elements are subjected to the same relations as in theorem \ref{theorem: serre_theorem_for_finite_dimensional_simple_lie_algebras} (but now given for $i, j \in \hat{\simpleroots}$); the isomorphism in question is given by
             $$x_0^{\pm} \mapsto x_{\mp \theta} v^{\pm 1}, h_0 \mapsto -\theta^{\vee} + c_v$$
-        where the root vectors $x_{\pm \theta} \in \g_{\pm \theta}$ have been chosen so that $(x_{\theta}, x_{-\theta})_{\g} = 1$, per the convention made in subsection \ref{subsection: finite_dimensional_simple_lie_algebras}. As for why the highest root $\theta \in \Phi$ might appear here in the first place, this is simply so that simultaneously, $h_0$ is not central in $\hat{\g}$ (which in particular, would imply that $h_0 \in k c_v$, which is absurd), and that:
+        where the root vectors $x_{\pm \theta} \in \g_{\pm \theta}$ have been chosen so that $(x_{\theta}, x_{-\theta})_{\g} = 1$, per the convention made in subsection \ref{subsection: finite_dimensional_simple_lie_algebras}. As for why the highest root $\theta \in \Phi$ might appear here in the first place, this is simply so that simultaneously, $h_0$ is not central in $\hat{\g}$ (which in particular, would imply that $h_0 \in \bbC c_v$, which is absurd), and that:
             $$
-                [h_0, x_i]_{\hat{\g}} =
-                \begin{cases}
-                    \text{$0$ if $i \in \simpleroots$}
+                \begin{aligned}
+                    [h_0, x_0^{\pm}]_{\hat{\g}} & = [-\theta^{\vee} + c_v, x_{\mp \theta} v^{\pm 1}]_{\hat{\g}}
                     \\
-                    \text{$(-\theta + \delta, -\theta + \delta)_{\hat{\g}} = (\theta, \theta)_{\hat{\g}} \not = 0$ if $i = 0$}
-                \end{cases}
+                    & = [-\theta^{\vee}, x_{\mp \theta} v^{\pm 1}]_{\hat{\g}}
+                    \\
+                    & = \pm \theta(\theta^{\vee}) x_{\mp \theta} v^{\pm 1}
+                    \\
+                    & = \pm 2 x_0^{\pm}
+                \end{aligned}
             $$
-        with the first case holding true thanks to the fact that the highest root $\theta$ being orthogonal to every other root $\alpha \in \Phi$ of the underlying finite-dimensional simple Lie algebra $\g$. Note also that, indeed, we have that:
+        where the third equality holds because $(-\theta^{\vee}, x_{\mp \theta})_{\g} = 0$. Note also that, indeed, we have that:
             $$[x_0^+, x_0^-]_{\hat{\g}} = -\theta^{\vee} + c_v = h_0$$
         as well as:
             $$
@@ -140,7 +145,9 @@
                 =
                 \pm (-\theta + \delta)(h_i) x_{\mp \theta} v^{\pm 1} = \pm \alpha_0(h_i) x_{\mp \theta} v^{\pm 1}
             $$
-        for all $i \in \hat{\simpleroots}$, with the second-to-last equality holding thanks to the fact that $\delta := (c_v, -)_{\hat{\g}}$ and the fact that $(c_v, \g[v^{\pm 1}])_{\hat{\g}} = (c_v, \g[v^{\pm 1}])_{\uce(\g[v^{\pm 1}])} = 0$; this gives one reason for choosing the single extra simple root to be $-\theta + \delta$. The second reason is that we would like the \textbf{Chevalley involution}:
+        for all $i \in \hat{\simpleroots}$, with the second-to-last equality holding thanks to the fact that $\delta := (c_v, -)_{\hat{\g}}$ and the fact that $(c_v, \g[v^{\pm 1}])_{\hat{\g}} = (c_v, \g[v^{\pm 1}])_{\uce(\g[v^{\pm 1}])} = 0$; this gives one reason for choosing the single extra simple root to be $-\theta + \delta$. Together, the two observations above give rise to an injective Lie algebra homomorphism:
+            $$\sl_2(k) \hookrightarrow \hat{\g}$$
+        given by $h_0 \mapsto h, x_0^{\pm} \mapsto x^{\pm}$ (with $h, x^{\pm}$ as in example \ref{example: sl_2}), whose existence is to be expected (cf. \cite[Section 3.3]{kac_infinite_dimensional_lie_algebras}). The second reason is that we would like the \textbf{Chevalley involution}:
             $$\omega \in \Aut_{\Lie\Alg}(\hat{\g})$$
         (cf. \cite[p. 7]{kac_infinite_dimensional_lie_algebras}) to act on the Chevalley-Serre generators by:
             $$\omega(x_i^{\pm}) = -x_i^{\mp}, \omega(h_i) = -h_i$$
