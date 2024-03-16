@@ -8,16 +8,13 @@
             $$\gamma: \d \to \fraky$$
         We therefore see that to give such a linear section $\gamma: \d \to \fraky$ is the same as to give a $2$-cocycle $\sigma: \bigwedge^2 \d \to \p$, i.e. the cocycle $\sigma$ measures how far the extension $(\fraky, \pi)$ is away from splitting, i.e. from being the semi-direct product $\p \rtimes \d$ (which is more-or-less the definition of $2$-cocycles of Lie algebras; cf. definition \ref{def: twisted_semi_direct_products}).
 
-        Keeping the above in mind, let us return to the setting of definition \ref{def: yangian_extended_toroidal_lie_algebras}. An natural question to ask, given this definition, is as follows:
+        Keeping the above in mind, let us return to the setting of definition \ref{def: yangian_extended_toroidal_lie_algebras}. A natural question to ask, given this definition, is as follows:
         \begin{question}
             Amongst the twisted semi-direct products $\fraky(\sigma) := \toroidal \rtimes^{\sigma} \d_{[2]}$, which ones are Yangian extended toroidal Lie algebras ? 
         \end{question}
         Since $\toroidal$ automatically embeds into any twited semi-direct product $\fraky(\sigma)$ as a Lie subalgebra, and since the underlying vector space of $\fraky(\sigma)$ is $\toroidal \oplus \d_{[2]}$ by definition, in order to answer this question, it shall suffice to give a criterion on the cocycle:
             $$\sigma: \bigwedge^2 \d_{[2]} \to \toroidal$$
-        so that there would exist an \textit{invariant} and \textit{non-degenerate} symmetric bilinear form $(-, -)_{\sigma}$ on $\fraky(\sigma)$. Equivalently, one can give a criterion on the corresponding linear section:
-            $$\gamma: \d_{[2]} \to \fraky(\sigma)$$
-        which, as mentioned above, is such that:
-            $$\sigma(D, D') = [\gamma(D), \gamma(D')]_{\fraky(\sigma)} - \gamma( [D, D']_{\d_{[2]}} )$$
+        so that there would exist an \textit{invariant} and \textit{non-degenerate} symmetric bilinear form $(-, -)_{\sigma}$ on $\fraky(\sigma)$.
 
         For convenience, let us fix the following terminologies.
         \begin{definition}[General extended toroidal Lie algebras] \label{def: general_extended_toroidal_lie_algebras}
@@ -34,7 +31,7 @@
             Since we now know that Yangian extended toroidal Lie algebras are necessarily isomorphic to some twisted semi-direct product $\fraky(\sigma)$ (cf. theorem \ref{theorem: yangian_extended_toroidal_lie_algebras_preliminary_version} and corollary \ref{coro: yangian_extended_toroidal_lie_algebras_are_twisted_semi_direct_products}), definitions \ref{def: general_extended_toroidal_lie_algebras} and \ref{def: yangian_toroidal_cocycles} as above make sense.
         \end{remark}
         \begin{remark}[Yangian toroidal $2$-cocycles are central]
-            Thanks to proposition \ref{prop: lie_bracket_on_orthogonal_complement_of_toroidal_centre}, we know that the codomain of any Yangian toroidal $2$-cocycle necessarily lies inside $\z_{[2]}$. 
+            Thanks to proposition \ref{prop: lie_bracket_on_orthogonal_complement_of_toroidal_centre}, we know that the codomain of any Yangian toroidal $2$-cocycle necessarily lies inside $\z_{[2]}$. See corollary \ref{coro: lie_brackets_on_central_extensions} as well.
         \end{remark}
 
     \subsection{Which extended toroidal Lie algebras are Yangian ?}
@@ -79,7 +76,7 @@
                 $$(\sigma(D, D')_{\g_{[2]}}, yg)_{\sigma} + (\sigma(D, D')_{\z_{[2]}}, D'')_{\sigma} = (xf, \sigma(D', D'')_{\g_{[2]}})_{\sigma} + (D, \sigma(D', D'')_{\z_{[2]}})_{\sigma}$$
             for all $D, D', D'' \in \d_{[2]}$, and for all $x, y \in \g$ and all $f, g \in A$.
         \end{question}
-        \begin{remark}
+        \begin{remark} \label{remark: yangian_criterion_for_toroidal_cocycles}
             We know that for a toroidal $2$-cocycle:
                 $$\sigma: \bigwedge^2 \d_{[2]} \to \toroidal$$
             to be Yangian is $\z_{[2]}$, its codomain must be $\z_{[2]}$. As such, it shall suffice to find a condition that it must satisfy so that:
@@ -108,85 +105,156 @@
                         \text{$\mu_t(D', D'')$ if $D = D_t$}
                     \end{cases}
                 $$
+            This means that in order to see if $(-, -)_{\sigma}$ is an invariant bilinear form, it shall suffice to compute:
+                $$\sigma(D, D'), \sigma(D', D'')$$
+            as linear combinations of the basis elements of $\z_{[2]}$, record the coefficients as entries of two $4 \x 3$ matrices, namely:
+                $$
+                    \bfA(\sigma) :=
+                    \begin{pmatrix}
+                        \lambda_{\alpha, \beta}(D_{r, s}, D_{a, b}) & \lambda_v(D_{r, s}, D_{a, b}) & \lambda_t(D_{r, s}, D_{a, b})
+                        \\
+                        \lambda_{\alpha, \beta}(D_{r, s}, D_v) & \lambda_v(D_{r, s}, D_v) & \lambda_t(D_{r, s}, D_v)
+                        \\
+                        \lambda_{\alpha, \beta}(D_{r, s}, D_t) & \lambda_v(D_{r, s}, D_t) & \lambda_t(D_{r, s}, D_v)
+                        \\
+                        \lambda_{\alpha, \beta}(D_v, D_t) & \lambda_v(D_v, D_t) & \lambda_t(D_v, D_t)
+                    \end{pmatrix}
+                $$
+                $$
+                    \bfB(\sigma) :=
+                    \begin{pmatrix}
+                       \mu_{r, s}(D_{a, b}, D_{\alpha, \beta}) & \mu_v(D_{a, b}, D_{\alpha, \beta}) & \mu_t(D_{a, b}, D_{\alpha, \beta})
+                        \\
+                       \mu_{r, s}(D_{a, b}, D_v) & \mu_v(D_{a, b}, D_v) & \mu_t(D_{a, b}, D_v)
+                        \\
+                       \mu_{r, s}(D_{a, b}, D_t) & \mu_v(D_{a, b}, D_t) & \mu_t(D_{a, b}, D_v)
+                        \\
+                       \mu_{r, s}(D_v, D_t) & \mu_v(D_v, D_t) & \mu_t(D_v, D_t)
+                    \end{pmatrix}
+                $$
+            and then compare said matrices. If these matrices are equal, then we will have that:
+                $$(\sigma(D, D')_{\z_{[2]}}, D'')_{\sigma} = (D, \sigma(D', D'')_{\z_{[2]}})_{\sigma}$$
+            i.e. $\sigma$ will be Yangian.
         \end{remark}
+        By putting everything together, one obtains the following result characteristing Yangian $2$-cocycles amongst all the toroidal $2$-cocycles.
         \begin{theorem}[A Yangian-ness criterion for toroidal $2$-cocycles] \label{theorem: yangian_criterion_for_toroidal_cocycles}
-            \todo[inline]{I'm not sure how to phrase this as a condition on $\sigma$.}
+            A toroidal $2$-cocycle:
+                $$\sigma: \bigwedge^2 \d_{[2]} \to \z_{[2]}$$
+            is Yangian if and only if:
+                $$(\sigma(D, D')_{\z_{[2]}}, D'')_{\sigma} = (D, \sigma(D', D'')_{\z_{[2]}})_{\sigma}$$
+            for all $D, D', D'' \in \d_{[2]}$, which can be taken to be basis elements without loss of generality. Equivalently, by letting:
+                $$\sigma(D, D') := \sum_{(m, p) \in \Z^2} \lambda_{m, p}(D, D') K_{m, p} + \lambda_v(D, D') c_v + \lambda_t(D, D') c_t$$
+                $$\sigma(D', D'') := \sum_{(m, p) \in \Z^2} \mu_{m, p}(D', D'') K_{m, p} + \mu_v(D', D'') c_v + \mu_t(D', D'') c_t$$
+            be linear combinations in terms of the basis elements of $\z_{[2]}$, where the coefficients depend on the elements $D, D', D'' \in \z_{[2]}$, one sees that $\sigma$ is Yangian if and only if:
+                $$\bfA(\sigma) = \bfB(\sigma)$$
+            with $\bfA(\sigma), \bfB(\sigma)$ being the $4 \x 3$ matrices as in remark \ref{remark: yangian_criterion_for_toroidal_cocycles}.
         \end{theorem}
-            \begin{proof}
-                
-            \end{proof}
 
-        Now that we have a criterion for a given toroidal $2$-cocycle to be Yangian, let us apply it to some known toroidal $2$-cocycles. 
+        Now that we have a criterion for a given toroidal $2$-cocycle to be Yangian, let us apply it to some known toroidal $2$-cocycles from \cite{billig_energy_momentum_tensor} to check whether or not they are Yangian. 
         \begin{example}[Some explicit toroidal $2$-cocycles] \label{example: non_uniqueness_of_yangian_extended_lie_algebras}
             From proposition \ref{prop: lie_bracket_on_orthogonal_complement_of_toroidal_centre}, we know that:
                 $$[\d_{[2]}, \d_{[2]}]_{\extendedtoroidal} \subset \z_{[2]} \oplus \d_{[2]}$$
             we can obtain some $2$-cocyles $\bar{\sigma} \in H^2_{\Lie}(\d_{[2]}, \z_{[2]})$ by restricting elements $\sigma \in H^2_{\Lie}(\der(A), \z_{[2]})$, some of which are known.
 
-            It pays to abstract the situation out to the $n$-variable case for a moment, mostly for us to make the point that the dimension of the vector space $H^2_{\Lie}(\der(\bbC[v_1^{\pm 1}, ..., v_n^{\pm 1}]), \bar{\Omega}^1_{\bbC[v_1^{\pm 1}, ..., v_n^{\pm 1}]/k})$ depends not on the number of variables. In \cite[p. 5, below Equation 1.3]{billig_energy_momentum_tensor}, it was noted that the cohomology group:
-                $$H^2_{\Lie}(\der(\bbC[v_1^{\pm 1}, ..., v_n^{\pm 1}]), \bar{\Omega}^1_{\bbC[v_1^{\pm 1}, ..., v_n^{\pm 1}]/k})$$
+            It pays to abstract the situation out to the $n$-variable case for a moment, mostly for us to make the point that the dimension of the vector space $H^2_{\Lie}(\der(\bbC[v_1^{\pm 1}, ..., v_n^{\pm 1}]), \bar{\Omega}^1_{\bbC[v_1^{\pm 1}, ..., v_n^{\pm 1}]/\bbC})$ depends not on the number of variables. In \cite[p. 5, below Equation 1.3]{billig_energy_momentum_tensor}, it was noted that the cohomology group:
+                $$H^2_{\Lie}(\der(\bbC[v_1^{\pm 1}, ..., v_n^{\pm 1}]), \bar{\Omega}^1_{\bbC[v_1^{\pm 1}, ..., v_n^{\pm 1}]/\bbC})$$
             contains at least $2$-cocyles that we shall denote by:
-                $$\sigma_1, \sigma_2$$
-            These \say{twist} the Lie brackets (in the sense of proposition \ref{prop: twisted_semi_direct_product_criterion}):
-                $$[v_1^{m_1} ... v_n^{m_n} v_p \del_{v_p}, v_1^{r_1} ... v_n^{r_n} v_q \del_{v_q}] \in \der(\bbC[v_1^{\pm 1}, ..., v_n^{\pm 1}])$$
-            by the following formulae:
-                $$\sigma_1(v_1^{m_1} ... v_n^{m_n} v_p \del_{v_p}, v_1^{r_1} ... v_n^{r_n} v_q \del_{v_q}) = r_p m_q \sum_{1 \leq i \leq n} r_i v_1^{m_1 + r_1} ... v_n^{m_n + r_n} v_i^{-1} \bar{d}(v_i)$$
-                $$\sigma_2(v_1^{m_1} ... v_n^{m_n} v_p \del_{v_p}, v_1^{r_1} ... v_n^{r_n} v_q \del_{v_q}) = m_p r_q \sum_{1 \leq i \leq n} r_i v_1^{m_1 + r_1} ... v_n^{m_n + r_n} v_i^{-1} \bar{d}(v_i)$$
+                $$\sigma_1, \sigma_2: \bigwedge^2 \der(\bbC[v_1^{\pm 1}, ..., v_n^{\pm 1}]) \to \bar{\Omega}^1_{\bbC[v_1^{\pm 1}, ..., v_n^{\pm 1}]/\bbC}$$
+            which are given on the basis elements of $\der(\bbC[v_1^{\pm 1}, ..., v_n^{\pm 1}])$ by:
+                $$\sigma_1(v_1^{m_1} ... v_n^{m_n} v_p \del_{v_p}, v_1^{r_1} ... v_n^{r_n} v_q \del_{v_q}) = r_p m_q \sum_{1 \leq i \leq n} r_i v_1^{m_1 + r_1} ... v_n^{m_n + r_n} v_i^{-1} \bar{d}v_i$$
+                $$\sigma_2(v_1^{m_1} ... v_n^{m_n} v_p \del_{v_p}, v_1^{r_1} ... v_n^{r_n} v_q \del_{v_q}) = m_p r_q \sum_{1 \leq i \leq n} r_i v_1^{m_1 + r_1} ... v_n^{m_n + r_n} v_i^{-1} \bar{d}v_i$$
             given for every $1 \leq p, q \leq n$ and every $(m_1, ..., m_n), (r_1, ..., r_n) \in \Z^n$. 
 
-            Now, back to the $2$-variable case. Here, we know how the basis elements $D_{r, s}, D_v, D_t$ of $\d_{[2]}$ are given in terms of $A$-multiples of the partial derivatives $\del_v, \del_t$ (cf. lemma \ref{lemma: derivation_action_on_multiloop_algebras}), so we can exploit the bilinearity of $2$-cocycles in order to see how $\sigma_1, \sigma_2$ act on elements of $\d_{[2]}$. Knowing that the aforementioned basis elements are given by:
+            Now, back to the $2$-variable case. Here, we know how the basis elements $D_{r, s}, D_v, D_t$ of $\d_{[2]}$ are given in terms of $A$-multiples of the partial derivatives $\del_v, \del_t$ (cf. lemma \ref{lemma: derivation_action_on_multiloop_algebras}), so we can exploit the bilinearity of $2$-cocycles in order to see how $\sigma_1, \sigma_2$ act on elements of $\d_{[2]}$. Recall from lemma \ref{lemma: derivation_action_on_multiloop_algebras} that, in terms of the partial derivatives $\del_v, \del_t$, the basis elements of $\d_{[2]}$ are given by:
                 $$D_{r, s} = s v^{-r + 1} t^{-s - 1} \del_v - r v^{-r} t^{-s} \del_t$$
                 $$D_v = -v t^{-1} \del_v$$
                 $$D_t = -\del_t$$
-            we see thus that:
-                $$\sigma_a(D_t, -) = 0$$
-                $$\sigma_a(D_{r, s}, -), \sigma_a(D_v, -) \not = 0$$
-            as elements of $\Hom_{\bbC}(\d_{[2]}, \z_{[2]})$, where $a \in \{1, 2\}$; one proves this by looking at the powers of $v, t$ in the multiples of $\del_v, \del_t$ in the expressions for $D_{r, s}, D_v, D_t$. Subsequently, we can conclude that neither of the $2$-cocycles $\sigma_1, \sigma_2$ vanish entirely on the Lie subalgebra $\d_{[2]}$ of $\der(A)$, and hence:
-                $$\sigma_1, \sigma_2 \in H^2_{\Lie}(\d_{[2]}, \z_{[2]})$$
-            We delegate the relevant detailed computations to the proof of theorem \ref{theorem: non_uniqueness_of_yangian_extended_toroidal_lie_algebras} down below.  
-
-            We note also, that it should not be expected that:
-                $$H^2_{\Lie}(\der(A), \toroidal) \cong H^2_{\Lie}(\d_{[2]}, \toroidal)$$
-            because in general, if $\a$ is a Lie algebra and $\a'$ is a Lie subalgebra thereof, and $M$ is an $\a$-module (and hence also an $\a'$-module), then should be no reason to expect that we would have:
-                $$H^i_{\Lie}(\a, M) \cong H^i_{\Lie}(\a', M)$$
-            without further hypotheses. 
+            Knowing this allows us to prove the following computations, where $p \in \{1, 2\}$:
+            \begin{itemize}
+                \item \todo[inline]{Not done}
+                    $$
+                        \begin{aligned}
+                            & \sigma_p(D_{r, s}, D_{a, b})
+                            \\
+                            = & \sigma_p( s v^{-r + 1} t^{-s - 1} \del_v - r v^{-r} t^{-s} \del_t, b v^{-a + 1} t^{-b - 1} \del_v - a v^{-a} t^{-b} \del_t )
+                            \\
+                            = & b \sigma_p( s v^{-r + 1} t^{-s - 1} \del_v - r v^{-r} t^{-s} \del_t, v^{-a + 1} t^{-b - 1} \del_v ) - a \sigma_p( s v^{-r + 1} t^{-s - 1} \del_v - r v^{-r} t^{-s} \del_t, v^{-a} t^{-b} \del_t )
+                            \\
+                            = & 
+                            \begin{aligned}
+                                & b \left( s \sigma_p( v^{-r + 1} t^{-s - 1} \del_v, v^{-a + 1} t^{-b - 1} \del_v ) - r \sigma_p( v^{-r} t^{-s} \del_t, v^{-a + 1} t^{-b - 1} \del_v ) \right)
+                                \\
+                                - & a \left( s \sigma_p( v^{-r + 1} t^{-s - 1} \del_v, v^{-a} t^{-b} \del_t ) - r \sigma_p( v^{-r} t^{-s} \del_t, v^{-a} t^{-b} \del_t ) \right)
+                            \end{aligned}
+                            \\
+                            = & 
+                            \begin{cases}
+                                \begin{aligned}
+                                    & b \left( s \sigma_1( v^{-r + 1} t^{-s - 1} \del_v, v^{-a + 1} t^{-b - 1} \del_v ) - r \sigma_1( v^{-r} t^{-s} \del_t, v^{-a + 1} t^{-b - 1} \del_v ) \right)
+                                    \\
+                                    - & a \left( s \sigma_1( v^{-r + 1} t^{-s - 1} \del_v, v^{-a} t^{-b} \del_t ) - r \sigma_1( v^{-r} t^{-s} \del_t, v^{-a} t^{-b} \del_t ) \right)
+                                \end{aligned} \: \text{if $p = 1$}
+                                \\
+                                \begin{aligned}
+                                    & b \left( s \sigma_2( v^{-r + 1} t^{-s - 1} \del_v, v^{-a + 1} t^{-b - 1} \del_v ) - r \sigma_2( v^{-r} t^{-s} \del_t, v^{-a + 1} t^{-b - 1} \del_v ) \right)
+                                    \\
+                                    - & a \left( s \sigma_2( v^{-r + 1} t^{-s - 1} \del_v, v^{-a} t^{-b} \del_t ) - r \sigma_2( v^{-r} t^{-s} \del_t, v^{-a} t^{-b} \del_t ) \right)
+                                \end{aligned} \: \text{if $p = 2$}
+                            \end{cases}
+                        \end{aligned}
+                    $$
+                \item \todo[inline]{Not done}
+                    $$
+                        \begin{aligned}
+                            & \sigma_p(D_{r, s}, D_v)
+                            \\
+                            = & \sigma_p( s v^{-r + 1} t^{-s - 1} \del_v - r v^{-r} t^{-s} \del_t, -v t^{-1} \del_v )
+                            \\
+                            = & -s \sigma_p( v^{-r + 1} t^{-s - 1} \del_v, v t^{-1} \del_v ) + \sigma_p( v^{-r} t^{-s} \del_t, v t^{-1} \del_v )
+                            \\
+                            = &
+                            \begin{cases}
+                                \text{$s (-r + 1) ( v^{-r + 1} t^{-s - 2} \bar{d}v + v^{-r + 2} t^{-s - 3} \bar{d}t ) + \sigma_1( v^{-r} t^{-s} \del_t, v t^{-1} \del_v )$ if $p = 1$}
+                                \\
+                                \text{if $p = 2$}
+                            \end{cases}
+                        \end{aligned}
+                    $$
+                \item
+                    $$
+                        \begin{aligned}
+                            & \sigma_p(D_{r, s}, D_t)
+                            \\
+                            = & \sigma_p( s v^{-r + 1} t^{-s - 1} \del_v - r v^{-r} t^{-s} \del_t, -\del_t )
+                            \\
+                            = & -s \sigma_p( v^{-r + 1} t^{-s - 1} \del_v, \del_t ) + \sigma_p( v^{-r} t^{-s} \del_t, \del_t )
+                            \\
+                            = & 0
+                        \end{aligned}
+                    $$
+                where the last equality holds because $\del_t = v^0 t^0 \del_t$.
+                \item
+                    $$
+                        \begin{aligned}
+                            & \sigma_p(D_v, D_t)
+                            \\
+                            = & \sigma_p(-v t^{-1} \del_v, -\del_t)
+                            \\
+                            = & \sigma_p(v t^{-1} \del_v, \del_t)
+                            \\
+                            = & 0
+                        \end{aligned}
+                    $$
+                where the last equality holds because $\del_t = v^0 t^0 \del_t$.
+            \end{itemize}
         \end{example}
         \begin{theorem}[Non-uniqueness of Yangian extended toroidal Lie algebras] \label{theorem: non_uniqueness_of_yangian_extended_toroidal_lie_algebras}
             Let $\d_{[2]}$ be regarded as a Lie subalgebra of $\der(A)$, with the usual commutator bracket. There are \textit{at least} two isomorphism classes of Lie algebra extensions \textit{other than the semi-direct product}:
                 $$0 \to \toroidal \to \extendedtoroidal \to \d_{[2]} \to 0$$
             corresponding to two non-zero isomorphism classes $2$-cocycles:
                 $$\sigma_1, \sigma_2 \in H^2_{\Lie}(\d_{[2]}, \toroidal)$$
-            defined as in remark \ref{remark: non_uniqueness_of_yangian_extended_lie_algebras}.
+            defined as in example \ref{example: non_uniqueness_of_yangian_extended_lie_algebras}.
         \end{theorem}
             \begin{proof}
-                As indicated in example \ref{example: non_uniqueness_of_yangian_extended_lie_algebras}, it only remains to prove that:
-                    $$\sigma_a(D_t, -) = 0$$
-                    $$\sigma_a(D_v, -), \sigma_a(D_{r, s}, -) \not = 0$$
-                (where $a \in \{1, 2\}$) via explicit computations. For our own convenience, let us temporarily relabel the variables as:
-                    $$v := v_1, t := v_2$$
-                \begin{itemize}
-                    \item Firstly, note that:
-                        $$\sigma_1(\del_{v_2}, v_1^{r_1} v_2^{r_2} \del_{v_q}) = \sigma_1(v_1^0 v_2^0 \del_{v_2}, -) = r_1 \cdot 0 \cdot \sum_{1 \leq i \leq 2} (...) = 0$$
-                        $$\sigma_2(\del_{v_2}, v_1^{r_1} v_2^{r_2} \del_{v_q}) = \sigma_2(v_1^0 v_2^0 \del_{v_2}, -) = 0 \cdot r_2 \cdot \sum_{1 \leq i \leq 2} (...) = 0$$
-                    and hence we indeed have that:
-                        $$\sigma_a(D_t, -) = \sigma_a(-\del_{v_2}, -) = -\sigma_a(\del_{v_2}, -) = 0$$
-                    \item Secondly, to show that:
-                        $$\sigma_a(D_{r, s}, -) \not = 0$$
-                    it suffices to only show that:
-                        $$\sigma_a(D_{r, s}, D_v) \not = 0$$
-                    To this end, recall that:
-                        $$D_{r, s} = s v_1^{-r + 1} v_2^{-s - 1} \del_{v_1} - r v_1^{-r} v_2^{-s} \del_{v_2}$$
-                        $$D_v = -v_1 v_2^{-1} \del_{v_1}$$
-                    which tells us that:
-                        $$
-                            \begin{aligned}
-                                \sigma_1(D_{r, s}, D_v) & = ( s \cdot 1 \cdot (-r + 1) - r \cdot (-1) \cdot (-s) ) \sum_{1 \leq i \leq 2} r_i v_1^{(-r + 1) + 1} v_2^{(-s - 1) - 1} v_i^{-1} \bar{d}(v_i)
-                                \\
-                                & = (-2sr + 1) \sum_{1 \leq i \leq 2} r_i v_1^{-r} v_2^{-s - 2} v_i^{-1} \bar{d}(v_i)
-                            \end{aligned}
-                        $$
-                    \item Lastly, to show that:
-                        $$\sigma_a(D_v, -) \not = 0$$
-                    simply note that:
-                        $$\sigma_a(D_{r, s}, D_v) = -\sigma_a(D_v, D_{r, s})$$
-                \end{itemize}
+                
             \end{proof}

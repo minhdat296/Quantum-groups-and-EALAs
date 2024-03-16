@@ -1,7 +1,7 @@
 \section{Some useful examples of UCEs}
     This section is for analysing some of the instances of UCEs of current algebras that are particularly useful to our purposes. Namely, we are interested in the UCEs of the Lie algebras:
         $$\g, \g[v^{\pm 1}], \g[v^{\pm 1}, t^{\pm 1}]$$
-    (corresponding to $A$ being isomorphic to $k, \bbC[v^{\pm 1}]$, and $\bbC[v^{\pm 1}, t^{\pm 1}]$ respectively). Also, by computing the centres of these UCEs explicitly (through giving bases for them), we will also be able to demonstrate how Kassel's realisation is useful for endowing theses UCEs with presentations in the style of Chevalley-Serre. For the Lie algebra $\uce(\g)$, which happens to coincide with $\g$, this is nothing but the usual Chevalley-Serre presentation as in theorem \ref{theorem: root_space_decomposition_for_finite_dimensional_simple_lie_algebras}; for the Lie algebra $\uce(\g[v^{\pm 1}, t^{\pm 1}])$ one obtains the presentation as in lemma \ref{lemma: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras}\footnote{We will not be needing a Chevalley-Serre presentation for $\uce(\g[v^{\pm 1}])$}.
+    (corresponding to $A$ being isomorphic to $k, \bbC[v^{\pm 1}]$, and $\bbC[v^{\pm 1}, t^{\pm 1}]$ respectively). Also, by computing the centres of these UCEs explicitly (through giving bases for them), we will also be able to demonstrate how Kassel's realisation is useful for endowing theses UCEs with presentations in the style of Chevalley-Serre. For the Lie algebra $\uce(\g)$, which happens to coincide with $\g$, this is nothing but the usual Chevalley-Serre presentation as in theorem \ref{theorem: root_space_decomposition_for_finite_dimensional_simple_lie_algebras}. In more variables, we will only be interested in such a presentation for $\uce(\g[v^{\pm 1}, t])$, but for the sake of cohesion, we will be delaying this discussion until subsection \ref{subsection: toroidal_lie_bialgebras}.
 
     \subsection{Finite-dimensional simple Lie algebras}
         Consider, firstly, the case:
@@ -20,20 +20,20 @@
             Let us compute the UCE of $\g[v^{\pm 1}]$. From this, we can construct the so-called \say{untwisted affine Kac-Moody algebra} attached to $\g$ (cf. \cite[Chapter 7]{kac_infinite_dimensional_lie_algebras}). 
 
             To this end, let us firstly compute the underlying vector space of the centre of $\uce(\g[v^{\pm 1}])$. Abstractly, we know that it is isomorphic to $\bar{\Omega}^1_{\bbC[v^{\pm 1}]/\bbC}$, and it is also known that:
-                $$\Omega^1_{\bbC[v^{\pm 1}]/\bbC} \cong \bbC[v^{\pm 1}] dv \cong \bigoplus_{m \in \Z} k \cdot v^m dv$$
+                $$\Omega^1_{\bbC[v^{\pm 1}]/\bbC} \cong \bbC[v^{\pm 1}] dv \cong \bigoplus_{m \in \Z} \bbC  v^m dv$$
             so the only non-trivial computation to make is that of $d \bbC[v^{\pm 1}]$. For this, let us consider how $d$ acts on the basis elements $v^m \in \bbC[v]$:
                 $$d(v^m) = m v^{m - 1} dv$$
             We see that $d(v^m) = 0$ if and only if $m = 0$, and since the set $\{v^m\}_{m \in \Z}$ is a $\bbC$-linear basis for $\bbC[v^{\pm 1}]$, the set:
                 $$\{m v^{m - 1} dv\}_{m \in \Z \setminus \{0\}}$$
             therefore spans $d(\bbC[v^{\pm 1}])$. It is also easy to see this subset of $d(\bbC[v^{\pm 1}])$ is $\bbC$-linearly independent and hence is a basis for $d(\bbC[v^{\pm 1}])$. This then tells us that:
-                $$\bar{\Omega}^1_{\bbC[v^{\pm 1}]/\bbC} \cong k \cdot v^{-1} \bar{d}v$$
+                $$\bar{\Omega}^1_{\bbC[v^{\pm 1}]/\bbC} \cong \bbC  v^{-1} \bar{d}v$$
             The underlying vector space of $\uce(\g[v^{\pm 1}])$ is thus isomorphic to:
-                $$\g[v^{\pm 1}] \oplus k \cdot v^{-1} \bar{d}v$$
+                $$\g[v^{\pm 1}] \oplus \bbC  v^{-1} \bar{d}v$$
 
             We know that the Lie bracket on $\uce(\g[v^{\pm 1}])$ is given by:
                 $$[x f, y g]_{\g[v^{\pm 1}]} = [x, y]_{\g} fg + (x, y)_{\g} g \bar{d}f$$
             for all $x, y \in \g$ and all $f, g \in \bbC[v^{\pm 1}]$. Since:
-                $$g \bar{d}f \in k \cdot v^{-1} \bar{d}v$$
+                $$g \bar{d}f \in \bbC  v^{-1} \bar{d}v$$
             necessarily, the bracket can be given simplier as:
                 $$[x f, y g]_{\g[v^{\pm 1}]} = [x, y]_{\g} fg + (x, y)_{\g} c(f, g) v^{-1} \bar{d}v$$
             for a uniquely determined scalar $c(f, g) \in k$, which can be computed explicitly. To do this, if suffices to perform the computation for basis elements of $\bbC[v^{\pm 1}]$, i.e. we can pick $f := v^m, g := v^n$ for some $m, n \in \Z$ and then consider the following:
@@ -60,9 +60,9 @@
             Firstly, let us compute its underlying vector space, for which the only non-trivial computation to make is that of the $\bbC$-vector space $\bar{\Omega}^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC}$, which we know to be isomorphic to the centre of $\uce(\g[v^{\pm 1}, t^{\pm 1}])$. We know that:
                 $$\Omega^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC} \cong \bbC[v^{\pm 1}, t^{\pm 1}] dv \oplus \bbC[v^{\pm 1}, t^{\pm 1}] dt$$
             and since:
-                $$\bbC[v^{\pm 1}, t^{\pm 1}] \cong \bigoplus_{(r, s) \in \Z^2} k \cdot v^r t^s$$
+                $$\bbC[v^{\pm 1}, t^{\pm 1}] \cong \bigoplus_{(r, s) \in \Z^2} \bbC  v^r t^s$$
             we consequently have that:
-                $$\Omega^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC} \cong \bigoplus_{(r, s) \in \Z^2} (k \cdot v^r t^s dv \oplus k \cdot v^r t^s dt)$$
+                $$\Omega^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC} \cong \bigoplus_{(r, s) \in \Z^2} (\bbC v^r t^s dv \oplus \bbC v^r t^s dt)$$
             
             Now, in $\bar{\Omega}^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC} := \Omega^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC}/d \bbC[v^{\pm 1}, t^{\pm 1}]$, the following relations hold for all $(r, s) \in \Z^2$
                 $$0 = \bar{d}(v^r t^s) = r v^{r - 1} t^s \bar{d}v + s v^r t^{s - 1} \bar{d}t$$
@@ -148,42 +148,4 @@
             The induced $\Z$-grading on $\bar{\Omega}^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC}$ is therefore given by:
                 $$\deg K_{r, s} = s$$
                 $$\deg c_v = 0, \deg c_t = 0$$
-        \end{remark}
-
-        \begin{convention}
-            As a shorthand, let us write:
-                $$\hat{\simpleroots} := \simpleroots \cup \{\theta\}$$
-            This turns out to be in bijection with the set of simple roots of $\hat{\g}$, but we will not be thinking of it this way until subsection \ref{subsection: a_fixed_untwisted_affine_kac_moody_algebra}.
-        \end{convention}
-        \begin{lemma}[Chevalley-Serre presentations for toroidal Lie algebras] \label{lemma: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras}
-            (Cf. \cite[Proposition 3.5]{moody_rao_yokonuma_vertex_representations_of_toroidal_lie_algebras} and \cite[Definition 3.5]{wendlandt_formal_shift_operators_on_yangian_doubles}) The Lie algebra $\uce(\g[v^{\pm}, t^{\pm 1}])$ is isomorphic to the Lie algebra generated by the set:
-                $$\{ X_{i, r}^{\pm}, H_{i, r} \}_{(i, r) \in \hat{\simpleroots} \x \Z} \cup \{ K \}$$
-            whose elements are subjected to the following relations, given for all $(i, r), (j, s) \in \hat{\simpleroots} \x \Z$:
-            \todo[inline]{Fixed toroidal Lie algebra relations}
-                $$[ H_{i, r}, H_{j, s} ] = 0$$
-                $$[ H_{i, r}, X_{j, s}^{\pm} ] = \pm d_{ij} X_{j, r + s}^{\pm}$$
-                $$[ X_{i, r}^+, X_{j, s}^- ] = \delta_{ij} H_{i, r + s}$$
-                $$[ X_{i, r + 1}^{\pm}, X_{j, s}^{\pm} ] - [ X_{i, r}^{\pm}, X_{j, s + 1}^{\pm} ] = 0$$
-                $$[K, \uce(\g[v^{\pm}, t^{\pm 1}])] = 0$$
-            as well as the \say{Serre relations}, given for all $i \not = j \in \hat{\simpleroots}$ and all $r, s \in \Z_{\geq 0}$:
-                $$\ad(X_{i, 0}^{\pm})^{1 - c_{ij}}( X_{j, s}^{\pm} ) = 0$$
-            The isomorphism in question is given as follows, for all $(i, r) \in \hat{\simpleroots} \x \Z$:
-                $$\forall (i, r) \in \simpleroots \x \Z: X_{i, r}^{\pm} \mapsto x_i^{\pm} t^r, H_{i, r} \mapsto h_i t^r$$
-                $$\forall (i, r) \in \{\theta\} \x \Z: X_{\theta, r}^{\pm} \mapsto x_{\mp \theta} v^{\pm 1} t^r, H_{\theta, r} \mapsto \theta^{\vee} t^r + c_v t^r$$
-                $$K \mapsto c_t$$
-        \end{lemma}
-        \begin{corollary}[Chevalley-Serre presentations for positive toroidal Lie algebras]
-            The Lie algebra $\uce(\g[v^{\pm}, t])$ is isomorphic to the Lie algebra generated by the set:
-                $$\{ X_{i, r}^{\pm}, H_{i, r} \}_{(i, r) \in \hat{\simpleroots} \x \Z_{\geq 0}}$$
-            whose elements are subjected to the following relations lemma \ref{lemma: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras} (but of course, given only for indices $(i, r) \in \hat{\simpleroots} \x \Z_{\geq 0}$). The isomorphism in question is given also as in \textit{loc. cit.}
-        \end{corollary}
-            \begin{proof}
-                Apply the computations in example \ref{example: toroidal_lie_algebras_centres} to lemma \ref{lemma: chevalley_serre_presentation_for_central_extensions_of_multiloop_algebras}. See also \cite[Remark 4.5]{guay_nakajima_wendlandt_affine_yangian_vertex_representations_and_PBW}.
-            \end{proof}
-        \begin{remark}
-            Let us note right away that while it is true generally that the Lie algebra $\uce(\g[v^{\pm}, t])$ is a Lie subalgebra of $\uce(\g[v^{\pm}, t^{\pm 1}])$, the embedding is not always obvious. When the untwisted affine Kac-Moody algebra $\hat{\g}$ associated to $\g$ (cf. subsection \ref{subsection: a_fixed_untwisted_affine_kac_moody_algebra}) is not of type $\sfA_1^{(1)}$ (i.e. not isomorphic to $\hat{\sl}_2$), it is known that the embedding in question:
-                $$\uce(\g[v^{\pm}, t]) \to \uce(\g[v^{\pm}, t^{\pm 1}])$$
-            is given by:
-                $$X_{i, r}^{\pm} \mapsto X_{i, r}^{\pm}, H_{i, r} \mapsto H_{i, r}$$
-            for all $(i, r) \in \hat{\simpleroots} \x \Z_{\geq 0}$; see \cite[Corollary 4.6]{guay_nakajima_wendlandt_affine_yangian_vertex_representations_and_PBW}.
         \end{remark}

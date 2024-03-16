@@ -83,17 +83,17 @@
         \end{convention}
 
         In order to characterise centres of UCE Kassel constructed in the proof of \cite[Theorem 3.3(iii)]{kassel_universal_central_extensions_of_lie_algebras} a $\bbC$-linear map:
-            $$\e: \bigwedge^2 (\g \tensor_{\bbC} A) \to \bar{\Omega}^1_{A/k}$$
+            $$\e: \bigwedge^2 (\g \tensor_{\bbC} A) \to \bar{\Omega}^1_{A/\bbC}$$
         by the formula\footnote{One can also take $\e(x f, y g) := -(x, y)_{\g} f \bar{d}g$, since $-f \bar{d}g \equiv g \bar{d}f \pmod{d(A)}$. This results in an isomorphic Lie algebra, but we have chosen $\e(x f, y g) := (x, y)_{\g} g \bar{d}f$ because this will make verifying that $\e$ is a $2$-cocycle easier.}:
             $$\e(x f, y g) := (x, y)_{\g} g \bar{d}f$$
-        for all $x, y \in \g$ and for all $f, g \in A$. This can be shown - relying on the $\g$-invariance of the bilinear form $(-, -)_{\g}$ - to be a $2$-cocycle of $\g \tensor_{\bbC} A$ with coefficients in $\bar{\Omega}^1_{A/k}$\footnote{... i.e. a representative of an isomorphism class $[\e] \in H^2_{\Lie}(\g \tensor_{\bbC} A, \bar{\Omega}^1_{A/k})$.}. Per corollary \ref{coro: lie_brackets_on_central_extensions}, there is then a corresponding central extension:
-            $$\fraku \cong (\g \tensor_{\bbC} A) \oplus^{\e} \bar{\Omega}_{A/k}^1$$
+        for all $x, y \in \g$ and for all $f, g \in A$. This can be shown - relying on the $\g$-invariance of the bilinear form $(-, -)_{\g}$ - to be a $2$-cocycle of $\g \tensor_{\bbC} A$ with coefficients in $\bar{\Omega}^1_{A/\bbC}$\footnote{... i.e. a representative of an isomorphism class $[\e] \in H^2_{\Lie}(\g \tensor_{\bbC} A, \bar{\Omega}^1_{A/\bbC})$.}. Per corollary \ref{coro: lie_brackets_on_central_extensions}, there is then a corresponding central extension:
+            $$\fraku \cong (\g \tensor_{\bbC} A) \oplus^{\e} \bar{\Omega}_{A/\bbC}^1$$
         \begin{lemma} \label{lemma: lie_brackets_on_UCEs_of_current_algebras}
-            The linear map $\e: \bigwedge^2 (\g \tensor_{\bbC} A) \to \bar{\Omega}^1_{A/k}$ constructed above is a well-defined $2$-cocycle (cf. definition \ref{def: twisted_semi_direct_products}) of $\g \tensor_{\bbC} A$ with values in $\bar{\Omega}^1_{A/k}$.
+            The linear map $\e: \bigwedge^2 (\g \tensor_{\bbC} A) \to \bar{\Omega}^1_{A/\bbC}$ constructed above is a well-defined $2$-cocycle (cf. definition \ref{def: twisted_semi_direct_products}) of $\g \tensor_{\bbC} A$ with values in $\bar{\Omega}^1_{A/\bbC}$.
         \end{lemma}
         \todo[inline]{Shortened proof of $\e$ being a $2$-cocycle.}
             \begin{proof}
-                By construction, $\e$ is already bilinear and skew-symmetric, so the only thing to show is that it satisfies the Jacobi identity. To this end, pick $x, y, z \in \g$ and $f, g, h \in A$ and then consider the following\footnote{We chose $\e(xf, yg) := (x, y)_{\g} g \bar{d}f$ because it makes the verification that $\e$ satisfies the Jacobi identity easier.} computations in $\bar{\Omega}^1_{A/k}$:
+                By construction, $\e$ is already bilinear and skew-symmetric, so the only thing to show is that it satisfies the Jacobi identity. To this end, pick $x, y, z \in \g$ and $f, g, h \in A$ and then consider the following\footnote{We chose $\e(xf, yg) := (x, y)_{\g} g \bar{d}f$ because it makes the verification that $\e$ satisfies the Jacobi identity easier.} computations in $\bar{\Omega}^1_{A/\bbC}$:
                     $$
                         \begin{aligned}
                             & \e(xf, [y, z]_{\g} gh) + \e(yg, [z, x]_{\g} hf) + \e(zh, [x, y]_{\g} fg)
@@ -107,13 +107,13 @@
                     $$
                 The last equality came from the fact that:
                     $$gh df + hf dg + fg dh = d(fgh)$$
-                in $\Omega^1_{A/k}$, per definition \ref{def: kahler_differentials} (see also remark \ref{remark: differentials_and_derivations}), which hence implies that:
+                in $\Omega^1_{A/\bbC}$, per definition \ref{def: kahler_differentials} (see also remark \ref{remark: differentials_and_derivations}), which hence implies that:
                     $$gh \bar{d}f + hf \bar{d}g + fg \bar{d}h \equiv 0 \pmod{d(A)}$$
-                in $\bar{\Omega}^1_{A/k}$.
+                in $\bar{\Omega}^1_{A/\bbC}$.
             \end{proof}
-        Kassel then showed that the central extension $(\g \tensor_{\bbC} A) \oplus^{\e} \bar{\Omega}^1_{A/k}$ is in fact universal.
+        Kassel then showed that the central extension $(\g \tensor_{\bbC} A) \oplus^{\e} \bar{\Omega}^1_{A/\bbC}$ is in fact universal.
         \begin{theorem}[The Kassel realisation] \label{theorem: kassel_realisation}
             \cite[Corollary 3.5]{kassel_universal_central_extensions_of_lie_algebras} For the (perfect) Lie $\bbC$-algebra $\g \tensor_{\bbC} A$, we have that:
-                $$\uce(\g \tensor_{\bbC} A) \cong (\g \tensor_{\bbC} A) \oplus^{\e} \bar{\Omega}^1_{A/k}$$
+                $$\uce(\g \tensor_{\bbC} A) \cong (\g \tensor_{\bbC} A) \oplus^{\e} \bar{\Omega}^1_{A/\bbC}$$
             with Lie bracket as in lemma \ref{lemma: lie_brackets_on_UCEs_of_current_algebras}.
         \end{theorem}
