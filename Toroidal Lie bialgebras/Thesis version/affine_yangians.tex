@@ -1,4 +1,4 @@
-\section{Yangians associated to Kac-Moody algebras}
+\section{Yangians associated to Kac-Moody algebras} \label{section: yangians_of_kac_moody_algebras}
     \subsection{Presentations for Yangians}
         \begin{definition}[Formal Yangians associated to symmetrisable Kac-Moody algebras] \label{def: formal_yangians_associated_to_symmetrisable_kac_moody_algebras}
             The \textbf{formal Yangian associated to the derived subalgebra of $\fraku$} is a certain $k$-algebra:
@@ -183,28 +183,28 @@
             \end{itemize}
 
             The aforementioned category $\calO$ of $\rmY(\hat{\g})$ is closed under tensor products over $k$, i.e. if $V_1, V_2$ are any two objects of the category $\calO$, then there will be a $k$-algebra homomorphism:
-                $$\Delta_{V_1, V_2}: \rmY(\hat{\g}) \to \End_k(V_1 \tensor_k V_2)$$
+                $$\Delta_{V_1, V_2}: \rmY(\hat{\g}) \to \End_k(V_1 \tensor_{\bbC} V_2)$$
             Furthermore, these tensor products are coassociative in the sense that any $k$-vector space isomorphism:
-                $$(V_1 \tensor_k V_2) \tensor_k V_3 \xrightarrow[]{\cong} V_1 \tensor_k (V_2 \tensor_k V_3)$$
+                $$(V_1 \tensor_{\bbC} V_2) \tensor_{\bbC} V_3 \xrightarrow[]{\cong} V_1 \tensor_{\bbC} (V_2 \tensor_{\bbC} V_3)$$
             between objects $V_1, V_2, V_3 \in \Ob(\calO)$ upgrades to an isomorphism of left-$\rmY(\hat{\g})$-modules.
 
             Explicitly, for each $V_1, V_2 \in \Ob(\calO)$, the map $\Delta_{V_1, V_2}$ is given on the generating set\footnote{Using the Levendorskii presentation for $\rmY(\hat{\g})$, one sees that this generating set suffices.} $\hat{\h} \cup \{T_{i, 1}, X_{i, 0}^{\pm}\}_{i \in \hat{\simpleroots}}$ by:
                 $$\forall h \in \hat{\h}: \Delta_{V_1, V_2}(h) := \bar{\Delta}(h)$$
                 $$\forall i \in \hat{\simpleroots}: \Delta_{V_1, V_2}(X_{i, 0}^{\pm}) := \bar{\Delta}(X_{i, 0}^{\pm})$$
                 $$\forall i \in \hat{\simpleroots}: \Delta_{V_1, V_2}(T_{i, 0}) = \bar{\Delta}(T_{i, 0}) + [H_{i, 0} \tensor 1, \sfr_{ \hat{\g} }^-]$$
-            with $\sfr_{ \hat{\g} }^-$ being the Casimir tensor\footnote{This is denoted by $\Omega_+$ in \cite{guay_nakajima_wendlandt_affine_yangian_coproduct} and \cite{guay_nakajima_wendlandt_affine_yangian_vertex_representations_and_PBW}. We opted to designate this the \say{negative} half of the Casimir tensor of $\hat{\g}$ in accordance with the root-degree of the first tensor factor. Also, in \textit{loc. cit.}, the authors considered the Casimir tensor associated to the Kac-Moody pairing on $\hat{\h} \tensor_k \hat{\h} \oplus \hat{\n}^- \hattensor_k \hat{\n}^+$, but we need only the \say{triangular} component since the Cartan component will be killed by $[H_{i, 0} \tensor 1, -]$ anyway.} associated to the non-degenerate Kac-Moody pairing on $\hat{\n}^- \hattensor_k \hat{\n}^+$.
+            with $\sfr_{ \hat{\g} }^-$ being the Casimir tensor\footnote{This is denoted by $\Omega_+$ in \cite{guay_nakajima_wendlandt_affine_yangian_coproduct} and \cite{guay_nakajima_wendlandt_affine_yangian_vertex_representations_and_PBW}. We opted to designate this the \say{negative} half of the Casimir tensor of $\hat{\g}$ in accordance with the root-degree of the first tensor factor. Also, in \textit{loc. cit.}, the authors considered the Casimir tensor associated to the Kac-Moody pairing on $\hat{\h} \tensor_{\bbC} \hat{\h} \oplus \hat{\n}^- \hattensor_k \hat{\n}^+$, but we need only the \say{triangular} component since the Cartan component will be killed by $[H_{i, 0} \tensor 1, -]$ anyway.} associated to the non-degenerate Kac-Moody pairing on $\hat{\n}^- \hattensor_k \hat{\n}^+$.
         \end{lemma}
         \begin{remark}[Why involve the category $\calO$ ?]
             For a moment, let us pick the root bases $\{ x_{\alpha, k}^{\pm} \}_{(\alpha, k) \in \hat{\Phi}^+ \x \{1, ..., \dim_{\bbC} (\hat{\g})_{\alpha} \}}$ for $\hat{\n}^{\pm}$ in such a way that they are dual to one another with respect to the Kac-Moody pairing on $\hat{\g}$. In terms of these bases, one can write:
                 $$\sfr_{\hat{\g}}^- = \sum_{\alpha \in \hat{\Phi}^+} \sum_{k = 1}^{ \dim_{\bbC} (\hat{\g})_{\alpha} } x_{\alpha, k}^- \tensor x_{\alpha, k}^+$$
         
-            One notable detail is the fact that the sum\footnote{The completed tensor product $\rmY(\hat{\g}) \hattensor_k \rmY(\hat{\g})$ is only to be understood in the vague sense that it denotes some completion of the algebraic tensor product $\rmY(\hat{\g}) \tensor_k \rmY(\hat{\g})$ wherein the sum in question converges.}:
+            One notable detail is the fact that the sum\footnote{The completed tensor product $\rmY(\hat{\g}) \hattensor_k \rmY(\hat{\g})$ is only to be understood in the vague sense that it denotes some completion of the algebraic tensor product $\rmY(\hat{\g}) \tensor_{\bbC} \rmY(\hat{\g})$ wherein the sum in question converges.}:
                 $$\sum_{\alpha \in \hat{\Phi}^+} \sum_{k = 1}^{ \dim_{\bbC} (\hat{\g})_{\alpha} } x_{\alpha, k}^- \tensor x_{\alpha, k}^+ \in \rmY(\hat{\g}) \hattensor_k \rmY(\hat{\g})$$
             is infinite \textit{a priori}, since the affine Kac-Moody algebra $\hat{\g}$ has infinitely many positive roots. However, this is precisely why we have restricted our attention down to the category $\calO$: notice that for any $V \in \Ob(\calO)$ and any $\mu \in \Pi(V)$, there exists a natural number $N \in \Z_{\geq 0}$ such that:
                 $$\forall \alpha \in \hat{\Phi}^+: r \geq N \implies V_{\mu + r \alpha} \cong 0$$
             From this, one sees that even though it is given by an infinite sum, the operator:
-                $$\sum_{\alpha \in \hat{\Phi}^+} \sum_{k = 1}^{ \dim_{\bbC} (\hat{\g})_{\alpha} } x_{\alpha, k}^- \tensor x_{\alpha, k}^+ \in \End_k(V_1 \tensor_k V_2)$$
-            is ultimately locally nilpotent on the vector spaces of the kind $V_1 \tensor_k V_2$, wherein $V_1, V_2 \in \Ob(\calO)$; as such, one sees that the infinite sum above actually becomes finite (and hence converges) after evaluation on elements of the $\rmY(\hat{\g})$-modules in the category $\calO$, and the maps $\Delta_{V_1, V_2}$ as in lemma \ref{lemma: category_O_affine_yangian} are therefore well-defined. 
+                $$\sum_{\alpha \in \hat{\Phi}^+} \sum_{k = 1}^{ \dim_{\bbC} (\hat{\g})_{\alpha} } x_{\alpha, k}^- \tensor x_{\alpha, k}^+ \in \End_k(V_1 \tensor_{\bbC} V_2)$$
+            is ultimately locally nilpotent on the vector spaces of the kind $V_1 \tensor_{\bbC} V_2$, wherein $V_1, V_2 \in \Ob(\calO)$; as such, one sees that the infinite sum above actually becomes finite (and hence converges) after evaluation on elements of the $\rmY(\hat{\g})$-modules in the category $\calO$, and the maps $\Delta_{V_1, V_2}$ as in lemma \ref{lemma: category_O_affine_yangian} are therefore well-defined. 
         \end{remark}
         \begin{convention}
             If $\fraku$ is a Kac-Moody algebra of some simply laced untwisted affine type and then we will denote by $\hat{\rmY}(\fraku)$ the grading-completion of $\rmY(\fraku)$ with respect to its root grading.
@@ -289,7 +289,7 @@
                 $$[ X_{i, 1}^{\pm}, X_{j, 0}^{\pm} ] - [ X_{i, 0}^{\pm}, X_{j, 1}^{\pm} ] = 0$$
             as well as the \say{Serre relations}, given for all $i \not = j \in \hat{\simpleroots}$ and all $r, s \in \Z_{\geq 0}$:
                 $$\ad(X_{i, 0}^{\pm})^{1 - c_{ij}}( X_{j, s}^{\pm} ) = 0$$
-            The isomorphism in question is as in lemma \ref{lemma: chevalley_serre_presentations_for_toroidal_lie_algebras}.
+            The isomorphism in question is as in lemma \ref{lemma: chevalley_serre_presentations_for_positive_toroidal_lie_algebras}.
         \end{proposition}
             \begin{proof}
                 
@@ -301,8 +301,8 @@
                 $$\{ X_{i, r}^{\pm}, H_{i, r} \}_{(i, r) \in \hat{\simpleroots} \x \Z} \cup \{ K \}$$
             whose elements are subjected to the same relations as in proposition \ref{prop: levendorskii_presentation__for_central_extensions_of_multiloop_algebras}, as well as the following additional set of relations:
                 $$[K, \toroidal] = 0$$
-            The isomorphism in question is as in lemma \ref{lemma: chevalley_serre_presentations_for_toroidal_lie_algebras}.
+            The isomorphism in question is as in lemma \ref{lemma: chevalley_serre_presentations_for_positive_toroidal_lie_algebras}.
         \end{corollary}
             \begin{proof}
-                Combine proposition \ref{prop: levendorskii_presentation__for_central_extensions_of_multiloop_algebras} with lemma \ref{lemma: chevalley_serre_presentations_for_toroidal_lie_algebras}. 
+                Combine proposition \ref{prop: levendorskii_presentation__for_central_extensions_of_multiloop_algebras} with lemma \ref{lemma: chevalley_serre_presentations_for_positive_toroidal_lie_algebras}. 
             \end{proof}
