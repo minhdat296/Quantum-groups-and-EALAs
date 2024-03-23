@@ -1,0 +1,96 @@
+\input{article preambles}
+
+\setcounter{section}{-1}
+
+\input{commands}
+
+\begin{document}
+
+    \title{Toroidal Virasoro algebras}
+    
+    \author{Dat Minh Ha}
+    \maketitle
+    
+    \begin{abstract}
+    
+    \end{abstract}
+    
+    {
+    \hypersetup{} 
+    %\dominitoc
+    \tableofcontents %sort sections alphabetically
+    }
+
+    \section{Introduction}
+
+    \section{Some reminders about affine Virasoro algebras}
+        Let $\g$ be a finite-dimensional simple Lie algebra over $\bbC$, along with a fixed choice of an invariant and non-degenerate symmetric bilinear form $(-, -)_{\g}$. Also, let us write $\hat{\g}$ for its associated untwisted affine Kac-Moody algebra; this Lie algebra has a \say{loop realisation} (cf. \cite[Chapter 7]{kac_infinite_dimensional_lie_algebras}):
+            $$\hat{\g} \cong ( \g[v^{\pm 1}] \oplus^{\e} \bbC c_{\aff} ) \rtimes \bbC D_{\aff}$$
+        wherein:
+        \begin{enumerate}
+            \item
+                $$\tilde{\g} := \g[v^{\pm 1}] \oplus^{\e} \bbC c_{\aff}$$
+            is the UCE corresponding to the $2$-cocycle:
+                $$\e: \bigwedge^2 \g[v^{\pm 1}] \to \bar{\Omega}^1_{\bbC[v^{\pm 1}]/\bbC}$$
+            (with $\bar{\Omega}^1_{\bbC[v^{\pm 1}]/\bbC} := \Omega^1_{\bbC[v^{\pm 1}]/\bbC}/\im d$, where $d: \bbC[v^{\pm 1}] \to \Omega^1_{\bbC[v^{\pm 1}]/\bbC}$ is the universal K\"ahler differential map), given for all $x, y \in \g$ and for all $f, g \in \bbC[v^{\pm 1}]$\footnote{We have also abbreviated $xf := x \tensor f$ for $x \in \g$ and for $f \in \bbC[v^{\pm 1}]$.}:
+                $$\e(xf, yg) := (x, y)_{\g} g\bar{d}f$$
+            (cf. \cite{kassel_universal_central_extensions_of_lie_algebras}), where for every $f \in \bbC[v^{\pm 1}]$, we write:
+                $$\bar{d}f$$
+            to mean the image of $df$ under the canonical quotient map $\Omega^1_{\bbC[v^{\pm 1}]/\bbC} \to \bar{\Omega}^1_{\bbC[v^{\pm 1}]/\bbC}$ is the canonical composition, and
+            \item $D_{\aff}$ acts on $\tilde{\g}$ by:
+                $$D_{\aff}|_{\g[v^{\pm 1}]} := \id_{\g} \tensor v \frac{d}{dv}$$
+                $$[D_{\aff}, c_{\aff}]_{\hat{\g}} = 0$$
+        \end{enumerate}
+        There is also an invariant and non-degenerate symmetric bilinear form on $\hat{\g}$ given by:
+            $$(xf, yg)_{\hat{\g}} := (x, y)_{\g} \Res_{v = 0}(f dg)$$
+            $$(c_{\aff}, D_{\aff})_{\hat{\g}} := 1$$
+
+        Now, exploiting the fact that:
+            $$[D_{\aff}, c_{\aff}]_{\hat{\g}} = 0$$
+        along with the fact that Lie $2$-cocycles are central \textit{a priori}, the classical \textbf{Virasoro algebra} can be defined to be the UCE:
+            $$\frakv := \der(\bbC[v^{\pm 1}]) \oplus^{\eta} \bbC c_{\aff}$$
+        If we are to regard $\der(\bbC[v^{\pm 1}])$ as $\bbC[v^{\pm 1}] \cdot D_{\aff}$ then the $2$-cocycle:
+            $$\eta: \bigwedge^2 \der(\bbC[v^{\pm 1}]) \to \bbC c_{\aff}$$
+        can be given by\footnote{Physicists tend to renormalise this to $\frac{1}{12} \eta$.}:
+            $$\eta(v^r D_{\aff}, v^s D_{\aff}) := (r^3 - r) \delta_{r + s, 0} c_{\aff}$$
+        Subsequently, the bracket on $\frakv$ can be given as follows, for all $r, s \in \Z$:
+            $$
+                \begin{aligned}
+                    \left[ v^r D_{\aff}, v^s D_{\aff} \right]_{\frakv} & = [ v^r D_{\aff}, v^s D_{\aff} ]_{\der(\bbC[v^{\pm 1}])} + \eta(v^r D_{\aff}, v^s D_{\aff})
+                    \\
+                    & = (s - r) v^{r + s} D_{\aff} + \eta(v^r D_{\aff}, v^s D_{\aff})
+                \end{aligned}
+            $$
+        Typically, one endows $\der(\bbC[v^{\pm 1}])$ with the basis:
+            $$\{ D_r := -v^r D_{\aff} \}_{r \in \Z}$$
+        The inclusion of the extra minus sign is so that:
+            $$[D_r, D_s]_{\der(\bbC[v^{\pm 1}])} = (r - s) D_{r + s}$$
+        which is more or less a choice of aesthetics.
+
+        The Virasoro algebra has a natural triangular decomposition, afforded to us by the natural $\Z$-grading $\der(\bbC[v^{\pm 1}]) \cong \bigoplus_{r \in \Z} \bbC D_r$:
+            $$\frakv \cong \frakv_{\low} \oplus \frakv_0 \oplus \frakv_{\up}$$
+        where:
+            $$\frakv_{\low} := \bigoplus_{r \in \Z_{< 0}} D_r, \frakv_{\up} := \bigoplus_{r \in \Z_{> 0}} D_r$$
+            $$\frakv_0 := \bbC c_{\aff} \oplus^{\eta} \bbC D_0$$
+        and it is clear that all of these are Lie subalgebras of $\frakv$, with $\frakv_{\low/\up}$ being non-abelian while $\frakv_0$ is abelian. The existence of such a decomposition gives rise to the notion of highest-weight modules over $\frakv$.
+        \begin{definition}
+            A $\frakv$-module $M$ is said to be of \textbf{highest-weight}:
+                $$(c, h) \in \bbC^2$$
+            if and only if:
+            \begin{itemize}
+                \item $M$ is cyclic as a $\rmU(\frakv_{\low})$-module,
+                \item there exists a vector $v \in M$, i.e. a \textbf{maximal vector}, such that:
+                    $$\frakv_{\up} \cdot v = 0$$
+                \item the operators $c_{\aff}$ and $D_0$ admit the maximal vector $v$ as an eigenvector of eigenvalues $c$ and $h$, respectively, i.e.:
+                    $$c_{\aff} \cdot v = cv, D_0 \cdot v = hc$$
+            \end{itemize}
+        \end{definition}
+        In other words, a highest-weight $\frakv$-module is a quotient of the \textbf{standard module}:
+            $$\standard_{(c, h)} := \rmU(\frakv)/\<\frakv_{\up}, c_{\aff} - c, D_0 - h\>$$
+
+    \section{Toroidal Virasoro algebras}
+    
+    \addcontentsline{toc}{section}{References}
+    \printbibliography
+
+\end{document}

@@ -13,13 +13,13 @@
         \end{remark}
     
         \begin{definition}[Lie bialgebras] \label{def: lie_bialgebras}
-            Let $\a$ be a Lie algebra over $k$ equipped with a $k$-linear map:
+            Let $\a$ be a Lie algebra over $k$ equipped with a $\bbC$-linear map:
                 $$\delta: \a \to \a \tensor_{\bbC} \a$$
             $\a$ will then be a \textbf{Lie bialgebra} (over $k$) with \textbf{Lie cobracket} $\delta$ if the following two conditions are satisfied:
             \begin{itemize}
                 \item Firstly, we require that the map:
                     $$\delta^*: (\a \tensor_{\bbC} \a)^* \to \a^*$$
-                induces a Lie bracket $\a^* \tensor_{\bbC} \a^* \to \a^*$ on the $k$-vector space $\a^*$. Equivalently, this is saying $\delta: \a \to \a \tensor_{\bbC} \a$ must firstly be \textbf{Lie cobracket}, i.e. it is to be skew-symmetric (i.e. its codomain is actually $\a \wedge \a$) and to satisfy the \textbf{co-Jacobi identity}:
+                induces a Lie bracket $\a^* \tensor_{\bbC} \a^* \to \a^*$ on the $\bbC$-vector space $\a^*$. Equivalently, this is saying $\delta: \a \to \a \tensor_{\bbC} \a$ must firstly be \textbf{Lie cobracket}, i.e. it is to be skew-symmetric (i.e. its codomain is actually $\a \wedge \a$) and to satisfy the \textbf{co-Jacobi identity}:
                     $$( (1 \: 2 \: 3) + (2 \: 3 \: 1) + (3 \: 1 \: 2) ) \circ (\delta \circ \id_{\a}) \circ \delta = 0$$
                 \item Secondly, we insist that the Lie cobracket $\delta$ is a Lie $1$-cocycle\footnote{In cohomological terms, one can write $\delta \in H^1_{\Lie}(\a, \a \tensor_{\bbC} \a)$.} of $\a$ with coefficients in $\a \tensor_{\bbC} \a$, which is to say that the following identity is to hold in $\rmU(\a) \tensor_{\bbC} \rmU(\a)$:
                     $$\delta( [x, y] ) = [\bar{\Delta}(x), \delta(y)] + [\delta(x), \bar{\Delta}(y)]$$
@@ -51,7 +51,7 @@
 
             If $\a$ is an infinite-dimensional Lie bialgebra, on the other hand, then the full linear dual $\a^*$ will not generally be a Lie bialgebra but rather a \textbf{topological Lie bialgebra}, in the sense that the codomain of its Lie cobracket $\delta_{\a^*}$ may not $\a^* \tensor_{\bbC} \a^*$, but rather in some appropriate topological completion $\a^* \hattensor_k \a^*$.
 
-            In either event, the $k$-vector space:
+            In either event, the $\bbC$-vector space:
                 $$\frakDr(\a) := \a \oplus \a^*$$
             can be made into a Lie algebra over $k$, with Lie bracket given by\footnote{Note that $\frakDr(\a)^{\tensor 2} \cong \a^{\tensor 2} \oplus (\a^*)^{\tensor 2} \oplus (\a^* \tensor_{\bbC} \a \oplus \a \tensor_{\bbC} \a^*)$}:
                 $$[-, -]_{\frakDr(\a)} := [-, -]_{\a} \oplus [-, -]_{\a^*} \oplus ( [-, -]_{\a} \circ (S_{\a^*} \tensor \id_{\a}) \oplus [-, -]_{\a^*}^{\op} \circ (\id_{\a^*} \tensor S_{\a}) )$$
@@ -59,7 +59,7 @@
                 $$[-, -]_{\a^*}$$
             is the Lie bracket on $\a^*$ induced by $\delta_{\a}^*$ (well-defined since $\a$ is a Lie bialgebra by hypothesis) with opposite $[-, -]_{\a^*}^{\op} := -[-, -]_{\a^*}$, and:
                 $$S_{\a}, S_{\a^*}$$
-            denote the antipodes on the universal enveloping algebras of $\a, \a^*$ respectively. A natural non-degenerate and symmetric $k$-bilinear form $(-, -)_{\frakDr(\a)}$ on $\frakDr(\a)$ which is invariant with respect to $[-, -]_{\frakDr(\a)}$ can then be constructed by declaring that:
+            denote the antipodes on the universal enveloping algebras of $\a, \a^*$ respectively. A natural non-degenerate and symmetric $\bbC$-bilinear form $(-, -)_{\frakDr(\a)}$ on $\frakDr(\a)$ which is invariant with respect to $[-, -]_{\frakDr(\a)}$ can then be constructed by declaring that:
                 $$(x + \varphi, y + \psi)_{\frakDr(\a)} := \psi(x) + \varphi(y)$$
             for all $x, y \in \a$ and all $\varphi, \psi \in \a^*$. 
 
@@ -204,7 +204,7 @@
                 $$\rmY(\g)$$
             equipped with the Hopf structure:
                 $$(\Delta_{\hbar}, S_{\hbar}, )$$
-            as in theorem \ref{theorem: finite_type_yangian_hopf_structure} admits the Lie bialgebra $\g[t]$ (cf. example \ref{example: finite_type_yangian_manin_triple}) as its classical limit. Therefore, by definition, the Hopf bialgebra $\rmY_{\hbar}(\g)$ is a quantisation of the current Lie bialgebra $\g[t]$. This can be proven by setting $\hbar = 0$, which degenerates $\rmY_{\hbar}(\g)$ to $\rmU(\g[t])$ with its usual Hopf structure. Also, by specialising to $\hbar = 1$, one obtains a $\Z_{\geq 0}$-filtered Hopf $k$-bialgebra structure $(\Delta_1, S_1, \e_1)$ on $\rmY(\g)$, according to lemma \ref{lemma: basic_properties_of_rees_algebras}.
+            as in theorem \ref{theorem: finite_type_yangian_hopf_structure} admits the Lie bialgebra $\g[t]$ (cf. example \ref{example: finite_type_yangian_manin_triple}) as its classical limit. Therefore, by definition, the Hopf bialgebra $\rmY_{\hbar}(\g)$ is a quantisation of the current Lie bialgebra $\g[t]$. This can be proven by setting $\hbar = 0$, which degenerates $\rmY_{\hbar}(\g)$ to $\rmU(\g[t])$ with its usual Hopf structure. Also, by specialising to $\hbar = 1$, one obtains a $\Z_{\geq 0}$-filtered Hopf $\bbC$-bialgebra structure $(\Delta_1, S_1, \e_1)$ on $\rmY(\g)$, according to lemma \ref{lemma: basic_properties_of_rees_algebras}.
         \end{example}
         By cohomological arguments, one can also show that both of these quantisations are unique, but we will not go into those details.
 

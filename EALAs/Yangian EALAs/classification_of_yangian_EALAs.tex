@@ -150,7 +150,7 @@
             with $\bfA(\sigma), \bfB(\sigma)$ being the $4 \x 3$ matrices as in remark \ref{remark: yangian_criterion_for_toroidal_cocycles}.
         \end{theorem}
 
-        Now that we have a criterion for a given toroidal $2$-cocycle to be Yangian, let us apply it to some known toroidal $2$-cocycles from \cite{billig_energy_momentum_tensor} to check whether or not they are Yangian. Namely, let us give an example and a counter-example of Yangian toroidal $2$-cocycles.
+        Now that we have a criterion for a given toroidal $2$-cocycle to be Yangian, let us apply it to some known toroidal $2$-cocycles from \cite{billig_energy_momentum_tensor} to check whether or not they are Yangian. 
         \begin{example} \label{example: yangian_cocycles_(counter)_examples}
             From proposition \ref{prop: lie_bracket_on_orthogonal_complement_of_toroidal_centre}, we know that:
                 $$[\d_{[2]}, \d_{[2]}]_{\extendedtoroidal} \subset \z_{[2]} \oplus \d_{[2]}$$
@@ -163,46 +163,121 @@
             which are given in terms of the basis:
                 $$\{ v_1^{m_1} ... v_n^{m_n} \cdot v_p \del_{v_p} \}_{(m_1, ..., m_n, p) \in \Z^n \x \Z}$$
             of $\der(\bbC[v_1^{\pm 1}, ..., v_n^{\pm 1}])$ by:
-                $$\sigma_1(v_1^{m_1} ... v_n^{m_n} \cdot v_a \del_{v_a}, v_1^{r_1} ... v_n^{r_n} \cdot v_b \del_{v_b}) = r_a m_b \cdot v_1^{m_1} ... v_n^{m_n} \bar{d}( v_1^{r_1} ... v_n^{r_n} )$$
-                $$\sigma_2(v_1^{m_1} ... v_n^{m_n} \cdot v_a \del_{v_a}, v_1^{r_1} ... v_n^{r_n} \cdot v_b \del_{v_b}) = r_b m_a \cdot v_1^{m_1} ... v_n^{m_n} \bar{d}( v_1^{r_1} ... v_n^{r_n} )$$
+                $$\sigma_1(v_1^{m_1} ... v_n^{m_n} \cdot v_a \del_{v_a}, v_1^{r_1} ... v_n^{r_n} \cdot v_b \del_{v_b}) := r_a m_b \cdot v_1^{m_1} ... v_n^{m_n} \bar{d}( v_1^{r_1} ... v_n^{r_n} )$$
+                $$\sigma_2(v_1^{m_1} ... v_n^{m_n} \cdot v_a \del_{v_a}, v_1^{r_1} ... v_n^{r_n} \cdot v_b \del_{v_b}) := r_b m_a \cdot v_1^{m_1} ... v_n^{m_n} \bar{d}( v_1^{r_1} ... v_n^{r_n} )$$
             given for every $1 \leq a, b \leq n$ and every $(m_1, ..., m_n), (r_1, ..., r_n) \in \Z^n$. 
 
             Now, back to the $2$-variable case, i.e. $n = 2$, where we have:
                 $$v_1 := v, v_2 := t$$
             In this setting, we know how the basis elements $D_{r, s}, D_v, D_t$ of $\d_{[2]}$ are given in terms of $A$-multiples of the partial derivatives $\del_v, \del_t$ (cf. lemma \ref{lemma: derivation_action_on_multiloop_algebras}), so we can exploit the bilinearity of $2$-cocycles in order to see how $\sigma_1, \sigma_2$ act on elements of $\d_{[2]}$. Recall from lemma \ref{lemma: derivation_action_on_multiloop_algebras} that, in terms of the partial derivatives $\del_v, \del_t$, the basis elements of $\d_{[2]}$ are given by:
-                $$D_{r, s} = s v^{-r + 1} t^{-s - 1} \del_v - r v^{-r} t^{-s} \del_t$$
+                $$\forall (r, s) \in \Z^2: D_{r, s} = s v^{-r + 1} t^{-s - 1} \del_v - r v^{-r} t^{-s} \del_t$$
                 $$D_v = -v t^{-1} \del_v$$
                 $$D_t = -\del_t$$
-            Knowing this allows us to perform the following computations, where $p \in \{1, 2\}$:
-            \todo[inline]{I think I have managed to show that $\sigma_1$ is invariant while $\sigma_2$ is not. There were some misplaced brackets and sign errors before.}
+            Knowing this allows us to perform the following computations, where $i \in \{1, 2\}$:
             \begin{itemize}
                 \item 
                     $$
                         \begin{aligned}
-                            & \sigma_p(D_{r, s}, D_{a, b})
+                            & \sigma_i(D_{r, s}, D_{a, b})
                             \\
-                            = & \sigma_p( s v^{-r + 1} t^{-s - 1} \del_v - r v^{-r} t^{-s} \del_t, b v^{-a + 1} t^{-b - 1} \del_v - a v^{-a} t^{-b} \del_t )
+                            = & \sigma_i( s v^{-r + 1} t^{-s - 1} \del_v - r v^{-r} t^{-s} \del_t, b v^{-a + 1} t^{-b - 1} \del_v - a v^{-a} t^{-b} \del_t )
                             \\
-                            = & \sigma_p( s v^{-r} t^{-s - 1} \cdot v\del_v - r v^{-r} t^{-s - 1} \cdot t \del_t, b v^{-a} t^{-b - 1} \cdot v\del_v - a v^{-a} t^{-b - 1} \cdot t \del_t )
+                            = & \sigma_i( s v^{-r} t^{-s - 1} \cdot v\del_v - r v^{-r} t^{-s - 1} \cdot t \del_t, b v^{-a} t^{-b - 1} \cdot v\del_v - a v^{-a} t^{-b - 1} \cdot t \del_t )
                             \\
-                            = & s \sigma_p( v^{-r} t^{-s - 1} \cdot v\del_v, b v^{-a} t^{-b - 1} \cdot v\del_v - a v^{-a} t^{-b - 1} \cdot t \del_t ) - r \sigma_p( v^{-r} t^{-s - 1} \cdot t \del_t, b v^{-a} t^{-b - 1} \cdot v\del_v - a v^{-a} t^{-b - 1} \cdot t \del_t )
+                            = & s \sigma_i( v^{-r} t^{-s - 1} \cdot v\del_v, b v^{-a} t^{-b - 1} \cdot v\del_v - a v^{-a} t^{-b - 1} \cdot t \del_t ) - r \sigma_i( v^{-r} t^{-s - 1} \cdot t \del_t, b v^{-a} t^{-b - 1} \cdot v\del_v - a v^{-a} t^{-b - 1} \cdot t \del_t )
                             \\
                             = &
                             \begin{aligned}
-                                & s b \sigma_p( v^{-r} t^{-s - 1} \cdot v\del_v, v^{-a} t^{-b - 1} \cdot v\del_v )
+                                & s b \cdot \sigma_i( v^{-r} t^{-s - 1} \cdot v\del_v, v^{-a} t^{-b - 1} \cdot v\del_v )
                                 \\
-                                - & s a \sigma_p( v^{-r} t^{-s - 1} \cdot v\del_v, v^{-a} t^{-b - 1} \cdot t \del_t )
+                                - & s a \cdot \sigma_i( v^{-r} t^{-s - 1} \cdot v\del_v, v^{-a} t^{-b - 1} \cdot t \del_t )
                                 \\
-                                - & r b \sigma_p( v^{-r} t^{-s - 1} \cdot t \del_t, v^{-a} t^{-b - 1} \cdot v\del_v )
+                                - & r b \cdot \sigma_i( v^{-r} t^{-s - 1} \cdot t \del_t, v^{-a} t^{-b - 1} \cdot v\del_v )
                                 \\
-                                + & r a \sigma_p( v^{-r} t^{-s - 1} \cdot t \del_t, v^{-a} t^{-b - 1} \cdot t \del_t )
+                                + & r a \cdot \sigma_i( v^{-r} t^{-s - 1} \cdot t \del_t, v^{-a} t^{-b - 1} \cdot t \del_t )
                             \end{aligned}
                             \\
-                            = & N_p(r, s, a, b) v^{-r} t^{-s - 1} \bar{d}( v^{-a} t^{-b - 1} )
+                            = & N_i(r, s, a, b) v^{-r} t^{-s - 1} \bar{d}( v^{-a} t^{-b - 1} )
                         \end{aligned}
                     $$
                 where:
-                    $$N_p(r, s, a, b) := -s b r a - (sa + rb) (\delta_{p, 1} a (s + 1) + \delta_{p, 2} (b + 1) r ) + r a (s + 1) (b + 1)$$
+                    $$
+                        \begin{aligned}
+                            N_i(r, s, a, b) & = 
+                            sbra
+                            - sa \left( \delta_{i, 1} a(s + 1) + \delta_{i, 2} (b + 1) r \right) 
+                            - rb \left( \delta_{i, 1} (b + 1) r + \delta_{i, 2} a (s + 1) \right)
+                            + r a (s + 1) (b + 1)
+                            \\
+                            & = 
+                            \begin{cases}
+                                \text{$
+                                    sbra
+                                    - s a^2 (s + 1) 
+                                    - r^2 b (b + 1)
+                                    + r a (s + 1) (b + 1)
+                                $if $i = 1$}
+                                \\
+                                \text{$
+                                    sbra
+                                    - sa (b + 1) r
+                                    - rb a (s + 1)
+                                    + r a (s + 1) (b + 1)
+                                $ if $i = 2$}
+                            \end{cases}
+                            \\
+                            & = 
+                            \begin{cases}
+                                \text{$
+                                    sbra
+                                    - ( (sa)^2 + s a^2 ) 
+                                    - ( (rb)^2 + r^2 b ) 
+                                    + rasb + rsa + rab + ra
+                                $ if $i = 1$}
+                                \\
+                                \text{$
+                                    sbra
+                                    - (sabr + sar)
+                                    - (rbas + rba)
+                                    + rasb + rsa + rab + ra
+                                $ if $i = 2$}
+                            \end{cases}
+                            \\
+                            & = 
+                            \begin{cases}
+                                \text{$2 rsab - ( (sa)^2 + s a^2 ) - ( (rb)^2 + r^2 b ) + rsa + rab + ra$ if $i = 1$}
+                                \\
+                                \text{$ra$ if $i = 2$}
+                            \end{cases}
+                        \end{aligned}
+                    $$
+                
+                Now, recall from example \ref{example: toroidal_lie_algebras_centres} that any element:
+                    $$v^n t^q \bar{d}(v^m t^p) \in \z_{[2]}$$
+                can be written in terms of the basis elements of $\z_{[2]}$ in the following manner:
+                    $$v^n t^q \bar{d}(v^m t^p) = \delta_{(m, p) + (n, q), (0, 0)} ( n c_v + q c_t ) + (np - mq) K_{m + n, p + q}$$
+                Using this, we shall be able to conclude that:
+                    $$\sigma_i(D_{r, s}, D_{a, b}) = N_i(r, s, a, b) \left( -\delta_{(r, s), -(a, b)} (r c_v + (s + 1) c_t) + ( r(b + 1) - a(s + 1) )K_{-r - a, -s - b - 2} \right)$$
+                \item
+                    $$
+                        \begin{aligned}
+                            & \sigma_i(D_{r, s}, D_v)
+                            \\
+                            = & \sigma_i( s v^{-r + 1} t^{-s - 1} \del_v - r v^{-r} t^{-s} \del_t, -v t^{-1} \del_v )
+                            \\
+                            = & \sigma_i( s v^{-r} t^{-s - 1} \cdot v \del_v - r v^{-r} t^{-s - 1} t \del_t, -t^{-1} \cdot v \del_v )
+                            \\
+                            = & s \sigma_i( v^{-r} t^{-s - 1} \cdot v \del_v, t^{-1} \cdot v \del_v ) - r\sigma_i( v^{-r} t^{-s - 1} \cdot t \del_t, t^{-1} \cdot v \del_v )
+                            \\
+                            = & 0 - r \cdot \delta_{i, 1}r v^{-r} t^{-s - 1} \bar{d}(t^{-1})
+                            \\
+                            = & \delta_{i, 1} r^2 v^{-r} t^{-s - 1} \bar{d}(t^{-1})
+                        \end{aligned}
+                    $$
+                Immediately, we see that:
+                    $$\sigma_2(D_{r, s}, D_v) = 0$$
+                for all $(r, s) \in \Z^2$, so from now on we will only be concerned with $\sigma_1(D_{r, s}, D_v)$, which by now we know to be given by:
+                    $$\sigma_1(D_{r, s}, D_v) = r^2 v^{-r} t^{-s - 1} \bar{d}(t^{-1})$$
                 Now, recall from example \ref{example: toroidal_lie_algebras_centres} that any element:
                     $$v^n t^q \bar{d}(v^m t^p) \in \z_{[2]}$$
                 can be written in terms of the basis elements of $\z_{[2]}$ in the following manner:
@@ -210,65 +285,135 @@
                 Using this, we shall get that:
                     $$
                         \begin{aligned}
-                            & \sigma_p(D_{r, s}, D_{a, b})
+                            & \sigma_1(D_{r, s}, D_v)
                             \\
-                            = & N_p(r, s, a, b) \left( -\delta_{(r, s), -(a, b)} (r c_v + (s + 1) c_t) + ( r(b + 1) - a(s + 1) )K_{-r - a, -s - b - 2} \right)
+                            = & r^2 \left( -\delta_{(r, s), (0, -2)} ( r c_v + (s + 3) c_t ) - r K_{-r, -s - 2} \right)
+                            \\
+                            = &
+                            \begin{cases}
+                                \text{$0$ if $(r, s) \in \{0\} \x \Z$}
+                                \\
+                                \text{$r^3 K_{-r, -s - 2}$ if $(r, s) \in (\Z \setminus \{0\}) \x \Z$}
+                            \end{cases}
                         \end{aligned}
                     $$
                 \item
                     $$
                         \begin{aligned}
-                            & \sigma_p(D_{r, s}, D_v)
+                            & \sigma_i(D_{r, s}, D_t)
                             \\
-                            = & \sigma_p( s v^{-r + 1} t^{-s - 1} \del_v - r v^{-r} t^{-s} \del_t, -v t^{-1} \del_v )
+                            = & \sigma_i( s v^{-r + 1} t^{-s - 1} \del_v - r v^{-r} t^{-s} \del_t, -\del_t )
                             \\
-                            = & \sigma_p( s v^{-r} t^{-s - 1} \cdot v \del_v - r v^{-r} t^{-s - 1} t \del_t, -t^{-1} \cdot v \del_v )
+                            = & \sigma_i( s v^{-r} t^{-s - 1} \cdot v \del_v - r v^{-r} t^{-s - 1} \cdot t \del_t, -t^{-1} \cdot t\del_t )
                             \\
-                            = & s \sigma_p( v^{-r} t^{-s - 1} \cdot v \del_v, t^{-1} \cdot v \del_v ) - r\sigma_p( v^{-r} t^{-s - 1} \cdot t \del_t, t^{-1} \cdot v \del_v )
+                            = & s \sigma_i( v^{-r} t^{-s - 1} \cdot v \del_v, t^{-1} \cdot t\del_t ) - r\sigma_i( v^{-r} t^{-s- 1} \cdot t \del_t, t^{-1} \cdot t\del_t )
                             \\
-                            = & 0 - r \cdot \delta_{p, 1}r v^{-r} t^{-s - 1} \bar{d}(t^{-1})
+                            = & -s \cdot \left( \delta_{i, 1} \cdot 0 + \delta_{i, 2} r v^{-r} t^{-s - 1} \bar{d}(t^{-1}) \right) + r \cdot s v^{-r} t^{-s - 1} \bar{d}(t^{-1})
                             \\
-                            = & \delta_{p, 1} r^2 v^{-r} t^{-s - 1} \bar{d}(t^{-1})
+                            = & (-\delta_{i, 2} + 1) rs v^{-r} t^{-s - 1} \bar{d}(t^{-1})
                         \end{aligned}
                     $$
+                Immediately, we see that:
+                    $$\sigma_2(D_{r, s}, D_t) = 0$$
+                for all $(r, s) \in \Z^2$, so from now on we will only be concerned with $\sigma_1(D_{r, s}, D_t)$, which by now we know to be given by:
+                    $$\sigma_1(D_{r, s}, D_t) = rs v^{-r} t^{-s - 1} \bar{d}(t^{-1})$$
                 Now, recall from example \ref{example: toroidal_lie_algebras_centres} that any element:
                     $$v^n t^q \bar{d}(v^m t^p) \in \z_{[2]}$$
                 can be written in terms of the basis elements of $\z_{[2]}$ in the following manner:
                     $$v^n t^q \bar{d}(v^m t^p) = \delta_{(m, p) + (n, q), (0, 0)} ( n c_v + q c_t ) + (np - mq) K_{m + n, p + q}$$
                 Using this, we shall get that:
-                    $$\sigma_p(D_{r, s}, D_v) = r^2 \left( -\delta_{(r, s), (0, 2)} ( r c_v + (s + 3) c_t ) - r K_{-r, -s - 2} \right)$$
-                \item
                     $$
                         \begin{aligned}
-                            & \sigma_p(D_{r, s}, D_t)
+                            & \sigma_1(D_{r, s}, D_t)
                             \\
-                            = & \sigma_p( s v^{-r + 1} t^{-s - 1} \del_v - r v^{-r} t^{-s} \del_t, -\del_t )
+                            = & rs \left( -\delta_{(r, s), (0, -2)} ( r c_v + (s + 1) c_t ) + r K_{-r, -s - 2} \right)
                             \\
-                            = & \sigma_p( s v^{-r} t^{-s - 1} \cdot v \del_v - r v^{-r} t^{-s - 1} \cdot t \del_t, -t^{-1} \cdot t\del_t )
-                            \\
-                            = & s \sigma_p( v^{-r} t^{-s - 1} \cdot v \del_v, t^{-1} \cdot t\del_t ) - r\sigma_p( v^{-r} t^{-s} \del_t, t^{-1} \cdot t\del_t )
-                            \\
-                            = & -s \delta_{p, 2} r v^{-r} s^{-s - 3} \bar{d}t - 0
-                            \\
-                            = & -s \delta_{p, 2} r v^{-r} s^{-s - 3} \bar{d}t
+                            = & 
+                            \begin{cases}
+                                \text{$0$ if $(r, s) \in \{0\} \x \Z$}
+                                \\
+                                \text{$r^2s K_{-r, -s - 2}$ if $(r, s) \in (\Z \setminus \{0\}) \x \Z$}
+                            \end{cases}
                         \end{aligned}
                     $$
-                \todo[inline]{Write this out in terms of basis elements of $\z_{[2]}$.}
                 \item
                     $$
                         \begin{aligned}
-                            & \sigma_p(D_v, D_t)
+                            & \sigma_i(D_v, D_t)
                             \\
-                            = & \sigma_p(-v t^{-1} \del_v, -\del_t)
+                            = & \sigma_i(-v t^{-1} \del_v, -\del_t)
                             \\
-                            = & \sigma_p(t^{-1} \cdot v \del_v, t^{-1} t \del_t)
+                            = & \sigma_i(t^{-1} \cdot v \del_v, t^{-1} t \del_t)
                             \\
                             = & 0
                         \end{aligned}
                     $$
             \end{itemize}
 
-            It can now be checked, per the criterion given in theorem \ref{theorem: yangian_criterion_for_toroidal_cocycles}, that the toroidal $2$-cocycle $\sigma_1$ is Yangian in the sense of definition \ref{def: yangian_toroidal_cocycles}, whereas $\sigma_2$ is \textit{not}. Whether $\sigma_1$ is cohomologous to $0$ or not, however, is a much subtler issue.
-            
-            \todo[inline]{Write out the entries of the matrices $\bfA(\sigma_p)$ and $\bfB(\sigma_p)$.}
+            One can now use the criterion given in theorem \ref{theorem: yangian_criterion_for_toroidal_cocycles} to verify whether or not the cocycles $\sigma_1, \sigma_2$ are Yangian in the sense of definition \ref{def: yangian_toroidal_cocycles}.
         \end{example}
+        Whether or not these cocycles might be cohomologous to $0$ is a much subtler issue. One way to tackle this problem is to check whether or not their restriction to a particular Lie subalgebra of $\extendedtoroidal$ is cohomologous to $0$.
+
+        Recall from lemma \ref{lemma: derivation_action_on_multiloop_algebras} that:
+            $$\forall (r, s) \in \Z^2: D_{r, s} = s v^{-r + 1} t^{-s - 1} \del_v - r v^{-r} t^{-s} \del_t$$
+            $$D_v = -v t^{-1} \del_v$$
+            $$D_t = -\del_t$$
+        and from lemma \ref{lemma: explicit_commutators_between_basis_elements_of_toroidal_central_orthogonal_complement} that the commutation relations that these basis elements of $\d_{[2]}$ satisfy are:
+            $$[D_v, D_t] = 0$$
+            $$[D_v, D_{r, s}] = r D_{r, s + 1}$$
+            $$[D_t, D_{r, s}] = D_{r, s + 1}$$
+            $$[D_{a, b}, D_{r, s}] = (br - sa) D_{a + r, b + s + 1}$$
+        (given for all $(r, s), (a, b) \in \Z^2$). With these information in mind, one sees that the following vector subspace of $\d_{[2]}$:
+            $$\frakw := \bigoplus_{r \in \Z} \bbC D_{r, -1}$$
+        is actually a Lie subalgebra, as the basis elements satisfy the following commutators:
+            $$[D_{a, -1}, D_{r, -1}] = (a - r) D_{a + r, -1}$$
+        given for all $a, r \in \Z$; note also that we have $D_v, D_t \not \in \frakw$ because:
+            $$[D_v, D_{r, -1}] = r D_{r, 0} \not \in \frakw$$
+            $$[D_t, D_{r, -1}] = D_{r, 0} \not \in \frakw$$    
+        for all $r \in \Z$. Interestingly, these are precisely the commutation relations satisfied by the elements of the following basis of the Lie algebra $\der(\bbC[v^{\pm 1}])$:
+            $$\{ d_r := -v^r D_{\aff} \}_{r \in \Z}$$
+        (where $D_{\aff} := v \frac{d}{dv}$ is the \say{untwisted affine Kac-Moody derivation} as in subsection \ref{subsection: a_fixed_untwisted_affine_kac_moody_algebra}) and in light of this, we make the following observation:
+        \begin{lemma}[A copy of the Witt algebra inside $\d_{[2]}$]
+            There is an isomorphism of Lie algebras:
+                $$\der(\bbC[v^{\pm 1}]) \xrightarrow[]{\cong} \frakw$$
+            given by:
+                $$d_r \mapsto D_{r, -1}$$
+            This identifies a copy of $\der(\bbC[v^{\pm 1}])$ - the \textbf{Witt algebra} - inside $\d_{[2]}$ as a Lie subalgebra. 
+        \end{lemma}
+
+        The Lie algebra $\der(\bbC[v^{\pm 1}])$ is known to possess a \textit{non-trivial} UCE:
+            $$\frakv := \der(\bbC[v^{\pm 1}]) \oplus^{\eta} \bbC c_{\frakv}$$
+        called the \textbf{Virasoro algebra}, whose corresponding \textit{non-zero} $2$-cocycle:
+            $$\eta: \bigwedge^2 \der(\bbC[v^{\pm 1}]) \to \bbC c_{\frakv}$$
+        is given by:
+            $$\eta(d_r, d_a) := \delta_{r + a, 0} (r^3 - r) c_{\frakv}$$
+        for all $r, a \in \Z$.
+
+        \begin{question}
+            Is it true that:
+                $$\sigma_i|_{ \bigwedge^2 \frakv } = \eta$$
+            for either $i = 1$ or $i = 2$ ?
+        \end{question}
+        Using the computations in example \ref{example: yangian_cocycles_(counter)_examples}, we see that:
+            $$\sigma_i(D_{r, -1}, D_{a, -1}) = -N_i(r, -1, a, -1) \delta_{r + a, 0} r c_v$$
+        where:
+            $$
+                N_i(r, -1, a, -1) =
+                \begin{cases}
+                    \text{$2 ra - ra - ra + ra$ if $i = 1$}
+                    \\
+                    \text{$ra$ if $i = 2$}
+                \end{cases}
+                = ra
+            $$
+        and hence, more succinctly, we have that:
+            $$\sigma_i(D_{r, -1}, D_{a, -1}) = -\delta_{r + a, 0} r^3 c_v$$
+        regardless of whether $i = 1$ or $i = 2$, and for all $r, a \in \Z$. If it was true that:
+            $$\sigma_i(D_{r, -1}, D_{a, -1}) = \eta(d_r, d_a)$$
+        then we must have that:
+            $$-\delta_{r + a, 0} r^3 c_v = \delta_{r + a, 0} (r^3 - r) c_{\frakv}$$
+        which implies that:
+            $$-r^3 c_v = (r^3 - r) c_{\frakv}$$
+        for all $r \in \Z$. But this is certainly not true for all $r \in \Z$: e.g. if $r = 1$ then we will get that:
+            $$-c_v = -v^{-1} \bar{d}v = 0$$
+        which is absurd! As such, neither of the $2$-cocycles $\sigma_1$ and $\sigma_2$ coincide with $\eta$ when restricted down to $\frakv := ( \bigoplus_{r \in \Z} \bbC D_{r, -1} ) \oplus \bbC c_{\frakv}$.  

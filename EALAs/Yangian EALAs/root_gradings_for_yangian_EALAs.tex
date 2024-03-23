@@ -194,7 +194,7 @@
             \end{proof}
 
     \subsection{Root grading and triangular decomposition for Yangian extended toroidal Lie algebras}
-        \begin{proposition}[Induced $Q \x \Z$-grading on $\extendedtoroidal$] \label{prop: root_grading_on_extended_toroidal_lie_algebras}
+        \begin{proposition}[Induced $\hat{Q}$-grading on $\extendedtoroidal$] \label{prop: root_grading_on_extended_toroidal_lie_algebras}
             Define the following grading on $\toroidal$\footnote{Note that we can not simply define a grading on $\g_{[2]}$ alone, since $[\g_{[2]}, \g_{[2]}]_{\toroidal} \not \subset \g_{[2]}$.}, naturally induced by the natural $Q \x \Z$-grading on $\g$.
             
             Firstly, let us declare that:
@@ -257,7 +257,7 @@
             Furthermore, $\extendedtoroidal$ is a weight module of $\hat{\g}$, i.e.:
                 $$\extendedtoroidal \cong \bigoplus_{\beta \in \hat{\Phi} \cup \{0\}} \extendedtoroidal_{\beta}$$
         \end{theorem}
-        \begin{corollary}
+        \begin{corollary}[$\hat{Q}$-grading on $\extendedtoroidal^{\positive/\negative}$] \label{coro: root_grading_on_positive_and_negative_extended_toroidal_lie_algebras}
             Recall the triple of Lie algebras:
                 $$\extendedtoroidal, \extendedtoroidal^{\positive}, \extendedtoroidal^{\negative}$$
             from lemma \ref{lemma: positive/negative_yangian_extended_toroidal_lie_algebras}. Via theorem \ref{theorem: root_grading_for_extended_toroidal_lie_algebras}, we see that the Lie subalgebras $\extendedtoroidal^{\positive/\negative}$ admit the following weight space decompositions, when regarded as $\hat{\g}$-modules of $\extendedtoroidal$:
@@ -337,14 +337,3 @@
                 $$\extendedtoroidal \cong \extendedtoroidal_{\low} \oplus \extendedtoroidal_0 \oplus \extendedtoroidal_{\up}$$
                 $$\extendedtoroidal^{\positive/\negative} \cong \extendedtoroidal^{\positive/\negative}_{\low} \oplus \extendedtoroidal^{\positive/\negative}_0 \oplus \extendedtoroidal^{\positive/\negative}_{\up}$$
         \end{proposition}
-        \begin{remark}[Toroidal Virasoro algebras] \label{remark: toroidal_virasoro_algebras}
-            An interesting consequence of the existence of a triangular decomposition of $\extendedtoroidal$ is that a \textbf{toroidal Virasoro algebra} can be constructed as follows:
-                $$\frakv_{[2]} := \frakv_{[2]}^{\negative} \oplus \frakv_{[2]}^0 \oplus \frakv_{[2]}^{\positive}$$
-            where:
-                $$\frakv_{[2]}^{\negative} := \bigoplus_{(r, s) \in \Z \x \Z_{> 0}} (\bbC K_{r, s} \oplus \bbC D_{-r, s}), \frakv_{[2]}^{\positive} := \bigoplus_{(r, s) \in \Z \x \Z_{\leq 0}} (\bbC K_{r, s} \oplus \bbC D_{-r, s})$$
-                $$\frakv_{[2]}^0 := \bbC c_v \oplus \bbC c_t \oplus \bbC D_v \oplus \bbC D_t$$
-            This is in analogy with usual Virasoro algebra construction (cf. \cite[Section 7.3]{kac_infinite_dimensional_lie_algebras}):
-                $$\frakv := \bigoplus_{r > 0} \bbC(-v^{-r + 1} \frac{d}{dv}) \oplus ( \bbC c_v \oplus \bbC D_{\aff} ) \oplus \bigoplus_{r \leq 0} \bbC(-v^{-r + 1} \frac{d}{dv})$$
-
-            \todo[inline]{I think this should help us understand the classical R-matrix of $\toroidal^{\positive}$ somehow, but I have not been able to express this idea precisely yet.}
-        \end{remark}
