@@ -352,7 +352,9 @@
 
             One can now use the criterion given in theorem \ref{theorem: yangian_criterion_for_toroidal_cocycles} to verify whether or not the cocycles $\sigma_1, \sigma_2$ are Yangian in the sense of definition \ref{def: yangian_toroidal_cocycles}.
         \end{example}
-        Whether or not these cocycles might be cohomologous to $0$ is a much subtler issue. One way to tackle this problem is to check whether or not their restriction to a particular Lie subalgebra of $\extendedtoroidal$ is cohomologous to $0$.
+        Whether or not these cocycles might be cohomologous to $0$ is a much subtler issue. One way to tackle this problem is to check whether or not their restriction to a particular Lie subalgebra of $\extendedtoroidal$ is cohomologous to $0$. We refer the reader to \cite[Chapter VII]{hilton_stammbach_homological_algebra} for what it means for two Lie algebra ($2$-)cocycles to be \say{cohomologous} to one another, as well as for other generalities on \textit{abelian} cohomology of Lie algebras\footnote{We do not need to concern ourselves with how Lie algebra cohomology with potentially non-abelian coefficients, as we are dealing with a central extension presently.}. In particular, we would like to point out that it can be inferred from corollary \ref{coro: lie_brackets_on_central_extensions} that, given a Lie algebra $\a$ - which, for our purposes, can just be over $\bbC$ - there is a $\bbC$-vector space isomorphism:
+            $$\{ \text{isomorphism classes of central extensions of $\a$} \} \xrightarrow[]{\cong} H^2_{\Lie}(\a, \bbC)$$
+        (cf. \cite[Theorem VII.3.3]{hilton_stammbach_homological_algebra}). 
 
         Recall from lemma \ref{lemma: derivation_action_on_multiloop_algebras} that:
             $$\forall (r, s) \in \Z^2: D_{r, s} = s v^{-r + 1} t^{-s - 1} \del_v - r v^{-r} t^{-s} \del_t$$
@@ -378,17 +380,18 @@
                 $$\der(\bbC[v^{\pm 1}]) \xrightarrow[]{\cong} \frakw$$
             given by:
                 $$d_r \mapsto D_{r, -1}$$
-            This identifies a copy of $\der(\bbC[v^{\pm 1}])$ - the \textbf{Witt algebra} - inside $\d_{[2]}$ as a Lie subalgebra. 
+            This identifies a copy of $\der(\bbC[v^{\pm 1}])$ inside $\d_{[2]}$ as a Lie subalgebra. 
         \end{lemma}
 
         The Lie algebra $\der(\bbC[v^{\pm 1}])$ is known to possess a \textit{non-trivial} UCE:
             $$\frakv := \der(\bbC[v^{\pm 1}]) \oplus^{\eta} \bbC c_{\frakv}$$
-        called the \textbf{Virasoro algebra}, whose corresponding \textit{non-zero} $2$-cocycle:
+        called the \textbf{Virasoro algebra}, whose corresponding $2$-cocycle:
             $$\eta: \bigwedge^2 \der(\bbC[v^{\pm 1}]) \to \bbC c_{\frakv}$$
         is given by:
             $$\eta(d_r, d_a) := \delta_{r + a, 0} (r^3 - r) c_{\frakv}$$
-        for all $r, a \in \Z$.
+        for all $r, a \in \Z$; in particular, this means this \textit{$\eta$ is non-cohomologous to $0$}. The $2$-cocycle $\eta$ is cohomologically unique (in the sense of lemma \ref{lemma: uniqueness_of_virasoro_cocycle}), and so should either $\sigma_1$ or $\sigma_2$ become cohomologous to $\eta$ after being restricted down to $\bigwedge^2 \frakv$, they would have to be non-cohomologous to $0$. We claim that this is indeed true.
 
+        The answer to the following question turns out to be negative, but in answering it, we will have gained some insight into how we might show that $\sigma_1$ and $\sigma_2$ are actually cohomologous to $\eta$.
         \begin{question}
             Is it true that:
                 $$\sigma_i|_{ \bigwedge^2 \frakv } = \eta$$
@@ -416,4 +419,42 @@
             $$-r^3 c_v = (r^3 - r) c_{\frakv}$$
         for all $r \in \Z$. But this is certainly not true for all $r \in \Z$: e.g. if $r = 1$ then we will get that:
             $$-c_v = -v^{-1} \bar{d}v = 0$$
-        which is absurd! As such, neither of the $2$-cocycles $\sigma_1$ and $\sigma_2$ coincide with $\eta$ when restricted down to $\frakv := ( \bigoplus_{r \in \Z} \bbC D_{r, -1} ) \oplus \bbC c_{\frakv}$.  
+        which is absurd! As such, \textit{neither} of the $2$-cocycles $\sigma_1$ and $\sigma_2$ coincide with $\eta$ when restricted down to $\bigwedge^2 \frakv$. In particular, this means that it is still inconclusive as to whether or not the toroidal $2$-cocycles $\sigma_1, \sigma_2$ are cohomologous to $0$. However, this does not necessarily imply that $\eta$ and $\sigma_1, \sigma_2$ are \textit{not} cohomologous. 
+
+        \begin{proposition}[Some other Virasoro $2$-cocycles] \label{prop: auxiliary_virasoro_cocycles}
+            Let:
+                $$\eta': \bigwedge^2 \der(\bbC[v^{\pm 1}]) \to \bbC c_{\frakv}$$
+            be the function given by:
+                $$\eta'(d_r, d_a) := \delta_{r + a, 0} r c_{\frakv}$$
+            This is a $2$-cocycle of $\der(\bbC[v^{\pm 1}])$ with values in $\bbC c_{\frakv}$. From this, one sees that:
+                $$\eta + \eta': \bigwedge^2 \der(\bbC[v^{\pm 1}]) \to \bbC c_{\frakv}$$
+            (which is given by $(\eta + \eta')(d_r, d_a) := \delta_{r + a, 0} r^3 c_{\frakv}$) is also a $2$-cocycle of $\der(\bbC[v^{\pm 1}])$ with values in $\bbC c_{\frakv}$.
+        \end{proposition}
+            \begin{proof}
+                It is clear from the construction of $\eta'$ that it is linear and skew-symmetric; the only non-trivial thing to prove is that $\eta'$ satisfies the Jacobi identity in the sense of definition \ref{def: twisted_semi_direct_products}. To this end, simply consider the following, for all $i, j, k \in \Z$:
+                    $$
+                        \begin{aligned}
+                            & \eta'([d_i, d_j], d_k) + \eta'([d_k, d_i], d_j) + \eta'([d_j, d_k], d_i)
+                            \\
+                            = & (i - j) \eta'(d_{i + j}, d_k) + (k - i) \eta'(d_{k + i}, d_j) + (j - k) \eta'(d_{j + k}, d_i)
+                            \\
+                            = & \delta_{i + j + k, 0} \left( (i - j) (i + j) + (k - i) (k + i) + (j - k) (j + k) \right) c_{\frakv}
+                            \\
+                            = & 0
+                        \end{aligned}
+                    $$
+            \end{proof}
+        In conjunction with the following well-known fact about central extensions of $\der(\bbC[v^{\pm 1}])$, one can infer from proposition \ref{prop: auxiliary_virasoro_cocycles} that, precisely because we have that:
+            $$\sigma_i|_{ \bigwedge^2 \frakv } = \eta + \eta'$$
+        the domain restrictions $\sigma_1|_{ \bigwedge^2 \frakv }$ must be cohomologous to the $2$-cocycle $\eta$, which is known to be non-cohomologous to $0$. The toroidal $2$-cocycles $\sigma_i: \bigwedge^2 \toroidal \to \z_{[2]}$ are therefore non-cohomologous to $0$.
+        \begin{lemma} \label{lemma: uniqueness_of_virasoro_cocycle}
+            \cite[Proposition 1.3]{kac_raina_rozhkovskaya_bombay_lectures_on_highest_weight_modules_of_infinite_dimensional_lie_algebras} Let $\bbC c_{\frakv}$ be viewed as a trivial $\der(\bbC[v^{\pm 1}])$-module. Then:
+                $$\dim_{\bbC} H^2_{\Lie}( \der(\bbC[v^{\pm 1}]), \bbC c_{\frakv} ) = 1$$
+            meaning in particular, that $\eta$ and $\eta + \eta'$ are cohomologous to each other. As the former is not cohomologous to $0$ (as $\frakv$ is a non-trivial central extension), neither is the latter.
+        \end{lemma}
+        Our final conclusion is thus as follows:
+        \begin{theorem}[Non-triviality of the toroidal $2$-cocycles $\sigma_1, \sigma_2$]
+            Let $i \in \{1, 2\}$ and $\sigma_i$ be as in example \ref{example: yangian_cocycles_(counter)_examples}.
+        
+            $\sigma_i|_{ \bigwedge^2 \frakv }$ is cohomologous to the Virasoro $2$-cocycle $\eta$, which is \textit{not} cohomologous to $0$. Therefore, $\sigma_i|_{ \bigwedge^2 \frakv }$ is \textit{not} cohomologous to $0$ as well, and consequently, $\sigma_i$ is \textit{not} cohomologous to $0$ as $2$-cocycles of $\toroidal$ with values in $\z_{[2]}$.
+        \end{theorem}

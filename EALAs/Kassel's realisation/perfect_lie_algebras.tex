@@ -173,9 +173,9 @@
                 	\arrow[from=2-4, to=2-5]
                     \end{tikzcd}
                 $$
-            wherein the rows are short exact sequences.
+            wherein the rows are short exact sequences. If the middle vertical arrow $\varphi: \frake' \to \frake$ is a Lie algebra isomorphism, then the entire diagram will be regarded as an isomorphism of extensions of $\a$\footnote{... which means that one can meaningfully speak of isomorphism classes of extensions of a given Lie algebra.}.
         \end{definition}
-        \begin{definition}[Central extensions of Lie algebras]
+        \begin{definition}[Central extensions of Lie algebras] \label{def: central_lie_algebra_extensions}
             A Lie algebra extension:
                 $$0 \to \Omega \to \frake \to \a \to 0$$
             is \textbf{central} if the elements of $\Omega$ are central in $\frake$; morphisms between central extensions are just morphisms of Lie algebra extensions (cf. definition \ref{def: lie_algebra_extensions}).
@@ -227,7 +227,7 @@
                 $$0 \to \t \to \frake \xrightarrow[]{\pi} \d \to 0$$
             is an extension of Lie algebras with a fixed linear section:
                 $$\gamma: \d \to \t \oplus \d$$
-            This is said to be a \textbf{twisted semi-direct product} corresponding to a \textbf{$2$-cocycle}\footnote{The terminology stems from the fact that isomorphism classes of \textit{central} extensions, say of $\d$ by $\t$, are in bijection with the elements of $H^2_{\Lie}(\d, \t)$. This is a standard homological algebraic fact; see e.g. \cite{hilton_stammbach_homological_algebra}. We will not, however, be making use of any homological algebra. This remark is purely for an etymological purpose.} $\sigma$ of $\d$ with values in $\t$ if and only if the Lie bracket on $\frake$ is of the form\footnote{Note that in writing $[-, -]_{\frake} = [-, -]_{\t \rtimes \d} + \sigma$, we have actually slightly abused notations. Technically, this should have been $[-, -]_{\frake} = [-, -]_{\t \rtimes \d} + \sigma \circ ( \pi \wedge \pi )$, with $\pi: \frake \to \d$ being the canonical projection.}:
+            This is said to be a \textbf{twisted semi-direct product} corresponding to a \textbf{$2$-cocycle}\footnote{The terminology stems from the fact that isomorphism classes of \textit{central} extensions, say of $\d$ by $\t$, are in bijection with the elements of $H^2_{\Lie}(\d, \t)$. This is a standard homological algebraic fact; see e.g. \cite[Theorem VII.3.3]{hilton_stammbach_homological_algebra}. We will not, however, be making use of any homological algebra. This remark is purely for an etymological purpose.} $\sigma$ of $\d$ with values in $\t$ if and only if the Lie bracket on $\frake$ is of the form\footnote{Note that in writing $[-, -]_{\frake} = [-, -]_{\t \rtimes \d} + \sigma$, we have actually slightly abused notations. Technically, this should have been $[-, -]_{\frake} = [-, -]_{\t \rtimes \d} + \sigma \circ ( \pi \wedge \pi )$, with $\pi: \frake \to \d$ being the canonical projection.}:
                 $$[-, -]_{\frake} = [-, -]_{\t \rtimes \d} + \sigma$$
             for some skew-symmetric bilinear map:
                 $$\sigma: \bigwedge^2 \d \to \t$$
@@ -248,6 +248,9 @@
             Should $\frake$ be a central extension of $\d$ by $\t$, i.e. $\t \subseteq \z(\frake)$, then to put emphasis on this fact\footnote{... as it is entirely possible for $\t$ to be abelian while $\t \not \subset \z(\frake)$.}, we might instead write:
                 $$\frake \cong \t \oplus^{\sigma} \d$$
         \end{definition}
+        \begin{remark}
+            Suppose that $\d$ and $\t$ are Lie algebras over a field $k$. It not hard to see, using their definition, that the $2$-cocycles $\sigma: \bigwedge^2 \d \to \t$ form a vector subspace of $\Hom_k(\bigwedge^2 \d, \t)$, typically denoted by $Z^2_{\Lie}(\d, \t)$. This fact will be used without explicit reference to it.
+        \end{remark}
         \begin{remark}[Non-uniqueness of twisted semi-direct products]
             For definition \ref{def: twisted_semi_direct_products} to make sense, it is important that we choose a linear section:
                 $$\gamma: \d \to \t \oplus \d$$
