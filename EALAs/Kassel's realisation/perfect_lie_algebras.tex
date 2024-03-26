@@ -411,7 +411,7 @@
             $$0 \to \t \to \t \rtimes^{\sigma} \d \to \d \to 0$$
         gives rise to a $2$-cocycle $\sigma: \bigwedge^2 \d \to \t$, the converse statement is slightly more subtle. Namely, it is possible that two unequal $2$-cocycles:
             $$\sigma \not = \sigma'$$
-        would give rise to two twisted semi-direct products that are isomorphic as extensions of $\d$ (see e.g. proposition \ref{prop: auxiliary_virasoro_cocycles} and theorem \ref{theorem: non_trivial_yangian_cocycles_examples}), and in order to capture this fact, we will need to introduce the language of Lie algebra cohomology, which also necessitates a brief discussion of homological algebra in general. We refer the reader to \cite{hilton_stammbach_homological_algebra} as a general reference on homological algebra, and particularly, Chapter VII therein as a reference on the generalities of Lie algebra cohomology. 
+        would give rise to two twisted semi-direct products that are isomorphic as extensions of $\d$ (see e.g. proposition \ref{prop: a_virasoro_coboundary} and theorem \ref{theorem: non_trivial_yangian_cocycles_examples}), and in order to capture this fact, we will need to introduce the language of Lie algebra cohomology, which also necessitates a brief discussion of homological algebra in general. We refer the reader to \cite{hilton_stammbach_homological_algebra} as a general reference on homological algebra, and particularly, Chapter VII therein as a reference on the generalities of Lie algebra cohomology. 
 
         We will be adopting the following (somewhat \textit{ad hoc}) perspective on the construction of Lie algebra cohomology \say{groups}.
         \begin{convention}
@@ -428,7 +428,7 @@
                 $$\{P_i, \del_i\}_{i \in \Z} := \{ ... \xrightarrow[]{\del_{-3}} P_{-2} \xrightarrow[]{\del_{-2}} P_{-1} \xrightarrow[]{\del_{-1}} P_0 \xrightarrow[]{\del_0} P_1 \xrightarrow[]{\del_1} P_2 \xrightarrow[]{\del_2} ... \}$$
             (sometimes also abbreviated by $(P_{\bullet}, \del_{\bullet})$) such that for each $i \in \Z$, one has that:
                 $$\del_i \circ \del_{i - 1} = 0$$
-            The connecting maps $\del_i$ are typically called \textbf{differentials} or \textbf{boundary maps}.
+            The connecting maps $\del_i$ are typically called \textbf{differentials} or \textbf{coboundary maps}.
             
             For each $i \in \Z$, the \textbf{$i^{th}$ cohomology} of such a complex is given by:
                 $$H^i(P_{\bullet}, \del_{\bullet}) := \frac{ \ker \del_i }{ \im \del_{i - 1} }$$
@@ -463,7 +463,7 @@
 
             The standard projective resolution for the left-$\rmU(\a)$-module is the \textbf{Chevalley-Eilenberg resolution} (sometimes referred to as the \textbf{Chevalley-Eilenberg complex}):
                 $$\left\{ k_{-i}(\a) := \rmU(\a) \tensor_k \bigwedge^i \a \right\}_{i \in \Z_{\geq 0}}$$
-            and for each $i \in \Z_{\geq 0}$, the corresponding differential/boundary map:
+            and for each $i \in \Z_{\geq 0}$, the corresponding differential/coboundary map:
                 $$\del_{-(i + 1)}: k_{-(i + 1)}(\a) \to k_{-i}(\a)$$
             is given on pure tensors by:
                 $$
@@ -485,33 +485,42 @@
                         \\
                         := & \Hom_{\rmU(\a)}(k_{-i}(\a), M)
                         \\
-                        \cong & \Hom_{\rmU(\a)}( \rmU(\a) \tensor_k \bigwedge^i \a, M ) \ni \left( \varphi: a \tensor (x_1 \wedge ... \wedge x_i) \mapsto \varphi( a \tensor (x_1 \wedge ... \wedge x_i) ) \in M \right)
+                        \cong & \Hom_{\rmU(\a)}( \rmU(\a) \tensor_k \bigwedge^i \a, M ) \ni \left( a \tensor (x_1 \wedge ... \wedge x_i) \mapsto \varphi( a \tensor (x_1 \wedge ... \wedge x_i) ) \right)
                         \\
-                        \cong & \Hom_{\rmU(\a)}( \rmU(\a), \Hom_k( \bigwedge^i \a, M ) ) \ni \left( \varphi( a \tensor (-) ): x_1 \wedge ... \wedge x_n \mapsto \varphi( a \tensor (x_1 \wedge ... \wedge x_i) ) \in M \right)
+                        \cong & \Hom_{\rmU(\a)}( \rmU(\a), \Hom_k( \bigwedge^i \a, M ) ) \ni \left( a \mapsto \varphi(a \tensor -) \right)
                         \\
-                        \cong & \Hom_k( \bigwedge^i \a, M ) \ni \left( \right)
+                        \cong & \Hom_k( \bigwedge^i \a, M ) \ni \varphi(1 \tensor -)
                     \end{aligned}
                 $$
-            for all $a \in \rmU(\a)$ and all $x_1, ..., x_n \in \a$.
+            for all $a \in \rmU(\a)$, all $x_1, ..., x_n \in \a$, and all $\varphi \in \Hom_{\rmU(\a)}( \rmU(\a) \tensor_k \bigwedge^i \a, M )$.
         \end{remark}
-        Let us also write:
-            $$d_{-(i + 1)}: C_{-(i + 1)}(\a, M) \to C_{-i}(\a, M)$$
-        for the differentials of thee complex of $k$-vector spaces $\{C_{-i}(\a, M)\}_{i \in \Z_{\geq 0}}$.
         \begin{definition}[Lie cocycles and coboundaries] \label{def: lie_cocycles_and_coboundaries}
+            Let us denote by:
+                $$d_{-(i + 1)}^M: C_{-(i + 1)}(\a, M) \to C_{-i}(\a, M)$$
+            the differentials of thee complex of $k$-vector spaces $\{C_{-i}(\a, M)\}_{i \in \Z_{\geq 0}}$. These are given by:
+                $$d_{-(i + 1)}^M := \Hom_{\rmU(\a)}(\del_{-(i + 1)}, M)$$
+            When $M$ is understood from the context, the superscripts may be omitted.
+        
             For each $i \in \Z_{\geq 0}$, \textbf{Lie algebra $i$-cocycles} of $\a$ with values in $M$ shall be elements of:
-                $$Z^i(\a, M) := \ker d_{-i}$$
+                $$Z^i(\a, M) := \ker d_{-i}^M$$
             while \textbf{Lie algebra $i$-coboundaries} of $\a$ with values in $M$ shall be elements of:
-                $$B^i(\a, M) := \im d_{-(i + 1)}$$
+                $$B^i(\a, M) := \im d_{-(i + 1)}^M$$
         \end{definition}
         \begin{remark}
             From remark \ref{remark: simplified_chevalley_eilenberg_complexes}, one sees that - for any $i \in \Z_{\geq 0}$, a Lie $i$-cocycle of $\a$ with values in some $\a$-module $M$ is nothing but an alternating $k$-linear map:
                 $$\sigma: \bigwedge^i \a \to M$$
-            Now, recall that in definition \ref{def: twisted_semi_direct_products}, we have already encountered the case $i = 2$; namely, we have defined Lie $2$-cocycles 
+            such that:
+                $$d_{-i}^M(\sigma) = 0$$
+            In particular, using the fact that:
+                $$d_{-i}^M := \Hom_{\rmU(\a)}(\del_{-i}, M)$$
+            by construction, together with the construction of the maps $\del_{-i}$ as in definition \ref{def: lie_algebra_cohomology}, one then sees that indeed, when $i = 2$, one recovers the notion of Lie $2$-cocycles of $\a$ with values in $M$ as in definition \ref{def: twisted_semi_direct_products} as linear maps $\sigma: \bigwedge^2 \a \to M$ satisfying the Jacobi identity in the sense stated in \textit{loc. cit.}
         \end{remark}
 
         We will be needing these notions in the discussions leading up to theorem \ref{theorem: non_trivial_yangian_cocycles_examples}, in order to be able to equivocate certain unequal $2$-cocycles as being cohomologous to one another. More specifically, we will be making use of the fact that isomorphism classes of abelian extensions of a given Lie algebra are in bijection with its $2^{nd}$ cohomology (with suitable coefficients, of course).
-        \begin{theorem}[$H^{\Lie}$ and abelian extensions] \label{theorem: H^2_and_abelian_extensions}
-            
+        \begin{theorem}[$H^2_{\Lie}$ and abelian extensions] \label{theorem: classification_of_abelian_lie_algebra_extensions}
+            (Cf. \cite[Theorem VII.3.3]{hilton_stammbach_homological_algebra}) Let $\a$ be a Lie algebra over $k$ and $M$ be an $\a$-module, equipped with the abelian Lie algebra structure. There is then a bijection:
+                $$H^2_{\Lie}(\a, M) \xrightarrow[]{\cong} \{ \text{isomorphism classes of extensions of $\a$ by $M$} \}$$
+                $$\sigma \mapsto M \rtimes^{\sigma} \a$$
         \end{theorem}
         
         \begin{remark}[Non-abelian Lie algebra cohomology ?]

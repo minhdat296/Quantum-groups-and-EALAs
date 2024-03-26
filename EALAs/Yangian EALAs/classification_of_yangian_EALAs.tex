@@ -352,7 +352,7 @@
 
             One can now use the criterion given in theorem \ref{theorem: yangian_criterion_for_toroidal_cocycles} to verify whether or not the cocycles $\sigma_1, \sigma_2$ are Yangian in the sense of definition \ref{def: yangian_toroidal_cocycles}.
         \end{example}
-        Whether or not these cocycles might be cohomologous to $0$ is a much subtler issue. One way to tackle this problem is to check whether or not their restriction to a particular Lie subalgebra of $\extendedtoroidal$ is cohomologous to $0$. 
+        Whether or not these cocycles might be cohomologous to $0$ (cf. definition \ref{def: lie_algebra_cohomology}) - and hence whether or not they might give rise to extensions that are isomorphic to the semi-direct product $\toroidal \rtimes \d_{[2]}$ - is a much subtler issue. One way to tackle this problem is to check whether or not their restriction to a particular Lie subalgebra of $\extendedtoroidal$ is cohomologous to $0$. 
 
         Recall from lemma \ref{lemma: derivation_action_on_multiloop_algebras} that:
             $$\forall (r, s) \in \Z^2: D_{r, s} = s v^{-r + 1} t^{-s - 1} \del_v - r v^{-r} t^{-s} \del_t$$
@@ -419,14 +419,14 @@
             $$-c_v = -v^{-1} \bar{d}v = 0$$
         which is absurd! As such, \textit{neither} of the $2$-cocycles $\sigma_1$ and $\sigma_2$ coincide with $\eta$ when restricted down to $\bigwedge^2 \frakv$. In particular, this means that it is still inconclusive as to whether or not the toroidal $2$-cocycles $\sigma_1, \sigma_2$ are cohomologous to $0$. However, this does not necessarily imply that $\eta$ and $\sigma_1, \sigma_2$ are \textit{not} cohomologous. 
 
-        \begin{proposition}[Some other Virasoro $2$-cocycles] \label{prop: auxiliary_virasoro_cocycles}
+        \begin{proposition}[A Virasoro $2$-coboundary] \label{prop: a_virasoro_coboundary}
             Let:
                 $$\eta': \bigwedge^2 \der(\bbC[v^{\pm 1}]) \to \bbC c_{\frakv}$$
             be the function given by:
                 $$\eta'(d_r, d_a) := \delta_{r + a, 0} r c_{\frakv}$$
             This is a $2$-cocycle of $\der(\bbC[v^{\pm 1}])$ with values in $\bbC c_{\frakv}$. From this, one sees that:
                 $$\eta + \eta': \bigwedge^2 \der(\bbC[v^{\pm 1}]) \to \bbC c_{\frakv}$$
-            (which is given by $(\eta + \eta')(d_r, d_a) := \delta_{r + a, 0} r^3 c_{\frakv}$) is also a $2$-cocycle of $\der(\bbC[v^{\pm 1}])$ with values in $\bbC c_{\frakv}$.
+            (which is given by $(\eta + \eta')(d_r, d_a) := \delta_{r + a, 0} r^3 c_{\frakv}$) is also a $2$-cocycle of $\der(\bbC[v^{\pm 1}])$ with values in $\bbC c_{\frakv}$. 
         \end{proposition}
             \begin{proof}
                 It is clear from the construction of $\eta'$ that it is linear and skew-symmetric; the only non-trivial thing to prove is that $\eta'$ satisfies the Jacobi identity in the sense of definition \ref{def: twisted_semi_direct_products}. To this end, simply consider the following, for all $i, j, k \in \Z$:
@@ -442,14 +442,78 @@
                         \end{aligned}
                     $$
             \end{proof}
-        In conjunction with the following well-known fact about central extensions of $\der(\bbC[v^{\pm 1}])$, one can infer from proposition \ref{prop: auxiliary_virasoro_cocycles} that, precisely because we have that:
+        In conjunction with the following well-known fact about central extensions of $\der(\bbC[v^{\pm 1}])$, one can infer from proposition \ref{prop: a_virasoro_coboundary} that, precisely because we have that:
             $$\sigma_i|_{ \bigwedge^2 \frakv } = \eta + \eta'$$
         the domain restrictions $\sigma_1|_{ \bigwedge^2 \frakv }$ must be cohomologous to the $2$-cocycle $\eta$, which is known to be non-cohomologous to $0$. The toroidal $2$-cocycles $\sigma_i: \bigwedge^2 \toroidal \to \z_{[2]}$ are therefore non-cohomologous to $0$.
         \begin{lemma} \label{lemma: uniqueness_of_virasoro_cocycle}
-            \cite[Proposition 1.3]{kac_raina_rozhkovskaya_bombay_lectures_on_highest_weight_modules_of_infinite_dimensional_lie_algebras} Let $\bbC c_{\frakv}$ be viewed as a trivial $\der(\bbC[v^{\pm 1}])$-module. Then:
+            (Cf. \cite[Proposition 1.3]{kac_raina_rozhkovskaya_bombay_lectures_on_highest_weight_modules_of_infinite_dimensional_lie_algebras}) Let $\bbC c_{\frakv}$ be viewed as a trivial $\der(\bbC[v^{\pm 1}])$-module. Then:
                 $$\dim_{\bbC} H^2_{\Lie}( \der(\bbC[v^{\pm 1}]), \bbC c_{\frakv} ) = 1$$
-            meaning in particular, that $\eta$ and $\eta + \eta'$ are cohomologous to each other. As the former is not cohomologous to $0$ (as $\frakv$ is a non-trivial central extension), neither is the latter.
         \end{lemma}
+            \begin{proof}
+                We will be showing that:
+                    $$\dim_{\bbC} H^2_{\Lie}( \der(\bbC[v^{\pm 1}]), \bbC c_{\frakv} ) = 1$$
+                by proving, firstly, that the vector space of Lie $2$-cocycles of $\der(\bbC[v^{\pm 1}])$ with values in $\bbC c_{\frakv}$ is $2$-dimensional, namely given by:
+                    $$Z^2_{\Lie}( \der(\bbC[v^{\pm 1}]), \bbC c_{\frakv} ) \cong \bbC \eta \oplus \bbC \eta'$$
+                and secondly, that the vector space of Lie $2$-coboundaries of $\der(\bbC[v^{\pm 1}])$ with values in $\bbC c_{\frakv}$ is $1$-dimensional, namely given by:
+                    $$B^2_{\Lie}( \der(\bbC[v^{\pm 1}]), \bbC c_{\frakv} ) \cong \bbC \eta'$$
+                (our notations are as in definition \ref{def: lie_cocycles_and_coboundaries}). 
+
+                To prove the first assertion, note first of all that any Lie $2$-cocycle of $\der(\bbC[v^{\pm 1}])$ with values in $\bbC c_{\frakv}$ is necessarily given on basis elements $d_i, d_j \in \der(\bbC[v^{\pm 1}])$ by:
+                    $$\tau(d_i, d_j) = N_{i, j}(\tau) c_{\frakv}$$
+                for some $N_{i, j}(\tau) \in \bbC$. By skew-symmetry, we have that:
+                    $$\tau(d_i, d_j) = -\tau(d_j, d_i)$$
+                for all $i, j \in \Z$, and hence:
+                    $$N_{i, j}(\tau) = -N_{j, i}(\tau)$$
+                By the Jacobi identity, we the following, for all $i, j, k \in \Z$:
+                    $$
+                        \begin{aligned}
+                            & 0
+                            \\
+                            = & \tau([d_i, d_j], d_k) + \tau([d_k, d_i], d_j) + \tau([d_j, d_k], d_i)
+                            \\
+                            = & (i - j) \tau(d_{i + j}, d_k) + (k - i) \tau(d_{k + i}, d_j) + (j - k) \tau(d_{j + k}, d_i)
+                            \\
+                            = & \left( (i - j) N_{i + j, k}(\tau) + (k - i) N_{k + i, j}(\tau) + (j - k) N_{j + k, i}(\tau) \right) c_{\frakv}
+                        \end{aligned}
+                    $$
+                which implies that:
+                    $$(i - j) N_{i + j, k}(\tau) + (k - i) N_{k + i, j}(\tau) + (j - k) N_{j + k, i}(\tau) = 0$$
+                If we let $k = 0$ then we will get:
+                    $$(i - j) N_{i + j, 0}(\tau) - i N_{i, j}(\tau) + j N_{j, i}(\tau) = 0$$
+                but since we have that $N_{j, i}(\tau) = -N_{i, j}(\tau)$, as shown above, the above becomes:
+                    $$(i - j) N_{i + j, 0}(\tau) = (i + j) N_{i, j}(\tau)$$
+                Using this, we thus get that:
+                    $$
+                        \begin{aligned}
+                            & [[d_i, d_j]_{\frakv}, d_0]_{\frakv} = (i - j) [d_{i + j}, d_0]_{\frakv}
+                            \\
+                            = & (i - j) \left( (i + j) d_{i + j} + N_{i, j, 0}(\tau) c_{\frakv} \right)
+                            \\
+                            = & (i + j) [d_i, d_j] + (i + j) N_{i, j}(\tau) c_{\frakv}
+                        \end{aligned}
+                    $$
+                At the same time, the Jacobi identity implies that:
+                    $$
+                        \begin{aligned}
+                            & 0
+                            \\
+                            = & [[d_i, d_j]_{\frakv}, d_0]_{\frakv} + [[d_0, d_i]_{\frakv}, d_j]_{\frakv} + [[d_j, d_0]_{\frakv}, d_i]_{\frakv}
+                            \\
+                            = & [[d_i, d_j]_{\frakv}, d_0]_{\frakv} - i [d_i, d_j]_{\frakv} + j [d_j, d_i]_{\frakv}
+                            \\
+                            = & [[d_i, d_j]_{\frakv}, d_0]_{\frakv} - (i + j) [d_i, d_j]_{\frakv}
+                        \end{aligned}
+                    $$
+                which implies that:
+                    $$[[d_i, d_j]_{\frakv}, d_0]_{\frakv} = (i + j) [d_i, d_j]_{\frakv}$$
+                Combining the two observations then yields:
+                    $$(i + j) N_{i, j}(\tau) = 0$$
+                from which one sees that:
+                    $$N_{i, j}(\tau) = \delta_{i + j, 0} N_{i, -i}(\tau)$$
+            \end{proof}
+        \begin{corollary}
+            $\eta$ and $\eta + \eta'$ (with $\eta'$ as in proposition \ref{prop: a_virasoro_coboundary}) are cohomologous to each other in the sense of definition \ref{def: complexes_and_cohomology}. As the former is not cohomologous to $0$ (as $\frakv$ is a non-trivial central extension), neither is the latter.
+        \end{corollary}
         Our final conclusion is thus as follows:
         \begin{theorem}[Non-triviality of the toroidal $2$-cocycles $\sigma_1, \sigma_2$] \label{theorem: non_trivial_yangian_cocycles_examples}
             Let $i \in \{1, 2\}$ and $\sigma_i$ be as in example \ref{example: yangian_cocycles_(counter)_examples}.
