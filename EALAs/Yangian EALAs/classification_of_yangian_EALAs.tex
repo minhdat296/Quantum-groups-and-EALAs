@@ -352,9 +352,7 @@
 
             One can now use the criterion given in theorem \ref{theorem: yangian_criterion_for_toroidal_cocycles} to verify whether or not the cocycles $\sigma_1, \sigma_2$ are Yangian in the sense of definition \ref{def: yangian_toroidal_cocycles}.
         \end{example}
-        Whether or not these cocycles might be cohomologous to $0$ is a much subtler issue. One way to tackle this problem is to check whether or not their restriction to a particular Lie subalgebra of $\extendedtoroidal$ is cohomologous to $0$. We refer the reader to \cite[Chapter VII]{hilton_stammbach_homological_algebra} for what it means for two Lie algebra ($2$-)cocycles to be \say{cohomologous} to one another, as well as for other generalities on \textit{abelian} cohomology of Lie algebras\footnote{We do not need to concern ourselves with how Lie algebra cohomology with potentially non-abelian coefficients, as we are dealing with a central extension presently.}. In particular, we would like to point out that it can be inferred from corollary \ref{coro: lie_brackets_on_central_extensions} that, given a Lie algebra $\a$ - which, for our purposes, can just be over $\bbC$ - there is a $\bbC$-vector space isomorphism:
-            $$\{ \text{isomorphism classes of central extensions of $\a$} \} \xrightarrow[]{\cong} H^2_{\Lie}(\a, \bbC)$$
-        (cf. \cite[Theorem VII.3.3]{hilton_stammbach_homological_algebra}). 
+        Whether or not these cocycles might be cohomologous to $0$ is a much subtler issue. One way to tackle this problem is to check whether or not their restriction to a particular Lie subalgebra of $\extendedtoroidal$ is cohomologous to $0$. 
 
         Recall from lemma \ref{lemma: derivation_action_on_multiloop_algebras} that:
             $$\forall (r, s) \in \Z^2: D_{r, s} = s v^{-r + 1} t^{-s - 1} \del_v - r v^{-r} t^{-s} \del_t$$
@@ -389,7 +387,7 @@
             $$\eta: \bigwedge^2 \der(\bbC[v^{\pm 1}]) \to \bbC c_{\frakv}$$
         is given by:
             $$\eta(d_r, d_a) := \delta_{r + a, 0} (r^3 - r) c_{\frakv}$$
-        for all $r, a \in \Z$; in particular, this means this \textit{$\eta$ is non-cohomologous to $0$}. The $2$-cocycle $\eta$ is cohomologically unique (in the sense of lemma \ref{lemma: uniqueness_of_virasoro_cocycle}), and so should either $\sigma_1$ or $\sigma_2$ become cohomologous to $\eta$ after being restricted down to $\bigwedge^2 \frakv$, they would have to be non-cohomologous to $0$. We claim that this is indeed true.
+        for all $r, a \in \Z$; in particular, this means this \textit{$\eta$ is non-cohomologous to $0$}. The $2$-cocycle $\eta$ is cohomologically unique (in the sense that any $2$-cocycle $\eta': \bigwedge^2 \der(\bbC[v^{\pm 1}]) \to \bbC c_{\frakv}$ is cohomologous to $\eta$ itself; lemma \ref{lemma: uniqueness_of_virasoro_cocycle}), and so should either $\sigma_1$ or $\sigma_2$ become cohomologous to $\eta$ after being restricted down to $\bigwedge^2 \frakv$, they would have to be non-cohomologous to $0$. We claim that this is indeed true.
 
         The answer to the following question turns out to be negative, but in answering it, we will have gained some insight into how we might show that $\sigma_1$ and $\sigma_2$ are actually cohomologous to $\eta$.
         \begin{question}
@@ -453,7 +451,7 @@
             meaning in particular, that $\eta$ and $\eta + \eta'$ are cohomologous to each other. As the former is not cohomologous to $0$ (as $\frakv$ is a non-trivial central extension), neither is the latter.
         \end{lemma}
         Our final conclusion is thus as follows:
-        \begin{theorem}[Non-triviality of the toroidal $2$-cocycles $\sigma_1, \sigma_2$]
+        \begin{theorem}[Non-triviality of the toroidal $2$-cocycles $\sigma_1, \sigma_2$] \label{theorem: non_trivial_yangian_cocycles_examples}
             Let $i \in \{1, 2\}$ and $\sigma_i$ be as in example \ref{example: yangian_cocycles_(counter)_examples}.
         
             $\sigma_i|_{ \bigwedge^2 \frakv }$ is cohomologous to the Virasoro $2$-cocycle $\eta$, which is \textit{not} cohomologous to $0$. Therefore, $\sigma_i|_{ \bigwedge^2 \frakv }$ is \textit{not} cohomologous to $0$ as well, and consequently, $\sigma_i$ is \textit{not} cohomologous to $0$ as $2$-cocycles of $\toroidal$ with values in $\z_{[2]}$.

@@ -403,3 +403,119 @@
 
             Not every Lie algebra with a non-trivial centre arises as a central extension (see \cite[Section 1]{garland_arithmetics_of_loop_groups} for details), so it is not true that any invariant symmetric bilinear form on such a Lie algebra must be degenerate. Central elements can pair non-trivially with other elements, such as in the construction of untwisted affine Kac-Moody algebras (cf. subsection \ref{subsection: a_fixed_untwisted_affine_kac_moody_algebra}) or in the construction of so-called \say{extended toroidal Lie algebras} (cf. definitions \ref{def: yangian_extended_toroidal_lie_algebras} and \ref{def: general_extended_toroidal_lie_algebras}).
         \end{remark}
+
+    \subsection{Some generalities on Lie algebra cohomology}
+        Again, let us work over a fixed field $k$.
+    
+        Now, even though it is true that every twisted semi-direct product:
+            $$0 \to \t \to \t \rtimes^{\sigma} \d \to \d \to 0$$
+        gives rise to a $2$-cocycle $\sigma: \bigwedge^2 \d \to \t$, the converse statement is slightly more subtle. Namely, it is possible that two unequal $2$-cocycles:
+            $$\sigma \not = \sigma'$$
+        would give rise to two twisted semi-direct products that are isomorphic as extensions of $\d$ (see e.g. proposition \ref{prop: auxiliary_virasoro_cocycles} and theorem \ref{theorem: non_trivial_yangian_cocycles_examples}), and in order to capture this fact, we will need to introduce the language of Lie algebra cohomology, which also necessitates a brief discussion of homological algebra in general. We refer the reader to \cite{hilton_stammbach_homological_algebra} as a general reference on homological algebra, and particularly, Chapter VII therein as a reference on the generalities of Lie algebra cohomology. 
+
+        We will be adopting the following (somewhat \textit{ad hoc}) perspective on the construction of Lie algebra cohomology \say{groups}.
+        \begin{convention}
+            In discussing homological algebra, we will have to make use of some categorical language, but we will keep this to a minimum, only mentioning what is absolutely needed. We refer the reader to \cite{maclane}, particularly Chapter VIII therein, for more details.
+        \end{convention}
+        \begin{convention}
+            We take for granted the fact that for any associative ring $R$, left/right-$R$-modules form an abelian category (cf. \cite[Section VIII.3, p. 198]{maclane}) - denoted, respectively, by ${}^lR\mod$ and ${}^rR\mod$ - with all limits and colimits.
+
+            We will only be working with left-modules, but everything works identically for right-modules.
+        \end{convention}
+
+        \begin{definition}[Complexes and cohomomology] \label{def: complexes_and_cohomology}
+            (Cf. \cite[Section IV.1]{hilton_stammbach_homological_algebra}) Let $R$ be a ring. A \textbf{complex} or \textbf{chain complex} of left-$R$-modules is a diagram of left-$R$-modules:
+                $$\{P_i, \del_i\}_{i \in \Z} := \{ ... \xrightarrow[]{\del_{-3}} P_{-2} \xrightarrow[]{\del_{-2}} P_{-1} \xrightarrow[]{\del_{-1}} P_0 \xrightarrow[]{\del_0} P_1 \xrightarrow[]{\del_1} P_2 \xrightarrow[]{\del_2} ... \}$$
+            (sometimes also abbreviated by $(P_{\bullet}, \del_{\bullet})$) such that for each $i \in \Z$, one has that:
+                $$\del_i \circ \del_{i - 1} = 0$$
+            The connecting maps $\del_i$ are typically called \textbf{differentials} or \textbf{boundary maps}.
+            
+            For each $i \in \Z$, the \textbf{$i^{th}$ cohomology} of such a complex is given by:
+                $$H^i(P_{\bullet}, \del_{\bullet}) := \frac{ \ker \del_i }{ \im \del_{i - 1} }$$
+            (typically this is written as just $H^i(P_{\bullet})$, with the differentials being implicitly understood). Elements of $\ker \del_i$ are usually called \textbf{$i$-cocycles} and those of $\im \del_{i - 1}$ are usually called \textbf{$i$-coboundaries}; elements of $H^i(P_{\bullet}, \del_{\bullet})$ are usually called \textbf{$i^{th}$ cohomology classes}, and cocycles which are representatives of the same cohomology class are said to be \textbf{cohomologous}.
+            
+            If:
+                $$H^i(P_{\bullet}, \del_{\bullet}) \cong 0$$
+            for all $i \in \Z$ then we shall say that the complex $(P_{\bullet}, \del_{\bullet})$ is \textbf{exact}.
+        \end{definition}
+        \begin{example}
+            A \textbf{short exact sequence} (cf. e.g. definition \ref{def: lie_algebra_extensions}) is nothing but an exact complex with only 3 terms. 
+        \end{example}
+        
+        If $R$ is any associative ring and $M$ is any left-$R$-module, then the functor:
+            $$\Hom_R(-, M): {}^lR\mod^{\op} \to \Z\mod$$
+        is generally only left-exact, which for us shall mean that it maps kernels and finite direct sums in ${}^lR\mod^{\op}$ (i.e. cokernels and finite direct sums in ${}^lR\mod$) to kernels and finite direct sums in $\Z\mod$. Consequently, any projective resolution of a given left-$R$-module $P$:
+            $$(P_{\bullet}, \del_{\bullet}) := \{ ... \xrightarrow[]{\del_{-3}} P_{-2} \xrightarrow[]{\del_{-2}} P_{-1} \xrightarrow[]{\del_{-1}} P_0 \xrightarrow[]{\del_0} P \to 0 \}$$
+        (i.e. a chain complex of left-$R$-modules wherein each term is projective as a left-$R$-module) is mapped by $\Hom_R(-, M)$ to a diagram of $\Z$-modules as follows:
+            $$\Hom_R(P_{\bullet}, M) := \{ 0 \to \Hom_R(P, M) \Hom_R(P^0, M) \to \Hom_R(P^{-1}, M) \to \Hom_R(P^{-2}, M) \to ... \}$$
+        \begin{definition}[$\Ext$-groups] \label{def: Ext_groups}
+            With notations as above, we can define:
+                $$\Ext^i_R(P, M) := H^i(\Hom_R(P_{\bullet}, M))$$
+            for each $i \in \Z_{\geq 0}$. By constructions, these are $\Z$-modules. 
+        \end{definition}
+        \begin{remark}
+            If $R$ is an associative algebra defined over a field $k$, then the $\Z$-modules $\Ext^i_R(P, M)$ will actually carry $k$-vector space structures as well.
+        \end{remark}
+        \begin{definition}[Lie algebra cohomology and the Chevalley-Eilenberg resolution] \label{def: lie_algebra_cohomology}
+            If $\a$ is a Lie algebra over $k$, then its \textbf{(abelian) Lie algebra cohomology} with \textbf{coefficients} in some left-$\rmU(\a)$-module $M$ (which is typically referred to simply as an $\a$-module) shall be given by:
+                $$H^i_{\Lie}(\a, M) := \Ext^i_{\rmU(\a)}(k, M) := H^i( \Hom_{\rmU(\a)}(k_{\bullet}, M) )$$
+            where $k$ is regarded as a trivial left-$\rmU(\a)$-module, equipped with some projective resolution of left-$\rmU(\a)$-modules $k_{\bullet}$.
+
+            The standard projective resolution for the left-$\rmU(\a)$-module is the \textbf{Chevalley-Eilenberg resolution} (sometimes referred to as the \textbf{Chevalley-Eilenberg complex}):
+                $$\left\{ k_{-i}(\a) := \rmU(\a) \tensor_k \bigwedge^i \a \right\}_{i \in \Z_{\geq 0}}$$
+            and for each $i \in \Z_{\geq 0}$, the corresponding differential/boundary map:
+                $$\del_{-(i + 1)}: k_{-(i + 1)}(\a) \to k_{-i}(\a)$$
+            is given on pure tensors by:
+                $$
+                    \begin{aligned}
+                        & \del_{-(i + 1)}\left( a \tensor (x_1 \wedge ... \wedge x_{i + 1}) \right)
+                        \\
+                        := & \sum_{1 \leq p \leq i + 1} (-1)^p a x_i \tensor (x_1 \wedge ... \wedge \not{x_i} \wedge ... \wedge x_{i + 1}) + \sum_{1 \leq p < q \leq i + 1} (-1)^{p + q} a \tensor ( [x_i, x_j]_{\a} \wedge x_1 \wedge ... \wedge \not{x_i} \wedge ... \wedge \not{x_j} \wedge ... \wedge x_{i + 1})
+                    \end{aligned}
+                $$
+            for all $a \in \rmU(\a)$ and all $x_1, ..., x_{i + 1} \in \a$ (cf. \cite[Section VII.4]{hilton_stammbach_homological_algebra}).
+        \end{definition}
+        \begin{remark}[A simplified expression of Chevalley-Eilenberg complexes] \label{remark: simplified_chevalley_eilenberg_complexes}
+            Let $\a$ be a Lie algebra over $k$ and let $M$ be an arbitrary $\a$-module; let us also regard $M$ as an abelian Lie algebra. Next, consider the following complex of $k$-vector spaces\footnote{Which is sometimes also called the Chevalley-Eilenberg complex of $\a$ (with coefficients in $M$).}:
+                $$\{ C_{-i}(\a, M) := \Hom_{\rmU(\a)}(k_{-i}(\a), M) \}_{i \in \Z_{\geq 0}}$$
+            and observe that its terms $C_{-i}(\a, M)$ can be described as follows:
+                $$
+                    \begin{aligned}
+                        & C_{-i}(\a, M)
+                        \\
+                        := & \Hom_{\rmU(\a)}(k_{-i}(\a), M)
+                        \\
+                        \cong & \Hom_{\rmU(\a)}( \rmU(\a) \tensor_k \bigwedge^i \a, M ) \ni \left( \varphi: a \tensor (x_1 \wedge ... \wedge x_i) \mapsto \varphi( a \tensor (x_1 \wedge ... \wedge x_i) ) \in M \right)
+                        \\
+                        \cong & \Hom_{\rmU(\a)}( \rmU(\a), \Hom_k( \bigwedge^i \a, M ) ) \ni \left( \varphi( a \tensor (-) ): x_1 \wedge ... \wedge x_n \mapsto \varphi( a \tensor (x_1 \wedge ... \wedge x_i) ) \in M \right)
+                        \\
+                        \cong & \Hom_k( \bigwedge^i \a, M ) \ni \left( \right)
+                    \end{aligned}
+                $$
+            for all $a \in \rmU(\a)$ and all $x_1, ..., x_n \in \a$.
+        \end{remark}
+        Let us also write:
+            $$d_{-(i + 1)}: C_{-(i + 1)}(\a, M) \to C_{-i}(\a, M)$$
+        for the differentials of thee complex of $k$-vector spaces $\{C_{-i}(\a, M)\}_{i \in \Z_{\geq 0}}$.
+        \begin{definition}[Lie cocycles and coboundaries] \label{def: lie_cocycles_and_coboundaries}
+            For each $i \in \Z_{\geq 0}$, \textbf{Lie algebra $i$-cocycles} of $\a$ with values in $M$ shall be elements of:
+                $$Z^i(\a, M) := \ker d_{-i}$$
+            while \textbf{Lie algebra $i$-coboundaries} of $\a$ with values in $M$ shall be elements of:
+                $$B^i(\a, M) := \im d_{-(i + 1)}$$
+        \end{definition}
+        \begin{remark}
+            From remark \ref{remark: simplified_chevalley_eilenberg_complexes}, one sees that - for any $i \in \Z_{\geq 0}$, a Lie $i$-cocycle of $\a$ with values in some $\a$-module $M$ is nothing but an alternating $k$-linear map:
+                $$\sigma: \bigwedge^i \a \to M$$
+            Now, recall that in definition \ref{def: twisted_semi_direct_products}, we have already encountered the case $i = 2$; namely, we have defined Lie $2$-cocycles 
+        \end{remark}
+
+        We will be needing these notions in the discussions leading up to theorem \ref{theorem: non_trivial_yangian_cocycles_examples}, in order to be able to equivocate certain unequal $2$-cocycles as being cohomologous to one another. More specifically, we will be making use of the fact that isomorphism classes of abelian extensions of a given Lie algebra are in bijection with its $2^{nd}$ cohomology (with suitable coefficients, of course).
+        \begin{theorem}[$H^{\Lie}$ and abelian extensions] \label{theorem: H^2_and_abelian_extensions}
+            
+        \end{theorem}
+        
+        \begin{remark}[Non-abelian Lie algebra cohomology ?]
+            There is also a variant of the construction given in definition \ref{def: lie_algebra_cohomology}, called \textbf{non-abelian Lie algebra cohomology}, which ostensibly is for the purpose of classifying Lie algebra extensions:
+                $$0 \to \t \to \frake \to \d \to 0$$
+            where the kernel $\t$ is not necessarily abelian. This is harder to define and in fact, is unnecessary for our purposes, so we will make no further mention of it.
+        \end{remark}
