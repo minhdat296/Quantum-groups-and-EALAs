@@ -404,7 +404,7 @@
             Not every Lie algebra with a non-trivial centre arises as a central extension (see \cite[Section 1]{garland_arithmetics_of_loop_groups} for details), so it is not true that any invariant symmetric bilinear form on such a Lie algebra must be degenerate. Central elements can pair non-trivially with other elements, such as in the construction of untwisted affine Kac-Moody algebras (cf. subsection \ref{subsection: a_fixed_untwisted_affine_kac_moody_algebra}) or in the construction of so-called \say{extended toroidal Lie algebras} (cf. definitions \ref{def: yangian_extended_toroidal_lie_algebras} and \ref{def: general_extended_toroidal_lie_algebras}).
         \end{remark}
 
-    \subsection{Some generalities on Lie algebra cohomology}
+    \subsection{A brief account of Lie algebra cohomology}
         Again, let us work over a fixed field $k$.
     
         Now, even though it is true that every twisted semi-direct product:
@@ -470,18 +470,18 @@
                     \begin{aligned}
                         & \del_{-(i + 1)}\left( a \tensor (x_1 \wedge ... \wedge x_{i + 1}) \right)
                         \\
-                        := & \sum_{1 \leq p \leq i + 1} (-1)^p a x_i \tensor (x_1 \wedge ... \wedge \not{x_i} \wedge ... \wedge x_{i + 1}) + \sum_{1 \leq p < q \leq i + 1} (-1)^{p + q} a \tensor ( [x_i, x_j]_{\a} \wedge x_1 \wedge ... \wedge \not{x_i} \wedge ... \wedge \not{x_j} \wedge ... \wedge x_{i + 1})
+                        := & \sum_{1 \leq p \leq i + 1} (-1)^p a x_p \tensor (x_1 \wedge ... \wedge \not{x_p} \wedge ... \wedge x_{i + 1}) + \sum_{1 \leq p < q \leq i + 1} (-1)^{p + q} a \tensor ( [x_p, x_q]_{\a} \wedge x_1 \wedge ... \wedge \not{x_p} \wedge ... \wedge \not{x_q} \wedge ... \wedge x_{i + 1})
                     \end{aligned}
                 $$
             for all $a \in \rmU(\a)$ and all $x_1, ..., x_{i + 1} \in \a$ (cf. \cite[Section VII.4]{hilton_stammbach_homological_algebra}).
         \end{definition}
         \begin{remark}[A simplified expression of Chevalley-Eilenberg complexes] \label{remark: simplified_chevalley_eilenberg_complexes}
             Let $\a$ be a Lie algebra over $k$ and let $M$ be an arbitrary $\a$-module; let us also regard $M$ as an abelian Lie algebra. Next, consider the following complex of $k$-vector spaces\footnote{Which is sometimes also called the Chevalley-Eilenberg complex of $\a$ (with coefficients in $M$).}:
-                $$\{ C_{-i}(\a, M) := \Hom_{\rmU(\a)}(k_{-i}(\a), M) \}_{i \in \Z_{\geq 0}}$$
+                $$\{ C_i(\a, M) := \Hom_{\rmU(\a)}(k_{-i}(\a), M) \}_{i \in \Z_{\geq 0}}$$
             and observe that its terms $C_{-i}(\a, M)$ can be described as follows:
                 $$
                     \begin{aligned}
-                        & C_{-i}(\a, M)
+                        & C_i(\a, M)
                         \\
                         := & \Hom_{\rmU(\a)}(k_{-i}(\a), M)
                         \\
@@ -492,29 +492,83 @@
                         \cong & \Hom_k( \bigwedge^i \a, M ) \ni \varphi(1 \tensor -)
                     \end{aligned}
                 $$
-            for all $a \in \rmU(\a)$, all $x_1, ..., x_n \in \a$, and all $\varphi \in \Hom_{\rmU(\a)}( \rmU(\a) \tensor_k \bigwedge^i \a, M )$.
+            for all $a \in \rmU(\a)$, all $x_1, ..., x_i \in \a$, and all $\varphi \in \Hom_{\rmU(\a)}( \rmU(\a) \tensor_k \bigwedge^i \a, M )$.
         \end{remark}
         \begin{definition}[Lie cocycles and coboundaries] \label{def: lie_cocycles_and_coboundaries}
             Let us denote by:
-                $$d_{-(i + 1)}^M: C_{-(i + 1)}(\a, M) \to C_{-i}(\a, M)$$
-            the differentials of thee complex of $k$-vector spaces $\{C_{-i}(\a, M)\}_{i \in \Z_{\geq 0}}$. These are given by:
-                $$d_{-(i + 1)}^M := \Hom_{\rmU(\a)}(\del_{-(i + 1)}, M)$$
+                $$d_i^M: C_i(\a, M) \to C_{i + 1}(\a, M)$$
+            the differentials of thee complex of $k$-vector spaces $\{C_i(\a, M)\}_{i \in \Z_{\geq 0}}$. These are given by:
+                $$d_i^M := \Hom_{\rmU(\a)}(\del_{-(i + 1)}, M)$$
             When $M$ is understood from the context, the superscripts may be omitted.
         
             For each $i \in \Z_{\geq 0}$, \textbf{Lie algebra $i$-cocycles} of $\a$ with values in $M$ shall be elements of:
-                $$Z^i(\a, M) := \ker d_{-i}^M$$
+                $$Z^i_{\Lie}(\a, M) := \ker d_i^M$$
             while \textbf{Lie algebra $i$-coboundaries} of $\a$ with values in $M$ shall be elements of:
-                $$B^i(\a, M) := \im d_{-(i + 1)}^M$$
+                $$B^i_{\Lie}(\a, M) := \im d_{i - 1}^M$$
         \end{definition}
         \begin{remark}
             From remark \ref{remark: simplified_chevalley_eilenberg_complexes}, one sees that - for any $i \in \Z_{\geq 0}$, a Lie $i$-cocycle of $\a$ with values in some $\a$-module $M$ is nothing but an alternating $k$-linear map:
                 $$\sigma: \bigwedge^i \a \to M$$
             such that:
-                $$d_{-i}^M(\sigma) = 0$$
+                $$d_i^M(\sigma) = 0$$
             In particular, using the fact that:
-                $$d_{-i}^M := \Hom_{\rmU(\a)}(\del_{-i}, M)$$
-            by construction, together with the construction of the maps $\del_{-i}$ as in definition \ref{def: lie_algebra_cohomology}, one then sees that indeed, when $i = 2$, one recovers the notion of Lie $2$-cocycles of $\a$ with values in $M$ as in definition \ref{def: twisted_semi_direct_products} as linear maps $\sigma: \bigwedge^2 \a \to M$ satisfying the Jacobi identity in the sense stated in \textit{loc. cit.}
+                $$d_i^M := \Hom_{\rmU(\a)}(\del_{-(i + 1)}, M)$$
+            by construction, together with the construction of the maps $\del_{-(i + 1)}$ as in definition \ref{def: lie_algebra_cohomology}, one then sees that indeed, when $i = 2$, one recovers the notion of Lie $2$-cocycles of $\a$ with values in $M$ as in definition \ref{def: twisted_semi_direct_products} as linear maps $\sigma: \bigwedge^2 \a \to M$ satisfying the Jacobi identity in the sense stated in \textit{loc. cit.}
         \end{remark}
+        \begin{example}[Lie cocycles and coboundaries with trivial coefficients] \label{example: lie_cocycles_and_coboundaries_with_trivial_coefficients}
+            Let $\a$ be a Lie algebra over $k$ and regard $k$ itself as a trivial $\a$-module. For each $i \in \Z_{\geq 0}$, we then have - per the discussions in remark \ref{remark: simplified_chevalley_eilenberg_complexes} that:
+                $$C_i(\a, k) \cong \Hom_k(\bigwedge^i \a, k) =: (\bigwedge^i \a)^*$$
+            and the differentials:
+                $$d_i^k: C_i(\a, k) \to C_{i + 1}(\a, k)$$
+            are then nothing but:
+                $$\del_{-(i + 1)}^* := \Hom_k(\del_{-(i + 1)}, k)$$
+            \begin{itemize}
+                \item A Lie $i$-cocycle of $\a$ with coefficients in $k$ is then - by definition - an element of $\ker \del_{-(i + 1)}^*$, i.e. a linear map:
+                    $$\sigma: \bigwedge^i \a \to k$$
+                such that:
+                    $$
+                        \begin{aligned}
+                            & 0
+                            \\
+                            = & \del_{-(i + 1)}^*(\sigma)( (x_1 \wedge ... \wedge x_{i + 1}) )
+                            \\
+                            = & \sum_{1 \leq p \leq i + 1} (-1)^p \sigma(x_1 \wedge ... \wedge \not{x_p} \wedge ... \wedge x_{i + 1}) + \sum_{1 \leq p < q \leq i + 1} (-1)^{p + q} \sigma( [x_p, x_q]_{\a} \wedge x_1 \wedge ... \wedge \not{x_p} \wedge ... \wedge \not{x_q} \wedge ... \wedge x_{i + 1})
+                        \end{aligned}
+                    $$
+                for all $x_1, ..., x_i \in \a$.
+                \item A Lie $i$-coboundary is an element of $\im \del_{-i}^*$, i.e. a linear map:
+                    $$\beta: \bigwedge^i \a \to k$$
+                for which there exists another linear map:
+                    $$\tilde{\beta}: \bigwedge^{i - 1} \a \to k$$
+                i.e. a $(i - 1)$-cocycle $\tilde{\beta}$, such that:
+                    $$
+                        \begin{aligned}
+                            & \beta(x_1 \wedge ... \wedge x_i)
+                            \\
+                            = & \del_{-i}^*(\tilde{\beta})(x_1 \wedge ... \wedge x_i)
+                            \\
+                            = & \sum_{1 \leq p \leq i} (-1)^p \sigma(x_1 \wedge ... \wedge \not{x_p} \wedge ... \wedge x_i) + \sum_{1 \leq p < q \leq i} (-1)^{p + q} \sigma( [x_p, x_q]_{\a} \wedge x_1 \wedge ... \wedge \not{x_p} \wedge ... \wedge \not{x_q} \wedge ... \wedge x_i)
+                        \end{aligned}
+                    $$
+            \end{itemize}
+        \end{example}
+        \begin{example}[Lie $2$-cocycles and $2$-coboundaries with trivial coefficients] \label{example: low_degree_lie_cocycles_and_coboundaries_with_trivial_coefficients}
+            Of particular usefulness to us are Lie $2$-cocycles and $2$-coboundaries with trivial coefficients. In this case where:
+                $$i = 2$$
+            the conditions in example \ref{example: lie_cocycles_and_coboundaries_with_trivial_coefficients} reduce to the following.
+            \begin{itemize}
+                \item A Lie $2$-cocycle of $\a$ with coefficients in the trivial $\a$-module $k$ is a linear map:
+                    $$\sigma: \bigwedge^2 \a \to k$$
+                satisfying the Jacobi identity, in the sense of definition \ref{def: twisted_semi_direct_products}.
+                \item A Lie $2$-coboundary of $\a$ with coefficients in $k$ is a linear map:
+                    $$\beta: \bigwedge^2 \a \to k$$
+                for which there exist a Lie $1$-cocycle $\tilde{\beta}: \a \to k$, i.e. merely a linear map, such that:
+                    $$\beta(x \wedge y) = \tilde{\beta}([x, y])$$
+                Equivalently, this is saying that:
+                    $$\beta = d_1(\tilde{\beta})$$
+                Much like Lie $2$-cocycles, the value of a Lie $2$-boundaries $\beta$ at some $x \wedge y \in \bigwedge^2 \a$ is usually denotes by $\beta(x, y)$, i.e. we tend to think of Lie $2$-coboundaries as certain skew-symmetric bilinear maps $\a \x \a \to k$.
+            \end{itemize}
+        \end{example}
 
         We will be needing these notions in the discussions leading up to theorem \ref{theorem: non_trivial_yangian_cocycles_examples}, in order to be able to equivocate certain unequal $2$-cocycles as being cohomologous to one another. More specifically, we will be making use of the fact that isomorphism classes of abelian extensions of a given Lie algebra are in bijection with its $2^{nd}$ cohomology (with suitable coefficients, of course).
         \begin{theorem}[$H^2_{\Lie}$ and abelian extensions] \label{theorem: classification_of_abelian_lie_algebra_extensions}
