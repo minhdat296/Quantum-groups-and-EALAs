@@ -1,5 +1,5 @@
 \section{A root grading for Yangian extended toroidal Lie algebra} \label{section: root_grading_for_yangian_EALAs}
-    From now on, we will only be concerned with the Yangian extended toroida Lie algebra:
+    From now on, we will only be concerned with the Yangian extended toroidal Lie algebra:
         $$\extendedtoroidal := \toroidal \rtimes \d_{[2]}$$
     i.e. with the Yangian toroidal $2$-cocycle $\sigma = 0$. For an explanation of why we must make this assumption, see remark \ref{remark: why_yangian_toroidal_semi_direct_product}.
 
@@ -147,7 +147,10 @@
             $$\toroidal^{\positive/\negative} := \uce(\g_{[2]}^{\positive/\negative})$$
         and let us write:
             $$\z_{[2]}^{\positive/\negative} := \z(\toroidal^{\positive/\negative})$$
-        to mean their centres. Using remark \ref{remark: Z_gradings_on_toroidal_lie_algebras}, it can be seen that:
+        to mean their centres. Per remark \ref{remark: Z_gradings_on_toroidal_lie_algebras}, we have the following identifications of these centres:
+            $$\z_{[2]}^{\positive} \cong ( \bigoplus_{(r, s) \in \Z \x \Z_{> 0} } \bbC K_{r, s} ) \oplus \bbC c_v$$
+            $$\z_{[2]}^{\negative} \cong ( \bigoplus_{(r, s) \in \Z \x \Z_{\leq 0}} \bbC K_{r, s}) \oplus \bbC c_t$$
+        and it can also be seen that:
             $$\z_{[2]} \cong \z_{[2]}^{\positive} \oplus \z_{[2]}^{\negative}$$
         and since we already have by construction that $\g_{[2]} \cong \g_{[2]}^{\positive} \oplus \g_{[2]}^{\negative}$, the above implies that:
             $$\toroidal \cong \toroidal^{\positive} \oplus \toroidal^{\negative}$$

@@ -1,0 +1,351 @@
+\section{Lie algebra cohomology}
+    \subsection{A brief account of the generalities}
+        Let us work over a fixed field $k$.
+    
+        Even though it is true that every twisted semi-direct product:
+            $$0 \to \t \to \t \rtimes^{\sigma} \d \to \d \to 0$$
+        gives rise to a $2$-cocycle $\sigma: \bigwedge^2 \d \to \t$, the converse statement is slightly more subtle. Namely, it is possible that two unequal $2$-cocycles:
+            $$\sigma \not = \sigma'$$
+        would give rise to two twisted semi-direct products that are isomorphic as extensions of $\d$ (see e.g. proposition \ref{prop: a_virasoro_coboundary} and theorem \ref{theorem: non_trivial_yangian_cocycles_examples}), and in order to capture this fact, we will need to introduce the language of Lie algebra cohomology, which also necessitates a brief discussion of homological algebra in general. We refer the reader to \cite{hilton_stammbach_homological_algebra} as a general reference on homological algebra, and particularly, Chapter VII therein as a reference on the generalities of Lie algebra cohomology. 
+
+        We will be adopting the following (somewhat \textit{ad hoc}) perspective on the construction of Lie algebra cohomology \say{groups}.
+        \begin{convention}
+            In discussing homological algebra, we will have to make use of some categorical language, but we will keep this to a minimum, only mentioning what is absolutely needed. We refer the reader to \cite{maclane}, particularly Chapter VIII therein, for more details.
+        \end{convention}
+        \begin{convention}
+            We take for granted the fact that for any associative ring $R$, left/right-$R$-modules form an abelian category (cf. \cite[Section VIII.3, p. 198]{maclane}) - denoted, respectively, by ${}^lR\mod$ and ${}^rR\mod$ - with all limits and colimits.
+
+            We will only be working with left-modules, but everything works identically for right-modules.
+        \end{convention}
+
+        \begin{definition}[Complexes and cohomomology] \label{def: complexes_and_cohomology}
+            (Cf. \cite[Section IV.1]{hilton_stammbach_homological_algebra}) Let $R$ be a ring. A \textbf{complex} or \textbf{chain complex} of left-$R$-modules is a diagram of left-$R$-modules:
+                $$\{P_i, \del_i\}_{i \in \Z} := \{ ... \xrightarrow[]{\del_{-3}} P_{-2} \xrightarrow[]{\del_{-2}} P_{-1} \xrightarrow[]{\del_{-1}} P_0 \xrightarrow[]{\del_0} P_1 \xrightarrow[]{\del_1} P_2 \xrightarrow[]{\del_2} ... \}$$
+            (sometimes also abbreviated by $(P_{\bullet}, \del_{\bullet})$) such that for each $i \in \Z$, one has that:
+                $$\del_i \circ \del_{i - 1} = 0$$
+            The connecting maps $\del_i$ are typically called \textbf{differentials} or \textbf{coboundary maps}.
+            
+            For each $i \in \Z$, the \textbf{$i^{th}$ cohomology} of such a complex is given by:
+                $$H^i(P_{\bullet}, \del_{\bullet}) := \frac{ \ker \del_i }{ \im \del_{i - 1} }$$
+            (typically this is written as just $H^i(P_{\bullet})$, with the differentials being implicitly understood). Elements of $\ker \del_i$ are usually called \textbf{$i$-cocycles} and those of $\im \del_{i - 1}$ are usually called \textbf{$i$-coboundaries}; elements of $H^i(P_{\bullet}, \del_{\bullet})$ are usually called \textbf{$i^{th}$ cohomology classes}, and cocycles which are representatives of the same cohomology class are said to be \textbf{cohomologous}.
+            
+            If:
+                $$H^i(P_{\bullet}, \del_{\bullet}) \cong 0$$
+            for all $i \in \Z$ then we shall say that the complex $(P_{\bullet}, \del_{\bullet})$ is \textbf{exact}.
+        \end{definition}
+        \begin{example}
+            A \textbf{short exact sequence} (cf. e.g. definition \ref{def: lie_algebra_extensions}) is nothing but an exact complex with only 3 terms. 
+        \end{example}
+        
+        If $R$ is any associative ring and $M$ is any left-$R$-module, then the functor:
+            $$\Hom_R(-, M): {}^lR\mod^{\op} \to \Z\mod$$
+        is generally only left-exact, which for us shall mean that it maps kernels and finite direct sums in ${}^lR\mod^{\op}$ (i.e. cokernels and finite direct sums in ${}^lR\mod$) to kernels and finite direct sums in $\Z\mod$. Consequently, any projective resolution\footnote{It is a fact from homological algebra that any choice of projective resolution would return the same cohomologies, so the non-trivial task is to choose a resolution that would make computations convenient or in fact, even feasible in the first place. In modern terminologies, all the projective resolutions of the same module are \say{quasi-isomorphic}.} of a given left-$R$-module $P$:
+            $$(P_{\bullet}, \del_{\bullet}) := \{ ... \xrightarrow[]{\del_{-3}} P_{-2} \xrightarrow[]{\del_{-2}} P_{-1} \xrightarrow[]{\del_{-1}} P_0 \xrightarrow[]{\del_0} P \to 0 \}$$
+        (i.e. a chain complex of left-$R$-modules wherein each term is projective as a left-$R$-module) is mapped by $\Hom_R(-, M)$ to a diagram of $\Z$-modules as follows:
+            $$\Hom_R(P_{\bullet}, M) := \{ 0 \to \Hom_R(P, M) \Hom_R(P^0, M) \to \Hom_R(P^{-1}, M) \to \Hom_R(P^{-2}, M) \to ... \}$$
+        \begin{definition}[$\Ext$-groups] \label{def: Ext_groups}
+            With notations as above, we can define:
+                $$\Ext^i_R(P, M) := H^i(\Hom_R(P_{\bullet}, M))$$
+            for each $i \in \Z_{\geq 0}$. By constructions, these are $\Z$-modules. 
+        \end{definition}
+        \begin{remark}
+            If $R$ is an associative algebra defined over a field $k$, then the $\Z$-modules $\Ext^i_R(P, M)$ will actually carry $k$-vector space structures as well.
+        \end{remark}
+        \begin{definition}[Lie algebra cohomology and the Chevalley-Eilenberg resolution] \label{def: lie_algebra_cohomology}
+            If $\a$ is a Lie algebra over $k$, then its \textbf{(abelian) Lie algebra cohomology} with \textbf{coefficients} in some left-$\rmU(\a)$-module $M$ (which is typically referred to simply as an $\a$-module) shall be given by:
+                $$H^i_{\Lie}(\a, M) := \Ext^i_{\rmU(\a)}(k, M) := H^i( \Hom_{\rmU(\a)}(k_{\bullet}, M) )$$
+            where $k$ is regarded as a trivial left-$\rmU(\a)$-module, equipped with some projective resolution of left-$\rmU(\a)$-modules $k_{\bullet}$.
+
+            The standard projective resolution for the left-$\rmU(\a)$-module is the \textbf{Chevalley-Eilenberg resolution} (sometimes referred to as the \textbf{Chevalley-Eilenberg complex}):
+                $$\left\{ k_{-i}(\a) := \rmU(\a) \tensor_k \bigwedge^i \a \right\}_{i \in \Z_{\geq 0}}$$
+            and for each $i \in \Z_{\geq 0}$, the corresponding differential/coboundary map:
+                $$\del_{-(i + 1)}: k_{-(i + 1)}(\a) \to k_{-i}(\a)$$
+            is given on pure tensors by:
+                $$
+                    \begin{aligned}
+                        & \del_{-(i + 1)}\left( a \tensor (x_1 \wedge ... \wedge x_{i + 1}) \right)
+                        \\
+                        := & \sum_{1 \leq p \leq i + 1} (-1)^p a x_p \tensor (x_1 \wedge ... \wedge \not{x_p} \wedge ... \wedge x_{i + 1}) + \sum_{1 \leq p < q \leq i + 1} (-1)^{p + q} a \tensor ( [x_p, x_q]_{\a} \wedge x_1 \wedge ... \wedge \not{x_p} \wedge ... \wedge \not{x_q} \wedge ... \wedge x_{i + 1})
+                    \end{aligned}
+                $$
+            for all $a \in \rmU(\a)$ and all $x_1, ..., x_{i + 1} \in \a$ (cf. \cite[Section VII.4]{hilton_stammbach_homological_algebra}).
+        \end{definition}
+        \begin{remark}[A simplified expression of Chevalley-Eilenberg complexes] \label{remark: simplified_chevalley_eilenberg_complexes}
+            Let $\a$ be a Lie algebra over $k$ and let $M$ be an arbitrary $\a$-module; let us also regard $M$ as an abelian Lie algebra. Next, consider the following complex of $k$-vector spaces\footnote{Which is sometimes also called the Chevalley-Eilenberg complex of $\a$ (with coefficients in $M$).}:
+                $$\{ C_i(\a, M) := \Hom_{\rmU(\a)}(k_{-i}(\a), M) \}_{i \in \Z_{\geq 0}}$$
+            and observe that its terms $C_{-i}(\a, M)$ can be described as follows:
+                $$
+                    \begin{aligned}
+                        & C_i(\a, M)
+                        \\
+                        := & \Hom_{\rmU(\a)}(k_{-i}(\a), M)
+                        \\
+                        \cong & \Hom_{\rmU(\a)}( \rmU(\a) \tensor_k \bigwedge^i \a, M ) \ni \left( a \tensor (x_1 \wedge ... \wedge x_i) \mapsto \varphi( a \tensor (x_1 \wedge ... \wedge x_i) ) \right)
+                        \\
+                        \cong & \Hom_{\rmU(\a)}( \rmU(\a), \Hom_k( \bigwedge^i \a, M ) ) \ni \left( a \mapsto \varphi(a \tensor -) \right)
+                        \\
+                        \cong & \Hom_k( \bigwedge^i \a, M ) \ni \varphi(1 \tensor -)
+                    \end{aligned}
+                $$
+            for all $a \in \rmU(\a)$, all $x_1, ..., x_i \in \a$, and all $\varphi \in \Hom_{\rmU(\a)}( \rmU(\a) \tensor_k \bigwedge^i \a, M )$.
+        \end{remark}
+        \begin{definition}[Lie cocycles and coboundaries] \label{def: lie_cocycles_and_coboundaries}
+            Let us denote by:
+                $$d_i^M: C_i(\a, M) \to C_{i + 1}(\a, M)$$
+            the differentials of thee complex of $k$-vector spaces $\{C_i(\a, M)\}_{i \in \Z_{\geq 0}}$. These are given by:
+                $$d_i^M := \Hom_{\rmU(\a)}(\del_{-(i + 1)}, M)$$
+            When $M$ is understood from the context, the superscripts may be omitted.
+        
+            For each $i \in \Z_{\geq 0}$, \textbf{Lie algebra $i$-cocycles} of $\a$ with values in $M$ shall be elements of:
+                $$Z^i_{\Lie}(\a, M) := \ker d_i^M$$
+            while \textbf{Lie algebra $i$-coboundaries} of $\a$ with values in $M$ shall be elements of:
+                $$B^i_{\Lie}(\a, M) := \im d_{i - 1}^M$$
+        \end{definition}
+        \begin{remark}
+            From remark \ref{remark: simplified_chevalley_eilenberg_complexes}, one sees that - for any $i \in \Z_{\geq 0}$, a Lie $i$-cocycle of $\a$ with values in some $\a$-module $M$ is nothing but an alternating $k$-linear map:
+                $$\sigma: \bigwedge^i \a \to M$$
+            such that:
+                $$d_i^M(\sigma) = 0$$
+            In particular, using the fact that:
+                $$d_i^M := \Hom_{\rmU(\a)}(\del_{-(i + 1)}, M)$$
+            by construction, together with the construction of the maps $\del_{-(i + 1)}$ as in definition \ref{def: lie_algebra_cohomology}, one then sees that indeed, when $i = 2$, one recovers the notion of Lie $2$-cocycles of $\a$ with values in $M$ as in definition \ref{def: twisted_semi_direct_products} as linear maps $\sigma: \bigwedge^2 \a \to M$ satisfying the Jacobi identity in the sense stated in \textit{loc. cit.}
+        \end{remark}
+
+        Let us now see how Lie cocycles and Lie coboundaries are given explicitly, particularly in low degrees. 
+
+        We begin with the case of cocycles and coboundaries with values in trivial modules. 
+        \begin{example}[Lie cocycles and coboundaries with trivial coefficients] \label{example: lie_cocycles_and_coboundaries_with_trivial_coefficients}
+            Let $\a$ be a Lie algebra over $k$ and regard $k$ itself as a trivial $\a$-module. For each $i \in \Z_{\geq 0}$, we then have - per the discussions in remark \ref{remark: simplified_chevalley_eilenberg_complexes} that:
+                $$C_i(\a, k) \cong \Hom_k(\bigwedge^i \a, k) =: (\bigwedge^i \a)^*$$
+            and the differentials:
+                $$d_i^k: C_i(\a, k) \to C_{i + 1}(\a, k)$$
+            are then nothing but:
+                $$\del_{-(i + 1)}^* := \Hom_k(\del_{-(i + 1)}, k)$$
+            \begin{itemize}
+                \item A Lie $i$-cocycle of $\a$ with coefficients in $k$ is then - by definition - an element of $\ker \del_{-(i + 1)}^*$, i.e. a linear map:
+                    $$\sigma: \bigwedge^i \a \to k$$
+                such that:
+                    $$
+                        \begin{aligned}
+                            & 0
+                            \\
+                            = & \del_{-(i + 1)}^*(\sigma)( (x_1 \wedge ... \wedge x_{i + 1}) )
+                            \\
+                            = & \sum_{1 \leq p \leq i + 1} (-1)^p \sigma(x_1 \wedge ... \wedge \not{x_p} \wedge ... \wedge x_{i + 1}) + \sum_{1 \leq p < q \leq i + 1} (-1)^{p + q} \sigma( [x_p, x_q]_{\a} \wedge x_1 \wedge ... \wedge \not{x_p} \wedge ... \wedge \not{x_q} \wedge ... \wedge x_{i + 1})
+                        \end{aligned}
+                    $$
+                for all $x_1, ..., x_i \in \a$.
+                \item A Lie $i$-coboundary is an element of $\im \del_{-i}^*$, i.e. a linear map:
+                    $$\beta: \bigwedge^i \a \to k$$
+                for which there exists another linear map:
+                    $$\tilde{\beta}: \bigwedge^{i - 1} \a \to k$$
+                i.e. a $(i - 1)$-cocycle $\tilde{\beta}$, such that:
+                    $$
+                        \begin{aligned}
+                            & \beta(x_1 \wedge ... \wedge x_i)
+                            \\
+                            = & \del_{-i}^*(\tilde{\beta})(x_1 \wedge ... \wedge x_i)
+                            \\
+                            = & \sum_{1 \leq p \leq i} (-1)^p \sigma(x_1 \wedge ... \wedge \not{x_p} \wedge ... \wedge x_i) + \sum_{1 \leq p < q \leq i} (-1)^{p + q} \sigma( [x_p, x_q]_{\a} \wedge x_1 \wedge ... \wedge \not{x_p} \wedge ... \wedge \not{x_q} \wedge ... \wedge x_i)
+                        \end{aligned}
+                    $$
+            \end{itemize}
+        \end{example}
+        \begin{example}[Lie $2$-cocycles and $2$-coboundaries with trivial coefficients] \label{example: low_degree_lie_cocycles_and_coboundaries_with_trivial_coefficients}
+            Of particular usefulness to us are Lie $2$-cocycles and $2$-coboundaries with trivial coefficients. In this case where:
+                $$i = 2$$
+            the conditions in example \ref{example: lie_cocycles_and_coboundaries_with_trivial_coefficients} reduce to the following.
+            \begin{itemize}
+                \item A Lie $2$-cocycle of $\a$ with coefficients in the trivial $\a$-module $k$ is a linear map:
+                    $$\sigma: \bigwedge^2 \a \to k$$
+                satisfying the Jacobi identity, in the sense of definition \ref{def: twisted_semi_direct_products}.
+                \item A Lie $2$-coboundary of $\a$ with coefficients in $k$ is a linear map:
+                    $$\beta: \bigwedge^2 \a \to k$$
+                for which there exist a linear map:
+                    $$\tilde{\beta}: \a \to k$$
+                such that:
+                    $$\beta(x \wedge y) = \tilde{\beta}([x, y])$$
+                Equivalently, this is saying that:
+                    $$\beta = d_1(\tilde{\beta})$$
+                Much like Lie $2$-cocycles, the value of a Lie $2$-boundaries $\beta$ at some $x \wedge y \in \bigwedge^2 \a$ is usually denotes by $\beta(x, y)$, i.e. we tend to think of Lie $2$-coboundaries as certain skew-symmetric bilinear maps $\a \x \a \to k$.
+            \end{itemize}
+        \end{example}
+        
+        Next, let us consider low-degree Lie cocycles and coboundaries with values in possibly non-trivial modules as well. Once again, by letting $i = 2$, one recovers the notion of Lie $2$-cocycles as in definition \ref{def: twisted_semi_direct_products}, but Lie $2$-coboundaries with values in possibly non-trivial modules are slightly different from those with trivial coefficients, as in example \ref{example: low_degree_lie_cocycles_and_coboundaries_with_trivial_coefficients}. We will not be needing the cases where $i > 2$.
+
+        To make sense of Lie $2$-coboundaries with values in non-trivial modules, it shall be convenient to have a somewhat concrete description of $1$-cocycles and $1$-coboundaries.
+        \begin{definition}[Lie derivations] \label{def: lie_derivations}
+            (Cf. \cite[Section VII.2, Equation 2.2, p. 234]{hilton_stammbach_homological_algebra}) Let $\d$ be a Lie algebra and let $\Omega$\footnote{We choose these notations because eventually, the case where $\d := \d_{[2]}$ and $\Omega := \z_{[2]} \cong \bar{\Omega}^1_{A/\bbC}$ will be of interest to us.} be an $\d$-module defined by a Lie algebra action:
+                $$\rho: \d \to \gl(\Omega)$$
+            A \textbf{derivation} of $\d$ with values in $\Omega$ is a linear map:
+                $$L: \d \to \Omega$$
+            satisfying the following property for all $x, y \in \d$:
+                $$L( [x, y] ) = \rho(x) \cdot L(y) - \rho(y) \cdot L(x)$$
+            Such derivations form a vector space, for which we shall write $\der(\d, \Omega)$. For every $\omega \in \Omega$, one can define an \textbf{inner derivation} $L_{\omega}$, specified by:
+                $$L_{\omega} = \rho(-) \cdot \omega$$
+            Inner derivations form a vector subspace of $\der(\d, \Omega)$, which is denoted by $\inn(\d, \Omega)$. Derivations that are not inner are said to be \textbf{outer}, and the vector space of outer derivations is identified as:
+                $$\out(\d, \Omega) := \der(\d, \Omega)/\inn(\d, \Omega)$$
+        \end{definition}
+        \begin{example}
+            Let $\d$ be a Lie algebra and let $\d$ also be considered as a module over itself via the adjoint action. Then, for any $x \in \d$, the map:
+                $$\ad(x): \d \to \d$$
+            will be an inner derivation of $\d$ with values in itself.
+        \end{example}
+        \begin{theorem}[$H^1_{\Lie}$ and derivations of Lie algebras]
+            \cite[Theorem 2.1 and Proposition 2.2]{hilton_stammbach_homological_algebra} Let $\d$ be a Lie algebra and $\Omega$ be an $\d$-module. Then:
+                $$Z^1_{\Lie}(\d, \Omega) \cong \der(\d, \Omega)$$
+                $$B^1_{\Lie}(\d, \Omega) \cong \inn(\d, \Omega)$$
+            and hence:
+                $$H^1_{\Lie}(\d, \Omega) \cong \out(\d, \Omega)$$
+        \end{theorem}
+        \begin{example}[Lie $2$-coboundaries with \textit{non-trivial} coefficients] \label{example: low_degree_lie_coboundaries_with_non-trivial_coefficients}
+            Let $\Omega$ be an $\d$-module defined by a Lie algebra action
+                $$\rho: \d \to \gl(\Omega)$$
+            By construction, we have that:
+                $$d_i^\Omega := \Hom_{\rmU(\d)}(\del_{-(i + 1)}, \Omega)$$
+            for all $i \in \Z_{\geq 0}$. By using remark \ref{remark: simplified_chevalley_eilenberg_complexes}, we shall see that a Lie $2$-coboundary of $\d$ with values in $\Omega$ shall be a linear map\footnote{Again, let us regard maps out of exterior powers as alternating multi-linear maps.}:
+                $$\beta: \bigwedge^2 \d \to \Omega$$
+            for which there is a linear map:
+                $$\tilde{\beta}: \d \to \Omega$$
+            satisfying the following property:
+                $$\beta(x, y) = \left( \rho(x) \cdot \tilde{\beta}(y) - \rho(y) \cdot \tilde{\beta}(x) \right) - \tilde{\beta}([x, y])$$
+            (cf. \cite[Equation 1.6, p. 421]{kassel_quantum_groups}). In other words, $2$-coboundaries are error terms measuring how far a linear map $\d \to \Omega$ is from being a derivation of $\d$ with values in $\Omega$.
+        \end{example}
+
+        We will be needing these notions in the discussions leading up to theorem \ref{theorem: non_trivial_yangian_cocycles_examples}, in order to be able to equivocate certain unequal $2$-cocycles as being cohomologous to one another. More specifically, we will be making use of the fact that isomorphism classes of abelian extensions of a given Lie algebra are in bijection with its $2^{nd}$ cohomology (with suitable coefficients, of course).
+        \begin{theorem}[$H^2_{\Lie}$ and abelian extensions] \label{theorem: H^2_of_lie_algebras_and_abelian_extensions}
+            (Cf. \cite[Theorem VII.3.3]{hilton_stammbach_homological_algebra}) Let $\d$ be a Lie algebra over $k$ and $\Omega$ be an $\d$-module, equipped with the abelian Lie algebra structure. There is then a bijection:
+                $$H^2_{\Lie}(\d, \Omega) \xrightarrow[]{\cong} \{ \text{isomorphism classes of extensions of $\d$ by $\Omega$} \}$$
+                $$\sigma \mapsto \Omega \rtimes^{\sigma} \d$$
+        \end{theorem}
+        
+        \begin{remark}[Non-abelian Lie algebra cohomology ?]
+            There is also a variant of the construction given in definition \ref{def: lie_algebra_cohomology}, called \textbf{non-abelian Lie algebra cohomology}, which ostensibly is for the purpose of classifying Lie algebra extensions:
+                $$0 \to \t \to \frake \to \d \to 0$$
+            where the kernel $\t$ is not necessarily abelian. This is harder to define and in fact, is unnecessary for our purposes, so we will make no further mention of it.
+        \end{remark}
+    
+    \subsection{An application: the Virasoro algebra} \label{subsection: virasoro_algebra}
+        Now, let $k := \bbC$. This is not really necessary, but we make the assumption anyway, as when we apply the results of this subsection in the discussions leading up to theorem \ref{theorem: non_trivial_yangian_cocycles_examples}, the ground field there will be $\bbC$.
+    
+        As a particular application of Lie algebra cohomology, let us demonstrate that the Virasoro is the unique non-trivial central extension of the Lie algebra $\der(\bbC[v^{\pm 1}])$ of derivations on $\bbC[v^{\pm 1}]$ by a $1$-dimensional centre (and hence also universal).
+    
+        By exploiting the fact that the following commutation relation holds in the untwisted affine Kac-Moody algebra $\hat{\g}$:
+            $$[D_{\aff}, c_{\aff}]_{\hat{\g}} = 0$$
+        (cf. subsection \ref{subsection: a_fixed_untwisted_affine_kac_moody_algebra}) along with the fact that Lie $2$-cocycles are central \textit{a priori} (cf. corollary \ref{coro: 2_cocycles_are_central}), the classical \textbf{Virasoro algebra} can be defined to be the UCE:
+            $$\frakv := \der(\bbC[v^{\pm 1}]) \oplus^{\eta} \bbC c_{\aff}$$
+        of the \textbf{Witt algebra} $\der(\bbC[v^{\pm 1}])$. If we are to regard $\der(\bbC[v^{\pm 1}])$ as $\bbC[v^{\pm 1}] \cdot D_{\aff}$ then the $2$-cocycle:
+            $$\eta: \bigwedge^2 \der(\bbC[v^{\pm 1}]) \to \bbC c_{\aff}$$
+        can be given by\footnote{Physicists tend to renormalise this to $\frac{1}{12} \eta$.}:
+            $$\eta(v^r D_{\aff}, v^a D_{\aff}) := (r^3 - r) \delta_{r + a, 0} c_{\aff}$$
+        Subsequently, the bracket on $\frakv$ can be given as follows, for all $r, a \in \Z$:
+            $$
+                \begin{aligned}
+                    \left[ v^r D_{\aff}, v^a D_{\aff} \right]_{\frakv} & = [ v^r D_{\aff}, v^a D_{\aff} ]_{\der(\bbC[v^{\pm 1}])} + \eta(v^r D_{\aff}, v^a D_{\aff})
+                    \\
+                    & = (a - r) v^{r + a} D_{\aff} + \eta(v^r D_{\aff}, v^a D_{\aff})
+                \end{aligned}
+            $$
+        Typically, one endows $\der(\bbC[v^{\pm 1}])$ with the basis:
+            $$\{ d_r := -v^r D_{\aff} \}_{r \in \Z}$$
+        The inclusion of the extra minus sign is so that:
+            $$[d_r, d_a]_{\der(\bbC[v^{\pm 1}])} = (r - a) D_{r + a}$$
+        which is more or less a choice of aesthetics.
+    
+        
+        \begin{lemma}[$H^2_{\Lie}$ of the Witt algebra] \label{lemma: H^2_of_witt_algebra}
+            (Cf. \cite[Proposition 1.3]{kac_raina_rozhkovskaya_bombay_lectures_on_highest_weight_modules_of_infinite_dimensional_lie_algebras}) Let $\bbC c_{\frakv}$ be viewed as a trivial $\der(\bbC[v^{\pm 1}])$-module. Then:
+                $$\dim_{\bbC} H^2_{\Lie}( \der(\bbC[v^{\pm 1}]), \bbC c_{\frakv} ) = 1$$
+        \end{lemma}
+            \begin{proof}
+                Note first of all that any Lie $2$-cocycle of $\der(\bbC[v^{\pm 1}])$ with values in $\bbC c_{\frakv}$ is necessarily given on basis elements $d_i, d_j \in \der(\bbC[v^{\pm 1}])$ by:
+                    $$\tau(d_i, d_j) = N_{i, j}(\tau) c_{\frakv}$$
+                for some $N_{i, j}(\tau) \in \bbC$. By skew-symmetry, we have that:
+                    $$\tau(d_i, d_j) = -\tau(d_j, d_i)$$
+                for all $i, j \in \Z$, and hence:
+                    $$N_{i, j}(\tau) = -N_{j, i}(\tau)$$
+                By the Jacobi identity, we the following, for all $i, j, k \in \Z$:
+                    $$
+                        \begin{aligned}
+                            & 0
+                            \\
+                            = & \tau([d_i, d_j], d_k) + \tau([d_k, d_i], d_j) + \tau([d_j, d_k], d_i)
+                            \\
+                            = & (i - j) \tau(d_{i + j}, d_k) + (k - i) \tau(d_{k + i}, d_j) + (j - k) \tau(d_{j + k}, d_i)
+                            \\
+                            = & \left( (i - j) N_{i + j, k}(\tau) + (k - i) N_{k + i, j}(\tau) + (j - k) N_{j + k, i}(\tau) \right) c_{\frakv}
+                        \end{aligned}
+                    $$
+                which implies that:
+                    $$(i - j) N_{i + j, k}(\tau) + (k - i) N_{k + i, j}(\tau) + (j - k) N_{j + k, i}(\tau) = 0$$
+                If we let $k = 0$ then we will get:
+                    $$(i - j) N_{i + j, 0}(\tau) - i N_{i, j}(\tau) + j N_{j, i}(\tau) = 0$$
+                but since we have that $N_{j, i}(\tau) = -N_{i, j}(\tau)$, as shown above, the above becomes:
+                    $$(i - j) N_{i + j, 0}(\tau) = (i + j) N_{i, j}(\tau)$$
+                Using this, we thus get that:
+                    $$
+                        \begin{aligned}
+                            & [[d_i, d_j]_{\frakv}, d_0]_{\frakv} = (i - j) [d_{i + j}, d_0]_{\frakv}
+                            \\
+                            = & (i - j) \left( (i + j) d_{i + j} + N_{i, j, 0}(\tau) c_{\frakv} \right)
+                            \\
+                            = & (i + j) [d_i, d_j] + (i + j) N_{i, j}(\tau) c_{\frakv}
+                        \end{aligned}
+                    $$
+                At the same time, the Jacobi identity implies that:
+                    $$
+                        \begin{aligned}
+                            & 0
+                            \\
+                            = & [[d_i, d_j]_{\frakv}, d_0]_{\frakv} + [[d_0, d_i]_{\frakv}, d_j]_{\frakv} + [[d_j, d_0]_{\frakv}, d_i]_{\frakv}
+                            \\
+                            = & [[d_i, d_j]_{\frakv}, d_0]_{\frakv} - i [d_i, d_j]_{\frakv} + j [d_j, d_i]_{\frakv}
+                            \\
+                            = & [[d_i, d_j]_{\frakv}, d_0]_{\frakv} - (i + j) [d_i, d_j]_{\frakv}
+                        \end{aligned}
+                    $$
+                which implies that:
+                    $$[[d_i, d_j]_{\frakv}, d_0]_{\frakv} = (i + j) [d_i, d_j]_{\frakv}$$
+                Combining the two observations then yields:
+                    $$(i + j) N_{i, j}(\tau) = 0$$
+                from which one sees that:
+                    $$N_{i, j}(\tau) = \delta_{i + j, 0} N_{i, -i}(\tau)$$
+                Now, consider once more the Jacobi identity for $\tau$:
+                    $$
+                        \begin{aligned}
+                            & 0
+                            \\
+                            = & (i - j) N_{i + j, k}(\tau) + (k - i) N_{k + i, j}(\tau) + (j - k) N_{j + k, i}(\tau)
+                            \\
+                            = & \delta_{i + j + k, 0} \left( (i - j)  N_{i + j, -(i + j)}(\tau) + (k - i) N_{k + i, -(k + i)}(\tau) + (j - k) N_{j + k, -(j + k)}(\tau) \right)
+                            \\
+                            = & (i - j)  N_{i + j, -(i + j)}(\tau) + (-(i + j) - i) N_{-(i + j) + i, -(-(i + j) + i)}(\tau) + (j + (i + j)) N_{j - (i + j), -(j -(i + j))}(\tau)
+                            \\
+                            = & (i - j)  N_{i + j, -(i + j)}(\tau) - (2i + j) N_{-j, j}(\tau) + (i + 2j) N_{-i, i}(\tau)
+                        \end{aligned}
+                    $$
+                By setting $j = 1$ and each $f_r := N_{r, -r}(\tau)$ (for all $r \in \Z \geq 0$, assuming $\tau$ is fixed), we shall then get:
+                    $$(i - 1) f_{i + 1} - (i + 2) f_i = -(2i + 1) f_1$$
+                for all $i \in \Z_{\geq 2}$. This is a difference equation with initial condition:
+                    $$f_0 = N_{0, 0} = 0$$
+                coming from the skew-symmetry of $N_{i, j}$. We note also, that knowing $f_1$ and $f_2$ would help us determine $f_{i + 1}$ for all $i \in \Z_{\geq 2}$, so the equation is of order $2$. The vector space of solutions is therefore of dimension $\leq 2$, though in light of the fact that:
+                    $$\eta \not = \eta' \in Z^2_{\Lie}(\der(\bbC[v^{\pm 1}]), \bbC c_{\frakv})$$
+                we actually have that the solution space is $2$-dimensional, say:
+                    $$Z^2_{\Lie}(\der(\bbC[v^{\pm 1}]), \bbC c_{\frakv}) \cong \bbC \eta \oplus \bbC \eta'$$
+    
+                If we can now show that $\eta$ is \textit{not} a Lie $2$-coboundary of $\der(\bbC[v^{\pm 1}])$ with values in $\bbC c_{\frakv}$, we will have that:
+                    $$B^2_{\Lie}(\der(\bbC[v^{\pm 1}]), \bbC c_{\frakv}) \cong \bbC \eta'$$
+                from propostion \ref{prop: a_virasoro_coboundary}, and hence that:
+                    $$H^2_{\Lie}(\der(\bbC[v^{\pm 1}]), \bbC c_{\frakv}) \cong \bbC \eta$$
+                which would give:
+                    $$\dim_{\bbC} H^2_{\Lie}(\der(\bbC[v^{\pm 1}]), \bbC c_{\frakv}) = 1$$
+                as desired. For this, we shall need to prove that there does \textit{not} exist a Lie linear map $\tilde{\eta}: \der(\bbC[v^{\pm 1}]) \to \bbC c_{\frakv}$ (which is merely a linear map; cf. example \ref{example: low_degree_lie_cocycles_and_coboundaries_with_trivial_coefficients}) such that:
+                    $$\eta(d_i, d_j) = \tilde{\eta}([d_i, d_j])$$
+                Suppose for the sake of deriving a contradiction, that there does exist such a linear map $\tilde{\eta}$. We would then have that:
+                    $$\delta_{i + j, 0} (i^3 - i) c_{\frakv} = \eta(d_i, d_j) = \tilde{\eta}([d_i, d_j]) = (i - j) \tilde{\eta}(d_{i + j}) c_{\frakv}$$
+                for all $i, j \in \Z$, which in turn implies that:
+                    $$i^3 - i = 2i \tilde{\eta}(d_0)$$
+                when $i + j = 0$. By re-arranging, we shall get:
+                    $$\tilde{\eta}(d_0) = \frac12(i^2 - 1)$$
+                whenever $i \not = 0$, but this implies that $\tilde{\eta}(d_0)$ depends on $i$, which is absurd. We thus have a contradiction, and the linear map $\tilde{\eta}$ therefore can not exist. $\eta$ is thus not $2$-coboundary.
+            \end{proof}

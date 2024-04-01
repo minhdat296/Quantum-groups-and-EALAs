@@ -1,14 +1,8 @@
-\section{Classification of Yangian extended toroidal Lie algebras}
+\section{Examples of Yangian extended toroidal Lie algebras}
     \subsection{Yangian toroidal cocycles}
-        Let:
-            $$0 \to \p \to \fraky \xrightarrow[]{\pi} \d \to 0$$
-        be a Lie algebra extension such that $\p$ is an $\d$-module, i.e. let $\fraky$ be a twisted semi-direct product $\p \rtimes^{\sigma} \d$ (where $\sigma: \bigwedge^2 \d \to \p$ is some $2$-cocycle). In proposition \ref{prop: twisted_semi_direct_product_criterion}, we have seen that any such cocycle arises as the difference:
-            $$\sigma(D, D') := [\gamma(D), \gamma(D')]_{\fraky} - \gamma( [D, D']_{\d} )$$
-        for arbitrary elements $D, D' \in \d$ and for some choice of linear section:
-            $$\gamma: \d \to \fraky$$
-        We therefore see that to give such a linear section $\gamma: \d \to \fraky$ is the same as to give a $2$-cocycle $\sigma: \bigwedge^2 \d \to \p$, i.e. the cocycle $\sigma$ measures how far the extension $(\fraky, \pi)$ is away from splitting, i.e. from being the semi-direct product $\p \rtimes \d$ (which is more-or-less the definition of $2$-cocycles of Lie algebras; cf. definition \ref{def: twisted_semi_direct_products}).
-
-        Keeping the above in mind, let us return to the setting of definition \ref{def: yangian_extended_toroidal_lie_algebras}. A natural question to ask, given this definition, is as follows:
+        A natural question to ask, now that we know that all Yangian extended toroidal Lie algebras in the sense of definition \ref{def: yangian_extended_toroidal_lie_algebras} are twisted semi-direct products of the form:
+            $$\toroidal \rtimes^{\sigma} \d_{[2]}$$
+        is as follows.
         \begin{question}
             Amongst the twisted semi-direct products $\fraky(\sigma) := \toroidal \rtimes^{\sigma} \d_{[2]}$, which ones are Yangian extended toroidal Lie algebras ? 
         \end{question}
@@ -109,7 +103,6 @@
                 $$\sigma(D, D'), \sigma(D', D'')$$
             as linear combinations of the basis elements of $\z_{[2]}$, record the coefficients as entries of two $4 \x 3$ matrices, namely:
                 $$
-                    \bfA(\sigma) :=
                     \begin{pmatrix}
                         \lambda_{\alpha, \beta}(D_{r, s}, D_{a, b}) & \lambda_v(D_{r, s}, D_{a, b}) & \lambda_t(D_{r, s}, D_{a, b})
                         \\
@@ -121,7 +114,6 @@
                     \end{pmatrix}
                 $$
                 $$
-                    \bfB(\sigma) :=
                     \begin{pmatrix}
                        \mu_{r, s}(D_{a, b}, D_{\alpha, \beta}) & \mu_v(D_{a, b}, D_{\alpha, \beta}) & \mu_t(D_{a, b}, D_{\alpha, \beta})
                         \\
@@ -136,18 +128,13 @@
                 $$(\sigma(D, D')_{\z_{[2]}}, D'')_{\sigma} = (D, \sigma(D', D'')_{\z_{[2]}})_{\sigma}$$
             i.e. $\sigma$ will be Yangian.
         \end{remark}
-        By putting everything together, one obtains the following result characteristing Yangian $2$-cocycles amongst all the toroidal $2$-cocycles.
+        By putting everything together, one obtains the following result characteristing Yangian $2$-cocycles amongst all the toroidal $2$-cocycles. Let us also keep in mind the fact that Lie $2$-cocycles are necessarily central (in the sense of corollary \ref{coro: 2_cocycles_are_central}), which in this case means that the codomains of toroidal $2$-cocycles lie inside $\z_{[2]} := \z(\toroidal)$, not just inside $\toroidal$.
         \begin{theorem}[A Yangian-ness criterion for toroidal $2$-cocycles] \label{theorem: yangian_criterion_for_toroidal_cocycles}
             A toroidal $2$-cocycle:
                 $$\sigma: \bigwedge^2 \d_{[2]} \to \z_{[2]}$$
             is Yangian if and only if:
-                $$(\sigma(D, D')_{\z_{[2]}}, D'')_{\sigma} = (D, \sigma(D', D'')_{\z_{[2]}})_{\sigma}$$
-            for all $D, D', D'' \in \d_{[2]}$, which can be taken to be basis elements without loss of generality. Equivalently, by letting:
-                $$\sigma(D, D') := \sum_{(m, p) \in \Z^2} \lambda_{m, p}(D, D') K_{m, p} + \lambda_v(D, D') c_v + \lambda_t(D, D') c_t$$
-                $$\sigma(D', D'') := \sum_{(m, p) \in \Z^2} \mu_{m, p}(D', D'') K_{m, p} + \mu_v(D', D'') c_v + \mu_t(D', D'') c_t$$
-            be linear combinations in terms of the basis elements of $\z_{[2]}$, where the coefficients depend on the elements $D, D', D'' \in \z_{[2]}$, one sees that $\sigma$ is Yangian if and only if:
-                $$\bfA(\sigma) = \bfB(\sigma)$$
-            with $\bfA(\sigma), \bfB(\sigma)$ being the $4 \x 3$ matrices as in remark \ref{remark: yangian_criterion_for_toroidal_cocycles}.
+                $$(\sigma(D, D'), D'')_{\sigma} = (D, \sigma(D', D''))_{\sigma}$$
+            for all $D, D', D'' \in \d_{[2]}$, which can be taken to be basis elements without loss of generality. 
         \end{theorem}
 
         Now that we have a criterion for a given toroidal $2$-cocycle to be Yangian, let us apply it to some known toroidal $2$-cocycles from \cite{billig_energy_momentum_tensor} to check whether or not they are Yangian. 
@@ -174,7 +161,7 @@
                 $$D_v = -v t^{-1} \del_v$$
                 $$D_t = -\del_t$$
             Knowing this allows us to perform the following computations, where $i \in \{1, 2\}$:
-            \begin{itemize}
+            \begin{enumerate}
                 \item 
                     $$
                         \begin{aligned}
@@ -295,6 +282,8 @@
                                 \\
                                 \text{$r^3 K_{-r, -s - 2}$ if $(r, s) \in (\Z \setminus \{0\}) \x \Z$}
                             \end{cases}
+                            \\
+                            = & r^3 K_{-r, -s - 2}
                         \end{aligned}
                     $$
                 \item
@@ -334,6 +323,8 @@
                                 \\
                                 \text{$r^2s K_{-r, -s - 2}$ if $(r, s) \in (\Z \setminus \{0\}) \x \Z$}
                             \end{cases}
+                            \\
+                            = & r^2s K_{-r, -s - 2}
                         \end{aligned}
                     $$
                 \item
@@ -348,11 +339,114 @@
                             = & 0
                         \end{aligned}
                     $$
-            \end{itemize}
+            \end{enumerate}
 
+            \todo[inline]{Showed that $\sigma_1$ is Yangian while $\sigma_2$ is not.}
             One can now use the criterion given in theorem \ref{theorem: yangian_criterion_for_toroidal_cocycles} to verify whether or not the cocycles $\sigma_1, \sigma_2$ are Yangian in the sense of definition \ref{def: yangian_toroidal_cocycles}.
+            \begin{enumerate}
+                \item Firstly, using the fact that:
+                    $$\sigma_i(D_{r, s}, D_{a, b}) = N_i(r, s, a, b) \left( -\delta_{(r, s), -(a, b)} (r c_v + (s + 1) c_t) + ( r(b + 1) - a(s + 1) )K_{-r - a, -s - b - 2} \right)$$
+                we shall get that:
+                    $$
+                        \left( \sigma_i(D_{r, s}, D_{a, b}), D \right)_{\extendedtoroidal} =
+                        \begin{cases}
+                            \text{$N_i(r, s, a, b) ( r(b + 1) - a(s + 1) ) \delta_{(-r - a, -s - b - 2), (\alpha, \beta)}$ if $D = D_{\alpha, \beta}$}
+                            \\
+                            \text{$-N_i(r, s, a, b) \delta_{(r, s), -(a, b)} r$ if $D = D_v$}
+                            \\
+                            \text{$-N_i(r, s, a, b) \delta_{(r, s), -(a, b)} (s + 1)$ if $D = D_t$}
+                        \end{cases}
+                    $$
+                At the same time, using the fact that:
+                    $$\sigma_i(D_{a, b}, D_v) = \delta_{i, 1} a^3 K_{-a, -b - 2}$$
+                    $$\sigma_i(D_{a, b}, D_t) = \delta_{i, 1} a^2b K_{-a, -b - 2}$$
+                we have that:
+                    $$
+                        \begin{aligned}
+                            \left( D_{r, s}, \sigma_i(D_{a, b}, D) \right)_{\extendedtoroidal} =
+                            \begin{cases}
+                                \text{$N_i(r, s, \alpha, \beta) ( r(\beta + 1) - \alpha(s + 1) ) \delta_{(r, s), (-a - \alpha, -b - \beta - 2)}$ if $D = D_{\alpha, \beta}$}
+                                \\
+                                \text{$\delta_{i, 1} a^3 \delta_{(r, s), (-a, -b - 2)}$ if $D = D_v$}
+                                \\
+                                \text{$\delta_{i, 1} a^2 b \delta_{(r, s), (-a, -b - 2)}$ if $D = D_t$}
+                            \end{cases}
+                        \end{aligned}
+                    $$
+                We can thus conclude immediately that $\sigma_2$ is \textit{not} invariant, as:
+                    $$\left( \sigma_2(D_{r, s}, D_{a, b}), D \right)_{\extendedtoroidal} \not = \left( D_{r, s}, \sigma_2(D_{a, b}, D) \right)_{\extendedtoroidal}$$
+                when $D \in \{D_v, D_t\}$. As such, let us focus on $\sigma_1$ from now on, for which we now have:
+                    $$\left( \sigma_1(D_{r, s}, D_{a, b}), D \right)_{\extendedtoroidal} \not = \left( D_{r, s}, \sigma_1(D_{a, b}, D) \right)_{\extendedtoroidal}$$
+                for all $D \in \d_{[2]}$.
+                \item Secondly, using the fact that:
+                    $$\sigma_1(D_{r, s}, D_v) = r^3 K_{-r, -s - 2}$$
+                we shall get that:
+                    $$
+                        \left( \sigma_1(D_{r, s}, D_v), D \right)_{\extendedtoroidal} =
+                        \begin{cases}
+                            \text{$r^3 \delta_{(-r, -s - 2), (\alpha, \beta)}$ if $D = D_{\alpha, \beta}$}
+                            \\
+                            \text{$0$ if $D = D_v$}
+                            \\
+                            \text{$0$ if $D = D_t$}
+                        \end{cases}
+                    $$
+                At the same time, knowing that:
+                    $$\sigma_1(D_v, D_t) = 0$$
+                we see that:
+                    $$
+                        \begin{aligned}
+                            \left( D_{r, s}, \sigma_1(D_v, D) \right)_{\extendedtoroidal} =
+                            \begin{cases}
+                                \text{$-\alpha^3 \delta_{(r, s), (-\alpha, -\beta - 2)}$ if $D = D_{\alpha, \beta}$}
+                                \\
+                                \text{$0$ if $D = D_v$}
+                                \\
+                                \text{$0$ if $D = D_t$}
+                            \end{cases}
+                        \end{aligned}
+                    $$
+                We thus have:
+                    $$\left( \sigma_1(D_{r, s}, D_v), D \right)_{\extendedtoroidal} = \left( D_{r, s}, \sigma_1(D_v, D) \right)_{\extendedtoroidal}$$
+                for all $D \in \d_{[2]}$.
+                \item Next, by using the fact that:
+                    $$\sigma_1(D_{r, s}, D_t) = r^2 s K_{-r, -s - 2}$$
+                we shall get that:
+                    $$
+                        \left( \sigma_1(D_{r, s}, D_t), D \right)_{\extendedtoroidal} =
+                        \begin{cases}
+                            \text{$r^2 s \delta_{(-r, -s - 2), (\alpha, \beta)}$ if $D = D_{\alpha, \beta}$}
+                            \\
+                            \text{$0$ if $D = D_v$}
+                            \\
+                            \text{$0$ if $D = D_t$}
+                        \end{cases}
+                    $$
+                At the same time, we have that:
+                    $$
+                        \begin{aligned}
+                            \left( D_{r, s}, \sigma_1(D_t, D) \right)_{\extendedtoroidal} =
+                            \begin{cases}
+                                \text{$-\alpha^2 \beta \delta_{(r, s), (-\alpha, -\beta - 2)}$ if $D = D_{\alpha, \beta}$}
+                                \\
+                                \text{$0$ if $D = D_v$}
+                                \\
+                                \text{$0$ if $D = D_t$}
+                            \end{cases}
+                        \end{aligned}
+                    $$
+                By combining these two observations, one is able to conclude furthermore that:
+                    $$\left( \sigma_1(D_{r, s}, D_t), D \right)_{\extendedtoroidal} = \left( D_{r, s}, \sigma_1(D_t, D) \right)_{\extendedtoroidal}$$
+                for all $D \in \d_{[2]}$.
+                \item Lastly, since:
+                    $$\sigma_1(D_v, D_t) = 0$$
+                we automatically have that:
+                    $$( \sigma_1(D_v, D_t), D )_{\extendedtoroidal} = ( D_v, \sigma_1(D_t, D) )_{\extendedtoroidal}$$
+                for all $D \in \d_{[2]}$.
+            \end{enumerate}
+            We have therefore shown that $\sigma_1$ is Yangian in the sense of definition \ref{def: yangian_toroidal_cocycles}. 
         \end{example}
-        Whether or not these cocycles might be cohomologous to $0$ (cf. definition \ref{def: lie_algebra_cohomology}) - and hence whether or not they might give rise to extensions that are isomorphic to the semi-direct product $\toroidal \rtimes \d_{[2]}$ - is a much subtler issue. One way to tackle this problem is to check whether or not their restriction to a particular Lie subalgebra of $\extendedtoroidal$ is cohomologous to $0$. 
+        Whether or not these cocycles might be cohomologous to $0$ (cf. definition \ref{def: lie_algebra_cohomology}) - and hence whether or not they might give rise to extensions that are isomorphic to the semi-direct product $\toroidal \rtimes \d_{[2]}$ - is a much subtler issue. One way to tackle this problem is to \textit{firstly} check whether or not their restrictions to a particular Lie subalgebra of $\extendedtoroidal$ is cohomologous to $0$. We remark right away that simply checking that these restrictions are non-cohomologous to $0$ is \textit{not} sufficient for concluding that $\sigma_1$ and $\sigma_2$ are non-zero elements of $H^2_{\Lie}(\d_{[2]}, \z_{[2]})$.
 
         Recall from lemma \ref{lemma: derivation_action_on_multiloop_algebras} that:
             $$\forall (r, s) \in \Z^2: D_{r, s} = s v^{-r + 1} t^{-s - 1} \del_v - r v^{-r} t^{-s} \del_t$$
@@ -383,13 +477,13 @@
 
         The Lie algebra $\der(\bbC[v^{\pm 1}])$ - commonly called the \textbf{Witt algebra} - is known to possess a \textit{non-trivial} UCE:
             $$\frakv := \der(\bbC[v^{\pm 1}]) \oplus^{\eta} \bbC c_{\frakv}$$
-        called the \textbf{Virasoro algebra}, whose corresponding $2$-cocycle:
+        called the \textbf{Virasoro algebra} (for more details, see subsection \ref{subsection: virasoro_algebra}), whose corresponding $2$-cocycle, which will often be referred to as the \textbf{Virasoro $2$-cocycle}:
             $$\eta: \bigwedge^2 \der(\bbC[v^{\pm 1}]) \to \bbC c_{\frakv}$$
         is given by:
             $$\eta(d_r, d_a) := \delta_{r + a, 0} (r^3 - r) c_{\frakv}$$
         for all $r, a \in \Z$; in particular, this means this \textit{$\eta$ is non-cohomologous to $0$}. The $2$-cocycle $\eta$ is cohomologically unique (in the sense that any $2$-cocycle $\eta': \bigwedge^2 \der(\bbC[v^{\pm 1}]) \to \bbC c_{\frakv}$ is cohomologous to $\eta$ itself; lemma \ref{lemma: H^2_of_witt_algebra}), and so should either $\sigma_1$ or $\sigma_2$ become cohomologous to $\eta$ after being restricted down to $\bigwedge^2 \frakw$, they would have to be non-cohomologous to $0$. We claim that this is indeed true.
 
-        The answer to the following question turns out to be negative, but in answering it, we will have gained some insight into how we might show that $\sigma_1$ and $\sigma_2$ are actually cohomologous to $\eta$.
+        The answer to the following question turns out to be negative, but in answering it, we will have gained some insight into how we might show that $\sigma_1$ and $\sigma_2$ are actually cohomologous to $\eta$ after having their domains restricted to $\bigwedge^2 \frakw$.
         \begin{question}
             Is it true that:
                 $$\sigma_i|_{ \bigwedge^2 \frakw } = \eta$$
@@ -446,7 +540,7 @@
                         \end{aligned}
                     $$
                     
-                To show that $\eta'$ is a Lie $2$-coboundary in the sense of definition \ref{def: lie_cocycles_and_coboundaries}, we must show that there exists a $1$-cocycle:
+                To show that $\eta'$ is a Lie $2$-coboundary in the sense of definition \ref{def: lie_cocycles_and_coboundaries}, we must show that there exists a linear map:
                     $$\tilde{\eta'}: \der(\bbC[v^{\pm 1}]) \to \bbC c_{\frakv}$$
                 which is merely a linear map, such that:
                     $$\eta(d_i, d_j) = \tilde{\eta'}([d_i, d_j])$$
@@ -460,147 +554,271 @@
                     $$i (\tilde{\eta'}(d_i) - \delta_{i, 0}) = 0$$
                 for all $i \in \Z$, which in turn implies that:
                     $$\tilde{\eta'}(d_i) = \delta_{i, 0}$$
-                The sought-for $1$-cocycle $\tilde{\eta}: \der(\bbC[v^{\pm 1}]) \to \bbC c_{\frakv}$ is thus defined, and hence exists.
+                The sought-for linear map $\tilde{\eta}: \der(\bbC[v^{\pm 1}]) \to \bbC c_{\frakv}$ is thus defined, and hence exists.
             \end{proof}
-        In conjunction with the following well-known fact about central extensions of $\der(\bbC[v^{\pm 1}])$, one can infer from proposition \ref{prop: a_virasoro_coboundary} that, precisely because we have that:
+        Using the well-known fact that:
+            $$H^2_{\Lie}(\der(\bbC[v^{\pm 1}]), \bbC c_{\frakv}) \cong \bbC \eta$$
+        (see lemma \ref{lemma: H^2_of_witt_algebra}) meaning that up to isomorphisms of extensions (cf. definition \ref{def: lie_algebra_extensions}), the Virasoro algebra corresponding to the $2$-cocycle $\eta: \der(\bbC[v^{\pm 1}]) \to \bbC c_{\frakv}$ is unique, one can infer from proposition \ref{prop: a_virasoro_coboundary} that, precisely because we have that:
             $$\sigma_i|_{ \bigwedge^2 \frakv } = \eta + \eta'$$
-        the domain restrictions $\sigma_1|_{ \bigwedge^2 \frakv }$ must be cohomologous to the $2$-cocycle $\eta$, which is known to be non-cohomologous to $0$ (cf. corollary \ref{coro: non_zero_yangian_cocycles_on_witt_algebra}). The toroidal $2$-cocycles $\sigma_i: \bigwedge^2 \toroidal \to \z_{[2]}$ are therefore non-cohomologous to $0$ (cf. theorem \ref{theorem: non_trivial_yangian_cocycles_examples}).
-        \begin{lemma}[$H^2_{\Lie}$ of the Witt algebra] \label{lemma: H^2_of_witt_algebra}
-            (Cf. \cite[Proposition 1.3]{kac_raina_rozhkovskaya_bombay_lectures_on_highest_weight_modules_of_infinite_dimensional_lie_algebras}) Let $\bbC c_{\frakv}$ be viewed as a trivial $\der(\bbC[v^{\pm 1}])$-module. Then:
-                $$\dim_{\bbC} H^2_{\Lie}( \der(\bbC[v^{\pm 1}]), \bbC c_{\frakv} ) = 1$$
-        \end{lemma}
-            \begin{proof}
-                Note first of all that any Lie $2$-cocycle of $\der(\bbC[v^{\pm 1}])$ with values in $\bbC c_{\frakv}$ is necessarily given on basis elements $d_i, d_j \in \der(\bbC[v^{\pm 1}])$ by:
-                    $$\tau(d_i, d_j) = N_{i, j}(\tau) c_{\frakv}$$
-                for some $N_{i, j}(\tau) \in \bbC$. By skew-symmetry, we have that:
-                    $$\tau(d_i, d_j) = -\tau(d_j, d_i)$$
-                for all $i, j \in \Z$, and hence:
-                    $$N_{i, j}(\tau) = -N_{j, i}(\tau)$$
-                By the Jacobi identity, we the following, for all $i, j, k \in \Z$:
-                    $$
-                        \begin{aligned}
-                            & 0
-                            \\
-                            = & \tau([d_i, d_j], d_k) + \tau([d_k, d_i], d_j) + \tau([d_j, d_k], d_i)
-                            \\
-                            = & (i - j) \tau(d_{i + j}, d_k) + (k - i) \tau(d_{k + i}, d_j) + (j - k) \tau(d_{j + k}, d_i)
-                            \\
-                            = & \left( (i - j) N_{i + j, k}(\tau) + (k - i) N_{k + i, j}(\tau) + (j - k) N_{j + k, i}(\tau) \right) c_{\frakv}
-                        \end{aligned}
-                    $$
-                which implies that:
-                    $$(i - j) N_{i + j, k}(\tau) + (k - i) N_{k + i, j}(\tau) + (j - k) N_{j + k, i}(\tau) = 0$$
-                If we let $k = 0$ then we will get:
-                    $$(i - j) N_{i + j, 0}(\tau) - i N_{i, j}(\tau) + j N_{j, i}(\tau) = 0$$
-                but since we have that $N_{j, i}(\tau) = -N_{i, j}(\tau)$, as shown above, the above becomes:
-                    $$(i - j) N_{i + j, 0}(\tau) = (i + j) N_{i, j}(\tau)$$
-                Using this, we thus get that:
-                    $$
-                        \begin{aligned}
-                            & [[d_i, d_j]_{\frakv}, d_0]_{\frakv} = (i - j) [d_{i + j}, d_0]_{\frakv}
-                            \\
-                            = & (i - j) \left( (i + j) d_{i + j} + N_{i, j, 0}(\tau) c_{\frakv} \right)
-                            \\
-                            = & (i + j) [d_i, d_j] + (i + j) N_{i, j}(\tau) c_{\frakv}
-                        \end{aligned}
-                    $$
-                At the same time, the Jacobi identity implies that:
-                    $$
-                        \begin{aligned}
-                            & 0
-                            \\
-                            = & [[d_i, d_j]_{\frakv}, d_0]_{\frakv} + [[d_0, d_i]_{\frakv}, d_j]_{\frakv} + [[d_j, d_0]_{\frakv}, d_i]_{\frakv}
-                            \\
-                            = & [[d_i, d_j]_{\frakv}, d_0]_{\frakv} - i [d_i, d_j]_{\frakv} + j [d_j, d_i]_{\frakv}
-                            \\
-                            = & [[d_i, d_j]_{\frakv}, d_0]_{\frakv} - (i + j) [d_i, d_j]_{\frakv}
-                        \end{aligned}
-                    $$
-                which implies that:
-                    $$[[d_i, d_j]_{\frakv}, d_0]_{\frakv} = (i + j) [d_i, d_j]_{\frakv}$$
-                Combining the two observations then yields:
-                    $$(i + j) N_{i, j}(\tau) = 0$$
-                from which one sees that:
-                    $$N_{i, j}(\tau) = \delta_{i + j, 0} N_{i, -i}(\tau)$$
-                Now, consider once more the Jacobi identity for $\tau$:
-                    $$
-                        \begin{aligned}
-                            & 0
-                            \\
-                            = & (i - j) N_{i + j, k}(\tau) + (k - i) N_{k + i, j}(\tau) + (j - k) N_{j + k, i}(\tau)
-                            \\
-                            = & \delta_{i + j + k, 0} \left( (i - j)  N_{i + j, -(i + j)}(\tau) + (k - i) N_{k + i, -(k + i)}(\tau) + (j - k) N_{j + k, -(j + k)}(\tau) \right)
-                            \\
-                            = & (i - j)  N_{i + j, -(i + j)}(\tau) + (-(i + j) - i) N_{-(i + j) + i, -(-(i + j) + i)}(\tau) + (j + (i + j)) N_{j - (i + j), -(j -(i + j))}(\tau)
-                            \\
-                            = & (i - j)  N_{i + j, -(i + j)}(\tau) - (2i + j) N_{-j, j}(\tau) + (i + 2j) N_{-i, i}(\tau)
-                        \end{aligned}
-                    $$
-                By setting $j = 1$ and each $f_r := N_{r, -r}(\tau)$ (for all $r \in \Z \geq 0$, assuming $\tau$ is fixed), we shall then get:
-                    $$(i - 1) f_{i + 1} - (i + 2) f_i = -(2i + 1) f_1$$
-                for all $i \in \Z_{\geq 2}$. This is a difference equation with initial condition:
-                    $$f_0 = N_{0, 0} = 0$$
-                coming from the skew-symmetry of $N_{i, j}$. We note also, that knowing $f_1$ and $f_2$ would help us determine $f_{i + 1}$ for all $i \in \Z_{\geq 2}$, so the equation is of order $2$. The vector space of solutions is therefore of dimension $\leq 2$, though in light of the fact that:
-                    $$\eta \not = \eta' \in Z^2_{\Lie}(\der(\bbC[v^{\pm 1}]), \bbC c_{\frakv})$$
-                we actually have that the solution space is $2$-dimensional, say:
-                    $$Z^2_{\Lie}(\der(\bbC[v^{\pm 1}]), \bbC c_{\frakv}) \cong \bbC \eta \oplus \bbC \eta'$$
-
-                If we can now show that $\eta$ is \textit{not} a Lie $2$-coboundary of $\der(\bbC[v^{\pm 1}])$ with values in $\bbC c_{\frakv}$, we will have that:
-                    $$B^2_{\Lie}(\der(\bbC[v^{\pm 1}]), \bbC c_{\frakv}) \cong \bbC \eta'$$
-                from propostion \ref{prop: a_virasoro_coboundary}, and hence that:
-                    $$H^2_{\Lie}(\der(\bbC[v^{\pm 1}]), \bbC c_{\frakv}) \cong \bbC \eta$$
-                which would give:
-                    $$\dim_{\bbC} H^2_{\Lie}(\der(\bbC[v^{\pm 1}]), \bbC c_{\frakv}) = 1$$
-                as desired. For this, we shall need to prove that there does \textit{not} exist a Lie $1$-cocycle $\tilde{\eta}: \der(\bbC[v^{\pm 1}]) \to \bbC c_{\frakv}$ (which is merely a linear map; cf. example \ref{example: low_degree_lie_cocycles_and_coboundaries_with_trivial_coefficients}) such that:
-                    $$\eta(d_i, d_j) = \tilde{\eta}([d_i, d_j])$$
-                Suppose for the sake of deriving a contradiction, that there does exist such a $1$-cocycle $\tilde{\eta}$. We would then have that:
-                    $$\delta_{i + j, 0} (i^3 - i) c_{\frakv} = \eta(d_i, d_j) = \tilde{\eta}([d_i, d_j]) = (i - j) \tilde{\eta}(d_{i + j}) c_{\frakv}$$
-                for all $i, j \in \Z$. When $j = 0$, we thus have that:
-                    $$\delta_{i, 0} (i^3 - i) c_{\frakv} = i \tilde{\eta}(d_i) c_{\frakv}$$
-                which implies that:
-                    $$i( \delta_{i, 0}(i^2 - 1) - \tilde{\eta}(d_i) ) = 0$$
-                with both statements holding for all $i \in \Z$. In turn, this implies that:
-                    $$\delta_{i, 0}(i^2 - 1) = \tilde{\eta}(d_i)$$
-                for all $i \in \Z$, but this means that:
-                    $$\tilde{\eta}(d_0) = -\delta_{i, 0} = \tilde{\eta'}(d_0)$$
-                with $\tilde{\eta'}: \der(\bbC[v^{\pm 1}]) \to \bbC c_{\frakv}$, as in the proof of proposition \ref{prop: a_virasoro_coboundary}, being a preimage under $d_1$ of the Lie $2$-coboundary $\eta': \bigwedge^2 \der(\bbC[v^{\pm 1}]) \to \bbC c_{\frakv}$ given by:
-                    $$\eta'(d_i, d_j) := \delta_{i + j, 0} i c_{\frakv}$$
-                But this would mean that even though:
-                    $$\eta \not = -\eta'$$
-                we nevertheless have that:
-                    $$\eta = d_1(\tilde{\eta}) = d_1(-\tilde{\eta'}) = -\eta'$$
-                simultaneously (with $d_1$ as in example \ref{example: low_degree_lie_cocycles_and_coboundaries_with_trivial_coefficients}), which is clearly wrong. We therefore have a contradiction, meaning that $\tilde{\eta}$ can not exist, which shows that $\eta$ is \textit{not} $2$-coboundary, exactly as needed. 
-            \end{proof}
-        \begin{corollary} \label{coro: non_zero_yangian_cocycles_on_witt_algebra}
+        the domain restrictions $\sigma_1|_{ \bigwedge^2 \frakv }$ must be cohomologous to the $2$-cocycle $\eta$, which is known to be non-cohomologous to $0$ (cf. proposition \ref{prop: non_zero_yangian_cocycles_on_witt_algebra}). 
+        \begin{proposition} \label{prop: non_zero_yangian_cocycles_on_witt_algebra}
             The Lie $2$-cocycle:
                 $$\eta + \eta' \in Z^2(\der(\bbC[v^{\pm 1}]), \bbC c_{\frakv})$$
             which given by:
                 $$(\eta + \eta')(d_r, d_a) = \delta_{r + a, 0} r^3 c_{\frakv}$$
-            - for all $r, a \in \Z$ and with $\eta'$ as in proposition \ref{prop: a_virasoro_coboundary} - is not cohomologous to $0$, i.e. its image under the canonical projection $Z^2(\der(\bbC[v^{\pm 1}]), \bbC c_{\frakv}) \to H^2(\der(\bbC[v^{\pm 1}]), \bbC c_{\frakv})$ (cf. definitino \ref{def: complexes_and_cohomology}) is non-zero.
-        \end{corollary}
+            - for all $r, a \in \Z$ and with $\eta'$ as in proposition \ref{prop: a_virasoro_coboundary} - is not cohomologous to $0$, i.e. its image under the canonical projection $Z^2(\der(\bbC[v^{\pm 1}]), \bbC c_{\frakv}) \to H^2(\der(\bbC[v^{\pm 1}]), \bbC c_{\frakv})$ (cf. definition \ref{def: complexes_and_cohomology}) is non-zero.
+        \end{proposition}
             \begin{proof}
                 Because we know that $\dim_{\bbC} H^2(\der(\bbC[v^{\pm 1}]), \bbC c_{\frakv}) = 1$ (cf. lemma \ref{lemma: H^2_of_witt_algebra}) and that $\eta' \in B^2(\der(\bbC[v^{\pm 1}]), \bbC c_{\frakv})$ (cf. proposition \ref{prop: a_virasoro_coboundary}), $\eta + \eta'$ must be cohomologous to $\eta$, which is not cohomologous to $0$ as shown in the proof of lemma \ref{lemma: H^2_of_witt_algebra}.
             \end{proof}
-        Our final conclusion is thus as follows:
-        \begin{theorem}[Non-triviality of the toroidal $2$-cocycles $\sigma_1, \sigma_2$] \label{theorem: non_trivial_yangian_cocycles_examples}
-            Neither $\sigma_1$ nor $\sigma_2$ is cohomologous to $0$ as $2$-cocycles of $\toroidal$ with values in $\z_{[2]}$. In other words:
-                $$\sigma_1, \sigma_2 \not \in B^2_{\Lie}(\d_{[2]}, \z_{[2]})$$
-        \end{theorem}
-            \begin{proof}
-                Let $i \in \{1, 2\}$ and $\sigma_i$ be as in example \ref{example: yangian_cocycles_(counter)_examples}. Then, recall firstly that there is a Lie algebra isomorphism:
-                    $$\der(\bbC[v^{\pm 1}]) \cong \frakw$$
-                (cf. lemma \ref{lemma: a_copy_of_the_witt_algebra_inside_the_lie_algebra_of_yangian_div_zero_vector_fields}). This allows us to conclude, based on proposition \ref{prop: a_virasoro_coboundary}, that:
-                    $$\sigma_i|_{ \bigwedge^2 \frakw } = \eta + \eta'$$
-                Per corollary \ref{coro: non_zero_yangian_cocycles_on_witt_algebra}, the Lie $2$-cocycle $\sigma_i|_{ \bigwedge^2 \frakw } \in Z^2_{\Lie}(\frakw, \bbC c_{\frakv})$ is therefore \textit{not} $2$-coboundary, i.e.:
-                    $$\sigma_i|_{ \bigwedge^2 \frakw } \not \in B^2_{\Lie}(\frakw, \bbC c_{\frakv})$$
-                Consequently, $\sigma_i$ is \textit{not} cohomologous to $0$ as $2$-cocycles of $\toroidal$ with values in $\z_{[2]}$, i.e.:
-                    $$\sigma_i \not \in B^2_{\Lie}(\d_{[2]}, \z_{[2]})$$
-                as claimed.
-            \end{proof}
         \begin{remark}[The Virasoro central element]
-            Thanks to corollary \ref{coro: non_zero_yangian_cocycles_on_witt_algebra}, we can also identify:
+            Thanks to proposition \ref{prop: non_zero_yangian_cocycles_on_witt_algebra}, we can also identify:
                 $$c_{\frakv} = -c_v$$
             This tells us that:
                 $$\frakv \cong \bbC \cdot (-c_v) \rtimes^{\sigma_i} \frakw$$
             for either $i = 1$ or $i = 2$, thereby identifying a copy of the Virasoro algebra as a Lie subalgebra inside $\d_{[2]}$.
         \end{remark}
+
+        Now, even though it might be tempting to conclude right away that because of proposition \ref{prop: non_zero_yangian_cocycles_on_witt_algebra}, which tells us that:
+            $$\sigma_i|_{\bigwedge^2 \frakw}: \bigwedge^2 \frakw \to \bbC c_{\frakv}$$
+        is cohomologous to $\eta + \eta' \in Z^2_{\Lie}(\frakw, \bbC c_{\frakv})$, which is not $2$-coboundary, it must then also be true that $\sigma_i \not \in B^2_{\Lie}(\d_{[2]}, \z_{[2]})$. However, the subtlety here is that because $\z_{[2]}$ is non-trivial as a module over $\d_{[2]}$ (and likewise, over the Lie subalgebra $\frakw \subset \d_{[2]}$), unlike $\bbC c_{\frakv}$, one would have to actually check whether or not the restricted toroidal $2$-cocycle:
+            $$\sigma_i|_{\bigwedge^2 \frakw}: \bigwedge^2 \d_{[2]} \to \z_{[2]}$$
+        is $2$-coboundary. Our claim is that, somewhat surprisingly, it is in fact $2$-coboundary, for both $i = 1$ and $i = 2$.
+        \todo[inline]{$\sigma_1|_{\bigwedge^2 \frakw}$ and $\sigma_2|_{\bigwedge^2 \frakw}$ are $2$-coboundary.}
+        \begin{proposition} \label{prop: non_trivial_yangian_restricted_coboundaries_examples}
+            Let $i \in \{1, 2\}$. As $\z_{[2]}$ is a (\textit{non-trivial}) $\d_{[2]}$-module via Lie derivatives (cf. lemma \ref{lemma: derivation_action_on_toroidal_centres}), it is also a module over the Lie subalgebra $\frakw$ of $\d_{[2]}$, determined by the same action. Then:
+                $$\sigma_i|_{ \bigwedge^2 \frakw } \in B^2_{\Lie}(\frakw, \z_{[2]})$$
+        \end{proposition}
+            \begin{proof}
+                Let $i \in \{1, 2\}$. Also, let us regard the $\d_{[2]}$-action on $\z_{[2]}$ as a Lie algebra homomorphism:
+                    $$\rho: \d_{[2]} \to \gl( \z_{[2]} )$$
+                Recall from lemma \ref{lemma: derivation_action_on_toroidal_centres} that this is given by:
+                    $$\rho(D) := [D, -]_{\extendedtoroidal}$$
+                for all $D \in \d_{[2]}$, which is well-defined because we know that $[\d_{[2]}, \z_{[2]}]_{\extendedtoroidal} \subseteq \z_{[2]}$ (cf. \textit{loc. cit.}).
+            
+                Per example \ref{example: low_degree_lie_coboundaries_with_non-trivial_coefficients}, it suffices to prove the existence of a linear map:
+                    $$\tilde{\sigma}_i: \d_{[2]} \to \z_{[2]}$$
+                (i.e. an element of $C_1(\d_{[2]}, \z_{[2]})$ in the notations of remark \ref{remark: simplified_chevalley_eilenberg_complexes}) such that:
+                    $$
+                        \begin{aligned}
+                            \sigma_i(D, D') & = \rho(D) \cdot \tilde{\sigma}_i(D') - \rho(D') \cdot \tilde{\sigma}_i(D) - \tilde{\sigma}_i([D, D'])
+                            \\
+                            & = [D, \tilde{\sigma}_i(D')]_{\extendedtoroidal} - [D', \tilde{\sigma}_i(D)]_{\extendedtoroidal} - \tilde{\sigma}_i([D, D'])
+                        \end{aligned}
+                    $$
+                    
+                For what follows, let us recall:
+                \begin{itemize}
+                    \item from example \ref{example: yangian_cocycles_(counter)_examples} that:
+                        $$\sigma_i|_{ \bigwedge^2 \frakw }(D_{r, -1}, D_{a, -1}) = -\delta_{r, -a} r^3 c_v$$
+                    \item from lemma \ref{lemma: explicit_commutators_between_basis_elements_of_toroidal_central_orthogonal_complement} that:
+                        $$[D_{a, b}, D_{r, s}] = (br - sa) D_{a + r, b + s + 1}$$
+                    \item and from lemma \ref{lemma: explicit_commutators_between_central_basis_elements_and_derivations} that:
+                        $$[D_{r, s}, K_{\alpha, \beta}]_{\extendedtoroidal} = ((\beta - 1)r - s\alpha) K_{\alpha - r, \beta - s - 1} + \delta_{(r, s + 1), (\alpha, \beta)} \left( r c_v + c_t \right)$$
+                        $$[D, c_v]_{\extendedtoroidal} = [D, c_t]_{\extendedtoroidal} = 0$$
+                    for all $D \in \d_{[2]}$.
+                \end{itemize}
+                Also, let us suppose that:
+                    $$\tilde{\sigma}_i(D) := \sum_{(\alpha, \beta) \in \Z^2} \lambda_{\alpha, \beta}(D) K_{\alpha, \beta} + \lambda_v(D) c_v + \lambda_t(D) c_t$$
+                for all $D \in \d_{[2]}$. From this, we get that:
+                    $$\sigma_i(D, D') = \sum_{(\alpha, \beta) \in \Z^2} \left( \lambda_{\alpha, \beta}(D) [D, K_{\alpha, \beta}]_{\extendedtoroidal} - \lambda_{\alpha, \beta}(D') [D', K_{\alpha, \beta}]_{\extendedtoroidal} \right) - \tilde{\sigma}_i( [D, D'] )$$
+                and we might as well assume that $\lambda_v = \lambda_t = 0$.
+
+                Consider now the following:
+                    $$
+                        \begin{aligned}
+                            & -\delta_{r, -a} r^3 c_v
+                            \\
+                            = & \sigma_i(D_{r, -1}, D_{a, -1})
+                            \\
+                            = & \sum_{(\alpha, \beta) \in \Z^2} \left( \lambda_{\alpha, \beta}(D_{r, -1}) [D_{r, -1}, K_{\alpha, \beta}]_{\extendedtoroidal} - \lambda_{\alpha, \beta}(D_{a, -1}) [D_{a, -1}, K_{\alpha, \beta}]_{\extendedtoroidal} \right) - \tilde{\sigma}_i( [D_{r, -1}, D_{a, -1}] )
+                            \\
+                            = &
+                            \begin{aligned}
+                                & \sum_{(\alpha, \beta) \in \Z^2} \lambda_{\alpha, \beta}(D_{r, -1}) \left( ((\beta - 1)r + \alpha) K_{\alpha - r, \beta} + \delta_{(r, 0), (\alpha, \beta)} \left( r c_v + c_t \right) \right)
+                                \\
+                                - & \sum_{(\alpha, \beta) \in \Z^2} \lambda_{\alpha, \beta}(D_{a, -1}) \left( ((\beta - 1)a + \alpha) K_{\alpha - a, \beta} + \delta_{(a, 0), (\alpha, \beta)} \left( a c_v + c_t \right) \right)
+                                \\
+                                - & (r - a) \tilde{\sigma}_i( D_{r + a, -1} )
+                            \end{aligned}
+                        \end{aligned}
+                    $$
+                From this, one infers that it must be the case that:
+                    $$\lambda_{\alpha, \beta} = 0$$
+                unless
+                    $$(\alpha, \beta) = (-a, 0)$$
+                    $$(\alpha, \beta) = (-r, 0)$$
+                in the first and second terms, respectively. Subsequently, the above reduces to:
+                    $$
+                        \begin{aligned}
+                            & -\delta_{r, -a} r^3 c_v
+                            \\
+                            = & 
+                            \begin{aligned}
+                                & \lambda_{-a, 0}(D_{r, -1}) \left( -(r + a) K_{-r - a, 0} + \delta_{r, -a} \left( r c_v + c_t \right) \right)
+                                \\
+                                - & \lambda_{-r, 0}(D_{a, -1}) \left( -(r + a) K_{-r - a, 0} + \delta_{r, -a} \left( a c_v + c_t \right) \right)
+                                \\
+                                - & (r - a) \tilde{\sigma}_i( D_{r + a, -1} )
+                            \end{aligned}
+                            \\
+                            = & 
+                            \begin{aligned}
+                                & -(r + a) (\lambda_{-a, 0}(D_{r, -1}) - \lambda_{-r, 0}(D_{a, -1})) K_{-r - a, 0}
+                                \\
+                                + & \delta_{r, -a}\left( r \lambda_{-a, 0}(D_{r, -1}) - a \lambda_{-r, 0}(D_{a, -1}) \right) c_v
+                                \\
+                                + & \delta_{r, -a} (\lambda_{-a, 0}(D_{r, -1}) - \lambda_{-r, 0}(D_{a, -1})) c_t
+                                \\
+                                - & (r - a) \tilde{\sigma}_i( D_{r + a, -1} )
+                            \end{aligned}
+                        \end{aligned}
+                    $$
+                When $r + a = 0$, we have that:
+                    $$-r^3 c_v = r \left( \lambda_{r, 0}(D_{r, -1}) + \lambda_{-r, 0}(D_{-r, -1}) \right) c_v + (\lambda_{r, 0}(D_{r, -1}) - \lambda_{-r, 0}(D_{-r, -1})) c_t - 2r \tilde{\sigma}_i( D_{0, -1} )$$
+                from which it can be inferred that:
+                    $$-r^2 = \lambda_{r, 0}(D_{r, -1}) + \lambda_{-r, 0}(D_{-r, -1})$$
+                    $$2r \tilde{\sigma}_i( D_{0, -1} ) = (\lambda_{r, 0}(D_{r, -1}) - \lambda_{-r, 0}(D_{-r, -1})) c_t$$
+                In turn, this implies that:
+                    $$\tilde{\sigma}_i(D_{0, -1}) = c_t$$
+                and when $r \not = 0$ the coefficients $\lambda_{\pm r, 0}(D_{\pm r, -1})$ are solutions to the following linear system:
+                    $$
+                        \begin{cases}
+                            \lambda_{-r, 0}(D_{-r, -1}) + \lambda_{r, 0}(D_{r, -1}) = -r^2
+                            \\
+                            -\lambda_{-r, 0}(D_{-r, -1}) + \lambda_{r, 0}(D_{r, -1}) = 2r
+                        \end{cases}
+                    $$
+                Solving this system yields:
+                    $$\lambda_{\pm r, 0}(D_{\pm r, -1}) = -\frac12 r^2 \pm r$$
+
+                By putting everything together, we get that:
+                    $$
+                        \tilde{\sigma}_i(D_{r, -1}) =
+                        \begin{cases}
+                            \text{$c_t$ if $r = 0$}
+                            \\
+                            \text{$\left( -\frac12 r^2 + r \right) K_{r, 0}$ if $r \not = 0$}
+                        \end{cases}
+                        = \delta_{r, 0} c_t + \left( -\frac12 r^2 + r \right) K_{r, 0}
+                    $$
+                The desired linear map $\tilde{\sigma}_i: \frakw \to \z_{[2]}$ is thus found, proving that $\sigma_i|_{ \bigwedge^2 \frakw }$ is $2$-coboundary. 
+            \end{proof}
+
+        The following result is our final conclusion regarding whether or not the toroidal $2$-cocycles $\sigma_1$ and $\sigma_2$ are cohomologous to $0$.
+        \begin{theorem}[Non-triviality of the toroidal $2$-cocycles $\sigma_1, \sigma_2$] \label{theorem: non_trivial_yangian_cocycles_examples}
+            We have that:
+                $$\sigma_1 \in B^2_{\Lie}(\d_{[2]}, \z_{[2]})$$
+                $$\sigma_2 \not \in B^2_{\Lie}(\d_{[2]}, \z_{[2]})$$
+            i.e. $\sigma_1$ is cohomologous to $0$ as $2$-cocycles of $\d_{[2]}$ with values in $\z_{[2]}$, while $\sigma_2$ is not!
+        \end{theorem}
+        \todo[inline]{Fixed proof. The domain extension of $\tilde{\sigma}_i$ to $\d_{[2]}$ now depends on $i$.}
+            \begin{proof}
+                First of all, we remark that whatever the domain extension of $\tilde{\sigma}_i$ from $\frakw$ to all of $\d_{[2]}$ ends up being, it should depend on $i \in \{1, 2\}$: otherwise, we would have that $\sigma_1 = \sigma_2$ as elements of $Z^2_{\Lie}(\d_{[2]}, \z_{[2]})$, but we have already shown in example \ref{example: yangian_cocycles_(counter)_examples} that this is not true! That aside, our task is similar to as in proposition \ref{prop: non_trivial_yangian_restricted_coboundaries_examples}, which is to find a linear map:
+                    $$\tilde{\sigma}_i: \d_{[2]} \to \z_{[2]}$$
+                (depending on $i$) such that:
+                    $$\tilde{\sigma}_i([D, D']) = [D, \tilde{\sigma}_i(D')]_{\extendedtoroidal} - [D', \tilde{\sigma}_i(D)]_{\extendedtoroidal} - \sigma_i(D, D')$$
+                for all $D, D' \in \d_{[2]}$, which we can take to be basis elements without any loss of generality.
+
+                For what follows, let us recall:
+                \begin{enumerate}
+                    \item from lemma \ref{lemma: explicit_commutators_between_basis_elements_of_toroidal_central_orthogonal_complement}, that:
+                        $$[D_v, D_t] = 0$$
+                        $$[D_v, D_{r, s}] = r D_{r, s + 1}$$
+                        $$[D_t, D_{r, s}] = D_{r, s + 1}$$
+                    \item from example \ref{example: yangian_cocycles_(counter)_examples} that:
+                        $$\sigma_i(D_{r, s}, D_v) = \delta_{i, 1} r^3 K_{-r, -s - 2}$$
+                        $$\sigma_i(D_{r, s}, D_t) = \delta_{i, 1} r^2 s K_{-r, -s - 2}$$
+                        $$\sigma_i(D_v, D_t) = 0$$
+                    \item from lemma \ref{lemma: explicit_commutators_between_central_basis_elements_and_derivations} that:
+                        $$
+                            [D, K_{a, b}]_{\extendedtoroidal} =
+                            \begin{cases}
+                                \text{$((b - 1)r - sa) K_{a - r, b - s - 1} + \delta_{(r, s + 1), (a, b)} \left( r c_v + c_t \right)$ if $D = D_{r, s}$}
+                                \\
+                                \text{$-a K_{a, b - 1}$ if $D_v$}
+                                \\
+                                \text{$-K_{a, b - 1}$ if $D_t$}
+                            \end{cases}
+                        $$
+                        $$[D, c_v]_{\extendedtoroidal} = [D, c_t]_{\extendedtoroidal} = 0$$
+                    for all $D \in \d_{[2]}$; also, recall from remark \ref{remark: Z_gradings_on_toroidal_lie_algebras} that:
+                        $$\deg K_{a, b} = b$$
+                        $$\deg c_v = \deg c_t = 0$$
+                    which implies that:
+                        $$\deg [D_{r, s}, K_{a, b}]_{\extendedtoroidal} = b - s - 1$$
+                        $$\deg [D_v, K_{a, b}]_{\extendedtoroidal} = \deg [D_t, K_{a, b}]_{\extendedtoroidal} = \deg(-K_{a, b - 1}) = b - 1$$
+                        $$\deg [D_t, c_v]_{\extendedtoroidal} = \deg [D_t, c_v]_{\extendedtoroidal} = \deg 0 = 0$$
+                \end{enumerate}
+
+                Also, for what follows, suppose for all $D \in \d_{[2]}$ that:
+                    $$\tilde{\sigma}_i(D) := \sum_{(a, b) \in \Z^2} \lambda_{a, b}(D, i) K_{a, b} + \lambda_v(D_v, i) c_v + \lambda_t(D, i) c_t$$
+                \begin{enumerate}
+                    \item Let us first attempt to compute:
+                        $$\tilde{\sigma}_i(D_{r, s})$$
+                    For this, let us use the fact that:
+                        $$D_{r, s} = [D_t, D_{r, s - 1}]$$
+                    in order to get:
+                        $$
+                            \begin{aligned}
+                                & \tilde{\sigma}_i(D_{r, s})
+                                \\
+                                = & [D_t, \tilde{\sigma}_i(D_{r, s - 1})]_{\extendedtoroidal} - [D_{r, s - 1}, \tilde{\sigma}_i(D_t)]_{\extendedtoroidal} - \sigma_i(D_t, D_{r, s})
+                                \\
+                                = & [D_t, \tilde{\sigma}_i(D_{r, s - 1})]_{\extendedtoroidal} - [D_{r, s - 1}, \tilde{\sigma}_i(D_t)]_{\extendedtoroidal} + \delta_{i, 1} r^2 s K_{-r, -s - 2}
+                            \end{aligned}
+                        $$
+                    Next, consider:
+                        $$
+                            \begin{aligned}
+                                & [D_t, \tilde{\sigma}_i(D_{r, s - 1})]_{\extendedtoroidal}
+                                \\
+                                = & -\sum_{(a, b) \in \Z^2} \lambda_{a, b}(D_{r, s - 1}, i) K_{a, b - 1}
+                                \\
+                                = & -\sum_{(a, b) \in \Z^2} \lambda_{a, b + 1}(D_{r, s - 1}, i) K_{a, b}
+                            \end{aligned}
+                        $$
+                    We have also that:
+                        $$
+                            \begin{aligned}
+                                & [D_{r, s - 1}, \tilde{\sigma}_i(D_t)]_{\extendedtoroidal} 
+                                \\
+                                = & \sum_{(a, b) \in \Z^2} \lambda_{a, b}(D_t, i) \left( (b - 1)r - (s - 1)a \right) K_{a - r, b - s} + \delta_{(r, s), (a, b)} \left( r c_v + c_t \right)
+                                \\
+                                = & \sum_{(a, b) \in \Z^2} \lambda_{a + r, b + s}(D_t, i) \left( (b + s - 1)r - (s - 1)(a + r) \right) K_{a, b} + \delta_{(0, 0), (a, b)} \left( r c_v + c_t \right)
+                            \end{aligned}
+                        $$
+                    Putting everything yields:
+                        $$
+                            \begin{aligned}
+                                & \tilde{\sigma}_i(D_{r, s})
+                                \\
+                                = &
+                                \begin{aligned}
+                                    & -\sum_{(a, b) \in \Z^2} \left(
+                                        \left( \lambda_{a, b + 1}(D_{r, s - 1}, i) + \lambda_{a + r, b + s}(D_t, i) \left( (b + s - 1)r - (s - 1)(a + r) \right) \right) K_{a, b} + \delta_{(0, 0), (a, b)} \left( r c_v + c_t \right)
+                                    \right)
+                                    \\
+                                    + & \delta_{i, 1} r^2 s K_{-r, -s - 2}
+                                \end{aligned}
+                            \end{aligned}
+                        $$
+                    It is now necessary to compute:
+                        $$\tilde{\sigma}_i(D_t)$$
+                    so that we would know the coefficients:
+                        $$\lambda_{a + r, b + s}(D_t, i)$$
+                    \item Since $[D_t, K]_{\extendedtoroidal} \in \bigoplus_{(\alpha, \beta) \in \Z^2} \bbC K_{\alpha, \beta}$ for all $K \in \z_{[2]}$, and since we know from propostion \ref{prop: non_trivial_yangian_restricted_coboundaries_examples} that:
+                        $$\tilde{\sigma}_i(D_{r, -1}) = \delta_{r, 0} c_t + \left(-\frac12 r^2 + r\right) K_{r, 0}$$
+                    we see that $\tilde{\sigma}_i(D_t)$ must have a non-zero summand lying in $\bigoplus_{(a, b) \in \Z^2} \bbC K_{a, b}$, so that $[D_{r, s - 1}, \tilde{\sigma}_i(D_t)]_{\extendedtoroidal}$ would have a non-zero summand lying in $\bbC c_t$.
+
+                    
+                    \item We know also that:
+                        $$\sigma_i(D_v, D_t) = 0, [D_v, D_t] = 0$$
+                    and so:
+                        $$[D_t, \tilde{\sigma}_i(D_v)]_{\extendedtoroidal} = [D_v, \tilde{\sigma}_i(D_t)]_{\extendedtoroidal}$$
+                    Using the fact that $[D_v, K_{a, b}]_{\extendedtoroidal} = -a K_{-a, -b - 1}$, we then get that:
+                        $$[D_t, \tilde{\sigma}_i(D_v)]_{\extendedtoroidal} = -\sum_{(a, b) \in \Z^2} a \lambda_{a, b + 1}(D_t, i) K_{a, b}$$
+                    Since $[D_v, K_{a, b}]_{\extendedtoroidal} = -K_{-a, -b - 1}$, the above implies that:
+                        $$\lambda_{a, b}(D_v, i) = a\lambda_{a, b}(D_t, i)$$
+                \end{enumerate}
+            \end{proof}
