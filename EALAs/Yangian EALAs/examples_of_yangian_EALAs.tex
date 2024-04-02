@@ -706,28 +706,27 @@
             \end{proof}
 
         The following result is our final conclusion regarding whether or not the toroidal $2$-cocycles $\sigma_1$ and $\sigma_2$ are cohomologous to $0$.
-        \begin{theorem}[Non-triviality of the toroidal $2$-cocycles $\sigma_1, \sigma_2$] \label{theorem: non_trivial_yangian_cocycles_examples}
-            We have that:
+        \begin{theorem}[Are the toroidal $2$-cocycles $\sigma_1, \sigma_2$ cohomologous to $0$ or not ?] \label{theorem: non_trivial_yangian_cocycles_examples}
+            Let $\sigma_1, \sigma_2 \in Z^2_{\Lie}(\d_{[2]}, \z_{[2]})$ be as in example \ref{example: yangian_cocycles_(counter)_examples}. Then:
                 $$\sigma_1 \in B^2_{\Lie}(\d_{[2]}, \z_{[2]})$$
+            while:
                 $$\sigma_2 \not \in B^2_{\Lie}(\d_{[2]}, \z_{[2]})$$
-            i.e. $\sigma_1$ is cohomologous to $0$ as $2$-cocycles of $\d_{[2]}$ with values in $\z_{[2]}$, while $\sigma_2$ is not!
         \end{theorem}
         \todo[inline]{Fixed proof. The domain extension of $\tilde{\sigma}_i$ to $\d_{[2]}$ now depends on $i$.}
             \begin{proof}
-                First of all, we remark that whatever the domain extension of $\tilde{\sigma}_i$ from $\frakw$ to all of $\d_{[2]}$ ends up being, it should depend on $i \in \{1, 2\}$: otherwise, we would have that $\sigma_1 = \sigma_2$ as elements of $Z^2_{\Lie}(\d_{[2]}, \z_{[2]})$, but we have already shown in example \ref{example: yangian_cocycles_(counter)_examples} that this is not true! That aside, our task is similar to as in proposition \ref{prop: non_trivial_yangian_restricted_coboundaries_examples}, which is to find a linear map:
+                First of all, we remark that whatever any domain extension of $\tilde{\sigma}_i$ from $\frakw$ to all of $\d_{[2]}$ ends up being, it should depend on $i \in \{1, 2\}$: otherwise, we would have that $\sigma_1 = \sigma_2$ as elements of $Z^2_{\Lie}(\d_{[2]}, \z_{[2]})$, but we have already shown via the computations done in example \ref{example: yangian_cocycles_(counter)_examples} that this is not true! That aside, our task is similar to as in proposition \ref{prop: non_trivial_yangian_restricted_coboundaries_examples}, which is to find a linear map:
                     $$\tilde{\sigma}_i: \d_{[2]} \to \z_{[2]}$$
                 (depending on $i$) such that:
                     $$\tilde{\sigma}_i([D, D']) = [D, \tilde{\sigma}_i(D')]_{\extendedtoroidal} - [D', \tilde{\sigma}_i(D)]_{\extendedtoroidal} - \sigma_i(D, D')$$
                 for all $D, D' \in \d_{[2]}$, which we can take to be basis elements without any loss of generality.
 
                 For what follows, let us recall:
-                \begin{enumerate}
+                \begin{itemize}
                     \item from lemma \ref{lemma: explicit_commutators_between_basis_elements_of_toroidal_central_orthogonal_complement}, that:
                         $$[D_v, D_t] = 0$$
                         $$[D_v, D_{r, s}] = r D_{r, s + 1}$$
                         $$[D_t, D_{r, s}] = D_{r, s + 1}$$
                     \item from example \ref{example: yangian_cocycles_(counter)_examples} that:
-                        $$\sigma_i(D_{r, s}, D_v) = \delta_{i, 1} r^3 K_{-r, -s - 2}$$
                         $$\sigma_i(D_{r, s}, D_t) = \delta_{i, 1} r^2 s K_{-r, -s - 2}$$
                         $$\sigma_i(D_v, D_t) = 0$$
                     \item from lemma \ref{lemma: explicit_commutators_between_central_basis_elements_and_derivations} that:
@@ -742,19 +741,46 @@
                             \end{cases}
                         $$
                         $$[D, c_v]_{\extendedtoroidal} = [D, c_t]_{\extendedtoroidal} = 0$$
-                    for all $D \in \d_{[2]}$; also, recall from remark \ref{remark: Z_gradings_on_toroidal_lie_algebras} that:
-                        $$\deg K_{a, b} = b$$
-                        $$\deg c_v = \deg c_t = 0$$
-                    which implies that:
-                        $$\deg [D_{r, s}, K_{a, b}]_{\extendedtoroidal} = b - s - 1$$
-                        $$\deg [D_v, K_{a, b}]_{\extendedtoroidal} = \deg [D_t, K_{a, b}]_{\extendedtoroidal} = \deg(-K_{a, b - 1}) = b - 1$$
-                        $$\deg [D_t, c_v]_{\extendedtoroidal} = \deg [D_t, c_v]_{\extendedtoroidal} = \deg 0 = 0$$
-                \end{enumerate}
+                    for all $D \in \d_{[2]}$.
+                \end{itemize}
 
                 Also, for what follows, suppose for all $D \in \d_{[2]}$ that:
                     $$\tilde{\sigma}_i(D) := \sum_{(a, b) \in \Z^2} \lambda_{a, b}(D, i) K_{a, b} + \lambda_v(D_v, i) c_v + \lambda_t(D, i) c_t$$
                 \begin{enumerate}
-                    \item Let us first attempt to compute:
+                    \item To begin, let us make the following observation.
+                    
+                    From lemma \ref{lemma: explicit_commutators_between_basis_elements_of_toroidal_central_orthogonal_complement}, it is known that:
+                        $$[D, D'] \in \bigoplus_{(\alpha, \beta) \in \Z^2} \bbC D_{\alpha, \beta}$$
+                    for all $D, D' \in \d_{[2]}$, meaning in particular that there do not exist elements $D, D' \in \d_{[2]}$ such that either:
+                        $$D_v = [D, D']$$
+                    or:
+                        $$D_t = [D, D']$$
+                    and hence no such elements $D, D' \in \d_{[2]}$ so that:
+                        $$\tilde{\sigma}_i(D_v) = [D, \tilde{\sigma}_i(D')]_{\extendedtoroidal} - [D', \tilde{\sigma}_i(D)]_{\extendedtoroidal} - \sigma_i(D, D')$$
+                    or:
+                        $$\tilde{\sigma}_i(D_t) = [D, \tilde{\sigma}_i(D')]_{\extendedtoroidal} - [D', \tilde{\sigma}_i(D)]_{\extendedtoroidal} - \sigma_i(D, D')$$
+                    In conjunction with the fact that:
+                        $$[D_v, D_{r, s - 1}] = r D_{r, s}, [D_t, D_{r, s - 1}] = D_{r, s}$$
+                    this means that to compute $\tilde{\sigma}_i(D_v)$ and $\tilde{\sigma}_i(D_t)$, we must do so by computing:
+                        $$
+                            \begin{aligned}
+                                & r\tilde{\sigma}_i(D_{r, s})
+                                \\
+                                = & r\left( [D_t, \tilde{\sigma}_i(D_{r, s - 1})]_{\extendedtoroidal} - [D_{r, s - 1}, \tilde{\sigma}_i(D_t)]_{\extendedtoroidal} - \sigma_i(D_t, D_{r, s}) \right)
+                                \\
+                                = & [D_v, \tilde{\sigma}_i(D_{r, s - 1})]_{\extendedtoroidal} - [D_{r, s - 1}, \tilde{\sigma}_i(D_v)]_{\extendedtoroidal} - \sigma_i(D_v, D_{r, s})
+                            \end{aligned}
+                        $$
+                    \item We know also that:
+                        $$\sigma_i(D_v, D_t) = 0, [D_v, D_t] = 0$$
+                    and so:
+                        $$[D_t, \tilde{\sigma}_i(D_v)]_{\extendedtoroidal} = [D_v, \tilde{\sigma}_i(D_t)]_{\extendedtoroidal}$$
+                    Using the fact that $[D_v, K_{a, b}]_{\extendedtoroidal} = -a K_{-a, -b - 1}$, we then get that:
+                        $$[D_t, \tilde{\sigma}_i(D_v)]_{\extendedtoroidal} = -\sum_{(a, b) \in \Z^2} a \lambda_{a, b + 1}(D_t, i) K_{a, b}$$
+                    Since $[D_v, K_{a, b}]_{\extendedtoroidal} = -K_{-a, -b - 1}$, the above implies that:
+                        $$\lambda_{a, b}(D_v, i) = a\lambda_{a, b}(D_t, i)$$
+                    meaning that the coefficients $\lambda_{a, b}(D_v, i)$ are determined by $\lambda_{a, b}(D_t, i)$. 
+                    \item In light of the observations made above, let us now attempt to compute:
                         $$\tilde{\sigma}_i(D_{r, s})$$
                     For this, let us use the fact that:
                         $$D_{r, s} = [D_t, D_{r, s - 1}]$$
@@ -768,7 +794,7 @@
                                 = & [D_t, \tilde{\sigma}_i(D_{r, s - 1})]_{\extendedtoroidal} - [D_{r, s - 1}, \tilde{\sigma}_i(D_t)]_{\extendedtoroidal} + \delta_{i, 1} r^2 s K_{-r, -s - 2}
                             \end{aligned}
                         $$
-                    Next, consider:
+                    For visual clarity, let us compute the two brackets individually:
                         $$
                             \begin{aligned}
                                 & [D_t, \tilde{\sigma}_i(D_{r, s - 1})]_{\extendedtoroidal}
@@ -778,47 +804,69 @@
                                 = & -\sum_{(a, b) \in \Z^2} \lambda_{a, b + 1}(D_{r, s - 1}, i) K_{a, b}
                             \end{aligned}
                         $$
-                    We have also that:
                         $$
                             \begin{aligned}
                                 & [D_{r, s - 1}, \tilde{\sigma}_i(D_t)]_{\extendedtoroidal} 
                                 \\
                                 = & \sum_{(a, b) \in \Z^2} \lambda_{a, b}(D_t, i) \left( (b - 1)r - (s - 1)a \right) K_{a - r, b - s} + \delta_{(r, s), (a, b)} \left( r c_v + c_t \right)
                                 \\
-                                = & \sum_{(a, b) \in \Z^2} \lambda_{a + r, b + s}(D_t, i) \left( (b + s - 1)r - (s - 1)(a + r) \right) K_{a, b} + \delta_{(0, 0), (a, b)} \left( r c_v + c_t \right)
+                                = & \sum_{(a, b) \in \Z^2} \left( (b + s - 1)r - (s - 1)(a + r) \right) \lambda_{a + r, b + s}(D_t, i) K_{a, b} + \delta_{r, 0} c_t
                             \end{aligned}
                         $$
-                    Putting everything yields:
+                    Now, by putting everything together, we yield:
+                        $$\tilde{\sigma}_i(D_{r, s}) = -\sum_{(a, b) \in \Z^2} M_i(r, s, a, b) K_{a, b} + \delta_{i, 1} r^2 s K_{-r, -s - 2} + \delta_{r, 0} c_t$$
+                    where:
+                        $$M_i(r, s, a, b) := \lambda_{a, b + 1}(D_{r, s - 1}, i) + \left( (b + s - 1)r - (s - 1)(a + r) \right) \lambda_{a + r, b + s}(D_t, i)$$
+                    In light of this and of the fact that:
+                        $$\tilde{\sigma}_i(D_{r, -1}) = (-\frac12 r^2 + r) K_{r, 0} + \delta_{r, 0} c_t$$
+                    which is known from proposition \ref{prop: non_trivial_yangian_restricted_coboundaries_examples}, and since we are only trying to prove the existence of $\tilde{\sigma}_i$, not to determine it explicitly, let us now declare that:
+                        $$
+                            M_i(r, s, a, b) =
+                            \begin{cases}
+                                \text{$\delta_{i, 1} r^2 s$ if $(a, b) = (-r, -s - 2)$}
+                                \\
+                                \text{$\frac12 r^2 - r$ if $(a, b) = (r, 0)$}
+                                \\
+                                \text{$0$ otherwise}
+                            \end{cases}
+                        $$
+                    From this, we gather that when $(a, b) = (-r, -s - 2)$, we shall obtain the following linear system, which can be solved to obtain the coefficients $\lambda_{a, b}(D_{r, s}, i)$ and $\lambda_{2a, b}(D_t, i)$:
+                        $$
+                            \begin{cases}
+                                \lambda_{-r, -s - 1}(D_{r, s - 1}, i) -3r\lambda_{0, -2}(D_t, i) = \delta_{i, 1} r^2 s
+                                \\
+                                \lambda_{r, 1}(D_{r, s - 1}, i) - (s - 1)r\lambda_{2r, s}(D_t, i) = \frac12 r^2 - r
+                            \end{cases}
+                        $$
+                    Note, however, that the system is only consistent when $i = 1$. Indeed, when $i = 2$, we have that:
+                        $$\lambda_{-r, -s - 1}(D_{r, s - 1}, i) -3r\lambda_{0, -2}(D_t, i) = 0$$
+                    from which we see that, when $r = 1$, we would have that:
+                        $$\lambda_{0, -2}(D_t, i) = \frac13 \lambda_{-1, -s - 1}(D_{1, s - 1}, i)$$
+                    but this would mean that $\lambda_{0, -2}(D_t, i)$ depends on $s$, which is clearly nonsensical. Therefore, a domain extension of $\tilde{\sigma}_2$ from $\frakw$ to $\bigoplus_{(r, s) \in \Z^2} \bbC D_{r, s}$ (let alone to $\d_{[2]} := \bigoplus_{(r, s) \in \Z^2} \bbC D_{r, s} \oplus \bbC D_v \oplus \bbC D_t$) can not exist, i.e. $\sigma_2$ is not $2$-coboundary.
+                        
+                    \todo[inline]{Is it clear that the system is consistent even when $i = 1$ ?}
+                    
+                    As of now, we have already obtained:
+                        $$\lambda_v(D_{r, s}, 1) = 0, \lambda_t(D_{r, s}, 1) = \delta_{r, 0}$$
+                    We have thus shown that the values:
+                        $$\tilde{\sigma}_1(D_{r, s}) = \sum_{(a, b) \in \Z^2} \lambda_{a, b}(D_{r, s}, 1) K_{a, b} + \delta_{r, 0} c_t$$
+                    are well-defined (in particular, they depend on $i$), and so \textit{there is a domain extension of $\tilde{\sigma}_1$ from $\frakw := \bigoplus_{r \in \Z} \bbC D_{r, -1}$ to $\bigoplus_{(r, s) \in \Z^2} \bbC D_{r, s}$.}
+                    \item Also, let us note that the above implies that:
+                        $$\tilde{\sigma}_1(D_t) \not = 0$$
+                    (and hence:
+                        $$\tilde{\sigma}_1(D_v) \not = 0$$
+                    as well) because otherwise, $\tilde{\sigma}_1(D_{r, s})$ would not have no non-zero summand lying in $\bbC c_t$, which would be a contradiction. Regardless, these values are well-defined, now that we know that:
+                        $$\tilde{\sigma}_1: \bigoplus_{(r, s) \in \Z^2} \bbC D_{r, s} \to \z_{[2]}$$
+                    is well-defined, again because we have that:
                         $$
                             \begin{aligned}
                                 & \tilde{\sigma}_i(D_{r, s})
                                 \\
-                                = &
-                                \begin{aligned}
-                                    & -\sum_{(a, b) \in \Z^2} \left(
-                                        \left( \lambda_{a, b + 1}(D_{r, s - 1}, i) + \lambda_{a + r, b + s}(D_t, i) \left( (b + s - 1)r - (s - 1)(a + r) \right) \right) K_{a, b} + \delta_{(0, 0), (a, b)} \left( r c_v + c_t \right)
-                                    \right)
-                                    \\
-                                    + & \delta_{i, 1} r^2 s K_{-r, -s - 2}
-                                \end{aligned}
+                                = & r\left( [D_t, \tilde{\sigma}_i(D_{r, s - 1})]_{\extendedtoroidal} - [D_{r, s - 1}, \tilde{\sigma}_i(D_t)]_{\extendedtoroidal} - \sigma_i(D_t, D_{r, s}) \right)
+                                \\
+                                = & [D_v, \tilde{\sigma}_i(D_{r, s - 1})]_{\extendedtoroidal} - [D_{r, s - 1}, \tilde{\sigma}_i(D_v)]_{\extendedtoroidal} - \sigma_i(D_v, D_{r, s})
                             \end{aligned}
                         $$
-                    It is now necessary to compute:
-                        $$\tilde{\sigma}_i(D_t)$$
-                    so that we would know the coefficients:
-                        $$\lambda_{a + r, b + s}(D_t, i)$$
-                    \item Since $[D_t, K]_{\extendedtoroidal} \in \bigoplus_{(\alpha, \beta) \in \Z^2} \bbC K_{\alpha, \beta}$ for all $K \in \z_{[2]}$, and since we know from propostion \ref{prop: non_trivial_yangian_restricted_coboundaries_examples} that:
-                        $$\tilde{\sigma}_i(D_{r, -1}) = \delta_{r, 0} c_t + \left(-\frac12 r^2 + r\right) K_{r, 0}$$
-                    we see that $\tilde{\sigma}_i(D_t)$ must have a non-zero summand lying in $\bigoplus_{(a, b) \in \Z^2} \bbC K_{a, b}$, so that $[D_{r, s - 1}, \tilde{\sigma}_i(D_t)]_{\extendedtoroidal}$ would have a non-zero summand lying in $\bbC c_t$.
-
-                    
-                    \item We know also that:
-                        $$\sigma_i(D_v, D_t) = 0, [D_v, D_t] = 0$$
-                    and so:
-                        $$[D_t, \tilde{\sigma}_i(D_v)]_{\extendedtoroidal} = [D_v, \tilde{\sigma}_i(D_t)]_{\extendedtoroidal}$$
-                    Using the fact that $[D_v, K_{a, b}]_{\extendedtoroidal} = -a K_{-a, -b - 1}$, we then get that:
-                        $$[D_t, \tilde{\sigma}_i(D_v)]_{\extendedtoroidal} = -\sum_{(a, b) \in \Z^2} a \lambda_{a, b + 1}(D_t, i) K_{a, b}$$
-                    Since $[D_v, K_{a, b}]_{\extendedtoroidal} = -K_{-a, -b - 1}$, the above implies that:
-                        $$\lambda_{a, b}(D_v, i) = a\lambda_{a, b}(D_t, i)$$
+                    A domain extension of $\tilde{\sigma}_1$ from $\bigoplus_{(r, s) \in \Z^2} \bbC D_{r, s}$ to $\d_{[2]}$ therefore exists.
                 \end{enumerate}
             \end{proof}
