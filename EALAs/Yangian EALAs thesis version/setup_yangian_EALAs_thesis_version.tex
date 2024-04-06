@@ -1,0 +1,95 @@
+\section{Setup and overview of results}
+    Again, $\g$ is a finite-dimensional simple Lie algebra over $\bbC$. It is accompanied by all the data listed in subsection \ref{subsection: finite_dimensional_simple_lie_algebras}. 
+
+    \subsection{Conventions for toroidal Lie algebras} \label{subsection: toroidal_lie_algebra_conventions}
+        For our own convenience, we will also be adopting the following abbreviations:
+            $$A := \bbC[v^{\pm 1}, t^{\pm 1}], \bar{\Omega}_{[2]} := \bar{\Omega}^1_{A/\bbC}$$
+        and also that:
+            $$\g_{[2]} := \g \tensor_{\bbC} A$$
+        being understood as current algebras (in the sense of definition \ref{def: current_algebras}).
+    
+        We will then be interested in the Lie algebra:
+            $$\toroidal := \uce(\g_{[2]})$$
+        which, respectively, shall be referred to as the \textbf{toroidal Lie algebra} associated to $\g$. In example \ref{example: toroidal_lie_algebras_centres} and remark \ref{remark: Z_gradings_on_toroidal_lie_algebras}, the structures of the underlying ($\Z$-graded) vector spaces of these Lie algebras have already been described, and we refer the reader there for the details (in particular, the construction of a canonical basis for the underlying vector spaces of their centres). So that our notations would be suggestive, we shall be writing:
+            $$\z_{[2]} := \z(\toroidal)$$
+        from now on; often, we might refer to these as the \textbf{(positive) toroidal centres}.
+        
+        Now, instead of being equipped with the usual residue bilinear form of degree $(0, 0)$, the Lie algebra $\g_{[2]}$ will be equipped with the residue bilinear form of degree $(0, -1)$:
+            $$(x v^m t^p, y v^n t^q)_{\g_{[2]}} := -(x, y)_{\g} \delta_{(m, p) + (n, q), (0, -1)}$$
+        given for all $x, y \in \g$ and all $(m, p), (n, q) \in \Z^2$. It is easy to see that the bilinear form:
+            $$(-, -)_{\g_{[2]}}$$
+        is symmetric, non-degenerate, and invariant. Because $\toroidal$ has a non-trivial centre, any invariant (symmetric) bilinear form thereon (so in particular, any extension of $(-, -)_{\g_{[2]}}$ to $\toroidal$) is necessarily degenerate (see remark \ref{remark: extending_bilinear_forms_to_central_extensions}). The purpose of constructing \say{Yangian extended toroidal Lie algebras} is to remedy such degeneracy.
+
+    \subsection{Outline of the construction and classification of Yangian extended toroidal Lie algebras}
+        \begin{definition}[Formal residue] \label{def: formal_residues}
+            The \textbf{formal residue} of any element $f(v_1, ..., v_n) \in \bbC[v_1^{\pm 1}, ..., v_n^{\pm 1}]$ is then given by:
+                $$\Res_{(v_1, ..., v_n) = (0, ..., 0)}(f) := ( \Res_{v_n = 0} \circ ... \circ \Res_{v_1 = 0} )( f(v_1, ..., v_n) )$$
+            Each map:
+                $$\Res_{v_i = 0}: \bbC[v_i, ..., v_n] \to \bbC[v_{i + 1}, ..., v_n]$$
+            is takes as input an element $f(v_i, ..., v_n) \in \bbC[v_{i + 1}, ..., v_n]$ and outputs the $\bbC[v_{i + 1}, ..., v_n]$-coefficient of the term with $v_i^{-1}$, or $0$ if there is no such term. 
+        \end{definition}
+        \begin{remark}[Taking formal residues is linear]
+            It is not hard to see that:
+                $$\Res_{(v_1, ..., v_n) = (0, ..., 0)}( v_1^{m_1} ... v_n^{m_n} ) = \delta_{(m_1, ..., m_n), (-1, ..., -1)}$$
+            From this, one sees that:
+                $$\Res_{(v_1, ..., v_n) = (0, ..., 0)}: \bbC[v_1, ..., v_n] \to k$$
+            is a linear map.
+        \end{remark}
+    
+        \begin{convention}[The Yangian residue] \label{conv: yangian_residue}
+            For each $m \in \Z$, define a $\bbC$-linear map:
+                $$\gamma_m: A \to \bbC$$
+            given by:
+                $$\gamma_m(f) := -\Res_{(v, t) = (0, 0)}( v^{-m} f )$$
+            We will only be interested in the case $m = 1$, when we will be writing:
+                $$\gamma := \gamma_1$$
+            and refer to the map as the \textbf{Yangian residue map}. We will be making all of our constructions relative to this choice of linear map. All the definitions and results can be worked out similarly for a general $\gamma_m$ to what we shall be writing down in the sequel for $\gamma_1$.
+        \end{convention}
+        \begin{remark}
+            One sees thus that the bilinear form on $\g_{[2]}$ that was defined in subsection \ref{subsection: toroidal_lie_algebra_conventions} can now be given more compactly as:
+                $$(xf, yg)_{\g_{[2]}} := (x, y)_{\g} \gamma(fg)$$
+            which is why we refer to $\gamma$ as the Yangian residue map.
+        \end{remark}
+
+        Next, let us fix an extension (in the sense of remark \ref{remark: extending_bilinear_forms_to_central_extensions}):
+            $$(-, -)_{\toroidal}$$
+        of the bilinear form $(-, -)_{\g_{[2]}}$ to $\toroidal$; \textit{a priori}, its radical is $\z_{[2]}$. A \textit{non-degenerate} symmetric $\bbC$-bilinear form:
+            $$(-, -)_{\extendedtoroidal}$$
+        on the vector space:
+            $$\extendedtoroidal := \toroidal \oplus \z_{[2]}^{\star}$$
+        can thus be constructed as an extension of the aforementioned bilinear form $(-, -)_{\toroidal}$: namely, it pairs elements of $\z_{[2]}$ and those of $\z_{[2]}^{\star}$ in the canonical manner. What we shall aim to do in the next section is to endow the vector space $\extendedtoroidal$ with a Lie algebra structure, with respect to which the form $(-, -)_{\extendedtoroidal}$ will be \textit{invariant}. These Lie algebra structures shall be known as \textbf{Yangian extended toroidal Lie algebras} or \textbf{$\gamma$-extended toroidal Lie algebras}, should the dependence on $\gamma$ need emphasising.
+
+        These Lie algebra structures shall arise as extensions of $\z_{[2]}^{\star}$ by $\toroidal$, but for this to even make sense, a Lie algebra structure must be put onto $\z_{[2]}^{\star}$. For this, we shall identify $\z_{[2]}^{\star}$ with a certain $\Z^2$-graded vector subspace:
+            $$\divzero$$
+        of $\der(A)$ (which shall always be endowed with the usual commutator bracket). Not only does this gives a natural Lie algebra structure on $\z_{[2]}^{\star}$, but because we know how to compute commutators of derivations, explicit commutators between elements of $\divzero$ (and hence between those of $\z_{[2]}^{\star}$) can be computed (cf. lemma \ref{lemma: commutators_of_yangian_div_zero_vector_fields}).
+
+        \textit{A priori}, the following definition can be stated:
+        \begin{definition}[Yangian extended toroidal Lie algebras] \label{def: yangian_extended_toroidal_lie_algebras}
+            A \textbf{Yangian extended toroidal Lie algebra} or \textbf{$\gamma$-extended toroidal Lie algebra} is a Lie algebra:
+                $$(\fraky, [-, -]_{\fraky})$$
+            along with the accompanying data of:
+            \begin{itemize}
+                \item an isomorphism of vector spaces:
+                    $$\mu: \fraky \xrightarrow[]{\cong} \toroidal \oplus \z_{[2]}^{\star}$$
+                \item an invariant non-degenerate symmetric bilinear form\footnote{... and we note the subtlety that the construction of the bilinear form $(-, -)_{\extendedtoroidal}$ depends on $\gamma$ (which is not reflected in our notations).}:
+                    $$(-, -)_{\fraky} := (-, -)_{\extendedtoroidal} \circ \mu^{\tensor 2}$$
+                \item a Lie algebra monomorphism:
+                    $$\iota: \toroidal \hookrightarrow \fraky$$
+            \end{itemize}
+        \end{definition}
+
+        Our main result concerning these Lie algebras is as follows:
+        \begin{theorem} \label{theorem: yangian_extended_toroidal_lie_algebras_preliminary_version}
+            A Lie algebra $\fraky$ is a Yangian toroidal Lie algebra if and only if it is isomorphic to some twisted semi-direct product (cf. definition \ref{def: twisted_semi_direct_products}):
+                $$\toroidal \rtimes^{\sigma} \divzero$$
+            wherein $\sigma \in Z^2_{\Lie}(\divzero, \z_{[2]})$ is such that:
+                $$(\sigma(D, D'), D'')_{\fraky(\sigma)} = (D, \sigma(D', D''))_{\fraky(\sigma)}$$
+            for any triple of elements $D, D', D'' \in \divzero$.
+        \end{theorem}
+        A trivial - but nevertheless very important to us - corollary of this theorem is as follows.
+        \begin{corollary}
+            The semi-direct product:
+                $$\toroidal \rtimes \divzero$$
+            corresponding to $\sigma = 0$, is a Yangian extended toroidal Lie algebra.
+        \end{corollary}
+        

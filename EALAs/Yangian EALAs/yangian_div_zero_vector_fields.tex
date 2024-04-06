@@ -15,21 +15,23 @@
             where $K_{(m, p), (r, s)}(x), K_{m, p}(x), K_{m, p}(x) \in \z_{[2]}$ are the undetermined summands.
 
             Furthermore, the basis elements of $\d_{[2]}$ are given explicitly in terms of the partial derivatives $\del_v := \frac{\del}{\del v}$ and $\del_t := \frac{\del}{\del t}$ by:
-                $$D_{r, s} = s v^{-r + 1} t^{-s - 1} \del_v - r v^{-r} t^{-s} \del_t$$
+                $$D_{r, s} = -s v^{-r + 1} t^{-s - 1} \del_v + r v^{-r} t^{-s} \del_t$$
                 $$D_v = -v t^{-1} \del_v$$
                 $$D_t = -\del_t$$
         \end{lemma}
+        \todo[inline]{Fixed the sign errors in the value of $D_{r, s}$.}
+        \todo[inline]{\textbf{Reminder:} Dr. Weekes and Dr. Wendlandt are using $\scrD_{r, s} := D_{-r, -s - 1}$. This notation has the advantage that $\deg K_{r, s} = \deg \scrD_{r, s} = s$.}
             \begin{proof}
                 Let us first see how the basis elements of $\d_{[2]}$ act on those of $\g_{[2]}$ before worrying about whether or not elements of the former are indeed derivations.
             
-                We begin by fixing $x, y \in \g$, $(m, p), (n, q) \in \Z^2$, along with some $D \in \d_{[2]}$. Then, consider the following:
+                We begin by fixing $x, y \in \g$, $(m, p), (n, q) \in \Z^2$, along with some $D \in \d_{[2]}$. Then, consider the following, for which we remind ourselves that $v^n t^q \bar{d}(v^m t^p) = (mq - np) K_{m + n, p + q} + \delta_{(m, p) + (n, q), (0, 0)} ( m c_v + p c_t )$ (cf. example \ref{example: toroidal_lie_algebras_centres}):
                     $$
                         \begin{aligned}
                             ( D, [x v^m t^p, y v^n t^q]_{\toroidal} )_{\extendedtoroidal} & = ( D, [x, y]_{\g} v^{m + n} t^{p + q} + (x, y)_{\g} v^n t^q \bar{d}( v^m t^p ) )_{\extendedtoroidal}
                             \\
                             & = (x, y)_{\g} ( D, v^n t^q \bar{d}( v^m t^p ) )_{\extendedtoroidal}
                             \\
-                            & = (x, y)_{\g} ( D, \delta_{(m, p) + (n, q), (0, 0)} ( n c_v + q c_t ) + (np - mq) K_{m + n, p + q} )_{\extendedtoroidal}
+                            & = (x, y)_{\g} ( D, (mq - np) K_{m + n, p + q} + \delta_{(m, p) + (n, q), (0, 0)} ( m c_v + p c_t ) )_{\extendedtoroidal}
                         \end{aligned}
                     $$
                 Now, without any loss of generality, let us suppose that $D \in \d_{[2]}$ is some basis element, i.e.:
@@ -39,13 +41,13 @@
                     \item \textbf{(Case 1: $D := D_{r, s}$):} Fix some $(r, s) \in \Z^2$ and consider the following: 
                         $$
                             \begin{aligned}
-                                ( D_{r, s}, [x v^m t^p, y v^n t^q]_{\toroidal} )_{\extendedtoroidal} & = (x, y)_{\g} ( D_{r, s}, \delta_{(m, p) + (n, q), (0, 0)} ( n c_v + q c_t ) + (np - mq) K_{m + n, p + q} )_{\extendedtoroidal}
+                                ( D_{r, s}, [x v^m t^p, y v^n t^q]_{\toroidal} )_{\extendedtoroidal} & = (x, y)_{\g} ( D_{r, s}, (mq - np) K_{m + n, p + q} + \delta_{(m, p) + (n, q), (0, 0)} ( m c_v + p c_t ) )_{\extendedtoroidal}
                                 \\
-                                & = (x, y)_{\g} (np - mq) \delta_{(r, s), (m + n, p + q)}
+                                & = (x, y)_{\g} (mq - np) \delta_{(r, s), (m + n, p + q)}
                             \end{aligned}
                         $$
                     The assumption that $(-, -)_{\extendedtoroidal}$ is invariant with respect to $[-, -]_{\extendedtoroidal}$ then implies that:
-                        $$( [D_{r, s}, x v^m t^p]_{\extendedtoroidal}, y v^n t^q )_{\extendedtoroidal} = (x, y)_{\g} (np - mq) \delta_{(r, s), (m + n, p + q)}$$
+                        $$( [D_{r, s}, x v^m t^p]_{\extendedtoroidal}, y v^n t^q )_{\extendedtoroidal} = (x, y)_{\g} (mq - np) \delta_{(r, s), (m + n, p + q)}$$
                     Now, suppose that:
                         $$[D_{r, s}, x v^m t^p]_{\extendedtoroidal} := \sum_{(a, b) \in \Z^2} \lambda_{a, b}(x) v^a t^b + K_{(m, p), (r, s)}(x) + \xi_{(m, p), (r, s)}(x)$$
                     for some $\lambda_{a, b}(x) \in \g$, $K_{(m, p), (r, s)}(x) \in \z_{[2]}$, and $\xi_{(m, p), (r, s)}(x) \in \d_{[2]}$, depending on our choices of $x \in \g$ and $(m, p) \in \Z^2$. Next, consider the following:
@@ -61,17 +63,17 @@
                             \end{aligned}
                         $$
                     which tells us that:
-                        $$(x, y)_{\g} (np - mq) \delta_{(r, s), (m + n, p + q)} = -(\lambda_{-n, -q - 1}(x), y)_{\g}$$
+                        $$(x, y)_{\g} (mq - np) \delta_{(r, s), (m + n, p + q)} = -(\lambda_{-n, -q - 1}(x), y)_{\g}$$
                     The non-degeneracy of the inner product $(-, -)_{\g}$ as well as the arbitrariness of the choices of $y \in \g$ and $(n, q) \in \Z^2$ then together imply that:
-                        $$\lambda_{-n, -q - 1}(x) = -(np - mq) \delta_{(r, s), (m + n, p + q)} = (mq - np) \delta_{(r, s), (m + n, p + q)}$$
+                        $$\lambda_{-n, -q - 1}(x) = -(mq - np) \delta_{(r, s), (m + n, p + q)} = (nq - mp) \delta_{(r, s), (m + n, p + q)}$$
                     for any fixed choices of $x \in \g$ and $(m, p) \in \Z^2$. From this, we infer that:
                         $$
                             \begin{aligned}
                                 [D_{r, s}, x v^m t^p]_{\extendedtoroidal} & = \sum_{(n, q) \in \Z^2} -(np - mq) \delta_{(r, s), (m + n, p + q)} v^{-n} t^{-q - 1} + K_{(m, p), (r, s)}(x) + \xi_{(m, p), (r, s)}(x)
                                 \\
-                                & = ( m(s - p) - (r - m)p ) x v^{m - r} t^{p - s - 1} + K_{(m, p), (r, s)}(x) + \xi_{(m, p), (r, s)}(x)
+                                & = ( (r - m)p - m(s - p) ) x v^{m - r} t^{p - s - 1} + K_{(m, p), (r, s)}(x) + \xi_{(m, p), (r, s)}(x)
                                 \\
-                                & = ( ms - rp ) x v^{m - r} t^{p - s - 1} + K_{(m, p), (r, s)}(x) + \xi_{(m, p), (r, s)}(x)
+                                & = ( rp - ms ) x v^{m - r} t^{p - s - 1} + K_{(m, p), (r, s)}(x) + \xi_{(m, p), (r, s)}(x)
                             \end{aligned}
                         $$
                         
@@ -106,7 +108,7 @@
                     \item \textbf{(Case 2: $D := D_v$):} In this case, it is easy to see that:
                         $$
                             \begin{aligned}
-                                ( D_v, [x v^m t^p, y v^n t^q]_{\toroidal} )_{\extendedtoroidal} & = (x, y)_{\g} ( D_v, \delta_{(m, p) + (n, q), (0, 0)} ( n c_v + q c_t ) + (np - mq) K_{m + n, p + q} )_{\extendedtoroidal}
+                                ( D_v, [x v^m t^p, y v^n t^q]_{\toroidal} )_{\extendedtoroidal} & = (x, y)_{\g} ( D_v, (mq - np) K_{m + n, p + q} + \delta_{(m, p) + (n, q), (0, 0)} ( m c_v + p c_t ) )_{\extendedtoroidal}
                                 \\
                                 & = (x, y)_{\g} \delta_{(m, p) + (n, q), (0, 0)} n
                             \end{aligned}
@@ -163,13 +165,13 @@
                             \end{aligned}
                         $$
                     At the same time, we also have that:
-                        $$D_{r, s}(v^m t^p) := ( ms - rp ) v^{m - r} t^{p - s - 1}$$
+                        $$D_{r, s}(v^m t^p) = ( rp - ms ) v^{m - r} t^{p - s - 1}$$
                     and hence:
-                        $$f(v, t) m v^{m - 1} t^p + g(v, t) p v^m t^{p - 1} = ( ms - rp ) v^{m - r} t^{p - s - 1}$$
+                        $$f(v, t) m v^{m - 1} t^p + g(v, t) p v^m t^{p - 1} = ( rp - ms ) v^{m - r} t^{p - s - 1}$$
                     From this, one infers that:
-                        $$f(v, t) = s v^{-r + 1} t^{-s - 1}, g(v, t) = -r v^{-r} t^{-s}$$
+                        $$f(v, t) = -s v^{-r + 1} t^{-s - 1}, g(v, t) = r v^{-r} t^{-s}$$
                     and therefore:
-                        $$D_{r, s} = s v^{-r + 1} t^{-s - 1} \del_v - r v^{-r} t^{-s} \del_t$$
+                        $$D_{r, s} = -s v^{-r + 1} t^{-s - 1} \del_v + r v^{-r} t^{-s} \del_t$$
                     \item One easily checks that:
                         $$D_v = -v t^{-1} \del_v$$
                     \item Likewise:
@@ -379,7 +381,11 @@
         \begin{corollary}[\texorpdfstring{$\z_{[2]}$}{}-summands of elements of \texorpdfstring{$[\d_{[2]}, \g_{[2]}]_{\extendedtoroidal}$}{}] \label{coro: derivation_action_on_multiloop_algebras}
             The action of $\d_{[2]}$ on $\g_{[2]}$ as in lemma \ref{lemma: derivation_action_on_multiloop_algebras} satisfies:
                 $$[\d_{[2]}, \g_{[2]}]_{\extendedtoroidal} \subseteq \g_{[2]}$$
-            From this, one can also infer that $\toroidal \cong \g_{[2]} \oplus \z_{[2]}$ is a direct sum of $\der(A)$-modules. 
+            Explicitly, the basis elements $D_{r, s}, D_v, D_t \in \d_{[2]}$ (cf. convention \ref{conv: orthogonal_complement_of_toroidal_centres}) thus act on generators of $\g_{[2]}$ (i.e. monomials of the form $x v^m t^p$ for some $x \in \g$ and some $(m, p) \in \Z^2$) in the following manner:
+                $$[D_{r, s}, x v^m t^p]_{\extendedtoroidal} = (rp - ms) x v^{m - r} t^{p - s - 1}$$
+                $$[D_v, x v^m t^p]_{\extendedtoroidal} = -m x v^m t^{p - 1}$$
+                $$[D_t, x v^m t^p]_{\extendedtoroidal} = -p x v^m t^{p - 1}$$
+            From this, one can also infer that $\toroidal \cong \g_{[2]} \oplus \z_{[2]}$ is a direct sum of $\der(A)$-modules.
         \end{corollary}
             \begin{proof}
                 From lemma \ref{lemma: derivation_action_on_multiloop_algebras}, we know that given some $D \in \d_{[2]}$ and some $x \in \g$ and $f \in A$, there shall exist $K(D, xf) \in \z_{[2]}$ (depending on the choices of $D$ and $x, f$) such that:
@@ -405,9 +411,9 @@
         \begin{lemma}[Explicitly commutators between basis elements of $\d_{[2]}$] \label{lemma: explicit_commutators_between_basis_elements_of_toroidal_central_orthogonal_complement}
             The usual commutator (i.e. $[D, D'] := DD' - D'D$) between the basis elements $D_{r, s}, D_v, D_t \in \d_{[2]}$ are given as follows:
                 $$[D_v, D_t] = 0$$
-                $$[D_v, D_{r, s}] = r D_{r, s + 1}$$
-                $$[D_t, D_{r, s}] = D_{r, s + 1}$$
-                $$[D_{a, b}, D_{r, s}] = (br - sa) D_{a + r, b + s + 1}$$
+                $$[D_v, D_{r, s}] = -r D_{r, s + 1}$$
+                $$[D_t, D_{r, s}] = -s D_{r, s + 1}$$
+                $$[D_{a, b}, D_{r, s}] = (br - as) D_{a + r, b + s + 1}$$
         \end{lemma}
             \begin{proof}
                 \begin{enumerate}
@@ -417,42 +423,44 @@
                         $$[D_v, D_t] = 0$$
                     \item From lemma \ref{lemma: derivation_action_on_multiloop_algebras}, we know that:
                         $$D_v(v^m t^p) = -m v^m t^{p - 1}$$
-                        $$D_{r, s}(v^m t^p) = ( ms - rp ) v^{m - r} t^{p - s - 1}$$
+                        $$D_{r, s}(v^m t^p) = ( rp - ms ) v^{m - r} t^{p - s - 1}$$
                     From this, we infer that:
                         $$
                             \begin{aligned}
-                                [D_v, D_{r, s}](v^m t^p) & = D_v( D_{r, s}(v^m t^p) ) - D_{r, s}( D_v(v^m t^p) )
+                                & [D_v, D_{r, s}](v^m t^p)
                                 \\
-                                & = (ms - rp) D_v( v^{m - r} t^{p - s - 1} ) + m D_{r, s}( v^m t^{p - 1} )
+                                = & D_v( D_{r, s}(v^m t^p) ) - D_{r, s}( D_v(v^m t^p) )
                                 \\
-                                & = -(m - r)(ms - rp) v^{m - r} t^{p - s - 2} + (ms - r(p - 1)) m v^{m - r} t^{p - s - 2}
+                                = & (rp - ms) D_v( v^{m - r} t^{p - s - 1} ) + m D_{r, s}( v^m t^{p - 1} )
                                 \\
-                                & = r(m(s + 1) - rp) v^{m - r} t^{p - (s + 1) - 1}
+                                = & -(m - r)(rp - ms) v^{m - r} t^{p - s - 2} + (ms - r(p - 1)) m v^{m - r} t^{p - s - 2}
                                 \\
-                                & = r D_{r, s + 1}(v^m t^p)
+                                = & -r(rp - m(s + 1)) v^{m - r} t^{p - (s + 1) - 1}
+                                \\
+                                = & -r D_{r, s + 1}(v^m t^p)
                             \end{aligned}
                         $$
                     and hence:
-                        $$[D_v, D_{r, s}] = r D_{r, s + 1}$$
+                        $$[D_v, D_{r, s}] = -r D_{r, s + 1}$$
                     \item Likewise, we have that:
-                        $$[D_t, D_{r, s}] = D_{r, s + 1}$$
-                    \item Lastly, we have that, again using the same method:
-                        $$[D_{a, b}, D_{r, s}] = (br - sa) D_{a + r, b + s + 1}$$
+                        $$[D_t, D_{r, s}] = -s D_{r, s + 1}$$
+                    \item Using the same method, we can show that:
+                        $$[D_{a, b}, D_{r, s}] = (br - as) D_{a + r, b + s + 1}$$
                 \end{enumerate}
             \end{proof}
 
-        \todo[inline]{Fixed $[\d_{[2]}, \z_{[2]}]_{\extendedtoroidal}$ computations.}
         Using lemma \ref{lemma: explicit_commutators_between_basis_elements_of_toroidal_central_orthogonal_complement}, we can now also explicitly compute the commutation relations between the basis elements of $\d_{[2]}$ and $\z_{[2]}$.
+        \todo[inline]{Fixed $[D_{r, s}, K_{a, b}]_{\extendedtoroidal}$ and $[D_t, K_{a, b}]_{\extendedtoroidal}$.}
         \begin{lemma}[Explicit commutators between basis elements of $\d_{[2]}$ and $\z_{[2]}$] \label{lemma: explicit_commutators_between_central_basis_elements_and_derivations}
             In the Lie algebra $\extendedtoroidal$, one has the following commutation relations between elements of $\z_{[2]}$ and those of $\d_{[2]}$. Namely, for all $D \in \d_{[2]}$, the following relations hold:
                 $$
                     \forall (a, b) \in \Z^2: [D, K_{a, b}]_{\extendedtoroidal} =
                     \begin{cases}
-                        \text{$((b - 1)r - sa) K_{a - r, b - s - 1} + \delta_{(r, s + 1), (a, b)} \left( r c_v + c_t \right)$ if $D = D_{r, s}$}
+                        \text{$((b - 1)r - sa) K_{a - r, b - s - 1} + \delta_{(r, s + 1), (a, b)} \left( r c_v + s c_t \right)$ if $D = D_{r, s}$}
                         \\
-                        \text{$-a K_{a, b - 1}$ if $D_v$}
+                        \text{$a K_{a, b - 1}$ if $D_v$}
                         \\
-                        \text{$-K_{a, b - 1}$ if $D_t$}
+                        \text{$b K_{a, b - 1}$ if $D_t$}
                     \end{cases}
                 $$
                 $$[D, c_v]_{\extendedtoroidal} = [D, c_t]_{\extendedtoroidal} = 0$$
@@ -493,15 +501,15 @@
                                     \\
                                     = & ( [D, D_{r, s}]_{\extendedtoroidal}, K_{a, b} )_{\extendedtoroidal}
                                     \\
-                                    = & \sum_{(\alpha, \beta) \in \Z^2} (\beta r - s \alpha) \lambda_{\alpha, \beta} \delta_{(\alpha + r, \beta + s + 1), (a, b)} + \delta_{(r, s + 1), (a, b)} \left( r\lambda_v + \lambda_t \right)
+                                    = & \sum_{(\alpha, \beta) \in \Z^2} (\beta r - s \alpha) \lambda_{\alpha, \beta} \delta_{(\alpha + r, \beta + s + 1), (a, b)} + \delta_{(r, s + 1), (a, b)} \left( r\lambda_v + s\lambda_t \right)
                                     \\
-                                    = & ((b - s - 1) r - s (a - r)) \lambda_{a - r, b - s - 1} + \delta_{(r, s + 1), (a, b)} \left( r\lambda_v + \lambda_t \right)
+                                    = & ((b - s - 1) r - s (a - r)) \lambda_{a - r, b - s - 1} + \delta_{(r, s + 1), (a, b)} \left( r\lambda_v + s\lambda_t \right)
                                     \\
-                                    = & ((b - 1)r - sa) \lambda_{a - r, b - s - 1} + \delta_{(r, s + 1), (a, b)} \left( r\lambda_v + \lambda_t \right)
+                                    = & ((b - 1)r - sa) \lambda_{a - r, b - s - 1} + \delta_{(r, s + 1), (a, b)} \left( r\lambda_v + s\lambda_t \right)
                                 \end{aligned}
                             $$
                         from which we are able to conclude that:
-                            $$[D_{r, s}, K_{a, b}]_{\extendedtoroidal} = ((b - 1)r - sa) K_{a - r, b - s - 1} + \delta_{(r, s + 1), (a, b)} \left( r c_v + c_t \right)$$
+                            $$[D_{r, s}, K_{a, b}]_{\extendedtoroidal} = ((b - 1)r - sa) K_{a - r, b - s - 1} + \delta_{(r, s + 1), (a, b)} \left( r c_v + s c_t \right)$$
                         \item If $D' = D_v$, then:
                             $$
                                 \begin{aligned}
@@ -509,13 +517,13 @@
                                     \\
                                     = & ( [D, D_v]_{\extendedtoroidal}, K_{a, b} )_{\extendedtoroidal}
                                     \\
-                                    = & -\sum_{(\alpha, \beta) \in \Z^2} \alpha \lambda_{\alpha, \beta} \delta_{(\alpha, \beta + 1), (a, b)} 
+                                    = & \sum_{(\alpha, \beta) \in \Z^2} \alpha \lambda_{\alpha, \beta} \delta_{(\alpha, \beta + 1), (a, b)} 
                                     \\
-                                    = & -a \lambda_{a, b - 1}
+                                    = & a \lambda_{a, b - 1}
                                 \end{aligned}
                             $$
                         from which we are able to conclude that:
-                            $$[D_v, K_{a, b}]_{\extendedtoroidal} = -aK_{a, b - 1}$$   
+                            $$[D_v, K_{a, b}]_{\extendedtoroidal} = aK_{a, b - 1}$$   
                         \item Finally, if $D' = D_t$, then:
                             $$
                                 \begin{aligned}
@@ -523,13 +531,13 @@
                                     \\
                                     = & ( [D, D_t]_{\extendedtoroidal}, K_{a, b} )_{\extendedtoroidal}
                                     \\
-                                    = & -\sum_{(\alpha, \beta) \in \Z^2} \lambda_{\alpha, \beta} \delta_{(\alpha, \beta + 1), (a, b)} 
+                                    = & \sum_{(\alpha, \beta) \in \Z^2} \beta \lambda_{\alpha, \beta} \delta_{(\alpha, \beta + 1), (a, b)} 
                                     \\
-                                    = & -\lambda_{a, b - 1}
+                                    = & b \lambda_{a, b - 1}
                                 \end{aligned}
                             $$
                         from which we are able to conclude that:
-                            $$[D_t, K_{a, b}]_{\extendedtoroidal} = -K_{a, b - 1}$$
+                            $$[D_t, K_{a, b}]_{\extendedtoroidal} = b K_{a, b - 1}$$
                     \end{enumerate}
                     \item If $K = c_v$ or $K = c_t$ then simply note that because:
                         $$[D, D']_{\extendedtoroidal} \in \bigoplus_{(\alpha, \beta) \in \Z^2} \bbC D_{\alpha, \beta}$$

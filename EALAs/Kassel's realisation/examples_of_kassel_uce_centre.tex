@@ -1,7 +1,7 @@
 \section{Some useful examples of UCEs}
     This section is for analysing some of the instances of UCEs of current algebras that are particularly useful to our purposes. Namely, we are interested in the UCEs of the Lie algebras:
         $$\g, \g[v^{\pm 1}], \g[v^{\pm 1}, t^{\pm 1}]$$
-    (corresponding to $A$ being isomorphic to $k, \bbC[v^{\pm 1}]$, and $\bbC[v^{\pm 1}, t^{\pm 1}]$ respectively). Also, by computing the centres of these UCEs explicitly (through giving bases for them), we will also be able to demonstrate how Kassel's realisation is useful for endowing theses UCEs with presentations in the style of Chevalley-Serre. For the Lie algebra $\uce(\g)$, which happens to coincide with $\g$, this is nothing but the usual Chevalley-Serre presentation as in theorem \ref{theorem: root_space_decomposition_for_finite_dimensional_simple_lie_algebras}. In more variables, we will only be interested in such a presentation for $\uce(\g[v^{\pm 1}, t])$, but for the sake of cohesion, we will be delaying this discussion until subsection \ref{subsection: toroidal_lie_bialgebras}.
+    (corresponding to $A$ being isomorphic to $k, \bbC[v^{\pm 1}]$, and $\bbC[v^{\pm 1}, t^{\pm 1}]$ respectively). 
 
     \subsection{Finite-dimensional simple Lie algebras}
         Consider, firstly, the case:
@@ -99,7 +99,8 @@
             In fact, any element of the form:
                 $$v^n t^q \bar{d}(v^m t^p) \in \bar{\Omega}^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC}$$
             can be written in terms of the basis vectors $K_{r, s}, c_v, c_t$ in the following manner:
-                $$v^n t^q \bar{d}(v^m t^p) = \delta_{(m, p) + (n, q), (0, 0)} ( n c_v + q c_t ) + (np - mq) K_{m + n, p + q}$$
+            \todo[inline]{There was a typo here, $np - mq$ (wrong) instead of $mq - np$ (correct).}
+                $$v^n t^q \bar{d}(v^m t^p) = (mq - np) K_{m + n, p + q} + \delta_{(m, p) + (n, q), (0, 0)} ( m c_v + p c_t )$$
             (cf. \cite[p. 35]{wendlandt_formal_shift_operators_on_yangian_doubles}).
 
             Finally, let us note that the Lie bracket on $\uce(\g[v^{\pm 1}, t^{\pm 1}])$ is given by:
@@ -107,11 +108,11 @@
                     \begin{aligned}
                         [x v^m t^p, y v^n t^q]_{\uce(\g[v^{\pm 1}, t^{\pm 1}])} & = [x, y]_{\g} v^{m + n} t^{p + q} + (x, y)_{\g} v^n t^q \bar{d}(v^m t^p)
                         \\
-                        & = [x, y]_{\g} v^{m + n} t^{p + q} + ( \delta_{(m, p) + (n, q), (0, 0)} ( n c_v + q c_t ) + (np - mq) K_{m + n, p + q} )
+                        & = [x, y]_{\g} v^{m + n} t^{p + q} + (x, y)_{\g} \left( (mq - np) K_{m + n, p + q} + \delta_{(m, p) + (n, q), (0, 0)} ( m c_v + p c_t ) \right)
                     \end{aligned}
                 $$
             for all $x, y \in \g$ and all $(m, p), (n, q) \in \Z^2$. As a side note, let us note that interestingly, unlike how $\g[v]$ admits only the trivial UCE, $\g[v^{\pm 1}, t]$ admits a non-trivial UCE, on which the Lie bracket is given by:
-                $$[x v^m t^p, y v^n t^q]_{\uce(\g[v^{\pm 1}, t])} = [x, y]_{\g} v^{m + n} t^{p + q} + ( \delta_{(m, p) + (n, q), (0, 0)} n c_v + (np - mq) K_{m + n, p + q} )$$
+                $$[x v^m t^p, y v^n t^q]_{\uce(\g[v^{\pm 1}, t])} = [x, y]_{\g} v^{m + n} t^{p + q} + (x, y)_{\g} \left( (mq - np) K_{m + n, p + q} + \delta_{m + n, 0} m c_v \right)$$
             for all $x, y \in \g$ and all $(m, p), (n, q) \in \Z \x \Z_{\geq 0}$. This also demonstrates that the vector subspace $\uce(\g[v^{\pm 1}, t])$ is closed under the Lie bracket on the larger vector space $\uce(\g[v^{\pm 1}, t^{\pm 1}])$, and therefore is a Lie subalgebra thereof.
         \end{example}
         \begin{remark}[The $\Z$-grading on toroidal Lie algebras] \label{remark: Z_gradings_on_toroidal_lie_algebras}
@@ -148,4 +149,9 @@
             The induced $\Z$-grading on $\bar{\Omega}^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC}$ is therefore given by:
                 $$\deg K_{r, s} = s$$
                 $$\deg c_v = 0, \deg c_t = 0$$
+        \end{remark}
+        \begin{remark}[The $\Z^2$-grading on toroidal centres] \label{remark: Z^2_grading_on_toroidal_centres}
+            From the discussion in remark \ref{remark: Z_gradings_on_toroidal_lie_algebras} (particular, from the fact that $A^{\tensor 2}$ has a canonical $\Z^2$-grading given by $\deg(f \tensor g) := (\deg f, \deg g)$), it can be inferred that aside from the $\Z$-grading on the second variable $t$, the toroidal centre $\bar{\Omega}^1_{A/\bbC}$ carries also a canonical $\Z^2$-grading, given by:
+                $$\deg K_{r, s} := (r, s)$$
+                $$\deg c_v = \deg c_t := (0, 0)$$
         \end{remark}
