@@ -1,4 +1,4 @@
-\section{Setup and overview of results}
+\section{Setups}
     Again, $\g$ is a finite-dimensional simple Lie algebra over $\bbC$. It is accompanied by all the data listed in subsection \ref{subsection: finite_dimensional_simple_lie_algebras}. 
 
     \subsection{Conventions for toroidal Lie algebras} \label{subsection: toroidal_lie_algebra_conventions}
@@ -10,18 +10,18 @@
     
         We will then be interested in the Lie algebra:
             $$\toroidal := \uce(\g_{[2]})$$
-        which, respectively, shall be referred to as the \textbf{toroidal Lie algebra} associated to $\g$. In example \ref{example: toroidal_lie_algebras_centres} and remark \ref{remark: Z_gradings_on_toroidal_lie_algebras}, the structures of the underlying ($\Z$-graded) vector spaces of these Lie algebras have already been described, and we refer the reader there for the details (in particular, the construction of a canonical basis for the underlying vector spaces of their centres). So that our notations would be suggestive, we shall be writing:
-            $$\z_{[2]} := \z(\toroidal)$$
-        from now on; often, we might refer to these as the \textbf{(positive) toroidal centres}.
-        
-        Now, instead of being equipped with the usual residue bilinear form of degree $(0, 0)$, the Lie algebra $\g_{[2]}$ will be equipped with the residue bilinear form of degree $(0, -1)$:
-            $$(x v^m t^p, y v^n t^q)_{\g_{[2]}} := -(x, y)_{\g} \delta_{(m, p) + (n, q), (0, -1)}$$
-        given for all $x, y \in \g$ and all $(m, p), (n, q) \in \Z^2$. It is easy to see that the bilinear form:
-            $$(-, -)_{\g_{[2]}}$$
-        is symmetric, non-degenerate, and invariant. Because $\toroidal$ has a non-trivial centre, any invariant (symmetric) bilinear form thereon (so in particular, any extension of $(-, -)_{\g_{[2]}}$ to $\toroidal$) is necessarily degenerate (see remark \ref{remark: extending_bilinear_forms_to_central_extensions}). The purpose of constructing \say{Yangian extended toroidal Lie algebras} is to remedy such degeneracy.
+        which, respectively, shall be referred to as the \textbf{toroidal Lie algebra} associated to $\g$. In example \ref{example: toroidal_lie_algebras_centres} and remark \ref{remark: Z_gradings_on_toroidal_lie_algebras}, the structures of the underlying ($\Z$-graded) vector spaces of these Lie algebras have already been described, and we refer the reader there for the details (in particular, the construction of a canonical basis for the underlying vector spaces of their centres). We will also be referring to the centre:
+            $$\z(\toroidal)$$
+        as the \textbf{toroidal centre}, for brevity.
 
-    \subsection{Outline of the construction and classification of Yangian extended toroidal Lie algebras}
-        \begin{definition}[Formal residue] \label{def: formal_residues}
+        We shall be writing:
+            $$\z(\toroidal)^{\star}$$
+        to mean the graded-dual of $\z(\toroidal)$ with respect to its $\Z^2$-grading as in remark \ref{remark: Z^2_grading_on_toroidal_centres}.
+    
+    \subsection{\texorpdfstring{$\gamma$}{}-divergence-zero vector fields} \label{subsection: yangian_div_zero_vector_fields}
+        \todo[inline]{Discussions of $\divzero$ have been moved to before the statement of the main theorem.}
+    
+        \begin{definition}[Formal residues] \label{def: formal_residues}
             The \textbf{formal residue} of any element $f(v_1, ..., v_n) \in \bbC[v_1^{\pm 1}, ..., v_n^{\pm 1}]$ is then given by:
                 $$\Res_{(v_1, ..., v_n) = (0, ..., 0)}(f) := ( \Res_{v_n = 0} \circ ... \circ \Res_{v_1 = 0} )( f(v_1, ..., v_n) )$$
             Each map:
@@ -36,60 +36,160 @@
             is a linear map.
         \end{remark}
     
-        \begin{convention}[The Yangian residue] \label{conv: yangian_residue}
-            For each $m \in \Z$, define a $\bbC$-linear map:
-                $$\gamma_m: A \to \bbC$$
-            given by:
-                $$\gamma_m(f) := -\Res_{(v, t) = (0, 0)}( v^{-m} f )$$
-            We will only be interested in the case $m = 1$, when we will be writing:
-                $$\gamma := \gamma_1$$
-            and refer to the map as the \textbf{Yangian residue map}. We will be making all of our constructions relative to this choice of linear map. All the definitions and results can be worked out similarly for a general $\gamma_m$ to what we shall be writing down in the sequel for $\gamma_1$.
-        \end{convention}
-        \begin{remark}
-            One sees thus that the bilinear form on $\g_{[2]}$ that was defined in subsection \ref{subsection: toroidal_lie_algebra_conventions} can now be given more compactly as:
-                $$(xf, yg)_{\g_{[2]}} := (x, y)_{\g} \gamma(fg)$$
-            which is why we refer to $\gamma$ as the Yangian residue map.
-        \end{remark}
-
-        Next, let us fix an extension (in the sense of remark \ref{remark: extending_bilinear_forms_to_central_extensions}):
-            $$(-, -)_{\toroidal}$$
-        of the bilinear form $(-, -)_{\g_{[2]}}$ to $\toroidal$; \textit{a priori}, its radical is $\z_{[2]}$. A \textit{non-degenerate} symmetric $\bbC$-bilinear form:
-            $$(-, -)_{\extendedtoroidal}$$
-        on the vector space:
-            $$\extendedtoroidal := \toroidal \oplus \z_{[2]}^{\star}$$
-        can thus be constructed as an extension of the aforementioned bilinear form $(-, -)_{\toroidal}$: namely, it pairs elements of $\z_{[2]}$ and those of $\z_{[2]}^{\star}$ in the canonical manner. What we shall aim to do in the next section is to endow the vector space $\extendedtoroidal$ with a Lie algebra structure, with respect to which the form $(-, -)_{\extendedtoroidal}$ will be \textit{invariant}. These Lie algebra structures shall be known as \textbf{Yangian extended toroidal Lie algebras} or \textbf{$\gamma$-extended toroidal Lie algebras}, should the dependence on $\gamma$ need emphasising.
-
-        These Lie algebra structures shall arise as extensions of $\z_{[2]}^{\star}$ by $\toroidal$, but for this to even make sense, a Lie algebra structure must be put onto $\z_{[2]}^{\star}$. For this, we shall identify $\z_{[2]}^{\star}$ with a certain $\Z^2$-graded vector subspace:
-            $$\divzero$$
-        of $\der(A)$ (which shall always be endowed with the usual commutator bracket). Not only does this gives a natural Lie algebra structure on $\z_{[2]}^{\star}$, but because we know how to compute commutators of derivations, explicit commutators between elements of $\divzero$ (and hence between those of $\z_{[2]}^{\star}$) can be computed (cf. lemma \ref{lemma: commutators_of_yangian_div_zero_vector_fields}).
-
-        \textit{A priori}, the following definition can be stated:
-        \begin{definition}[Yangian extended toroidal Lie algebras] \label{def: yangian_extended_toroidal_lie_algebras}
-            A \textbf{Yangian extended toroidal Lie algebra} or \textbf{$\gamma$-extended toroidal Lie algebra} is a Lie algebra:
-                $$(\fraky, [-, -]_{\fraky})$$
-            along with the accompanying data of:
-            \begin{itemize}
-                \item an isomorphism of vector spaces:
-                    $$\mu: \fraky \xrightarrow[]{\cong} \toroidal \oplus \z_{[2]}^{\star}$$
-                \item an invariant non-degenerate symmetric bilinear form\footnote{... and we note the subtlety that the construction of the bilinear form $(-, -)_{\extendedtoroidal}$ depends on $\gamma$ (which is not reflected in our notations).}:
-                    $$(-, -)_{\fraky} := (-, -)_{\extendedtoroidal} \circ \mu^{\tensor 2}$$
-                \item a Lie algebra monomorphism:
-                    $$\iota: \toroidal \hookrightarrow \fraky$$
-            \end{itemize}
-        \end{definition}
-
-        Our main result concerning these Lie algebras is as follows:
-        \begin{theorem} \label{theorem: yangian_extended_toroidal_lie_algebras_preliminary_version}
-            A Lie algebra $\fraky$ is a Yangian toroidal Lie algebra if and only if it is isomorphic to some twisted semi-direct product (cf. definition \ref{def: twisted_semi_direct_products}):
-                $$\toroidal \rtimes^{\sigma} \divzero$$
-            wherein $\sigma \in Z^2_{\Lie}(\divzero, \z_{[2]})$ is such that:
-                $$(\sigma(D, D'), D'')_{\fraky(\sigma)} = (D, \sigma(D', D''))_{\fraky(\sigma)}$$
-            for any triple of elements $D, D', D'' \in \divzero$.
-        \end{theorem}
-        A trivial - but nevertheless very important to us - corollary of this theorem is as follows.
-        \begin{corollary}
-            The semi-direct product:
-                $$\toroidal \rtimes \divzero$$
-            corresponding to $\sigma = 0$, is a Yangian extended toroidal Lie algebra.
+        For each $m \in \Z$, define a $\bbC$-linear map:
+            $$\gamma_m: A \to \bbC$$
+        given by:
+            $$\gamma_m(f) := -\Res_{(v, t) = (0, 0)}( v^{-m} f )$$
+        We will only be interested in the case $m = 1$, when we will be writing:
+            $$\gamma := \gamma_1$$
+        and refer to the map as the \textbf{$\gamma$-residue map}. We will be making all of our constructions relative to this choice of linear map. All the definitions and results can be worked out similarly for a general $\gamma_m$ to what we shall be writing down in the sequel for $\gamma_1$.
+    
+        \todo[inline]{Computed basis of $\divzero$. This is to fill in the details of the construction of $\der_{\gamma}(A)$ made at the top of p. 2 in the \lstinline{Ch2_revamped} file.}
+        \begin{lemma}[$\gamma$-divergence-zero vector fields] \label{lemma: yangian_div_zero_vector_fields_basis}
+            Let $\divzero$ be the vector subspace of $\der(A)$ defined as follows:
+                $$\divzero := \{ D \in \der(A) \mid \forall f \in A: \gamma(D(f)) = 0 \}$$
+            A basis for this vector subspace is then the set:
+                $$\{D_{r, s}\}_{(r, s) \in \Z^2} \cup \{D_v, D_t\}$$
+            whose elements are given in terms of the partial derivatives $\del_v := \frac{\del}{\del v}$ and $\del_t := \frac{\del}{\del t}$ by:
+                $$D_{r, s} := -s v^{-r + 1} t^{-s - 1} \del_v + r v^{-r} t^{-s} \del_t$$
+                $$D_v := -v t^{-1} \del_v$$
+                $$D_t := -\del_t$$
+        \end{lemma}
+            \begin{proof}
+                Any element $D \in \divzero$ is, of course, an element of $\der(A) \cong A \del_v \oplus A \del_t$, and hence can be written as:
+                    $$D := \sum_{(a, b) \in \Z^2} \left( \lambda_{a, b} v^a t^b \del_v + \mu_{a, b} v^a t^b \del_t \right)$$
+                for some $\lambda_{a, b}, \mu_{a, b} \in \bbC$. Consider then the following, where $f \in A$ is arbitrary:
+                    $$0 =\gamma(D(f)) = \sum_{(a, b) \in \Z^2} \left( \lambda_{a, b} \gamma(v^r t^s \del_v f) + \mu_{a, b} \gamma(v^a t^b \del_t f) \right)$$
+                Without any loss of generality, we can take $f \in A$ to be a basis element, i.e. $f := v^m t^p$ for some $(m, p) \in \Z^2$. Doing so yields:
+                    $$
+                        \begin{aligned}
+                            0 & = \sum_{(a, b) \in \Z^2} \left( \lambda_{a, b} \gamma(v^a t^b \del_v(v^m t^p)) + \mu_{a, b} \gamma(v^a t^b \del_t(v^m t^p)) \right)
+                            \\
+                            & = \sum_{(a, b) \in \Z^2} \left( m\lambda_{a, b} \gamma(v^{a + m - 1} t^{b + p}) + p \mu_{a, b} \gamma( v^{a + m} t^{b + p - 1} ) \right)
+                            \\
+                            & = -\sum_{(a, b) \in \Z^2} \left( m \lambda_{a, b} \delta_{(a + m - 1, b + p), (0, -1)} + p \mu_{a, b} \delta_{(a + m, b + p - 1), (0, -1)} \right)
+                            \\
+                            & = -\sum_{(a, b) \in \Z^2} \left( m \lambda_{a, b} \delta_{(a + m, b + p), (1, -1)} + p \mu_{a, b} \delta_{(a + m, b + p), (0, 0)} \right)
+                            \\
+                            & = -\left( m \lambda_{-m + 1, -p - 1} + p \mu_{-m, -p} \right)
+                        \end{aligned} 
+                    $$
+                for all $(m, p) \in \Z^2$. From this, one sees that:
+                    $$D = \sum_{(r, s) \in \Z^2} \lambda_{r, s} D_{r, s} + \lambda_v D_v + \lambda_t D_t$$
+                for some $\lambda_{r, s}, \lambda_v, \lambda_t \in \bbC$, where:
+                    $$D_{r, s} := -s v^{-r + 1} t^{-s - 1} \del_v + r v^{-r} t^{-s} \del_t$$
+                    $$D_v := -v t^{-1} \del_v$$
+                    $$D_t := -\del_t$$
+                These elements are clearly linearly independent, so we are done.
+            \end{proof}
+        \todo[inline]{Showed that $\divzero$ is a Lie subalgebra of $\der(A)$ with the usual commutator bracket (lemma 1.2 in \lstinline{Ch2_revamped}).}
+        \begin{lemma}[Commutators of $\gamma$-divergence-zero vector fields] \label{lemma: commutators_of_yangian_div_zero_vector_fields}
+            $\divzero$ is a Lie subalgebra of $\der(A)$. In particular, the basis elements of $\divzero$ satify the following commutation relations:
+                $$[D_v, D_t] = 0$$
+                $$[D_v, D_{r, s}] = -r D_{r, s + 1}$$
+                $$[D_t, D_{r, s}] = -s D_{r, s + 1}$$
+                $$[D_{a, b}, D_{r, s}] = (br - as) D_{a + r, b + s + 1}$$
+        \end{lemma}
+            \begin{proof}
+                \begin{enumerate}
+                    \item Since we know that:
+                        $$D_v = -vt^{-1} \del_v, D_t = -\del_t$$
+                    (cf. lemma \ref{lemma: yangian_div_zero_vector_fields_basis}), it is therefore trivial that:
+                        $$[D_v, D_t] = 0$$
+                    \item From lemma \ref{lemma: yangian_div_zero_vector_fields_basis}, we know that:
+                        $$D_v(v^m t^p) = -m v^m t^{p - 1}$$
+                        $$D_{r, s}(v^m t^p) = ( rp - ms ) v^{m - r} t^{p - s - 1}$$
+                    From this, we infer that:
+                        $$
+                            \begin{aligned}
+                                & [D_v, D_{r, s}](v^m t^p)
+                                \\
+                                = & D_v( D_{r, s}(v^m t^p) ) - D_{r, s}( D_v(v^m t^p) )
+                                \\
+                                = & (rp - ms) D_v( v^{m - r} t^{p - s - 1} ) + m D_{r, s}( v^m t^{p - 1} )
+                                \\
+                                = & -(m - r)(rp - ms) v^{m - r} t^{p - s - 2} + (ms - r(p - 1)) m v^{m - r} t^{p - s - 2}
+                                \\
+                                = & -r(rp - m(s + 1)) v^{m - r} t^{p - (s + 1) - 1}
+                                \\
+                                = & -r D_{r, s + 1}(v^m t^p)
+                            \end{aligned}
+                        $$
+                    and hence:
+                        $$[D_v, D_{r, s}] = -r D_{r, s + 1}$$
+                    \item Likewise, we have that:
+                        $$[D_t, D_{r, s}] = -s D_{r, s + 1}$$
+                    \item Using the same method, we can show that:
+                        $$[D_{a, b}, D_{r, s}] = (br - as) D_{a + r, b + s + 1}$$
+                \end{enumerate}
+            \end{proof}
+        \begin{corollary}[$\Z^2$-grading on $\gamma$-divergence-zero vector fields] \label{coro: yangian_div_zero_vector_fields_are_graded}
+            $\divzero$ is a $\Z^2$-graded Lie subalgebra of the $\Z^2$-graded Lie algebra $\der(A)$. Namely, the grading on $\divzero$ is given by\footnote{The reason for this choice of grading will become clear after proposition \ref{prop: yangian_div_zero_vector_fields_are_graded_dual_to_toroidal_centre}, which asserts that $\divzero \cong \z(\toroidal)^{\star}$ as $\Z^2$-graded vector spaces; recall that the latter has a natural $\Z^2$-grading given by $\deg K_{r, s} = (r, s), \deg c_v = \deg c_t = 0$.}:
+                $$\deg D_{r, s} := (-r, -s - 1)$$
+                $$\deg D_v = \deg D_t = (0, -1)$$
         \end{corollary}
-        
+
+        \todo[inline]{Showed that $\divzero \cong \z(\toroidal)^{\star}$ as $\Z^2$-graded vector spaces (lemma 1.4 in \lstinline{Ch2_revamped}).}
+        \begin{proposition}[$\gamma$-divergence-zero vector fields are graded-dual to toroidal centre] \label{prop: yangian_div_zero_vector_fields_are_graded_dual_to_toroidal_centre}
+            There is a $\Z^2$-graded vector space isomorphism:
+                $$\varphi: \divzero \xrightarrow[]{\cong} \z(\toroidal)^{\star}$$
+            determined by:
+                $$\varphi(D)( f\bar{d}g ) := \gamma( f D(g) )$$
+            for all $D \in \divzero$. This identifies the basis $\{D_{r, s}\}_{(r, s) \in \Z^2} \cup \{D_v, D_t\}$ of $\divzero$ as being $\Z^2$-graded dual to the basis $\{K_{r, s}\}_{(r, s) \in \Z^2} \cup \{c_v, c_t\}$ of $\z(\toroidal)$.
+        \end{proposition}
+            \begin{proof}
+                First of all, let us prove that $\varphi: \divzero \xrightarrow[]{\cong} \z(\toroidal)^{\star}$ as given is graded, and it is enough to check this on the basis elements: we claim that, because:
+                    $$\deg D_{r, s} = (-r, -s - 1)$$
+                    $$\deg D_v = \deg D_t = (0, 0)$$
+                (cf. corollary \ref{coro: yangian_div_zero_vector_fields_are_graded}) and because:
+                    $$\deg K_{a, b} = (a, b)$$
+                    $$\deg c_v = \deg c_t = (0, 0)$$
+                (cf. remark \ref{remark: Z^2_grading_on_toroidal_centres}), we ought to have that:
+                    $$\varphi(D_{r, s})(K_{a, b}) = \delta_{(a - r, b - s - 1), (-1, -1)}$$
+                    $$\varphi(D_v)(c_v) = \varphi(D_t)(c_t) = 1$$
+                for $D_{r, s}, D_v, D_t$ to be identified - respectively - as $\Z^2$-graded dual basis elements corresponding to $K_{r, s}, c_v, c_t$; a straightforward dimension argument will then show that $\varphi$ must be a vector space isomorphism. Indeed, we have that:
+                    $$
+                        \begin{aligned}
+                            \varphi(D_{r, s})(K_{a, b}) & = 
+                            \begin{cases}
+                                \text{$\gamma\left( \frac1b v^{a - 1} t^b D_{r, s}(v) \right)$ if $(a, b) \in \Z \x (\Z \setminus \{0\})$}
+                                \\
+                                \text{$\gamma\left( -\frac1a v^a t^{-1} \bar{d}t \right)$ if $(a, b) \in (\Z \setminus \{0\}) \x \{0\}$}
+                                \\
+                                \text{$0$ if $(a, b) = (0, 0)$}
+                            \end{cases}
+                            \\
+                            & = 
+                            \begin{cases}
+                                \text{$\gamma\left( -\frac{s}{b} v^{a - r} t^{b - s - 1} \right)$ if $(a, b) \in \Z \x (\Z \setminus \{0\})$}
+                                \\
+                                \text{$\gamma\left( -\frac{r}{a} v^{a - r} t^{-s - 1} \right)$ if $(a, b) \in (\Z \setminus \{0\}) \x \{0\}$}
+                                \\
+                                \text{$0$ if $(a, b) = (0, 0)$}
+                            \end{cases}
+                            \\
+                            & = \delta_{(a - r, b - s - 1), (-1, -1)}
+                        \end{aligned}
+                    $$
+                as well as:
+                    $$\varphi(D_v)(c_v) = \gamma(v^{-1} D_v(v)) = \gamma( -t^{-1} ) = 1$$
+                    $$\varphi(D_t)(c_t) = \gamma(t^{-1} D_t(t)) = \gamma( -t^{-1} ) = 1$$
+                Since:
+                    $$\divzero \cong \bigoplus_{(r, s) \in \Z^2} \bbC D_{r, s} \oplus \bbC D_v \oplus \bbC D_t$$
+                    $$\z(\toroidal)^{\star} \cong \bigoplus_{(r, s) \in \Z^2} (\bbC K_{r, s})^* \oplus (\bbC c_v)^* \oplus (\bbC c_t)^*$$
+                the computations above are enough to show that:
+                    $$\varphi: \divzero \to \z(\toroidal)^{\star}$$
+                as given is a vector space isomorphism.
+            \end{proof}
+        \begin{corollary}[Lie brackets on graded-duals of the toroidal centres] \label{coro: lie_bracket_on_graded_dual_of_toroidal_centres}
+            $\z(\toroidal)^{\star}$ is naturally a Lie algebra via the vector space isomorphism $\varphi: \divzero \xrightarrow[]{\cong} \z(\toroidal)^{\star}$.
+        \end{corollary}
+        \begin{corollary}[A non-degenerate bilinear form on $\z(\toroidal) \oplus \divzero$] \label{coro: pairing_yangian_div_zero_vector_fields_and_cyclic_1_forms}
+            There is a non-degenerate symmetric bilinear form $(-, -)_{\varphi}$ on the vector space $\z(\toroidal) \oplus \divzero$, given by:
+                $$(K, D)_{\varphi} = \varphi(D)(K)$$
+                $$(K, K')_{\varphi} = (D, D')_{\divzero} = 0$$
+            for all $K, K' \in \z(\toroidal), D, D' \in \divzero$.
+        \end{corollary}
+        \begin{remark}
+            Note that the pairing $(-, -)_{\toroidal}$ as in corollary \ref{coro: pairing_yangian_div_zero_vector_fields_and_cyclic_1_forms}, when regarded as an element of $\z(\toroidal) \tensor_{\bbC} \z(\toroidal)^{\star}$, which has a canonical $\Z^2$-grading coming from those on $\z(\toroidal)$ and $\z(\toroidal)^{\star}$, has total degree $-1$ due to the choice of $\Z^2$-grading on $\divzero$ (and hence on $\z(\toroidal)^{\star}$, thanks to proposition \ref{prop: yangian_div_zero_vector_fields_are_graded_dual_to_toroidal_centre}) that was made in corollary \ref{coro: yangian_div_zero_vector_fields_are_graded}.
+        \end{remark}

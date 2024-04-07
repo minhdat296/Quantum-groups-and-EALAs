@@ -1,235 +1,110 @@
-\section{Construction of Yangian extended toroidal Lie algebras}
-    \subsection{Yangian divergence-zero vector fields}
-        \todo[inline]{Computed basis of $\divzero$.}
-        \begin{lemma}[Yangian divergence-zero vector fields] \label{lemma: yangian_div_zero_vector_fields_basis}
-            Let $\divzero$ be the vector subspace of $\der(A)$ defined as follows:
-                $$\divzero := \{ D \in \der(A) \mid \forall f \in A: \gamma(D(f)) = 0 \}$$
-            A basis for this vector subspace is then the set:
-                $$\{D_{r, s}\}_{(r, s) \in \Z^2} \cup \{D_v, D_t\}$$
-            whose elements are given in terms of the partial derivatives $\del_v := \frac{\del}{\del v}$ and $\del_t := \frac{\del}{\del t}$ by:
-                $$D_{r, s} := -s v^{-r + 1} t^{-s - 1} \del_v + r v^{-r} t^{-s} \del_t$$
-                $$D_v := -v t^{-1} \del_v$$
-                $$D_t := -\del_t$$
-        \end{lemma}
-            \begin{proof}
-                Any element $D \in \divzero$ is, of course, an element of $\der(A) \cong A \del_v \oplus A \del_t$, and hence can be written as:
-                    $$D := \sum_{(a, b) \in \Z^2} \left( \lambda_{a, b} v^a t^b \del_v + \mu_{a, b} v^a t^b \del_t \right)$$
-                for some $\lambda_{a, b}, \mu_{a, b} \in \bbC$. Consider then the following, where $f \in A$ is arbitrary:
-                    $$0 =\gamma(D(f)) = \sum_{(a, b) \in \Z^2} \left( \lambda_{a, b} \gamma(v^r t^s \del_v f) + \mu_{a, b} \gamma(v^a t^b \del_t f) \right)$$
-                Without any loss of generality, we can take $f \in A$ to be a basis element, i.e. $f := v^m t^p$ for some $(m, p) \in \Z^2$. Doing so yields:
-                    $$
-                        \begin{aligned}
-                            0 & = \sum_{(a, b) \in \Z^2} \left( \lambda_{a, b} \gamma(v^a t^b \del_v(v^m t^p)) + \mu_{a, b} \gamma(v^a t^b \del_t(v^m t^p)) \right)
-                            \\
-                            & = \sum_{(a, b) \in \Z^2} \left( m\lambda_{a, b} \gamma(v^{a + m - 1} t^{b + p}) + p \mu_{a, b} \gamma( v^{a + m} t^{b + p - 1} ) \right)
-                            \\
-                            & = -\sum_{(a, b) \in \Z^2} \left( m \lambda_{a, b} \delta_{(a + m - 1, b + p), (0, -1)} + p \mu_{a, b} \delta_{(a + m, b + p - 1), (0, -1)} \right)
-                            \\
-                            & = -\sum_{(a, b) \in \Z^2} \left( m \lambda_{a, b} \delta_{(a + m, b + p), (1, -1)} + p \mu_{a, b} \delta_{(a + m, b + p), (0, 0)} \right)
-                            \\
-                            & = -\left( m \lambda_{-m + 1, -p - 1} + p \mu_{-m, -p} \right)
-                        \end{aligned} 
-                    $$
-                for all $(m, p) \in \Z^2$. From this, one sees that:
-                    $$D = \sum_{(r, s) \in \Z^2} \lambda_{r, s} D_{r, s} + \lambda_v D_v + \lambda_t D_t$$
-                for some $\lambda_{r, s}, \lambda_v, \lambda_t \in \bbC$, where:
-                    $$D_{r, s} := -s v^{-r + 1} t^{-s - 1} \del_v + r v^{-r} t^{-s} \del_t$$
-                    $$D_v := -v t^{-1} \del_v$$
-                    $$D_t := -\del_t$$
-                These elements are clearly linearly independent, so we are done.
-            \end{proof}
-        \todo[inline]{Showed that $\divzero \cong \z_{[2]}^{\star}$ as $\Z^2$-graded vector spaces.}
-        \begin{lemma}[Commutators of Yangian divergence-zero vector fields] \label{lemma: commutators_of_yangian_div_zero_vector_fields}
-            $\divzero$ is a Lie subalgebra of $\der(A)$. In particular, the basis elements of $\divzero$ satify the following commutation relations:
-                $$[D_v, D_t] = 0$$
-                $$[D_v, D_{r, s}] = -r D_{r, s + 1}$$
-                $$[D_t, D_{r, s}] = -s D_{r, s + 1}$$
-                $$[D_{a, b}, D_{r, s}] = (br - as) D_{a + r, b + s + 1}$$
-        \end{lemma}
-            \begin{proof}
-                \begin{enumerate}
-                    \item Since we know that:
-                        $$D_v = -vt^{-1} \del_v, D_t = -\del_t$$
-                    (cf. lemma \ref{lemma: yangian_div_zero_vector_fields_basis}), it is therefore trivial that:
-                        $$[D_v, D_t] = 0$$
-                    \item From lemma \ref{lemma: yangian_div_zero_vector_fields_basis}, we know that:
-                        $$D_v(v^m t^p) = -m v^m t^{p - 1}$$
-                        $$D_{r, s}(v^m t^p) = ( rp - ms ) v^{m - r} t^{p - s - 1}$$
-                    From this, we infer that:
-                        $$
-                            \begin{aligned}
-                                & [D_v, D_{r, s}](v^m t^p)
-                                \\
-                                = & D_v( D_{r, s}(v^m t^p) ) - D_{r, s}( D_v(v^m t^p) )
-                                \\
-                                = & (rp - ms) D_v( v^{m - r} t^{p - s - 1} ) + m D_{r, s}( v^m t^{p - 1} )
-                                \\
-                                = & -(m - r)(rp - ms) v^{m - r} t^{p - s - 2} + (ms - r(p - 1)) m v^{m - r} t^{p - s - 2}
-                                \\
-                                = & -r(rp - m(s + 1)) v^{m - r} t^{p - (s + 1) - 1}
-                                \\
-                                = & -r D_{r, s + 1}(v^m t^p)
-                            \end{aligned}
-                        $$
-                    and hence:
-                        $$[D_v, D_{r, s}] = -r D_{r, s + 1}$$
-                    \item Likewise, we have that:
-                        $$[D_t, D_{r, s}] = -s D_{r, s + 1}$$
-                    \item Using the same method, we can show that:
-                        $$[D_{a, b}, D_{r, s}] = (br - as) D_{a + r, b + s + 1}$$
-                \end{enumerate}
-            \end{proof}
-        \begin{corollary}[$\Z^2$-grading on Yangian divergence-zero vector fields] \label{coro: yangian_div_zero_vector_fields_are_graded}
-            $\divzero$ is a $\Z^2$-graded Lie subalgebra of the $\Z^2$-graded Lie algebra $\der(A)$. Namely, the grading on $\divzero$ is given by\footnote{The reason for this choice of grading will become clear after proposition \ref{prop: yangian_div_zero_vector_fields_are_graded_dual_to_toroidal_centre}, which asserts that $\divzero \cong \z_{[2]}^{\star}$ as $\Z^2$-graded vector spaces; recall that the latter has a natural $\Z^2$-grading given by $\deg K_{r, s} = (r, s), \deg c_v = \deg c_t = 0$.}:
-                $$\deg D_{r, s} := (-r, -s - 1)$$
-                $$\deg D_v = \deg D_t = (0, -1)$$
-        \end{corollary}
-        \begin{proposition}[Yangian divergence-zero vector fields are graded-dual to toroidal centre] \label{prop: yangian_div_zero_vector_fields_are_graded_dual_to_toroidal_centre}
-            There is a $\Z^2$-graded vector space isomorphism:
-                $$\varphi: \divzero \xrightarrow[]{\cong} \z_{[2]}^{\star}$$
-            determined by:
-                $$\varphi(D)( f\bar{d}g ) := \gamma( f D(g) )$$
-            for all $D \in \divzero$. This identifies the basis $\{D_{r, s}\}_{(r, s) \in \Z^2} \cup \{D_v, D_t\}$ of $\divzero$ as being $\Z^2$-graded dual to the basis $\{K_{r, s}\}_{(r, s) \in \Z^2} \cup \{c_v, c_t\}$
+\section{Construction of \texorpdfstring{$\gamma$}{}-extended toroidal Lie algebras}
+    \subsection{Outline and statement of the main result}
+        Using the linear map:
+            $$\gamma: A \to \bbC$$
+        as in subsection \ref{subsection: yangian_div_zero_vector_fields}, we can construct an \textit{invariant} and \textit{non-degenerate} symmetric bilinear form on $\g_{[2]}$, given as follows:
+            $$(xf, yg)_{\g_{[2]}} := (x, y)_{\g} \gamma(fg)$$
+        for all $x, y \in \g$ and all $f, g \in A$. Next, let us fix an \textit{invariant} extension (in the sense of remark \ref{remark: extending_bilinear_forms_to_central_extensions}):
+            $$(-, -)_{\toroidal}$$
+        of the bilinear form $(-, -)_{\g_{[2]}}$ to $\toroidal$. \textit{A priori}, it is degenerate, with:
+            $$\Rad(-, -)_{\toroidal} := \{ K \in \toroidal \mid \forall X \in \toroidal (K, X)_{\toroidal} = 0 \} = \z(\toroidal)$$
+        To fix this degeneracy of $(-, -)_{\toroidal}$, a \textit{non-degenerate} extension thereof to the vector space $\extendedtoroidal := \toroidal \oplus \z(\toroidal)^{\star}$.
+        \todo[inline]{The non-degenerate bilinear form on $\extendedtoroidal$ as on p. 1 of \lstinline{Ch2_revamped}.}
+        \begin{proposition}[A non-degenerate bilinear form extending $(-, -)_{\toroidal}$]
+            On the vector space $\extendedtoroidal := \toroidal \oplus \z(\toroidal)^{\star}$, there is a non-degenerate and symmetric bilinear form $(-, -)_{\extendedtoroidal}$ given by:
+                $$( X + D, Y + D' )_{\extendedtoroidal} := (X, Y)_{\toroidal} + \varphi(D')( \pi_{\z(\toroidal)}(X) ) + \varphi(D)( \pi_{\z(\toroidal)}(Y) )$$
+            for all $X, Y \in \toroidal$ and all $D, D' \in \divzero$, extending the bilinear form $(-, -)_{\toroidal}$ on $\toroidal$. Here, $\pi_{\z(\toroidal)}: \extendedtoroidal \to \z(\toroidal)$ denotes the canonical projection and $\varphi: \divzero \xrightarrow[]{\cong} \z(\toroidal)^{\star}$ is as in proposition \ref{prop: yangian_div_zero_vector_fields_are_graded_dual_to_toroidal_centre}.
         \end{proposition}
             \begin{proof}
-                First of all, let us prove that $\varphi: \divzero \xrightarrow[]{\cong} \z_{[2]}^{\star}$ as given is graded, and it is enough to check this on the basis elements: we claim that, because:
-                    $$\deg D_{r, s} = (-r, -s - 1)$$
-                    $$\deg D_v = \deg D_t = (0, 0)$$
-                (cf. corollary \ref{coro: yangian_div_zero_vector_fields_are_graded}) and because:
-                    $$\deg K_{a, b} = (a, b)$$
-                    $$\deg c_v = \deg c_t = (0, 0)$$
-                (cf. remark \ref{remark: Z^2_grading_on_toroidal_centres}), we ought to have that:
-                    $$\varphi(D_{r, s})(K_{a, b}) = \delta_{(a - r, b - s - 1), (-1, -1)}$$
-                    $$\varphi(D_v)(c_v) = \varphi(D_t)(c_t) = 1$$
-                for $D_{r, s}, D_v, D_t$ to be identified - respectively - as $\Z^2$-graded dual basis elements corresponding to $K_{r, s}, c_v, c_t$; a straightforward dimension argument will then show that $\varphi$ must be a vector space isomorphism. Indeed, we have that:
-                    $$
-                        \begin{aligned}
-                            \varphi(D_{r, s})(K_{a, b}) & = 
-                            \begin{cases}
-                                \text{$\gamma\left( \frac1b v^{a - 1} t^b D_{r, s}(v) \right)$ if $(a, b) \in \Z \x (\Z \setminus \{0\})$}
-                                \\
-                                \text{$\gamma\left( -\frac1a v^a t^{-1} \bar{d}t \right)$ if $(a, b) \in (\Z \setminus \{0\}) \x \{0\}$}
-                                \\
-                                \text{$0$ if $(a, b) = (0, 0)$}
-                            \end{cases}
-                            \\
-                            & = 
-                            \begin{cases}
-                                \text{$\gamma\left( -\frac{s}{b} v^{a - r} t^{b - s - 1} \right)$ if $(a, b) \in \Z \x (\Z \setminus \{0\})$}
-                                \\
-                                \text{$\gamma\left( -\frac{r}{a} v^{a - r} t^{-s - 1} \right)$ if $(a, b) \in (\Z \setminus \{0\}) \x \{0\}$}
-                                \\
-                                \text{$0$ if $(a, b) = (0, 0)$}
-                            \end{cases}
-                            \\
-                            & = \delta_{(a - r, b - s - 1), (-1, -1)}
-                        \end{aligned}
-                    $$
-                as well as:
-                    $$\varphi(D_v)(c_v) = \gamma(v^{-1} D_v(v)) = \gamma( -t^{-1} ) = 1$$
-                    $$\varphi(D_t)(c_t) = \gamma(t^{-1} D_t(t)) = \gamma( -t^{-1} ) = 1$$
-                Since:
-                    $$\divzero \cong \bigoplus_{(r, s) \in \Z^2} \bbC D_{r, s} \oplus \bbC D_v \oplus \bbC D_t$$
-                    $$\z_{[2]}^{\star} \cong \bigoplus_{(r, s) \in \Z^2} (\bbC K_{r, s})^* \oplus (\bbC c_v)^* \oplus (\bbC c_t)^*$$
-                the computations above are enough to show that:
-                    $$\varphi: \divzero \to \z_{[2]}^{\star}$$
-                as given is a vector space isomorphism.
+                Clear from corollary \ref{coro: pairing_yangian_div_zero_vector_fields_and_cyclic_1_forms}.
             \end{proof}
-        \begin{corollary}[Lie brackets on graded-duals of the toroidal centres] \label{coro: lie_bracket_on_graded_dual_of_toroidal_centres}
-            $\z_{[2]}^{\star}$ is naturally a Lie algebra via the vector space isomorphism $\varphi: \divzero \xrightarrow[]{\cong} \z_{[2]}^{\star}$.
-        \end{corollary}
-        \begin{corollary}[A non-degenerate bilinear form extending $(-, -)_{\toroidal}$] \label{coro: pairing_yangian_div_zero_vector_fields_and_cyclic_1_forms}
-            On the vector space $\z_{[2]} \oplus \divzero$, there is a natural non-degenerate symmetric bilinear form $\<-, -\>$ given by:
-                $$( K, D )_{\varphi} := \varphi(D)(K)$$
-            for all $K \in \z_{[2]}$ and all $D \in \divzero$. This induces a non-degenerate symmetric bilinear form $(-, -)_{\toroidal \oplus \divzero}$ on the vector space $\toroidal \oplus \divzero$, given by:
-                $$(xf, yg)_{\toroidal \oplus \divzero} := (xf, yg)_{\g_{[2]}}$$
-                $$(K, D)_{\toroidal \oplus \divzero} := (K, D)_{\varphi}$$
-                $$(xf, K)_{\toroidal \oplus \divzero} := (xf, K)_{\toroidal} = 0$$
-                $$(xf, D)_{\toroidal \oplus \divzero} := 0$$
-            for all $x, y \in \g, f, g \in A$ and $K \in \z_{[2]}, D \in \divzero$, extending the bilinear form $(-, -)_{\toroidal}$.
-        \end{corollary}
-        \begin{convention}
-            Since we now have a vector space isomorphism:
-                $$\toroidal \oplus \divzero \xrightarrow[\cong]{\id_{\toroidal} \oplus \varphi} \toroidal \oplus \z_{[2]}^{\star} =: \extendedtoroidal$$
-            we shall abuse notations and equate $(-, -)_{\toroidal \oplus \divzero}$ with $(-, -)_{\extendedtoroidal}$.
-        \end{convention}
-        \begin{remark}
-            Note that the pairing $(-, -)_{\toroidal}$ as in corollary \ref{coro: pairing_yangian_div_zero_vector_fields_and_cyclic_1_forms}, when regarded as an element of $\z_{[2]} \tensor_{\bbC} \z_{[2]}^{\star}$, which has a canonical $\Z^2$-grading coming from those on $\z_{[2]}$ and $\z_{[2]}^{\star}$, has total degree $-1$ due to the choice of $\Z^2$-grading on $\divzero$ (and hence on $\z_{[2]}^{\star}$, thanks to proposition \ref{prop: yangian_div_zero_vector_fields_are_graded_dual_to_toroidal_centre}) that was made in corollary \ref{coro: yangian_div_zero_vector_fields_are_graded}.
-        \end{remark}
 
-    \subsection{Yangian extended toroidal Lie algebras are twisted semi-direct products}
-        Now that we have identified an isomorphism:
-            $$\varphi: \divzero \xrightarrow[]{\cong} \z_{[2]}^{\star}$$
-        let us subsequently consider the vector space:
-            $$\toroidal \oplus \divzero$$
-        which is isomorphic to $\extendedtoroidal := \toroidal \oplus \z_{[2]}^{\star}$ via $\id_{\toroidal} \oplus \varphi$. From now on, it will always be equipped with the non-degenerate bilinear form $(-, -)_{\extendedtoroidal}$ constructed in corollary \ref{coro: pairing_yangian_div_zero_vector_fields_and_cyclic_1_forms}. We would like to identify all Yangian extended toroidal Lie algebra structures $[-, -]_{\extendedtoroidal}$ on the vector space $\extendedtoroidal$, in the sense of definition \ref{def: yangian_extended_toroidal_lie_algebras}, which is the same as identifying all Lie algebra structures on $\toroidal \oplus \divzero$ with respect to which . As mentioned earlier, our claim is that all such Lie algebra structures are isomorphic to twisted semi-direct products:
-            $$\toroidal \rtimes^{\sigma} \divzero$$
-        whose corresponding $2$-cocycle $\sigma \in Z^2_{\Lie}(\divzero, \toroidal)$ satisfy a certain property (which will be discussed in the next subsection).
+        \todo[inline]{Definition 1.1 in \lstinline{Ch2_revamped}.}
+        \begin{definition}[$\gamma$-extended toroidal Lie algebras] \label{def: yangian_extended_toroidal_lie_algebras}
+            A \textbf{$\gamma$-extended toroidal Lie algebra} or \textbf{$\gamma$-extended toroidal Lie algebra} is quadruple:
+                $$(\fraky, \mu, [-, -]_{\fraky}, (-, -)_{\fraky})$$
+            consisting of:
+            \begin{itemize}
+                \item a vector space $\fraky$;
+                \item an isomorphism of vector spaces:
+                    $$\mu: \fraky \xrightarrow[]{\cong} \toroidal \oplus \z(\toroidal)^{\star}$$
+                \item a Lie bracket $[-, -]_{\fraky}: \bigwedge^2 \fraky \to \fraky$, such that the canonical inclusion of vector spaces $\toroidal \subset \fraky$ is a Lie algebra monomorphism;
+                \item a non-degenerate symmetric bilinear form\footnote{... and we note the subtlety that the construction of the bilinear form $(-, -)_{\extendedtoroidal}$ depends on $\gamma$ (which is not reflected in our notations).}:
+                    $$(-, -)_{\fraky} := (-, -)_{\extendedtoroidal} \circ \mu^{\tensor 2}$$
+                that is \textit{invariant} with respect to the Lie bracket $[-, -]_{\fraky}$.
+            \end{itemize}
+        \end{definition}
 
-        To characterise Yangian extended toroidal Lie algebras as certain twisted semi-direct products of the form $\toroidal \rtimes^{\sigma} \divzero$, we shall apply proposition \ref{prop: twisted_semi_direct_product_criterion}. This result requires two inputs:
-        \begin{enumerate}
-            \item We shall need to firstly show that $\toroidal$ is a $\divzero$-module - say, determined by a Lie algebra homomorphism $\rho: \divzero \to \gl(\toroidal)$ - such that:
-                $$[\divzero, \toroidal]_{\extendedtoroidal} = \rho(\divzero) \cdot \toroidal$$
-            where a linear section $\divzero \to \extendedtoroidal$ has been implicitly chosen.
-            \item Secondly, we will need to show that Yangian extended toroidal Lie algebras are isomorphic as Lie algebras to certain extensions of $\divzero$ by $\toroidal$, for which we shall need to show that for any $D, D' \in \divzero$, the $\divzero$-summand of the bracket:
-                $$[D, D']_{\divzero}$$
-            is nothing but the usual commutator. This gives us a surjective Lie algebra homomorphism:
-                $$\extendedtoroidal \to \divzero$$
-            and therefore a Lie algebra extension:
-                $$0 \to \toroidal \to \extendedtoroidal \to \divzero \to 0$$
-        \end{enumerate}
-
-        The first assertion is now trivial, in light of proposition \ref{prop: yangian_div_zero_vector_fields_are_graded_dual_to_toroidal_centre}. Nevertheless, let us package it into a lemma for organisational purposes and due to its importance.
-        \begin{lemma}[Yangian extended toroidal Lie algebras are extensions] \label{lemma: yangian_extended_toroidal_lie_algebras_are_extensions}
-            Any Lie algebra structure on the vector space $\extendedtoroidal$ shall give rise to a Lie algebra extension:
-                $$0 \to \toroidal \to \fraky \to \divzero \to 0$$
-            where the underlying vector space of $\fraky$ is isomorphic to $\extendedtoroidal$. 
-        \end{lemma}
-
-        Let us now prove the second assertion. 
-
-        First of all, we shall need to fix a $\divzero$-module structure on $\toroidal$, which we shall do by fixing module structures on $\g_{[2]}$ and $\z_{[2]}$.
-        \begin{convention}
-            Let $\divzero$ act on $A$ in the canonical manner, i.e. evaluations of derivations $D \in \divzero$ on elements $f \in A$:
+        \todo[inline]{$\divzero$-action on $\toroidal$}
+        \begin{convention} \label{conv: a_fixed_yangian_div_zero_vector_field_action} 
+            Let us fix a $\divzero$-module structure on $\toroidal$, originating naturally from a natural action of $\divzero$ on $A$, and we do this by fixing module structures on $\g_{[2]}$ and $\z(\toroidal)$. Let $\divzero$ act on $A$ by evaluations of derivations $D \in \divzero$ on elements $f \in A$:
                 $$D \cdot f := D(f)$$
             This induces the following obvious $\divzero$-action on $\g_{[2]}$, given by:
                 $$D \cdot xf := x D(f)$$
-            for all $x \in \g$ and all $f \in A$. It also induces an action of $\divzero$ on $\z_{[2]} \cong \bar{\Omega}_{[2]}$ by \say{Lie derivatives}, i.e.:
+            for all $x \in \g$ and all $f \in A$. It also induces an action of $\divzero$ on $\z(\toroidal) \cong \bar{\Omega}_{[2]}$ by \say{Lie derivatives}, i.e.:
                 $$D \cdot f\bar{d}g := Df \bar{d}g + f \bar{d}(D(g))$$
             As such, we have a $\divzero$-action:
                 $$\rho: \divzero \to \gl(\toroidal)$$
-            on $\toroidal \cong \g_{[2]} \oplus \z_{[2]}$.
+            on $\toroidal \cong \g_{[2]} \oplus \z(\toroidal)$.
         \end{convention}
 
-        To begin, let us see that elements of $\divzero$ are certain derivations on $D$.
-        \todo[inline]{Rephrased and reproved that $[\divzero, \g_{[2]}]_{\extendedtoroidal} \subseteq \g_{[2]} \oplus \z_{[2]}$}
+        Our main result concerning $\gamma$-extended toroidal Lie algebras is as follows:
+        \begin{theorem} \label{theorem: yangian_extended_toroidal_lie_algebras_main_theorem}
+            A given Lie algebra $(\fraky, [-, -]_{\fraky})$ is a $\gamma$-extended toroidal Lie algebra if and only if the following conditions are satisfied simultaneously:
+            \begin{enumerate}
+                \item there is a vector space isomorphism:
+                    $$\toroidal \rtimes^{\sigma} \divzero \xrightarrow[\cong]{\id_{\toroidal} \oplus \varphi} \fraky$$
+                with $\varphi$ as in proposition \ref{prop: yangian_div_zero_vector_fields_are_graded_dual_to_toroidal_centre};
+                \item for all $D \in \divzero$ and all $X \in \toroidal$, one has that:
+                    $$[D, X]_{\fraky} = \rho(D) \cdot X$$
+                (i.e. the action of $\divzero$ on $\toroidal$ is independent of $\sigma$) with $\rho: \divzero \to \gl(\toroidal)$ as in convention \ref{conv: a_fixed_yangian_div_zero_vector_field_action};
+
+                \todo[inline]{Is this second condition the same as what was meant by "the action of $\divzero$ on $\toroidal$ is independent of the choice of extension" ?}
+                \item the $2$-cocycle $\sigma \in Z^2_{\Lie}(\divzero, \z(\toroidal))$ is such that:
+                    $$(\sigma(D, D'), D'')_{\extendedtoroidal} = (D, \sigma(D', D''))_{\extendedtoroidal}$$
+                for any triple of elements $D, D', D'' \in \divzero$. 
+            \end{enumerate}
+        \end{theorem}
+        Two trivial but important corollaries are as follows.
+        \begin{corollary}
+            $\toroidal$ is a Lie algebra ideal of any $\gamma$-extended toroidal Lie algebra.
+        \end{corollary}
+        \begin{corollary}
+            The semi-direct product:
+                $$\toroidal \rtimes \divzero$$
+            corresponding to $\sigma = 0$, is a $\gamma$-extended toroidal Lie algebra.
+        \end{corollary}
+
+    \subsection{\texorpdfstring{$\gamma$}{}-extended toroidal Lie algebras are twisted semi-direct products}
+        \todo[inline]{The proof of the "only if" direction of theorem 2.1 in \lstinline{Ch2_revamped} is contained entirely within this subsection.}
+
+        \todo[inline]{Rephrased and reproved that $[\divzero, \g_{[2]}]_{\extendedtoroidal} \subseteq \g_{[2]} \oplus \z(\toroidal)$}
         \begin{lemma}[$\divzero$ acts on $\g_{[2]}$ by derivations] \label{lemma: derivation_action_on_multiloop_algebras}
             For any $D \in \divzero$ and any $x \in \g, f \in A$, we have that:
                 $$[D, xf]_{\extendedtoroidal} = x D(f) + K( D, xf )$$
-            for some yet-unknown $K( D, xf ) \in \z_{[2]}$. As such, we have that:
-                $$[\divzero, \g_{[2]}]_{\extendedtoroidal} \subseteq \g_{[2]} \oplus \z_{[2]}$$
-            as of now\footnote{In corollary \ref{coro: derivation_action_on_multiloop_algebras}, it will be shown that in fact, the $\z_{[2]}$-summand $K( D, xf )$ vanishes.}.
+            for some yet-unknown $K( D, xf ) \in \z(\toroidal)$. As such, we have that:
+                $$[\divzero, \g_{[2]}]_{\extendedtoroidal} \subseteq \g_{[2]} \oplus \z(\toroidal)$$
+            as of now\footnote{In corollary \ref{coro: derivation_action_on_multiloop_algebras}, it will be shown that in fact, the $\z(\toroidal)$-summand $K( D, xf )$ vanishes.}.
         \end{lemma}
             \begin{proof}
                 Consider firstly the following, for any $D \in \divzero$ and any $x, y \in \g, f, g \in A$:
                     $$( [D, xf]_{\extendedtoroidal}, yg )_{\extendedtoroidal} = ( D, [xy, fg]_{\toroidal} )_{\extendedtoroidal} = (x, y)_{\g} ( D, g\bar{d}f )_{\extendedtoroidal} = (x, y)_{\g} \gamma( g D(f) )$$
-                where the last equality is due to corollary \ref{coro: pairing_yangian_div_zero_vector_fields_and_cyclic_1_forms}. At the same time, we have that:
+                At the same time, we have that:
                     $$( x D(f), yg )_{\extendedtoroidal} = (x, y)_{\g} \gamma( g D(f) )$$
                 Clearly, then, we have that:
                     $$( [D, xf]_{\extendedtoroidal}, yg )_{\extendedtoroidal} = ( x D(f), yg )_{\extendedtoroidal}$$
-                Since $yg \in \g_{[2]}$ is arbitrary and since $(\z_{[2]}, \g_{[2]})_{\extendedtoroidal} = 0$, the above implies via the non-degeneracy of $(-, -)_{\extendedtoroidal}$ that there exists some $K(D, xf) \in \z_{[2]}$ such that:
+                Since $yg \in \g_{[2]}$ is arbitrary and since $(\z(\toroidal), \g_{[2]})_{\extendedtoroidal} = 0$, the above implies via the non-degeneracy of $(-, -)_{\extendedtoroidal}$ that there exists some $K(D, xf) \in \z(\toroidal)$ such that:
                     $$[D, xf]_{\extendedtoroidal} = x D(f) + K(D, xf)$$
             \end{proof}
     
-        As we know how $\divzero$ acts on $\g_{[2]}$ (cf. lemma \ref{lemma: derivation_action_on_multiloop_algebras}), it remains to see how it acts on $\z_{[2]}$ to completely determine its action on $\toroidal$. 
-        \begin{lemma}[$\divzero$ acts on $\z_{[2]}$ by Lie derivatives] \label{lemma: derivation_action_on_toroidal_centres}
-            Elements of $\divzero$ act on those of $\z_{[2]}$ as Lie derivatives. This is to say that, the elements $D \in \divzero$ act on the generating elements $f \bar{d}g \in \z_{[2]}$ (for some $f, g \in A$) in the following manner:
+        \begin{lemma}[$\divzero$ acts on $\z(\toroidal)$ by Lie derivatives] \label{lemma: derivation_action_on_toroidal_centres}
+            Elements of $\divzero$ act on those of $\z(\toroidal)$ as Lie derivatives. This is to say that, the elements $D \in \divzero$ act on the generating elements $f \bar{d}g \in \z(\toroidal)$ (for some $f, g \in A$) in the following manner:
                 $$[D, f \bar{d}g]_{\extendedtoroidal} = \xi_D(f) \bar{d}g + f \bar{d}(\xi_D(g))$$
             where $\xi_D \in \der(A)$ is a derivation on $A$ determined uniquely by $A$ (well-defined because $\divzero$ is a vector subspace of $\der(A)$ per lemma \ref{lemma: derivation_action_on_multiloop_algebras}). In particular, this means that:
-                $$[\divzero, \z_{[2]}]_{\extendedtoroidal} \subseteq \z_{[2]}$$
+                $$[\divzero, \z(\toroidal)]_{\extendedtoroidal} \subseteq \z(\toroidal)$$
         \end{lemma}
             \begin{proof}
-                Without any loss of generality, let us consider the following for any $h, h' \in \h$ so that\footnote{We can make this assumption because ultimately, elements of $\z_{[2]}$ do not depend on those of $\g$.}:
+                Without any loss of generality, let us consider the following for any $h, h' \in \h$ so that\footnote{We can make this assumption because ultimately, elements of $\z(\toroidal)$ do not depend on those of $\g$.}:
                     $$(h, h')_{\g} = 1$$
                 any $f, g \in A$, and any $D \in \divzero$:
                     $$[ D, [h f, h' g]_{\toroidal} ]_{\extendedtoroidal} = [ D, f \bar{d}( g ) ]_{\extendedtoroidal}$$
@@ -246,147 +121,49 @@
                 One thus sees that:
                     $$[ D, f \bar{d}( g ) ]_{\extendedtoroidal} = f \bar{d}( D( g ) ) + D( f ) \bar{d}(g)$$
                 and since the element $f \bar{d}( g )$ is central (via the map $\e$ mentioned earlier), this gives another description of:
-                    $$[ \divzero, \z_{[2]} ]_{\extendedtoroidal}$$
+                    $$[ \divzero, \z(\toroidal) ]_{\extendedtoroidal}$$
                 With this in mind, we return quickly to lemma \ref{lemma: derivation_action_on_multiloop_algebras}; there, we previously demonstrated that:
-                    $$[ \divzero, \g_{[2]} ]_{\extendedtoroidal} \subseteq \g_{[2]} \oplus \z_{[2]}$$
+                    $$[ \divzero, \g_{[2]} ]_{\extendedtoroidal} \subseteq \g_{[2]} \oplus \z(\toroidal)$$
                 but we claim now that the following stronger fact holds:
                     $$[ \divzero, \g_{[2]} ]_{\extendedtoroidal} \subseteq \g_{[2]}$$
-                To see why this is the case, suppose firstly that for any $D \in \divzero$, any $X := x f \in \g_{[2]}$ (for some $f \in A$), there is $K(X) \in \z_{[2]}$ depending on $X$ (and indeed, such a $K(X)$ exists by lemma \ref{lemma: derivation_action_on_multiloop_algebras}) such that:
+                To see why this is the case, suppose firstly that for any $D \in \divzero$, any $X := x f \in \g_{[2]}$ (for some $f \in A$), there is $K(X) \in \z(\toroidal)$ depending on $X$ (and indeed, such a $K(X)$ exists by lemma \ref{lemma: derivation_action_on_multiloop_algebras}) such that:
                     $$[ D, X ]_{\extendedtoroidal} = x D( f ) + K(X)$$
                 Next, pick an arbitrary element $\xi \in \divzero$ and then consider the following:
                     $$( [ D, X ]_{\extendedtoroidal}, \xi )_{\extendedtoroidal} = (D(X) + K(X), \xi)_{\extendedtoroidal} = (K(X), \xi)_{\extendedtoroidal}$$
                 wherein the last equality holds as a consequence of the fact that:
                     $$( \g_{[2]}, \divzero )_{\extendedtoroidal} = 0$$
-                per the construction of the bilinear form $(-, -)_{\extendedtoroidal}$ as in corollary \ref{coro: pairing_yangian_div_zero_vector_fields_and_cyclic_1_forms}.
+                per the construction of the bilinear form $(-, -)_{\extendedtoroidal}$.
             \end{proof}
-        \begin{corollary}[Toroidal Lie algebras are ideals]
+        \begin{corollary}[Toroidal Lie algebras are ideals] \label{coro: toroidal_lie_algebras_are_ideals}
             With respect to the bracket $[-, -]_{\extendedtoroidal}$, the vector subspace $\toroidal$ is actually a Lie ideal of $\extendedtoroidal$.
         \end{corollary}
-        Using lemma \ref{lemma: commutators_of_yangian_div_zero_vector_fields} in conjunction with lemma \ref{lemma: derivation_action_on_toroidal_centres}, we can now also explicitly compute the commutation relations between the basis elements of $\divzero$ and $\z_{[2]}$.
-        \begin{lemma}[Explicit commutators between basis elements of $\divzero$ and $\z_{[2]}$] \label{lemma: explicit_commutators_between_central_basis_elements_and_derivations}
-            In the Lie algebra $\extendedtoroidal$, one has the following commutation relations between elements of $\z_{[2]}$ and those of $\divzero$. Namely, for all $D \in \divzero$, the following relations hold:
-                $$
-                    \forall (a, b) \in \Z^2: [D, K_{a, b}]_{\extendedtoroidal} =
-                    \begin{cases}
-                        \text{$((b - 1)r - sa) K_{a - r, b - s - 1} + \delta_{(r, s + 1), (a, b)} \left( r c_v + s c_t \right)$ if $D = D_{r, s}$}
-                        \\
-                        \text{$a K_{a, b - 1}$ if $D_v$}
-                        \\
-                        \text{$b K_{a, b - 1}$ if $D_t$}
-                    \end{cases}
-                $$
-                $$[D, c_v]_{\extendedtoroidal} = [D, c_t]_{\extendedtoroidal} = 0$$
-        \end{lemma}
-            \begin{proof}
-                For this, we shall be making use of invariance again, namely:
-                    $$(D, [D', K]_{\extendedtoroidal})_{\extendedtoroidal} = ([D, D']_{\extendedtoroidal}, K)_{\extendedtoroidal}$$
-                for all $D, D' \in \divzero$ and all $K \in \z_{[2]}$, and how the brackets $[D, D']_{\extendedtoroidal}$ are given explicitly (cf. lemma \ref{lemma: commutators_of_yangian_div_zero_vector_fields}) as well as how basis elements $K \in \z_{[2]}$ pair with basis elements of $\divzero$ in the construction of $(-, -)_{\extendedtoroidal}$ (cf. corollary \ref{coro: pairing_yangian_div_zero_vector_fields_and_cyclic_1_forms}). Without any loss of generality, we can assume that $D, D' \in \divzero$ and $K \in \z_{[2]}$ are basis elements, i.e.:
-                    $$D, D' \in \{D_{r, s}\}_{(r, s) \in \Z^2} \cup \{D_v, D_t\}$$
-                    $$K \in \{K_{a, b}\}_{(a, b) \in \Z^2} \cup \{c_v, c_t\}$$
-                and then perform the computations case-by-case, for which we shall recall from example \ref{example: toroidal_lie_algebras_centres} that:
-                    $$
-                        K_{a, b} :=
-                        \begin{cases}
-                            \text{$\frac1b v^{a - 1} t^b \bar{d}v$ if $(a, b) \in \Z \x (\Z \setminus \{0\})$}
-                            \\
-                            \text{$-\frac1a v^a t^{-1} \bar{d}t$ if $(a, b) \in (\Z \setminus \{0\}) \x \{0\}$}
-                            \\
-                            \text{$0$ if $(a, b) = (0, 0)$}
-                        \end{cases}
-                    $$
-                    $$c_v := v^{-1} \bar{d}v, c_t := t^{-1} \bar{d}t$$
-                and from lemma \ref{lemma: commutators_of_yangian_div_zero_vector_fields}, that:
-                    $$[D_v, D_t] = 0$$
-                    $$[D_v, D_{r, s}] = r D_{r, s + 1}$$
-                    $$[D_t, D_{r, s}] = D_{r, s + 1}$$
-                    $$[D_{\alpha, \beta}, D_{r, s}] = (\beta r - s \alpha) D_{\alpha + r, \beta + s + 1}$$
-                For what follows, let:
-                    $$D := \sum_{(\alpha, \beta) \in \Z^2} \lambda_{\alpha, \beta} D_{\alpha, \beta} + \lambda_v D_v + \lambda_t D_t$$
-                for some $\lambda_{\alpha, \beta}, \lambda_v, \lambda_t \in \bbC$.
-                \begin{enumerate}
-                    \item Assume firstly that $K = K_{a, b}$.
-                    \begin{enumerate}
-                        \item If $D' = D_{r, s}$, then we shall have that:
-                            $$
-                                \begin{aligned}
-                                    & ( D, [D_{r, s}, K_{a, b}]_{\extendedtoroidal} )_{\extendedtoroidal}
-                                    \\
-                                    = & ( [D, D_{r, s}]_{\extendedtoroidal}, K_{a, b} )_{\extendedtoroidal}
-                                    \\
-                                    = & \sum_{(\alpha, \beta) \in \Z^2} (\beta r - s \alpha) \lambda_{\alpha, \beta} \delta_{(\alpha + r, \beta + s + 1), (a, b)} + \delta_{(r, s + 1), (a, b)} \left( r\lambda_v + s\lambda_t \right)
-                                    \\
-                                    = & ((b - s - 1) r - s (a - r)) \lambda_{a - r, b - s - 1} + \delta_{(r, s + 1), (a, b)} \left( r\lambda_v + s\lambda_t \right)
-                                    \\
-                                    = & ((b - 1)r - sa) \lambda_{a - r, b - s - 1} + \delta_{(r, s + 1), (a, b)} \left( r\lambda_v + s\lambda_t \right)
-                                \end{aligned}
-                            $$
-                        from which we are able to conclude that:
-                            $$[D_{r, s}, K_{a, b}]_{\extendedtoroidal} = ((b - 1)r - sa) K_{a - r, b - s - 1} + \delta_{(r, s + 1), (a, b)} \left( r c_v + s c_t \right)$$
-                        \item If $D' = D_v$, then:
-                            $$
-                                \begin{aligned}
-                                    & ( D, [D_v, K_{a, b}]_{\extendedtoroidal} )_{\extendedtoroidal}
-                                    \\
-                                    = & ( [D, D_v]_{\extendedtoroidal}, K_{a, b} )_{\extendedtoroidal}
-                                    \\
-                                    = & \sum_{(\alpha, \beta) \in \Z^2} \alpha \lambda_{\alpha, \beta} \delta_{(\alpha, \beta + 1), (a, b)} 
-                                    \\
-                                    = & a \lambda_{a, b - 1}
-                                \end{aligned}
-                            $$
-                        from which we are able to conclude that:
-                            $$[D_v, K_{a, b}]_{\extendedtoroidal} = aK_{a, b - 1}$$   
-                        \item Finally, if $D' = D_t$, then:
-                            $$
-                                \begin{aligned}
-                                    & ( D, [D_t, K_{a, b}]_{\extendedtoroidal} )_{\extendedtoroidal}
-                                    \\
-                                    = & ( [D, D_t]_{\extendedtoroidal}, K_{a, b} )_{\extendedtoroidal}
-                                    \\
-                                    = & \sum_{(\alpha, \beta) \in \Z^2} \beta \lambda_{\alpha, \beta} \delta_{(\alpha, \beta + 1), (a, b)} 
-                                    \\
-                                    = & b \lambda_{a, b - 1}
-                                \end{aligned}
-                            $$
-                        from which we are able to conclude that:
-                            $$[D_t, K_{a, b}]_{\extendedtoroidal} = b K_{a, b - 1}$$
-                    \end{enumerate}
-                    \item If $K = c_v$ or $K = c_t$ then simply note that because:
-                        $$[D, D']_{\extendedtoroidal} \in \bigoplus_{(\alpha, \beta) \in \Z^2} \bbC D_{\alpha, \beta}$$
-                    for all $D' \in \divzero$, we shall have that:
-                        $$[D, K]_{\extendedtoroidal} = 0$$
-                    for all $D := \sum_{(\alpha, \beta) \in \Z^2} \lambda_{\alpha, \beta} D_{\alpha, \beta} + \lambda_v D_v + \lambda_t D_t \in \divzero$.
-                \end{enumerate}
-            \end{proof}
+
         We have now yielded the following intermediate conclusion:
-        \begin{proposition}[$\toroidal$ as a $\divzero$-module] \label{prop: toroidal_lie_algebras_as_modules_over_div_0_vector_field_lie_algebras}
+        \begin{proposition}[$\toroidal$ as a $\divzero$-module] \label{prop: toroidal_lie_algebras_as_modules_over_div_zero_vector_field_lie_algebras}
             The $\divzero$-module structure:
                 $$\rho: \divzero \to \gl(\toroidal)$$
             is such that:
                 $$[\divzero, \toroidal]_{\extendedtoroidal} = \rho(\divzero) \cdot \toroidal$$
+            regardless of our choice of the Lie bracket $[-, -]_{\extendedtoroidal}$ on the vector space $\extendedtoroidal$.
         \end{proposition}
 
         Finally, let us investigate how the brackets of the form:
             $$[D, D']_{\extendedtoroidal}$$
-        are given. Should it be true that the $\divzero$-summand of the brackets of the form $[D, D']_{\extendedtoroidal}$ are the usual commutators $[D, D']$, we will be able to identify $\extendedtoroidal$ as a Lie algebra extension of $\divzero$ by $\toroidal$. It turns out that this is indeed true and in fact, we have that:
-            $$[D, D']_{\extendedtoroidal} \in \z_{[2]} \oplus \divzero$$
-        which suggests to us that the difference:
-            $$\sigma(D, D') := [D, D']_{\extendedtoroidal} - [D, D']$$
-        gives rise to a Lie $2$-cocycle $\sigma \in Z^2_{\Lie}(\divzero, \z_{[2]})$. By combining this with proposition \ref{prop: toroidal_lie_algebras_as_modules_over_div_0_vector_field_lie_algebras}, we shall get the desired result, i.e. that $\extendedtoroidal$ is isomorphic to a twisted semi-direct product $\toroidal \rtimes^{\sigma} \divzero$. 
+        are given, for all $D, D' \in \divzero$.
         \begin{proposition}[How does $\divzero$ act on itself] \label{prop: lie_bracket_on_orthogonal_complement_of_toroidal_centre}
             We have that:
-                $$[ \divzero, \divzero ]_{\extendedtoroidal} \subset \z_{[2]} \oplus \divzero$$
-            i.e. the $\g_{[2]}$-summand of any commutator of the kind $[D, D']_{\extendedtoroidal}$ (for any two $D, D' \in \divzero$) actually vanishes. Furthermore, neither the $\z_{[2]}$- nor the $\divzero$-summand of those commutators $[D, D']_{\extendedtoroidal}$ necessarily vanish in general. 
+                $$[ \divzero, \divzero ]_{\extendedtoroidal} \subset \z(\toroidal) \oplus \divzero$$
+            i.e. the $\g_{[2]}$-summand of any commutator of the kind $[D, D']_{\extendedtoroidal}$ (for any two $D, D' \in \divzero$) actually vanishes. Furthermore, neither the $\z(\toroidal)$- nor the $\divzero$-summand of those commutators $[D, D']_{\extendedtoroidal}$ necessarily vanish in general. 
         \end{proposition}
             \begin{proof}
                 For convenience, we will be abbreviating $\h_{[2]} := \h[v^{\pm}, t^{\pm 1}]$ and $\n^{\pm}_{[2]} := [v^{\pm}, t^{\pm 1}]$, with $\n^{\pm} := \bigoplus_{\alpha \in \Phi^{\pm}} \g_{\alpha}$ being the direct sums of the positive/negative roots spaces of $\g$, as usual.
             
                 Pick arbitrary elements $D, D' \in \divzero$ and set:
                     $$[D, D']_{\extendedtoroidal} := X(D, D') + Z(D, D') + \xi(D, D')$$
-                for some $X(D, D') \in \g_{[2]}, Z(D, D') \in \z_{[2]}$, and $\xi(D, D') \in \divzero$ depending on $D, D'$. Pick also a test element $y g \in \g_{[2]}$, for some arbitrary $y \in \g$ and $g \in A$ and set:
+                for some $X(D, D') \in \g_{[2]}, Z(D, D') \in \z(\toroidal)$, and $\xi(D, D') \in \divzero$ depending on $D, D'$. Pick also a test element $y g \in \g_{[2]}$, for some arbitrary $y \in \g$ and $g \in A$ and set:
                     $$[D, y g]_{\extendedtoroidal} := y D( g ) + K(D, Y)$$
                     $$[D', y g]_{\extendedtoroidal} := y D'( g ) + K(D', Y)$$
-                for some $K(D, Y) \in \z_{[2]}$ depending on $Y$ (cf. lemma \ref{lemma: derivation_action_on_multiloop_algebras}).
+                for some $K(D, Y) \in \z(\toroidal)$ depending on $Y$ (cf. lemma \ref{lemma: derivation_action_on_multiloop_algebras}).
                 
                 Via the Jacobi identity, we get that:
                     $$
@@ -402,7 +179,7 @@
                             = & y (DD' - D'D)( g ) + ( K(DD', Y) - K(D'D, Y) ) + ( [ D, K(D', Y) ]_{\extendedtoroidal} - [ D', K(D, Y) ]_{\extendedtoroidal} )
                         \end{aligned}
                     $$
-                for some $K(DD', Y), K(D'D, Y) \in \z_{[2]}$ such that:
+                for some $K(DD', Y), K(D'D, Y) \in \z(\toroidal)$ such that:
                     $$[ D, y D'( g ) ]_{\extendedtoroidal} := y D( D'( g ) ) + K(DD', Y)$$
                     $$[ D', y D( g ) ]_{\extendedtoroidal} := y D( D'( g ) ) + K(D'D, Y)$$
                 At the same time, we have that:
@@ -417,7 +194,7 @@
                             = & [ X(D, D') , y g ]_{\extendedtoroidal} + \left( y \xi(D, D')(g) + K_{\xi(D, D'), Y} \right)
                         \end{aligned}
                     $$
-                wherein the second equality holds thanks to the fact that $[\z_{[2]}, \g_{[2]}]_{\extendedtoroidal} = 0$, and $K_{\xi(D, D'), Y} \in \z_{[2]}$ is some element (cf. lemma \ref{lemma: derivation_action_on_multiloop_algebras}). Combining the two observations together then yields:
+                wherein the second equality holds thanks to the fact that $[\z(\toroidal), \g_{[2]}]_{\extendedtoroidal} = 0$, and $K_{\xi(D, D'), Y} \in \z(\toroidal)$ is some element (cf. lemma \ref{lemma: derivation_action_on_multiloop_algebras}). Combining the two observations together then yields:
                     $$
                         \begin{aligned}
                             & [ X(D, D') , y g ]_{\extendedtoroidal} + \left( y \xi(D, D')(g) + K_{\xi(D, D'), Y} \right)
@@ -425,7 +202,7 @@
                             = & y (DD' - D'D)( g ) + ( K(DD', Y) - K(D'D, Y) ) + ( [ D, K(D', Y) ]_{\extendedtoroidal} - [ D', K(D, Y) ]_{\extendedtoroidal} )
                         \end{aligned}
                     $$
-                There exists $K_{X(D, D'), Y} \in \z_{[2]}$ such that:
+                There exists $K_{X(D, D'), Y} \in \z(\toroidal)$ such that:
                     $$[ X(D, D') , y g ]_{\extendedtoroidal} = [ X(D, D') , Y ]_{\extendedtoroidal} = [X(D, D'), Y]_{\g_{[2]}} + K_{X(D, D'), Y}$$
                 using which we can write:
                     $$
@@ -436,7 +213,7 @@
                         \end{aligned}
                     $$
                     
-                We note right away that the LHS lies entirely in $\g_{[2]}$, whereas the RHS is an element of $\z_{[2]}$ due to the fact that $[\divzero, \z_{[2]}]_{\extendedtoroidal} \subseteq \z_{[2]}$ (cf. lemma \ref{lemma: derivation_action_on_toroidal_centres}), which tells us that $[ D, K(D', Y) ]_{\extendedtoroidal}, [ D', K(D, Y) ]_{\extendedtoroidal} \in \z_{[2]}$ in particular. Because $\g_{[2]}$ is centreless (as $\g$ is simple and the Lie bracket on $\g_{[2]}$ is given by extension of scalars), this observation subsequently implies that the LHS must vanish, i.e.:
+                We note right away that the LHS lies entirely in $\g_{[2]}$, whereas the RHS is an element of $\z(\toroidal)$ due to the fact that $[\divzero, \z(\toroidal)]_{\extendedtoroidal} \subseteq \z(\toroidal)$ (cf. lemma \ref{lemma: derivation_action_on_toroidal_centres}), which tells us that $[ D, K(D', Y) ]_{\extendedtoroidal}, [ D', K(D, Y) ]_{\extendedtoroidal} \in \z(\toroidal)$ in particular. Because $\g_{[2]}$ is centreless (as $\g$ is simple and the Lie bracket on $\g_{[2]}$ is given by extension of scalars), this observation subsequently implies that the LHS must vanish, i.e.:
                     $$[X(D, D'), Y]_{\g_{[2]}} - y \left( ( DD' - D'D) - \xi(D, D') \right)( g ) = 0$$
                 Because we have by construction that:
                     $$DD' - D'D - \xi(D, D') \in \divzero$$
@@ -453,8 +230,16 @@
             \end{proof}
         \begin{corollary}
             For any $D, D' \in \divzero$, the $\divzero$-summand of $[D, D']_{\extendedtoroidal}$ is nothing but the commutator $DD' - D'D$.
-        \end{corollary} 
-        \begin{corollary}[\texorpdfstring{$\z_{[2]}$}{}-summands of elements of \texorpdfstring{$[\divzero, \g_{[2]}]_{\extendedtoroidal}$}{}] \label{coro: derivation_action_on_multiloop_algebras}
+        \end{corollary}
+        \begin{corollary}[$\gamma$-extended toroidal Lie algebras are extensions] \label{coro: yangian_extended_toroidal_lie_algebras_are_extensions}
+            When endowed with a Lie bracket, $\extendedtoroidal$ is necessarily a Lie algebra extension of $\divzero$ by $\divzero$.
+        \end{corollary}
+            \begin{proof}
+                We know from corollary \ref{coro: toroidal_lie_algebras_are_ideals} that $\toroidal$ is a Lie ideal of $\extendedtoroidal$, and that there is a canonical surjective map $\pi: \extendedtoroidal \to \divzero$ such that $\pi([D, D']_{\extendedtoroidal}) = [D, D']$ with the RHS denoting the usual commutator $DD' - D'D$. As such, we have a short exact sequence of Lie algebras:
+                    $$0 \to \toroidal \to \extendedtoroidal \to \divzero \to 0$$
+                i.e. an extension.
+            \end{proof}
+        \begin{corollary}[\texorpdfstring{$\z(\toroidal)$}{}-summands of elements of \texorpdfstring{$[\divzero, \g_{[2]}]_{\extendedtoroidal}$}{}] \label{coro: derivation_action_on_multiloop_algebras}
             The action of $\divzero$ on $\g_{[2]}$ as in lemma \ref{lemma: derivation_action_on_multiloop_algebras} satisfies:
                 $$[\divzero, \g_{[2]}]_{\extendedtoroidal} \subseteq \g_{[2]}$$
             Explicitly, the basis elements $D_{r, s}, D_v, D_t \in \divzero$ thus act on generators of $\g_{[2]}$ (i.e. monomials of the form $x v^m t^p$ for some $x \in \g$ and some $(m, p) \in \Z^2$) in the following manner:
@@ -463,15 +248,15 @@
                 $$[D_t, x v^m t^p]_{\extendedtoroidal} = -p x v^m t^{p - 1}$$
         \end{corollary}
             \begin{proof}
-                From lemma \ref{lemma: derivation_action_on_multiloop_algebras}, we know that given some $D \in \divzero$ and some $x \in \g$ and $f \in A$, there shall exist $K(D, xf) \in \z_{[2]}$ (depending on the choices of $D$ and $x, f$) such that:
+                From lemma \ref{lemma: derivation_action_on_multiloop_algebras}, we know that given some $D \in \divzero$ and some $x \in \g$ and $f \in A$, there shall exist $K(D, xf) \in \z(\toroidal)$ (depending on the choices of $D$ and $x, f$) such that:
                     $$[D, xf]_{\extendedtoroidal} = x D(f) + K(D, xf)$$
                 Next, consider the following:
                     $$( \divzero, x D(f) + K(D, xf) )_{\extendedtoroidal} = ( \divzero, [D, xf]_{\extendedtoroidal} )_{\extendedtoroidal} = ( [\divzero, D]_{\extendedtoroidal}, xf )_{\extendedtoroidal} = 0$$
-                where the second equality holds thanks to invariance, and the third equality holds due to a combination of the fact that $[\divzero, \divzero]_{\extendedtoroidal} \subset \z_{[2]} \oplus \divzero$ (cf. proposition \ref{prop: lie_bracket_on_orthogonal_complement_of_toroidal_centre}) and the fact that $(\z_{[2]} \oplus \divzero, \g_{[2]})_{\extendedtoroidal}$ per the construction of the bilinear form $(-, -)_{\extendedtoroidal}$ (cf. corollary \ref{coro: pairing_yangian_div_zero_vector_fields_and_cyclic_1_forms}). We also have the following, again per the construction of the bilinear form $(-, -)_{\extendedtoroidal}$:
+                where the second equality holds thanks to invariance, and the third equality holds due to a combination of the fact that $[\divzero, \divzero]_{\extendedtoroidal} \subset \z(\toroidal) \oplus \divzero$ (cf. proposition \ref{prop: lie_bracket_on_orthogonal_complement_of_toroidal_centre}) and the fact that $(\z(\toroidal) \oplus \divzero, \g_{[2]})_{\extendedtoroidal}$ per the construction of the bilinear form $(-, -)_{\extendedtoroidal}$. We also have the following, again per the construction of the bilinear form $(-, -)_{\extendedtoroidal}$:
                     $$( \divzero, x D(f) + K(D, xf) )_{\extendedtoroidal} = ( \divzero, K(D, xf) )_{\extendedtoroidal}$$
                 which means that:
                     $$( \divzero, K(D, xf) )_{\extendedtoroidal} = 0$$
-                The non-degeneracy of $(-, -)_{\extendedtoroidal}$ (or more particularly, the fact that $( \divzero, \z_{[2]} )_{\extendedtoroidal} \not = 0$) then implies that:
+                The non-degeneracy of $(-, -)_{\extendedtoroidal}$ (or more particularly, the fact that $( \divzero, \z(\toroidal) )_{\extendedtoroidal} \not = 0$) then implies that:
                     $$K(D, xf) = 0$$
                 necessarily. This means that, indeed, we have that:
                     $$[D, xf]_{\extendedtoroidal} = x D(f)$$
@@ -479,56 +264,96 @@
                     $$[\divzero, \g_{[2]}]_{\extendedtoroidal} \subseteq \g_{[2]}$$
                 as claimed. 
             \end{proof}
-        
-        In summary, we have yielded the following result, which amounts to one half of theorem \ref{theorem: yangian_extended_toroidal_lie_algebras_preliminary_version} stated at the beginning of this chapter.
-        \todo[inline]{First half of main theorem}
-        \begin{theorem}[Yangian extended toroidal Lie algebras are twisted semi-direct products] \label{theorem: yangian_extended_toroidal_lie_algebras}
-            If $\fraky$ is a Yangian extended toroidal Lie algebra in the sense of definition \ref{def: yangian_extended_toroidal_lie_algebras}, then there will exist some Lie $2$-cocycle $\sigma \in Z^2_{\Lie}(\divzero, \z_{[2]})$ so that:
-                $$\fraky \cong \toroidal \rtimes^{\sigma} \divzero$$
-        \end{theorem}
-
-    \subsection{Centres of Yangian extended toroidal Lie algebras}
-        Let us conclude this section with the following question, which is natural now that we have a solid handle on how the Lie bracket on $\extendedtoroidal$ is given:
-        \begin{question}
-            What is the centre $\hat{\z}_{[2]} := \z( \extendedtoroidal )$ ? This ought to be smaller than $\z_{[2]}$ somehow, since elements of $\z_{[2]}$ need not be central in $\extendedtoroidal$. 
-        \end{question}
-        \begin{remark}[Computing the centre without computing all the brackets ...]
-            Since $\g_{[2]}$ is centreless, we have that:
-                $$\hat{\z}_{[2]} = \z( \z_{[2]} \oplus \divzero )$$
-            As $\z_{[2]}$ is an abelian Lie algebra, this implies that in order to compute $\hat{\z}_{[2]}$, it suffices to explicitly compute the commutators of the form:
-                $$[D, K]_{\extendedtoroidal}, [D, D']_{\extendedtoroidal}$$
-            for $D, D' \in \divzero$ and $K \in \z_{[2]}$, to see which ones vanish. However, this is rather tedious and not very insightful.
             
-            An alternative method is as follows: exploiting the fact that the symmetric bilinear form $(-, -)_{\extendedtoroidal}$ is both invariant and non-degenerate, we can characterise the centre $\hat{\z}_{[2]}$ as the Lie ideal of $\extendedtoroidal$ containing elements $Z$ such that:
-                $$0 = ([Z, X]_{\extendedtoroidal}, Y)_{\extendedtoroidal} = (Z, [X, Y]_{\extendedtoroidal})_{\extendedtoroidal}$$
-            for any $X, Y \in \extendedtoroidal$, with the first equality holding thanks to the fact that $Z$ is supposed to commute with every other element of $\extendedtoroidal$ by assumption of being central. We are thus left with the task of finding elements:
-                $$Z \in \extendedtoroidal$$
-            such that:
-                $$(Z, [\extendedtoroidal, \extendedtoroidal]_{\extendedtoroidal})_{\extendedtoroidal} = 0$$
-            Since brackets of the form:
-                $$[X, Y]_{\extendedtoroidal}, [D, D']_{\extendedtoroidal}$$
-            (for some $X, Y \in \g_{[2]}$ and some $D, D' \in \divzero$) are generally non-zero, their elements can not be central in $\extendedtoroidal$. As such, we have narrowed the scope of our search down to:
-                $$\hat{\z}_{[2]} \subset \z_{[2]}$$
+        We have thus obtained the following result:
+        \begin{theorem}[$\gamma$-extended toroidal Lie algebras are twisted semi-direct products] \label{theorem: yangian_extended_toroidal_lie_algebras}
+            If $\fraky$ is a $\gamma$-extended toroidal Lie algebra in the sense of definition \ref{def: yangian_extended_toroidal_lie_algebras}, then there will exist some Lie $2$-cocycle $\sigma \in Z^2_{\Lie}(\divzero, \z(\toroidal))$ so that:
+                $$\toroidal \rtimes^{\sigma} \divzero \xrightarrow[\cong]{\id_{\toroidal} \oplus \varphi} \fraky$$
+            where $\varphi: \divzero \xrightarrow[]{\cong} \z(\toroidal)^{\star}$ being as in proposition \ref{prop: yangian_div_zero_vector_fields_are_graded_dual_to_toroidal_centre}.
+        \end{theorem}
+            \begin{proof}
+                Combine proposition \ref{prop: toroidal_lie_algebras_as_modules_over_div_zero_vector_field_lie_algebras} with corollary \ref{coro: yangian_extended_toroidal_lie_algebras_are_extensions}, and then apply proposition \ref{prop: twisted_semi_direct_product_criterion}.
+            \end{proof}
 
-            Another way to see that:
-                $$\hat{\z}_{[2]} \subset \z_{[2]}$$
-            is to use the fact that $\extendedtoroidal$ is a Lie algebra extension of $\divzero$ by $\toroidal$ (cf. theorem \ref{theorem: yangian_extended_toroidal_lie_algebras}). This tells us that the centre of $\extendedtoroidal$ ought to lie inside that of $\toroidal$, i.e.:
-                $$\hat{\z}_{[2]} \subset \z(\toroidal) = \z_{[2]}$$
-            as per proposition \ref{prop: twisted_semi_direct_product_criterion}.
-        \end{remark}
-        \begin{proposition}[Centres of Yangian extended toroidal Lie algebras] \label{prop: centres_of_yangian_extended_toroidal_lie_algebras}
-            The centre $\hat{\z}_{[2]}$ is a two-dimensional (abelian) Lie subalgebra of $\z_{[2]}$, spanned by $c_v$ and $c_t$. 
+        It remains to prove the following result:
+        \todo[inline]{Dr. Wendlandt: Is this what you meant by the "invariance part" of the proof ?}
+        \begin{proposition} \label{prop: yangian_cocycle_invariance}
+            If $\fraky \cong \toroidal \rtimes^{\sigma} \divzero$ is a $\gamma$-extended toroidal Lie algebra (corresponding to some $2$-cocycle $\sigma \in Z^2_{\Lie}(\divzero, \z(\toroidal))$), then:
+                $$(\sigma(D, D'), D'')_{\extendedtoroidal} = (D, \sigma(D', D''))_{\extendedtoroidal}$$
+            for all $D, D', D'' \in \divzero$.
         \end{proposition}
             \begin{proof}
-                Since we know that:
-                    $$\hat{\z}_{[2]} \subset \z_{[2]}$$
-                and that the only possibly non-zero bracket with elements of $\z_{[2]}$ are elements of $[\divzero, \z_{[2]}]_{\extendedtoroidal}$, and since we also know from lemma \ref{lemma: explicit_commutators_between_central_basis_elements_and_derivations} that:
-                    $$[\divzero, K]_{\extendedtoroidal} = 0 \iff K \in \bbC c_v \oplus \bbC c_v$$
-                we can conclude immediately that:
-                    $$\hat{\z}_{[2]} = \bbC c_v \oplus \bbC c_t$$
+                Per definition \ref{def: twisted_semi_direct_products}, we know that:
+                    $$\sigma(\xi, \xi') = [\xi, \xi']_{\fraky} - [\xi, \xi]$$
+                for all $\xi, \xi' \in \divzero$, meaning that we have that:
+                    $$
+                        \begin{aligned}
+                            (\sigma(D, D'), D'')_{\extendedtoroidal} & = ([D, D]_{\fraky} - [D, D'], D'')_{\extendedtoroidal}
+                            \\
+                            & = ([D, D]_{\fraky}, D'')_{\extendedtoroidal} 
+                            \\
+                            & = (D, [D', D'']_{\fraky})
+                            \\
+                            & = (D, [D', D'']_{\fraky} - [D', D''])_{\extendedtoroidal}
+                            \\
+                            & = (D, \sigma(D', D''))_{\extendedtoroidal}
+                        \end{aligned}
+                    $$
+                which is precisely as needed.
             \end{proof}
-        \begin{remark}
-            It is rather interesting that:
-                $$\hat{\z}_{[2]} \cong \bbC c_v \oplus \bbC c_t$$
-            as this is in good analogy with the affine Kac-Moody case, where the centre of $\hat{\g}$ is $1$-dimensional, namely spanned by $c_v$ (cf. example \ref{example: affine_lie_algebras_centres}).
-        \end{remark}
+
+        Together, theorem \ref{theorem: yangian_extended_toroidal_lie_algebras} and proposition \ref{prop: yangian_cocycle_invariance} imply the \say{only if} direction of theorem \ref{theorem: yangian_extended_toroidal_lie_algebras_main_theorem}.
+
+    \subsection{Which twisted semi-direct products are \texorpdfstring{$\gamma$}{}-extended toroidal Lie algebras ?}
+        \todo[inline]{Proof of the "if" direction of the main theorem.}
+    
+        In this subsection, we prove the \say{if} direction of theorem \ref{theorem: yangian_extended_toroidal_lie_algebras_main_theorem}. To this end, let us firstly fix a twisted semi-direct product:
+            $$\toroidal \rtimes^{\sigma} \divzero$$
+        (whose Lie bracket shall be denoted by $[-, -]_{\sigma}$) such that:
+            $$[D, X]_{\fraky} = \rho(D) \cdot X$$
+        (for all $X \in \toroidal$ and $D \in \divzero$, and with $\rho: \divzero \to \gl(\toroidal)$ being as in convention \ref{conv: a_fixed_yangian_div_zero_vector_field_action}) and such that:
+            $$(\sigma(D, D'), D'')_{\extendedtoroidal} = (D, \sigma(D', D''))_{\extendedtoroidal}$$
+        for all $D, D', D'' \in \divzero$. Obviously, there is a vector space isomorphism between $\fraky$ and $\toroidal \oplus \z(\toroidal)^{\star}$, namely:
+            $$\id_{\toroidal} \oplus \varphi: \fraky \to \toroidal \oplus \z(\toroidal)^{\star}$$
+        with $\varphi: \divzero \to \z(\toroidal)$ as in proposition \ref{prop: yangian_div_zero_vector_fields_are_graded_dual_to_toroidal_centre}. It is also clear (per definition \ref{def: twisted_semi_direct_products}), that the canonical inclusion of vector spaces $\toroidal \subset \fraky$ is a Lie algebra monomorphism. As such, the only thing to prove is that the non-degenerate symmetric bilinear form given by:
+            $$(-, -)_{\sigma} := (-, -)_{\toroidal} \circ (\id_{\toroidal} \oplus \varphi)^{\tensor 2}$$
+        is invariant with respect to the Lie bracket $[-, -]_{\sigma}$.
+
+        For convenience, let us fix the following terminologies.
+        \begin{definition}[$\gamma$-invariant toroidal $2$-cocycles] \label{def: yangian_toroidal_cocycles}
+            Any $2$-cocyle $\sigma \in Z^2_{\Lie}(\divzero, \toroidal)$ shall be referred to as a \textbf{toroidal $2$-cocycle}.
+            
+            Any toroidal $2$-cocycle $\sigma$ such that $\toroidal \rtimes^{\sigma} \divzero$ is a $\gamma$-extended toroidal Lie algebra (in the sense of definition \ref{def: yangian_extended_toroidal_lie_algebras}) shall be called a \textbf{$\gamma$-invariant toroidal $2$-cocycle}.
+        \end{definition}
+        \begin{lemma}
+            
+        \end{lemma}
+            \begin{lemma}
+                
+            \end{lemma}
+        \begin{theorem}[An $\gamma$-invariance criterion for toroidal $2$-cocycles] \label{theorem: yangian_criterion_for_toroidal_cocycles}
+            Assume that a given toroidal $2$-cocycle:
+                $$\sigma \in Z^2_{\Lie}(\divzero, \z(\toroidal))$$
+            satisfies:
+                $$(\sigma(D, D'), D'')_{\sigma} = (D, \sigma(D', D''))_{\sigma}$$
+            for all $D, D', D'' \in \divzero$. Then, $\sigma$ will be $\gamma$-invariant.
+        \end{theorem}
+            \begin{proof}
+                Pick arbitrary elements $X, Y, Z \in \toroidal$ and $D, D', D'' \in \divzero$.
+                
+                To begin, consider the following:
+                    $$
+                        \begin{aligned}
+                            ([X + D', Y + D'']_{\sigma}, Z + D'')_{\sigma} & = ([X + D, Y + D']_0 + \sigma(D, D'), Z)_{\sigma}
+                            \\
+                            & = ([X + D, Y + D']_0, Z + D'')_{\sigma} + (\sigma(D, D'), Z + D'')_{\sigma}
+                            \\
+                            & = (X + D, [Y + D', Z + D'']_0)_{\sigma} + (\sigma(D, D'), Z + D'')_{\sigma}
+                            \\
+                            & = (X + D, [Y + D', Z + D'']_0)_{\sigma} + (\sigma(D, D'), D'')_{\sigma}
+                        \end{aligned}
+                    $$
+                where the last equality is becuase $\sigma(D, D') \in \z(\toroidal)$. Per our assumption, we have that:
+                    $$(\sigma(D, D'), D'')_{\sigma} = (D, \sigma(D', D''))_{\sigma}$$
+                
+            \end{proof}
