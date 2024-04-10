@@ -23,13 +23,12 @@
 
             Another way to see that:
                 $$\hat{\z}_{[2]} \subset \z(\toroidal)$$
-            is to use the fact that $\extendedtoroidal$ is a Lie algebra extension of $\divzero$ by $\toroidal$ (cf. theorem \ref{theorem: yangian_extended_toroidal_lie_algebras}). This tells us that the centre of $\extendedtoroidal$ ought to lie inside that of $\toroidal$, i.e.:
+            is to use the fact that $\extendedtoroidal$ is a Lie algebra extension of $\divzero$ by $\toroidal$ (cf. proposition \ref{prop: yangian_extended_toroidal_lie_algebras}). This tells us that the centre of $\extendedtoroidal$ ought to lie inside that of $\toroidal$, i.e.:
                 $$\hat{\z}_{[2]} \subset \z(\toroidal) = \z(\toroidal)$$
             as per proposition \ref{prop: twisted_semi_direct_product_criterion}.
         \end{remark}
 
         Using lemma \ref{lemma: commutators_of_yangian_div_zero_vector_fields} in conjunction with lemma \ref{lemma: derivation_action_on_toroidal_centres}, we can now also explicitly compute the commutation relations between the basis elements of $\divzero$ and $\z(\toroidal)$.
-        \todo[inline]{Relocated $[D, K]_{\toroidal}$ computations to the subsection on the centre of $\extendedtoroidal$, as this is not needed for the proof of the main theorem. I was previously bundling it together with the lemma that $[\divzero, \z(\toroidal)]_{\toroidal} \subseteq \z(\toroidal)$, as I felt that was a natural place for these computations, but as it is somewhat long - and in light of Dr. Weekes' email - perhaps here is a better place for it.}
         \begin{lemma}[Explicit commutators between basis elements of $\divzero$ and $\z(\toroidal)$] \label{lemma: explicit_commutators_between_central_basis_elements_and_derivations}
             In the Lie algebra $\extendedtoroidal$, one has the following commutation relations between elements of $\z(\toroidal)$ and those of $\divzero$. Namely, for all $D \in \divzero$, the following relations hold:
                 $$
@@ -317,7 +316,7 @@
                         \end{aligned}
                     $$
             \end{enumerate}
-            One can now use the criterion given in theorem \ref{theorem: yangian_criterion_for_toroidal_cocycles} to verify whether or not the cocycles $\sigma_1, \sigma_2$ are $\gamma$-invariant in the sense of definition \ref{def: yangian_toroidal_cocycles}.
+            One can now use the criterion given in lemma \ref{lemma: yangian_criterion_for_toroidal_cocycles} to verify whether or not the cocycles $\sigma_1, \sigma_2$ are $\gamma$-invariant in the sense of definition \ref{def: yangian_toroidal_cocycles}.
         \end{example}
         \todo[inline]{Moved the proof of Yangian-ness into a proposition.}
         \begin{proposition}[Yangian-ness of Billig's toroidal $2$-cocycles] \label{prop: yangianness_of_billig_toroidal_cocycles}

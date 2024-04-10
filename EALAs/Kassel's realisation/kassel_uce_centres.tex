@@ -22,7 +22,7 @@
             A particular instance of this phenomenon is that $R$-linear derivations from $S$ to itself are dual to differential $1$-forms relative to $R \to S$, in the sense that there is an $S$-module isomorphism:
                 $$\Der_R(S) := \Der_R(S, S) \cong \Hom_A(\Omega^1_{S/R}, A)$$
         \end{remark}
-        \begin{remark}
+        \begin{remark} \label{remark: free_modules_of_1_forms}
             If $\Omega^1_{S/R}$ is finite free of rank $n$ over $A$, e.g.:
                 $$\Omega^1_{S/R} \cong \bigoplus_{1 \leq i \leq n} A dv_i$$
             then we can identify:
@@ -67,13 +67,19 @@
             When $A \cong k[v_1^{\pm 1}, ..., v_n^{\pm 1}]$, it is common to refer to $\g \tensor_{\bbC} A$ as a \textbf{multiloop algebra}. When $n = 1$, we will only be saying \textbf{loop algebra}.
         \end{remark}
 
-        \begin{convention}
+        \begin{convention} \label{conv: cyclic_1_forms}
             Let $R \to S$ be a homomorphism of commutative rings. Then, let us write:
                 $$\bar{\Omega}^1_{S/R} := \Omega^1_{S/R}/dS$$
-            Note that this is only an $R$-module, not an $S$-module. Let us also write:
-                $$\bar{d}f$$
-            to mean the image of any element $df \in \Omega^1_{S/R}$ under the canonical $R$-linear map $\Omega^1_{S/R} \to \bar{\Omega}^1_{S/R}$
+            Note that this is only an $R$-module, not an $S$-module. $\Omega^1_{S/R}$ is spanned as a vector space by elements of the form $g df$, for some $f, g \in S$, so $\bar{\Omega}^1_{S/R}$ is spanned by their images under the canonical surjective linear map $\Omega^1_{S/R} \to \bar{\Omega}^1_{S/R}$. Let us denote these images by:
+                $$g\bar{d}f$$
+            \textit{We caution the reader that in our notation, there is no linear map $\bar{d}: S \to \bar{\Omega}^1_{S/R}$!}
         \end{convention}
+        \begin{remark} \label{remark: cyclic_1_form_well_definiteness}
+            $\bar{\Omega}^1_{S/R}$ as above is well-defined as an $R$-module because there is a containment of $R$-modules:
+                $$S \tensor 1 \supset I$$
+            where $I := \< \forall s, s': ss' \tensor 1 - s \tensor s' - s' \tensor s \>$, and one then gets well-definiteness via the Third Isomorphism Theorem for Modules, i.e.:
+                $$\bar{\Omega}^1_{S/R} := \Omega^1_{S/R}/d(S) \cong \frac{S^{\tensor 2}/I}{(S \tensor 1)/I}$$
+        \end{remark}
 
         In order to characterise centres of UCE Kassel constructed in the proof of \cite[Theorem 3.3(iii)]{kassel_universal_central_extensions_of_lie_algebras} a $\bbC$-linear map:
             $$\e: \bigwedge^2 (\g \tensor_{\bbC} A) \to \bar{\Omega}^1_{A/\bbC}$$
