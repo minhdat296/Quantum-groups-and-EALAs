@@ -1,147 +1,4 @@
 \section{Examples of \texorpdfstring{$\gamma$}{}-extended toroidal Lie algebras}
-    \subsection{Centres of \texorpdfstring{$\gamma$}{}-extended toroidal Lie algebras}
-        \begin{question}
-            What is the centre $\hat{\z}_{[2]} := \z( \extendedtoroidal )$ ? This ought to be smaller than $\z(\toroidal)$ somehow, since elements of $\z(\toroidal)$ need not be central in $\extendedtoroidal$. 
-        \end{question}
-        \begin{remark}[Computing the centre without computing all the brackets ...]
-            Since $\g_{[2]}$ is centreless, we have that:
-                $$\hat{\z}_{[2]} = \z( \z(\toroidal) \oplus \divzero )$$
-            As $\z(\toroidal)$ is an abelian Lie algebra, this implies that in order to compute $\hat{\z}_{[2]}$, it suffices to explicitly compute the commutators of the form:
-                $$[D, K]_{\extendedtoroidal}, [D, D']_{\extendedtoroidal}$$
-            for $D, D' \in \divzero$ and $K \in \z(\toroidal)$, to see which ones vanish. However, this is rather tedious and not very insightful.
-            
-            An alternative method is as follows: exploiting the fact that the symmetric bilinear form $(-, -)_{\extendedtoroidal}$ is both invariant and non-degenerate, we can characterise the centre $\hat{\z}_{[2]}$ as the Lie ideal of $\extendedtoroidal$ containing elements $Z$ such that:
-                $$0 = ([Z, X]_{\extendedtoroidal}, Y)_{\extendedtoroidal} = (Z, [X, Y]_{\extendedtoroidal})_{\extendedtoroidal}$$
-            for any $X, Y \in \extendedtoroidal$, with the first equality holding thanks to the fact that $Z$ is supposed to commute with every other element of $\extendedtoroidal$ by assumption of being central. We are thus left with the task of finding elements:
-                $$Z \in \extendedtoroidal$$
-            such that:
-                $$(Z, [\extendedtoroidal, \extendedtoroidal]_{\extendedtoroidal})_{\extendedtoroidal} = 0$$
-            Since brackets of the form:
-                $$[X, Y]_{\extendedtoroidal}, [D, D']_{\extendedtoroidal}$$
-            (for some $X, Y \in \g_{[2]}$ and some $D, D' \in \divzero$) are generally non-zero, their elements can not be central in $\extendedtoroidal$. As such, we have narrowed the scope of our search down to:
-                $$\hat{\z}_{[2]} \subset \z(\toroidal)$$
-
-            Another way to see that:
-                $$\hat{\z}_{[2]} \subset \z(\toroidal)$$
-            is to use the fact that $\extendedtoroidal$ is a Lie algebra extension of $\divzero$ by $\toroidal$ (cf. proposition \ref{prop: yangian_extended_toroidal_lie_algebras}). This tells us that the centre of $\extendedtoroidal$ ought to lie inside that of $\toroidal$, i.e.:
-                $$\hat{\z}_{[2]} \subset \z(\toroidal) = \z(\toroidal)$$
-            as per proposition \ref{prop: twisted_semi_direct_product_criterion}.
-        \end{remark}
-
-        Using lemma \ref{lemma: commutators_of_yangian_div_zero_vector_fields} in conjunction with lemma \ref{lemma: derivation_action_on_toroidal_centres}, we can now also explicitly compute the commutation relations between the basis elements of $\divzero$ and $\z(\toroidal)$.
-        \begin{lemma}[Explicit commutators between basis elements of $\divzero$ and $\z(\toroidal)$] \label{lemma: explicit_commutators_between_central_basis_elements_and_derivations}
-            In the Lie algebra $\extendedtoroidal$, one has the following commutation relations between elements of $\z(\toroidal)$ and those of $\divzero$. Namely, for all $D \in \divzero$, the following relations hold:
-                $$
-                    \forall (a, b) \in \Z^2: [D, K_{a, b}]_{\extendedtoroidal} =
-                    \begin{cases}
-                        \text{$((b - 1)r - sa) K_{a - r, b - s - 1} + \delta_{(r, s + 1), (a, b)} \left( r c_v + s c_t \right)$ if $D = D_{r, s}$}
-                        \\
-                        \text{$a K_{a, b - 1}$ if $D_v$}
-                        \\
-                        \text{$b K_{a, b - 1}$ if $D_t$}
-                    \end{cases}
-                $$
-                $$[D, c_v]_{\extendedtoroidal} = [D, c_t]_{\extendedtoroidal} = 0$$
-        \end{lemma}
-            \begin{proof}
-                For this, we shall be making use of invariance again, namely:
-                    $$(D, [D', K]_{\extendedtoroidal})_{\extendedtoroidal} = ([D, D']_{\extendedtoroidal}, K)_{\extendedtoroidal}$$
-                for all $D, D' \in \divzero$ and all $K \in \z(\toroidal)$, and how the brackets $[D, D']_{\extendedtoroidal}$ are given explicitly (cf. lemma \ref{lemma: commutators_of_yangian_div_zero_vector_fields}) as well as how basis elements $K \in \z(\toroidal)$ pair with basis elements of $\divzero$ in the construction of $(-, -)_{\extendedtoroidal}$. Without any loss of generality, we can assume that $D, D' \in \divzero$ and $K \in \z(\toroidal)$ are basis elements, i.e.:
-                    $$D, D' \in \{D_{r, s}\}_{(r, s) \in \Z^2} \cup \{D_v, D_t\}$$
-                    $$K \in \{K_{a, b}\}_{(a, b) \in \Z^2} \cup \{c_v, c_t\}$$
-                and then perform the computations case-by-case, for which we shall recall from example \ref{example: toroidal_lie_algebras_centres} that:
-                    $$
-                        K_{a, b} :=
-                        \begin{cases}
-                            \text{$\frac1b v^{a - 1} t^b \bar{d}v$ if $(a, b) \in \Z \x (\Z \setminus \{0\})$}
-                            \\
-                            \text{$-\frac1a v^a t^{-1} \bar{d}t$ if $(a, b) \in (\Z \setminus \{0\}) \x \{0\}$}
-                            \\
-                            \text{$0$ if $(a, b) = (0, 0)$}
-                        \end{cases}
-                    $$
-                    $$c_v := v^{-1} \bar{d}v, c_t := t^{-1} \bar{d}t$$
-                and from lemma \ref{lemma: commutators_of_yangian_div_zero_vector_fields}, that:
-                    $$[D_v, D_t] = 0$$
-                    $$[D_v, D_{r, s}] = r D_{r, s + 1}$$
-                    $$[D_t, D_{r, s}] = D_{r, s + 1}$$
-                    $$[D_{\alpha, \beta}, D_{r, s}] = (\beta r - s \alpha) D_{\alpha + r, \beta + s + 1}$$
-                For what follows, let:
-                    $$D := \sum_{(\alpha, \beta) \in \Z^2} \lambda_{\alpha, \beta} D_{\alpha, \beta} + \lambda_v D_v + \lambda_t D_t$$
-                for some $\lambda_{\alpha, \beta}, \lambda_v, \lambda_t \in \bbC$.
-                \begin{enumerate}
-                    \item Assume firstly that $K = K_{a, b}$.
-                    \begin{enumerate}
-                        \item If $D' = D_{r, s}$, then we shall have that:
-                            $$
-                                \begin{aligned}
-                                    & ( D, [D_{r, s}, K_{a, b}]_{\extendedtoroidal} )_{\extendedtoroidal}
-                                    \\
-                                    = & ( [D, D_{r, s}]_{\extendedtoroidal}, K_{a, b} )_{\extendedtoroidal}
-                                    \\
-                                    = & \sum_{(\alpha, \beta) \in \Z^2} (\beta r - s \alpha) \lambda_{\alpha, \beta} \delta_{(\alpha + r, \beta + s + 1), (a, b)} + \delta_{(r, s + 1), (a, b)} \left( r\lambda_v + s\lambda_t \right)
-                                    \\
-                                    = & ((b - s - 1) r - s (a - r)) \lambda_{a - r, b - s - 1} + \delta_{(r, s + 1), (a, b)} \left( r\lambda_v + s\lambda_t \right)
-                                    \\
-                                    = & ((b - 1)r - sa) \lambda_{a - r, b - s - 1} + \delta_{(r, s + 1), (a, b)} \left( r\lambda_v + s\lambda_t \right)
-                                \end{aligned}
-                            $$
-                        from which we are able to conclude that:
-                            $$[D_{r, s}, K_{a, b}]_{\extendedtoroidal} = ((b - 1)r - sa) K_{a - r, b - s - 1} + \delta_{(r, s + 1), (a, b)} \left( r c_v + s c_t \right)$$
-                        \item If $D' = D_v$, then:
-                            $$
-                                \begin{aligned}
-                                    & ( D, [D_v, K_{a, b}]_{\extendedtoroidal} )_{\extendedtoroidal}
-                                    \\
-                                    = & ( [D, D_v]_{\extendedtoroidal}, K_{a, b} )_{\extendedtoroidal}
-                                    \\
-                                    = & \sum_{(\alpha, \beta) \in \Z^2} \alpha \lambda_{\alpha, \beta} \delta_{(\alpha, \beta + 1), (a, b)} 
-                                    \\
-                                    = & a \lambda_{a, b - 1}
-                                \end{aligned}
-                            $$
-                        from which we are able to conclude that:
-                            $$[D_v, K_{a, b}]_{\extendedtoroidal} = aK_{a, b - 1}$$   
-                        \item Finally, if $D' = D_t$, then:
-                            $$
-                                \begin{aligned}
-                                    & ( D, [D_t, K_{a, b}]_{\extendedtoroidal} )_{\extendedtoroidal}
-                                    \\
-                                    = & ( [D, D_t]_{\extendedtoroidal}, K_{a, b} )_{\extendedtoroidal}
-                                    \\
-                                    = & \sum_{(\alpha, \beta) \in \Z^2} \beta \lambda_{\alpha, \beta} \delta_{(\alpha, \beta + 1), (a, b)} 
-                                    \\
-                                    = & b \lambda_{a, b - 1}
-                                \end{aligned}
-                            $$
-                        from which we are able to conclude that:
-                            $$[D_t, K_{a, b}]_{\extendedtoroidal} = b K_{a, b - 1}$$
-                    \end{enumerate}
-                    \item If $K = c_v$ or $K = c_t$ then simply note that because:
-                        $$[D, D']_{\extendedtoroidal} \in \bigoplus_{(\alpha, \beta) \in \Z^2} \bbC D_{\alpha, \beta}$$
-                    for all $D' \in \divzero$, we shall have that:
-                        $$[D, K]_{\extendedtoroidal} = 0$$
-                    for all $D := \sum_{(\alpha, \beta) \in \Z^2} \lambda_{\alpha, \beta} D_{\alpha, \beta} + \lambda_v D_v + \lambda_t D_t \in \divzero$.
-                \end{enumerate}
-            \end{proof}
-        
-        \begin{proposition}[Centres of $\gamma$-extended toroidal Lie algebras] \label{prop: centres_of_yangian_extended_toroidal_lie_algebras}
-            The centre $\hat{\z}_{[2]}$ is a two-dimensional (abelian) Lie subalgebra of $\z(\toroidal)$, spanned by $c_v$ and $c_t$. 
-        \end{proposition}
-            \begin{proof}
-                Since we know that:
-                    $$\hat{\z}_{[2]} \subset \z(\toroidal)$$
-                and that the only possibly non-zero bracket with elements of $\z(\toroidal)$ are elements of $[\divzero, \z(\toroidal)]_{\extendedtoroidal}$, and since we also know from lemma \ref{lemma: explicit_commutators_between_central_basis_elements_and_derivations} that:
-                    $$[\divzero, K]_{\extendedtoroidal} = 0 \iff K \in \bbC c_v \oplus \bbC c_v$$
-                we can conclude immediately that:
-                    $$\hat{\z}_{[2]} = \bbC c_v \oplus \bbC c_t$$
-            \end{proof}
-        \begin{remark}
-            It is rather interesting that:
-                $$\hat{\z}_{[2]} \cong \bbC c_v \oplus \bbC c_t$$
-            as this is in good analogy with the affine Kac-Moody case, where the centre of $\hat{\g}$ is $1$-dimensional, namely spanned by $c_v$ (cf. example \ref{example: affine_lie_algebras_centres}).
-        \end{remark}
-
     \subsection{Explicit examples of $\gamma$-invariant toroidal cocycles}
         For convenience, let us fix the following terminologies.
         \begin{definition}[$\gamma$-invariant toroidal $2$-cocycles] \label{def: yangian_toroidal_cocycles}
@@ -169,7 +26,7 @@
 
             Now, back to the $2$-variable case, i.e. $n = 2$, where we have:
                 $$v_1 := v, v_2 := t$$
-            In this setting, we know how the basis elements $D_{r, s}, D_v, D_t$ of $\divzero$ are given in terms of $A$-multiples of the partial derivatives $\del_v, \del_t$ (cf. lemma \ref{lemma: yangian_div_zero_vector_fields_basis}), so we can exploit the bilinearity of $2$-cocycles in order to see how $\sigma_1, \sigma_2$ act on elements of $\divzero$. Recall from lemma \ref{lemma: yangian_div_zero_vector_fields_basis} that, in terms of the partial derivatives $\del_v, \del_t$, the basis elements of $\divzero$ are given by:
+            In this setting, we know how the basis elements $D_{r, s}, D_v, D_t$ of $\divzero$ are given in terms of $A$-multiples of the partial derivatives $\del_v, \del_t$ (cf. lemma \ref{lemma: yangian_div_zero_vector_fields_basic_properties}), so we can exploit the bilinearity of $2$-cocycles in order to see how $\sigma_1, \sigma_2$ act on elements of $\divzero$. Recall from lemma \ref{lemma: yangian_div_zero_vector_fields_basic_properties} that, in terms of the partial derivatives $\del_v, \del_t$, the basis elements of $\divzero$ are given by:
                 $$\forall (r, s) \in \Z^2: D_{r, s} = s v^{-r + 1} t^{-s - 1} \del_v - r v^{-r} t^{-s} \del_t$$
                 $$D_v = -v t^{-1} \del_v$$
                 $$D_t = -\del_t$$
@@ -428,13 +285,15 @@
                 \end{enumerate}
                 We have therefore shown that $\sigma_1$ is $\gamma$-invariant in the sense of definition \ref{def: yangian_toroidal_cocycles}. 
             \end{proof}
+
+    \subsection{Cohomological (non-)triviality}
         Whether or not these cocycles might be cohomologous to $0$ (cf. definition \ref{def: lie_algebra_cohomology}) - and hence whether or not they might give rise to extensions that are isomorphic to the semi-direct product $\toroidal \rtimes \divzero$ - is a much subtler issue. One way to tackle this problem is to \textit{firstly} check whether or not their restrictions to a particular Lie subalgebra of $\extendedtoroidal$ is cohomologous to $0$. We remark right away that simply checking that these restrictions are non-cohomologous to $0$ is \textit{not} sufficient for concluding that $\sigma_1$ and $\sigma_2$ are non-zero elements of $H^2_{\Lie}(\divzero, \z(\toroidal))$.
         
-        Recall from lemma \ref{lemma: yangian_div_zero_vector_fields_basis} that:
+        Recall from lemma \ref{lemma: yangian_div_zero_vector_fields_basic_properties} that:
             $$\forall (r, s) \in \Z^2: D_{r, s} = s v^{-r + 1} t^{-s - 1} \del_v - r v^{-r} t^{-s} \del_t$$
             $$D_v = -v t^{-1} \del_v$$
             $$D_t = -\del_t$$
-        and from lemma \ref{lemma: commutators_of_yangian_div_zero_vector_fields} that the commutation relations that these basis elements of $\divzero$ satisfy are:
+        and from lemma \ref{lemma: yangian_div_zero_vector_fields_basic_properties} that the commutation relations that these basis elements of $\divzero$ satisfy are:
             $$[D_v, D_t] = 0$$
             $$[D_v, D_{r, s}] = r D_{r, s + 1}$$
             $$[D_t, D_{r, s}] = D_{r, s + 1}$$
@@ -596,7 +455,7 @@
                 \begin{itemize}
                     \item from example \ref{example: yangian_cocycles_(counter)_examples} that:
                         $$\sigma_i|_{ \bigwedge^2 \frakw }(D_{r, -1}, D_{a, -1}) = -\delta_{r, -a} r^3 c_v$$
-                    \item from lemma \ref{lemma: commutators_of_yangian_div_zero_vector_fields} that:
+                    \item from lemma \ref{lemma: yangian_div_zero_vector_fields_basic_properties} that:
                         $$[D_{a, b}, D_{r, s}] = (br - sa) D_{a + r, b + s + 1}$$
                     \item and from lemma \ref{lemma: explicit_commutators_between_central_basis_elements_and_derivations} that:
                         $$[D_{r, s}, K_{\alpha, \beta}]_{\extendedtoroidal} = ((\beta - 1)r - s\alpha) K_{\alpha - r, \beta - s - 1} + \delta_{(r, s + 1), (\alpha, \beta)} \left( r c_v + s c_t \right)$$
@@ -701,7 +560,7 @@
                 (again, there are no $K_{r, 0}$-component because $K_{0, 0} = 0$ and because the LHS, i.e. $\tau_i(D_v)$ and $ \tau_i(D_t)$, do not depend on $r$).
                 
                 \begin{enumerate}
-                    \item We attempt first of all to compute $\tau_i(D_{r, s})$. For what follows, let us recall from lemma \ref{lemma: commutators_of_yangian_div_zero_vector_fields} that:
+                    \item We attempt first of all to compute $\tau_i(D_{r, s})$. For what follows, let us recall from lemma \ref{lemma: yangian_div_zero_vector_fields_basic_properties} that:
                         $$[D_v, D_{r, s}] = -r D_{r, s + 1}$$
                         $$[D_t, D_{r, s}] = -s D_{r, s + 1}$$
                         $$[D_{a, b}, D_{r, s}] = (br - sa) D_{a + r, b + s + 1}$$
@@ -796,7 +655,7 @@
                     By putting everything together, we shall obtain:
                         $$\tau_i(D_{r, s}) = ( r^2 + 2r ) K_{-r, -s - 1} + \delta_{(r, s), (0, -1)} ( \alpha_{r, s} c_v - 2 c_t )$$
                     We remark that the expression above for $\tau_i(D_{r, s})$ - more specifically, the coefficient $\alpha_{r, s}$ - indeed depends on $i$, and so what we have obtained does not violate the fact that $\sigma_1 \not = \sigma_2$ (cf. example \ref{example: yangian_cocycles_(counter)_examples}).
-                    \item Next, consider $\tau_i(D_v)$. Because there do not exist elements $D, D' \in \divzero$ so that $D_v = [D, D']$ and because $[D_v, D_t] = 0$ (cf. lemma \ref{lemma: commutators_of_yangian_div_zero_vector_fields}), and because $\tau_i(D_v) \in \bbC c_v \oplus \bbC c_t$ by hypothesis, meaning that:
+                    \item Next, consider $\tau_i(D_v)$. Because there do not exist elements $D, D' \in \divzero$ so that $D_v = [D, D']$ and because $[D_v, D_t] = 0$ (cf. lemma \ref{lemma: yangian_div_zero_vector_fields_basic_properties}), and because $\tau_i(D_v) \in \bbC c_v \oplus \bbC c_t$ by hypothesis, meaning that:
                         $$[D, \tau_i(D_v)]_{\extendedtoroidal} = 0$$
                     for all $D \in \divzero$, since $[D, c_v]_{\extendedtoroidal} = [D, c_t]_{\extendedtoroidal} = 0$ per lemma \ref{lemma: explicit_commutators_between_central_basis_elements_and_derivations}, it is impossible to determine $\tau_i(D_v)$ through the use of the $2$-coboundary equation:
                         $$\tau_i([D, D']) = [D, \tau_i(D')]_{\extendedtoroidal} - [D', \tau_i(D)]_{\extendedtoroidal} - \sigma_i(D, D')$$

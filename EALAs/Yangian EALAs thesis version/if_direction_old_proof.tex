@@ -1,0 +1,211 @@
+We would like to show that, for all $Z + D'' \in \toroidal \oplus \divzero$, we shall have that:
+                    $$\left( [X + D, Y + D']_0, Z + D'' \right)_{\extendedtoroidal} = \left( X + D, [Y + D', Z + D'']_0 \right)_{\extendedtoroidal}$$
+                for all $X, Y, Z \in \toroidal$ and all $D, D', D'' \in \divzero$.
+                
+                From example \ref{example: lie_algebra_semi_direct_products}, we know that the semi-direct product Lie bracket $[-, -]_0$ is given by:
+                    $$[X + D, Y + D']_0 := [X, Y]_{\toroidal} + \rho(D)(Y) - \rho(D')(X) + [D, D']$$
+                for all $X, Y \in \toroidal$ and all $D, D' \in \divzero$. Using this, consider the following:
+                    $$
+                        \begin{aligned}
+                            & \left( [X + D, Y + D']_0, Z + D'' \right)_{\extendedtoroidal}
+                            \\
+                            = & \left( [X, Y]_{\toroidal} + \rho(D)(Y) - \rho(D')(X) + [D, D'], Z + D'' \right)_{\extendedtoroidal}
+                            \\
+                            = & \left( [X, Y]_{\toroidal}, Z + D'' \right)_{\extendedtoroidal} + \left(\rho(D)(Y) - \rho(D')(X), Z + D'' \right)_{\extendedtoroidal} + \left( [D, D'], Z + D'' \right)_{\extendedtoroidal}
+                            \\
+                            = & \left( [X, Y]_{\toroidal}, Z + D'' \right)_{\extendedtoroidal} + \left(\rho(D)(Y) - \rho(D')(X), Z + D'' \right)_{\extendedtoroidal} + \left( [D, D'], Z \right)_{\extendedtoroidal}
+                        \end{aligned}
+                    $$
+                Similarly, we have that:
+                    $$
+                        \begin{aligned}
+                            & \left( X + D, [Y + D', Z + D'']_0 \right)_{\extendedtoroidal}
+                            \\
+                            = & \left( X + D, [Y, Z]_{\toroidal} \right)_{\extendedtoroidal} + \left( X + D, \rho(D')(Z) - \rho(D'')(Y) \right)_{\extendedtoroidal} + \left(X, [D', D'']\right)_{\extendedtoroidal}
+                        \end{aligned}
+                    $$
+                Because $(-, -)_{\extendedtoroidal}|_{\Sym^2 \toroidal} = (-, -)_{\toroidal}$ by construction (cf. proposition \ref{prop: extended_toroidal_bilinear_form}), and because $(-, -)_{\toroidal}$ is invariant (cf. remark \ref{remark: extending_bilinear_forms_to_central_extensions}), we have that:
+                    $$([X, Y]_{\toroidal}, Z)_{\extendedtoroidal} = ([X, Y]_{\toroidal}, Z)_{\toroidal} = (X, [Y, Z]_{\toroidal})_{\toroidal} = (X, [Y, Z]_{\toroidal})_{\extendedtoroidal}$$
+                and so:
+                    $$( [X, Y]_{\toroidal}, Z + D'' )_{\extendedtoroidal} = (X, [Y, Z]_{\toroidal})_{\extendedtoroidal} + ( [X, Y]_{\toroidal}, D'')_{\extendedtoroidal}$$
+                and likewise, we have that:
+                    $$\left( X + D, [Y, Z]_{\toroidal} \right)_{\extendedtoroidal} = (X, [Y, Z]_{\toroidal})_{\extendedtoroidal} + (D, [Y, Z]_{\toroidal})_{\extendedtoroidal} = (X, [Y, Z]_{\toroidal})_{\extendedtoroidal} + (D, [Y, Z]_{\toroidal})_{\extendedtoroidal}$$
+                As such, we have that:
+                    $$
+                        \begin{aligned}
+                            & 
+                            \begin{aligned}
+                                & \left( \left( [X, Y]_{\toroidal}, Z + D'' \right)_{\extendedtoroidal} + \left(\rho(D)(Y) - \rho(D')(X), Z + D'' \right)_{\extendedtoroidal} + \left( [D, D'], Z \right)_{\extendedtoroidal} \right)
+                                \\
+                                - & \left( \left( X + D, [Y, Z]_{\toroidal} \right)_{\extendedtoroidal} + \left( X + D, \rho(D')(Z) - \rho(D'')(Y) \right)_{\extendedtoroidal} + \left(X, [D', D'']\right)_{\extendedtoroidal} \right)
+                            \end{aligned}
+                            \\
+                            & =
+                            \begin{aligned}
+                                & \left( ( [X, Y]_{\toroidal}, D'')_{\extendedtoroidal} - (D, [Y, Z]_{\toroidal})_{\extendedtoroidal} \right)
+                                \\
+                                + & \left( \left(\rho(D)(Y) - \rho(D')(X), Z + D'' \right)_{\extendedtoroidal} - \left( X + D, \rho(D')(Z) - \rho(D'')(Y) \right)_{\extendedtoroidal} \right)
+                                \\
+                                + & \left( \left( [D, D'], Z \right)_{\extendedtoroidal} - \left(X, [D', D'']\right)_{\extendedtoroidal} \right)
+                            \end{aligned}
+                        \end{aligned}
+                    $$
+                \textit{We would like to show that this is equal to $0$.}
+
+                Let us now perform a case-by-case analysis.
+                \begin{enumerate}
+                    \item Firstly, consider the case where $X, Y, Z \in \g_{[2]}$. Without any loss of generality, let us now assume that:
+                        $$X := xf, Y := yg, Z := zh$$
+                    for some $x, y, z \in \g$ and some $f, g, h \in A$. Per this assumption, we shall have via the fact that $(\g_{[2]}, \divzero)_{\extendedtoroidal} := 0$ that:
+                        $$( [X, Y]_{\toroidal}, D'')_{\extendedtoroidal} = (x, y)_{\g} ( g \bar{d}f, D'')_{\extendedtoroidal} = (x, y)_{\g} \varphi(D'')(g \bar{d}f) = (x, y)_{\g} \gamma( g D''(f) )$$
+                    and likewise, that:
+                        $$(D, [Y, Z]_{\toroidal})_{\extendedtoroidal} = (y, z)_{\g} \gamma( h D(g) )$$
+                    At the same time, we have that:
+                        $$
+                            \begin{aligned}
+                                & \left(\rho(D)(Y) - \rho(D')(X), Z + D'' \right)_{\extendedtoroidal}
+                                \\
+                                = & \left( y D(g) - x D'(f), zh + D'' \right)_{\extendedtoroidal}
+                                \\
+                                = & \left( y D(g) - x D'(f), zh \right)_{\extendedtoroidal}
+                                \\
+                                = & (y, z)_{\g} \gamma( D(g) h ) - (x, z)_{\g} \gamma( D'(f) h )
+                            \end{aligned}
+                        $$
+                    and likewise, that:
+                        $$\left( X + D, \rho(D')(Z) - \rho(D'')(Y) \right)_{\extendedtoroidal} = (x, z)_{\g} \gamma( f D'(h) ) - (x, y)_{\g} \gamma( f D''(g) )$$
+                    Finally, our assumption that $X, Y, Z \in \g_{[2]}$ implies that:
+                        $$([D, D'], Z)_{\extendedtoroidal} = (X, [D', D''])_{\extendedtoroidal} = 0$$
+                    By putting everything together, we shall have that:
+                        $$
+                            \begin{aligned}
+                                &
+                                    \begin{aligned}
+                                    & \left( ( [X, Y]_{\toroidal}, D'')_{\extendedtoroidal} - (D, [Y, Z]_{\toroidal})_{\extendedtoroidal} \right)
+                                    \\
+                                    + & \left( \left(\rho(D)(Y) - \rho(D')(X), Z + D'' \right)_{\extendedtoroidal} - \left( X + D, \rho(D')(Z) - \rho(D'')(Y) \right)_{\extendedtoroidal} \right)
+                                    \\
+                                    + & \left( \left( [D, D'], Z \right)_{\extendedtoroidal} - \left(X, [D', D'']\right)_{\extendedtoroidal} \right)
+                                \end{aligned}
+                                \\
+                                = & 
+                                \begin{aligned}
+                                    & \left( (x, y)_{\g} \gamma( g D''(f) ) - (y, z)_{\g} \gamma( h D(g) ) \right)
+                                    \\
+                                    + & \left( \left( (y, z)_{\g} \gamma( D(g) h ) - (x, z)_{\g} \gamma( D'(f) h ) \right) - \left( (x, z)_{\g} \gamma( f D'(h) ) - (x, y)_{\g} \gamma( f D''(g) ) \right) \right)
+                                \end{aligned}
+                                \\
+                                = & (x, y)_{\g} \gamma( g D''(f) + f D''(g) ) - (x, z)_{\g} \gamma( D'(f) h + f D'(h) ) + (y, z)_{\g} \gamma( D(g) h - h D(g) )
+                                \\
+                                = & (x, y)_{\g} \gamma( D''(fg) ) - (x, z)_{\g} \gamma( D'(fh) )
+                                \\
+                                = & 0
+                            \end{aligned}
+                        $$
+                    with the last equality holding because of the definition of $\divzero$, which implies in particular that:
+                        $$\gamma( D''(fg) ) = \gamma( D'(fh) ) = 0$$
+                    (cf. lemma \ref{lemma: yangian_div_zero_vector_fields_basic_properties}).
+                    \item Next, consider the case where $X, Y, Z \in \z(\toroidal)$, and without loss of generality, let us assume that:
+                        $$X := f_1\bar{d}g_1, Y := f_2\bar{d}g_2, Z := f_3\bar{d}g_3$$
+                    for some $f_i, g_i \in A$ ($i \in \{1, 2, 3\}$). Immediately, we have that:
+                        $$[X, Y]_{\toroidal} = [Y, Z]_{\toroidal} = 0$$
+                    and so:
+                        $$([X, Y]_{\toroidal}, D'')_{\extendedtoroidal} = (D, [Y, Z]_{\toroidal})_{\extendedtoroidal} = 0$$
+                    Next, using the fact that $\rho(\z(\toroidal)) \subseteq \z(\toroidal)$ and the fact that $(\z(\toroidal), \z(\toroidal))_{\extendedtoroidal} = 0$, we shall obtain:
+                        $$
+                            \begin{aligned}
+                                & \left(\rho(D)(Y) - \rho(D')(X), Z + D'' \right)_{\extendedtoroidal}
+                                \\
+                                = & \left( \left( D(f_2) \bar{d}g_2 + f_2 \bar{d}( D(g_2) ) \right) - \left( D'(f_1) \bar{d}g_1 + f_1 \bar{d}( D'(g_1) ) \right), D'' \right)_{\extendedtoroidal}
+                                \\
+                                = & \varphi(D'')\left( \left( D(f_2) \bar{d}g_2 + f_2 \bar{d}( D(g_2) ) \right) - \left( D'(f_1) \bar{d}g_1 + f_1 \bar{d}( D'(g_1) ) \right) \right)
+                                \\
+                                = & \gamma\left(
+                                    \left( D(f_2) D''(g_2) + f_2 D''( D(g_2) ) \right) - \left( D'(f_1) D''(g_1) + f_1 D''( D'(g_1) ) \right)
+                                \right)
+                            \end{aligned}
+                        $$
+                    and likewise, that:
+                        $$
+                            \begin{aligned}
+                                & \left( X + D, \rho(D')(Z) - \rho(D'')(Y) \right)_{\extendedtoroidal}
+                                \\
+                                = & \gamma\left(
+                                \left( D'(f_3) D(g_3) + f_3 D( D'(g_3) ) \right) - \left( D''(f_2) D(g_2) + f_2 D( D''(g_2) ) \right)
+                        \right)
+                            \end{aligned}
+                        $$
+                    We have also that:
+                        $$\left( [D, D'], Z \right)_{\extendedtoroidal} = \varphi([D, D'])( f_3 \bar{d} g_3 ) = \gamma(f_3 [D, D'](g_3))$$
+                    and likewise, that:
+                        $$\left(X, [D', D'']\right) = \gamma(f_1 [D', D''](g_1))$$
+                    By putting everything together, we shall get that:
+                        $$
+                            \begin{aligned}
+                                &
+                                \begin{aligned}
+                                    & \left( ( [X, Y]_{\toroidal}, D'')_{\extendedtoroidal} - (D, [Y, Z]_{\toroidal})_{\extendedtoroidal} \right)
+                                    \\
+                                    + & \left( \left(\rho(D)(Y) - \rho(D')(X), Z + D'' \right)_{\extendedtoroidal} - \left( X + D, \rho(D')(Z) - \rho(D'')(Y) \right)_{\extendedtoroidal} \right)
+                                    \\
+                                    + & \left( \left( [D, D'], Z \right)_{\extendedtoroidal} - \left(X, [D', D'']\right)_{\extendedtoroidal} \right)
+                                \end{aligned}
+                                \\
+                                = &
+                                \begin{aligned}
+                                    & 0
+                                    \\
+                                    + & \gamma\left( \left( D(f_2) D''(g_2) + f_2 D''( D(g_2) ) \right) - \left( D'(f_1) D''(g_1) + f_1 D''( D'(g_1) ) \right) \right)
+                                    \\
+                                    - & \gamma\left( \left( D'(f_3) D(g_3) + f_3 D( D'(g_3) ) \right) - \left( D''(f_2) D(g_2) + f_2 D( D''(g_2) ) \right) \right)
+                                    \\
+                                    + & \gamma( f_3 [D, D'](g_3) - f_1 [D', D''](g_1) )
+                                \end{aligned}
+                                \\
+                                = &
+                                \begin{aligned}
+                                    & -\gamma\left( f_1 D''( D'(g_1) ) + D'(f_1) D''(g_1) + f_1[D', D''](g_1) \right)
+                                    \\
+                                    + & \gamma\left( D(f_2) D''(g_2) + f_2 D''( D(g_2) ) + D''(f_2) D(g_2) + f_2 D( D''(g_2) ) \right)
+                                    \\
+                                    - & \gamma\left( D'(f_3) D(g_3) + f_3 D( D'(g_3) ) - f_3 [D, D'](g_3) \right)
+                                \end{aligned}
+                                \\
+                                = &
+                                \begin{aligned}
+                                    & -\gamma\left( D'(f_1) D''(g_1) + f_1 D' (D''(g_1)) \right)
+                                    \\
+                                    + & \gamma\left( D(f_2) D''(g_2) + f_2 D( D''(g_2) ) \right) + \gamma( D''(f_2) D(g_2) + f_2 D''( D(g_2) ) )
+                                    \\
+                                    - & \gamma\left( D'(f_3) D(g_3) + f_3 D'(D(g_3)) \right)
+                                \end{aligned}
+                                \\
+                                = &
+                                \begin{aligned}
+                                    & -\gamma\left( D'( f_1 D''(g_1) ) \right)
+                                    \\
+                                    + & \gamma\left( D( f_2 D''(g_2) ) \right) + \gamma\left( D''( f_2 D(g_2) ) \right)
+                                    \\
+                                    - & \gamma\left( D'( f_3 D(g_3) ) \right)
+                                \end{aligned}
+                                \\
+                                = & 0
+                            \end{aligned}
+                        $$
+                    wherein the last equality holds because of the construction of $\divzero$ (cf. lemma \ref{lemma: yangian_div_zero_vector_fields_basic_properties}).
+                \end{enumerate}
+
+                Recall now that, per the construction of the action $\rho: \divzero \to \der(\toroidal)$ (cf. lemma \ref{lemma: a_fixed_yangian_div_zero_vector_field_action}), we know that $\toroidal$ splits into a direct sum of $\divzero$-submodules $\g_{[2]} \oplus \z(\toroidal)$. We see thus that, the case-by-case analysis above is sufficient for concluding that:
+                    $$
+                        \begin{aligned}
+                            & \left( ( [X, Y]_{\toroidal}, D'')_{\extendedtoroidal} - (D, [Y, Z]_{\toroidal})_{\extendedtoroidal} \right)
+                            \\
+                            + & \left( \left(\rho(D)(Y) - \rho(D')(X), Z + D'' \right)_{\extendedtoroidal} - \left( X + D, \rho(D')(Z) - \rho(D'')(Y) \right)_{\extendedtoroidal} \right)
+                            \\
+                            + & \left( \left( [D, D'], Z \right)_{\extendedtoroidal} - \left(X, [D', D'']\right)_{\extendedtoroidal} \right)
+                        \end{aligned}
+                        = 0
+                    $$
+                As stated above, this is equivalent to that :
+                    $$\left( [X + D, Y + D']_0, Z + D'' \right)_{\extendedtoroidal} = \left( X + D, [Y + D', Z + D'']_0 \right)_{\extendedtoroidal}$$
+                for all $X, Y, Z \in \toroidal$ and all $D, D', D'' \in \divzero$. This implies that the semi-direct product $\toroidal \rtimes \divzero$ is a $\gamma$-extended toroidal Lie algebra, as claimed.

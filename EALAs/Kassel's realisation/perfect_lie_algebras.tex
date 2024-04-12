@@ -146,8 +146,10 @@
         \end{example}
 
     \subsection{Perfect Lie algebras and their central extensions}
+        Throughout the subsectin, let us work over an arbitrary field. 
+    
         \begin{definition}[Extensions of Lie algebras] \label{def: lie_algebra_extensions}
-            Fix a Lie algebra $\a$ over a field.
+            Fix a Lie algebra $\a$.
         
             A \textbf{Lie algebra extension} is a short exact sequence of Lie algebras:
                 $$0 \to \Omega \to \frake \xrightarrow[]{\pi} \a \to 0$$
@@ -367,39 +369,55 @@
             Counter-examples include nilpotent Lie algebras (e.g. abelian Lie algebras). For such Lie algebras, their derived subalgebras are always proper Lie subalgebras (and in particular, derived subalgebras of abelian Lie algebras are zero). 
         \end{example}
         \begin{proposition}[Perfect Lie algebras admit UCEs] \label{prop: perfect_lie_algebras_admit_UCEs}
-            \cite[Lemma 1.10]{garland_arithmetics_of_loop_groups} Let $\bbC$ be a field and $\a$ is a Lie algebra over $\bbC$. Then $\a$ admits a UCE if and only if it is perfect.
+            \cite[Lemma 1.10]{garland_arithmetics_of_loop_groups} A Lie algebra $\a$ admits a UCE if and only if it is perfect.
         \end{proposition}
+        \begin{corollary}[UCEs are perfect] \label{coro: UCEs_are_perfect}
+            UCEs, should they exist, are necessarily perfect.
+        \end{corollary}
+            \begin{proof}
+                Let $\a$ be a Lie algebra with a UCE $\uce(\a)$. Because UCEs are unique up to isomorphisms, $\uce(\a)$ admits itself as a UCE of its own. Per proposition \ref{prop: perfect_lie_algebras_admit_UCEs}, then, $\uce(\a)$ is necessarily perfect.
+            \end{proof}
 
+        \todo[inline]{Lemma about extending bilinear forms to central extensions}
         Let us conclude this subsection by making note of the following fact about the process of extending invariant bilinear forms from Lie algebras to their central extensions.
-        \begin{remark}[Extending invariant bilinear forms to central extensions] \label{remark: extending_bilinear_forms_to_central_extensions}
-            Let $\bbC$ be a field.
-            
-            Let $\a$ be a Lie algebra over $\bbC$ and $(-, -)$ is an invariant symmetric $\bbC$-bilinear form thereon. Additionally, let:
-                $$0 \to \Omega \to \frake \to \a \to 0$$
-            be a central Lie algebra extension of $\a$ such that $\Omega \not \cong 0$. By proposition \ref{prop: twisted_semi_direct_product_criterion}, we know that for all $X, Y \in \a$, we have that:
-                $$[X, Y]_{\frake} = [X, Y]_{\a} + K(X, Y)$$
-            for some $K(X, Y) \in \Omega$ depending on the choices of $X, Y$.
-            
-            Suppose that $\<-, -\>$ is any extension of $(-, -)$ to $\frake$, i.e. $\<-, -\>$ is a symmetric $\bbC$-bilinear form on $\frake$ such that:
-                $$\<-, -\>|_{\Sym^2_{\bbC}( \a )} = (-, -)$$
-            Assume furthermore, that:
-                $$\<\a, \Omega\> = 0, \<\Omega, \Omega\> = 0$$ 
-            Now, note that $\<-, -\>$ is necessarily invariant: indeed, for any $X, Y, Z \in \a$, we have that:
-                $$
-                    \begin{aligned}
-                        \<[X, Y]_{\frake}, Z\> & = \< [X, Y]_{\a} + K(X, Y), Z \>
-                        \\
-                        & = ([X, Y]_{\a}, Z)
-                        \\
-                        & = (X, [Y, Z]_{\a})
-                        \\
-                        & = \< X, [Y, Z]_{\a} + K(Y, Z) \>
-                        \\
-                        & = \< X, [Y, Z]_{\frake} \>
-                    \end{aligned}
-                $$
-            Furthermore, $\<-, -\>$ must be degenerate, regardless of whether or not $(-, -)$ is degenerate to begin with: to see why, it suffices to show that the radical\footnote{If $V$ is a vector space and $B$ is a symmetric bilinear form on $V$, then the \textbf{radical} of $B$ is then given by $\Rad B := \{v \in V \mid \forall w \in V: B(v, w) = 0\}$.} of $\<-, -\>$ is non-zero, for which we can simply consider the following for any $X, Y \in \a$ and any $K \in \Omega$, and then exploit the invariance of $\<-, -\>$:
-                $$\<K, [X, Y]_{\frake}\> = \<[K, X]_{\frake}, Y\> = \<0, Y\> = 0$$
+        \begin{lemma}[Extending invariant bilinear forms to central extensions] \label{lemma: extending_bilinear_forms_to_central_extensions}
+            Let:
+                $$0 \to \Omega \to \frake \xrightarrow[]{\pi} \a \to 0$$
+            be a central extension of some \textit{perfect} Lie algebra $\a$. Then, there will exist an invariant and symmetric bilinear form $(-, -)_{\frake}$ on $\frake$ such that:
+                $$\Omega \subseteq \Rad(-, -)_{\frake}$$
+            if and only if there exists an invariant and symmetric bilinear form $(-, -)_{\a}$ on $\a$ such that:
+                $$(X, Y)_{\a} = (\pi(X), \pi(Y))_{\frake}$$
+            for all $X, Y \in \frake$.
 
-            Not every Lie algebra with a non-trivial centre arises as a central extension (see \cite[Section 1]{garland_arithmetics_of_loop_groups} for details), so it is not true that any invariant symmetric bilinear form on such a Lie algebra must be degenerate. Central elements can pair non-trivially with other elements, such as in the construction of untwisted affine Kac-Moody algebras (cf. subsection \ref{subsection: a_fixed_untwisted_affine_kac_moody_algebra}) or in the construction of so-called \say{extended toroidal Lie algebras} (cf. definition \ref{def: yangian_extended_toroidal_lie_algebras}).
+            Consequently, any invariant and symmetric bilinear form $(-, -)_{\a}$ on $\a$ admits a unique invariant and symmetric extension to $\frake$.
+        \end{lemma}
+            \begin{proof}
+                Let us write $[-, -]_{\a}$ and $[-, -]_{\frake}$ for the Lie brackets on $\a$ and on $\frake$ respectively. 
+            
+                Suppose firstly that there exists an invariant and symmetric bilinear form $(-, -)_{\a}$ on $\a$. Then, by simply declaring that:
+                    $$(X, Y)_{\frake} := (\pi(X), \pi(Y))_{\a}$$
+                which would imply that:
+                    $$(\frake, \Omega)_{\frake} = (\pi(\frake), \pi(\Omega))_{\frake} = (\a, 0)_{\frake} = 0$$
+                one can define a bilinear form $\frake$ such that:
+                    $$\Omega \subseteq \Rad(-, -)_{\frake}$$
+                It therefore remains to only demonstrate that any such extension is necessarily invariant, for which we rely on the assumption that $\a$ is perfect, i.e. that $\a = [\a, \a]_{\a}$. Consider the following:
+                    $$( [\frake, \frake]_{\frake}, \frake )_{\frake} = ( [\a, \a]_{\frake}, \a )_{\frake} = ( [\a, \a]_{\a}, \a )_{\a} = ( \a, [\a, \a]_{\a} )_{\a} = ( \a, [\a, \a]_{\frake} )_{\frake} = ( \frake, [\frake, \frake]_{\frake} )_{\frake}$$
+                (for any choice of linear section $\a \to \frake$ of the map $\pi: \frake \to \a$), where the third equality comes from the invariances of the bilinear form $(-, -)_{\a}$. This shows that $(-, -)_{\frake}$ too is invariant, as needed.
+
+                Conversely, suppose that $\frake$ carries an invariant and symmetric bilinear form $(-, -)_{\frake}$ such that $\Omega \subseteq \Rad(-, -)_{\frake}$. This means that:
+                    $$(\frake, \Omega)_{\frake} = 0$$
+                and hence automatically, we shall have a symmetric bilinear form $(-, -)_{\a}$ on $\a$ given by:
+                    $$(\pi(X), \pi(Y))_{\a} := (X, Y)_{\frake}$$
+                for all $X, Y \in \frake$. This bilinear form $(-, -)_{\a}$ is also invariant as a consequent of the assumption that $(-, -)_{\frake}$ is invariant (and also that $\pi: \frake \to \a$ is a Lie algebra homomorphism); to see how, consider the following:
+                    $$( [X, Y]_{\frake}, Z )_{\frake} = ( \pi( [X, Y]_{\frake} ), \pi(Z) )_{\a} = ( [\pi(X), \pi(Y)]_{\a}, \pi(Z) )_{\a}$$
+                at the same time as:
+                    $$( X, [Y, Z]_{\frake} )_{\frake} = ( \pi(X), \pi([Y, Z]_{\frake}) )_{\a} = ( \pi(X), [\pi(Y), \pi(Z)]_{\a} )_{\a}$$
+                and then rely on the fact that:
+                    $$( [X, Y]_{\frake}, Z )_{\frake} = ( X, [Y, Z]_{\frake} )_{\frake}$$
+                for all $X, Y, Z \in \frake$ to see that:
+                    $$( [\pi(X), \pi(Y)]_{\a}, \pi(Z) )_{\a} = ( \pi(X), [\pi(Y), \pi(Z)]_{\a} )_{\a}$$
+                Since $\pi: \frake \to \a$ is surjective, this is enough to show that $(-, -)_{\a}$ is invariant.
+            \end{proof}
+        \begin{remark}
+            Not every Lie algebra with a non-trivial centre arises as a central extension (see \cite[Section 1]{garland_arithmetics_of_loop_groups} for details), so it is not true that any invariant symmetric bilinear form on such a Lie algebra must be degenerate. Central elements can pair non-trivially with other elements, such as in the construction of untwisted affine Kac-Moody algebras (cf. \cite[Chapter 7]{kac_infinite_dimensional_lie_algebras}) or in the construction of so-called \say{extended toroidal Lie algebras} (cf. definition \ref{def: yangian_extended_toroidal_lie_algebras}).
         \end{remark}

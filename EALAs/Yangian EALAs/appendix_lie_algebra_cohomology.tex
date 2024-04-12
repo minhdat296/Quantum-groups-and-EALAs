@@ -6,20 +6,12 @@
             $$0 \to \t \to \t \rtimes^{\sigma} \d \to \d \to 0$$
         gives rise to a $2$-cocycle $\sigma: \bigwedge^2 \d \to \t$, the converse statement is slightly more subtle. Namely, it is possible that two unequal $2$-cocycles:
             $$\sigma \not = \sigma'$$
-        would give rise to two twisted semi-direct products that are isomorphic as extensions of $\d$ (see e.g. proposition \ref{prop: a_virasoro_coboundary} and theorem \ref{theorem: non_trivial_yangian_cocycles_examples}), and in order to capture this fact, we will need to introduce the language of Lie algebra cohomology, which also necessitates a brief discussion of homological algebra in general. We refer the reader to \cite{hilton_stammbach_homological_algebra} as a general reference on homological algebra, and particularly, Chapter VII therein as a reference on the generalities of Lie algebra cohomology. 
-
-        We will be adopting the following (somewhat \textit{ad hoc}) perspective on the construction of Lie algebra cohomology \say{groups}.
-        \begin{convention}
-            In discussing homological algebra, we will have to make use of some categorical language, but we will keep this to a minimum, only mentioning what is absolutely needed. We refer the reader to \cite{maclane}, particularly Chapter VIII therein, for more details.
-        \end{convention}
-        \begin{convention}
-            We take for granted the fact that for any associative ring $R$, left/right-$R$-modules form an abelian category (cf. \cite[Section VIII.3, p. 198]{maclane}) - denoted, respectively, by ${}^lR\mod$ and ${}^rR\mod$ - with all limits and colimits.
-
-            We will only be working with left-modules, but everything works identically for right-modules.
-        \end{convention}
+        would give rise to two twisted semi-direct products that are isomorphic as extensions of $\d$ (see e.g. proposition \ref{prop: a_virasoro_coboundary} and theorem \ref{theorem: non_trivial_yangian_cocycles_examples}), and in order to capture this fact, we will need to introduce the language of Lie algebra cohomology, which also necessitates a brief discussion of homological algebra in general. We refer the reader to \cite{hilton_stammbach_homological_algebra} as a general reference on homological algebra, and particularly, Chapter VII therein as a reference on the generalities of Lie algebra cohomology. For brevity, our account of Lie algebra cohomology will have to be a bit \textit{ad hoc}. Also, in discussing homological algebra, we will have to make use of some categorical language, but we will keep this to a minimum, only mentioning what is absolutely needed. We refer the reader to \cite{maclane}, particularly Chapter VIII therein, for more details.
+        
+        We take for granted the fact that for any associative ring $R$, left-$R$-modules form an abelian category (cf. \cite[Section VIII.3, p. 198]{maclane}) - denoted by ${}^lR\mod$ - with all limits and colimits. We will only be working with left-modules, but everything works identically for right-modules.
 
         \begin{definition}[Complexes and cohomomology] \label{def: complexes_and_cohomology}
-            (Cf. \cite[Section IV.1]{hilton_stammbach_homological_algebra}) Let $R$ be a ring. A \textbf{complex} or \textbf{chain complex} of left-$R$-modules is a diagram of left-$R$-modules:
+            (Cf. \cite[Section IV.1]{hilton_stammbach_homological_algebra}) Let $R$ be an associative ring. A \textbf{complex} or \textbf{chain complex} of left-$R$-modules is a diagram of left-$R$-modules:
                 $$\{P_i, \del_i\}_{i \in \Z} := \{ ... \xrightarrow[]{\del_{-3}} P_{-2} \xrightarrow[]{\del_{-2}} P_{-1} \xrightarrow[]{\del_{-1}} P_0 \xrightarrow[]{\del_0} P_1 \xrightarrow[]{\del_1} P_2 \xrightarrow[]{\del_2} ... \}$$
             (sometimes also abbreviated by $(P_{\bullet}, \del_{\bullet})$) such that for each $i \in \Z$, one has that:
                 $$\del_i \circ \del_{i - 1} = 0$$
@@ -87,18 +79,15 @@
                         \cong & \Hom_k( \bigwedge^i \a, M ) \ni \varphi(1 \tensor -)
                     \end{aligned}
                 $$
-            for all $a \in \rmU(\a)$, all $x_1, ..., x_i \in \a$, and all $\varphi \in \Hom_{\rmU(\a)}( \rmU(\a) \tensor_k \bigwedge^i \a, M )$.
+            for all $a \in \rmU(\a)$, all $x_1, ..., x_i \in \a$, and all $\varphi \in \Hom_{\rmU(\a)}( \rmU(\a) \tensor_k \bigwedge^i \a, M )$. This permits us to think of Lie cocycles and coboundaries as certain alternating multi-linear maps (see definition \ref{def: lie_cocycles_and_coboundaries} below).
         \end{remark}
         \begin{definition}[Lie cocycles and coboundaries] \label{def: lie_cocycles_and_coboundaries}
             Let us denote by:
                 $$d_i^M: C_i(\a, M) \to C_{i + 1}(\a, M)$$
             the differentials of thee complex of $k$-vector spaces $\{C_i(\a, M)\}_{i \in \Z_{\geq 0}}$. These are given by:
                 $$d_i^M := \Hom_{\rmU(\a)}(\del_{-(i + 1)}, M)$$
-            When $M$ is understood from the context, the superscripts may be omitted.
-        
-            For each $i \in \Z_{\geq 0}$, \textbf{Lie algebra $i$-cocycles} of $\a$ with values in $M$ shall be elements of:
+            When $M$ is understood from the context, the superscripts may be omitted. For each $i \in \Z_{\geq 0}$, we define \textbf{Lie $i$-cocycles} and \textbf{Lie $i$-coboundaries} of $\a$ with values in $M$, respectively, to be elements of:
                 $$Z^i_{\Lie}(\a, M) := \ker d_i^M$$
-            while \textbf{Lie algebra $i$-coboundaries} of $\a$ with values in $M$ shall be elements of:
                 $$B^i_{\Lie}(\a, M) := \im d_{i - 1}^M$$
         \end{definition}
         \begin{remark}
@@ -152,28 +141,18 @@
             \end{itemize}
         \end{example}
         \begin{example}[Lie $2$-cocycles and $2$-coboundaries with trivial coefficients] \label{example: low_degree_lie_cocycles_and_coboundaries_with_trivial_coefficients}
-            Of particular usefulness to us are Lie $2$-cocycles and $2$-coboundaries with trivial coefficients. In this case where:
-                $$i = 2$$
-            the conditions in example \ref{example: lie_cocycles_and_coboundaries_with_trivial_coefficients} reduce to the following.
+            Of particular usefulness to us are Lie $2$-cocycles and $2$-coboundaries with trivial coefficients. When $i = 2$, the conditions in example \ref{example: lie_cocycles_and_coboundaries_with_trivial_coefficients} reduce to the following.
             \begin{itemize}
-                \item A Lie $2$-cocycle of $\a$ with coefficients in the trivial $\a$-module $k$ is a linear map:
-                    $$\sigma: \bigwedge^2 \a \to k$$
-                satisfying the Jacobi identity, in the sense of definition \ref{def: twisted_semi_direct_products}.
-                \item A Lie $2$-coboundary of $\a$ with coefficients in $k$ is a linear map:
-                    $$\beta: \bigwedge^2 \a \to k$$
-                for which there exist a linear map:
-                    $$\tilde{\beta}: \a \to k$$
-                such that:
+                \item A Lie $2$-cocycle of $\a$ with coefficients in the trivial $\a$-module $k$ is a linear map $\sigma: \bigwedge^2 \a \to k$ satisfying the Jacobi identity, in the sense of definition \ref{def: twisted_semi_direct_products}.
+                \item A Lie $2$-coboundary of $\a$ with coefficients in $k$ is a linear map $\beta: \bigwedge^2 \a \to k$ for which there exist an element $\tilde{\beta} \in C_1(\a, k)$ (i.e. a linear map $\tilde{\beta}: \a \to k$) such that:
                     $$\beta(x \wedge y) = \tilde{\beta}([x, y])$$
                 Equivalently, this is saying that:
-                    $$\beta = d_1(\tilde{\beta})$$
+                    $$\beta = d_1^k(\tilde{\beta})$$
                 Much like Lie $2$-cocycles, the value of a Lie $2$-boundaries $\beta$ at some $x \wedge y \in \bigwedge^2 \a$ is usually denotes by $\beta(x, y)$, i.e. we tend to think of Lie $2$-coboundaries as certain skew-symmetric bilinear maps $\a \x \a \to k$.
             \end{itemize}
         \end{example}
-        
-        Next, let us consider low-degree Lie cocycles and coboundaries with values in possibly non-trivial modules as well. Once again, by letting $i = 2$, one recovers the notion of Lie $2$-cocycles as in definition \ref{def: twisted_semi_direct_products}, but Lie $2$-coboundaries with values in possibly non-trivial modules are slightly different from those with trivial coefficients, as in example \ref{example: low_degree_lie_cocycles_and_coboundaries_with_trivial_coefficients}. We will not be needing the cases where $i > 2$.
 
-        To make sense of Lie $2$-coboundaries with values in non-trivial modules, it shall be convenient to have a somewhat concrete description of $1$-cocycles and $1$-coboundaries.
+        We conclude this subsection by discussing interpretations of the two cases of low-dimensional Lie algebra cohomology that are of interest to us, namely $H^1_{\Lie}$ and $H^2_{\Lie}$. Respectively, these parametrise so-called \say{outer derivations} and abelian extensions.
         \begin{definition}[Lie derivations] \label{def: lie_derivations}
             (Cf. \cite[Section VII.2, Equation 2.2, p. 234]{hilton_stammbach_homological_algebra}) Let $\d$ be a Lie algebra and let $\Omega$ be an $\d$-module defined by a Lie algebra action:
                 $$\rho: \d \to \gl(\Omega)$$
@@ -203,11 +182,7 @@
                 $$\rho: \d \to \gl(\Omega)$$
             By construction, we have that:
                 $$d_i^\Omega := \Hom_{\rmU(\d)}(\del_{-(i + 1)}, \Omega)$$
-            for all $i \in \Z_{\geq 0}$. By using remark \ref{remark: simplified_chevalley_eilenberg_complexes}, we shall see that a Lie $2$-coboundary of $\d$ with values in $\Omega$ shall be a linear map\footnote{Again, let us regard maps out of exterior powers as alternating multi-linear maps.}:
-                $$\beta: \bigwedge^2 \d \to \Omega$$
-            for which there is a linear map:
-                $$\tilde{\beta}: \d \to \Omega$$
-            satisfying the following property:
+            for all $i \in \Z_{\geq 0}$. By using remark \ref{remark: simplified_chevalley_eilenberg_complexes}, we shall see that a Lie $2$-coboundary of $\d$ with values in $\Omega$ shall be a linear map\footnote{Again, let us regard maps out of exterior powers as alternating multi-linear maps.} $\beta: \bigwedge^2 \d \to \Omega$ for which there is an element $\tilde{\beta} \in C_1(\d, \Omega)$ (i.e. a linear map $\tilde{\beta}: \d \to \Omega$) satisfying the following property:
                 $$\beta(x, y) = \left( \rho(x) \cdot \tilde{\beta}(y) - \rho(y) \cdot \tilde{\beta}(x) \right) - \tilde{\beta}([x, y])$$
             (cf. \cite[Equation 1.6, p. 421]{kassel_quantum_groups}). In other words, $2$-coboundaries are error terms measuring how far a linear map $\d \to \Omega$ is from being a derivation of $\d$ with values in $\Omega$.
         \end{example}
