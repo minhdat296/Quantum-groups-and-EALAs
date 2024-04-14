@@ -10,7 +10,7 @@
         
         We take for granted the fact that for any associative ring $R$, left-$R$-modules form an abelian category (cf. \cite[Section VIII.3, p. 198]{maclane}) - denoted by ${}^lR\mod$ - with all limits and colimits. We will only be working with left-modules, but everything works identically for right-modules.
 
-        \begin{definition}[Complexes and cohomomology] \label{def: complexes_and_cohomology}
+        \begin{definition}[Complexes and cohomology] \label{def: complexes_and_cohomology}
             (Cf. \cite[Section IV.1]{hilton_stammbach_homological_algebra}) Let $R$ be an associative ring. A \textbf{complex} or \textbf{chain complex} of left-$R$-modules is a diagram of left-$R$-modules:
                 $$\{P_i, \del_i\}_{i \in \Z} := \{ ... \xrightarrow[]{\del_{-3}} P_{-2} \xrightarrow[]{\del_{-2}} P_{-1} \xrightarrow[]{\del_{-1}} P_0 \xrightarrow[]{\del_0} P_1 \xrightarrow[]{\del_1} P_2 \xrightarrow[]{\del_2} ... \}$$
             (sometimes also abbreviated by $(P_{\bullet}, \del_{\bullet})$) such that for each $i \in \Z$, one has that:
@@ -33,12 +33,12 @@
             $$\Hom_R(-, M): {}^lR\mod^{\op} \to \Z\mod$$
         is generally only left-exact, which for us shall mean that it maps kernels and finite direct sums in ${}^lR\mod^{\op}$ (i.e. cokernels and finite direct sums in ${}^lR\mod$) to kernels and finite direct sums in $\Z\mod$. Consequently, any projective resolution\footnote{It is a fact from homological algebra that any choice of projective resolution would return the same cohomologies, so the non-trivial task is to choose a resolution that would make computations convenient or in fact, even feasible in the first place. In modern terminologies, all the projective resolutions of the same module are \say{quasi-isomorphic}.} of a given left-$R$-module $P$:
             $$(P_{\bullet}, \del_{\bullet}) := \{ ... \xrightarrow[]{\del_{-3}} P_{-2} \xrightarrow[]{\del_{-2}} P_{-1} \xrightarrow[]{\del_{-1}} P_0 \xrightarrow[]{\del_0} P \to 0 \}$$
-        (i.e. a chain complex of left-$R$-modules wherein each term is projective as a left-$R$-module) is mapped by $\Hom_R(-, M)$ to a diagram of $\Z$-modules as follows:
+        (i.e. a chain complex of left-$R$-modules wherein each term is projective\footnote{A left-$R$-module $P$ is projective if and only if the functor $\Hom_R(P, -): {}^lR\mod \to \Z\mod$ is exact, or equivalently (because ${}^lR\mod$ is an abelian category), if and only if it preserves monomorphisms.} as a left-$R$-module) is mapped by $\Hom_R(-, M)$ to a diagram of $\Z$-modules as follows:
             $$\Hom_R(P_{\bullet}, M) := \{ 0 \to \Hom_R(P, M) \Hom_R(P^0, M) \to \Hom_R(P^{-1}, M) \to \Hom_R(P^{-2}, M) \to ... \}$$
         \begin{definition}[$\Ext$-groups] \label{def: Ext_groups}
             With notations as above, we can define:
                 $$\Ext^i_R(P, M) := H^i(\Hom_R(P_{\bullet}, M))$$
-            for each $i \in \Z_{\geq 0}$. By constructions, these are $\Z$-modules. 
+            for each $i \in \Z_{\geq 0}$. By construction, these are $\Z$-modules. 
         \end{definition}
         \begin{remark}
             If $R$ is an associative algebra defined over a field $k$, then the $\Z$-modules $\Ext^i_R(P, M)$ will actually carry $k$-vector space structures as well.
@@ -151,32 +151,6 @@
                 Much like Lie $2$-cocycles, the value of a Lie $2$-boundaries $\beta$ at some $x \wedge y \in \bigwedge^2 \a$ is usually denotes by $\beta(x, y)$, i.e. we tend to think of Lie $2$-coboundaries as certain skew-symmetric bilinear maps $\a \x \a \to k$.
             \end{itemize}
         \end{example}
-
-        We conclude this subsection by discussing interpretations of the two cases of low-dimensional Lie algebra cohomology that are of interest to us, namely $H^1_{\Lie}$ and $H^2_{\Lie}$. Respectively, these parametrise so-called \say{outer derivations} and abelian extensions.
-        \begin{definition}[Lie derivations] \label{def: lie_derivations}
-            (Cf. \cite[Section VII.2, Equation 2.2, p. 234]{hilton_stammbach_homological_algebra}) Let $\d$ be a Lie algebra and let $\Omega$ be an $\d$-module defined by a Lie algebra action:
-                $$\rho: \d \to \gl(\Omega)$$
-            A \textbf{derivation} of $\d$ with values in $\Omega$ is a linear map:
-                $$L: \d \to \Omega$$
-            satisfying the following property for all $x, y \in \d$:
-                $$L( [x, y] ) = \rho(x) \cdot L(y) - \rho(y) \cdot L(x)$$
-            Such derivations form a vector space, for which we shall write $\der(\d, \Omega)$. For every $\omega \in \Omega$, one can define an \textbf{inner derivation} $L_{\omega}$, specified by:
-                $$L_{\omega} = \rho(-) \cdot \omega$$
-            Inner derivations form a vector subspace of $\der(\d, \Omega)$, which is denoted by $\inn(\d, \Omega)$. Derivations that are not inner are said to be \textbf{outer}, and the vector space of outer derivations is identified as:
-                $$\out(\d, \Omega) := \der(\d, \Omega)/\inn(\d, \Omega)$$
-        \end{definition}
-        \begin{example}
-            Let $\d$ be a Lie algebra and let $\d$ also be considered as a module over itself via the adjoint action. Then, for any $x \in \d$, the map:
-                $$\ad(x): \d \to \d$$
-            will be an inner derivation of $\d$ with values in itself.
-        \end{example}
-        \begin{theorem}[$H^1_{\Lie}$ and derivations of Lie algebras]
-            \cite[Theorem 2.1 and Proposition 2.2]{hilton_stammbach_homological_algebra} Let $\d$ be a Lie algebra and $\Omega$ be an $\d$-module. Then:
-                $$Z^1_{\Lie}(\d, \Omega) \cong \der(\d, \Omega)$$
-                $$B^1_{\Lie}(\d, \Omega) \cong \inn(\d, \Omega)$$
-            and hence:
-                $$H^1_{\Lie}(\d, \Omega) \cong \out(\d, \Omega)$$
-        \end{theorem}
         \begin{example}[Lie $2$-coboundaries with \textit{non-trivial} coefficients] \label{example: low_degree_lie_coboundaries_with_non-trivial_coefficients}
             Let $\Omega$ be an $\d$-module defined by a Lie algebra action
                 $$\rho: \d \to \gl(\Omega)$$
@@ -187,7 +161,96 @@
             (cf. \cite[Equation 1.6, p. 421]{kassel_quantum_groups}). In other words, $2$-coboundaries are error terms measuring how far a linear map $\d \to \Omega$ is from being a derivation of $\d$ with values in $\Omega$.
         \end{example}
 
-        We will be needing these notions in the discussions leading up to theorem \ref{theorem: non_trivial_yangian_cocycles_examples}, in order to be able to equivocate certain unequal $2$-cocycles as being cohomologous to one another. More specifically, we will be making use of the fact that isomorphism classes of abelian extensions of a given Lie algebra are in bijection with its $2^{nd}$ cohomology (with suitable coefficients, of course).
+    \subsection{Interpretations of \texorpdfstring{$H^1_{\Lie}$}{} and \texorpdfstring{$H^2_{\Lie}$}{}}
+        We conclude this subsection by discussing interpretations of the two cases of low-dimensional Lie algebra cohomology that are of interest to us, namely $H^1_{\Lie}$ and $H^2_{\Lie}$. Respectively, these parametrise so-called \say{outer derivations} and abelian extensions. We will be needing these notions in the discussions leading up to theorem \ref{theorem: non_trivial_yangian_cocycles_examples}, in order to be able to discern whether or not certain unequal $2$-cocycles might be cohomologous to one another. More specifically, we will be making use of the fact that isomorphism classes of abelian extensions of a given Lie algebra are in bijection with its $2^{nd}$ cohomology (with suitable coefficients, of course).
+        
+        \begin{definition}[Lie derivations] \label{def: lie_derivations}
+            (Cf. \cite[Section VII.2, Equation 2.2, p. 234]{hilton_stammbach_homological_algebra}) Let $\d$ be a Lie algebra and let $\Omega$ be an $\d$-module defined by a Lie algebra action:
+                $$\rho: \d \to \gl(\Omega)$$
+            A \textbf{derivation} of $\d$ with values in $\Omega$ is a linear map:
+                $$L: \d \to \Omega$$
+            satisfying the following property for all $X, Y \in \d$:
+                $$L( [X, Y] ) = \rho(X) \cdot L(Y) - \rho(Y) \cdot L(X)$$
+            Such derivations form a vector space, for which we shall write $\der(\d, \Omega)$. For every $\omega \in \Omega$, one can define an \textbf{inner derivation} $L_{\omega}$, specified by:
+                $$L_{\omega} = \rho(-) \cdot \omega$$
+            Inner derivations form a vector subspace of $\der(\d, \Omega)$, which is denoted by $\inn(\d, \Omega)$. Derivations that are not inner are said to be \textbf{outer}, and the vector space of outer derivations is identified as:
+                $$\out(\d, \Omega) := \der(\d, \Omega)/\inn(\d, \Omega)$$
+        \end{definition}
+        \begin{example}[The adjoint action]
+            Let $\d$ be a Lie algebra and let $\d$ also be considered as a module over itself via the adjoint action. Then, for any $X \in \d$, the map:
+                $$\ad(X): \d \to \d$$
+            will be an inner derivation of $\d$ with values in itself.
+        \end{example}
+        \begin{example}[Derivations on current algebras] \label{example: derivations_on_current_algebras}
+            Let $\a$ be a Lie algebra over $k$ and $A$ be a commutative $k$-algebra. On the current algebra $\a \tensor_k A$ (cf. definition \ref{def: current_algebras}), one can construct a natural action of $\der(A)$ on $\a \tensor_k A$ by:
+                $$D \cdot xf := x D(f)$$
+            for all $D \in \der(A)$ and all $x \in \a, f \in A$. This action is by Lie derivations, since the following holds for all $D \in \der(A)$ and all $x, y \in \g, f, g \in A$, merely because $D$ is a derivation on $A$:
+                $$D \cdot [xf, yg]_{\a \tensor_k A} = D \cdot [x, y] fg = [x, y] ( D(f)g + f D(g) )$$
+        \end{example}
+        \begin{example}[Lie derivatives] \label{example: lie_derivatives}
+            Another prominent example of Lie derivations is the operation of Lie derivatives. For us, knowing that this operation is well-defined will be useful for proving of lemma \ref{lemma: vector_field_action_on_toroidal_lie_algebras}. 
+
+            To construct these derivations, consider firstly a commutative $k$-algebra $A$ and the standard action:
+                $$L: \der(A) \to \gl(A)$$
+            of $\der(A)$ on $A$, via evaluations of derivations $D \in \der(A)$ on \say{functions} $f \in A$, i.e.:
+                $$L(D)(f) := D(f)$$
+            It is clear that $L$ as above is a Lie algebra homomorphism, so the action is well-defined. Our goal is to somehow induce an action of $\der(A)$ on $\Omega^1_{A/k}$ using $L$ as above; the claim is that the sought-for action shall be given by so-called \textbf{Lie derivatives}, i.e.:
+                $$D \cdot g df := D(g) df + g d(D(f))$$
+            for all $D \in \der(A)$ and all $f, g \in A$.
+
+            Now, recall that if $U$ is any bialgebra over $k$ (cf. \cite[Section III.2]{kassel_quantum_groups}) with comultiplication $\Delta: U \to U^{\tensor 2}$ and $V, W$ are $U$-modules determined by algebra homomorphisms $\pi: U \to \End_k(V)$ and $\rho: U \to \End_k(W)$, then $V \tensor_k W$ will be a $U^{\tensor 2}$-module \textit{a priori}, determined by an algebra homomorphism:
+                $$\pi \tensor \rho: U^{\tensor 2} \to \End_k(V \tensor_k W)$$
+            given by:
+                $$(\pi \tensor \rho)(u \tensor u')(v \tensor w) := uv \tensor u' w$$
+            for all $u, u' \in U$ and $v \in V, w \in W$. Then, using the fact that $\Delta$ is an algebra homomorphism per the definition of bialgebras, one can form the composite algebra homomorphism:
+                $$U \xrightarrow[]{\Delta} U^{\tensor 2} \xrightarrow[]{\pi \tensor \rho} \End_k(V \tensor W)$$
+            and thus can endow $V \tensor_k W$ with the structure of a $U$-module, given by:
+                $$u \cdot (v \tensor w) := (\pi \tensor \rho)(\Delta(u))( v \tensor w )$$
+            for all $u \in U$ and all $v \in V, w \in W$.
+            
+            Because the universal enveloping algebra of $\der(A)$ (or for that matter, any Lie algebra) is a Hopf algebra - and hence a bialgebra - with comultiplication given by:
+                $$\Delta(X) := X \tensor 1 + 1 \tensor X$$
+            for all $X \in \rmU(\der(A))$ (cf. \cite[Section III.3]{kassel_quantum_groups}), the abstract nonsense above about tensor products of bialgebra modules can be applied to the case:
+                $$U := \rmU(\der(A))$$
+            The aforementioned action of $\der(A)$ on $A$ thus automatically extends to $A^{\tensor 2}$ by:
+                $$
+                    \begin{aligned}
+                        & D \cdot ( f \tensor g )
+                        \\
+                        := & L^{\tensor 2}( \Delta(D) )( f \tensor g )
+                        \\
+                        = & ( L(D) \tensor 1 + 1 \tensor L(D) )(f \tensor g)
+                        \\
+                        = & D(f) \tensor g + f \tensor D(g)
+                    \end{aligned}
+                $$
+            Finally, recall from definition \ref{def: kahler_differentials} that as an $A$-module, $\Omega^1_{A/k}$ is the quotient of the $A$-module $A^{\tensor 2}$ by the $A$-submodule $I$ generated by elements of the form $fg \tensor 1 - f \tensor g - g \tensor f$, for all $f, g \in A$. We have that:
+                $$
+                    \begin{aligned}
+                        & D \cdot ( fg \tensor 1 - f \tensor g - g \tensor f )
+                        \\
+                        = & D(fg) \tensor 1 - ( D(f) \tensor g + f \tensor D(g) ) - ( D(g) \tensor f + g \tensor D(f) )
+                        \\
+                        = & (D(f) g + f D(g)) \tensor 1 - ( D(f) \tensor g + f \tensor D(g) ) - ( D(g) \tensor f + g \tensor D(f) )
+                        \\
+                        = & ( D(f) g \tensor 1 - D(f) \tensor g - g \tensor D(f) ) + ( D(g) f \tensor 1 - D(g) \tensor f - f \tensor D(g) ) 
+                        \in I
+                    \end{aligned}
+                $$
+            which shows that $I$ is a $\der(A)$-submodule of $A^{\tensor 2}$. From this, we see that there is a $\der(A)$-action on $\Omega^1_{A/k}$ given by:
+                $$D \cdot g df := D(g) df + g d(D(f))$$
+            as claimed.
+
+            It is also clear that Lie derivatives satsify the Leibniz rule, so they are indeed Lie derivations.
+        \end{example}
+        \begin{theorem}[$H^1_{\Lie}$ and derivations of Lie algebras]
+            \cite[Theorem 2.1 and Proposition 2.2]{hilton_stammbach_homological_algebra} Let $\d$ be a Lie algebra and $\Omega$ be an $\d$-module. Then:
+                $$Z^1_{\Lie}(\d, \Omega) \cong \der(\d, \Omega)$$
+                $$B^1_{\Lie}(\d, \Omega) \cong \inn(\d, \Omega)$$
+            and hence:
+                $$H^1_{\Lie}(\d, \Omega) \cong \out(\d, \Omega)$$
+        \end{theorem}
+
         \begin{theorem}[$H^2_{\Lie}$ and abelian extensions] \label{theorem: H^2_of_lie_algebras_and_abelian_extensions}
             (Cf. \cite[Theorem VII.3.3]{hilton_stammbach_homological_algebra}) Let $\d$ be a Lie algebra over $k$ and $\Omega$ be an $\d$-module, equipped with the abelian Lie algebra structure. There is then a bijection:
                 $$H^2_{\Lie}(\d, \Omega) \xrightarrow[]{\cong} \{ \text{isomorphism classes of extensions of $\d$ by $\Omega$} \}$$
@@ -226,6 +289,50 @@
         The inclusion of the extra minus sign is so that:
             $$[d_r, d_a]_{\der(\bbC[v^{\pm 1}])} = (r - a) D_{r + a}$$
         which is more or less a choice of aesthetics.
+
+        \begin{proposition}[A Virasoro $2$-coboundary] \label{prop: a_virasoro_coboundary}
+            Let:
+                $$\eta': \bigwedge^2 \der(\bbC[v^{\pm 1}]) \to \bbC c_{\frakv}$$
+            be the function given by:
+                $$\eta'(d_r, d_a) := \delta_{r + a, 0} r c_{\frakv}$$
+            This is a $2$-cocycle of $\der(\bbC[v^{\pm 1}])$ with values in $\bbC c_{\frakv}$. From this, one sees that:
+                $$\eta + \eta': \bigwedge^2 \der(\bbC[v^{\pm 1}]) \to \bbC c_{\frakv}$$
+            (which is given by $(\eta + \eta')(d_r, d_a) := \delta_{r + a, 0} r^3 c_{\frakv}$) is also a $2$-cocycle of $\der(\bbC[v^{\pm 1}])$ with values in $\bbC c_{\frakv}$. 
+
+            Furthermore, we have that:
+                $$\eta' \in B^2_{\Lie}( \der(\bbC[v^{\pm 1}]), \bbC c_{\frakv} )$$
+            with notations as in definition \ref{def: lie_cocycles_and_coboundaries}.
+        \end{proposition}
+            \begin{proof}
+                It is clear from the construction of $\eta'$ that it is linear and skew-symmetric; the only non-trivial thing to prove is that $\eta'$ satisfies the Jacobi identity in the sense of definition \ref{def: twisted_semi_direct_products}. To this end, simply consider the following, for all $i, j, k \in \Z$:
+                    $$
+                        \begin{aligned}
+                            & \eta'([d_i, d_j], d_k) + \eta'([d_k, d_i], d_j) + \eta'([d_j, d_k], d_i)
+                            \\
+                            = & (i - j) \eta'(d_{i + j}, d_k) + (k - i) \eta'(d_{k + i}, d_j) + (j - k) \eta'(d_{j + k}, d_i)
+                            \\
+                            = & \delta_{i + j + k, 0} \left( (i - j) (i + j) + (k - i) (k + i) + (j - k) (j + k) \right) c_{\frakv}
+                            \\
+                            = & 0
+                        \end{aligned}
+                    $$
+                    
+                To show that $\eta'$ is a Lie $2$-coboundary in the sense of definition \ref{def: lie_cocycles_and_coboundaries}, we must show that there exists a linear map:
+                    $$\tilde{\eta'}: \der(\bbC[v^{\pm 1}]) \to \bbC c_{\frakv}$$
+                which is merely a linear map, such that:
+                    $$\eta(d_i, d_j) = \tilde{\eta'}([d_i, d_j])$$
+                (cf. examples \ref{example: lie_cocycles_and_coboundaries_with_trivial_coefficients} and \ref{example: low_degree_lie_cocycles_and_coboundaries_with_trivial_coefficients}). The RHS is nothing but:
+                    $$\tilde{\eta'}([d_i, d_j]) = (i - j) \tilde{\eta'}(d_{i + j}) c_{\frakv}$$
+                while by construction, the LHS is:
+                    $$\eta(d_i, d_j) := \delta_{i + j, 0} i c_{\frakv}$$
+                and hence:
+                    $$\delta_{i + j, 0} i = (i - j) \tilde{\eta'}(d_{i + j})$$
+                By setting $j = 0$, we then see that:
+                    $$i (\tilde{\eta'}(d_i) - \delta_{i, 0}) = 0$$
+                for all $i \in \Z$, which in turn implies that:
+                    $$\tilde{\eta'}(d_i) = \delta_{i, 0}$$
+                The sought-for linear map $\tilde{\eta}: \der(\bbC[v^{\pm 1}]) \to \bbC c_{\frakv}$ is thus defined, and hence exists.
+            \end{proof}
     
         \todo[inline]{Removed proof of $\dim_{\bbC} H^2_{\Lie}( \der(\bbC[v^{\pm 1}]), \bbC c_{\frakv} ) = 1$.}
         \begin{lemma}[$H^2_{\Lie}$ of the Witt algebra] \label{lemma: H^2_of_witt_algebra}

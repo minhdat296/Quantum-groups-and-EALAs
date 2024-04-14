@@ -1,33 +1,7 @@
 \section{Structure of \texorpdfstring{$\gamma$}{}-extended toroidal Lie algebras}
     \subsection{Centres of \texorpdfstring{$\gamma$}{}-extended toroidal Lie algebras}
-        \begin{question}
-            What is the centre $\hat{\z}_{[2]} := \z( \extendedtoroidal )$ ? This ought to be smaller than $\z(\toroidal)$ somehow, since elements of $\z(\toroidal)$ need not be central in $\extendedtoroidal$. 
-        \end{question}
-        \begin{remark}[Computing the centre without computing all the brackets ...]
-            Since $\g_{[2]}$ is centreless, we have that:
-                $$\hat{\z}_{[2]} = \z( \z(\toroidal) \oplus \divzero )$$
-            As $\z(\toroidal)$ is an abelian Lie algebra, this implies that in order to compute $\hat{\z}_{[2]}$, it suffices to explicitly compute the commutators of the form:
-                $$[D, K]_{\extendedtoroidal}, [D, D']_{\extendedtoroidal}$$
-            for $D, D' \in \divzero$ and $K \in \z(\toroidal)$, to see which ones vanish. However, this is rather tedious and not very insightful.
-            
-            An alternative method is as follows: exploiting the fact that the symmetric bilinear form $(-, -)_{\extendedtoroidal}$ is both invariant and non-degenerate, we can characterise the centre $\hat{\z}_{[2]}$ as the Lie ideal of $\extendedtoroidal$ containing elements $Z$ such that:
-                $$0 = ([Z, X]_{\extendedtoroidal}, Y)_{\extendedtoroidal} = (Z, [X, Y]_{\extendedtoroidal})_{\extendedtoroidal}$$
-            for any $X, Y \in \extendedtoroidal$, with the first equality holding thanks to the fact that $Z$ is supposed to commute with every other element of $\extendedtoroidal$ by assumption of being central. We are thus left with the task of finding elements:
-                $$Z \in \extendedtoroidal$$
-            such that:
-                $$(Z, [\extendedtoroidal, \extendedtoroidal]_{\extendedtoroidal})_{\extendedtoroidal} = 0$$
-            Since brackets of the form:
-                $$[X, Y]_{\extendedtoroidal}, [D, D']_{\extendedtoroidal}$$
-            (for some $X, Y \in \g_{[2]}$ and some $D, D' \in \divzero$) are generally non-zero, their elements can not be central in $\extendedtoroidal$. As such, we have narrowed the scope of our search down to:
-                $$\hat{\z}_{[2]} \subset \z(\toroidal)$$
-
-            Another way to see that:
-                $$\hat{\z}_{[2]} \subset \z(\toroidal)$$
-            is to use the fact that $\extendedtoroidal$ is a Lie algebra extension of $\divzero$ by $\toroidal$ (cf. proposition \ref{prop: yangian_extended_toroidal_lie_algebras}). This tells us that the centre of $\extendedtoroidal$ ought to lie inside that of $\toroidal$, i.e.:
-                $$\hat{\z}_{[2]} \subset \z(\toroidal) = \z(\toroidal)$$
-            as per proposition \ref{prop: twisted_semi_direct_product_criterion}.
-        \end{remark}
-
+        Fix an arbitrary $\gamma$-extended toroidal Lie algebra $\extendedtoroidal$.
+    
         Using lemma \ref{lemma: yangian_div_zero_vector_fields_basic_properties} in conjunction with lemma \ref{lemma: derivation_action_on_toroidal_centres}, we can now also explicitly compute the commutation relations between the basis elements of $\divzero$ and $\z(\toroidal)$.
         \begin{lemma}[Explicit commutators between basis elements of $\divzero$ and $\z(\toroidal)$] \label{lemma: explicit_commutators_between_central_basis_elements_and_derivations}
             In the Lie algebra $\extendedtoroidal$, one has the following commutation relations between elements of $\z(\toroidal)$ and those of $\divzero$. Namely, for all $D \in \divzero$, the following relations hold:
@@ -124,22 +98,61 @@
                     for all $D := \sum_{(\alpha, \beta) \in \Z^2} \lambda_{\alpha, \beta} D_{\alpha, \beta} + \lambda_v D_v + \lambda_t D_t \in \divzero$.
                 \end{enumerate}
             \end{proof}
-        
+
+        \todo[inline]{Rewrote proof of centre being $\bbC c_v \oplus \bbC c_t$.}
         \begin{proposition}[Centres of $\gamma$-extended toroidal Lie algebras] \label{prop: centres_of_yangian_extended_toroidal_lie_algebras}
-            The centre $\hat{\z}_{[2]}$ is a two-dimensional (abelian) Lie subalgebra of $\z(\toroidal)$, spanned by $c_v$ and $c_t$. 
+            The centre of $\extendedtoroidal$ is given by:
+                $$\z(\extendedtoroidal) = \bbC c_v \oplus \bbC c_t$$
         \end{proposition}
             \begin{proof}
-                Since we know that:
-                    $$\hat{\z}_{[2]} \subset \z(\toroidal)$$
-                and that the only possibly non-zero bracket with elements of $\z(\toroidal)$ are elements of $[\divzero, \z(\toroidal)]_{\extendedtoroidal}$, and since we also know from lemma \ref{lemma: explicit_commutators_between_central_basis_elements_and_derivations} that:
-                    $$[\divzero, K]_{\extendedtoroidal} = 0 \iff K \in \bbC c_v \oplus \bbC c_v$$
-                we can conclude immediately that:
-                    $$\hat{\z}_{[2]} = \bbC c_v \oplus \bbC c_t$$
+                From example \ref{example: toroidal_lie_algebras_centres} and lemma \ref{lemma: explicit_commutators_between_central_basis_elements_and_derivations}, one sees that:
+                    $$c_v, c_t \in \z(\extendedtoroidal)$$
+                and hence:
+                    $$\z(\extendedtoroidal) \supset \bbC c_v \oplus \bbC c_t$$
+                To show the other containment, it shall suffice - due to lemma \ref{lemma: explicit_commutators_between_central_basis_elements_and_derivations} - to demonstrate that $\z(\extendedtoroidal) \subset \z(\toroidal)$; in fact, because $[\toroidal, \z(\toroidal)]_{\extendedtoroidal} = [\toroidal, \z(\toroidal)]_{\toroidal} = 0$ and because $\g_{[2]}$ is centre-less, it shall suffice to show that there does \textit{not} exist $D \in \divzero$ such that:
+                    $$[D, \g_{[2]}]_{\extendedtoroidal} = 0$$
+                To this end, recall from lemma \ref{lemma: no_polynomial_terms_for_derivation_action_on_multiloop_algebras} that because $\extendedtoroidal$ is a $\gamma$-extended toroidal Lie algebra, we have that:
+                    $$[D, \g_{[2]}]_{\extendedtoroidal} = \rho(D) \cdot \g_{[2]}$$
+                with $\rho: \divzero \to \der(\toroidal)$ as in corollary \ref{coro: a_fixed_yangian_div_zero_vector_field_action}. Because of this, all we need to do now is to prove that there does not exist $D \in \divzero$ so that:
+                    $$\forall f \in A: D(f) = 0$$
+                Suppose for the sake of deriving a contradiction that such an element $D \in \divzero$ does exist. This would imply that for all $f, g \in A$, one would have that:
+                    $$(D, g \bar{d}f)_{\extendedtoroidal} = \gamma( g D(f) ) = 0$$
+                meaning that such an element $D \in \divzero$ must be orthogonal to every element of $\z(\toroidal)$ (since $\z(\toroidal)$ is spanned by elements of the form $g \bar{d}f$). But this is clearly false, because of the construction of the bilinear form $(-, -)_{\extendedtoroidal}$ (cf. corollary \ref{coro: pairing_yangian_div_zero_vector_fields_and_cyclic_1_forms}), and so we have a contradiction. Therefore:
+                    $$\z(\extendedtoroidal) \subset \bbC c_v \oplus \bbC c_t$$
+                as well, and hence:
+                    $$\z(\extendedtoroidal) = \bbC c_v \oplus \bbC c_t$$
+                as claimed.
             \end{proof}
         \begin{remark}
             It is rather interesting that:
-                $$\hat{\z}_{[2]} \cong \bbC c_v \oplus \bbC c_t$$
+                $$\z(\extendedtoroidal) \cong \bbC c_v \oplus \bbC c_t$$
             as this is in good analogy with the affine Kac-Moody case, where the centre of $\hat{\g}$ is $1$-dimensional, namely spanned by $c_v$ (cf. example \ref{example: affine_lie_algebras_centres}).
         \end{remark}
 
     \subsection{The Witt algebra}
+        Recall from lemma \ref{lemma: yangian_div_zero_vector_fields_basic_properties} that:
+            $$\forall (r, s) \in \Z^2: D_{r, s} = s v^{-r + 1} t^{-s - 1} \del_v - r v^{-r} t^{-s} \del_t$$
+            $$D_v = -v t^{-1} \del_v$$
+            $$D_t = -\del_t$$
+        and from lemma \ref{lemma: yangian_div_zero_vector_fields_basic_properties} that the commutation relations that these basis elements of $\divzero$ satisfy are:
+            $$[D_v, D_t] = 0$$
+            $$[D_v, D_{r, s}] = r D_{r, s + 1}$$
+            $$[D_t, D_{r, s}] = D_{r, s + 1}$$
+            $$[D_{a, b}, D_{r, s}] = (br - sa) D_{a + r, b + s + 1}$$
+        (given for all $(r, s), (a, b) \in \Z^2$). With these information in mind, one sees that the following vector subspace of $\divzero$:
+            $$\frakw := \bigoplus_{r \in \Z} \bbC D_{r, -1}$$
+        is actually a Lie subalgebra, as the basis elements satisfy the following commutators:
+            $$[D_{a, -1}, D_{r, -1}] = (a - r) D_{a + r, -1}$$
+        given for all $a, r \in \Z$; note also that we have $D_v, D_t \not \in \frakw$ because:
+            $$[D_v, D_{r, -1}] = r D_{r, 0} \not \in \frakw$$
+            $$[D_t, D_{r, -1}] = D_{r, 0} \not \in \frakw$$    
+        for all $r \in \Z$. Interestingly, these are precisely the commutation relations satisfied by the elements of the following basis of the Lie algebra $\der(\bbC[v^{\pm 1}])$:
+            $$\{ d_r := -v^r D_{\aff} \}_{r \in \Z}$$
+        (where $D_{\aff} := v \frac{d}{dv}$ is the \say{untwisted affine Kac-Moody derivation} as in subsection \ref{subsection: a_fixed_untwisted_affine_kac_moody_algebra}) and in light of this, we make the following observation:
+        \begin{lemma}[A copy of the Witt algebra inside $\divzero$] \label{lemma: a_copy_of_the_witt_algebra_inside_the_lie_algebra_of_yangian_div_zero_vector_fields}
+            There is an isomorphism of Lie algebras:
+                $$\der(\bbC[v^{\pm 1}]) \xrightarrow[]{\cong} \frakw$$
+            given by:
+                $$d_r \mapsto D_{r, -1}$$
+            This identifies a copy of $\der(\bbC[v^{\pm 1}])$ inside $\divzero$ as a Lie subalgebra. 
+        \end{lemma}
