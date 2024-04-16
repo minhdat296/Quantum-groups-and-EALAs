@@ -1,6 +1,6 @@
 \section{Examples of \texorpdfstring{$\gamma$}{}-extended toroidal Lie algebras}
     \subsection{Explicit (counter-)examples of $\gamma$-invariant toroidal cocycles}
-        For convenience, let us fix the following terminologies (which were already eluded to in the statement of theorem \ref{theorem: yangian_extended_toroidal_lie_algebras_main_theorem}).
+        For convenience, let us fix the following terminologies (which have already been eluded to in the statement of theorem \ref{theorem: yangian_extended_toroidal_lie_algebras_main_theorem}).
         \begin{definition}[$\gamma$-invariant toroidal $2$-cocycles] \label{def: yangian_toroidal_cocycles}
             Any $2$-cocyle $\sigma \in Z^2_{\Lie}(\divzero, \toroidal)$ shall be referred to as a \textbf{toroidal $2$-cocycle}.
             
@@ -12,11 +12,13 @@
         
         In theorem \ref{theorem: yangian_extended_toroidal_lie_algebras_main_theorem} (see also proposition \ref{prop: yangian_extended_toroidal_lie_algebras_are_twisted_semi_direct_products}) we have provided a criterion for a given toroidal $2$-cocycle to be $\gamma$-invariant in the sense of definition \ref{def: yangian_toroidal_cocycles} above, namely that:
             $$( \sigma(D, D'), D'' )_{\extendedtoroidal} = ( D, \sigma(D', D'') )_{\extendedtoroidal}$$
-        for all $D, D', D'' \in \divzero$. In this subsection, let us apply it to some known toroidal $2$-cocycles from \cite{billig_energy_momentum_tensor} to check whether or not they are $\gamma$-invariant. 
+        for all $D, D', D'' \in \divzero$. In this subsection, let us apply it to some known toroidal $2$-cocycles from \cite{billig_energy_momentum_tensor} to check whether or not they are $\gamma$-invariant.
+
+        Let us begin by introducing the two toroidal $2$-cocycles we will be working with.
         \begin{example} \label{example: billig_toroidal_cocycles}
-            In \cite[p. 5, below Equation 1.3]{billig_energy_momentum_tensor}, it was noted that there are at least $2$-cocyles that we shall denote by:
-                $$\sigma_1, \sigma_2: \bigwedge^2 \der(A) \to \z(\toroidal)$$
-            which are given in terms of the basis\footnote{Note how we are identifying $\der(A) \cong A v\del_v \oplus A t\del_t$ as opposed to the usual identification $\der(A) \cong A \del_v \oplus A \del_t$.}:
+            In \cite[p. 5, below Equation 1.3]{billig_energy_momentum_tensor}, it was noted that there are at least $2$-cocyles:
+                $$\sigma_1, \sigma_2 \in Z^2_{\Lie}( \der(A), \z(\toroidal) )$$
+            These are given in terms of the following basis of $\der(A)$\footnote{Note how we are identifying $\der(A) \cong A v\del_v \oplus A t\del_t$ as opposed to the usual identification $\der(A) \cong A \del_v \oplus A \del_t$.}:
                 $$\{ v^{r_v} t^{r_t} \cdot v \del_v \}_{(r_v, r_t) \in \Z^2} \cup \{ v^{m_v} t^{m_t} \cdot t \del_t \}_{(m_v, m_t) \in \Z^2}$$
             by the following formulae:
                 $$\sigma_1( v^{r_v} t^{r_t} \cdot x \del_x, v^{m_v} t^{m_t} \cdot y \del_y ) := r_y m_x \cdot v^{r_v} t^{r_t} \bar{d}( v^{m_v} t^{m_t} )$$
@@ -33,9 +35,9 @@
             $$D_v = -v t^{-1} \del_v = -t^{-1} \cdot v\del_v$$
             $$D_t = -\del_t = -t^{-1} \cdot t\del_t$$
         (to rewrite the expressions slightly in terms of the currently employed basis for $\der(A)$). Knowing this allows us to compute the values of $\sigma_1$ and $\sigma_2$ on pairs of these basis elements.
-        \begin{lemma}[Values of Billig's toroidal $2$-cocycles on basis elements of $\divzero$] \label{lemma: billig_toroidal_cocycles_on_yangian_div_zero_vector_fields}
+        \begin{lemma}[Values of $\sigma_1$ and $\sigma_2$ on pairs of basis elements of $\divzero$] \label{lemma: billig_toroidal_cocycles_on_yangian_div_zero_vector_fields}
             In what follows, let $i \in \{1, 2\}$. The values of the toroidal $2$-cocycles $\sigma_1, \sigma_2$ from example \ref{example: billig_toroidal_cocycles} on pairs of elements of the basis $\{D_{r, s}\}_{(r, s) \in \Z^2} \cup \{D_v, D_t\}$ of $\divzero$ (cf. lemma \ref{lemma: yangian_div_zero_vector_fields_basic_properties}) are:
-                $$\sigma_i(D_{r, s}, D_{a, b}) = N_i(r, s, a, b) \left( -\delta_{(r, s), -(a, b)} (r c_v + (s + 1) c_t) + ( r(b + 1) - a(s + 1) )K_{-r - a, -s - b - 2} \right)$$
+                $$\sigma_i(D_{r, s}, D_{a, b}) = N_i(r, s, a, b) \left( ( r(b + 1) - a(s + 1) )K_{-r - a, -s - b - 2} - \delta_{ (-a - r, -b - s - 2), (0, 0) } (r c_v + (s + 1) c_t) \right)$$
             where:
                 $$
                     N_i(r, s, a, b) =
@@ -134,7 +136,7 @@
                     can be written in terms of the basis elements of $\z(\toroidal)$ in the following manner:
                         $$v^n t^q \bar{d}(v^m t^p) = \delta_{(m, p) + (n, q), (0, 0)} ( n c_v + q c_t ) + (np - mq) K_{m + n, p + q}$$
                     Using this, we shall be able to conclude that:
-                        $$\sigma_i(D_{r, s}, D_{a, b}) = N_i(r, s, a, b) \left( -\delta_{(r, s), -(a, b)} (r c_v + (s + 1) c_t) + ( r(b + 1) - a(s + 1) )K_{-r - a, -s - b - 2} \right)$$
+                        $$\sigma_i(D_{r, s}, D_{a, b}) = N_i(r, s, a, b) \left( -\delta_{ (-a - r, -b - s - 2), (0, 0) } (r c_v + (s + 1) c_t) + ( r(b + 1) - a(s + 1) )K_{-r - a, -s - b - 2} \right)$$
                     \item Secondly, we shall be computing $\sigma_i(D_v, D_{r, s})$. Consider the following:
                         $$
                             \begin{aligned}
@@ -190,16 +192,16 @@
             \end{proof}
 
         One can now use the criterion given in proposition \ref{proposition: twisted_semi_direct_products_are_yangian_extended_toroidal_lie_algebras} (see also theorem \ref{theorem: yangian_extended_toroidal_lie_algebras_main_theorem}) to verify whether or not the cocycles $\sigma_1, \sigma_2$ are $\gamma$-invariant in the sense of definition \ref{def: yangian_toroidal_cocycles}.
-        \todo[inline]{Moved the proof of $\gamma$-invariance into a proposition.}
+        \todo[inline]{I decided to dedicated a separate proposition for discussing whether or not $\sigma_1, \sigma_2$ are $\gamma$-invariant, as the proofs of this proposition and of proposition \ref{prop: cohomological_non_triviality_of_billig_toroidal_cocycles} are both quite long.}
         \begin{proposition}[$\gamma$-invariance of Billig's toroidal $2$-cocycles] \label{prop: invariance_of_billig_toroidal_cocycles}
-            Regarding the toroidal $2$-cocycles:
+            Of the two toroidal $2$-cocycles:
                 $$\sigma_1, \sigma_2 \in Z^2_{\Lie}(\divzero, \z(\toroidal))$$
-            given as in example \ref{example: billig_toroidal_cocycles}, the former is $\gamma$-invariant in the sense of definition \ref{def: yangian_toroidal_cocycles}, while the latter is not.
+            discussed in example \ref{example: billig_toroidal_cocycles}, $\sigma_1$ is $\gamma$-invariant in the sense of definition \ref{def: yangian_toroidal_cocycles}, while $\sigma_2$ fails to be so.
         \end{proposition}
             \begin{proof}
                 \begin{enumerate}
                     \item Firstly, using the fact that:
-                        $$\sigma_i(D_{r, s}, D_{a, b}) = N_i(r, s, a, b) \left( -\delta_{(r, s), -(a, b)} (r c_v + (s + 1) c_t) + ( r(b + 1) - a(s + 1) )K_{-r - a, -s - b - 2} \right)$$
+                        $$\sigma_i(D_{r, s}, D_{a, b}) = N_i(r, s, a, b) \left( -\delta_{ (-a - r, -b - s - 2), (0, 0) } (r c_v + (s + 1) c_t) + ( r(b + 1) - a(s + 1) )K_{-r - a, -s - b - 2} \right)$$
                     we shall get that:
                         $$
                             \left( \sigma_i(D_{r, s}, D_{a, b}), D \right)_{\extendedtoroidal} =
@@ -310,14 +312,64 @@
             $$\der(\bbC[v^{\pm 1}]) \cong \bigoplus_{r \in \Z} \bbC d_r$$
         (where $d_r := -v^r \cdot v\frac{d}{dv}$) is known to possess a \textit{non-trivial} UCE:
             $$\frakv := \der(\bbC[v^{\pm 1}]) \oplus^{\eta} \bbC c_{\frakv}$$
-        called the \textbf{Virasoro algebra} (for more details, see subsection \ref{subsection: virasoro_algebra}), whose corresponding $2$-cocycle:
-            $$\eta \in Z^2_{\Lie}( \der(\bbC[v^{\pm 1}]), \bbC c_{\frakv} )$$
-        which will often be referred to as the \textbf{Virasoro $2$-cocycle}, is given by:
+        called the \textbf{Virasoro algebra} (cf. \cite[Sections 9.13 and 9.14]{kac_infinite_dimensional_lie_algebras} and \cite[Section 1.3]{kac_raina_rozhkovskaya_bombay_lectures_on_highest_weight_modules_of_infinite_dimensional_lie_algebras}), whose corresponding $2$-cocycle $\eta \in Z^2_{\Lie}( \der(\bbC[v^{\pm 1}]), \bbC c_{\frakv} )$ is given by:
             $$\eta(d_r, d_a) := \delta_{r + a, 0} (r^3 - r) c_{\frakv}$$
-        for all $r, a \in \Z$; in particular, this means this \textit{$\eta$ is non-cohomologous to $0$}. 
+        for all $r, a \in \Z$; in particular, this means this $\eta$ is \textit{non-cohomologous} to $0$. Moreover, the Virasoro algebra is the only non-trivial central extension of the Witt algebra.
+        \begin{lemma}[$H^2_{\Lie}$ of the Witt algebra] \label{lemma: H^2_of_witt_algebra}
+            (Cf. \cite[Proposition 1.3]{kac_raina_rozhkovskaya_bombay_lectures_on_highest_weight_modules_of_infinite_dimensional_lie_algebras}) Let $\bbC c_{\frakv}$ be viewed as a trivial $\der(\bbC[v^{\pm 1}])$-module. Then:
+                $$\dim_{\bbC} H^2_{\Lie}( \der(\bbC[v^{\pm 1}]), \bbC c_{\frakv} ) = 1$$
+        \end{lemma}
 
-        \begin{proposition} \label{prop: non_zero_yangian_cocycles_on_witt_algebra}
-            Let $\eta' \in Z^2_{\Lie}(\der(\bbC[v^{\pm 1}]), \bbC c_{\frakv})$ be as in proposition \ref{prop: a_virasoro_coboundary}. The Lie $2$-cocycle:
+        Since we know now that there is an isomorphism of Lie algebras $\der(\bbC[v^{\pm 1}]) \xrightarrow[]{\cong} \frakw$ given by $d_r \mapsto D_{r, -1}$ (cf. lemma \ref{lemma: a_copy_of_the_witt_algebra_inside_the_lie_algebra_of_yangian_div_zero_vector_fields}), it makes sense to regard $\sigma_1$ and $\sigma_2$ as $2$-cocycles of $\der(\bbC[v^{\pm 1}])$ (with either values in $\bbC c_{\frakv}$ or all of $\z(\toroidal)$) after restricting their domains to $\bigwedge^2 \frakw$. We shall now attempt to show, using lemma \ref{lemma: H^2_of_witt_algebra}, that because:
+            $$\sigma_1|_{\bigwedge^2 \frakw}(D_{r, -1}, D_{a, -1}) = \sigma_2|_{\bigwedge^2 \frakw}(D_{r, -1}, D_{a, -1}) = \delta_{r + a, 0} r^3 c_v$$
+        they must be non-zero as elements of $H^2_{\Lie}(\frakw, \bbC c_v)$. This will be the content of lemma \ref{lemma: restrictions_of_billig_toroidal_cocycles_are_coboundary}.
+
+        We begin with the following lemma:
+        \begin{lemma}[A Virasoro $2$-coboundary] \label{lemma: a_virasoro_coboundary}
+            Let:
+                $$\eta': \bigwedge^2 \der(\bbC[v^{\pm 1}]) \to \bbC c_{\frakv}$$
+            be the function given by:
+                $$\eta'(d_r, d_a) := \delta_{r + a, 0} r c_{\frakv}$$
+            This is a $2$-cocycle of $\der(\bbC[v^{\pm 1}])$ with values in $\bbC c_{\frakv}$. From this, one sees that:
+                $$\eta + \eta': \bigwedge^2 \der(\bbC[v^{\pm 1}]) \to \bbC c_{\frakv}$$
+            (which is given by $(\eta + \eta')(d_r, d_a) := \delta_{r + a, 0} r^3 c_{\frakv}$) is also a $2$-cocycle of $\der(\bbC[v^{\pm 1}])$ with values in $\bbC c_{\frakv}$. 
+
+            Furthermore, we have that:
+                $$\eta' \in B^2_{\Lie}( \der(\bbC[v^{\pm 1}]), \bbC c_{\frakv} )$$
+            with notations as in definition \ref{def: lie_cocycles_and_coboundaries}.
+        \end{lemma}
+            \begin{proof}
+                It is clear from the construction of $\eta'$ that it is linear and skew-symmetric; the only non-trivial thing to prove is that $\eta'$ satisfies the Jacobi identity in the sense of definition \ref{def: twisted_semi_direct_products}. To this end, simply consider the following, for all $i, j, k \in \Z$:
+                    $$
+                        \begin{aligned}
+                            & \eta'([d_i, d_j], d_k) + \eta'([d_k, d_i], d_j) + \eta'([d_j, d_k], d_i)
+                            \\
+                            = & (i - j) \eta'(d_{i + j}, d_k) + (k - i) \eta'(d_{k + i}, d_j) + (j - k) \eta'(d_{j + k}, d_i)
+                            \\
+                            = & \delta_{i + j + k, 0} \left( (i - j) (i + j) + (k - i) (k + i) + (j - k) (j + k) \right) c_{\frakv}
+                            \\
+                            = & 0
+                        \end{aligned}
+                    $$
+                    
+                To show that $\eta'$ is a Lie $2$-coboundary in the sense of definition \ref{def: lie_cocycles_and_coboundaries}, we must show that there exists a linear map:
+                    $$\tilde{\eta'}: \der(\bbC[v^{\pm 1}]) \to \bbC c_{\frakv}$$
+                which is merely a linear map, such that:
+                    $$\eta(d_i, d_j) = \tilde{\eta'}([d_i, d_j])$$
+                (cf. examples \ref{example: lie_cocycles_and_coboundaries_with_trivial_coefficients} and \ref{example: low_degree_lie_cocycles_and_coboundaries_with_trivial_coefficients}). The RHS is nothing but:
+                    $$\tilde{\eta'}([d_i, d_j]) = (i - j) \tilde{\eta'}(d_{i + j}) c_{\frakv}$$
+                while by construction, the LHS is:
+                    $$\eta(d_i, d_j) := \delta_{i + j, 0} i c_{\frakv}$$
+                and hence:
+                    $$\delta_{i + j, 0} i = (i - j) \tilde{\eta'}(d_{i + j})$$
+                By setting $j = 0$, we then see that:
+                    $$i (\tilde{\eta'}(d_i) - \delta_{i, 0}) = 0$$
+                for all $i \in \Z$, which in turn implies that:
+                    $$\tilde{\eta'}(d_i) = \delta_{i, 0}$$
+                The sought-for linear map $\tilde{\eta}: \der(\bbC[v^{\pm 1}]) \to \bbC c_{\frakv}$ is thus defined, and hence exists.
+            \end{proof}
+        \begin{lemma}[Restricting $\sigma_1$ and $\sigma_2$ to the Witt algebra] \label{lemma: billig_toroidal_cocycles_on_the_witt_algebra}
+            Let $\eta' \in Z^2_{\Lie}(\der(\bbC[v^{\pm 1}]), \bbC c_{\frakv})$ be as in lemma \ref{lemma: a_virasoro_coboundary}. The Lie $2$-cocycle:
                 $$\eta + \eta' \in Z^2_{\Lie}(\der(\bbC[v^{\pm 1}]), \bbC c_{\frakv})$$
             given by:
                 $$(\eta + \eta')(d_r, d_a) = \delta_{r + a, 0} r^3 c_{\frakv}$$
@@ -327,13 +379,13 @@
 
             Furthermore, we have that:
                 $$\sigma_i|_{\bigwedge^2 \frakw} = \eta + \eta'$$
-            and consequently, the equivalence classes of domain restrictions $\sigma_i|_{\bigwedge^2 \frakw}$ (where $i \in \{1, 2\}$) in $H^2_{\Lie}( \der(\bbC[v^{\pm 1}]), \bbC c_{\frakv} )$ are also non-zero.
-        \end{proposition}
+            and consequently, the equivalence classes of domain restrictions $\sigma_i|_{\bigwedge^2 \frakw}$ (where $i \in \{1, 2\}$) in $H^2_{\Lie}( \frakw, \bbC c_v )$ are also non-zero.
+        \end{lemma}
             \begin{proof}
-                Because we know that $\dim_{\bbC} H^2(\der(\bbC[v^{\pm 1}]), \bbC c_{\frakv}) = 1$ (cf. lemma \ref{lemma: H^2_of_witt_algebra}) and that $\eta' \in B^2(\der(\bbC[v^{\pm 1}]), \bbC c_{\frakv})$ (cf. proposition \ref{prop: a_virasoro_coboundary}), $\eta + \eta'$ must be cohomologous to $\eta$, which is not cohomologous to $0$ as shown in the proof of lemma \ref{lemma: H^2_of_witt_algebra}.
+                Because we know that $\dim_{\bbC} H^2(\der(\bbC[v^{\pm 1}]), \bbC c_{\frakv}) = 1$ (cf. lemma \ref{lemma: H^2_of_witt_algebra}) and that $\eta' \in B^2(\der(\bbC[v^{\pm 1}]), \bbC c_{\frakv})$ (cf. lemma \ref{lemma: a_virasoro_coboundary}), $\eta + \eta'$ must be cohomologous to $\eta$, which is not cohomologous to $0$ as shown in the proof of lemma \ref{lemma: H^2_of_witt_algebra}.
 
                 To prove the consequential statement, simply note that:
-                    $$\sigma_i(D_{r, s}, D_{a, b}) = N_i(r, s, a, b) \left( -\delta_{(r, s), -(a, b)} (r c_v + (s + 1) c_t) + ( r(b + 1) - a(s + 1) )K_{-r - a, -s - b - 2} \right)$$
+                    $$\sigma_i(D_{r, s}, D_{a, b}) = N_i(r, s, a, b) \left( -\delta_{ (-a - r, -b - s - 2), (0, 0) } (r c_v + (s + 1) c_t) + ( r(b + 1) - a(s + 1) )K_{-r - a, -s - b - 2} \right)$$
                 where:
                     $$
                         N_i(r, s, a, b) =
@@ -356,16 +408,17 @@
             it is clear that the Virasoro central element $c_{\frakv}$ is nothing but $c_v$.
         \end{remark}
 
-        Now, even though it might be tempting to conclude right away that because of proposition \ref{prop: non_zero_yangian_cocycles_on_witt_algebra}, which tells us that:
+        Now, even though it might be tempting to conclude right away that because of lemma \ref{lemma: billig_toroidal_cocycles_on_the_witt_algebra}, which tells us that:
             $$\sigma_i|_{\bigwedge^2 \frakw}: \bigwedge^2 \frakw \to \bbC c_v$$
         is cohomologous to $\eta + \eta' \in Z^2_{\Lie}(\frakw, \bbC c_v)$, which is not $2$-coboundary, it must then also be true that $\sigma_i \not \in B^2_{\Lie}(\divzero, \z(\toroidal))$. However, the subtlety here is that because $\z(\toroidal)$ is non-trivial as a module over $\divzero$ (and likewise, over the Lie subalgebra $\frakw \subset \divzero$), unlike $\bbC c_v$, one would have to actually check whether or not the restricted toroidal $2$-cocycle:
             $$\sigma_i|_{\bigwedge^2 \frakw}: \bigwedge^2 \divzero \to \z(\toroidal)$$
         is $2$-coboundary. Our claim is that, somewhat surprisingly, it is in fact $2$-coboundary, for both $i = 1$ and $i = 2$.
         \todo[inline]{$\sigma_1|_{\bigwedge^2 \frakw}$ and $\sigma_2|_{\bigwedge^2 \frakw}$ are $2$-coboundary.}
-        \begin{proposition} \label{prop: non_trivial_yangian_restricted_coboundaries_examples}
+        \begin{lemma} \label{lemma: restrictions_of_billig_toroidal_cocycles_are_coboundary}
             Let $i \in \{1, 2\}$. As $\z(\toroidal)$ is a (\textit{non-trivial}) $\divzero$-module via Lie derivatives (cf. lemma \ref{lemma: derivation_action_on_toroidal_centres}), it is also a module over the Lie subalgebra $\frakw$ of $\divzero$, determined by the same action. Then:
                 $$\sigma_i|_{ \bigwedge^2 \frakw } \in B^2_{\Lie}(\frakw, \z(\toroidal))$$
-        \end{proposition}
+            i.e. they have zero images under the canonical projection $Z^2_{\Lie}(\frakw, \z(\toroidal)) \to H^2_{\Lie}(\frakw, \z(\toroidal))$. 
+        \end{lemma}
             \begin{proof}
                 Let $i \in \{1, 2\}$. Also, let us regard the $\divzero$-action on $\z(\toroidal)$ as a Lie algebra homomorphism:
                     $$\rho: \divzero \to \gl( \z(\toroidal) )$$
@@ -462,61 +515,77 @@
             \end{proof}
 
         The following result is our final conclusion regarding whether or not the toroidal $2$-cocycles $\sigma_1$ and $\sigma_2$ are cohomologous to $0$.
-        \begin{theorem}[Are the toroidal $2$-cocycles $\sigma_1, \sigma_2$ cohomologous to $0$ or not ?] \label{theorem: non_trivial_yangian_cocycles_examples}
+        \begin{proposition}[Are the toroidal $2$-cocycles $\sigma_1, \sigma_2$ cohomologous to $0$ ?] \label{prop: cohomological_non_triviality_of_billig_toroidal_cocycles}
             Let:
                 $$\sigma_1, \sigma_2 \in Z^2_{\Lie}(\divzero, \z(\toroidal) )$$
-            be the toroidal $2$-cocycles as in example \ref{example: billig_toroidal_cocycles}. $\sigma_1$ is \textit{not} cohomologous to $0$, while $\sigma_2$ is, i.e.:
+            be the toroidal $2$-cocycles as in example \ref{example: billig_toroidal_cocycles}. $\sigma_1$ is \textit{not} cohomologous to $0$ (i.e. the image of $\sigma_1$ under the canonical projection $Z^2_{\Lie}(\divzero, \z(\toroidal) ) \to H^2_{\Lie}(\divzero, \z(\toroidal) )$ is non-zero), while $\sigma_2$ is, i.e.:
                 $$\sigma_1 \not \in B^2_{\Lie}(\divzero, \z(\toroidal))$$
                 $$\sigma_2 \in B^2_{\Lie}(\divzero, \z(\toroidal))$$
             
             Moreover, there is a one-parameter family:
                 $$\{\tau_2^{\kappa}\}_{\kappa \in \bbC}$$
-            of pre-image $\tau_2^{\kappa} \in C_1(\divzero, \z(\toroidal))$ of $\sigma_2$ under $d_1^{\z(\toroidal)}: C_1(\divzero, \z(\toroidal)) \to C_2(\divzero, \z(\toroidal))$. Each $\tau_2^{\kappa}$ is given by:
-                $$\tau_2^{\kappa} = 2r K_{-r, -s - 1} + \delta_{(r, s), (0, -1)} ( \kappa c_v - 2c_t )$$
+            of pre-image $\tau_2^{\kappa} \in C_1(\divzero, \z(\toroidal))$ of $\sigma_2$ under $d_1^{\z(\toroidal)}: C_1(\divzero, \z(\toroidal)) \to C_2(\divzero, \z(\toroidal))$\footnote{See remark \ref{remark: simplified_chevalley_eilenberg_complexes} and definition \ref{def: lie_algebra_cohomology} for notations.}. Each $\tau_2^{\kappa}$ is given by:
+                $$\tau_2^{\kappa}(D_{r, s}) = 2r K_{-r, -s - 1} + \delta_{(r, s), (0, -1)} ( \kappa c_v - 2c_t )$$
                 $$\tau_2^{\kappa}(D_v) = \mu_v K_{0, -1}$$
                 $$\tau_2^{\kappa}(D_t) = \mu_t K_{0, -1}$$
             where the coefficients $\mu_v, \mu_t \in \bbC$ are undetermined.
-        \end{theorem}
+        \end{proposition}
+        \begin{remark}[Some recollection]
+            The proof of proposition \ref{prop: cohomological_non_triviality_of_billig_toroidal_cocycles} is somewhat computation-heavy, so for the sake of visual clarity and convenience, let us recall for the proof the following facts that have been earlier in this chapter.
+            \begin{itemize}
+                \item Firstly, recall from remark \ref{remark: Z^2_grading_on_toroidal_centres} and corollary \ref{coro: yangian_div_zero_vector_fields_are_graded} that:
+                    $$\deg D_{-a, -b - 1} = \deg K_{a, b} = (a, b)$$
+                    $$\deg D_v = \deg D_t = (0, -1)$$
+                    $$\deg c_v = \deg c_t = (0, 0)$$
+                \item Secondly, let us recall from lemma \ref{lemma: yangian_div_zero_vector_fields_basic_properties} that:
+                    $$[D_v, D_{r, s}] = -r D_{r, s + 1}$$
+                    $$[D_t, D_{r, s}] = -s D_{r, s + 1}$$
+                    $$[D_{a, b}, D_{r, s}] = (br - sa) D_{a + r, b + s + 1}$$
+                \item Finally, from lemma \ref{lemma: explicit_commutators_between_central_basis_elements_and_derivations}, we know that:
+                    $$[D, K_{\alpha, \beta}]_{\extendedtoroidal} =
+                        \begin{cases}
+                            \text{$((\beta - 1)r - s\alpha) K_{\alpha - r, \beta - s - 1} + \delta_{(r, s + 1), (\alpha, \beta)} \left( r c_v + s c_t \right)$ if $D = D_{r, s}$}
+                            \\
+                            \text{$-\alpha K_{\alpha, \beta - 1}$ if $D_v$}
+                            \\
+                            \text{$-\beta K_{\alpha, \beta - 1}$ if $D_t$}
+                        \end{cases}
+                    $$
+                    $$[D, c_v]_{\extendedtoroidal} = [D, c_t]_{\extendedtoroidal} = 0$$
+                for all $D \in \divzero$.
+            \end{itemize}
+        \end{remark}
+        We present now the proof of proposition \ref{prop: cohomological_non_triviality_of_billig_toroidal_cocycles}.
             \begin{proof}
                 Even though it suffices to prove the existence of an element:
                     $$\tau_i \in C_1(\divzero, \z(\toroidal))$$
                 (i.e. a linear map; cf. remark \ref{remark: simplified_chevalley_eilenberg_complexes}) such that:
                     $$\tau_i([D, D']) = [D, \tau_i(D')]_{\extendedtoroidal} - [D', \tau_i(D)]_{\extendedtoroidal} - \sigma_i(D, D')$$
-                we shall prove a stronger statement, namely the existence of $\tau_i \in C_1(\divzero, \z(\toroidal))$ that is \textit{graded}. Should this be true, then through the fact that:
-                    $$\deg D_{-a, -b - 1} = \deg K_{a, b} = (a, b)$$
-                    $$\deg D_v = \deg D_t = (0, -1)$$
-                    $$\deg c_v = \deg c_t = (0, 0)$$
-                (cf. remark \ref{remark: Z^2_grading_on_toroidal_centres} and corollary \ref{coro: yangian_div_zero_vector_fields_are_graded}), we would have coefficients $\lambda_{r, s}, \alpha'_{r, s}, \alpha_{r, s}, \beta_{r, s} \in \bbC$ such that:
-                    $$
-                        \begin{aligned}
-                            \tau_i(D_{r, s}) & = \lambda_{r, s} K_{-r, -s - 1} + \delta_{(r, s), (0, -1)} ( \alpha'_{r, s} K_{r, 0} + \alpha_{r, s} c_v + \beta_{r, s} c_t )
-                            \\
-                            & = \lambda_{r, s} K_{-r, -s - 1} + \delta_{(r, s), (0, -1)} ( \alpha_{r, s} c_v + \beta_{r, s} c_t )
-                        \end{aligned}
-                    $$
-                where the second equality holds because $K_{0, 0} = 0$ (cf. example \ref{example: toroidal_lie_algebras_centres}), as well as $\mu_v, \mu_t \in \bbC$ such that:
-                    $$\tau_i(D_v) = \mu_v K_{0, -1}$$
-                    $$\tau_i(D_t) = \nu_t K_{0, -1}$$
-                \todo[inline]{Fixed the general expressions for $\tau_i(D_v)$ and for $\tau_i(D_t)$.}
-                \begin{enumerate}
-                    \item We attempt first of all to compute $\tau_i(D_{r, s})$. For what follows, let us recall from lemma \ref{lemma: yangian_div_zero_vector_fields_basic_properties} that:
-                        $$[D_v, D_{r, s}] = -r D_{r, s + 1}$$
-                        $$[D_t, D_{r, s}] = -s D_{r, s + 1}$$
-                        $$[D_{a, b}, D_{r, s}] = (br - sa) D_{a + r, b + s + 1}$$
-                    and from lemma \ref{lemma: explicit_commutators_between_central_basis_elements_and_derivations}, that:
-                        $$[D, K_{a, b}]_{\extendedtoroidal} =
-                            \begin{cases}
-                                \text{$((b - 1)r - sa) K_{a - r, b - s - 1} + \delta_{(r, s + 1), (a, b)} \left( r c_v + s c_t \right)$ if $D = D_{r, s}$}
-                                \\
-                                \text{$-a K_{a, b - 1}$ if $D_v$}
-                                \\
-                                \text{$-b K_{a, b - 1}$ if $D_t$}
-                            \end{cases}
+                we shall prove a stronger statement, namely the existence of $\tau_i \in C_1(\divzero, \z(\toroidal))$ that is \textit{graded} with respect to the $\Z^2$-gradings on $\divzero$ and $\z(\toroidal)$. We will do this by firstly assuming that such a graded $\tau_i$ exists, deriving an explicit closed-form formula for it, and then verifying that such a $\tau_i$ must then be $2$-coboundary.
+
+                To that end, assume that $\tau_i$ as described above indeed exists. We will then have:
+                \begin{itemize}
+                    \item coefficients:
+                        $$\lambda_{r, s}, \alpha'_{r, s}, \alpha_{r, s}, \beta_{r, s} \in \bbC$$
+                    such that:
                         $$
-                        $$[D, c_v]_{\extendedtoroidal} = [D, c_t]_{\extendedtoroidal} = 0$$
-                    for all $D \in \divzero$.
-                    
-                    Next, recall from lemma \ref{lemma: billig_toroidal_cocycles_on_yangian_div_zero_vector_fields} that:
+                            \begin{aligned}
+                                \tau_i(D_{r, s}) & = \lambda_{r, s} K_{-r, -s - 1} + \delta_{(r, s), (0, -1)} ( \alpha'_{r, s} K_{r, 0} + \alpha_{r, s} c_v + \beta_{r, s} c_t )
+                                \\
+                                & = \lambda_{r, s} K_{-r, -s - 1} + \delta_{(r, s), (0, -1)} ( \alpha_{r, s} c_v + \beta_{r, s} c_t )
+                            \end{aligned}
+                        $$
+                    where the second equality holds because $K_{0, 0} = 0$ (cf. example \ref{example: toroidal_lie_algebras_centres}), 
+                    \item as well as coefficients:
+                        $$\mu_v, \mu_t \in \bbC$$
+                    such that:
+                        $$\tau_i(D_v) = \mu_v K_{0, -1}$$
+                        $$\tau_i(D_t) = \nu_t K_{0, -1}$$
+                \end{itemize}
+                
+                \todo[inline]{Fixed the general expressions for $\tau_i(D_v)$ and for $\tau_i(D_t)$.}
+                \begin{itemize}
+                    \item We attempt first of all to compute $\tau_i(D_{r, s})$. For this, we refer the reader to lemma \ref{lemma: billig_toroidal_cocycles_on_yangian_div_zero_vector_fields} for the following fact:
                         $$\sigma_i(D_v, D_{r, s}) = \delta_{i, 1} r^3 K_{-r, -s - 2}$$
                     This gives the following\footnote{Using $D_t$ in place of $D_v$ would yield the same conclusion.}:
                         $$
@@ -537,10 +606,12 @@
                     From this, we infer that when $r \not = 0$, we have that:
                         $$\tau_i(D_{r, s + 1}) = (\lambda_{r, s} - \delta_{i, 1} r^2) K_{-r, -s - 2}$$
                     but at the same time, we have the following per our initial assumption that $\tau_i$ is graded:
-                        $$\tau_i(D_{r, s + 1}) = \lambda_{r, s + 1} K_{-r, -s - 2} + \delta_{(r, s + 1), (0, 0)} ( \alpha_{r, s + 1} c_v + \beta_{r, s + 1} c_t )$$
+                        $$\tau_i(D_{r, s + 1}) = \lambda_{r, s + 1} K_{-r, -s - 2} + \delta_{(r, s + 1), (0, -1)} ( \alpha_{r, s + 1} c_v + \beta_{r, s + 1} c_t )$$
                     and so we have:
                         $$\lambda_{r, s + 1} = \lambda_{r, s} - \delta_{i, 1} r^2$$
-                    whenever $r \not = 0$. Next, consider the following:
+                    whenever $r \not = 0$ (in which case ${(r, s + 1), (0, -1)} = 0$).
+                    
+                    Next, consider the following:
                         $$
                             \begin{aligned}
                                 & (br - sa) \tau_i(D_{r + a, b + s + 1})
@@ -549,26 +620,27 @@
                                 \\
                                 = & [D_{a, b}, \tau_i(D_{r, s})]_{\extendedtoroidal} - [D_{r, s}, \tau_i(D_{a, b})]_{\extendedtoroidal} - \sigma_i(D_{a, b}, D_{r, s})
                                 \\
-                                = & \lambda_{r, s} [D_{a, b}, K_{-r, -s - 1}]_{\extendedtoroidal} - \lambda_{a, b} [D_{r, s}, K_{-a, -b - 1}]_{\extendedtoroidal} + \sigma_i(D_{a, b}, D_{r, s})
+                                = & \lambda_{r, s} [D_{a, b}, K_{-r, -s - 1}]_{\extendedtoroidal} - \lambda_{a, b} [D_{r, s}, K_{-a, -b - 1}]_{\extendedtoroidal} + \sigma_i(D_{r, s}, D_{a, b})
                             \end{aligned}
                         $$
                     Using lemma \ref{lemma: explicit_commutators_between_central_basis_elements_and_derivations}, we get that:
                         $$[D_{a, b}, K_{-r, -s - 1}]_{\extendedtoroidal} = -\left( a(s + 2) - br \right) K_{-a - r, -b - s - 2} + \delta_{(a + r, b + s + 2), (0, 0)} \left( a c_v + b c_t \right)$$
                         $$[D_{r, s}, K_{-a, -b - 1}]_{\extendedtoroidal} = -\left( (b + 2) r - as \right) K_{-a - r, -b - s - 2} + \delta_{(a + r, b + s + 2), (0, 0)} \left( r c_v + s c_t \right)$$
                     and from lemma \ref{lemma: billig_toroidal_cocycles_on_yangian_div_zero_vector_fields}, we know that:
-                        $$\sigma_i(D_{a, b}, D_{r, s}) = -N_i(r, s, a, b) \left( -\delta_{(r, s), -(a, b)} (r c_v + (s + 1) c_t) + ( r(b + 1) - a(s + 1) )K_{-r - a, -s - b - 2} \right)$$
-                    where $N_i(r, s, a, b)$ is as in \textit{loc. cit.} Simultaneously, these imply that:
+                        $$\sigma_i(D_{r, s}, D_{a, b}) = N_i(r, s, a, b) \left( ( r(b + 1) - a(s + 1) )K_{-r - a, -s - b - 2} - \delta_{ (a + r, b + s + 2), (0, 0) } (r c_v + (s + 1) c_t) \right)$$
+                    where $N_i(r, s, a, b)$ is as in \textit{loc. cit.} Simultaneously, these fact imply that:
+                    \todo[inline]{I think the mistakes were in some of the indices here. I also forgot to include $\lambda_{r, s}$ and $\lambda_{a, b}$.}
                         $$
                             \begin{aligned}
                                 & (br - sa) \tau_i(D_{r + a, b + s + 1})
                                 \\
                                 = &
                                 \begin{aligned}
-                                    & \left( -\left( a(s + 2) - br \right) + \left( (b + 2) r - as \right) - N_i(r, s, a, b)( r(b + 1) - a(s + 1) ) \right) K_{-a - r, -b - s - 2}
+                                    & \left( -\lambda_{r, s} \left( a(s + 2) - br \right) + \lambda_{a, b} \left( (b + 2) r - as \right) - N_i(r, s, a, b)\left( r(b + 1) - a(s + 1) \right) \right) K_{-a - r, -b - s - 2}
                                     \\
-                                    + & \left( \delta_{(a + r, b + s + 2), (0, 0)} (a + r) + \delta_{(a + r, b + s), (0, 0)} r N_i(r, s, a, b) \right) c_v
+                                    + & \delta_{(a + r, b + s + 2), (0, 0)} \left( \lambda_{r, s} a - \lambda_{a, b} r + N_i(r, s, a, b) r \right) c_v
                                     \\
-                                    + & \left( \delta_{(a + r, b + s + 2), (0, 0)} (b + s) + \delta_{(a + r, b + s), (0, 0)} (s + 1)N_i(r, s, a, b) \right) c_t
+                                    + & \delta_{(a + r, b + s + 2), (0, 0)} \left( \lambda_{r, s} b - \lambda_{a, b} s + N_i(r, s, a, b) (s + 1) \right) c_t
                                 \end{aligned}
                                 \\
                                 = & (br - sa) \left( \lambda_{a + r, b + s + 1} K_{-a - r, -b - s - 2} + \delta_{(a + r, b + s + 1), (0, -1)}( \alpha_{a + r, b + s + 1} c_v + \beta_{a + r, b + s + 1} c_t ) \right)
@@ -576,44 +648,80 @@
                         $$
                     from which it can be inferred that:
                         $$
+                            \lambda_{a + r, b + s + 1}
+                            =
+                            -\lambda_{r, s} \left( a(s + 2) - br \right) + \lambda_{a, b} \left( (b + 2) r - as \right) - N_i(r, s, a, b)\left( r(b + 1) - a(s + 1) \right)
+                        $$
+                        $$
+                            \delta_{(a + r, b + s + 1), (0, -1)} \alpha_{a + r, b + s + 1}
+                            =
+                            \delta_{(a + r, b + s + 2), (0, 0)} \left( \lambda_{r, s} a - \lambda_{a, b} r + N_i(r, s, a, b) r \right)
+                        $$
+                        $$
+                            \delta_{(a + r, b + s + 1), (0, -1)} \beta_{a + r, b + s + 1}
+                            =
+                            \delta_{(a + r, b + s + 2), (0, 0)} \left( \lambda_{r, s} b - \lambda_{a, b} s + N_i(r, s, a, b) (s + 1) \right)
+                        $$
+                    By evaluating the first equation at $(a, b) = (0, 0)$ and then combining the result with the fact that $\lambda_{r, s + 1} = \lambda_{r, s} - \delta_{i, 1} r^2$ (as shown above), we will get that:
+                        $$
                             \begin{aligned}
-                                \lambda_{a + r, b + s + 1} & = -\left( a(s + 2) - br \right) + \left( (b + 2) r - as \right) - N_i(r, s, a, b)( r(b + 1) - a(s + 1) )
+                                \lambda_{r, s + 1} & = \lambda_{r, s} - \delta_{i, 1} r^2
                                 \\
-                                & = 2( r(b + 1) - a(s + 1) ) - N_i(r, s, a, b)( r(b + 1) - a(s + 1) )
+                                = & 2r \lambda_{0, 0} - r N_i(r, s, 0, 0)
                                 \\
-                                & = ( 2 - N_i(r, s, a, b) ) ( r(b + 1) - a(s + 1) )
+                                = & 2r \lambda_{0, 0}
                             \end{aligned}
                         $$
-                        $$\delta_{(a + r, b + s + 1), (0, -1)} \alpha_{a + r, b + s + 1} = \delta_{(a + r, b + s + 2), (0, 0)} (a + r) + \delta_{(a + r, b + s), (0, 0)} r N_i(r, s, a, b)$$
-                        $$\delta_{(a + r, b + s + 1), (0, -1)} \beta_{a + r, b + s + 1} = \delta_{(a + r, b + s + 2), (0, 0)} (b + s) + \delta_{(a + r, b + s), (0, 0)} (s + 1) N_i(r, s, a, b)$$
-                    By combining the first equation with the fact that $\lambda_{r, s + 1} = \lambda_{r, s} - \delta_{i, 1} r^2$ (as shown above), we shall get that:
-                        $$\lambda_{r, s} - \delta_{i, 1} r^2 = \lambda_{r, s + 1} = (2 - N_i(r, s, 0, 0)) r = 2r$$
-                    (note that $N_i(r, s, 0, 0) = 0$), which in turn implies that:
-                        $$\lambda_{r, s} = \delta_{i, 1} r^2 + 2r$$
+                    (where we have used the fact that $N_i(r, s, 0, 0) = 0$), which in turn implies that:
+                        $$\lambda_{r, s} = \delta_{i, 1} r^2 + 2r \lambda_{0, 0}$$
                     We thus have that:
-                        $$\tau_i(D_{r, s + 1}) = (-\delta_{i, 1} r^2 + \lambda_{r, s}) K_{-r, -s - 2} = 2r K_{-r, -s - 2}$$
+                        $$\tau_i(D_{r, s + 1}) = (-\delta_{i, 1} r^2 + \lambda_{r, s}) K_{-r, -s - 2} = 2r \lambda_{0, 0} K_{-r, -s - 2}$$
                     and hence:
-                        $$\tau_i(D_{r, s}) = 2r K_{-r, -s - 1}$$
-                    This does \textit{not} depend on $i$, so already, we can conclude that only one of either $\sigma_1$ or $\sigma_2$ can not be $2$-coboundary.
+                        $$\tau_i(D_{r, s}) = 2r \lambda_{0, 0} K_{-r, -s - 1}$$
+                    This clearly does \textit{not} depend on $i$, so already, we can conclude that only one of either $\sigma_1$ or $\sigma_2$ can not be $2$-coboundary.
 
                     To check this, let us evaluate the following at $(a, b) = (0, -1)$:
-                        $$(br - sa) \tau_i( D_{r + a, b + s + 1} ) = \lambda_{r, s} [D_{a, b}, K_{-r, -s - 1}]_{\extendedtoroidal} - \lambda_{a, b} [D_{r, s}, K_{-a, -b - 1}]_{\extendedtoroidal} + \sigma_i(D_{a, b}, D_{r, s})$$
+                        $$
+                            \begin{aligned}
+                                & (br - sa) \tau_i( D_{r + a, b + s + 1} )
+                                \\
+                                = & 
+                                \begin{aligned}
+                                    & \left( -\lambda_{r, s} \left( a(s + 2) - br \right) + \lambda_{a, b} \left( (b + 2) r - as \right) - N_i(r, s, a, b)\left( r(b + 1) - a(s + 1) \right) \right) K_{-a - r, -b - s - 2}
+                                    \\
+                                    + & \delta_{(a + r, b + s + 2), (0, 0)} \left( \lambda_{r, s} a - \lambda_{a, b} r + N_i(r, s, a, b) r \right) c_v
+                                    \\
+                                    + & \delta_{(a + r, b + s + 2), (0, 0)} \left( \lambda_{r, s} b - \lambda_{a, b} s + N_i(r, s, a, b) (s + 1) \right) c_t
+                                \end{aligned}    
+                            \end{aligned}
+                        $$
                     in order to get:
-                        $$-r \tau_i(D_{r, s}) = \lambda_{r, s}\left( -r K_{-r, -s - 1} - \delta_{r, 0} c_t \right)$$
-                    When $r \not = 0$, this is equivalent to:
-                        $$\tau_i(D_{r, s}) = \lambda_{r, s} K_{-r, -s - 1} = ( \delta_{i, 1} r^2 + 2r ) K_{-r, -s - 1}$$
+                        $$
+                            \begin{aligned}
+                                & -r \tau_i(D_{r, s}) =
+                                \\
+                                = & ( -\lambda_{r, s} r + \lambda_{0, -1} r ) K_{-r, -s - 1} - \delta_{(r, s), (0, -1)} \lambda_{0, -1} r c_v - \delta_{(r, s), (0, -1)} ( \lambda_{r, s} + \lambda_{0, -1} s ) c_t
+                                \\
+                                = & -r(\lambda_{r, s} - \lambda_{0, -1}) K_{-r, -s - 1} - \delta_{(r, s), (0, -1)} \left( r c_v + ( \lambda_{r, s} + \lambda_{0, -1} s ) c_t \right)
+                            \end{aligned}
+                        $$
+                    (note that $N_i(r, s, 0, -1) = 0$). When $r \not = 0$, this is equivalent to:
+                        $$\tau_i(D_{r, s}) = (\lambda_{r, s} - \lambda_{0, -1}) K_{-r, -s - 1}$$
+                   (note how the second term vanishes when $r \not = 0$) and therefore, we have that:
+                        $$\lambda_{r, s} K_{-r, -s - 1} = ( \delta_{i, 1} r^2 + 2r \lambda_{0, 0} ) K_{-r, -s - 1}$$
                     Through with the previous conclusion that:
-                        $$\tau_i(D_{r, s}) = 2r K_{-r, -s - 1}$$
-                    the above implies that only when $i = 2$ do we have a well-defined linear map:
+                        $$\tau_i(D_{r, s}) = 2r \lambda_{0, 0} K_{-r, -s - 1}$$
+                    the above implies that \textit{only when $i = 2$ can we have a well-defined linear map:}
                         $$\tau_2 \in C_1( \divzero, \z(\toroidal) )$$
                     We can thus conclude also, that:
                         $$\sigma_1 \not \in B^2_{\Lie}( \divzero, \z(\toroidal) )$$
 
+                    \todo[inline]{Everything below this line needs revision}
                     As such, let us only work with $i = 2$ from now on. Now, let us return to the initial assumption that $\tau_2$ is graded, which means that:
                         $$\tau_2(D_{r, s}) = \lambda_{r, s} K_{-r, -s - 1} + \delta_{(r, s), (0, -1)} ( \alpha_{r, s} c_v + \beta_{r, s} c_t )$$
                     (as discussed at the beginning), we see that when $(r, s) = (0, -1)$, we shall have that:
                         $$\tau_2(D_{0, -1}) = \alpha_{0, -1} c_v + \beta_{0, -1} c_t$$
-                    In proposition \ref{prop: non_trivial_yangian_restricted_coboundaries_examples}, we have seen that:
+                    In lemma \ref{lemma: restrictions_of_billig_toroidal_cocycles_are_coboundary}, we have seen that:
                         $$\tau_2|_{\frakw}(D_{0, -1}) = \mu_0 c_v + \nu c_t$$
                     for some undetermined $\mu_0, \nu_0 \in \bbC$. Hence, we have that:
                         $$\mu_0 = \alpha_{0, -1}, \nu_0 = \beta_{0, -1}$$
@@ -628,21 +736,75 @@
                         $$0 = 0$$
                         $$\beta_{0, -1} = -2$$
                     The first equation is tautological, so $\alpha_{0, -1}$ remains undetermined, and our claim is proven.
+                    \todo[inline]{Double-check until here.}
 
-                    In conclusion, $\sigma_2$ is $2$-coboundary, $\sigma_1$ is not, and:
-                        $$\tau_2^{\kappa} = 2r K_{-r, -s - 1} + \delta_{(r, s), (0, -1)} ( \kappa c_v - 2c_t )$$
-                    \item Next, consider $\tau_2(D_v)$. Because there do not exist elements $D, D' \in \divzero$ so that $D_v = [D, D']$ and because $[D_v, D_t] = 0$ (cf. lemma \ref{lemma: yangian_div_zero_vector_fields_basic_properties}), it is impossible to determine $\tau_i(D_v)$ through the use of the $2$-coboundary equation:
-                        $$\tau_i([D, D']) = [D, \tau_i(D')]_{\extendedtoroidal} - [D', \tau_i(D)]_{\extendedtoroidal} - \sigma_i(D, D')$$
+                    In conclusion, to check whether $\sigma_2$ is $2$-coboundary, $\sigma_1$ is not, we can use the following family of elements $\tau_2^{\kappa} \in C_1(\divzero, \z(\toroidal))$:
+                        $$\tau_2^{\kappa}(D_{r, s}) = $$
+                    Of course, it remains still to verify that each $\tau_2^{\kappa}$ satisfies the $2$-coboundary equation:
+                        $$\tau_2^{\kappa}([D, D']) = [D, \tau_2^{\kappa}(D')]_{\extendedtoroidal} - [D', \tau_2^{\kappa}(D)]_{\extendedtoroidal} - \sigma_2(D, D')$$
+                    (for all $D, D' \in \divzero$). We will get back to this shortly, after computing $\tau_2^{\kappa}(D_v)$ and $\tau_2^{\kappa}(D_t)$.
+                    \item Next, consider $\tau_2^{\kappa}(D_v)$. Because there do not exist elements $D, D' \in \divzero$ so that $D_v = [D, D']$ and because $[D_v, D_t] = 0$ (cf. lemma \ref{lemma: yangian_div_zero_vector_fields_basic_properties}), it is impossible to determine $\tau_2^{\kappa}(D_v)$ through the use of the $2$-coboundary equation:
+                        $$\tau_2^{\kappa}([D, D']) = [D, \tau_2^{\kappa}(D')]_{\extendedtoroidal} - [D', \tau_2^{\kappa}(D)]_{\extendedtoroidal} - \sigma_2(D, D')$$
                     (cf. example \ref{example: low_degree_lie_coboundaries_with_non-trivial_coefficients}). As such, we can let the coefficients $\mu_v \in \bbC$ in the expression:
                         $$\tau_i(D_v) = \mu_v K_{0, -1}$$
                     be arbitrary.
                     \item Likewise, we can let the coefficients $\mu_v \in \bbC$ in the expression:
-                        $$\tau_2(D_t) = \mu_t K_{0, -1}$$
+                        $$\tau_2^{\kappa}(D_t) = \mu_t K_{0, -1}$$
                     be arbitrary.
-                \end{enumerate}
+                \end{itemize}
+
+                Now, it remains to check whether or not the $2$-boundary equation:
+                    $$\tau_2^{\kappa}([D, D']) = [D, \tau_2^{\kappa}(D')]_{\extendedtoroidal} - [D', \tau_2^{\kappa}(D)]_{\extendedtoroidal} - \sigma_2(D, D')$$
+                is satisfied for all $D, D' \in \divzero$. Without loss of generality, we can assume again that $D, D' \in \divzero$ are basis elements.
+                \begin{itemize}
+                    \item Firstly, consider $D := D_{r, s}$ and $D' := D_{a, b}$. Since we now know that:
+                        $$\tau_2^{\kappa}(D_{\alpha, \beta}) = 2\alpha K_{-\alpha, -\beta - 1} + \delta_{(\alpha, \beta), (0, -1)} ( \kappa c_v - 2c_t )$$
+                    for all $(\alpha, \beta) \in \Z^2$, we thus have that:
+                        $$\tau_2([ D_{r, s}, D_{a, b} ]) = (br - sa) \tau_2(D_{a + r, b + s + 1}) = (br - sa) \left( 2(a + r) K_{-a - r, -b - s - 2} + \delta_{(a + r, b + s + 1), (0, -1)} ( \kappa c_v - 2c_t ) \right)$$
+                    as well as:
+                        $$
+                            \begin{aligned}
+                                & [D_{r, s}, \tau_2(D_{a, b})]_{\extendedtoroidal} - [D_{a, b}, \tau_2(D_{r, s})]_{\extendedtoroidal} - \sigma_2(D_{r, s}, D_{a, b})
+                                \\
+                                = &
+                                \begin{aligned}
+                                    & 2a [ D_{r, s}, K_{-a, -b - 1} ]_{\extendedtoroidal}
+                                    \\
+                                    - & 2r [ D_{a, b}, K_{-r, -s - 1} ]_{\extendedtoroidal}
+                                    \\
+                                    - & ra \left( ( r(b + 1) - a(s + 1) )K_{-r - a, -s - b - 2} -\delta_{ (-a - r, -b - s - 2), (0, 0) } (r c_v + (s + 1) c_t) \right)
+                                \end{aligned}
+                                \\
+                                = &
+                                \begin{aligned}
+                                    & 2a \left( (-(b + 2)r + sa) K_{-a - r, -b - s - 2} + \delta_{(r, s + 1), (-a, -b - 1)} \left( r c_v + s c_t \right) \right)
+                                    \\
+                                    - & 2r \left( (-(s + 2)a + br) K_{-a - r, -b - s - 2} + \delta_{(a, b + 1), (-r, -s - 1)} \left( a c_v + b c_t \right) \right)
+                                    \\
+                                    - & ra \left( ( r(b + 1) - a(s + 1) )K_{-r - a, -s - b - 2} + \delta_{(a + r, b + s + 1), (0, -1)} (r c_v + (s + 1) c_t) \right)
+                                \end{aligned}
+                                \\
+                                = &
+                                \begin{aligned}
+                                    & \left( 2(a - r) (sa - br) - ra ( as - br + a - r ) \right) K_{-a - r, -b - s - 2}
+                                    \\
+                                    + & \delta_{(a + r, b + s + 1), (0, -1)} \left( -r^2 a c_v + ( 2a(s + 1) + 2r(s + 2) - ra(s + 1) ) c_t \right)
+                                \end{aligned}
+                                \\
+                                = &
+                                \begin{aligned}
+                                    & \left( 2(a - r) (sa - br) - ra ( as - br + a - r ) \right) K_{-a - r, -b - s - 2}
+                                    \\
+                                    + & \delta_{(a + r, b + s + 1), (0, -1)} \left( r^3 c_v + ( -2r + r^2(s + 1) ) c_t \right)
+                                \end{aligned}
+                            \end{aligned}
+                        $$
+                    \item 
+                    \item 
+                \end{itemize}
             \end{proof}
         \begin{remark}
             Through proposition \ref{prop: invariance_of_billig_toroidal_cocycles}, we have seen that the toroidal $2$-cocycle:
                 $$\sigma_2$$
-            is \textit{not} $\gamma$-invariant in the sense of definition \ref{def: yangian_toroidal_cocycles}. However, in light of theorem \ref{theorem: non_trivial_yangian_cocycles_examples}, we now see that this non-$\gamma$-invariance of $\sigma_2$ holds \textit{despite} the fact that it is cohomologous to $0$. Therefore, one can not conclude from observing that a toroidal $2$-cocycle $\sigma$ is cohomologous to $0$ that $\sigma$ is $\gamma$-invariant, but when $\sigma = 0$ as elements of $Z^2_{\Lie}(\divzero, \z(\toroidal))$, then it will indeed be true that $\sigma$ is $\gamma$-invariant, as we know that the semi-direct product $\toroidal \rtimes \divzero$ is an instance of a $\gamma$-extended toroidal Lie algebra.
+            is \textit{not} $\gamma$-invariant in the sense of definition \ref{def: yangian_toroidal_cocycles}. However, in light of theorem \ref{prop: cohomological_non_triviality_of_billig_toroidal_cocycles}, we now see that this non-$\gamma$-invariance of $\sigma_2$ holds \textit{despite} the fact that it is cohomologous to $0$. Therefore, one can not conclude from observing that a toroidal $2$-cocycle $\sigma$ is cohomologous to $0$ that $\sigma$ is $\gamma$-invariant, but when $\sigma = 0$ as elements of $Z^2_{\Lie}(\divzero, \z(\toroidal))$, then it will indeed be true that $\sigma$ is $\gamma$-invariant, as we know that the semi-direct product $\toroidal \rtimes \divzero$ is an instance of a $\gamma$-extended toroidal Lie algebra.
         \end{remark}

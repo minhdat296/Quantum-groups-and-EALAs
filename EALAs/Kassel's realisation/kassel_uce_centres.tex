@@ -22,12 +22,12 @@
             A particular instance of this phenomenon is that $R$-linear derivations from $S$ to itself are dual to differential $1$-forms relative to $R \to S$, in the sense that there is an $S$-module isomorphism:
                 $$\Der_R(S) := \Der_R(S, S) \cong \Hom_A(\Omega^1_{S/R}, A)$$
         \end{remark}
-        \begin{remark} \label{remark: free_modules_of_1_forms}
-            If $\Omega^1_{S/R}$ is finite free of rank $n$ over $A$, e.g.:
-                $$\Omega^1_{S/R} \cong \bigoplus_{1 \leq i \leq n} A dv_i$$
+        \begin{remark} 
+            If $\Omega^1_{S/R}$ is finite free of rank $n$ over $R$, e.g.:
+                $$\Omega^1_{S/R} \cong \bigoplus_{1 \leq i \leq n} S dv_i$$
             then we can identify:
-                $$\Der_R(S) \cong \bigoplus_{1 \leq i \leq n} A \del_{v_i}$$
-            where $\del_{v_i} \in \Der_R(S)$ are the preimages under the isomorphism $\Der_R(S) \xrightarrow[]{\cong} \Hom_S(\Omega^1_{S/R}, S)$ of the $S$-linear duals of the generators $dv_i \in \Omega^1_{S/R}$. 
+                $$\Der_R(S) \cong \bigoplus_{1 \leq i \leq n} S \del_{v_i}$$
+            where $\del_{v_i} := \frac{\del}{\del v_i} \in \Der_R(S)$ are the preimages under the isomorphism $\Der_R(S) \xrightarrow[]{\cong} \Hom_S(\Omega^1_{S/R}, S)$ of the $S$-linear duals of the generators $dv_i \in \Omega^1_{S/R}$.
         \end{remark}
         
         The following well-known lemmas are very useful. Proofs can be be found in any standard reference on general commutative algebra (e.g. \cite[\href{https://stacks.math.columbia.edu/tag/00AO}{Tag 00AO}]{stacks}).
@@ -49,6 +49,17 @@
                 $$\Omega^1_{k[v^{\pm 1}, t^{\pm 1}]/k} \cong k[v^{\pm 1}, t^{\pm 1}] dv \oplus k[v^{\pm 1}, t^{\pm 1}] dt$$
                 $$\Omega^1_{k[v^{\pm 1}, t]/k} \cong k[v^{\pm 1}, t] dv \oplus k[v^{\pm 1}, t] dt$$
         \end{example}
+
+        \todo[inline]{Grading on derivations}
+        \begin{remark}[Gradings on derivations] \label{remark: gradings_on_derivations}
+            If $S$ is graded as an $R$-module by some abelian group $Z$, say:
+                $$S = \bigoplus_{n \in Z} S_n$$
+            then $\Der_R(S)$ will naturally inherit a $Z$-grading as well. This induced grading will be given by:
+                $$\Der_R(S) := \bigoplus_{n \in Z} S_n \del_{v_i}$$
+            In particular, if $S := R[v_1^{\pm 1}, ..., v_n^{\pm 1}]$ - and hence $Z = \Z^n$ - then the above will imply that:
+                $$\deg \del_{v_i} = (0, ..., -1, ..., 0)$$
+            with $-1$ being placed in the $i^{th}$ entry.
+        \end{remark}
 
     \subsection{UCEs of current Lie algebras}
         For the sake of establishing the terminology, let us make the following definition:

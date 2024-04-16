@@ -91,7 +91,7 @@
                 \end{enumerate}
             \end{proof}
         \begin{corollary}[$\Z^2$-grading on $\gamma$-divergence-zero vector fields] \label{coro: yangian_div_zero_vector_fields_are_graded}
-            $\divzero$ is a $\Z^2$-graded Lie subalgebra of the $\Z^2$-graded Lie algebra $\der(A)$ (see remark \ref{remark: free_modules_of_1_forms} for a description of the standard $\Z^2$-grading on $\der(A)$ coming from the one on $A$). Namely, the grading on $\divzero$ is given by:
+            $\divzero$ is a $\Z^2$-graded Lie subalgebra of the $\Z^2$-graded Lie algebra $\der(A)$ (see remark \ref{remark: gradings_on_derivations} for a description of the standard $\Z^2$-grading on $\der(A)$ coming from the one on $A$). Namely, the grading on $\divzero$ is given by:
                 $$\deg D_{r, s} = (-r, -s - 1)$$
                 $$\deg D_v = \deg D_t = (0, -1)$$
             The reason for this choice of grading will become clear after proposition \ref{prop: yangian_div_zero_vector_fields_are_graded_dual_to_toroidal_centre}, which asserts that $\divzero \cong \z(\toroidal)^{\star}$ as $\Z^2$-graded vector spaces; recall that the latter has a natural $\Z^2$-grading given by:
@@ -153,6 +153,7 @@
         \begin{corollary}[Lie brackets on graded-duals of the toroidal centres] \label{coro: lie_bracket_on_graded_dual_of_toroidal_centres}
             $\z(\toroidal)^{\star}$ is naturally a Lie algebra via the vector space isomorphism $\varphi: \divzero \xrightarrow[]{\cong} \z(\toroidal)^{\star}$.
         \end{corollary}
+        \todo[inline]{I would like to keep the content of this corollary, even though it is clear from proposition \ref{prop: extended_toroidal_bilinear_form}, for the sake of highlighting that, one of the reasons for introducing the graded isomorphism $\varphi$ is so that we would be able to construct a non-degenerate pairing $\z(\toroidal) \x \divzero \to \bbC$ using $\gamma$. Perhaps this can be moved into the main text or a remark as opposed to a corollary ?}
         \begin{corollary}[Non-degenerate bilinear forms on $\z(\toroidal) \oplus \divzero$ and on $\toroidal \oplus \divzero$] \label{coro: pairing_yangian_div_zero_vector_fields_and_cyclic_1_forms}
             There is a non-degenerate symmetric bilinear form $(-, -)_{\varphi}$ on the vector space $\z(\toroidal) \oplus \divzero$, given by:
                 $$(K, D)_{\varphi} := \varphi(D)(K)$$
@@ -172,6 +173,9 @@
             for all $X, Y \in \toroidal$ and all $D, D' \in \divzero$, where $\pi_{\z(\toroidal)}: \toroidal \to \z(\toroidal)$ denotes the canonical projection. This bilinear form itself extends the bilinear form $(-, -)_{\toroidal}$ on $\toroidal$, and it is related to the bilinear form $(-, -)_{\toroidal \oplus \z(\toroidal)^{\star}}$ from proposition \ref{prop: extended_toroidal_bilinear_form} by:
                 $$(-, -)_{\toroidal \oplus \divzero} = (-, -)_{\toroidal \oplus \z(\toroidal)^{\star}} \circ ( \id_{\toroidal} \oplus \varphi )^{\tensor 2}$$
         \end{corollary}
+            \begin{proof}
+                This is a direct consequence of proposition \ref{prop: extended_toroidal_bilinear_form}.
+            \end{proof}
         \begin{remark}
             Note that the pairing $(-, -)_{\varphi}$ as in corollary \ref{coro: pairing_yangian_div_zero_vector_fields_and_cyclic_1_forms}, when regarded as an element of $\z(\toroidal) \tensor_{\bbC} \z(\toroidal)^{\star}$, which has a canonical $\Z^2$-grading coming from those on $\z(\toroidal)$ and $\z(\toroidal)^{\star}$, has total degree $-1$ due to the choice of $\Z^2$-grading on $\divzero$ (and hence on $\z(\toroidal)^{\star}$, thanks to proposition \ref{prop: yangian_div_zero_vector_fields_are_graded_dual_to_toroidal_centre}) that was made in corollary \ref{coro: yangian_div_zero_vector_fields_are_graded}. Because $(-, -)_{\g_{[2]}}$ is also of total degree $-1$ (by construction), the bilinear form $(-, -)_{\toroidal \oplus \divzero}$ is also of total degree $-1$.
         \end{remark}
@@ -278,55 +282,34 @@
         \end{convention}
 
         \todo[inline]{Merged the main theorem statement and proof outline subsections. Modified the outline to reflect the changes done to the proof that $[D, D']_{\extendedtoroidal} \in [D, D'] + \z(\toroidal)$.}
-        Our proof of theorem \ref{theorem: yangian_extended_toroidal_lie_algebras_main_theorem} shall be split into two main steps, namely the proofs of the \say{if} and the \say{only if} implications therein, respectively.
-        \begin{itemize}
-            \item Let us discuss firstly the proof of the \say{if} direction, the content of subsection \ref{subsection: which_twisted_semi_direct_products_are_yangian_extended_toroidal_lie_algebras}.
-            \begin{enumerate}
-                \item After some trivial reduction, one shall see that in fact, the most non-trivial thing to prove is that the semi-direct product:
-                    $$\toroidal \rtimes \divzero$$
-                (well-defined now, thanks to corollary \ref{coro: a_fixed_yangian_div_zero_vector_field_action}) is an instance of a $\gamma$-extended toroidal Lie algebra, and this will be achieved through lemma \ref{lemma: semi_direct_product_of_toroidal_lie_algebras_with_div_zero_vector_fields_are_yangian_extended_toroidal_lie_algebras}. \item Using this, we will then prove in proposition \ref{proposition: twisted_semi_direct_products_are_yangian_extended_toroidal_lie_algebras} that a given Lie $2$-cocycle:
-                    $$\sigma \in Z^2_{\Lie}(\divzero, \z(\toroidal))$$
-                must sastisfy:
-                    $$( \sigma(D, D'), D'' )_{\extendedtoroidal} = ( D, \sigma(D', D'') )_{\extendedtoroidal}$$
-                so that the correpsonding twisted semi-direct product:
-                    $$\toroidal \rtimes^{\sigma} \divzero$$
-                would a $\gamma$-extended toroidal Lie algebra. This will conclude the proof.
-            \end{enumerate}
-            \item In the \say{only if} direction, the proof - which shall occupy subsection \ref{subsection: yangian_extended_toroidal_lie_algebras_are_twisted_semi_direct_products} - is more involved and somehow much less \say{routine}. Broadly, our strategy is to make use of proposition \ref{prop: twisted_semi_direct_product_criterion}, which requires two inputs:
+        \begin{proof}[Outline of the proof of theorem \ref{theorem: yangian_extended_toroidal_lie_algebras_main_theorem}]
+            Our proof of theorem \ref{theorem: yangian_extended_toroidal_lie_algebras_main_theorem} shall be split into two main steps, namely the proofs of the \say{if} and the \say{only if} implications therein, respectively.
             \begin{itemize}
-                \item given any $\gamma$-extended toroidal Lie algebra structure $[-, -]_{\extendedtoroidal}$ on $\extendedtoroidal$, the $\divzero$-action $\rho: \divzero \to \der(\toroidal)$ constructed in corollary \ref{coro: a_fixed_yangian_div_zero_vector_field_action} shall then satisfy:
-                    $$[D, X]_{\extendedtoroidal} = \rho(D)(X)$$
-                for all $D \in \divzero$ and all $X \in \toroidal$;
-                \item in equipping the vector space $\extendedtoroidal := \toroidal \oplus \divzero$ with the Lie bracket $[-, -]_{\extendedtoroidal}$ as above, one shall obtain a Lie algebra extension:
-                    $$0 \to \toroidal \to \extendedtoroidal \to \divzero \to 0$$
+                \item Let us discuss firstly the proof of the \say{if} direction, the content of subsection \ref{subsection: which_twisted_semi_direct_products_are_yangian_extended_toroidal_lie_algebras}.
+                \begin{enumerate}
+                    \item After some trivial reduction, one shall see that in fact, the most non-trivial thing to prove is that the semi-direct product:
+                        $$\toroidal \rtimes \divzero$$
+                    (well-defined now, thanks to corollary \ref{coro: a_fixed_yangian_div_zero_vector_field_action}) is an instance of a $\gamma$-extended toroidal Lie algebra, and this will be achieved through lemma \ref{lemma: semi_direct_product_of_toroidal_lie_algebras_with_div_zero_vector_fields_are_yangian_extended_toroidal_lie_algebras}. \item Using this, we will then prove in proposition \ref{proposition: twisted_semi_direct_products_are_yangian_extended_toroidal_lie_algebras} that a given Lie $2$-cocycle:
+                        $$\sigma \in Z^2_{\Lie}(\divzero, \z(\toroidal))$$
+                    must sastisfy:
+                        $$( \sigma(D, D'), D'' )_{\extendedtoroidal} = ( D, \sigma(D', D'') )_{\extendedtoroidal}$$
+                    so that the correpsonding twisted semi-direct product:
+                        $$\toroidal \rtimes^{\sigma} \divzero$$
+                    would a $\gamma$-extended toroidal Lie algebra. This will conclude the proof.
+                \end{enumerate}
+                \todo[inline]{Shorted the description of the "only if" proof.}
+                \item In the \say{only if} direction, the proof - which shall occupy subsection \ref{subsection: yangian_extended_toroidal_lie_algebras_are_twisted_semi_direct_products} and culminate in proposition \ref{prop: yangian_extended_toroidal_lie_algebras_are_twisted_semi_direct_products} - is more involved and somehow much less \say{routine}. Broadly, our strategy is to make use of proposition \ref{prop: twisted_semi_direct_product_criterion}, which requires two inputs:
+                \begin{enumerate}
+                    \item Firstly, given any $\gamma$-extended toroidal Lie algebra structure $[-, -]_{\extendedtoroidal}$ on $\extendedtoroidal$, the $\divzero$-action $\rho: \divzero \to \der(\toroidal)$ constructed in corollary \ref{coro: a_fixed_yangian_div_zero_vector_field_action} shall then satisfy:
+                        $$[D, X]_{\extendedtoroidal} = \rho(D)(X)$$
+                    for all $D \in \divzero$ and all $X \in \toroidal$. We will be verifying this requirement via lemmas \ref{lemma: derivation_action_on_multiloop_algebras}, \ref{lemma: derivation_action_on_toroidal_centres}, and \ref{lemma: yangian_extended_toroidal_lie_algebras_are_extensions} in that sequence.
+                    \item Secondly, in equipping the vector space $\extendedtoroidal := \toroidal \oplus \divzero$ with the Lie bracket $[-, -]_{\extendedtoroidal}$ as above, one shall obtain a Lie algebra extension:
+                        $$0 \to \toroidal \to \extendedtoroidal \to \divzero \to 0$$
+                    This will be checked in lemma \ref{lemma: yangian_extended_toroidal_lie_algebras_are_extensions}.
+                \end{enumerate}
+                Let us also note that, in verifying that these requirements are satisfied, we will be relying heavily on the fact that $(-, -)_{\extendedtoroidal}$ is invariant with respect to $[-, -]_{\extendedtoroidal}$.
             \end{itemize}
-            The following steps - all relying heavily on the fact that $(-, -)_{\extendedtoroidal}$ is invariant with respect to $[-, -]_{\extendedtoroidal}$ - will have to be carried out \textit{in sequence}:
-            \begin{enumerate}
-                \item lemma \ref{lemma: derivation_action_on_multiloop_algebras}, which proves that given any $X \in \g_{[2]}$ and $D \in \divzero$, there will exist some yet-to-be-determined $K(X, D) \in \z(\toroidal)$ such that:
-                    $$[D, X]_{\extendedtoroidal} = \rho(D)(X) + K(X, D)$$
-                and hence:
-                    $$[\divzero, \g_{[2]}]_{\extendedtoroidal} \subseteq \g_{[2]} \oplus \z(\toroidal)$$
-                \item lemma \ref{lemma: derivation_action_on_toroidal_centres}, which proves that given any $K \in \g_{[2]}$ and $D \in \divzero$, we will have that:
-                    $$[D, K]_{\extendedtoroidal} = \rho(D)(K)$$
-                and hence:
-                    $$[\divzero, \z(\toroidal)]_{\extendedtoroidal} \subseteq \z(\toroidal)$$
-                \item lemma \ref{lemma: yangian_extended_toroidal_lie_algebras_are_extensions}, which proves that any $\gamma$-extended toroidal Lie algebra struture on $\extendedtoroidal$ necessarily comes from an extension:
-                    $$0 \to \toroidal \to \extendedtoroidal \to \divzero \to 0$$
-                \item from proposition \ref{prop: appearance_of_toroidal_cocycles} - which results from lemma \ref{lemma: yangian_extended_toroidal_lie_algebras_are_extensions} - we will also be able to conclude that the $\z(\toroidal)$-summand $K(X, D)$ of the brackets of the form $[D, X]_{\extendedtoroidal}$ (where $D \in \divzero$ and $X \in \g_{[2]}$) necessarily vanish, and from this, one infers that:
-                    $$[D, X]_{\extendedtoroidal} = \rho(D)(X)$$
-                and hence:
-                    $$[\divzero, \g_{[2]}]_{\extendedtoroidal} \subseteq \g_{[2]}$$
-            \end{enumerate}
-            We remark that even though the first two steps are, on their own, sufficient for showing that:
-                $$[\divzero, \toroidal]_{\extendedtoroidal} \subseteq \toroidal$$
-            the fourth step remains necessary. By the construction of the action:
-                $$\rho: \divzero \to \der(\toroidal)$$
-            one has that:
-                $$\rho(D)(\g_{[2]}) \subseteq \g_{[2]}, \rho(D)(\z(\toroidal)) \subseteq \g_{[2]}$$
-            for all $D \in \divzero$, or in other words, the $\divzero$-module $\toroidal$ defined by $\rho$ splits into a direct sum of the submodules $\g_{[2]}$ and $\z(\toroidal)$. As such, without knowing that $[\divzero, \g_{[2]}]_{\extendedtoroidal} \subseteq \g_{[2]}$, we can not conclude that:
-                $$[D, \toroidal]_{\extendedtoroidal} = \rho(D) \cdot \toroidal$$
-            for all $D \in \divzero$ in order to fulfill the first condition for applying proposition \ref{prop: twisted_semi_direct_product_criterion}, as mentioned above.
-        \end{itemize}
+        \end{proof}
 
     \subsection{Which twisted semi-direct products are \texorpdfstring{$\gamma$}{}-extended toroidal Lie algebras ?} \label{subsection: which_twisted_semi_direct_products_are_yangian_extended_toroidal_lie_algebras}
         In this subsection, we prove the \say{if} direction of theorem \ref{theorem: yangian_extended_toroidal_lie_algebras_main_theorem}. To this end, let us firstly fix a twisted semi-direct product:
@@ -754,5 +737,3 @@
                     wherein the first and second-to-last equalities hold because $(\divzero, \divzero)_{\extendedtoroidal} := 0$ per the construction of the bilinear form $(-, -)_{\extendedtoroidal}$. This is precisely as needed, so we are done.
                 \end{enumerate}
             \end{proof}
-
-        Together, propositions \ref{prop: yangian_extended_toroidal_lie_algebras_are_twisted_semi_direct_products} and \ref{prop: yangian_cocycle_invariance} imply the \say{only if} direction of theorem \ref{theorem: yangian_extended_toroidal_lie_algebras_main_theorem}.
