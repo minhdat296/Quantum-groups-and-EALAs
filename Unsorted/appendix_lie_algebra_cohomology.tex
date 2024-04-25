@@ -1,4 +1,4 @@
-\section{Lie algebra cohomology}
+\section{Lie algebra cohomology} \label{section: lie_algebra_cohomology_appendix}
     \subsection{A brief account of the generalities}
         Let us work over a fixed field $k$.
     
@@ -57,7 +57,12 @@
                     \begin{aligned}
                         & \del_{-(i + 1)}\left( a \tensor (x_1 \wedge ... \wedge x_{i + 1}) \right)
                         \\
-                        := & \sum_{1 \leq p \leq i + 1} (-1)^p a x_p \tensor (x_1 \wedge ... \wedge \not{x_p} \wedge ... \wedge x_{i + 1}) + \sum_{1 \leq p < q \leq i + 1} (-1)^{p + q} a \tensor ( [x_p, x_q]_{\a} \wedge x_1 \wedge ... \wedge \not{x_p} \wedge ... \wedge \not{x_q} \wedge ... \wedge x_{i + 1})
+                        := &
+                        \begin{aligned}
+                            & \sum_{1 \leq p \leq i + 1} (-1)^p a x_p \tensor (x_1 \wedge ... \wedge \not{x_p} \wedge ... \wedge x_{i + 1})
+                            \\
+                            + & \sum_{1 \leq p < q \leq i + 1} (-1)^{p + q} a \tensor ( [x_p, x_q]_{\a} \wedge x_1 \wedge ... \wedge \not{x_p} \wedge ... \wedge \not{x_q} \wedge ... \wedge x_{i + 1})
+                        \end{aligned}
                     \end{aligned}
                 $$
             for all $a \in \rmU(\a)$ and all $x_1, ..., x_{i + 1} \in \a$ (cf. \cite[Section VII.4]{hilton_stammbach_homological_algebra}).
@@ -84,7 +89,7 @@
         \begin{definition}[Lie cocycles and coboundaries] \label{def: lie_cocycles_and_coboundaries}
             Let us denote by:
                 $$d_i^M: C_i(\a, M) \to C_{i + 1}(\a, M)$$
-            the differentials of thee complex of $k$-vector spaces $\{C_i(\a, M)\}_{i \in \Z_{\geq 0}}$. These are given by:
+            the differentials of the complex of $k$-vector spaces $\{C_i(\a, M)\}_{i \in \Z_{\geq 0}}$. These are given by:
                 $$d_i^M := \Hom_{\rmU(\a)}(\del_{-(i + 1)}, M)$$
             When $M$ is understood from the context, the superscripts may be omitted. For each $i \in \Z_{\geq 0}$, we define \textbf{Lie $i$-cocycles} and \textbf{Lie $i$-coboundaries} of $\a$ with values in $M$, respectively, to be elements of:
                 $$Z^i_{\Lie}(\a, M) := \ker d_i^M$$
@@ -120,7 +125,12 @@
                             \\
                             = & \del_{-(i + 1)}^*(\sigma)( (x_1 \wedge ... \wedge x_{i + 1}) )
                             \\
-                            = & \sum_{1 \leq p \leq i + 1} (-1)^p \sigma(x_1 \wedge ... \wedge \not{x_p} \wedge ... \wedge x_{i + 1}) + \sum_{1 \leq p < q \leq i + 1} (-1)^{p + q} \sigma( [x_p, x_q]_{\a} \wedge x_1 \wedge ... \wedge \not{x_p} \wedge ... \wedge \not{x_q} \wedge ... \wedge x_{i + 1})
+                            = &
+                            \begin{aligned}
+                                & \sum_{1 \leq p \leq i + 1} (-1)^p \sigma(x_1 \wedge ... \wedge \not{x_p} \wedge ... \wedge x_{i + 1})
+                                \\
+                                + & \sum_{1 \leq p < q \leq i + 1} (-1)^{p + q} \sigma( [x_p, x_q]_{\a} \wedge x_1 \wedge ... \wedge \not{x_p} \wedge ... \wedge \not{x_q} \wedge ... \wedge x_{i + 1})
+                            \end{aligned}
                         \end{aligned}
                     $$
                 for all $x_1, ..., x_i \in \a$.
@@ -135,7 +145,12 @@
                             \\
                             = & \del_{-i}^*(\tilde{\beta})(x_1 \wedge ... \wedge x_i)
                             \\
-                            = & \sum_{1 \leq p \leq i} (-1)^p \sigma(x_1 \wedge ... \wedge \not{x_p} \wedge ... \wedge x_i) + \sum_{1 \leq p < q \leq i} (-1)^{p + q} \sigma( [x_p, x_q]_{\a} \wedge x_1 \wedge ... \wedge \not{x_p} \wedge ... \wedge \not{x_q} \wedge ... \wedge x_i)
+                            = &
+                            \begin{aligned}
+                                & \sum_{1 \leq p \leq i} (-1)^p \sigma(x_1 \wedge ... \wedge \not{x_p} \wedge ... \wedge x_i)
+                                \\
+                                + & \sum_{1 \leq p < q \leq i} (-1)^{p + q} \sigma( [x_p, x_q]_{\a} \wedge x_1 \wedge ... \wedge \not{x_p} \wedge ... \wedge \not{x_q} \wedge ... \wedge x_i)
+                            \end{aligned}
                         \end{aligned}
                     $$
             \end{itemize}
@@ -151,8 +166,8 @@
                 Much like Lie $2$-cocycles, the value of a Lie $2$-boundaries $\beta$ at some $x \wedge y \in \bigwedge^2 \a$ is usually denotes by $\beta(x, y)$, i.e. we tend to think of Lie $2$-coboundaries as certain skew-symmetric bilinear maps $\a \x \a \to k$.
             \end{itemize}
         \end{example}
-        \begin{example}[Lie $2$-coboundaries with \textit{non-trivial} coefficients] \label{example: low_degree_lie_coboundaries_with_non-trivial_coefficients}
-            Let $\Omega$ be an $\d$-module defined by a Lie algebra action
+        \begin{example}[Lie $2$-coboundaries with \textit{non-trivial} coefficients] \label{example: low_degree_lie_coboundaries_with_non_trivial_coefficients}
+            Let $\d$ be a Lie algebra. Let $\Omega$ be an $\d$-module defined by a Lie algebra action
                 $$\rho: \d \to \gl(\Omega)$$
             By construction, we have that:
                 $$d_i^\Omega := \Hom_{\rmU(\d)}(\del_{-(i + 1)}, \Omega)$$
@@ -160,6 +175,93 @@
                 $$\beta(x, y) = \left( \rho(x) \cdot \tilde{\beta}(y) - \rho(y) \cdot \tilde{\beta}(x) \right) - \tilde{\beta}([x, y])$$
             (cf. \cite[Equation 1.6, p. 421]{kassel_quantum_groups}). In other words, $2$-coboundaries are error terms measuring how far a linear map $\d \to \Omega$ is from being a derivation of $\d$ with values in $\Omega$.
         \end{example}
+
+        Finally, let us investigate a particular property enjoyed by graded Lie $2$-coboundaries, namely that they admit \say{lifts} along the coboundary map $d_1$ which are \textit{graded} linear maps. This is a technical preparation in service of the proof of proposition \ref{prop: sigma_1_is_not_coboundary}.
+        \begin{remark}[Graded vector spaces and graded linear maps] \label{remark: grading_projections}
+            For what follows, recall that if $V := \bigoplus_{n \in Z} V_n, W := \bigoplus_{n \in Z} W_n$ are vector spaces graded by some abelian group $Z$, and:
+                $$\phi: V \to W$$
+            is any linear map, then one can always find a \textit{graded} linear map:
+                $$\bar{\phi}: V \to W$$
+            given by:
+                $$\bar{\phi} := \bigoplus_{n \in Z} \phi_n$$
+            where $\phi_n: V_n \to W_n$ is the linear map - uniquely defined using $\phi$ for every $n \in Z$ - fitting into the following commutative diagram of vector spaces and linear maps, where the left vertical arrow is the canonical inclusion and the right vertical arrow is the canonical projection:
+                $$
+                    \begin{tikzcd}
+                	V & W \\
+                	{V_n} & {W_n}
+                	\arrow["{\pr_n}", from=1-2, to=2-2]
+                	\arrow["{\iota_n}", from=2-1, to=1-1]
+                	\arrow["\phi_n", dashed, from=2-1, to=2-2]
+                	\arrow["\phi", from=1-1, to=1-2]
+                    \end{tikzcd}
+                $$
+            Clearly, if $\phi$ was graded to begin with, then $\bar{\phi} = \phi$.
+
+            We caution the reader that even though $\bar{\phi}$ is given as a potentially infinite direct sum of maps, any evaluation $\bar{\phi}(v)$ at any vector $v \in V$ is actually just a finite sum of elements of $V$. This is because elements of $V := \bigoplus_{n \in Z} V_n$ are of the form $(v_n)_{n \in Z}$, with $v_n = 0$ for all but finitely many $n \in Z$.
+        \end{remark}
+        \begin{lemma}[Graded Lie $2$-coboundaries] \label{lemma: graded_2_coboundaries}
+            Let $Z$ be an abelian group. Let $\d := \bigoplus_{n \in Z} \d_n$ be a $Z$-graded Lie algebra and $\Omega := \bigoplus_{n \in Z} \Omega_n$ be a $\d$-module, that is $Z$-graded as a vector space. Suppose also that the $\d$-action on $\Omega$ is homogeneous, i.e.:
+                $$D \cdot \Omega_n \subseteq \Omega_{n + \deg D}$$
+            for all $D \in \d$. 
+
+            Next, let $\tau \in C_1(\d, \Omega)$. Then, $d_1^{\Omega}(\tau) \in C_2(\d, \Omega)$ will be a graded linear map from $\bigwedge^2 \d$ to $\Omega$ if and only if there exists some \textit{graded} linear map $\bar{\tau} \in C_1(\d, \Omega)$ such that:
+                $$d_1^{\Omega}(\bar{\tau}) = d_1^{\Omega}(\tau)$$
+        \end{lemma}
+            \begin{proof}
+                To prove the \say{if} direction, firstly take $\bar{\tau} = \tau$. Since $\tau$ is graded, the assertion is then clear from the equation defining Lie $2$-coboundaries, which is:
+                    \begin{equation} \label{equation: graded_2_coboundaries}
+                        d_1^{\Omega}(\tau)(D, D') = D \cdot \tau(D') - D' \cdot \tau(D) - \tau([D, D'])
+                    \end{equation}
+                given for all $D, D' \in \d$ (cf. example \ref{example: low_degree_lie_coboundaries_with_non_trivial_coefficients}).
+            
+                Let us now prove the \say{only if} direction. We claim that the sought-for $\bar{\tau}$ is nothing but:
+                    $$\bar{\tau} := \bigoplus_{n \in Z} \tau_n$$
+                where $\tau_n := \pr_n \circ \tau \circ \iota_n$ for each $n \in Z$ as in remark \ref{remark: grading_projections}. To prove this claim, let us firstly pick homogeneous elements $D, D' \in \d$ and for convenience, let us set:
+                    $$m := \deg D, n := \deg D'$$
+                Also, for each $d \in Z$, let us set:
+                    $$d_1^{\Omega}(\tau)_d := \pr_d \circ d_1^{\Omega}(\tau) \circ \iota_d$$
+                    $$\overline{d_1^{\Omega}(\tau)} := \bigoplus_{(m, n) \in Z^{\oplus 2} } d_1^{\Omega}(\tau)_{m + n}$$
+                with notations as in remark \ref{remark: grading_projections}. Next, let us apply $\pr_{m + n}$ to both sides of equation \eqref{equation: graded_2_coboundaries}, which yields:
+                    $$
+                        \begin{aligned}
+                            & d_1^{\Omega}(\tau)_{m + n}(D, D')
+                            \\
+                            = & \pr_{m + n}( d_1^{\Omega}(\tau)(D, D') )
+                            \\
+                            = & \pr_{m + n}\left( D \cdot \tau(D') - D' \cdot \tau(D) - \tau([D, D']) \right)
+                            \\
+                            = & \pr_{m + n}(D \cdot \tau(D')) - \pr_{m + n}(D' \cdot \tau(D)) - \pr_{m + n}(\tau([D, D']))
+                            \\
+                            = & D \cdot \pr_m( \tau(D') ) - D' \cdot \pr_n( \tau(D) ) - \pr_{m + n}(\tau([D, D']))
+                            \\
+                            = & D \cdot \tau_m(D') - D' \cdot \tau_n(D) - \tau_{m + n}([D, D'])
+                        \end{aligned}
+                    $$
+                and note that the fourth and fifth equality result from the fact that $\d$ acts homogeneously on $\Omega$, as well as the fact that $\deg [D, D'] = m + n$, coming from our assumption that $\d$ is a $Z$-graded Lie algebra. From the above, we get that:
+                    $$
+                        \begin{aligned}
+                            & \overline{d_1^{\Omega}(\tau)}(D, D')
+                            \\
+                            = & \bigoplus_{(m, n) \in Z^{\oplus 2} } d_1^{\Omega}(\tau)_{m + n}(D, D')
+                            \\
+                            = & \bigoplus_{(m, n) \in Z^{\oplus 2} } \left( D \cdot \tau_m(D') - D' \cdot \tau_n(D) - \tau_{m + n}([D, D']) \right)
+                            \\
+                            = & \bigoplus_{m \in Z} D \cdot \tau_m(D') - \bigoplus_{n \in Z} D' \cdot \tau_n(D) - \bigoplus_{(m, n) \in Z^{\oplus 2} } \tau_{m + n}([D, D'])
+                            \\
+                            = & D \cdot \bigoplus_{m \in Z} \tau_m(D') - D' \cdot \bigoplus_{n \in Z} \tau_n(D) - \bigoplus_{(m, n) \in Z^{\oplus 2} } \tau_{m + n}([D, D'])
+                            \\
+                            = & D \cdot \bar{\tau}(D') - D' \cdot \bar{\tau}(D) - \bar{\tau}([D, D'])
+                        \end{aligned}
+                    $$
+                in which, to go from the third equality to the fourth one, we have made use of the assumption that, because $D, D' \in \d$ are homogeneous elements and because the $\d$-action on $\Omega$ is homogeneous, we have as a result that:
+                    $$\bigoplus_{m \in Z} D \cdot \tau_m(D') = D \cdot \sum_{m \in Z} \tau_m(D') = D \cdot \bigoplus_{m \in Z} \tau_m(D')$$
+                    $$\bigoplus_{n \in Z} D' \cdot \tau_n(D) = D' \cdot \sum_{n \in Z} \tau_n(D) = D' \cdot \bigoplus_{n \in Z} \tau_m(D)$$
+                Now, since $d_1^{\Omega}(\tau) \in C_2(\d, \Omega)$ has been assumed to be graded to begin with, we have that:
+                    $$\overline{d_1^{\Omega}(\tau)} = d_1^{\Omega}(\tau)$$
+                and hence:
+                    $$d_1^{\Omega}(\tau)(D, D') = D \cdot \bar{\tau}(D') - D' \cdot \bar{\tau}(D) - \bar{\tau}([D, D'])$$
+                for every pair of homogeneous elements $D, D' \in \d$. 
+            \end{proof}
 
     \subsection{Interpretations of \texorpdfstring{$H^1_{\Lie}$}{} and \texorpdfstring{$H^2_{\Lie}$}{}}
         We conclude this subsection by discussing interpretations of the two cases of low-dimensional Lie algebra cohomology that are of interest to us, namely $H^1_{\Lie}$ and $H^2_{\Lie}$. Respectively, these parametrise so-called \say{outer derivations} and abelian extensions. We will be needing these notions in the discussions leading up to proposition \ref{prop: cohomological_non_triviality_of_billig_toroidal_cocycles}, in order to be able to discern whether or not certain unequal $2$-cocycles might be cohomologous to one another. More specifically, we will be making use of the fact that isomorphism classes of abelian extensions of a given Lie algebra are in bijection with its $2^{nd}$ cohomology (with suitable coefficients, of course).

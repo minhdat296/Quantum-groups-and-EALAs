@@ -1,0 +1,170 @@
+\input{article preambles}
+
+\setcounter{section}{-1}
+
+\input{commands}
+
+\begin{document}
+
+    \title{Factorisation algebra, interactive QFTs, and quantum Satake}
+    
+    \author{Dat Minh Ha}
+    \maketitle
+    
+    \begin{abstract}
+        
+    \end{abstract}
+    
+    {
+      \hypersetup{} 
+      %\dominitoc
+      \tableofcontents %sort sections alphabetically
+    }
+
+    \section{Introduction}
+        \begin{convention}
+            Throughout, let $k$ be some algebraically closed field of characteristic $0$. Let us also write $\pt := \Spec k$.
+        \end{convention}
+
+    \section{An algebraic approach to interactive QFTs via factorisation algebras}
+        \subsection{Factorisation spaces}
+            \begin{convention}
+                By $*_{\fet}$, we shall mean the category of \textit{non-empty} finite sets and surjections between them. The notation some from the fact that this is equivalent to any category of finite-\'etale schemes over $\Spec k$.
+            \end{convention}
+
+            \begin{remark}
+                All the constructions that follow rely fundamentally on the simple observation that for any prestack $Y$ and any finite set $I$, an unordered $I$-tuple of points $\{y_i\}_{i \in I}$ in $Y$ is simultaneously the same as an $I$-tuple of maps:
+                    $$\{y_i: \pt \to Y\}_{i \in I}$$
+                or equivalently, a single map:
+                    $$\{y_i\}_{i \in I}: \pt \to Y^I$$
+            \end{remark}
+
+            \begin{definition}[Non-unital Ran spaces] \label{def: non_unital_ran_spaces}
+                Let $Y$ be a prestack fibred in $\infty$-groupoids. Then, the \textbf{non-unital Ran space} associated to $Y$ will be following colimit of prestacks:
+                    $$\Ran(Y) := \indlim_{I \in *_{\fet}} Y^I$$
+                Note that $*_{\fet}$ is not a filtered category, so even when $Y$ is a scheme, $\Ran(Y)$ will not generally satisfy descent.
+            \end{definition}
+            \begin{remark}
+                Let $Y$ be a prestack. It is not hard to see that:
+                    $$\Ran(Y)(S) \cong \{ \text{\textit{non-empty} finite $\infty$-subgroupoids of $Y(S)$} \}$$
+                for every scheme $S$.
+            \end{remark}
+            \begin{remark}[A bit about sheaves on prestacks]
+                For each scheme $X$, let us generically denote by:
+                    $$\Shv(X)$$
+                a \textit{presentable} $(\infty, 1)$-category of sheaves on $X$ such that for certain morphisms of schemes $f: X \to X'$, the natural $*$-pushforward:
+                    $$f_*: \Shv(X) \to \Shv(X')$$
+                admits a right-adjoint:
+                    $$f^!: \Shv(X') \to \Shv(X)$$
+                Examples of such sheaf theories include D-modules, ind-constructible $\ell$-adic sheaves (if $X$ is over positive characteristic), or ind-holonomic D-modules; a counter example is the category of holonomic D-modules. Let us call such sheaf theories $\Shv$ \textbf{large}.
+
+                Such a sheaf theory with $!$-pullbacks determines an $(\infty, 1)$-category fibred over $\Sch$ in the $(\infty, 2)$-category $((\infty, 1)\-\Pres\Cat_2)_{\co\cont}$ of presentable $(\infty, 1)$-categories and colimit preserving functors between them. Because of this, we can reasonably extend $\Shv$ to over a prestack $Y$ by declaring that:
+                    $$\Shv(Y) := \projlim_{S \to Y} \Shv(S)$$
+                with the limit ranging over schemes $S$ mapping into the given prestack $Y$. This extends $\Shv$ to a fibration:
+                    $$\Shv \to \Pre\Stk$$
+                (again, fibred in $((\infty, 1)\-\Pres\Cat_2)_{\co\cont}$).
+            \end{remark}
+            \begin{example}[Sheaves on non-unital Ran space]
+                Let $Y$ be a prestack and let $\Shv$ denote some large sheaf theory. It can be shown that:
+                    $$\Ran(Y)(S) := \{ \text{ non-empty finite discrete subcategories of $Y(S)$ } \}$$
+                for every (affine) scheme $S$. From this, we gather that:
+                    $$\projlim_{S \to \Ran(Y)} \Shv(S) \cong \projlim_{I \in *_{\fet}} \Shv(Y^I)$$
+                and hence we get that:
+                    $$\Shv(\Ran(Y)) \cong \projlim_{I \in *_{\fet}} \Shv(Y^I)$$
+            \end{example}
+
+            \begin{remark}[Constructing factorisation spaces]
+                Let $X$ be a prestack. We shall be writing:
+                    $$X^2_{\disj} := X^2 \setminus \Delta_X$$
+                to mean the sub-prestack of $X$ consisting of pairs of points with distinct coordinates, i.e. the complement of the diagonal inside $X^2$. For $X := \Ran(Y)$ for some prestack $Y$ (but not in general), the formation of the prestack $\Ran(Y)^2_{\disj}$ induces a correspondence:
+                    $$
+                        \begin{tikzcd}
+                    	& {\Ran(Y)^2_{\disj}} \\
+                    	{\Ran(Y)^2} && {\Ran(Y)}
+                    	\arrow["j"', hook', from=1-2, to=2-1]
+                    	\arrow["u", two heads, from=1-2, to=2-3]
+                        \end{tikzcd}
+                    $$
+                wherein:
+                    $$j: \Ran(Y)^2_{\disj} \to \Ran(Y)^2$$    
+                is the canonical inclusion and:
+                    $$u: \Ran(Y)^2_{\disj} \to \Ran(Y)$$
+                is the map that, on $S$-points, is given by unions of objects of $\Ran(Y)^2_{\disj}(S)$ (regarded as finite sub-groupoids of $Y(S)$):
+                    $$\forall I, J \in \Ob(*_{\fet}): u_S(\{y_i\}_{i \in I}, \{y'_j\}_{j \in J}) := \{y_i\}_{i \in I} \cup \{y'_j\}_{j \in J}$$
+                Suppose now that we have a large sheaf theory $\Shv$ and are given a sheaf:
+                    $$\scrF \in \Ob( \Shv(\Ran(Y)) )$$
+                Recall also that:
+                    $$\Shv \to \Pre\Stk$$
+                is fibred in $((\infty, 1)\-\Pres\Cat_2)_{\co\cont}$, which \textit{a priori} is symmetric monoidal with respect to the Lurie tensor product\footnote{Also called the box tensor product or the exterior tensor product.} $\boxtimes$. Since we have that:
+                    $$\Shv(\Ran(Y)) \cong \projlim_{I \in *_{\fet}} \Shv(Y^I)$$
+                which allows us to interpret:
+                    $$\scrF := (\scrF|_{Y^I})_{I \in *_{\fet}}, \scrF|_{Y^I} \in \Ob(\Shv(Y^I))$$
+                in terms of which we can write down the following universal maps:
+                    $$( \scrF|_Y^{\boxtimes 2} \to \scrF|_{Y^2} ) \in \Shv(Y^2)$$
+                    $$
+                        \left(
+                            \begin{tikzcd}
+                        	& {\scrF|_Y^{\boxtimes 3}} \\
+                        	{\scrF|_Y^{\boxtimes 2} \boxtimes \scrF|_Y} && {\scrF|_Y \boxtimes \scrF|_Y^{\boxtimes 2}} \\
+                        	{\scrF|_{Y^2} \boxtimes \scrF|_Y} && {\scrF|_Y \boxtimes \scrF|_{Y^2}} \\
+                        	& {\scrF|_{Y^3}}
+                        	\arrow[from=1-2, to=2-1]
+                        	\arrow[from=1-2, to=2-3]
+                        	\arrow[from=2-1, to=3-1]
+                        	\arrow[from=2-3, to=3-3]
+                        	\arrow[from=3-1, to=4-2]
+                        	\arrow[from=3-3, to=4-2]
+                            \end{tikzcd}
+                        \right)
+                         \in \Shv(Y^3)
+                    $$
+                and so on ... In this sense, one is able to \textbf{factor} objects of each of the categories $\Shv(Y^I)$ into exterior tensor products of objects of $\Shv(Y^J)$, with $J \in \Ob(*_{\fet})$ for which there exists a surjection $I \to J$. One sees also that in fact, it is necessary to only specify the factorisation:
+                    $$\scrF|_Y^{\boxtimes 2} \to \scrF|_{Y^2}$$
+                Everything else can be given inductively. 
+
+                There is a problem, however, and it is the reason why one must consider diagonal complements. If points of $Y$ are to be thought of as particles, then away from diagonals (i.e. when they do not collide), a collection thereof ought to be indistinguishable from the particles being counted individually. As such, we must require that there exist an isomorphism:
+                    $$j^*\scrF|_Y^{\boxtimes 2} \xrightarrow[]{\cong} u^*\scrF|_{Y^2}$$
+                where on the LHS, instead of regarding $\scrF|_Y^{\boxtimes 2}$ as an object of $\Shv(Y^2)$, we regard it instead as an object of $\Shv(Y) \boxtimes \Shv(Y)$.  
+            \end{remark}
+            \begin{definition}[Factorisation sheaves] \label{def: factorisation_sheaves}
+                
+            \end{definition}
+
+        \subsection{Examples: vertex algebras and conformal blocks}
+
+        \subsection{Configuration spaces}
+
+    \section{The Virasoro algebra and locality of factorisation algebras}
+        \begin{convention}
+                Throughout, let:
+                    $$X$$
+                be a smooth projective and connected curve over $\Spec k$. Also, let us write:
+                    $$\frakD := \Spf k[\![x]\!]$$
+                for the formal disc. This formal affine scheme will be thought of as being equipped with the marked point:
+                    $$\pt \xrightarrow[]{0} \frakD$$
+                coming from the $k$-algebra homomorphism $k[\![x]\!] \to k$ given by $f(x) \mapsto f(1)$. 
+            \end{convention}
+            
+            Since $k$ is assumed throughout to be algebraically closed, the residue fields at closed points of $X$ (or indeed, of any $k$-variety) is \textit{a priori} isomorphic to $k$ - which is the only algebraic extension of itself - per Hilbert's \textit{Nullstellensatz}. As such, the formal disc $\frakD$ can be thought of as a formal infinitesimal neighbourhood around any closed point $x \in X$:
+                $$
+                    \begin{tikzcd}
+                	& \frakD \\
+                	\pt & X
+                	\arrow[dashed, from=1-2, to=2-2]
+                	\arrow[from=2-1, to=1-2]
+                	\arrow["x", from=2-1, to=2-2]
+                    \end{tikzcd}
+                $$
+
+            The point that we would like to make in this section is that somehow, vertex-algebraic constructions on $X$ depend only on $\frakD$ and not on the global structure of $X$ (e.g. $\A^1$ and $\P^1$ are indistinguishable from this point of view), i.e. vertex algebras are inherently local.
+    
+        \subsection{\texorpdfstring{$\frakv^+$}{} and automorphisms of the formal disc}
+            We begin by studying formal scheme automorphisms of $\frakD$ that preserved the fixed base point $0$.
+            \begin{convention}
+                If $\frakX$ is a formal scheme over $\Spec k$ with a marked point $x$ then let us write $\Aut_k(\frakX, x)$ for the group of formal scheme automorphisms on $\frakX$ acting as the identity on the point $x$.
+            \end{convention}
+    
+    \addcontentsline{toc}{section}{References}
+    \printbibliography
+
+\end{document}

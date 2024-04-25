@@ -74,7 +74,11 @@
             $$\mu := \sum_{i \in \simpleroots} m_i \alpha_i \in Q$$
         we define its \textbf{height} to be the sum of the coefficients:
             $$\height \mu := \sum_{i \in \simpleroots} m_i$$
-        $Q$ is therefore partially ordered by heights. 
+        $Q$ is therefore partially ordered by heights. Now, to return briefly to the notion of weight modules for $\g$, such a $\g$-module $V$ is said to be of \textbf{highest-weight} if and only if it has a weight $\lambda$ such that:
+            $$\g_{\alpha} \cdot V_{\lambda} = 0$$
+        for all \textit{positive} roots $\alpha \in \Phi^+$. Now, a remarkable feature of the theory of finite-dimensional simple Lie algebras is that finite-dimensional simple modules thereof all possess highest weights (cf. \cite[Theorem 21.1, p. 112]{humphreys_lie_algebras}). Since $\g$ is a simple Lie algebra, it possesses no non-zero (proper) Lie ideal, i.e. no non-zero proper submodules (via the adjoint action), and hence is a simple module over itself. Per the aforementioned fact, $\g$ therefore has a highest weight, which is the \textbf{highest root}, typically denoted by:
+            $$\theta$$
+        This is a maximal element of the partially ordered $\Z$-module $Q$.
         
         The \textbf{Cartan matrix} of $\g$ can then be defined to be:
             $$C := (c_{ij})_{i, j \in \simpleroots} := \left( \frac{2(\alpha_i, \alpha_j)_{\g}}{(\alpha_i, \alpha_i)_{\g}} \right)_{i, j \in \simpleroots}$$
@@ -146,7 +150,7 @@
         \end{example}
 
     \subsection{Perfect Lie algebras and their central extensions}
-        Throughout the subsectin, let us work over an arbitrary field. 
+        Throughout the subsection, let us work over an arbitrary field. 
     
         \begin{definition}[Extensions of Lie algebras] \label{def: lie_algebra_extensions}
             Fix a Lie algebra $\a$.
@@ -175,7 +179,7 @@
                 	\arrow[from=2-4, to=2-5]
                     \end{tikzcd}
                 $$
-            wherein the rows are short exact sequences. If the middle vertical arrow $\varphi: \frake' \to \frake$ is a Lie algebra isomorphism, then the entire diagram will be regarded as an isomorphism of extensions of $\a$\footnote{... which means that one can meaningfully speak of isomorphism classes of extensions of a given Lie algebra.}.
+            wherein the rows are short exact sequences. Such a morphism will be an isomorphism of extensions if the middle arrow $\varphi: \frake' \to \frake$ is an isomorphism of Lie algebras.
         \end{definition}
         \begin{definition}[Central extensions of Lie algebras] \label{def: central_lie_algebra_extensions}
             A Lie algebra extension:
@@ -198,8 +202,8 @@
         \begin{example}[Semi-direct products of Lie algebras] \label{example: lie_algebra_semi_direct_products}
             Let:
                 $$\rho: \d \to \der(\t)$$
-            be a Lie algebra homomorphism from a Lie algebra $\d$ to the Lie algebra of derivations on another Lie algebra $\t$, making $\t$ a $\d$-module. Our goal is to use this initial data to define a Lie algebra extension:
-                $$0 \to \t \to \t \rtimes \d \to \d \to 0$$
+            be a Lie algebra homomorphism from a Lie algebra $\d$ to the Lie algebra of derivations (cf. definition \ref{def: lie_derivations}) on another Lie algebra $\t$, making $\t$ a $\d$-module. Our goal is to use this initial data to define a Lie algebra extension:
+                $$0 \to \t \to \t \rtimes \d \xrightarrow[]{\pi} \d \to 0$$
             called the \textbf{semi-direct product} of $\d$ by $\t$. By picking a linear section, i.e. a morphism of vector spaces such that:
                 $$\pi \circ \gamma = \id_{\d}$$
             where $\pi: \t \oplus \d \to \d$ is the canonical projection, we can then define:
@@ -223,36 +227,113 @@
         \end{example}
         Of course, there are central Lie algebra extensions other than trivial ones (i.e. direct sums of Lie algebras), and more generally, there are definitely extensions of Lie algebras that are not semi-direct products. One way to construct such extensions is to add an extra term - a \say{$2$-cocycle} - whose function is to \say{twist} the Lie brackets on semi-direct products into a slight variant thereof. More preecisely, if we are granted a Lie algebra extension:
             $$0 \to \t \to \frake \to \d \to 0$$
-        then the aforementioned $2$-cocycles shall serve to measure the difference between $[D, D']_{\frake}$ and $[D, D']_{\d}$, for $D, D' \in \d$. One small technical assumption that we must make in order to be able to even make this comparison in the first place, is that $\t$ must be a $\d$-module of a certain sort (cf. proposition \ref{prop: twisted_semi_direct_product_criterion}). 
-        \begin{definition}[$2$-cocycles and twisted semi-direct products] \label{def: twisted_semi_direct_products} 
-            Suppose that:
-                $$0 \to \t \to \frake \xrightarrow[]{\pi} \d \to 0$$
-            is an extension of Lie algebras with a fixed linear section:
-                $$\gamma: \d \to \t \oplus \d$$
-            This is said to be a \textbf{twisted semi-direct product} corresponding to a \textbf{$2$-cocycle}\footnote{The terminology stems from the fact that isomorphism classes of \textit{central} extensions, say of $\d$ by $\t$, are in bijection with the elements of $H^2_{\Lie}(\d, \t)$. This is a standard homological algebraic fact; see e.g. \cite[Theorem VII.3.3]{hilton_stammbach_homological_algebra}. We will not, however, be making use of any homological algebra. This remark is purely for an etymological purpose.} $\sigma$ of $\d$ with values in $\t$ if and only if the Lie bracket on $\frake$ is of the form\footnote{Note that in writing $[-, -]_{\frake} = [-, -]_{\t \rtimes \d} + \sigma$, we have actually slightly abused notations. Technically, this should have been $[-, -]_{\frake} = [-, -]_{\t \rtimes \d} + \sigma \circ ( \pi \wedge \pi )$, with $\pi: \frake \to \d$ being the canonical projection.}:
-                $$[-, -]_{\frake} = [-, -]_{\t \rtimes \d} + \sigma$$
-            for some skew-symmetric bilinear map:
-                $$\sigma: \bigwedge^2 \d \to \t$$
-            making $[-, -]_{\frake}$ satisfy the Jacobi identity, given as follows for all $K + D, K' + D', K'' + D'' \in \t \oplus \d$:
-                $$
-                    \begin{aligned}
-                        & [[K + D, K' + D']_{\t \rtimes \d} + \sigma(D, D'), K'' + D'']_{\frake}
-                        \\
-                        + & [[K'' + D'', K + D]_{\t \rtimes \d} + \sigma(D'', D), K' + D']_{\frake}
-                        \\
-                        + & [[K' + D', K'' + D'']_{\t \rtimes \d} + \sigma(D', D''), K + D]_{\frake}
-                    \end{aligned}
-                    = 0
-                $$
+        then the aforementioned $2$-cocycles shall serve to measure the difference between $[D, D']_{\frake}$ and $[D, D']_{\d}$, for $D, D' \in \d$. One small technical assumption that we must make in order to be able to even make this comparison in the first place, is that $\t$ must be a $\d$-module of a certain sort (cf. proposition \ref{prop: twisted_semi_direct_product_criterion}).
+
+        Before writing down a definition of such \say{twists} of semi-direct products, let us firstly check that this is indeed possible. Our goal is to demonstrate that the Lie bracket on a given semi-direct product, say $\t \rtimes \d$, can be \say{twisted} by Lie $2$-cocycles of $\d$ with values in the $\d$-module $\z(\t) \subseteq \t$, i.e. elements $\sigma \in Z^2_{\Lie}(\d, \z(\t))$ (cf. definition \ref{def: lie_cocycles_and_coboundaries}). We remark that when $\t$ is abelian, the following lemma coincides with theorem \ref{theorem: H^2_of_lie_algebras_and_abelian_extensions}, but in this thesis, we will be interested in non-abelian extensions (see, for instance, theorem \ref{theorem: yangian_extended_toroidal_lie_algebras_main_theorem}).
+        \begin{lemma}[Well-definiteness of twisted semi-direct products] \label{lemma: twisted_semi_direct_products_well_definiteness}
+            Let $\t, \d$ be Lie algebras, and consider their semi-direct product:
+                $$0 \to \t \to \t \rtimes \d \xrightarrow[]{\pi} \d \to 0$$
+            as in example \ref{example: lie_algebra_semi_direct_products}; let us denote the Lie bracket on $\t \rtimes \d$ by $[-, -]_0$ and the $\d$-action on $\t$ via Lie derivations by $\rho: \d \to \der(\t)$. Fix also a linear map:
+                $$\sigma: \d^{\tensor 2} \to \t$$
+            and put:
+                \begin{equation} \label{equation: twisted_semi_direct_product_bracket}
+                    [-, -]_{\sigma} := [-, -]_0 + \sigma \circ \pi^{\tensor 2}
+                \end{equation}
+            Finally, fix a linear section $\gamma: \d \to \t$ of $\pi$. The map $[-, -]_{\sigma}$ as above is a Lie bracket on the vector space $\t \oplus \gamma(\d)$ if and only if the following conditions are satisfied simultaneously:
+            \begin{itemize}
+                \item the codomain of $\sigma$ is $\z(\t)$, not all of $\t$,
+                \item $\sigma$ is skew-symmetric, and
+                \item the following identity holds for every triple of elements $D, D', D'' \in \d$:
+                    $$
+                        \begin{aligned}
+                            & \sigma( D, [D', D''] ) + \sigma( D', [D'', D] ) + \sigma( D'', [D, D'] )
+                            \\
+                            = & \rho(D)( [D'', D'] ) + \rho(D')( [D, D''] ) + \rho(D'')( [D', D] )
+                        \end{aligned}
+                    $$
+            \end{itemize}
+        \end{lemma}
+            \begin{proof}
+                Before we prove either direction, let us note firstly from the construction of $[-, -]_{\sigma}$ that:
+                    $$
+                        \begin{aligned}
+                            & [\gamma(D), \gamma(D)]_{\sigma}
+                            \\
+                            = & [\gamma(D), \gamma(D')]_0 + \sigma( \pi(\gamma(D)), \pi(\gamma(D')) )
+                            \\
+                            = & \gamma([D, D']) + \sigma(D, D')
+                        \end{aligned}
+                    $$
+                which in turn implies that:
+                    \begin{equation} \label{equation: 2_cocycle_in_terms_of_section}
+                        \sigma(D, D') = [\gamma(D), \gamma(D)]_{\sigma} - \gamma([D, D'])
+                    \end{equation}
             
-            In that case, we shall write:
-                $$\frake \cong \t \rtimes^{\sigma} \d$$
-            Should $\frake$ be a central extension of $\d$ by $\t$, i.e. $\t \subseteq \z(\frake)$, then to put emphasis on this fact\footnote{... as it is entirely possible for $\t$ to be abelian while $\t \not \subset \z(\frake)$.}, we might instead write:
-                $$\frake \cong \t \oplus^{\sigma} \d$$
+                To prove the \say{if} direction, suppose that $[-, -]_{\sigma}$ is a Lie bracket on the vector space $\t \oplus \d$. By the definition of Lie algebras, this means that $[-, -]_{\sigma}$ is skew-symmetric and satisfies the Jacobi identity, i.e.:
+                    \begin{equation} \label{equation: twisted_semi_direct_product_jacobi_identity}
+                        0 =
+                        \begin{aligned}
+                            & [ X + D, [Y + D', Z + D'']_{\sigma} ]_{\sigma}
+                            \\
+                            + & [ Y + D', [Z + D'', X + D]_{\sigma} ]_{\sigma}
+                            \\
+                            + & [ Z + D'', [X + D, Y + D']_{\sigma} ]_{\sigma}
+                        \end{aligned}
+                    \end{equation}
+                for all $K, K', K'' \in \t$ and $D, D', D'' \in \d$. By using the construction of $\sigma$, as well as the fact that $[-, -]_0$ is a Lie bracket - and hence is skew-symmetric and satisfies the Jacobi identity - and equation \eqref{equation: 2_cocycle_in_terms_of_section}, we shall get the desired identity. To see that the codomain of $\sigma$ is $\z(\t)$, note that by taking:
+                    $$K = K' = D'' = 0$$
+                in equation \eqref{equation: twisted_semi_direct_product_jacobi_identity}, the equation shall reduce to:
+                    $$0 = [[\gamma(D), \gamma(D')]_0 + \sigma(D, D'), K'']_{\sigma} + [[K'', \gamma(D)]_0, \gamma(D')]_{\sigma} + [[\gamma(D'), K'']_0, \gamma(D)]_{\sigma}$$
+                This, in turn, implies that:
+                    $$
+                        \begin{aligned}
+                            & 0
+                            \\
+                            = & [\sigma(D, D'), K'']_{\sigma} + [[\gamma(D), \gamma(D')]_0, K'']_{\sigma} + [[K'', \gamma(D)]_0, \gamma(D')]_{\sigma} + [[\gamma(D'), K'']_0, \gamma(D)]_{\sigma}
+                            \\
+                            = & [\sigma(D, D'), K'']_{\sigma} + \rho( [\gamma(D), \gamma(D')]_0 )(K'') + ( \rho(D') \circ \rho(D) )(K'') - ( \rho(D) \circ \rho(D') )(K'')
+                            \\
+                            = & [\sigma(D, D'), K'']_{\sigma}
+                        \end{aligned}
+                    $$
+                in which $\rho: \d \to \gl(\t)$ is the $\d$-module structure on $\t$ induced by the twisted semi-direct product $\t \rtimes^{\sigma} \d$, which we recall to be such that $[\gamma(\xi), X]_{\sigma} = \rho(\xi)(X)$ for all $\xi \in \d$ and all $X \in \t$. Since $D, D' \in \d$ and $K'' \in \t$ were chosen arbitrarily, the fact that:
+                    $$[\sigma(D, D'), K'']_{\sigma} = 0$$
+                thus shows that:
+                    $$\sigma(D, D') \in \z(\t)$$
+                for all $D, D' \in \d$.
+
+                Conversely, suppose that the three conditions are satisfied. Using equation \eqref{equation: 2_cocycle_in_terms_of_section}, we shall get that:
+                    $$
+                        \begin{aligned}
+                            & \sigma( D, [D', D''] ) + \sigma( D', [D'', D] ) + \sigma( D'', [D, D'] )
+                            \\
+                            = &
+                            \begin{aligned}
+                                & \left( [ \gamma(D), \gamma([D', D'']) ]_{\sigma} - \gamma( [D, [D', D'']] )) \right)
+                                \\
+                                + & \left( [ \gamma(D'), \gamma([D'', D]) ]_{\sigma} - \gamma( [D', [D'', D]] )) \right)
+                                \\
+                                + & \left( [ \gamma(D''), \gamma([D, D']) ]_{\sigma} - \gamma( [D'', [D, D']] )) \right)
+                            \end{aligned}
+                            \\
+                            = & [ \gamma(D), \gamma([D', D'']) ]_{\sigma} + [ \gamma(D'), \gamma([D'', D]) ]_{\sigma} + [ \gamma(D''), \gamma([D, D']) ]_{\sigma}
+                            \\
+                            = & \rho(D)( [D'', D'] ) + \rho(D')( [D, D''] ) + \rho(D'')( [D', D] )
+                        \end{aligned}
+                    $$
+                where the second equality comes from the fact that $\d$ is a Lie algebra and hence $[-, -]$ satisfies the Jacobi identity, and the third equality can be seen to be true via example \ref{example: lie_algebra_semi_direct_products}. We are therefore done.
+            \end{proof}
+        \begin{definition}[Twisted semi-direct products] \label{def: twisted_semi_direct_products} 
+            Let $\t, \d$ be Lie algebras and let $\t$ be a module over $\d$ via an action by Lie derivations $\rho: \d \to \der(\t)$, so that we may form the semi-direct product $\t \rtimes \d$ as in example \ref{example: lie_algebra_semi_direct_products}. Let us also implicitly fix a linear section $\d \to \t \rtimes \d$ of the canonical projection $\t \rtimes \d \to \d$.
+
+            Now, if we are also given a Lie $2$-cocycle:
+                $$\sigma \in Z^2_{\Lie}(\d, \z(\t))$$
+            (cf. definition \ref{def: lie_cocycles_and_coboundaries}) then we can form the \textbf{twisted semi-direct product} corresponding to $\sigma$, which shall be a Lie bracket $[-, -]_{\sigma}$ on the vector space $\t \oplus \d$ given as in equation \eqref{equation: twisted_semi_direct_product_bracket}. For a general potentially non-abelian Lie algebra $\t$, this will be denoted by:
+                $$\t \rtimes^{\sigma} \d$$
+            but when $\t \rtimes \d$ is a \textit{central} extension, then we may write:
+                $$\t \oplus^{\sigma} \d$$
+            to put emphasis on the fact that $\d$ now acts trivially on $\t$.
         \end{definition}
-        \begin{remark}
-            Suppose that $\d$ and $\t$ are Lie algebras over a field $k$. It not hard to see, using their definition, that the $2$-cocycles $\sigma: \bigwedge^2 \d \to \t$ form a vector subspace of $\Hom_k(\bigwedge^2 \d, \t)$, typically denoted by $Z^2_{\Lie}(\d, \t)$. This fact will be used without explicit reference to it.
-        \end{remark}
         \begin{remark}[Non-uniqueness of twisted semi-direct products]
             For definition \ref{def: twisted_semi_direct_products} to make sense, it is important that we choose a linear section:
                 $$\gamma: \d \to \t \oplus \d$$
@@ -261,17 +342,17 @@
             to be well-defined.
         \end{remark}
         \begin{example}[Semi-direct products are trivially twisted]
-            Clearly, semi-direct products are twisted semi-direct products corresponding to the $2$-cocycle $0$.
+            Clearly, semi-direct products are twisted semi-direct products corresponding to the $2$-cocycle $0$. In particular, a semi-direct product that is a central extension is necessarily a trivial extension.
         \end{example}
         The following result gives a criterion for a given Lie algebra extension to be a twisted semi-direct product. We will be using it later on to identify so-called \say{Yangian extended toroidal Lie algebras} as certain twisted semi-direct products (cf. theorem \ref{theorem: yangian_extended_toroidal_lie_algebras_main_theorem}).
         \begin{proposition}[When is a Lie algebra extension a twisted semi-direct product ?] \label{prop: twisted_semi_direct_product_criterion}
             Suppose that:
                 $$0 \to \t \to \frake \xrightarrow[]{\pi} \d \to 0$$
-            is an extension of Lie algebras with a fixed linear section $\gamma: \d \to \t \oplus \d$. Then, $\t$ will be a $\d$-module - say defined by a Lie algebra homomorphism:
-                $$\rho: \d \to \gl(\t)$$
+            is an extension of Lie algebras with a fixed linear section $\gamma: \d \to \t \oplus \d$ of $\pi$, which gives us a vector space decomposition $\frake \cong \ker \pi \oplus \gamma(\d) \cong \t \oplus \d$. Then, $\t$ will be a $\d$-module defined by a Lie algebra homomorphism:
+                $$\rho: \d \to \der(\t)$$
             such that:
                 $$[\gamma(\d), \t]_{\frake} := \rho(\d)(\t)$$
-            - if and only if there exists a $2$-cocycle $\sigma: \bigwedge^2 \d \to \t$ \textit{depending on the choice of linear section $\gamma$}, as well as a Lie algebra isomorphism:
+            if and only if there exists a Lie $2$-cocycle $\sigma \in Z^2_{\Lie}(\d, \z(\toroidal))$, given as in equation \eqref{equation: 2_cocycle_in_terms_of_section} (and hence depending on $\gamma$), as well as a Lie algebra isomorphism:
                 $$\frake \cong \t \rtimes^{\sigma} \d$$
         \end{proposition}
             \begin{proof}
@@ -298,7 +379,7 @@
                 for some $2$-cocycle $\sigma: \bigwedge^2 \d \to \t$. For all $K \in \t$ and all $D \in \d$, we have that:
                     $$[\gamma(D), K]_{\frake} = [\gamma(D), K]_{\t \rtimes \d} \in \t$$
                 Using example \ref{example: lie_algebra_semi_direct_products}, one sees that this gives an action:
-                    $$\rho: \d \to \gl(\t)$$
+                    $$\rho: \d \to \der(\t)$$
                 such that:
                     $$[\gamma(D), K]_{\frake} = \rho(D)(K)$$
             \end{proof}
@@ -314,49 +395,15 @@
             \begin{proof}
                 Per the discussion at the end of example \ref{example: lie_algebra_semi_direct_products}, one sees that $\Omega$ is equipped with a trivial $\a$-module. The rest is clear from proposition \ref{prop: twisted_semi_direct_product_criterion}.
             \end{proof}
-        Another corollary to proposition \ref{prop: twisted_semi_direct_product_criterion} is as follows.
-        \begin{corollary}[$2$-cocycles are central] \label{coro: 2_cocycles_are_central}
-            Consider a twisted semi-direct product:
-                $$\t \rtimes^{\sigma} \d$$
-            whose Lie bracket shall be denoted by $[-, -]_{\sigma}$. Implicitly, it shall be understood that $\sigma$ arises from a choice of linear section $\gamma: \d \to \t \oplus \d$. The codomain of the corresponding $2$-cocycle $\sigma: \bigwedge^2 \d \to \t$ actually lies in $\z(\t)$.
-        \end{corollary}
-            \begin{proof}
-                Let us write $[-, -]_0$ for the Lie bracket on $\t \rtimes \d$. Also, to avoid a proliferation of brackets, we shall be writing $X + \xi := X + \gamma(\xi)$ and $[\xi, X]_{\sigma} := [\gamma(\xi), X]_{\sigma}$ for all $\xi \in \d$ and all $X \in \t$. 
-                
-                From the definition of twisted semi-direct products, we have the Jacobi identity, which is as follows for all $K + D, K' + D', K'' + D'' \in \t \oplus \d$:
-                    $$
-                        \begin{aligned}
-                            & [[K + D, K' + D']_0 + \sigma(D, D'), K'' + D'']_{\sigma}
-                            \\
-                            + & [[K'' + D'', K + D]_0 + \sigma(D'', D), K' + D']_{\sigma}
-                            \\
-                            + & [[K' + D', K'' + D'']_0 + \sigma(D', D''), K + D]_{\sigma}
-                        \end{aligned}
-                        = 0
-                    $$
-                By taking $K = K' = D'' = 0$, the above reduces to:
-                    $$[[D, D']_0 + \sigma(D, D'), K'']_{\sigma} + [[K'', D]_0, D']_{\sigma} + [[D', K'']_0, D]_{\sigma} = 0$$
-                This, in turn, implies that:
-                    $$
-                        \begin{aligned}
-                            0 & = [\sigma(D, D'), K'']_{\sigma} + [[D, D']_0, K'']_{\sigma} + [[K'', D]_0, D']_{\sigma} + [[D', K'']_0, D]_{\sigma} = 0
-                            \\
-                            & = [\sigma(D, D'), K'']_{\sigma} + \rho( [D, D']_0 )(K'') + ( \rho(D') \circ \rho(D) )(K'') - ( \rho(D) \circ \rho(D') )(K'')
-                            \\
-                            & = [\sigma(D, D'), K'']_{\sigma}
-                        \end{aligned}
-                    $$
-                in which $\rho: \d \to \gl(\t)$ is the $\d$-module structure on $\t$ induced by the twisted semi-direct product $\t \rtimes^{\sigma} \d$, which we recall to be such that $[\xi, X]_{\sigma} = \rho(\xi)(X)$ for all $\xi \in \d$ and all $X \in \t$. Since $D, D' \in \d$ and $K'' \in \t$ were chosen arbitrarily, the fact that:
-                    $$[\sigma(D, D'), K'']_{\sigma} = 0$$
-                thus shows that:
-                    $$\sigma(D, D') \in \z(\t)$$
-                for all $D, D' \in \d$.
-            \end{proof}
 
-        Let us now turn our attention towards the problem of existence of UCEs, now that we know how Lie brackets on central extensions are given in general. A particular class of Lie algebras that happen to admit UCEs are the so-called \say{perfect} ones.
+        Let us now turn our attention towards the problem of existence of UCEs, now that we know how Lie brackets on central extensions are given in general. So-called \say{perfect} Lie algebras are precisely those that admit UCEs.
         \begin{definition}[Perfect Lie algebras]
             A Lie algebra is said to be \textbf{perfect} if it is equal to its derived subalgebra. 
         \end{definition}
+        The following lemma is trivial.
+        \begin{lemma}[Quotients of perfect Lie algebras are perfect] \label{lemma: quotients_of_perfect_lie_algebras}
+            Let $\a$ be a perfect Lie algebra and $\n$ be a Lie ideal thereof. Then $\a/\n$ will also be perfect. 
+        \end{lemma}
         \begin{example}
             Since simple Lie algebras lack non-zero ideals by definition, they are perfect. 
         \end{example}
@@ -375,49 +422,72 @@
             UCEs, should they exist, are necessarily perfect.
         \end{corollary}
             \begin{proof}
-                Let $\a$ be a Lie algebra with a UCE $\uce(\a)$. Because UCEs are unique up to isomorphisms, $\uce(\a)$ admits itself as a UCE of its own. Per proposition \ref{prop: perfect_lie_algebras_admit_UCEs}, then, $\uce(\a)$ is necessarily perfect.
+                Let $\a$ be a Lie algebra and suppose that $\fraku := \uce(\a)$ exists; per proposition \ref{prop: perfect_lie_algebras_admit_UCEs}, we know that $\a$ is necessarily perfect. Then, consider the following:
+                    $$[\fraku, \fraku]_{\uce(\a)} = [\a \oplus \z(\fraku), \a \oplus \z(\fraku)]_{\fraku} = [\a, \a]_{\a} \oplus \z(\fraku) = \a \oplus \z(\fraku) = \fraku$$
+                where the third equality holds thanks to a combination of the fact that $\a$ is perfect and the fact that the Lie $2$-cocycle corresponding to the twisted semi-direct product $\fraku$ takes values in $\z(\fraku)$ (cf. lemma \ref{lemma: twisted_semi_direct_products_well_definiteness}), which implies that $[\a, \a]_{\fraku} = [\a, \a]_{\fraku} \oplus \z(\fraku)$. We have thus shown that $\fraku$ is the same as its derived subalgebra, and hence perfect.
             \end{proof}
 
-        \todo[inline]{Lemma about extending bilinear forms to central extensions}
         Let us conclude this subsection by making note of the following fact about the process of extending invariant bilinear forms from Lie algebras to their central extensions.
         \begin{lemma}[Extending invariant bilinear forms to central extensions] \label{lemma: extending_bilinear_forms_to_central_extensions}
             Let:
                 $$0 \to \Omega \to \frake \xrightarrow[]{\pi} \a \to 0$$
-            be a central extension of some \textit{perfect} Lie algebra $\a$. Then, there will exist an invariant and symmetric bilinear form $(-, -)_{\frake}$ on $\frake$ such that:
-                $$\Omega \subseteq \Rad(-, -)_{\frake}$$
-            if and only if there exists an invariant and symmetric bilinear form $(-, -)_{\a}$ on $\a$ such that:
-                $$(X, Y)_{\a} = (\pi(X), \pi(Y))_{\frake}$$
-            for all $X, Y \in \frake$.
-
-            Consequently, any invariant and symmetric bilinear form $(-, -)_{\a}$ on $\a$ admits a unique invariant and symmetric extension to $\frake$.
+            be a central extension of some Lie algebra $\a$, and assume that $\frake$ is perfect\footnote{... and hence $\a$ too is perfect.}.
+            \begin{enumerate}
+                \item Any invariant symmetric bilinear form $(-, -)_{\frake}$ on $\frake$ is necessarily degenerate. In fact, $\Omega$ is contained in $\Rad (-, -)_{\frake} := \{K \in \frake \mid \forall X \in \frake: (X, K)_{\frake} = 0\}$.
+                \item There is a bijection:
+                    $$
+                        \begin{tikzcd}
+                    	{\left\{ \text{invariant symmetric bilinear forms $(-, -)_{\frake}$ on $\frake$} \right\}} \\
+                    	{\left\{ \text{invariant symmetric bilinear forms on $\a$} \right\}}
+                    	\arrow["r", from=1-1, to=2-1]
+                        \end{tikzcd}
+                    $$
+                sending $(-, -)_{\frake}$ to $(-, -)_{\a}$, which is defined for all $X, Y \in \frake$ by:
+                    $$(\pi(X), \pi(Y))_{\a} := (X, Y)_{\frake}$$
+            \end{enumerate}
         \end{lemma}
             \begin{proof}
                 Let us write $[-, -]_{\a}$ and $[-, -]_{\frake}$ for the Lie brackets on $\a$ and on $\frake$ respectively. 
-            
-                Suppose firstly that there exists an invariant and symmetric bilinear form $(-, -)_{\a}$ on $\a$. Then, by simply declaring that:
-                    $$(X, Y)_{\frake} := (\pi(X), \pi(Y))_{\a}$$
-                which would imply that:
-                    $$(\frake, \Omega)_{\frake} = (\pi(\frake), \pi(\Omega))_{\frake} = (\a, 0)_{\frake} = 0$$
-                one can define a bilinear form $\frake$ such that:
-                    $$\Omega \subseteq \Rad(-, -)_{\frake}$$
-                It therefore remains to only demonstrate that any such extension is necessarily invariant, for which we rely on the assumption that $\a$ is perfect, i.e. that $\a = [\a, \a]_{\a}$. Consider the following:
-                    $$( [\frake, \frake]_{\frake}, \frake )_{\frake} = ( [\a, \a]_{\frake}, \a )_{\frake} = ( [\a, \a]_{\a}, \a )_{\a} = ( \a, [\a, \a]_{\a} )_{\a} = ( \a, [\a, \a]_{\frake} )_{\frake} = ( \frake, [\frake, \frake]_{\frake} )_{\frake}$$
-                (for any choice of linear section $\a \to \frake$ of the map $\pi: \frake \to \a$), where the third equality comes from the invariances of the bilinear form $(-, -)_{\a}$. This shows that $(-, -)_{\frake}$ too is invariant, as needed.
 
-                Conversely, suppose that $\frake$ carries an invariant and symmetric bilinear form $(-, -)_{\frake}$ such that $\Omega \subseteq \Rad(-, -)_{\frake}$. This means that:
-                    $$(\frake, \Omega)_{\frake} = 0$$
-                and hence automatically, we shall have a symmetric bilinear form $(-, -)_{\a}$ on $\a$ given by:
-                    $$(\pi(X), \pi(Y))_{\a} := (X, Y)_{\frake}$$
-                for all $X, Y \in \frake$. This bilinear form $(-, -)_{\a}$ is also invariant as a consequent of the assumption that $(-, -)_{\frake}$ is invariant (and also that $\pi: \frake \to \a$ is a Lie algebra homomorphism); to see how, consider the following:
-                    $$( [X, Y]_{\frake}, Z )_{\frake} = ( \pi( [X, Y]_{\frake} ), \pi(Z) )_{\a} = ( [\pi(X), \pi(Y)]_{\a}, \pi(Z) )_{\a}$$
-                at the same time as:
-                    $$( X, [Y, Z]_{\frake} )_{\frake} = ( \pi(X), \pi([Y, Z]_{\frake}) )_{\a} = ( \pi(X), [\pi(Y), \pi(Z)]_{\a} )_{\a}$$
-                and then rely on the fact that:
-                    $$( [X, Y]_{\frake}, Z )_{\frake} = ( X, [Y, Z]_{\frake} )_{\frake}$$
-                for all $X, Y, Z \in \frake$ to see that:
-                    $$( [\pi(X), \pi(Y)]_{\a}, \pi(Z) )_{\a} = ( \pi(X), [\pi(Y), \pi(Z)]_{\a} )_{\a}$$
-                Since $\pi: \frake \to \a$ is surjective, this is enough to show that $(-, -)_{\a}$ is invariant.
+                \begin{enumerate}
+                    \item Let $(-, -)_{\frake}$ be an invariant symmetric bilinear form on $\frake$ and pick an arbitrary element $K \in \Omega$ as well as elements $X, Y \in \frake$. Then, simply consider the following, which holds because of our invariance assumption:
+                        $$(K, [X, Y]_{\frake})_{\frake} = ([K, X]_{\frake}, Y)_{\frake} = (0, Y)_{\frake} = 0$$
+                    Note that the second equality holds because $K$ is central in $\frake$.
+                    \item To begin, let us make sure that the given function $r$ between the two sets of bilinear forms is well-defined. To this end, suppose that $\frake$ carries an invariant and symmetric bilinear form $(-, -)_{\frake}$. This means that:
+                        $$(\frake, \Omega)_{\frake} = 0$$
+                    and hence automatically, we shall have a symmetric bilinear form $(-, -)_{\a}$ on $\a$ given by:
+                        $$(\pi(X), \pi(Y))_{\a} := (X, Y)_{\frake}$$
+                    for all $X, Y \in \frake$. This bilinear form $(-, -)_{\a}$ is also invariant as a consequent of the assumption that $(-, -)_{\frake}$ is invariant (and also that $\pi: \frake \to \a$ is a Lie algebra homomorphism); to see how, consider the following:
+                        $$( [X, Y]_{\frake}, Z )_{\frake} = ( \pi( [X, Y]_{\frake} ), \pi(Z) )_{\a} = ( [\pi(X), \pi(Y)]_{\a}, \pi(Z) )_{\a}$$
+                    at the same time as:
+                        $$( X, [Y, Z]_{\frake} )_{\frake} = ( \pi(X), \pi([Y, Z]_{\frake}) )_{\a} = ( \pi(X), [\pi(Y), \pi(Z)]_{\a} )_{\a}$$
+                    and then rely on the fact that:
+                        $$( [X, Y]_{\frake}, Z )_{\frake} = ( X, [Y, Z]_{\frake} )_{\frake}$$
+                    for all $X, Y, Z \in \frake$ to see that:
+                        $$( [\pi(X), \pi(Y)]_{\a}, \pi(Z) )_{\a} = ( \pi(X), [\pi(Y), \pi(Z)]_{\a} )_{\a}$$
+                    Since $\pi: \frake \to \a$ is surjective, this is enough to show that $(-, -)_{\a}$ is invariant.
+                
+                    Next, let us prove that $r$ is surjective. To this end, suppose firstly that there exists an invariant and symmetric bilinear form $(-, -)_{\a}$ on $\a$. Then, by simply declaring that:
+                        $$(X, Y)_{\frake} := (\pi(X), \pi(Y))_{\a}$$
+                    which would imply that:
+                        $$(\frake, \Omega)_{\frake} = (\pi(\frake), \pi(\Omega))_{\frake} = (\a, 0)_{\frake} = 0$$
+                    one can define a bilinear form $\frake$ such that:
+                        $$\Omega \subseteq \Rad(-, -)_{\frake}$$
+                    It therefore remains to only demonstrate that any such extension is necessarily invariant, for which we rely on the fact that $\frake$ and $\a$ are perfect, i.e. that $\a = [\a, \a]_{\a}$. Consider the following:
+                        $$( [\frake, \frake]_{\frake}, \frake )_{\frake} = ( [\a, \a]_{\frake}, \a )_{\frake} = ( [\a, \a]_{\a}, \a )_{\a} = ( \a, [\a, \a]_{\a} )_{\a} = ( \a, [\a, \a]_{\frake} )_{\frake} = ( \frake, [\frake, \frake]_{\frake} )_{\frake}$$
+                    (for any choice of linear section $\a \to \frake$ of the map $\pi: \frake \to \a$), where the third equality comes from the invariances of the bilinear form $(-, -)_{\a}$. This shows that $(-, -)_{\frake}$ too is invariant, as needed, and we have surjectivity.
+    
+                    Finally, let us prove that $r$ is injective. To do this, it suffices to pick two (possibly indistinct) invariant and symmetric bilinear forms $B, B'$ on $\frake$ such that:
+                        $$r(B) = r(B')$$
+                    - which is always possible, since $r(B) = r(B') = (-, -)_{\a}$ - and then proving that $B = B'$ necessarily. By hypothesis, we have that:
+                        $$\Omega \subseteq \Rad B, \Rad B'$$
+                    and since $\frake \cong \a \oplus \Omega$ as vector spaces (with the isomorphism depending on the choice of a linear section $\a \to \frake$ of the projection $\pi: \frake \to \a$). As such, for all $X, Y \in \frake$, we have that:
+                        $$B(X, Y) = (\pi(X), \pi(Y))_{\a} = B'(X, Y)$$
+                    which gives:
+                        $$B = B'$$
+                    as needed.
+                \end{enumerate}
             \end{proof}
         \begin{remark}
-            Not every Lie algebra with a non-trivial centre arises as a central extension (see \cite[Section 1]{garland_arithmetics_of_loop_groups} for details), so it is not true that any invariant symmetric bilinear form on such a Lie algebra must be degenerate. Central elements can pair non-trivially with other elements, such as in the construction of untwisted affine Kac-Moody algebras (cf. \cite[Chapter 7]{kac_infinite_dimensional_lie_algebras}) or in the construction of so-called \say{extended toroidal Lie algebras} (cf. definition \ref{def: yangian_extended_toroidal_lie_algebras}).
+            Not every Lie algebra with a non-trivial centre arises as a central extension (see \cite[Section 1]{garland_arithmetics_of_loop_groups} for details), and in fact, not every such Lie algebra is necessarily perfect, so it is not true that any invariant symmetric bilinear form on such a Lie algebra must be degenerate. Central elements can pair non-trivially with other elements, such as in the construction of untwisted affine Kac-Moody algebras (cf. \cite[Chapter 7]{kac_infinite_dimensional_lie_algebras}) or in the construction of so-called \say{extended toroidal Lie algebras} (cf. definition \ref{def: yangian_extended_toroidal_lie_algebras}).
         \end{remark}
