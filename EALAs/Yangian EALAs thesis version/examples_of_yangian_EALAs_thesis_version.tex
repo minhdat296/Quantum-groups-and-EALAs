@@ -23,7 +23,7 @@
             \end{equation}
         where $x, y \in \{v, t\}$ are symbolic placeholders.
         
-        As a quick aside, let us note that the first cocycle $\sigma_1$ was known as far back as \cite{moody_rao_yokonuma_vertex_representations_of_toroidal_lie_algebras}, but we are not aware of the history of $\sigma_2$ beyond its appearance in first \cite{billig_energy_momentum_tensor}.
+        As a quick aside, let us note that the first cocycle $\sigma_1$ was known as far back as \cite{moody_rao_n_toroidal_vertex_representations}, but we are not aware of the history of $\sigma_2$ beyond its appearance in first \cite{billig_energy_momentum_tensor}.
 
         \begin{remark}
             Before we state the main theorem of this section, let us remind the reader of a few relevant notions from Lie algebra cohomology, and for more details, we refer the reader to appendix \ref{section: lie_algebra_cohomology_appendix}.
@@ -101,8 +101,8 @@
                     $$\sigma_i(D_{r, s}, D_v) = -\delta_{i, 1} r^2 v^{-r} t^{-s - 1} \bar{d}(t^{-1})$$
                     $$\sigma_i(D_{r, s}, D_t) = -\delta_{i, 1} rs v^{-r} t^{-s - 1} \bar{d}(t^{-1})$$
                     $$\sigma_i(D_v, D_t) = 0$$
-                \item Furthermore, the restriction of both $\sigma_1$ and $\sigma_2$ to the Lie subalgebra $\frakw \cong \der(\bbC[z^{\pm 1}])$ (cf. proposition \ref{prop: a_copy_of_the_witt_algebra_inside_the_lie_algebra_of_yangian_div_zero_vector_fields}) of $\divzero$ coincides with the $2$-cocycle $\eta \in Z^2_{\Lie}(\frakw, \bbC c_v)$ given by:
-                    $$\eta(D_{r, -1}, D_{a, -1}) := \delta_{r + a, 0} r^3 c_v$$
+                \item Furthermore, the restriction of both $\sigma_1$ and $\sigma_2$ to the Lie subalgebra $\frakw \cong \der(\bbC[z^{\pm 1}])$ (cf. proposition \ref{prop: a_copy_of_the_witt_algebra_inside_the_lie_algebra_of_yangian_div_zero_vector_fields}) of $\divzero$ coincides with the $2$-cocycle $\sigma_{\frakv} \in Z^2_{\Lie}(\frakw, \bbC c_v)$ given by:
+                    $$\sigma_{\frakv}(D_{r, -1}, D_{a, -1}) := \delta_{r + a, 0} r^3 c_v$$
                 for every $r, a \in \Z$.
             \end{enumerate}
         \end{lemma}
@@ -121,22 +121,18 @@
                                     = & \sigma_i( s v^{-r} t^{-s - 1} \cdot v\del_v - r v^{-r} t^{-s - 1} \cdot t \del_t, b v^{-a} t^{-b - 1} \cdot v\del_v - a v^{-a} t^{-b - 1} \cdot t \del_t )
                                     \\
                                     = &
-                                    \begin{cases}
-                                        & s \sigma_i( v^{-r} t^{-s - 1} \cdot v\del_v, b v^{-a} t^{-b - 1} \cdot v\del_v - a v^{-a} t^{-b - 1} \cdot t \del_t )
+                                        s \sigma_i( v^{-r} t^{-s - 1} \cdot v\del_v, b v^{-a} t^{-b - 1} \cdot v\del_v - a v^{-a} t^{-b - 1} \cdot t \del_t )
                                         \\
-                                        - & r \sigma_i( v^{-r} t^{-s - 1} \cdot t \del_t, b v^{-a} t^{-b - 1} \cdot v\del_v - a v^{-a} t^{-b - 1} \cdot t \del_t )
-                                    \end{cases}
+                                        & \qquad - r \sigma_i( v^{-r} t^{-s - 1} \cdot t \del_t, b v^{-a} t^{-b - 1} \cdot v\del_v - a v^{-a} t^{-b - 1} \cdot t \del_t )
                                     \\
                                     = &
-                                    \begin{cases}
-                                        & s b \cdot \sigma_i( v^{-r} t^{-s - 1} \cdot v\del_v, v^{-a} t^{-b - 1} \cdot v\del_v )
+                                        s b \cdot \sigma_i( v^{-r} t^{-s - 1} \cdot v\del_v, v^{-a} t^{-b - 1} \cdot v\del_v )
                                         \\
-                                        - & s a \cdot \sigma_i( v^{-r} t^{-s - 1} \cdot v\del_v, v^{-a} t^{-b - 1} \cdot t \del_t )
+                                        & \qquad - s a \cdot \sigma_i( v^{-r} t^{-s - 1} \cdot v\del_v, v^{-a} t^{-b - 1} \cdot t \del_t )
                                         \\
-                                        - & r b \cdot \sigma_i( v^{-r} t^{-s - 1} \cdot t \del_t, v^{-a} t^{-b - 1} \cdot v\del_v )
+                                        & \qquad - r b \cdot \sigma_i( v^{-r} t^{-s - 1} \cdot t \del_t, v^{-a} t^{-b - 1} \cdot v\del_v )
                                         \\
-                                        + & r a \cdot \sigma_i( v^{-r} t^{-s - 1} \cdot t \del_t, v^{-a} t^{-b - 1} \cdot t \del_t )
-                                    \end{cases}
+                                        & \qquad + r a \cdot \sigma_i( v^{-r} t^{-s - 1} \cdot t \del_t, v^{-a} t^{-b - 1} \cdot t \del_t )
                                     \\
                                     = & N_i(r, s, a, b) v^{-r} t^{-s - 1} \bar{d}( v^{-a} t^{-b - 1} )
                                 \end{aligned}
@@ -144,13 +140,15 @@
                         where:
                             $$
                                 \begin{aligned}
-                                    N_i(r, s, a, b) & = 
+                                    & N_i(r, s, a, b)
+                                    \\
+                                    = & 
                                     sbra
                                     - sa \left( \delta_{i, 1} a(s + 1) + \delta_{i, 2} (b + 1) r \right) 
                                     - rb \left( \delta_{i, 1} (b + 1) r + \delta_{i, 2} a (s + 1) \right)
                                     + r a (s + 1) (b + 1)
                                     \\
-                                    & = 
+                                    = & 
                                     \begin{cases}
                                         \text{$
                                             sbra
@@ -167,7 +165,7 @@
                                         $ if $i = 2$}
                                     \end{cases}
                                     \\
-                                    & = 
+                                    = & 
                                     \begin{cases}
                                         \text{$
                                             sbra
@@ -184,14 +182,14 @@
                                         $ if $i = 2$}
                                     \end{cases}
                                     \\
-                                    & = 
+                                    = & 
                                     \begin{cases}
                                         \text{$2 rsab - ( (sa)^2 + s a^2 ) - ( (rb)^2 + r^2 b ) + rsa + rab + ra$ if $i = 1$}
                                         \\
                                         \text{$ra$ if $i = 2$}
                                     \end{cases}
                                     \\
-                                    & =
+                                    = &
                                     \begin{cases}
                                         \text{$ra(2sb + s + b + 1) - ( (sa)^2 + s a^2 ) - ( (rb)^2 + r^2 b )$ if $i = 1$}
                                         \\
@@ -220,9 +218,19 @@
                         \item Finally, we have that:
                             $$\sigma_i(D_v, D_t) = \sigma_i(-v t^{-1} \del_v, -\del_t) = \sigma_i(t^{-1} \cdot v \del_v, t^{-1} t \del_t) = 0$$
                     \end{enumerate}
-                    \item Setting $s = b = -1$ in the equation:
-                        $$\sigma_i(D_{r, s}, D_{a, b}) = N_i(r, s, a, b) \left( -\delta_{ (-a - r, -b - s - 2), (0, 0) } (r c_v + (s + 1) c_t) + ( r(b + 1) - a(s + 1) )K_{-r - a, -s - b - 2} \right)$$
-                    yields:
+                    \item Using the fact that any element:
+                        $$v^n t^q \bar{d}(v^m t^p) \in \z(\toroidal)$$
+                    can be written in terms of the basis elements of $\z(\toroidal)$ in the following manner:
+                        $$v^n t^q \bar{d}(v^m t^p) = \delta_{(m, p) + (n, q), (0, 0)} ( n c_v + q c_t ) + (np - mq) K_{m + n, p + q}$$
+                    we can rewrite:
+                        $$
+                            \begin{aligned}
+                                & \sigma_i(D_{r, s}, D_{a, b})
+                                \\
+                                = & N_i(r, s, a, b) \left( ( r(b + 1) - a(s + 1) )K_{-r - a, -s - b - 2} - \delta_{ (-a - r, -b - s - 2), (0, 0) } (r c_v + (s + 1) c_t) \right)
+                            \end{aligned}
+                        $$
+                    Setting $s = b = -1$ in the equation above then yields:
                         $$\sigma_i(D_{r, -1}, D_{a, -1}) = -N_i(r, -1, a, -1) \delta_{r + a, 0} r c_v$$
                     where now, we have that:
                         $$N_i(r, -1, a, -1) = ra$$
@@ -237,20 +245,24 @@
         \end{corollary}
         \begin{remark}
             Despite the way that lemma \ref{lemma: billig_toroidal_cocycles_on_yangian_div_zero_vector_fields} has been stated, which was for the sake of conciseness, the form of the non-trivial values of $\sigma_1$ and $\sigma_2$ on pairs of basis elements of $\divzero$ that we will actually be using in our proofs are as follows:
-                $$\sigma_i(D_{r, s}, D_{a, b}) = N_i(r, s, a, b) \left( ( r(b + 1) - a(s + 1) )K_{-r - a, -s - b - 2} - \delta_{ (-a - r, -b - s - 2), (0, 0) } (r c_v + (s + 1) c_t) \right)$$
+                $$
+                    \begin{aligned}
+                        & \sigma_i(D_{r, s}, D_{a, b})
+                        \\
+                        = & N_i(r, s, a, b) \left( ( r(b + 1) - a(s + 1) )K_{-r - a, -s - b - 2} - \delta_{ (-a - r, -b - s - 2), (0, 0) } (r c_v + (s + 1) c_t) \right)
+                    \end{aligned}
+                $$
                 $$\sigma_i(D_v, D_{r, s}) = \delta_{i, 1} r^3 K_{-r, -s - 2}$$
                 $$\sigma_i(D_t, D_{r, s}) = \delta_{i, 1} r^2 s K_{-r, -s - 2}$$
-                
-            To prove the first identity, recall from example \ref{example: toroidal_lie_algebras_centres} that any element:
+            To prove that these identities hold true, we only need to recall from example \ref{example: toroidal_lie_algebras_centres} that any element:
                 $$v^n t^q \bar{d}(v^m t^p) \in \z(\toroidal)$$
             can be written in terms of the basis elements of $\z(\toroidal)$ in the following manner:
                 $$v^n t^q \bar{d}(v^m t^p) = \delta_{(m, p) + (n, q), (0, 0)} ( n c_v + q c_t ) + (np - mq) K_{m + n, p + q}$$
-            Using this, we shall be able to conclude that:
-                $$\sigma_i(D_{r, s}, D_{a, b}) = N_i(r, s, a, b) \left( -\delta_{ (-a - r, -b - s - 2), (0, 0) } (r c_v + (s + 1) c_t) + ( r(b + 1) - a(s + 1) )K_{-r - a, -s - b - 2} \right)$$
-            The other two identities can be proven similarly.
         \end{remark}
         \begin{remark}[An appearance of the Virasoro algebra] \label{remark: billig_toroidal_cocycles_on_the_witt_algebra}
-            A rather well-known fact (cf. e.g. \cite[Proposition 1.3]{kac_raina_rozhkovskaya_bombay_lectures_on_highest_weight_modules_of_infinite_dimensional_lie_algebras}) is that the Witt algebra admits a non-trivial UCE by a $1$-dimensional centre, typically called the \textbf{Virasoro algebra}. This UCE corresponds precisely to the $2$-cocycle $\eta \in Z^2_{\Lie}(\frakw, c_v)$ as in lemma \ref{lemma: billig_toroidal_cocycles_on_yangian_div_zero_vector_fields}. 
+            A rather well-known fact (cf. e.g. \cite[Proposition 1.3]{kac_raina_rozhkovskaya_bombay_lectures_on_highest_weight_modules_of_infinite_dimensional_lie_algebras}) is that:
+                $$H^2_{\Lie}(\der(\bbC[z^{\pm 1}], \bbC)) \cong \bbC$$
+            and hence the Witt algebra admits a non-trivial UCE by a $1$-dimensional centre (cf. theorem \ref{theorem: H^2_of_lie_algebras_and_abelian_extensions}), typically called the \textbf{Virasoro algebra}\footnote{... and hence the notation $\sigma_{\frakv}$.}. This UCE corresponds precisely to the $2$-cocycle $\sigma_{\frakv} \in Z^2_{\Lie}(\frakw, c_v)$ as in lemma \ref{lemma: billig_toroidal_cocycles_on_yangian_div_zero_vector_fields}. 
         \end{remark}
 
         One can now use the criterion given in proposition \ref{proposition: twisted_semi_direct_products_are_yangian_extended_toroidal_lie_algebras} (see also theorem \ref{theorem: yangian_extended_toroidal_lie_algebras_main_theorem}) to verify whether or not the cocycles $\sigma_1, \sigma_2$ are $\gamma$-invariant in the sense of definition \ref{def: yangian_toroidal_cocycles}.
@@ -262,7 +274,13 @@
             \begin{proof}
                 \begin{enumerate}
                     \item Firstly, using the fact that:
-                        $$\sigma_i(D_{r, s}, D_{a, b}) = N_i(r, s, a, b) \left( -\delta_{ (-a - r, -b - s - 2), (0, 0) } (r c_v + (s + 1) c_t) + ( r(b + 1) - a(s + 1) )K_{-r - a, -s - b - 2} \right)$$
+                        $$
+                            \begin{aligned}
+                                & \sigma_i(D_{r, s}, D_{a, b})
+                                \\
+                                = & N_i(r, s, a, b) \left( ( r(b + 1) - a(s + 1) )K_{-r - a, -s - b - 2} - \delta_{ (-a - r, -b - s - 2), (0, 0) } (r c_v + (s + 1) c_t) \right)
+                            \end{aligned}
+                        $$
                     we shall get that:
                         $$
                             \left( \sigma_i(D_{r, s}, D_{a, b}), D \right)_{\extendedtoroidal} =
@@ -475,29 +493,27 @@
                             = & (br - sa) \left( \lambda_{a + r, b + s + 1} K_{-a - r, -b - s - 2} + \delta_{(a + r, b + s + 1), (0, -1)}( \mu c_v + \kappa c_t ) \right)
                             \\
                             = &
-                            \begin{aligned}
-                                & \left( -\lambda_{r, s} \left( a(s + 2) - br \right) + \lambda_{a, b} \left( (b + 2) r - as \right) + N_i(r, s, a, b)\left( r(b + 1) - a(s + 1) \right) \right) K_{-a - r, -b - s - 2}
+                                \left( -\lambda_{r, s} \left( a(s + 2) - br \right) + \lambda_{a, b} \left( (b + 2) r - as \right) + N_i(r, s, a, b)\left( r(b + 1) - a(s + 1) \right) \right) K_{-a - r, -b - s - 2}
                                 \\
-                                + & \delta_{(a + r, b + s + 2), (0, 0)} \left( \lambda_{r, s} a - \lambda_{a, b} r - N_i(r, s, a, b) r \right) c_v
+                                & \qquad + \delta_{(a + r, b + s + 2), (0, 0)} \left( \lambda_{r, s} a - \lambda_{a, b} r - N_i(r, s, a, b) r \right) c_v
                                 \\
-                                + & \delta_{(a + r, b + s + 2), (0, 0)} \left( \lambda_{r, s} b - \lambda_{a, b} s - N_i(r, s, a, b) (s + 1) \right) c_t
-                            \end{aligned}
+                                & \qquad + \delta_{(a + r, b + s + 2), (0, 0)} \left( \lambda_{r, s} b - \lambda_{a, b} s - N_i(r, s, a, b) (s + 1) \right) c_t
                             \\
                             = &
-                            \begin{aligned}
-                                & \left( -\lambda_{r, s} \left( a(s + 2) - br \right) + \lambda_{a, b} \left( (b + 2) r - as \right) + N_i(r, s, a, b)\left( r(b + 1) - a(s + 1) \right) \right) K_{-a - r, -b - s - 2}
+                                \left( -\lambda_{r, s} \left( a(s + 2) - br \right) + \lambda_{a, b} \left( (b + 2) r - as \right) + N_i(r, s, a, b)\left( r(b + 1) - a(s + 1) \right) \right) K_{-a - r, -b - s - 2}
                                 \\
-                                - & \delta_{(a + r, b + s + 2), (0, 0)} r \left( \lambda_{r, s} + \lambda_{-r, -s - 2} + N_i(r, s, -r, -s - 2) \right) c_v
+                                & \qquad - \delta_{(a + r, b + s + 2), (0, 0)} r \left( \lambda_{r, s} + \lambda_{-r, -s - 2} + N_i(r, s, -r, -s - 2) \right) c_v
                                 \\
-                                - & \delta_{(a + r, b + s + 2), (0, 0)} \left( \lambda_{r, s} (s + 2) + \lambda_{-r, -s - 2} s + N_i(r, s, -r, -s - 2) (s + 1) \right) c_t
-                            \end{aligned}
+                                & \qquad - \delta_{(a + r, b + s + 2), (0, 0)} \left( \lambda_{r, s} (s + 2) + \lambda_{-r, -s - 2} s + N_i(r, s, -r, -s - 2) (s + 1) \right) c_t
                         \end{aligned}
                     \end{equation}
                 from which it can be inferred - by comparing the coefficients of $K_{-a - r, -b - s - 2}$ - that:
                     \begin{equation} \label{equation: lambda_rs_coefficients}
-                        (br - sa) \lambda_{a + r, b + s + 1}
-                        =
-                        -\lambda_{r, s} \left( a(s + 2) - br \right) + \lambda_{a, b} \left( (b + 2) r - as \right) + N_i(r, s, a, b)\left( r(b + 1) - a(s + 1) \right)
+                        \begin{aligned}
+                            & (br - sa) \lambda_{a + r, b + s + 1}
+                            \\
+                            = & -\lambda_{r, s} \left( a(s + 2) - br \right) + \lambda_{a, b} \left( (b + 2) r - as \right) + N_i(r, s, a, b)\left( r(b + 1) - a(s + 1) \right)
+                        \end{aligned}
                     \end{equation}
                 As mentioned above (cf. equation \eqref{equation: lambda_rs_coefficients_recursion}), we would like to determine $\lambda_{r, 0}$ when $r \not = 0$. To this end, let us evaluate equation \eqref{equation: lambda_rs_coefficients} at:
                     $$b = 0, s = -1$$
@@ -585,7 +601,13 @@
                 $$\tau_2^{\kappa}(D_t) = \kappa K_{0, -1}$$
         \end{proposition}
             \begin{proof}
-                Let $\tau_2 \in C_1(\divzero, \z(\toroidal))$ and $\lambda_{r, s}, \mu, \kappa, \nu_v, \nu_t \in \bbC$ be as in the proof of proposition \ref{prop: sigma_1_is_not_coboundary}. Recall also from \textit{loc. cit.} that we have arrived at the equation:
+                We will prove this proposition by firstly pre-supposing that $\sigma_2$ is $2$-coboundary and then identifying explicit formulae for $1$-cochains $\tau_2^{\kappa} \in C_1(\divzero, \z(\toroidal))$ such that $d_1^{\z(\toroidal)}(\tau_2^{\kappa}) = \sigma_2$; along the way, we will also see that such linear maps $\tau_2^{\kappa}$ are indeed parametrised by $\kappa \in \bbC$, hence the notation. Afterwards, we will check that such $1$-cochains indeed give rise to a Lie $2$-coboundary that is equal to $\sigma_2$ by verifying that equation \eqref{equation: coboundary_verification_tau_2} holds.
+                
+                To this end, we begin by letting:
+                    $$\tau_2 \in C_1(\divzero, \z(\toroidal))$$
+                be graded, as in the proof of proposition \ref{prop: sigma_1_is_not_coboundary} (and we refer the reader there for an explanation of why $\tau_2$ can be assumed to be graded; see also lemma \ref{lemma: graded_2_coboundaries}), and by letting:
+                    $$\lambda_{r, s}, \mu, \kappa, \nu_v, \nu_t \in \bbC$$
+                also be as in the same proof. Recall also from \textit{loc. cit.} that we have arrived at the equation:
                     $$\lambda_{r, -1} + \lambda_{-r, -1} - r^2 = (-1)^{\delta_{i, 2}} r^2 + 4\nu_v = 2\mu$$
                 which gives:
                     $$\mu = 2\nu_v$$
@@ -685,13 +707,11 @@
                                     = & \left( -\lambda_{r, s} \left( a(s + 2) - br \right) + \lambda_{a, b} \left( (b + 2) r - as \right) + N_2(r, s, a, b)\left( r(b + 1) - a(s + 1) \right) \right) K_{-a - r, -b - s - 2}
                                     \\
                                     = &
-                                    \begin{cases}
-                                        & -\left( \frac12 r^2 + r\kappa \right) \left( a(s + 2) - br \right) K_{-a - r, -b - s - 2}
+                                        -\left( \frac12 r^2 + r\kappa \right) \left( a(s + 2) - br \right) K_{-a - r, -b - s - 2}
                                         \\
-                                        + & \left( \frac12 a^2 + a\kappa \right) \left( (b + 2) r - as \right) K_{-a - r, -b - s - 2} 
+                                        & \qquad + \left( \frac12 a^2 + a\kappa \right) \left( (b + 2) r - as \right) K_{-a - r, -b - s - 2} 
                                         \\
-                                        + & ra\left( r(b + 1) - a(s + 1) \right) K_{-a - r, -b - s - 2}
-                                    \end{cases}
+                                        & \qquad + ra\left( r(b + 1) - a(s + 1) \right) K_{-a - r, -b - s - 2}
                                 \end{aligned}
                             $$
                         which can now be easily checked to be equal to the LHS.
@@ -730,18 +750,14 @@
                                     & [D_{-r, -s - 2}, \tau_2^{\kappa}(D_{r, s})]_{\extendedtoroidal} - [D_{r, s}, \tau_2^{\kappa}(D_{-r, -s - 2})]_{\extendedtoroidal} - \sigma_2(D_{-r, -s - 2}, D_{r, s})
                                     \\
                                     = &
-                                    \begin{cases}
-                                        & -r\left( \lambda_{r, s} + \lambda_{-r, -s - 2} + N_2(r, s, -r, -s - 2) \right) c_v
+                                        -r\left( \lambda_{r, s} + \lambda_{-r, -s - 2} + N_2(r, s, -r, -s - 2) \right) c_v
                                         \\
-                                        - & \left( \lambda_{r, s} (s + 2) + \lambda_{-r, -s - 2} s + N_2(r, s, -r, -s - 2) (s + 1) \right) c_t
-                                    \end{cases}
+                                        & \qquad - \left( \lambda_{r, s} (s + 2) + \lambda_{-r, -s - 2} s + N_2(r, s, -r, -s - 2) (s + 1) \right) c_t
                                     \\
                                     = &
-                                    \begin{cases}
-                                        & -r \left( \left( \frac12 r^2 + r \kappa \right) + \left( \frac12 r^2 - r \kappa \right) - r^2\right) c_v
+                                        -r \left( \left( \frac12 r^2 + r \kappa \right) + \left( \frac12 r^2 - r \kappa \right) - r^2\right) c_v
                                         \\
-                                        - & \left( \left( \frac12 r^2 + r \kappa \right) (s + 2) + \left( \frac12 r^2 - r \kappa \right) s - r^2 (s + 1) \right) c_t
-                                    \end{cases}
+                                        & \qquad - \left( \left( \frac12 r^2 + r \kappa \right) (s + 2) + \left( \frac12 r^2 - r \kappa \right) s - r^2 (s + 1) \right) c_t
                                     \\
                                     = & -2r \kappa c_t
                                 \end{aligned}

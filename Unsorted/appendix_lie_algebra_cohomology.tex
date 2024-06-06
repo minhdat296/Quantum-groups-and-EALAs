@@ -58,11 +58,9 @@
                         & \del_{-(i + 1)}\left( a \tensor (x_1 \wedge ... \wedge x_{i + 1}) \right)
                         \\
                         := &
-                        \begin{aligned}
-                            & \sum_{1 \leq p \leq i + 1} (-1)^p a x_p \tensor (x_1 \wedge ... \wedge \not{x_p} \wedge ... \wedge x_{i + 1})
+                            \sum_{1 \leq p \leq i + 1} (-1)^p a x_p \tensor (x_1 \wedge ... \wedge \not{x_p} \wedge ... \wedge x_{i + 1})
                             \\
-                            + & \sum_{1 \leq p < q \leq i + 1} (-1)^{p + q} a \tensor ( [x_p, x_q]_{\a} \wedge x_1 \wedge ... \wedge \not{x_p} \wedge ... \wedge \not{x_q} \wedge ... \wedge x_{i + 1})
-                        \end{aligned}
+                            & \qquad + \sum_{1 \leq p < q \leq i + 1} (-1)^{p + q} a \tensor ( [x_p, x_q]_{\a} \wedge x_1 \wedge ... \wedge \not{x_p} \wedge ... \wedge \not{x_q} \wedge ... \wedge x_{i + 1})
                     \end{aligned}
                 $$
             for all $a \in \rmU(\a)$ and all $x_1, ..., x_{i + 1} \in \a$ (cf. \cite[Section VII.4]{hilton_stammbach_homological_algebra}).
@@ -126,11 +124,9 @@
                             = & \del_{-(i + 1)}^*(\sigma)( (x_1 \wedge ... \wedge x_{i + 1}) )
                             \\
                             = &
-                            \begin{aligned}
-                                & \sum_{1 \leq p \leq i + 1} (-1)^p \sigma(x_1 \wedge ... \wedge \not{x_p} \wedge ... \wedge x_{i + 1})
+                                \sum_{1 \leq p \leq i + 1} (-1)^p \sigma(x_1 \wedge ... \wedge \not{x_p} \wedge ... \wedge x_{i + 1})
                                 \\
-                                + & \sum_{1 \leq p < q \leq i + 1} (-1)^{p + q} \sigma( [x_p, x_q]_{\a} \wedge x_1 \wedge ... \wedge \not{x_p} \wedge ... \wedge \not{x_q} \wedge ... \wedge x_{i + 1})
-                            \end{aligned}
+                                & \qquad + \sum_{1 \leq p < q \leq i + 1} (-1)^{p + q} \sigma( [x_p, x_q]_{\a} \wedge x_1 \wedge ... \wedge \not{x_p} \wedge ... \wedge \not{x_q} \wedge ... \wedge x_{i + 1})
                         \end{aligned}
                     $$
                 for all $x_1, ..., x_i \in \a$.
@@ -146,11 +142,9 @@
                             = & \del_{-i}^*(\tilde{\beta})(x_1 \wedge ... \wedge x_i)
                             \\
                             = &
-                            \begin{aligned}
-                                & \sum_{1 \leq p \leq i} (-1)^p \sigma(x_1 \wedge ... \wedge \not{x_p} \wedge ... \wedge x_i)
+                                \sum_{1 \leq p \leq i} (-1)^p \sigma(x_1 \wedge ... \wedge \not{x_p} \wedge ... \wedge x_i)
                                 \\
-                                + & \sum_{1 \leq p < q \leq i} (-1)^{p + q} \sigma( [x_p, x_q]_{\a} \wedge x_1 \wedge ... \wedge \not{x_p} \wedge ... \wedge \not{x_q} \wedge ... \wedge x_i)
-                            \end{aligned}
+                                & \qquad + \sum_{1 \leq p < q \leq i} (-1)^{p + q} \sigma( [x_p, x_q]_{\a} \wedge x_1 \wedge ... \wedge \not{x_p} \wedge ... \wedge \not{x_q} \wedge ... \wedge x_i)
                         \end{aligned}
                     $$
             \end{itemize}

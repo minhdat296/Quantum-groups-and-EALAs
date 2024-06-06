@@ -21,7 +21,7 @@
 
             To this end, let us firstly compute the underlying vector space of the centre of $\uce(\g[v^{\pm 1}])$. Abstractly, we know that it is isomorphic to $\bar{\Omega}^1_{\bbC[v^{\pm 1}]/\bbC}$, and it is also known that:
                 $$\Omega^1_{\bbC[v^{\pm 1}]/\bbC} \cong \bbC[v^{\pm 1}] dv \cong \bigoplus_{m \in \Z} \bbC  v^m dv$$
-            so the only non-trivial computation to make is that of $d \bbC[v^{\pm 1}]$. For this, let us consider how $d$ acts on the basis elements $v^m \in \bbC[v]$:
+            so the only non-trivial computation to make is that of $d( \bbC[v^{\pm 1}] )$. For this, let us consider how $d$ acts on the basis elements $v^m \in \bbC[v]$:
                 $$d(v^m) = m v^{m - 1} dv$$
             We see that $d(v^m) = 0$ if and only if $m = 0$, and since the set $\{v^m\}_{m \in \Z}$ is a $\bbC$-linear basis for $\bbC[v^{\pm 1}]$, the set:
                 $$\{m v^{m - 1} dv\}_{m \in \Z \setminus \{0\}}$$
@@ -64,7 +64,7 @@
             we consequently have that:
                 $$\Omega^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC} \cong \bigoplus_{(r, s) \in \Z^2} (\bbC v^r t^s dv \oplus \bbC v^r t^s dt)$$
             
-            Now, in $\bar{\Omega}^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC} := \Omega^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC}/d \bbC[v^{\pm 1}, t^{\pm 1}]$, the following relations hold for all $(r, s) \in \Z^2$
+            Now, in $\bar{\Omega}^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC} := \Omega^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC}/d( \bbC[v^{\pm 1}, t^{\pm 1}] )$, the following relations hold for all $(r, s) \in \Z^2$
                 $$0 = \bar{d}(v^r t^s) = r v^{r - 1} t^s \bar{d}v + s v^r t^{s - 1} \bar{d}t$$
             from which we can infer, in particular, that for all $(r, s) \in \Z^2 \setminus \{(0, 0)\}$, we have that:
                 $$\frac1s v^{r - 1} t^s \bar{d}v = -\frac1r v^r t^{s - 1} \bar{d}t$$
@@ -105,9 +105,11 @@
             Finally, let us note that the Lie bracket on $\uce(\g[v^{\pm 1}, t^{\pm 1}])$ is given by:
                 $$
                     \begin{aligned}
-                        [x v^m t^p, y v^n t^q]_{\uce(\g[v^{\pm 1}, t^{\pm 1}])} & = [x, y]_{\g} v^{m + n} t^{p + q} + (x, y)_{\g} v^n t^q \bar{d}(v^m t^p)
+                        & [x v^m t^p, y v^n t^q]_{\uce(\g[v^{\pm 1}, t^{\pm 1}])}
                         \\
-                        & = [x, y]_{\g} v^{m + n} t^{p + q} + (x, y)_{\g} \left( (mq - np) K_{m + n, p + q} + \delta_{(m, p) + (n, q), (0, 0)} ( m c_v + p c_t ) \right)
+                        = & [x, y]_{\g} v^{m + n} t^{p + q} + (x, y)_{\g} v^n t^q \bar{d}(v^m t^p)
+                        \\
+                        = & [x, y]_{\g} v^{m + n} t^{p + q} + (x, y)_{\g} \left( (mq - np) K_{m + n, p + q} + \delta_{(m, p) + (n, q), (0, 0)} ( m c_v + p c_t ) \right)
                     \end{aligned}
                 $$
             for all $x, y \in \g$ and all $(m, p), (n, q) \in \Z^2$. As a side note, let us note that interestingly, unlike how $\g[v]$ admits only the trivial UCE, $\g[v^{\pm 1}, t]$ admits a non-trivial UCE, on which the Lie bracket is given by:
