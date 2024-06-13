@@ -21,7 +21,7 @@
                     $$D_v := -v t^{-1} \del_v$$
                     $$D_t := -\del_t$$
                 \item The basis elements of $\divzero$ satify the following commutation relations:
-                    $$[D_v, D_t] = 0$$
+                    $$[D_v, D_t] = -D_{0, 1}$$
                     $$[D_v, D_{r, s}] = r D_{r, s + 1}$$
                     $$[D_t, D_{r, s}] = s D_{r, s + 1}$$
                     $$[D_{a, b}, D_{r, s}] = (br - as) D_{a + r, b + s + 1}$$
@@ -61,8 +61,24 @@
                     \begin{enumerate}
                         \item Since we know that:
                             $$D_v = -vt^{-1} \del_v, D_t = -\del_t$$
-                        it is therefore trivial that:
-                            $$[D_v, D_t] = 0$$
+                        we can perform the following computation:
+                            $$
+                                \begin{aligned}
+                                    & [D_v, D_t](v^m t^p)
+                                    \\
+                                    = & v t^{-1} \del_v( \del_t (v^m t^p) ) - \del_t ( v t^{-1} \del_v ( v^m t^p ) )
+                                    \\
+                                    = & v t^{-1} \del_v( p v^m t^{p - 2} ) - \del_t ( mv^m t^{p - 1} )
+                                    \\
+                                    = & p m v^m t^{p - 2} - (p - 1) m v^m t^{p - 2}
+                                    \\
+                                    = & m v^m t^{p - 2}
+                                    \\
+                                    = & v t^{-2} \del_v( v^m t^p ) 
+                                \end{aligned}
+                            $$
+                        which tells us that:
+                            $$[D_v, D_t] = v t^{-2} \del_v = -D_{0, 1}$$
                         \item Next, observe that:
                             $$D_v(v^m t^p) = -m v^m t^{p - 1}$$
                             $$D_{r, s}(v^m t^p) = ( rp - ms ) v^{m - r} t^{p - s - 1}$$
@@ -114,7 +130,7 @@
                 (cf. corollary \ref{coro: yangian_div_zero_vector_fields_are_graded}) and because:
                     $$\deg K_{a, b} = (a, b)$$
                     $$\deg c_v = \deg c_t = (0, 0)$$
-                (cf. remark \ref{remark: Z^2_grading_on_toroidal_centres}), we ought to have that:
+                (see example \ref{example: toroidal_lie_algebras_centres}), we ought to have that:
                     $$\varphi(D_{r, s})(K_{a, b}) = \delta_{(a - r, b - s - 1), (-1, -1)}$$
                     $$\varphi(D_v)(c_v) = \varphi(D_t)(c_t) = 1$$
                 for $D_{r, s}, D_v, D_t$ to be identified - respectively - as $\Z^2$-graded dual basis elements corresponding to $K_{r, s}, c_v, c_t$; a straightforward dimension argument will then show that $\varphi$ must be a vector space isomorphism. Indeed, we have that:
@@ -232,7 +248,7 @@
                 where the last equality is true because $K, K'$ as well as $\rho(K), \rho(K')$ are central in $\toroidal$. From this, it is clear that the Leibniz rule is satisfied, so we are done.
             \end{proof}
         \begin{remark}
-            Lemma \ref{lemma: vector_field_action_on_toroidal_lie_algebras} remains true when we replace our $A := \bbC[v^{\pm 1}, t^{\pm 1}]$ by \textit{any} commutative $k$-algebra.
+            Lemma \ref{lemma: vector_field_action_on_toroidal_lie_algebras} remains true when we replace our $A := \bbC[v^{\pm 1}, t^{\pm 1}]$ by \textit{any} commutative $\bbC$-algebra.
         \end{remark}
         \begin{corollary}[A $\divzero$-action on $\toroidal$] \label{coro: a_fixed_yangian_div_zero_vector_field_action} 
             Because $\divzero$ is a Lie subalgebra of $\der(A)$ (cf. lemma \ref{lemma: yangian_div_zero_vector_fields_basic_properties}), the $\der(A)$-action $\rho: \der(A) \to \der(\toroidal)$ as in lemma \ref{lemma: vector_field_action_on_toroidal_lie_algebras} above defines an action:
@@ -571,7 +587,7 @@
         It now remains to show that the brackets of the form $[D, D']_{\extendedtoroidal}$ (for any $D, D' \in \divzero$) have no $\g_{[2]}$-summands.
         \begin{proposition}[Appearance of $2$-cocycles $\sigma \in Z^2_{\Lie}(\divzero, \z(\toroidal))$] \label{prop: appearance_of_toroidal_cocycles}
             For any $D, D' \in \divzero$, one has that:
-                $$[D, D']_{\extendedtoroidal} \in [D, D'] + \z(\toroidal)$$
+                $$[D, D']_{\extendedtoroidal} \equiv [D, D'] \pmod{\z(\toroidal)}$$
             (where $[D, D'] := DD' - D'D$ is the usual commutator).
         \end{proposition}
             \begin{proof}
@@ -647,7 +663,7 @@
                 We remind the reader now that $Y \in \g_{[2]}$ was chosen arbitrarily, and again, because $\g_{[2]}$ is centre-less, we now have that:
                     $$X(D, D') = 0$$
                 necessarily. In other words, the brackets of the form $[D, D']_{\extendedtoroidal}$ have no $\g_{[2]}$-summand for any $D, D' \in \divzero$, and hence:
-                    $$[D, D']_{\extendedtoroidal} \in [D, D'] + \z(\toroidal)$$
+                    $$[D, D']_{\extendedtoroidal} \equiv [D, D'] \pmod{\z(\toroidal)}$$
             \end{proof}
 
         \begin{lemma}[\texorpdfstring{$\z(\toroidal)$}{}-summands of elements of \texorpdfstring{$[\divzero, \g_{[2]}]_{\extendedtoroidal}$}{}] \label{lemma: no_polynomial_terms_for_derivation_action_on_multiloop_algebras}

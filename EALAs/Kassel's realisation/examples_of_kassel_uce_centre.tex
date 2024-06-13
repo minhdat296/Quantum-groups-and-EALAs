@@ -55,34 +55,28 @@
 
     \subsection{Toroidal Lie algebras}
         \begin{example}[Toroidal Lie algebras] \label{example: toroidal_lie_algebras_centres}
-            Next, let us compute the UCE of $\g[v^{\pm 1}, t^{\pm 1}]$. 
+            Next, let us compute the UCE of $\g[v^{\pm 1}, t^{\pm 1}]$. For this, $\bbC[v^{\pm 1}, t^{\pm 1}]$ shall be endowed with the $\Z^2$-grading given by:
+                $$\deg v^r t^s := (r, s)$$
+            for all $(r, s) \in \Z^2$ so that remarks \ref{remark: gradings_on_1_forms} and \ref{remark: induced_gradings_on_UCEs} can be applied. 
             
-            Firstly, let us compute its underlying vector space, for which the only non-trivial computation to make is that of the $\bbC$-vector space $\bar{\Omega}^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC}$, which we know to be isomorphic to the centre of $\uce(\g[v^{\pm 1}, t^{\pm 1}])$. We know that:
-                $$\Omega^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC} \cong \bbC[v^{\pm 1}, t^{\pm 1}] dv \oplus \bbC[v^{\pm 1}, t^{\pm 1}] dt$$
-            and since:
-                $$\bbC[v^{\pm 1}, t^{\pm 1}] \cong \bigoplus_{(r, s) \in \Z^2} \bbC  v^r t^s$$
-            we consequently have that:
-                $$\Omega^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC} \cong \bigoplus_{(r, s) \in \Z^2} (\bbC v^r t^s dv \oplus \bbC v^r t^s dt)$$
+            Firstly, let us compute its underlying vector space. Thanks to remark \ref{remark: induced_gradings_on_UCEs}, we know that the only non-trivial computation to make is that of (a basis of) the $\bbC$-vector space:
+                $$\bar{\Omega}^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC} := \Omega^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC}/d\bbC[v^{\pm 1}, t^{\pm 1}]$$
+            From remark \ref{remark: gradings_on_1_forms}, it can be inferred that:
+                $$( \Omega^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC} )_{(r, s)} \cong \bbC v^{r - 1} t^s dv \oplus \bbC v^r t^{s - 1} dt$$
+                $$( d\bbC[v^{\pm 1}, t^{\pm 1}] )_{(r, s)} = d( \bbC[v^{\pm 1}, t^{\pm 1}]_{(r, s)} ) = d( \bbC v^r t^s ) = \bbC d(v^r t^s)$$
+            which hold for all $(r, s) \in \Z^2$. We thus get:
+                $$\bar{\Omega}^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC} \cong \bigoplus_{(r, s) \in \Z^2} \frac{ \bbC v^{r - 1} t^s dv \oplus \bbC v^r t^{s - 1} dt }{ \bbC d(v^r t^s) }$$
+            Observe that when $(r, s) = (0, 0)$, we have that:
+                $$\bbC v^{0 - 1} t^0 dv \oplus \bbC v^0 t^{0 - 1} dt = \bbC v^{-1} dv \oplus \bbC t^{-1} dt$$
+                $$\bbC d(v^0 t^0) = \bbC d(1) = \bbC 0 = 0$$
+            and so:
+                $$\bar{\Omega}^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC} \cong \bigoplus_{(r, s) \in \Z^2 \setminus \{(0, 0)\}} ( \bbC v^{r - 1} t^s dv \oplus \bbC v^r t^{s - 1} dt ) \oplus ( \bbC v^{-1} dv \oplus \bbC t^{-1} dt )$$
+            Finally, since:
+                $$v^{r - 1} t^s dv, v^r t^{s - 1} dt, v^{-1} dv, t^{-1} dt \not \in d\bbC[v^{\pm 1}, t^{\pm 1}]$$
+            meaning that $v^{r - 1} t^s dv \equiv v^{r - 1} t^s \bar{d}v \pmod{d\bbC[v^{\pm 1}, t^{\pm 1}]}$ etc., we can write:
+                $$\bar{\Omega}^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC} \cong \bigoplus_{(r, s) \in \Z^2 \setminus \{(0, 0)\}} ( \bbC v^{r - 1} t^s \bar{d}v \oplus \bbC v^r t^{s - 1} \bar{d}t ) \oplus ( \bbC v^{-1} \bar{d}v \oplus \bbC t^{-1} \bar{d}t )$$
             
-            Now, in $\bar{\Omega}^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC} := \Omega^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC}/d( \bbC[v^{\pm 1}, t^{\pm 1}] )$, the following relations hold for all $(r, s) \in \Z^2$
-                $$0 = \bar{d}(v^r t^s) = r v^{r - 1} t^s \bar{d}v + s v^r t^{s - 1} \bar{d}t$$
-            from which we can infer, in particular, that for all $(r, s) \in \Z^2 \setminus \{(0, 0)\}$, we have that:
-                $$\frac1s v^{r - 1} t^s \bar{d}v = -\frac1r v^r t^{s - 1} \bar{d}t$$
-            Consequently, the $\bbC$-vector space $\bar{\Omega}^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC}$ is spanned by the following set:
-                $$\left\{ \frac1s v^{r - 1} t^s \bar{d}v \right\}_{(r, s) \in \Z \x (\Z \setminus \{0\})} \cup \left\{ -\frac1r v^r t^{-1} \bar{d}t \right\}_{r \in \Z \setminus \{0\}} \cup \{ v^{-1} \bar{d}v, t^{-1} \bar{d}t \}$$
-            This spanning set of $\bar{\Omega}^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC}$ is also actually linearly independent, and hence a basis. To prove that this is the case, we can equally prove that the following subset of $\bar{\Omega}^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC}$ is linearly independent:
-                $$\left\{ v^{r - 1} t^s \bar{d}v \right\}_{(r, s) \in \Z \x (\Z \setminus \{0\})} \cup \left\{ v^r t^{-1} \bar{d}t \right\}_{r \in \Z \setminus \{0\}} \cup \{ v^{-1} \bar{d}v, t^{-1} \bar{d}t \}$$
-            as the coefficients $\frac1s$ and $-\frac1r$ are only to help us keep track of which of the indices $r, s$ are to be non-zero. For this, we proceed in the usual manner and consider an arbitrary linear combination:
-                $$\omega := \sum_{(r, s) \in \Z \x (\Z \setminus \{0\})} \lambda_{r, s} v^{r - 1} t^s \bar{d}v + \sum_{r \in \Z \setminus \{0\}} \mu_r v^r t^{-1} \bar{d}t + \nu_v v^{-1} \bar{d}v + \nu_t t^{-1} \bar{d}t$$
-            and check that, should it be the case that:
-                $$\omega = 0$$
-            then we would have to have that:
-                $$\lambda_{r, s} = \mu_r = \nu_v = \nu_t = 0$$
-            For the sake of deriving a contradiction, suppose to the contrary that there exist coefficients $\lambda_{r, s}, \mu_r, \nu_v, \nu_t$ not simultaneously equal to $0$, but $\omega = 0$ nevertheless. This would mean that:
-                $$-\sum_{(r, s) \in \Z \x (\Z \setminus \{0\})} \lambda_{r, s} v^{r - 1} t^s \bar{d}v - \nu_v v^{-1} \bar{d}v = \sum_{r \in \Z \setminus \{0\}} \mu_r v^r t^{-1} \bar{d}t + \nu_t t^{-1} \bar{d}t$$
-            One sees that this is impossible, simply by comparing the powers of $v$ and of $t$ on both sides, so we are done.
-            
-            We can thus write the vector space $\bar{\Omega}^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC}$ as a direct sum as follows:
+            That said, for the indexing to be slightly more suited to our purposes\footnote{Ultimately, this is a matter of personal taste. The elements $K_{r, s}, c_v, c_t$ can be regarded as idiosyncrasies that the author personally find to be visually clear (note, for instance, that our indexing is slightly different from that on \cite[p. 35]{wendlandt_formal_shift_operators_on_yangian_doubles}), should the reader feel puzzled by this re-indexing. For instance, we find $K_{0, 0} = 0$ to be good notation.}, we shall be writing $\bar{\Omega}^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC}$ as a direct sum as follows:
                 $$\bar{\Omega}^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC} \cong ( \bigoplus_{(r, s) \in \Z^2} \bbC K_{r, s}) \oplus \bbC c_v \oplus \bbC c_t$$
             wherein:
                 $$
@@ -96,7 +90,7 @@
                     \end{cases}
                 $$
                 $$c_v := v^{-1} \bar{d}v, c_t := t^{-1} \bar{d}t$$
-            In fact, any element of the form:
+            In particular, the coefficients $\frac1r, \frac1s$ have been included as visual aids for keeping track of whether or not the indices $r$ or $s$ may be allowed to be $0$ in $K_{r, s}$. In fact, any element of the form:
                 $$v^n t^q \bar{d}(v^m t^p) \in \bar{\Omega}^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC}$$
             can be written in terms of the basis vectors $K_{r, s}, c_v, c_t$ in the following manner:
                 $$v^n t^q \bar{d}(v^m t^p) = (mq - np) K_{m + n, p + q} + \delta_{(m, p) + (n, q), (0, 0)} ( m c_v + p c_t )$$
@@ -116,43 +110,3 @@
                 $$[x v^m t^p, y v^n t^q]_{\uce(\g[v^{\pm 1}, t])} = [x, y]_{\g} v^{m + n} t^{p + q} + (x, y)_{\g} \left( (mq - np) K_{m + n, p + q} + \delta_{m + n, 0} m c_v \right)$$
             for all $x, y \in \g$ and all $(m, p), (n, q) \in \Z \x \Z_{\geq 0}$. This also demonstrates that the vector subspace $\uce(\g[v^{\pm 1}, t])$ is closed under the Lie bracket on the larger vector space $\uce(\g[v^{\pm 1}, t^{\pm 1}])$, and therefore is a Lie subalgebra thereof.
         \end{example}
-        \begin{remark}[The $\Z$-grading on toroidal Lie algebras] \label{remark: Z_gradings_on_toroidal_lie_algebras}
-            If $\bbC$ is a field and $A$ is a commutative $\bbC$-algebra graded by an abelian group $Z$, say:
-                $$A := \bigoplus_{n \in Z} A_n$$
-            and if $\a$ is a Lie algebra over $\bbC$, then $\a \tensor_{\bbC} A$ will also be $\Z$-graded, namely in the following manner:
-                $$\a \tensor_{\bbC} A \cong \bigoplus_{n \in \Z} \a \tensor_{\bbC} A_n$$
-            This grading on $\a \tensor_{\bbC} A$ actually extends to the whole of $\uce(\a_A)$. To see why this is the case, recall firstly that the $A$-module $\Omega^1_{A/\bbC}$ is isomorphic to the quotient of $A \tensor_{\bbC} A$\footnote{... which carries a grading induced by the one on $A$, with graded components given by $(A \tensor_{\bbC} A)_d \cong \bigoplus_{m + n = d} (A_m \tensor_{\bbC} A_n)$ for all $d \in Z$.} by the homogeneous\footnote{Because $\deg fg \tensor 1 = \deg g \tensor f = \deg f \tensor g = \deg f + \deg g$.} $A$-submodule generated by the relations:
-                $$fg \tensor 1 - g \tensor f - f \tensor g$$
-            given for all $f, g \in A$. This implies that $\Omega^1_{A/\bbC}$ inherits a $Z$-grading from the one on $A \tensor_{\bbC} A$, given by:
-                $$\deg f dg = \deg f \tensor g = \deg f + \deg g$$
-            for all homogeneous elements $f, g \in A$. Since the vector subspace $d(A)$ is also $Z$-graded ($\deg df = \deg f \tensor 1 = \deg f$ for all $f \in A$, as $d(A) \cong A \tensor 1$), the quotient vector space:
-                $$\bar{\Omega}^1_{A/\bbC} := \Omega^1_{A/\bbC}/d(A)$$
-            is also naturally graded by the abelian group $Z$, with graded components given by:
-                $$(\bar{\Omega}^1_{A/\bbC})_n := (\Omega^1_{A/\bbC})_n/d(A_n) \cong (\Omega^1_{A/\bbC})_n/(A_n \tensor 1)$$
-            for all $n \in Z$. As we have that:
-                $$\uce(\g \tensor_{\bbC} A) \cong (\g \tensor_{\bbC} A) \oplus \bar{\Omega}^1_{A/\bbC}$$
-            (cf. theorem \ref{theorem: kassel_realisation}), the $Z$-grading on $\g \tensor_{\bbC} A$ thus extends to the larger vector space $\uce(\g \tensor_{\bbC} A)$, as claimed: namely, the graded components are given by:
-                $$\uce(\g \tensor_{\bbC} A)_n := (\g \tensor_{\bbC} A_n) \oplus (\bar{\Omega}^1_{A/\bbC})_n$$
-            for all $n \in Z$.
-
-            Now, recall from theorem \ref{theorem: kassel_realisation} that the Lie bracket on $\uce(\g \tensor_{\bbC} A)$ is given by:
-                $$[xf, yg]_{\uce(\g \tensor_{\bbC} A)} = [x, y]_{\g} fg + (x, y)_{\g} g \bar{d}f$$
-            for all $x, y \in \g$ and all $f, g \in A$. If $f, g$ are homogeneous, we will have that:
-                $$\deg [xf, yg]_{\uce(\g \tensor_{\bbC} A)} = \deg( [x, y]_{\g} fg + (x, y)_{\g} g \bar{d}f ) = \deg f + \deg g$$
-            and since $\deg xf = \deg f$ and $\deg yg = \deg g$, the above proves that the vector space grading:
-                $$\uce(\g \tensor_{\bbC} A)_n := (\g \tensor_{\bbC} A_n) \oplus (\bar{\Omega}^1_{A/\bbC})_n$$
-            is also a $Z$-grading of the Lie algebra $\uce(\g \tensor_{\bbC} A)$.
-
-            When:
-                $$A := \bbC[v^{\pm 1}, t^{\pm 1}], Z := \Z$$
-            consider the $\Z$-grading given by:
-                $$\deg v := 0, \deg t := 1$$
-            The induced $\Z$-grading on $\bar{\Omega}^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC}$ is therefore given by:
-                $$\deg K_{r, s} = s$$
-                $$\deg c_v = 0, \deg c_t = 0$$
-        \end{remark}
-        \begin{remark}[The $\Z^2$-grading on toroidal centres] \label{remark: Z^2_grading_on_toroidal_centres}
-            From the discussion in remark \ref{remark: Z_gradings_on_toroidal_lie_algebras} (particular, from the fact that $A^{\tensor 2}$ has a canonical $\Z^2$-grading given by $\deg(f \tensor g) := (\deg f, \deg g)$), it can be inferred that aside from the $\Z$-grading on the second variable $t$, the toroidal centre $\bar{\Omega}^1_{A/\bbC}$ carries also a canonical $\Z^2$-grading, given by:
-                $$\deg K_{r, s} := (r, s)$$
-                $$\deg c_v = \deg c_t := (0, 0)$$
-        \end{remark}

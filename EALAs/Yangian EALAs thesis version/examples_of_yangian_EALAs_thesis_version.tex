@@ -65,7 +65,7 @@
                             $$\tau_i \in C_1(\divzero, \z(\toroidal))$$
                         (cf. remark \ref{remark: simplified_chevalley_eilenberg_complexes}) such that:
                             $$d_1^{\z(\toroidal)}(\tau_i) = \sigma_i$$
-                        (cf. definition \ref{def: lie_algebra_cohomology}) will have to be graded\footnote{Recall that both $\divzero$ and $\z(\toroidal)$ are $\Z^2$-graded vector spaces (cf. remark \ref{remark: Z^2_grading_on_toroidal_centres} and ccorollary \ref{coro: yangian_div_zero_vector_fields_are_graded}).} and be necessarily given by a certain formula, in which the only freedom lies in a parameter $\kappa \in \bbC$; incidentally, this is why we have written $\tau_2^{\kappa}$ for the pre-images along $d_1^{\z(\toroidal)}$ of $\sigma_2$ in theorem \ref{theorem: billig_cocycle_main_theorem}. This is the content of proposition \ref{prop: sigma_1_is_not_coboundary}. During the process, we will see that $\sigma_1$ is actually \textit{not} $2$-coboundary, and hence has non-zero image in $H^2_{\Lie}(\divzero, \z(\toroidal))$.
+                        (cf. definition \ref{def: lie_algebra_cohomology}) will have to be graded\footnote{Recall that both $\divzero$ and $\z(\toroidal)$ are $\Z^2$-graded vector spaces (cf. example \ref{example: toroidal_lie_algebras_centres} and ccorollary \ref{coro: yangian_div_zero_vector_fields_are_graded}).} and be necessarily given by a certain formula, in which the only freedom lies in a parameter $\kappa \in \bbC$; incidentally, this is why we have written $\tau_2^{\kappa}$ for the pre-images along $d_1^{\z(\toroidal)}$ of $\sigma_2$ in theorem \ref{theorem: billig_cocycle_main_theorem}. This is the content of proposition \ref{prop: sigma_1_is_not_coboundary}. During the process, we will see that $\sigma_1$ is actually \textit{not} $2$-coboundary, and hence has non-zero image in $H^2_{\Lie}(\divzero, \z(\toroidal))$.
                         \item Secondly, to verify that $\sigma_2$ is $2$-coboundary, we will need to check that it satisfies:
                             $$\tau_2^{\kappa}([D, D']) = [ D, \tau_2^{\kappa}(D') ]_{\extendedtoroidal} - [ D', \tau_2^{\kappa}(D) ]_{\extendedtoroidal} - \sigma_2(D, D')$$
                         for all $D, D' \in \divzero$ (cf. example \ref{example: low_degree_lie_coboundaries_with_non_trivial_coefficients}). This will be done in proposition \ref{prop: cohomological_non_triviality_of_billig_toroidal_cocycles}, which concludes our proof.
@@ -241,7 +241,7 @@
             \end{proof}
         Aside from being a prerequisite for verifying if $\sigma_1$ and/or $\sigma_2$ might be $\gamma$-invariant, lemma \ref{lemma: billig_toroidal_cocycles_on_yangian_div_zero_vector_fields} has the following trivial but important consequence:
         \begin{corollary}[$\sigma_1$ and $\sigma_2$ are $\Z^2$-graded] \label{coro: billig_toroidal_cocycles_are_graded}
-            When regarded as linear maps from $\bigwedge^2 \divzero$ to $\z(\toroidal)$, both with their $\Z^2$-gradings (cf. remark \ref{remark: Z^2_grading_on_toroidal_centres} and corollary \ref{coro: yangian_div_zero_vector_fields_are_graded}), both $\sigma_1$ and $\sigma_2$ as in equation \eqref{equation: billig_toroidal_cocycles} are graded. 
+            When regarded as linear maps from $\bigwedge^2 \divzero$ to $\z(\toroidal)$, both with their $\Z^2$-gradings (cf. example \ref{example: toroidal_lie_algebras_centres} and corollary \ref{coro: yangian_div_zero_vector_fields_are_graded}), both $\sigma_1$ and $\sigma_2$ as in equation \eqref{equation: billig_toroidal_cocycles} are graded. 
         \end{corollary}
         \begin{remark}
             Despite the way that lemma \ref{lemma: billig_toroidal_cocycles_on_yangian_div_zero_vector_fields} has been stated, which was for the sake of conciseness, the form of the non-trivial values of $\sigma_1$ and $\sigma_2$ on pairs of basis elements of $\divzero$ that we will actually be using in our proofs are as follows:
@@ -397,7 +397,7 @@
         \begin{remark}[Some recollection]
             The proofs of propositions \ref{prop: sigma_1_is_not_coboundary} and \ref{prop: cohomological_non_triviality_of_billig_toroidal_cocycles} down below are somewhat computation-heavy, so for the sake of clarity and convenience, let us recall for the proof the following facts that have been known since earlier in this chapter.
             \begin{itemize}
-                \item Firstly, recall from remark \ref{remark: Z^2_grading_on_toroidal_centres} and corollary \ref{coro: yangian_div_zero_vector_fields_are_graded} that:
+                \item Firstly, recall from example \ref{example: toroidal_lie_algebras_centres} and corollary \ref{coro: yangian_div_zero_vector_fields_are_graded} that:
                     $$\deg D_{-a, -b - 1} = \deg K_{a, b} = (a, b)$$
                     $$\deg D_v = \deg D_t = (0, -1)$$
                     $$\deg c_v = \deg c_t = (0, 0)$$
@@ -426,7 +426,7 @@
             \begin{proof}
                 Let us suppose that $\sigma_i$ (for either $i = 1$ or $i = 2$, or perhaps even neither) is $2$-coboundary, say:
                     $$d_1^{\z(\toroidal)}(\tau_i) = \sigma_i$$
-                for some $\tau_i \in C_1(\divzero, \z(\toroidal))$. Recall firstly, from remark \ref{remark: Z^2_grading_on_toroidal_centres} and corollary \ref{coro: yangian_div_zero_vector_fields_are_graded}, respectively, that there are $\Z^2$-gradings on $\z(\toroidal)$ and $\divzero$. Secondly, recall from corollary \ref{coro: billig_toroidal_cocycles_are_graded} that $\sigma_i$ is graded with respect to these $\Z^2$-gradings. Thirdly, recall from lemma \ref{lemma: explicit_commutators_between_central_basis_elements_and_derivations} (cf. corollary \ref{coro: a_fixed_yangian_div_zero_vector_field_action}) that the $\divzero$ acts homogeneously on $\z(\toroidal)$. We can therefore apply lemma \ref{lemma: graded_2_coboundaries}, which tells us that we can assume without any loss of generality that $\tau_i$ is a graded linear map (with respect to the $\Z^2$-gradings on $\divzero$ and on $\z(\toroidal)$).
+                for some $\tau_i \in C_1(\divzero, \z(\toroidal))$. Recall firstly, from example \ref{example: toroidal_lie_algebras_centres} and corollary \ref{coro: yangian_div_zero_vector_fields_are_graded}, respectively, that there are $\Z^2$-gradings on $\z(\toroidal)$ and $\divzero$. Secondly, recall from corollary \ref{coro: billig_toroidal_cocycles_are_graded} that $\sigma_i$ is graded with respect to these $\Z^2$-gradings. Thirdly, recall from lemma \ref{lemma: explicit_commutators_between_central_basis_elements_and_derivations} (cf. corollary \ref{coro: a_fixed_yangian_div_zero_vector_field_action}) that the $\divzero$ acts homogeneously on $\z(\toroidal)$. We can therefore apply lemma \ref{lemma: graded_2_coboundaries}, which tells us that we can assume without any loss of generality that $\tau_i$ is a graded linear map (with respect to the $\Z^2$-gradings on $\divzero$ and on $\z(\toroidal)$).
             
                 Assume thus that $\tau_i$ is graded. Firstly, this assumption  implies that there are coefficients:
                     $$\lambda_{r, s}, \mu, \kappa \in \bbC$$
@@ -789,8 +789,10 @@
                     and hence the LHS and RHS of equation \eqref{equation: coboundary_verification_tau_2} are indeed equal when $D = D_v$ and $D' = D_{r, s}$.
                     \item The same method as above can be used to show that the LHS and RHS of equation \eqref{equation: coboundary_verification_tau_2} are indeed equal when $D = D_t$ and $D' = D_{r, s}$.
                     \item Finally, let us verify that the LHS and RHS of equation \eqref{equation: coboundary_verification_tau_2} are indeed equal when $D = D_v$ and $D' = D_t$. Since:
-                        $$[D_v, D_t] = 0$$
-                    the LHS vanishes. Recall also from lemma \ref{lemma: billig_toroidal_cocycles_on_yangian_div_zero_vector_fields} that:
+                        $$[D_v, D_t] = -D_{0, 1}$$
+                    the LHS of said equation will vanish:
+                        $$\tau_2^{\kappa}([D_v, D_t]) = -\tau_2^{\kappa}(D_{0, 1}) = 0$$
+                    Recall also from lemma \ref{lemma: billig_toroidal_cocycles_on_yangian_div_zero_vector_fields} that:
                         $$\sigma_2(D_v, D_t) = 0$$
                     and therefore it suffices to check if it is true that:
                         $$[D_v, \tau_2^{\kappa}(D_t)]_{\extendedtoroidal} - [D_t, \tau_2^{\kappa}(D_v)]_{\extendedtoroidal} = 0$$

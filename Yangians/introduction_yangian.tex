@@ -11,16 +11,54 @@
         one is in fact looking at so-called \textbf{Lie bialgebra} structures on $\t$; when $\t$ is infinite-dimensional, there are actually some topological subtleties at play as well, but we will not worry too much about them for now. Deformations of $\rmU(\t)$ are called \textbf{quantisations} of these Lie bialgebra structures on $\t$. These quantisations are usually known holistically as \textbf{quantum groups}; technically, they are certain topological bialgebras (or even Hopf algebras) that deform the canonical Hopf algebra structure on $\rmU(\t)$. The Lie bialgebras themselves are known as \textbf{classical limits} of the quantum groups.
     
         Now, the classification of classical R-matrices due to Drinfeld and Belavin asserts that there exist only three types of such matrices. One such type, the so-called \say{rational} R-matrices, is known to give rise to topological Lie bialgebra structures on:
-            $$\t \cong \uce( \a[t] ), \: \a \in \{\g, \g[v^{\pm 1}]\}$$
+            $$\t \cong \uce( \g[t] ), \: \g \in \{\g, \g[v^{\pm 1}]\}$$
         Quantisations of these Lie bialgebras are known as \textbf{Yangians}. As such, these Yangians are somehow \say{naturally occuring} quantum groups.
 
         Yangians had actually occured in the mathematical physics literature prior to the discovery of quantum groups. Previously, they were regarded merely as associative algebras of physical significance that happen to carry bialgebra structures. Their classical limits were known as well, as these can be computed knowing only the bialgebra structures, but what was missing was the realisation that Yangians deform $\rmU(\t)$ in the cohomological sense explained above. For such historical reasons, Yangians would usually be given in the literature by explicit generators and relations. Now, this is not to say that such presentations are not useful; in fact, they are invaluable for representation theory, and worse still, no one seems to have ever derived these relations for Yangians using only the abstract framework proposed by Etingof-Kazhdan. 
 
     \subsection{What are the technical difficulties ?}
-        In the original article where Yangians (particularly those associated to $\a := \g$) first appeared (see \cite{drinfeld_original_yangian_paper}), Drinfeld demonstrated how the previously-known bialgebra structures on the Yangian of $\g$ originate from a classical R-matrix of $\g[t]$. The analogous result for the case $\a := \g[v^{\pm 1}]$, on the other hand, was not known until rather recently. Firstly, this is because even though one knows principally, according to Etingof-Kazhdan, that the Yangian ought to exist as a topological bialgebra in this case as well, an explicit formula for the coproduct on this Yangian was not discovered until \cite{guay_nakajima_wendlandt_affine_yangian_coproduct}. Secondly, no account of any Lie bialgebra structure on $\t := \uce(\g[v^{\pm 1}, t])$ has actually ever been recorded in the literature. This remains to be done, but an explicit formula for the corresponding Lie cobracket and classical R-matrix can be inferred from the contents of \cite[Chapter 3]{msc_thesis_gamma_extended_toroidal_lie_algebras}. Lastly, the connection between the classical R-matrix of $\t$ and the so-called \textbf{quantum R-matrix} of its Yangian remains mysterious, so it is not yet absolutely clear if the classical R-matrix of $\t$ mentioned above might be the \say{correct} one, though it is believed by experts\footnote{Which is to say, people with much more experience with this stuff than the author.} that this is the \say{correct} classical R-matrix.
+        In the original article where Yangians (particularly those associated to $\g := \g$) first appeared (see \cite{drinfeld_original_yangian_paper}), Drinfeld demonstrated how the previously-known bialgebra structures on the Yangian of $\g$ originate from a classical R-matrix of $\g[t]$. The analogous result for the case $\g := \g[v^{\pm 1}]$, on the other hand, was not known until rather recently. Firstly, this is because even though one knows principally, according to Etingof-Kazhdan, that the Yangian ought to exist as a topological bialgebra in this case as well, an explicit formula for the coproduct on this Yangian was not discovered until \cite{guay_nakajima_wendlandt_affine_yangian_coproduct}. Secondly, no account of any Lie bialgebra structure on $\t := \uce(\g[v^{\pm 1}, t])$ has actually ever been recorded in the literature. This remains to be done, but an explicit formula for the corresponding Lie cobracket and classical R-matrix can be inferred from the contents of \cite[Chapter 3]{msc_thesis_gamma_extended_toroidal_lie_algebras}. Lastly, the connection between the classical R-matrix of $\t$ and the so-called \textbf{quantum R-matrix} of its Yangian remains mysterious, so it is not yet absolutely clear if the classical R-matrix of $\t$ mentioned above might be the \say{correct} one, though it is believed by experts\footnote{Which is to say, people with much more experience with this stuff than the author.} that this is the \say{correct} classical R-matrix.
 
     \subsection{What are our goals for these notes ?}
         Aside from serving as a place for noting down many of the fundamental aspects of the theory of Yangians, we would also like to gain an understanding of the role that Yangians play in the theory of vertex algebras, particularly that of so-called W-algebras. 
 
     \subsection{What have we \textit{not} done ?}
         Yangians can also be understood via geometric means. Namely, slight variations of Yangians, known as truncated shifted Yangians can be regarded as deformation quantisations of certain transversal slices inside affine Grassmannians. We do not expect to be able to cover these aspects of the theory here. The interested reader can consult \cite{quantisation_of_affine_grassmannian_slices} and subsequent works.
+
+    \subsection{The setup}
+        Everything will occur over $\bbC$, though for all intents and purposes, one can substitute in any algebraically closed field of characteristic $0$.
+    
+        For what follows, let $\g$ be a Kac-Moody algebra such that:
+        \begin{itemize}
+            \item the Cartan matrix is indecomposable
+            \item $\g$ is not of the types $\sfA_1^{(1)}$ and $\sfA_1^{(2)}$ (though it is expected that what is presented below works for these Kac-Moody algebras as well, just for different reasons).
+        \end{itemize}
+        Denote the set of simple roots of $\g$ by $\simpleroots$.
+        
+        Also, let us write:
+            $$\rmY_{\hbar} := \rmY_{\hbar}(\g)$$
+        for the \textbf{formal Yangian} associated to $\g$. This is the associative $\bbC$-algebra generated by the set:
+            $$\{ X_{i, r}^{\pm}, H_{i, r} \}_{(i, r) \in \simpleroots \x \Z_{\geq 0}}$$
+        whose elements are subjected to certain relations, as in \cite[Definition 2.1]{guay_nakajima_wendlandt_affine_yangian_coproduct}. For the sequel, it is worth recalling that $\rmY_{\hbar}$ carries three natural gradings:
+        \begin{itemize}
+            \item Firstly, there is the \say{current} grading, which is a $\Z_{\geq 0}$-grading given by:
+                $$\deg X_{i, r}^{\pm} = \deg H_{i, r} = r$$
+                $$\deg \hbar = 1$$
+            With respect to this grading, one can identify $\rmU(\g)$ with the degree-$0$ component.
+            \item Secondly, there is the \say{root height} grading, which is another $\Z_{\geq 0}$-grading given inductively by:
+                $$\deg X_{i, r}^{\pm 1} = 1$$
+                $$\deg H_{i, r} = \deg \hbar = 0$$
+            \item Finally, there is the \say{root} grading, which is a grading by the root lattice $Q := \Z \cdot \simpleroots$ of $\g$, and is given by:
+                $$\deg X_{i, r}^{\pm} = \pm\alpha_i$$
+                $$\deg H_{i, r} = \deg \hbar = 0$$
+        \end{itemize}
+
+        Finally, let us write:
+            $$\rmY := \rmY_{\hbar}/\<\hbar - 1\>$$
+        This will be called the \textbf{Yangian}. Unlike the formal Yangian, this algebra does not carry a \say{current} grading, but rather a \say{current} filtration, given by:
+            $$\deg X_{i, r}^{\pm} = \deg H_{i, r} = r$$
+        It is expected that:
+            $$\rmY_{\hbar} := \Rees_{\hbar} \rmY := \bigoplus_{\hbar} \rmY_r \hbar^r$$
+        and hence:
+            $$\rmU(\g) \cong \rmY_{\hbar}/\hbar \cong \gr \rmY$$
+        but so far, this has only been proven for $\g$ either of finite types and $\g$ of simply laced affine types\footnote{Which means that type $\sfA_1^{(1)}$ is excluded, as its Dynkin diagram is $\bullet \toto \bullet$.} (see \cite{guay_regelskis_wendlandt_affine_yangian_vertex_representations_and_PBW}).
