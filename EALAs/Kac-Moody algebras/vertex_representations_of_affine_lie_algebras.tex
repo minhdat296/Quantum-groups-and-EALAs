@@ -1,0 +1,145 @@
+\input{article preambles}
+
+\setcounter{section}{-1}
+
+\input{commands}
+\newcommand{\simpleroots}{\mathbb{I}}
+
+\begin{document}
+
+    \title{Vertex representations of affine Lie algebras}
+    
+    \author{Dat Minh Ha}
+    \maketitle
+    
+    \begin{abstract}
+    
+    \end{abstract}
+    
+    {
+    \hypersetup{} 
+    %\dominitoc
+    \tableofcontents %sort sections alphabetically
+    }
+
+    \section{Introduction}
+        \subsection{Why vertex operators ?}
+    
+        \subsection{Notations and conventions}
+            All throughout, we work over the field of complex numbers $\bbC$, although any algebraically closed field of characteristic $0$ will suffice, as we only need this assumption so that certain operators will be diagonalisable. 
+    
+            We fix once and for all a finite-dimensional simple Lie algebra $\g$. Its Cartan matrix will be denoted by $C$, and we will use standard notations (cf. e.g. \cite{humphreys_lie_algebras} and \cite{kac_infinite_dimensional_lie_algebras}) for all of the other data that usually accompanies $\g$, e.g. a choice of simple roots, a subsequently defined root system, etc. We note that to specify these data, we will have to choose a non-degenerate and invariant symmetric bilinear form on $\g$, which shall be denoted by $\kappa$.
+    
+            The \textbf{affine Lie algebra} attached to the Lie $2$-cocycle $\kappa \in H^2_{\Lie}(\g[v^{\pm 1}], \bbC)$ shall be:
+                $$\tilde{\g}_{\kappa} := \uce(\g[v^{\pm 1}])$$
+            on which the Lie bracket is given by:
+                $$[xf, yg]_{\tilde{\g}_{\kappa}} := [x, y]_{\g} fg + \kappa(x, y) g df$$
+            Here, we have used a result by Kassel to identify:
+                $$\tilde{\g}_{\kappa} \cong \g[v^{\pm 1}] \oplus \Omega^1_{\bbC[v^{\pm 1}]/\bbC}/d\bbC[v^{\pm 1}] \cong \g[v^{\pm 1}] \oplus \bbC c_{\kappa}$$
+            (see \cite{kassel_universal_central_extensions_of_lie_algebras}). We also know, per a result of Garland (see \cite{garland_arithmetics_of_looq_groups}), that $\tilde{\g}_{\kappa}$ is - up to isomorphisms - the only central extension of $\g[v^{\pm 1}]$ (i.e. $H^2_{\Lie}(\g[v^{\pm 1}], \bbC)$); isomorphisms are given by rescaling $\kappa$. One also says that $\tilde{\g}_{\kappa}$ is the affine Lie algebra at \textbf{level} $\kappa$.
+    
+            The \textbf{untwisted affine Kac-Moody algebra} at level $\kappa$ (as in \cite[Chapter 7]{kac_infinite_dimensional_lie_algebras}) will then be:
+                $$\hat{\g}_{\kappa} := \tilde{\g}_{\kappa} \rtimes \bbC D_{\kappa}$$
+            where $D_{\kappa} \in \der(\tilde{\g}_{\kappa})$ can be shown to be equal to $v\frac{d}{dv}$. This algebra will be endowed with the non-degenerate and invariant symmetric bilinear form given by:
+                $$(xf, yg)_{\hat{\g}_{\kappa}} := \kappa(x, y) \Res(g df)$$
+                $$(c_{\kappa}, D_{\kappa})_{\hat{\g}_{\kappa}} := 1$$
+            Using this bilinear form, one can construct the Cartan matrix $\hat{C}$ of $\hat{\g}_{\kappa}$ and related combinatorial data, like the affinisation of the root system of $\g$ and so on.
+                
+            Recall in particular that for $\hat{\g}$ (or indeed, for any Kac-Moody algebra) there is the \textbf{principal $\Z$-grading} of type $\vec{s} := (s_i)_{i \in \hat{\simpleroots}} \in \Z_{\geq 0} \cdot \hat{\simpleroots}$, given on the Chevalley-Serre generators by:
+                $$\deg x_i^{\pm} := \pm s_i$$
+                $$\deg h_i := 0$$
+            for all $i \in \hat{\simpleroots}$. When $\vec{s} := \vec{1} := (1, ..., 1)$, we recover the usual root height grading. 
+    
+            Suppose also that $c_{\kappa}$ acts as $1$ on standard modules $\standard^{\lambda}$ (and hence also as $1$ on finite-dimensional simple modules and in particular, fundamental modules). In other words, we are stipulating that $\standard^{\lambda}$ carries also the structure of a left-module over $\bar{\rmU}_{\kappa} := \rmU(\tilde{\g}_{\kappa})/\rmU(\tilde{\g}_{\kappa}) \cdot (c_{\kappa} - 1)$.
+
+    \section{Vertex representations of the Heisenberg algebra}
+        \subsection{The Fock space representations of the Heisenberg algebra}
+            If one is willing to accept the idea that attributes of particles in physical systems ought to obey Lie algebra symmetries and hence are to be thought of as certain operators acting on certain vector spaces, then the prototypical case study for this phenomenon in the context of QFT are the \say{Fock space representations} of the \say{Heisenberg algebra} (actually, the Fock spaces are acted on by a slight modification of the universal enveloping algebra of the Heisenberg algebra, but this is a technicality).
+
+            Let us firstly recall the definition of the latter. This is the central extension - which shall be denoted by $\tilde{\g}_0$ - of the abelian Lie algebra $\bbC[v^{\pm 1}]$ by a $1$-dimensional centre $\bbC c_0$ (in physics, one takes $c_0 := -i\hbar$):
+                $$0 \to \bbC c_0 \to \tilde{\g}_0 \to \bbC[v^{\pm 1}] \to 0$$
+            This Lie algebra admits the subset:
+                $$\{q_m\}_{m \in \Z} \cup \{c_0\}$$
+            as a basis (physicists tend to write $p_m := q_{-m}$ for $m \geq 0$, as such operators are \say{canonical momentum} operators; the way to remember this is to keep in mind the fact that such operators acts certain partial derivatives, hence lower degrees and as such are given negative indices) whose elements are subjected to the relations:
+                $$[q_m, q_n] = m \delta_{m + n, 0} c_0$$
+            or in other words, $\tilde{\g}_0$ models countable systems of particles obeying Heisenberg's Uncertainty principal. Notice also, that $\tilde{\g}_0$ corresponds to the Lie $2$-cocycle $\eta_0 \in Z^2_{\Lie}(\bbC[v^{\pm 1}], \bbC)$ given by:
+                $$\eta_0(f, g) := \Res(gdf)$$
+
+            Secondly, recall that Fock spaces come in two variations, bosonic and fermionic, whose constructions are experimentally motivated. Regardless, they are to be vector spaces on which so-called \say{creation operators} and \say{annihilation operators} are to act; physically, these are excitations of quantum fields, be they bosonic or fermionic, giving rise to particle creation or annihilation. If we accept the idea that each particle can be represented by a vector space, say:
+                $$V$$
+            of \say{quantum states} (also called \say{superpositions}), which are vectors that the aforementioned operators act on, and that a system of $n$ particles can be represented by:
+                $$V^{\tensor n}$$
+            then for the Fock spaces to be stable under these creation and annihilation actions, it must be the quotient of the tensor algebra $\rmT(V) := \bigoplus_{n \geq 0} V^{\tensor n}$ by some finitely generated homogeneous two-sided ideal. Then, via experimentation, we have found the \textbf{bosonic Fock space} and the \textbf{fermionic Fock spaces} attached to such a space of quantum states $V$ to respectively be:
+                $$V^{\N} := \Sym(V)$$
+                $$V^{\frac12 \N} := \Lambda(V)$$
+
+            Again, from physics, we know that $V$ ought to admit a basis of the form:
+                $$\{\xi_m\}_{m \in \N}$$
+            (ultimately, this is due to the existence of Fourier bases of $L^2$-spaces). By Heisenberg's Uncertainty Principle, we know that then that there are canonical representations of $\tilde{\g}_0$ on both the bosonic and fermionic Fock spaces $V^{\N}$ and $V^{\frac12 \N}$ that are given by:
+                $$
+                    q_m \mapsto
+                    \begin{cases}
+                        \text{$c_{\kappa} \cdot$ if $m = 0$}
+                        \\
+                        \text{$\xi_m \cdot$ if $m \leq 0$}
+                        \\
+                        \text{$c_{\kappa} \frac{\del}{\del \xi_m}$ if $m > 0$}
+                    \end{cases}
+                $$
+            \textit{It is from the existence of such representations that one thinks to endow Fock spaces with vertex algebra structures, as such structures formalise the idea of algebras of differential operators in infinitely many variables.} 
+
+            \begin{convention} \label{conv: completed_heisenberg_universal_enveloping_algebra}
+                From now on, let us adopt the following notations. First of all, we will abbreviate the universal enveloping algebra of $\tilde{\g}_0$ by:
+                    $$\rmU_0 := \rmU(\tilde{\g}_0)$$
+                Secondly, we will also be needing the following algebras:
+                    $$\bar{\rmU}_0 := \rmU_0/\rmU_0 \cdot (c_0 - 1)$$
+                along with its $v$-adic completion:
+                    $$\tilde{\rmU}_0 := \projlim_{m \geq 1} \bar{\rmU}_0/\bar{\rmU}_0 \cdot v^m$$
+            \end{convention}
+
+            Before we proceed towards representations of $\tilde{\rmU}_0$, let us also recall how $\tilde{\g}_0$ is realisable as the affine Lie algebra associated to the zero Cartan matrix (and hence the subscript $0$). Firstly, let us recall that a general affine Lie algebra $\tilde{\g}_{\kappa}$ is isomorphic to the Lie algebra generated by the set:
+                $$\{x_i^{\pm}\}_{i \in \hat{\simpleroots}}$$
+            whose elements are subjected to the usual Kac-Moody relations (see \cite[Chapter 1]{kac_infinite_dimensional_lie_algebras}). By degenerating the Cartan matrix $\hat{C}$ to the $|\hat{\simpleroots}| \x |\hat{\simpleroots}|$ zero matrix (cf. \cite[Section 2.9]{kac_infinite_dimensional_lie_algebras}), i.e. by setting the entries $c_{ij}$ of the affine Cartan matrix $\hat{C}$ to $0$ in the Kac-Moody relations, one shall obtain the Lie algebra generated by the same set, but whose elements are subjected to the following degenerated relations:
+                $$[x_i^{\pm}, x_j^{\pm}] = 0$$
+                $$[x_i^+, x_j^-] = \delta_{i, j} \alpha_i^{\vee}$$
+            given for all $i, j \in \hat{\simpleroots}$. In fact, for this purpose, one can assume without any loss of generality that $\hat{C}$ is symmetric so that $(\theta, \theta)_{\hat{\g}_{\kappa}} = 2$ and hence:
+                $$\alpha_0^{\vee} = c_0$$
+            Then, by combining this with the fact that affine Lie algebras in general have $1$-dimensional centres, we shall get the desired characterisation of the Heisenberg algebra. In fact, one can write down a Lie algebra embedding $\tilde{\g}_0 \subset \tilde{\g}_{\kappa}$ identifying:
+                $$\tilde{\g}_0 \cong \bbC c_{\kappa} \oplus \bigoplus_{m \in \Z \setminus \{0\}} \hat{\g}_{\kappa, m\delta}$$
+            wherein $\delta$ is the lowest positive imaginary root of $\hat{\g}_{\kappa}$.
+            \begin{convention}
+                In light of the above, let us write:
+                    $$\tilde{\g}_0^{\pm} := \bigoplus_{m \in \pm \Z_{> 0}} \hat{\g}_{\kappa, m\delta} \cong \bigoplus_{m \in \pm \Z_{> 0}} \bbC v^m$$
+                    $$\tilde{\g}_0^{\geq 0} := \bbC c_0 \oplus \tilde{\g}_0^+, \tilde{\g}_0^{\leq 0} := \tilde{\g}_0^- \oplus \bbC c_0$$
+                The universal enveloping algebras of the former two Lie algebras shall be denoted by:
+                    $$\rmU_0^{\pm}$$
+                while those of the latter two Lie subalgebras shall be denoted by:
+                    $$\rmU_0^{\geq 0}, \rmU_0^{\leq 0}$$
+                We then employ the notations:
+                    $$\bar{\rmU}_0^{\geq 0}, \bar{\rmU}_0^{\leq 0}, \tilde{\rmU}_0^{\geq 0}, \bar{\rmU}_0^{\leq 0}$$
+                similarly to in convention \ref{conv: completed_heisenberg_universal_enveloping_algebra}.
+            \end{convention}
+            We remark that unlike when $\kappa \not = 0$, the Lie subalgebras $\tilde{\g}_0^{\pm}$ are abelian, not just nilpotent.
+
+            We are now ready to define the \say{Heisenberg vacuum module}, which shall play the role of standard modules in this setting:
+            \begin{definition}[The Heisenberg vacuum module] \label{def: heisenberg_vacuum_module}
+                The \textbf{Heisenberg vacuum module} is given by:
+                    $$\V_0 := \tilde{\rmU}_0 \tensor_{\tilde{\rmU}_0^{\geq 0}} \bbC c_0$$
+            \end{definition}
+            By PBW, one sees that as a left-$\tilde{\rmU}_0$-module, $\V_0$ is isomorphic to $\tilde{\rmU}_0^-$. Furthermore, we have can identify the abstractly defined $\tilde{\rmU}_0$-module $\V_0$ with the bosonic Fock space of $V := \bbC \cdot \{q_{-m}\}_{m \in \N}$ in a sense. As the latter is isomorphic to $\bbC[\{q_{-m}\}_{m \in \N}]$, it is tempting to say that after completing the bosonic Fock space, both it and $\V_0$ will be isomorphic to $\bbC[\![  \{q_{-m}\}_{m \in \N} ]\!]$. However, the problem is that the algebra $\bbC[\![  \{q_{-m}\}_{m \in \N} ]\!]$ is actually \textit{not} topologically complete, a somewhat strange non-Noetherian phenomenon (see \cite[\href{https://stacks.math.columbia.edu/tag/05JA}{Tag 05JA}]{stacks} for more details).  
+            \begin{remark}[An etymological comment]
+                Why is the vacuum module named that way ? 
+            \end{remark}
+    
+        \subsection{The principal and homogeneous vertex constructions}
+
+    \section{Vertex representations of the Virasoro algebra}
+
+    \section{Vertex representations of affine Lie algebras and the Feigin-Frenkel centre}
+
+    \section{\texorpdfstring{$\hat{\gl}_{\infty}$}{} and the Boson-Fermion Correspondence} 
+    
+    \addcontentsline{toc}{section}{References}
+    \printbibliography
+
+\end{document}

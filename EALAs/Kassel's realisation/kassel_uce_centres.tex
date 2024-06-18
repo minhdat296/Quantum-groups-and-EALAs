@@ -67,9 +67,7 @@
                 $$fg \tensor 1 - g \tensor f - f \tensor g$$
             given for all $f, g \in A$. This implies that $\Omega^1_{A/\bbC}$ inherits a $Z$-grading from the one on $A \tensor_{\bbC} A$, given by:
                 $$\deg f dg = \deg f \tensor g = \deg f + \deg g$$
-            for all homogeneous elements $f, g \in A$. Since the vector subspace $d(A)$ is also $Z$-graded ($\deg df = \deg f \tensor 1 = \deg f$ for all $f \in A$, as $d(A) \cong A \tensor 1$), the quotient vector space $\bar{\Omega}^1_{A/\bbC}$ is also naturally graded by the abelian group $Z$, with graded components given by:
-                $$(\bar{\Omega}^1_{A/\bbC})_n := (\Omega^1_{A/\bbC})_n/d(A_n) \cong (\Omega^1_{A/\bbC})_n/(A_n \tensor 1)$$
-            for all $n \in Z$. 
+            for all homogeneous elements $f, g \in A$. 
         \end{remark}
 
     \subsection{UCEs of current Lie algebras}
@@ -135,9 +133,11 @@
                 $$\g \tensor_{\bbC} A \cong \bigoplus_{n \in Z} (\g \tensor_{\bbC} A_n)$$
             which tells us that $\g \tensor_{\bbC} A$ is also $Z$-graded. At the same time, we now know from theorem \ref{theorem: kassel_realisation} that:
                 $$\uce(\g \tensor_{\bbC} A) \cong (\g \tensor_{\bbC} A) \oplus \bar{\Omega}^1_{A/\bbC}$$
-            and from remark \ref{remark: gradings_on_1_forms} that the $\bbC$-vector space:
-                $$\bar{\Omega}^1_{A/\bbC}$$
-            also carries a $Z$-grading induced by the one on $A$. From these facts, we see that the $Z$-grading on $\g \tensor_{\bbC} A$ extends to the larger vector space $\uce(\g \tensor_{\bbC} A)$. Namely, the graded components are given by:
+            From remark \ref{remark: gradings_on_1_forms} that the $\bbC$-vector space:
+                $$\Omega^1_{A/\bbC}$$
+            also carries a $Z$-grading induced by the one on $A$. Since the vector subspace $d(A)$ is also $Z$-graded ($\deg df = \deg f \tensor 1 = \deg f$ for all $f \in A$, as $d(A) \cong A \tensor 1$), the quotient vector space $\bar{\Omega}^1_{A/\bbC}$ is also naturally graded by the abelian group $Z$, with graded components given by:
+                $$(\bar{\Omega}^1_{A/\bbC})_n := (\Omega^1_{A/\bbC})_n/d(A_n) \cong (\Omega^1_{A/\bbC})_n/(A_n \tensor 1)$$
+            for all $n \in Z$. From these facts, we see that the $Z$-grading on $\g \tensor_{\bbC} A$ extends to the larger vector space $\uce(\g \tensor_{\bbC} A)$. Namely, the graded components are given by:
                 $$\uce(\g \tensor_{\bbC} A)_n := (\g \tensor_{\bbC} A_n) \oplus (\bar{\Omega}^1_{A/\bbC})_n$$
             for all $n \in Z$.
         \end{remark}

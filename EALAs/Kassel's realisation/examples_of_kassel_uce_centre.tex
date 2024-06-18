@@ -66,17 +66,40 @@
                 $$( d\bbC[v^{\pm 1}, t^{\pm 1}] )_{(r, s)} = d( \bbC[v^{\pm 1}, t^{\pm 1}]_{(r, s)} ) = d( \bbC v^r t^s ) = \bbC d(v^r t^s)$$
             which hold for all $(r, s) \in \Z^2$. We thus get:
                 $$\bar{\Omega}^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC} \cong \bigoplus_{(r, s) \in \Z^2} \frac{ \bbC v^{r - 1} t^s dv \oplus \bbC v^r t^{s - 1} dt }{ \bbC d(v^r t^s) }$$
-            Observe that when $(r, s) = (0, 0)$, we have that:
+            Next, let us compute the direct summands. To begin, observe that when $(r, s) = (0, 0)$, we have that:
                 $$\bbC v^{0 - 1} t^0 dv \oplus \bbC v^0 t^{0 - 1} dt = \bbC v^{-1} dv \oplus \bbC t^{-1} dt$$
                 $$\bbC d(v^0 t^0) = \bbC d(1) = \bbC 0 = 0$$
-            and so:
-                $$\bar{\Omega}^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC} \cong \bigoplus_{(r, s) \in \Z^2 \setminus \{(0, 0)\}} ( \bbC v^{r - 1} t^s dv \oplus \bbC v^r t^{s - 1} dt ) \oplus ( \bbC v^{-1} dv \oplus \bbC t^{-1} dt )$$
-            Finally, since:
-                $$v^{r - 1} t^s dv, v^r t^{s - 1} dt, v^{-1} dv, t^{-1} dt \not \in d\bbC[v^{\pm 1}, t^{\pm 1}]$$
-            meaning that $v^{r - 1} t^s dv \equiv v^{r - 1} t^s \bar{d}v \pmod{d\bbC[v^{\pm 1}, t^{\pm 1}]}$ etc., we can write:
-                $$\bar{\Omega}^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC} \cong \bigoplus_{(r, s) \in \Z^2 \setminus \{(0, 0)\}} ( \bbC v^{r - 1} t^s \bar{d}v \oplus \bbC v^r t^{s - 1} \bar{d}t ) \oplus ( \bbC v^{-1} \bar{d}v \oplus \bbC t^{-1} \bar{d}t )$$
+            When $(r, s) \not = (0, 0)$, note that because elements $\omega \in \bbC v^{r - 1} t^s dv \oplus \bbC v^r t^{s - 1} dt$ can be written as:
+                $$\omega := a v^{r - 1} t^s dv + b v^r t^{s - 1} dt$$
+            for some $\begin{pmatrix}a \\ b\end{pmatrix} \in \bbC^2$, one has that:
+                $$\omega \equiv 0 \pmod{d\bbC[v^{\pm 1}, t^{\pm 1}]}$$
+            if and only if:
+                $$\begin{pmatrix}a \\ b\end{pmatrix} \in \bbC \begin{pmatrix}r \\ s\end{pmatrix} $$
+            By using the fact that $0 \equiv d(v^r t^s) \equiv r v^{r - 1} t^s dv + s v^r t^{s - 1} dt \pmod{d\bbC[v^{\pm 1}, t^{\pm 1}]}$, and hence $r v^{r - 1} t^s dv \equiv -s v^r t^{s - 1} dt \pmod{d\bbC[v^{\pm 1}, t^{\pm 1}]}$, we can rewrite:
+                $$
+                    \begin{aligned}
+                        \omega & \equiv a v^{r - 1} t^s dv + \frac{b}{s} s v^r t^{s - 1} dt \pmod{d\bbC[v^{\pm 1}, t^{\pm 1}]}
+                        \\
+                        & \equiv a v^{r - 1} t^s dv - \frac{b}{s} r v^{r - 1} t^s dv \pmod{d\bbC[v^{\pm 1}, t^{\pm 1}]}
+                        \\
+                        & \equiv \frac{as - br}{s} v^{r - 1} t^s dv \pmod{d\bbC[v^{\pm 1}, t^{\pm 1}]}
+                    \end{aligned}
+                $$
+            whenever $s \not = 0$ and similarly, we can rewrite:
+                $$\omega \equiv -\frac{as - br}{r} v^r t^{s - 1} dt \pmod{d\bbC[v^{\pm 1}, t^{\pm 1}]}$$
+            whenever $r \not = 0$. Since $\begin{pmatrix}a \\ b\end{pmatrix} \in \bbC^2$ is arbitrary, any element of $\bbC$ can be written in the form $as - br$, and hence we gather from the above that:
+                $$
+                    \frac{ \bbC v^{r - 1} t^s dv \oplus \bbC v^r t^{s - 1} dt }{ \bbC d(v^r t^s) } =
+                    \begin{cases}
+                        \text{$\bbC \frac1s v^{r - 1} t^s \bar{d}v$ if $(r, s) \in \Z \x (\Z \setminus \{0\})$}
+                        \\
+                        \text{$\bbC \frac{-1}{r} v^r t^{-1} \bar{d}t$ if $(r, s) \in (\Z \setminus \{0\}) \x \{0\}$}
+                        \\
+                        \text{$\bbC v^{-1}\bar{d}v \oplus \bbC t^{-1} \bar{d}t$ if $(r, s) = (0, 0)$}
+                    \end{cases}
+                $$
             
-            That said, for the indexing to be slightly more suited to our purposes\footnote{Ultimately, this is a matter of personal taste. The elements $K_{r, s}, c_v, c_t$ can be regarded as idiosyncrasies that the author personally find to be visually clear (note, for instance, that our indexing is slightly different from that on \cite[p. 35]{wendlandt_formal_shift_operators_on_yangian_doubles}), should the reader feel puzzled by this re-indexing. For instance, we find $K_{0, 0} = 0$ to be good notation.}, we shall be writing $\bar{\Omega}^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC}$ as a direct sum as follows:
+            We are now able to write $\bar{\Omega}^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC}$ as a direct sum as follows:
                 $$\bar{\Omega}^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC} \cong ( \bigoplus_{(r, s) \in \Z^2} \bbC K_{r, s}) \oplus \bbC c_v \oplus \bbC c_t$$
             wherein:
                 $$
@@ -90,7 +113,7 @@
                     \end{cases}
                 $$
                 $$c_v := v^{-1} \bar{d}v, c_t := t^{-1} \bar{d}t$$
-            In particular, the coefficients $\frac1r, \frac1s$ have been included as visual aids for keeping track of whether or not the indices $r$ or $s$ may be allowed to be $0$ in $K_{r, s}$. In fact, any element of the form:
+            Moreover, any element of the form:
                 $$v^n t^q \bar{d}(v^m t^p) \in \bar{\Omega}^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC}$$
             can be written in terms of the basis vectors $K_{r, s}, c_v, c_t$ in the following manner:
                 $$v^n t^q \bar{d}(v^m t^p) = (mq - np) K_{m + n, p + q} + \delta_{(m, p) + (n, q), (0, 0)} ( m c_v + p c_t )$$
