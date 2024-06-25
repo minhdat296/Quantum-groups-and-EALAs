@@ -23,8 +23,6 @@
     }
 
     \section{Introduction}
-        \subsection{Why vertex operators ?}
-    
         \subsection{Notations and conventions}
             All throughout, we work over the field of complex numbers $\bbC$, although any algebraically closed field of characteristic $0$ will suffice, as we only need this assumption so that certain operators will be diagonalisable. 
     
@@ -36,7 +34,7 @@
                 $$[xf, yg]_{\tilde{\g}_{\kappa}} := [x, y]_{\g} fg + \kappa(x, y) g df$$
             Here, we have used a result by Kassel to identify:
                 $$\tilde{\g}_{\kappa} \cong \g[v^{\pm 1}] \oplus \Omega^1_{\bbC[v^{\pm 1}]/\bbC}/d\bbC[v^{\pm 1}] \cong \g[v^{\pm 1}] \oplus \bbC c_{\kappa}$$
-            (see \cite{kassel_universal_central_extensions_of_lie_algebras}). We also know, per a result of Garland (see \cite{garland_arithmetics_of_looq_groups}), that $\tilde{\g}_{\kappa}$ is - up to isomorphisms - the only central extension of $\g[v^{\pm 1}]$ (i.e. $H^2_{\Lie}(\g[v^{\pm 1}], \bbC)$); isomorphisms are given by rescaling $\kappa$. One also says that $\tilde{\g}_{\kappa}$ is the affine Lie algebra at \textbf{level} $\kappa$.
+            (see \cite{kassel_universal_central_extensions_of_lie_algebras}). We also know, per a result of Garland (see \cite{garland_arithmetics_of_loop_groups}), that $\tilde{\g}_{\kappa}$ is - up to isomorphisms - the only central extension of $\g[v^{\pm 1}]$ (i.e. $H^2_{\Lie}(\g[v^{\pm 1}], \bbC)$); isomorphisms are given by rescaling $\kappa$. One also says that $\tilde{\g}_{\kappa}$ is the affine Lie algebra at \textbf{level} $\kappa$.
     
             The \textbf{untwisted affine Kac-Moody algebra} at level $\kappa$ (as in \cite[Chapter 7]{kac_infinite_dimensional_lie_algebras}) will then be:
                 $$\hat{\g}_{\kappa} := \tilde{\g}_{\kappa} \rtimes \bbC D_{\kappa}$$
@@ -51,6 +49,93 @@
             for all $i \in \hat{\simpleroots}$. When $\vec{s} := \vec{1} := (1, ..., 1)$, we recover the usual root height grading. 
     
             Suppose also that $c_{\kappa}$ acts as $1$ on standard modules $\standard^{\lambda}$ (and hence also as $1$ on finite-dimensional simple modules and in particular, fundamental modules). In other words, we are stipulating that $\standard^{\lambda}$ carries also the structure of a left-module over $\bar{\rmU}_{\kappa} := \rmU(\tilde{\g}_{\kappa})/\rmU(\tilde{\g}_{\kappa}) \cdot (c_{\kappa} - 1)$.
+
+            There exists also an analogue of $\tilde{\g}_{\kappa}$ constructed using $\bbC(\!(v)\!)$ in place of $\bbC[v^{\pm 1}]$. For a moment, let us denote the affine Kac-Moody algebra that we have been considering up until this point by $\tilde{\g}_{\kappa}^{\pol}$ and the other version by $\tilde{\g}_{\kappa}^{\loc}$. It can be easily shown that the categorry:
+                $$\tilde{\g}_{\kappa}^{\pol}\mod$$
+            is equivalent to the category:
+                $$\tilde{\g}_{\kappa}^{\loc}\mod^{\smooth}$$
+            of so-called \textbf{smooth modules} over $\tilde{\g}_{\kappa}^{\loc}$; said smooth modules are those $\tilde{\g}_{\kappa}^{\loc}$-modules on which the Lie subalgebra $\g[\![v]\!] \subset \tilde{\g}_{\kappa}^{\loc}$ acts locally nilpotently. Moreover, this equivalence maps standard modules to standard modules, and hence preserves simplicity of objects, etc. Furthermore, non-smooth modules will never be considered, so we will be using the same notation $\tilde{\g}_{\kappa}$ for both version. Clarifications will be provided if necessary.
+
+            Finally, we will be writing:
+                $$\tilde{\rmU}_{\kappa} := \projlim_{n \geq 1} \bar{\rmU}_{\kappa}/\bar{\rmU}_{\kappa} \cdot v^n$$
+            Observe that:
+                $$\tilde{\rmU}_{\kappa}\mod$$
+            is equivalent to both the category of $\tilde{\g}_{\kappa}^{\pol}$-modules on which $c_{\kappa}$ acts as $1$, as well as the category of smooth $\tilde{\g}_{\kappa}^{\loc}$-modules on which $c_{\kappa}$ acts as $1$.
+
+        \subsection{Why vertex operators ?}
+            From a representation-theoretic point of view, one possible motivation for the use of vertex operator algebras (VOAs) comes from simply trying to write down some kind of \say{affine Casimir element}. There are many reasons to care about such elements, though one prominent reason is that they generate the centre of some completion of $\rmU(\hat{\g}_{\kappa})$ (what we will denote by $\tilde{\rmU}_{\kappa}$ down below), and hence are useful understanding affine central characters. 
+            
+            Firstly, recall that for the affine Kac-Moody algebra $\hat{\g}_{\kappa}$, one shall obtain a root space decomposition of the following form, after choosing a Cartan subalgebra $\hat{\h}_{\kappa}$:
+                $$\hat{\g}_{\kappa} \cong \hat{\h}_{\kappa} \oplus \bigoplus_{\alpha \in \hat{\Phi}} \hat{\g}_{\kappa, \alpha}$$
+            in which:
+            \begin{itemize}
+                \item the real roots - of which there are finitely many - are all equally of multiplicity $1$, while
+                \item the imaginary roots - of which there are infinitely many, as their root spaces are identified with $\h \tensor v^n$ for all $n \in \Z \setminus \{0\}$ - do not necessarily have multiplicity $1$ (indeed, when $\g \not \cong \sl_2$, $\dim \h > 1$).
+            \end{itemize}
+            Because of this, if we were to insist on writing down the \textit{na\"ive} guess for an affine (quadratic) Casimir element, i.e. something of the form:
+                $$\hat{\sfr}_{\text{na\"ive}} := \sum_{(i, n) \in \simpleroots \x \Z} h_i v^n \tensor h^i v^{-n} + \sum_{\alpha \in \Re \hat{\Phi}^+} (x_{\alpha}^+ \tensor x_{\alpha}^- + x_{\alpha}^- \tensor x_{\alpha}^+)$$
+            then we would have a hard time trying to make sense of the summand:
+                $$\hat{\sfr}_{\text{na\"ive}}^{\Im} := \sum_{(i, n) \in \simpleroots \x (\Z \setminus \{0\})} h_i v^n \tensor h^i v^{-n}$$
+            which is a sum over basis-dual basis vectors of the direct sum $\bigoplus_{n \in \Z \setminus \{0\}} \h \tensor v^n$ of all the imaginary root spaces. Worse still, this is a \say{bad} infinite sum, in the sense that the infinite in both the positive and negative directions (recall that formal Laurent series contain infinitely many terms only in either direction, not both). In other words, the expression $\hat{\sfr}_{\text{na\"ive}}^{\Im}$ is properly an element of $\hat{\g}_{\kappa}[\![v^{\pm 1}]\!]$, and this very problematic because $\bbC[\![v^{\pm 1}]\!]$ - the vector space spanned by so-called \say{formal distributions} $\sum_{n \in \Z} a_n v^n$ where, crucially, there can be infinitely many $a_n \not = 0$ - is \textit{not} an associative $\bbC$-algebra at all, so we can not regard $\hat{\g}_{\kappa}[\![v^{\pm 1}]\!]$ as a current algebra!
+
+            If, instead, we were to regard the elements $h_i, h^i$ as operators on some $\hat{\g}_{\kappa}$-module, say $V$, then we can consider:
+                $$\hat{\sfr}_{V, \text{na\"ive}}^{\Im}(z) := \sum_{(i, n) \in \simpleroots \x (\Z \setminus \{0\})} h_i z^n \tensor h^i z^{-n} \in \End(V)[\![z^{\pm 1}]\!]$$
+            Even though this is still a formal distribution (this time with coefficients in the associative algebra $\End(V)$), it is known that $\End(V)[\![z^{\pm 1}]\!]$ can be used for constructing a VOA structure on the underlying vector space of $V$, and hence expressions like $\hat{\sfr}_V^{\Im}(z)$ can be dealt with as vertex operators.
+
+        \subsection{Generating series}
+            To have a better sense of how to proceed from here, let us firstly introduce the physicist's perspective on infinite-dimensional Lie algebras with loop realisations, namely the apprroach via \textbf{generating series}. For untwisted affine Kac-Moody algebras, this ultimately originates from the fact that the extra \say{affinising} Chevalley-Serre generators:
+                $$x_0^{\pm} := x_{\theta}^{\pm} v^{\mp 1}, h_0 := [x_{\theta}^+, x_{\theta}^-]$$
+            are given in terms of the finite-type generators (elements of $\{x_i^{\pm}, h_i\}_{i \in \simpleroots}$); namely, the highest/lowest root vectors $x_{\theta}^{\pm}$ can be written as ordered monomials in $x_i^{\pm}$. The physical perspective is then, that $x_0^{\pm}, h_0$ ought be obtained as certain \say{residues} of formal distributions:
+                $$J(z) := \sum_{n \in \Z} J^{(n)} z^{-n - 1}, J^{(n)} := J v^n$$
+            associated to elements $J \in \g$ (and why we have decided to write $z^{-n - 1}$ instead of $z^n$ will become clear shortly); these formal distributions are usually called \textbf{associated fields} or \textbf{generating series} when $J$ is a Chevalley-Serre generator of $\g$.
+
+            Now, to see how commutator relations are given, let us firstly fix a basis $\{J_{\alpha}\}_{\alpha = 1}^{\dim \g}$ for $\g$ and then consider the following:
+                $$[J_{\alpha}^{(m)}, J_{\beta}^{(n)}] = \sum_{r = 1}^{\dim \g} C_{\alpha, \beta}^{\gamma} J_{\gamma}^{(m + n)} + m \delta_{m + n, 0} \kappa(J_{\alpha}, J_{\beta}) c_{\kappa}$$
+            wherein $C_{\alpha, \beta}^{\gamma} \in \bbC$ are the structural constants. Next, let us recall that the formal Dirac distribution in a formal variable $w$ centered at $z$ is the element of $\bbC[\![w^{\pm 1}, z^{\pm 1}]\!]$ that is given by:
+                $$\1(w - z) := \sum_{n \in \Z} w^n z^{-n - 1}$$
+            and crucially, this formal distribution satisfies the following identity for all $J(w) \in \g[\![w^{\pm 1}]\!]$:
+                $$f(z) = \Res_{w = 0} f(w) \1(w - z)$$
+            We can then perform the following computations, which allows us to pass to associated fields:
+                $$
+                    \begin{aligned}
+                        & [J_{\alpha}(w), J_{\beta}(z)]
+                        \\
+                        := & \sum_{m \in \Z} \sum_{n \in \Z} [J_{\alpha}^{(m)} w^{-m - 1}, J_{\beta}^{(n)} z^{-n - 1}]
+                        \\
+                        = & \sum_{m \in \Z} \sum_{n \in \Z} \sum_{\gamma = 1}^{\dim \g} C_{\alpha, \beta}^{\gamma} J_{\gamma}^{(m + n)} w^{-m - 1} z^{-n - 1} + \kappa(J_{\alpha}, J_{\beta}) c_{\kappa} \sum_{m \in \Z} \sum_{n \in \Z} m \delta_{m + n, 0} w^{-m - 1} z^{-n - 1}
+                        \\
+                        = & \sum_{m \in \Z} \sum_{n \in \Z} \sum_{\gamma = 1}^{\dim \g} C_{\alpha, \beta}^{\gamma} J_{\gamma}^{(m + n)} w^{-m - n - 1} w^n z^{-n - 1} + \kappa(J_{\alpha}, J_{\beta}) c_{\kappa} \sum_{m \in \Z} m w^{-m - 1} z^{m - 1}
+                        \\
+                        = & \sum_{\gamma = 1}^{\dim \g} C_{\alpha, \beta}^{\gamma} J_{\gamma}(w) \1(w - z) + \kappa(J_{\alpha}, J_{\beta}) c_{\kappa} \del_z \sum_{m \in \Z} w^{-m - 1} z^m
+                        \\
+                        = & [J_{\alpha}, J_{\beta}](w) \1(w - z) + \kappa(J_{\alpha}, J_{\beta}) c_{\kappa} \del_z \1(z - w)
+                    \end{aligned}
+                $$
+            where $\del_z \in \End( \bbC[\![z^{\pm 1}]\!] )$ is the formal partial derivative, given by $\del_z \sum_{m \in \Z} a_m z^m := \sum_{m \in \Z} m a_m z^{m - 1}$. By applying $\Res_{w = 0}$ to both sides, we then get:
+                $$
+                    \begin{aligned}
+                        & \Res_{w = 0} [J_{\alpha}(w), J_{\beta}(z)]
+                        \\
+                        = & \Res_{w = 0} [J_{\alpha}, J_{\beta}](w) \1(w - z) + \kappa(J_{\alpha}, J_{\beta}) c_{\kappa} \Res_{w = 0} \del_z \1(z - w)
+                        \\
+                        = & [J_{\alpha}, J_{\beta}](z) + \kappa(J_{\alpha}, J_{\beta}) c_{\kappa} 
+                    \end{aligned}
+                $$
+            One can then choose the basis vectors $J_{\alpha}$ to be orthonormal to one another, and then evaluate at $z = 0$ to get $c_{\kappa}$. 
+
+            Now, observe in particular, that for all $x, y \in \g$, the commutators of fields:
+                $$[x(w), y(z)] = [x, y](w) \1(w, z) + \kappa(x, y) \del_w \1(w - z)$$
+            are all \textbf{mutually local} as the formal Dirac distribution satisfies:
+                $$\forall N \in \Z_{\geq 0}: N > n \implies (w - z)^N \del_w^n \1(w - z) = 0$$
+            This suggests to us that VOA structures on $\tilde{\g}_{\kappa}$-modules $V$ - say, specified by a Lie algebra homomorphism $\rho: \tilde{\g}_{\kappa} \to \End(V)$ - can be specified by linear maps:
+                $$\rho(z): \g[\![z^{\pm 1}]\!] \to \End(V)[\![z^{\pm 1}]\!]$$
+            preserving field commutators, as the mutual locality between fields that is required to happen on the $\End(V)[\![z^{\pm 1}]\!]$ side as a part of the VOA definition is already satisfied on the $\tilde{\g}_{\kappa}[\![z^{\pm 1}]\!]$ side. There is also the so-called \textbf{Vacuum Axiom}, which for our purposes can be simply understood as requiring that $V$ is a highest-weight module on which the central charge $c_{\kappa}$ acts as $1$ (this is more-or-less a normalising condition). Finally, the \textbf{Translation Axiom}, which requires that there is a formal derivation $T$ acting on fields:
+                $$J(z) := \sum_{m \in \Z} J^{(m)} z^{-m - 1} \in \End(V)[\![z^{\pm 1}]\!]$$
+            via commutators, i.e.:
+                $$[T, J(z)] := [T, J^{(m)}](z)$$
+            where on the RHS, we regard $T$ as a derivation on $\g[v^{\pm 1}]$ or on $\g(\!(v)\!)$, depending on the situation at hand; typically, one takes $T := \id_{\g} \tensor D$ for some derivation $D$ on $\bbC[v^{\pm 1}]$ or $\bbC(\!(v)\!)$. In combination, these requirements suggest to us that a good candidates for a $\tilde{\g}_{\kappa}$-module that can support VOA structures is the induced module:
+                $$\V_{\kappa} := \tilde{\rmU}_{\kappa} \tensor_{\tilde{\rmU}_{\kappa}^+} \bbC c_{\kappa}$$
+            Down below, we shall see that, indeed, this module does carry a somewhat canonical VOA structure.
 
     \section{Vertex representations of the Heisenberg algebra}
         \subsection{The Fock space representations of the Heisenberg algebra}
@@ -79,23 +164,14 @@
                 $$
                     q_m \mapsto
                     \begin{cases}
-                        \text{$c_{\kappa} \cdot$ if $m = 0$}
+                        \text{$c_0 \cdot$ if $m = 0$}
                         \\
                         \text{$\xi_m \cdot$ if $m \leq 0$}
                         \\
-                        \text{$c_{\kappa} \frac{\del}{\del \xi_m}$ if $m > 0$}
+                        \text{$c_0 \frac{\del}{\del \xi_m}$ if $m > 0$}
                     \end{cases}
                 $$
             \textit{It is from the existence of such representations that one thinks to endow Fock spaces with vertex algebra structures, as such structures formalise the idea of algebras of differential operators in infinitely many variables.} 
-
-            \begin{convention} \label{conv: completed_heisenberg_universal_enveloping_algebra}
-                From now on, let us adopt the following notations. First of all, we will abbreviate the universal enveloping algebra of $\tilde{\g}_0$ by:
-                    $$\rmU_0 := \rmU(\tilde{\g}_0)$$
-                Secondly, we will also be needing the following algebras:
-                    $$\bar{\rmU}_0 := \rmU_0/\rmU_0 \cdot (c_0 - 1)$$
-                along with its $v$-adic completion:
-                    $$\tilde{\rmU}_0 := \projlim_{m \geq 1} \bar{\rmU}_0/\bar{\rmU}_0 \cdot v^m$$
-            \end{convention}
 
             Before we proceed towards representations of $\tilde{\rmU}_0$, let us also recall how $\tilde{\g}_0$ is realisable as the affine Lie algebra associated to the zero Cartan matrix (and hence the subscript $0$). Firstly, let us recall that a general affine Lie algebra $\tilde{\g}_{\kappa}$ is isomorphic to the Lie algebra generated by the set:
                 $$\{x_i^{\pm}\}_{i \in \hat{\simpleroots}}$$
@@ -105,20 +181,9 @@
             given for all $i, j \in \hat{\simpleroots}$. In fact, for this purpose, one can assume without any loss of generality that $\hat{C}$ is symmetric so that $(\theta, \theta)_{\hat{\g}_{\kappa}} = 2$ and hence:
                 $$\alpha_0^{\vee} = c_0$$
             Then, by combining this with the fact that affine Lie algebras in general have $1$-dimensional centres, we shall get the desired characterisation of the Heisenberg algebra. In fact, one can write down a Lie algebra embedding $\tilde{\g}_0 \subset \tilde{\g}_{\kappa}$ identifying:
-                $$\tilde{\g}_0 \cong \bbC c_{\kappa} \oplus \bigoplus_{m \in \Z \setminus \{0\}} \hat{\g}_{\kappa, m\delta}$$
+                $$\tilde{\g}_0 \cong \bbC c_0 \oplus \bigoplus_{m \in \Z} \hat{\g}_{\kappa, m\delta} \cong \bbC c_0 \oplus \h \oplus \bigoplus_{m \in \Z \setminus \{0\}} \hat{\g}_{\kappa, m\delta}$$
             wherein $\delta$ is the lowest positive imaginary root of $\hat{\g}_{\kappa}$.
-            \begin{convention}
-                In light of the above, let us write:
-                    $$\tilde{\g}_0^{\pm} := \bigoplus_{m \in \pm \Z_{> 0}} \hat{\g}_{\kappa, m\delta} \cong \bigoplus_{m \in \pm \Z_{> 0}} \bbC v^m$$
-                    $$\tilde{\g}_0^{\geq 0} := \bbC c_0 \oplus \tilde{\g}_0^+, \tilde{\g}_0^{\leq 0} := \tilde{\g}_0^- \oplus \bbC c_0$$
-                The universal enveloping algebras of the former two Lie algebras shall be denoted by:
-                    $$\rmU_0^{\pm}$$
-                while those of the latter two Lie subalgebras shall be denoted by:
-                    $$\rmU_0^{\geq 0}, \rmU_0^{\leq 0}$$
-                We then employ the notations:
-                    $$\bar{\rmU}_0^{\geq 0}, \bar{\rmU}_0^{\leq 0}, \tilde{\rmU}_0^{\geq 0}, \bar{\rmU}_0^{\leq 0}$$
-                similarly to in convention \ref{conv: completed_heisenberg_universal_enveloping_algebra}.
-            \end{convention}
+            
             We remark that unlike when $\kappa \not = 0$, the Lie subalgebras $\tilde{\g}_0^{\pm}$ are abelian, not just nilpotent.
 
             We are now ready to define the \say{Heisenberg vacuum module}, which shall play the role of standard modules in this setting:
@@ -128,8 +193,10 @@
             \end{definition}
             By PBW, one sees that as a left-$\tilde{\rmU}_0$-module, $\V_0$ is isomorphic to $\tilde{\rmU}_0^-$. Furthermore, we have can identify the abstractly defined $\tilde{\rmU}_0$-module $\V_0$ with the bosonic Fock space of $V := \bbC \cdot \{q_{-m}\}_{m \in \N}$ in a sense. As the latter is isomorphic to $\bbC[\{q_{-m}\}_{m \in \N}]$, it is tempting to say that after completing the bosonic Fock space, both it and $\V_0$ will be isomorphic to $\bbC[\![  \{q_{-m}\}_{m \in \N} ]\!]$. However, the problem is that the algebra $\bbC[\![  \{q_{-m}\}_{m \in \N} ]\!]$ is actually \textit{not} topologically complete, a somewhat strange non-Noetherian phenomenon (see \cite[\href{https://stacks.math.columbia.edu/tag/05JA}{Tag 05JA}]{stacks} for more details).  
             \begin{remark}[An etymological comment]
-                Why is the vacuum module named that way ? 
+                The vacuum module is named as such because highest-weight vectors therein, which are generators for this cyclic module, live in the degree-$0$ component of the Fock space, and thus represent vacuum states. 
             \end{remark}
+
+            Let us now construct a VOA structure on $\V_0$, following \cite[Section 2.2]{frenkel_ben_zvi_vertex_algebras_and_algebraic_curves}. 
     
         \subsection{The principal and homogeneous vertex constructions}
 
@@ -137,7 +204,7 @@
 
     \section{Vertex representations of affine Lie algebras and the Feigin-Frenkel centre}
 
-    \section{\texorpdfstring{$\hat{\gl}_{\infty}$}{} and the Boson-Fermion Correspondence} 
+    \section{\texorpdfstring{$\hat{\gl}_{\infty}$}{} and the Boson-Fermion Correspondence}
     
     \addcontentsline{toc}{section}{References}
     \printbibliography

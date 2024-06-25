@@ -66,30 +66,42 @@
                 $$( d\bbC[v^{\pm 1}, t^{\pm 1}] )_{(r, s)} = d( \bbC[v^{\pm 1}, t^{\pm 1}]_{(r, s)} ) = d( \bbC v^r t^s ) = \bbC d(v^r t^s)$$
             which hold for all $(r, s) \in \Z^2$. We thus get:
                 $$\bar{\Omega}^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC} \cong \bigoplus_{(r, s) \in \Z^2} \frac{ \bbC v^{r - 1} t^s dv \oplus \bbC v^r t^{s - 1} dt }{ \bbC d(v^r t^s) }$$
-            Next, let us compute the direct summands. To begin, observe that when $(r, s) = (0, 0)$, we have that:
-                $$\bbC v^{0 - 1} t^0 dv \oplus \bbC v^0 t^{0 - 1} dt = \bbC v^{-1} dv \oplus \bbC t^{-1} dt$$
-                $$\bbC d(v^0 t^0) = \bbC d(1) = \bbC 0 = 0$$
-            When $(r, s) \not = (0, 0)$, note that because elements $\omega \in \bbC v^{r - 1} t^s dv \oplus \bbC v^r t^{s - 1} dt$ can be written as:
-                $$\omega := a v^{r - 1} t^s dv + b v^r t^{s - 1} dt$$
-            for some $a, b \in \bbC$, one has that:
-                $$\omega \equiv 0 \pmod{d\bbC[v^{\pm 1}, t^{\pm 1}]}$$
-            if and only if:
-                $$a \in \bbC r, b \in \bbC s$$
-            By using the fact that $0 \equiv d(v^r t^s) \equiv r v^{r - 1} t^s dv + s v^r t^{s - 1} dt \pmod{d\bbC[v^{\pm 1}, t^{\pm 1}]}$, and hence $r v^{r - 1} t^s dv \equiv -s v^r t^{s - 1} dt \pmod{d\bbC[v^{\pm 1}, t^{\pm 1}]}$, we can rewrite:
+            Next, let us compute the direct summands.
+            \begin{itemize}
+                \item To begin, observe that when $(r, s) = (0, 0)$, we have that:
+                    $$\bbC v^{0 - 1} t^0 dv \oplus \bbC v^0 t^{0 - 1} dt = \bbC v^{-1} dv \oplus \bbC t^{-1} dt$$
+                    $$\bbC d(v^0 t^0) = \bbC d(1) = \bbC 0 = 0$$
+                This implies that:
+                    $$\frac{ \bbC v^{r - 1} t^s dv \oplus \bbC v^r t^{s - 1} dt }{ \bbC d(v^r t^s) } \cong \bbC v^{-1} \bar{d}v \oplus \bbC t^{-1} \bar{d}t$$
+                when $(r, s) = (0, 0)$.
+                \item Next, consider $(r, s) \not = (0, 0)$. Any element $\omega \in \bbC v^{r - 1} t^s dv \oplus \bbC v^r t^{s - 1} dt$ can be written in the form:
+                    $$\omega := a v^{r - 1} t^s dv + b v^r t^{s - 1} dt$$
+                for some $a, b \in \bbC$, and by using the fact that $0 \equiv d(v^r t^s) \equiv r v^{r - 1} t^s dv + s v^r t^{s - 1} dt \pmod{d\bbC[v^{\pm 1}, t^{\pm 1}]}$, and hence $r v^{r - 1} t^s dv \equiv -s v^r t^{s - 1} dt \pmod{d\bbC[v^{\pm 1}, t^{\pm 1}]}$, we can rewrite:
+                    $$
+                        \begin{aligned}
+                            \omega & \equiv a v^{r - 1} t^s dv + \frac{b}{s} s v^r t^{s - 1} dt \pmod{d\bbC[v^{\pm 1}, t^{\pm 1}]}
+                            \\
+                            & \equiv a v^{r - 1} t^s dv - \frac{b}{s} r v^{r - 1} t^s dv \pmod{d\bbC[v^{\pm 1}, t^{\pm 1}]}
+                            \\
+                            & \equiv \frac{as - br}{s} v^{r - 1} t^s dv \pmod{d\bbC[v^{\pm 1}, t^{\pm 1}]}
+                        \end{aligned}
+                    $$
+                whenever $s \not = 0$ and similarly, we can rewrite:
+                    $$\omega \equiv -\frac{as - br}{r} v^r t^{s - 1} dt \pmod{d\bbC[v^{\pm 1}, t^{\pm 1}]}$$
+                whenever $r \not = 0$. Since $a, b \in \bbC$ are arbitrary, any element of $\bbC$ can be written in the form $as - br$ (as $\bbC$ is a vector space over itself), and hence we gather from the rewritings of $\omega$ from above that:
+                    $$
+                        \frac{ \bbC v^{r - 1} t^s dv \oplus \bbC v^r t^{s - 1} dt }{ \bbC d(v^r t^s) } \cong
+                        \begin{cases}
+                            \text{$\bbC \frac1s v^{r - 1} t^s \bar{d}v$ if $(r, s) \in \Z \x (\Z \setminus \{0\})$}
+                            \\
+                            \text{$\bbC \frac{-1}{r} v^r t^{-1} \bar{d}t$ if $(r, s) \in (\Z \setminus \{0\}) \x \{0\}$}
+                        \end{cases}
+                    $$
+                for all $(r, s) \not = (0, 0)$.
+            \end{itemize}
+            In conclusion, we have computed the direct summands to be:
                 $$
-                    \begin{aligned}
-                        \omega & \equiv a v^{r - 1} t^s dv + \frac{b}{s} s v^r t^{s - 1} dt \pmod{d\bbC[v^{\pm 1}, t^{\pm 1}]}
-                        \\
-                        & \equiv a v^{r - 1} t^s dv - \frac{b}{s} r v^{r - 1} t^s dv \pmod{d\bbC[v^{\pm 1}, t^{\pm 1}]}
-                        \\
-                        & \equiv \frac{as - br}{s} v^{r - 1} t^s dv \pmod{d\bbC[v^{\pm 1}, t^{\pm 1}]}
-                    \end{aligned}
-                $$
-            whenever $s \not = 0$ and similarly, we can rewrite:
-                $$\omega \equiv -\frac{as - br}{r} v^r t^{s - 1} dt \pmod{d\bbC[v^{\pm 1}, t^{\pm 1}]}$$
-            whenever $r \not = 0$. Since $a, b \in \bbC$ are arbitrary, any element of $\bbC$ can be written in the form $as - br$, and hence we gather from the above that:
-                $$
-                    \frac{ \bbC v^{r - 1} t^s dv \oplus \bbC v^r t^{s - 1} dt }{ \bbC d(v^r t^s) } =
+                    \frac{ \bbC v^{r - 1} t^s dv \oplus \bbC v^r t^{s - 1} dt }{ \bbC d(v^r t^s) } \cong 
                     \begin{cases}
                         \text{$\bbC \frac1s v^{r - 1} t^s \bar{d}v$ if $(r, s) \in \Z \x (\Z \setminus \{0\})$}
                         \\
@@ -98,10 +110,9 @@
                         \text{$\bbC v^{-1}\bar{d}v \oplus \bbC t^{-1} \bar{d}t$ if $(r, s) = (0, 0)$}
                     \end{cases}
                 $$
-            
-            We are now able to write $\bar{\Omega}^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC}$ as a direct sum as follows:
+            As such, we are now able to write $\bar{\Omega}^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC}$ as a direct sum as follows:
                 $$\bar{\Omega}^1_{\bbC[v^{\pm 1}, t^{\pm 1}]/\bbC} \cong ( \bigoplus_{(r, s) \in \Z^2} \bbC K_{r, s}) \oplus \bbC c_v \oplus \bbC c_t$$
-            wherein:
+            wherein the basis elements are given by:
                 $$
                     K_{r, s} :=
                     \begin{cases}
