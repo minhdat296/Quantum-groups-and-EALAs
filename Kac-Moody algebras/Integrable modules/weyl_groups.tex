@@ -1,0 +1,71 @@
+\section{Weyl groups of Kac-Moody algebras}
+    \subsection{Conventions}
+        Everything will be done over $\bbC$.
+    
+        In the sequel, suppose that $C$ is an indecomposable symmetrisable Cartan matrix with symmetrisation $C := DA$ and let $\g$ denote the Kac-Moody algebra associated to $C$. Fix a Cartan subalgebra $\h$.
+        
+        On $\g$, let us fix a non-degenerate and invariant bilinear form $(-, -)_{\g}$ as in \cite[Chapter 2]{kac_infinite_dimensional_lie_algebras} Denote the set of vertices of the Dynkin diagram of $\g$ by $\simpleroots$, its set of Chevalley-Serre generators by $\{x_i^{\pm}, h_i\}_{i \in \simpleroots}$.
+        
+        Denote the set of simple roots by $\{\alpha_i\}_{i \in \simpleroots}$, and denote the corresponding root lattice by $Q := \bigoplus_{i \in \simpleroots} \Z \alpha_i$; recall that this is a lattice inside $\h^*$, in the sense that $Q \tensor_{\Z} \bbC \cong \h^*$. Also, denote the root system by $\Phi$, and the sets of positive/negative roots by $\Phi^{\pm}$. The set of simple coroots will be denoted by $\{\check{\alpha}_i\}_{i \in \simpleroots}$, the coroot lattice will be denoted by $\check{Q} := \bigoplus_{i \in \simpleroots} \Z\check{\alpha}_i$ (this is a lattice inside $\h$), and the dual root system will be denoted by $\check{\Phi}$. The sets of real/imaginary roots of $\g$ will be denoted by $\Re(\Phi)$ and $\Im(\Phi)$ respectively, and we will also be writing $\Re(\Phi^{\pm}) := \Phi^{\pm} \cap \Re(\Phi)$ and $\Im(\Phi^{\pm}) := \Phi^{\pm} \cap \Im(\Phi)$. Recall also that simple roots are real.
+
+        Fix a root space decomposition:
+            $$\g \cong \h \oplus \bigoplus_{\alpha \in \Phi} \g_{\alpha}$$
+        and let:
+            $$\n^{\pm} := \bigoplus_{\alpha \in \Phi^{\pm}} \g_{\alpha}$$
+    
+        Recall also that given any positive root $\alpha \in \Phi^+$, there is a Lie algebra isomorphism:
+            $$\sl_2 \xrightarrow[]{\cong} \bbC x_{-\alpha} \oplus \bbC \check{\alpha} \oplus \bbC x_{\alpha}$$
+        given by:
+            $$x^{\pm} \mapsto x_{\pm \alpha}, h \mapsto \check{\alpha}$$
+        where $x^{\pm}, h$ are the standard Chevalley-Serre generators of $\sl_2$, and $x_{\pm \alpha} \in \g_{\pm \alpha}$ are root vectors such that $[x_{\alpha}, x_{-\alpha}] = \check{\alpha}$. We caution the reader that, in general, roots can be of multiplicities $\geq 1$ and hence it is only true that $\bbC x_{\alpha} \subseteq \g_{\alpha}$.
+
+        If $V$ is a $\g$-module with a weight space decomposition then its set of weights will be denoted by $\Pi(V)$.
+
+        With respect to the bilinear form $(-, -)_{\g}$, one has the fundamental weights $\varpi_i \in \h$ which are dual to the simple coroots, i.e. $(\varpi_i, \check{\alpha}_j)_{\g} := \delta_{i, j}$ for all $i, j \in \simpleroots$. The lattice spanned by these fundamental weights, the so-called weight lattice, shall be denoted by $\Lambda := \bigoplus_{i \in \simpleroots} \Z \varpi_i$. We will also be needing the sub-semigroup $\Lambda^+ := \bigoplus_{i \in \simpleroots} \Z_{\geq 0} \varpi_i$, whose elements are known as dominant integral weights. An important property of dominant integral weights $\varpi$ is that $(\varpi, \check{\alpha})_{\g} \geq 0$ for all $\alpha \in \Phi^+$. Additionally, let us observe that there is an injective $\Z$-linear map $Q \hookrightarrow \Lambda$ given by $\alpha_i \mapsto \varpi_i$.
+
+        Finally, it is common to abbreviate:
+            $$\<\lambda, \alpha\> := \frac{(\lambda, \check{\alpha})_{\g}}{(\alpha, \alpha)_{\g}}$$
+        for all $\lambda \in \h^*$ and all $\alpha \in \Phi$. Note that the bilinear form $\<-, -\>$ is \textit{not} symmetric.
+
+    \subsection{Classification of integrable modules of symmetrisable Kac-Moody algebras}
+        \begin{definition}[Integrable modules] \label{def: integrable_modules}
+            A $\g$-module $\pi: \g \to \gl(V)$ is said to be \textbf{integrable} if and only if it has a weight space decomposition and the operators $\pi(x_i^{\pm}) \in \gl(V)$ are locally nilpotent, which is to say that for any $v \in V$, there exists some $N^+(v), N^-(v) \in \N$ (depending on $v$) so that $\pi(x_i^{\pm})^n \cdot v = 0$ respectively for all $n > N^{\pm}(v)$.
+        \end{definition}
+        \begin{example}
+            Due to the Serre relations ($\ad(x_i^{\pm})^{1 - \<\alpha_i, \alpha_j\>} \cdot x_j^{\pm} = 0$ for all $i \not = j \in \simpleroots$) in the Chevalley-Serre presentation of $\g$, $\g$ is an integrable module over itself. 
+        \end{example}
+        \begin{remark}
+            It is not true that if $V$ is integrable then $\Pi(V)$ will be a finite set. For instance, even though $\g$ is an integrable module over itself, it generally has an infinite set of weights (the set of imaginary roots, in particular, is infinite unless $\g$ is of finite type).
+        \end{remark}
+        \begin{remark}
+            It is evident that direct sums of integrable modules are once more integrable.
+        \end{remark}
+
+        We will be needing the following lemma particularly in the case where $\g \cong \sl_2$.
+        \begin{lemma} \label{lemma: finite_type_integrability}
+            If $\g$ is of finite type then a $\g$-module $V$ will be integrable if and only if $V$ is a (possibly infinite) direct sum of finite-dimensional simple $\g$-modules.
+        \end{lemma}
+            \begin{proof}
+                Suppose firstly that $V$ is a (possibly infinite) direct sum of finite-dimensional $\g$-modules. Actually, we can assume right away without any loss of generality $V$ that is finite-dimensional, since we know that direct sums of integrable modules are again integrable. Weyl's theorem tells us that a finite-dimensional $\g$-module $V$ decomposes into a direct sum of simple $\g$-submodules, so we can assume without any loss of generality that $V$ is simple, say $V \cong \simple^{\lambda}$ for some $\lambda \in \Lambda^+$. Since $\simple^{\lambda}$ is a quotient of the standard module $\standard^{\lambda} := \rmU(\g)/\<\n^+, \h - \lambda\>$, the operators $x_i^+$ automatically act as zero (and hence nilpotently) on $\simple^{\lambda}$. Now, it is also well-known that the underlying vector space of $\standard^{\lambda}$ is isomorphic to $\rmU(\n^-) \cong \bigoplus_{n \geq 0} (\n^-)^{\tensor n}$. For $\simple^{\lambda}$ to be finite-dimensional, the elements $x_i^- \in \n^-$ must therefore also act (locally) nilpotently. Finally, since $\standard^{\lambda}$ has a weight space decomposition, so does $\simple^{\lambda}$. We have therefore verified all the conditions for $V \cong \simple^{\lambda}$ ($\lambda$ dominant integral) to be integrable. 
+
+                Conversely, suppose that $V$ is integrable. Next, fix a vector $v \in V$. Per PBW, the monomials $(x_i^-)^m (x_i^+)^n \cdot v \in V$ are all linearly independent from one another (the ordering is also due to PBW), and per the fact that the operators $x_i^{\pm}$ are locally nilpotent, the subspace:
+                    $$\sum_{m, n \geq 0} \bbC \cdot (x_i^-)^m (x_i^+)^n \cdot v = \bigoplus_{m, n \geq 0} \bbC \cdot (x_i^-)^m (x_i^+)^n \cdot v$$
+                is necessarily finite-dimensional should $i \in \simpleroots$ be fixed, since $(x_i^{\pm})^N \cdot v = 0$ for $N \gg 0$ and hence the direct sum is actually finite. Since $V$ is a weight module, we can assume without any loss of generality that $v \in V_{\mu}$ for some $\mu \in \Pi(V)$ and hence $\bigoplus_{m, n \geq 0} \bbC \cdot (x_i^-)^m (x_i^+)^n \cdot v$ is $\h$-stable, and hence $U(v) := \rmU(\g) \cdot v$ is a $\g$-submodule of $V$. Moreover, $\rmU(\g)$ is left-Noetherian due to $\g$ being finite-dimensional, so $U(v)$ is actually finite-dimensional. Weyl's theorem then tells us that $U(v)$ decomposes into a direct sum of (finite-dimensional) simple $\g$-submodules, say $U(v) := \bigoplus_{j \in J} U_j(v)$, where $J$ is some finite indexing set and each $U_j(v)$ is a finite-dimensional simple $\g$-module. Letting $v$ vary over the basis vectors of $V$ then yields the desired result, namely that $V$ is a direct sum of the finite-dimensional $\g$-modules $U(v)$. 
+            \end{proof}
+        In particular, we see that when $\g$ is of finite type, a $\g$-module being integrable implies that it is semi-simple. The converse statement needs not hold. For instance, it is known that $\sl_2$ possesses simple modules which do not even have weight space decompositions, hence fail to be integrable by definition.
+        \begin{proposition}[$\sl_2$-integrability] \label{prop: sl2_integrability}
+            Let $V$ be an integrable $\g$-module. When regarded as an $\sl_2$-module, $V$ will also be integrable. Because $\sl_2$ is of finite type, this means that $V$ shall hence decompose into a direct sum of (potentially infinitely many) finite-dimensional $\h$-invariant simple $\sl_2$-submodules, per lemma \ref{lemma: finite_type_integrability}.
+        \end{proposition}
+            \begin{proof}
+                Firstly, fix an identification $\sl_2 \xrightarrow[]{\cong} \bbC x_{-\alpha} \oplus \bbC \check{\alpha} \oplus \bbC x_{\alpha}$ for some fixed choice $\alpha \in \Phi^+$ and root vectors $x_{\pm \alpha} \in \g_{\pm \alpha}$. From the integrability assumption, $V$ is a weight $\g$-module and hence also a weight $\sl_2$-module. The integrability assumption also means that the operators $x_{\pm \alpha}$ act locally nilpotently on $V$. As such, $V$ is also integrable as an $\sl_2$-module. Since $\sl_2$ is of finite type, the rest follows from lemma \ref{lemma: finite_type_integrability}.
+            \end{proof}
+
+        Now, suppose that $V$ is a highest-weight $\g$-module, say of highest weight $\lambda \in \h^*$, and suppose that $v_{\lambda} \in V$ is a highest-weight vector. Since $\n^+ \cdot V = 0$ and since highest-weight modules are - of course - weight modules (i.e. they admit weight space decompositions) according to the definition of highest-weight modules, we see that such a module $V$ is integrable if and only if the operators $x_i^-$ act locally nilpotently on $V$ for all $i \in \simpleroots$. This is already a rather nice characterisation, but when $V$ is simple, we can do much better: there is a generalisation of the Theorem of Highest Weights to the symmetrisable Kac-Moody setting.
+        \begin{theorem}[Classification of simple integrable modules for symmetrisable Kac-Moody algebras] \label{theorem: classification_of_simple_integrable_modules}
+            \cite[Lemma 10.1]{kac_infinite_dimensional_lie_algebras} There is a bijection between the set of dominant integral weights $\Lambda^+$ of $\g$ and that of simple integrable $\g$-modules.
+        \end{theorem}
+            \begin{proof}
+                
+            \end{proof}
+
+        
