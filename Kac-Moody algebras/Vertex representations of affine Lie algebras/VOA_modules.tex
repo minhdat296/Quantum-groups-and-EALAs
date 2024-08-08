@@ -1,64 +1,72 @@
 \section{Modules over VOAs and examples}
     \subsection{Modules over VOAs}
 
-    \subsection{Lattice Heisenberg VOAs}
+    \subsection{Heisenberg algebras, rank-1 lattice VOAs, and the boson-fermion correspondence}
         \begin{definition}[Lattices] \label{def: lattices}
             A \textbf{lattice} shall be a finite free $\Z$-module $L$ equipped with a symmetric $\Z$-bilinear form:
-                $$\<-, -\>: L \tensor_{\Z} L \to \Z$$
-            that is \textit{positive-definite}, i.e. for all $\lambda \in L \setminus \{0\}$, one has that $\<\lambda, \lambda\> > 0$.
+                $$(-, -): L \tensor_{\Z} L \to \Z$$
+            that is \textit{positive-definite}, i.e. for all $\lambda \in L \setminus \{0\}$, one has that $(\lambda, \lambda) > 0$.
         \end{definition}
         \begin{example}
-            The root lattice $Q$ of the finite-dimensional simple Lie algebra $\g$, on which the bilinear form is induced by the level $\kappa$, satisfies definition \ref{def: lattices}. In this case, recall also that the Cartan subalgebra $\h$ is isomorphic to the complexification of $Q$, i.e.:
-                $$\h \cong Q \tensor_{\Z} \bbC$$
+            The root lattice $Q$ of the finite-dimensional simple Lie algebra $\g$, on which the bilinear form is induced by the level $\kappa$, satisfies definition \ref{def: lattices}. In this case, recall also that the Cartan subalgebra $\h$ is isomorphic to the dual of the complexification of $Q$, i.e.:
+                $$\h \cong (Q \tensor_{\Z} \bbC)^*$$
             because $\h$ admits the set of simple roots as a basis.
         \end{example}
 
         \begin{definition}[Heisenberg algebras associated to lattices] \label{def: lattice_heisenberg_algebras} 
-            Given a lattice $(L, \<-, -\>)$, set $\h_L := L \tensor_{\Z} \bbC$, and let us regard this as an abelian Lie algebra. The \textbf{Heisenberg algebra} associated to said lattice, denoted by $\tilde{\h}_L$, is then the central extension:
+            Given a lattice $(L, (-, -))$, set $\h_L := (L \tensor_{\Z} \bbC)^*$, and let us regard this as an abelian Lie algebra. The \textbf{Heisenberg algebra} associated to said lattice, denoted by $\tilde{\h}_L$, is then the central extension:
                 $$0 \to \bbC c_L \to \tilde{\h}_L \to \h_L[v^{\pm}] \to 0$$
             whose Lie bracket is given by:
-                $$[ h f, h' g ]_{\tilde{\h}_L} := \<h, h'\> \Res_{v = 0} g df \cdot c_L$$
+                $$[ h f, h' g ]_{\tilde{\h}_L} := (h, h') \Res_{v = 0} g df \cdot c_L$$
             for all $h, h' \in \h_L$ and all $f, g \in \bbC[v^{\pm 1}]$; equivalently, the Lie bracket is given by:
-                $$[h v^m, h' v^n]_{\tilde{\h}_L} := \<h, h'\> \delta_{m + n, 0} n \cdot c_L$$
+                $$[h v^m, h' v^n]_{\tilde{\h}_L} := (h, h') \delta_{m + n, 0} n \cdot c_L$$
         \end{definition}
         \begin{definition}[Weyl algebras associated to lattices] \label{def: lattice_weyl_algebras}
-            Let $L$ be a lattice. Next, let us write $\bar{\rmH}_L := \rmU(\tilde{\h}_L)/\<c_L - 1\>$. Then, we can define the \textbf{Weyl algebra} associated to the given lattice $L$ - which shall be denoted by $\tilde{\rmH}_L$ - to be the $v$-adic completion:
-                $$\tilde{\rmH}_L := \projlim_{m \geq 1} \bar{\rmH}_L/\bar{\rmH}_L \cdot v^n$$
+            Let $L$ be a lattice. Next, let us write $\bar{\scrH}_L := \rmU(\tilde{\h}_L)/(c_L - 1)$. Then, we can define the \textbf{Weyl algebra} associated to the given lattice $L$ - which shall be denoted by $\tilde{\scrH}_L$ - to be the $v$-adic completion:
+                $$\tilde{\scrH}_L := \projlim_{m \geq 1} \bar{\scrH}_L/\bar{\scrH}_L \cdot v^n$$
         \end{definition}
 
         It is clear that the Heisenberg algebra $\tilde{\h}_L$ admits a triangular decomposition of sort, as follows, which is nothing but the $\Z$-grading on $\tilde{\h}_L$:
             $$\tilde{\h}_L \cong \tilde{\h}_L^- \oplus \tilde{\h}_L^0 \oplus \tilde{\h}_L^+$$
         where:
             $$\tilde{\h}_L^{\pm} := \bigoplus_{m \in \pm \Z_{> 0}} \h_L v^m, \tilde{\h}_L^0 := \h_L \oplus \bbC c_L$$
-        This, in turn, induces a triangular decomposition for $\tilde{\rmH}_L$, and we will be interested in the upper \say{Borel subalgebra} $\tilde{\rmH}_L^{\geq 0}$, which is the quotient by $c_L - 1$ of the $v$-adically completed universal enveloping algebra of $\bigoplus_{m \in \Z_{\geq 0}} \h_L v^m \oplus \bbC c_L$. This allows us to define the \textbf{vacuum module} of highest weight $\lambda \in \h_L^*$:
-            $$\V_L^{\lambda} := \tilde{\rmH}_L \tensor_{\tilde{\rmH}_L^{\geq 0}} \bbC c_L$$
-        A standard argument shows that, as a vector space, this is isomorphic to the underlying vector space of $\rmU(v^{-1}\h_L[v^{-1}])$, which itself is isomorphic to the vector space:
-            $$\Sym( v^{-1}\h_L[v^{-1}] ) \cdot v_{\lambda} \cong \Sym(\h_L)[b_{-1}, b_{-2}, ...] \cdot v_{\lambda} \cong \rmU(\h_L)[b_{-1}, b_{-2}, ...]$$
-        as $v^{-1}\h_L[v^{-1}]$ is an abelian Lie subalgebra of $\tilde{\h}_L$. As a left-$\tilde{\rmH}_L$-module, it is specified by the relations:
-            $$\tilde{\h}_L^+ \cdot v_{\lambda} = 0$$
-            $$\forall h \in \h_L h \cdot v_{\lambda} = \lambda(h) v_{\lambda}$$
+        This, in turn, induces a triangular decomposition for $\tilde{\scrH}_L$, and we will be interested in the upper \say{Borel subalgebra} $\tilde{\scrH}_L^{\geq 0}$, which is the quotient by $c_L - 1$ of the $v$-adically completed universal enveloping algebra of $\bigoplus_{m \in \Z_{\geq 0}} \h_L v^m \oplus \bbC c_L$. This allows us to define the \textbf{vacuum module} of highest weight $\lambda \in \h_L^*$:
+            $$\V_L^{\lambda} := \tilde{\scrH}_L \tensor_{\tilde{\scrH}_L^{\geq 0}} \bbC c_L$$
+            
+        A standard argument shows that, as a vector space, $\V_L^{\lambda}$ is isomorphic to the underlying vector space of $\rmU(v^{-1}\h_L[v^{-1}])$, which itself is isomorphic to the vector space:
+            $$\rmU(v^{-1}\h_L[v^{-1}]) \cdot \ket{\lambda} \cong \Sym( v^{-1}\h_L[v^{-1}] ) \cdot \ket{\lambda}$$
+        as $v^{-1}\h_L[v^{-1}]$ is an abelian Lie subalgebra of $\tilde{\h}_L$. One can also explicitly compute a basis for the vector space $\Sym( v^{-1}\h_L[v^{-1}] )$, namely:
+            $$\Sym( v^{-1}\h_L[v^{-1}] ) \cong \bbC[ \{ h_{i, m} \}_{(i, m) \in I \x \Z_{< 0}} ]$$
+        should we choose a basis $\{\alpha_i\}_{i \in I}$ for the lattice $L$. Explicitly, the isomorphism is given by:
+            $$h_i^{(m)} \mapsto h_{i, m}$$
+        \begin{remark}
+            It is useful to keep in mind, for later, that when $L$ is of rank $1$ (i.e. $L \cong \Z$), the underlying vector space of $\V_L^{\lambda}$ shall be isomorphic to $\bbC[\{h_{1, m}\}_{m \in \Z_{< 0}}]$ (say, we are fixing a basis $L := \Z \alpha_1$). In \cite{frenkel_ben_zvi_vertex_algebras_and_algebraic_curves}, the authors chose the identification $\bbC[\{h_{1, m}\}_{m \in \Z_{< 0}}] \cong \bbC[b_{-1}, b_{-2}, ...]$.
+        \end{remark} 
+        
+       In any event, the underlying vector space of $\V_L^{\lambda}$ is then acted on by $\tilde{\scrH}_L$ (from the left!) in the following manner: 
+            $$\tilde{\h}_L^+ \cdot \ket{\lambda} = 0$$
+            $$\forall h \in \h_L h \cdot \ket{\lambda} = \lambda(h) \ket{\lambda}$$
         Note also that there is an evident $\Z_{\geq 0}$-grading on $\V_L^{\lambda}$, given by:
-            $$\deg v_{\lambda} := 0$$
-            $$\forall h \in \h_L: \deg h \cdot v_{\lambda} := 0$$
-            $$\forall m < 0: \deg b_m \cdot v_{\lambda} := -m$$
+            $$\deg \ket{\lambda} := 0$$
+            $$\forall (i, m) \in I \x \Z_{< 0}: \deg h_{i, m} \cdot \ket{\lambda} := -m$$
         This is important for showing that:
         \begin{lemma}[$\V_L^{\lambda}$ is simple] \label{lemma: weyl_vacuum_modules_are_simple}
-            For any $\lambda \in \h_L^*$, the left-$\tilde{\rmH}_L$-module $\V_L^{\lambda}$ is simple.
+            For any $\lambda \in \h_L^*$, the left-$\tilde{\scrH}_L$-module $\V_L^{\lambda}$ is simple.
         \end{lemma}
             \begin{proof}
-                Suppose $U$ is a non-zero left-$\tilde{\rmH}_L$-submodule of $\V_L^{\lambda}$, which \textit{may or may not be proper}. By construction, $\V_L^{\lambda}$ is cyclic, and so $U$ is also generated by the maximal vector $v_{\lambda}$, and hence in particular, also $\Z_{\geq 0}$-graded with the degree-$0$ component being $\bbC v_{\lambda}$. Now, because $\tilde{\h}_L^-$ acts freely via left-multiplication by the elements $b_{-1}, b_{-2}, ...$, for any homogeneous element $u \in U$, any $h \in \h_L$, and any $m < 0$, one has that:
-                    $$\deg( h v^m \cdot u ) = \deg b_m + \deg u = -m + \deg u$$
-                This implies that for $U$ to be a well-defined left-$\tilde{\rmH}_L$-module, we must have that:
+                Suppose $U$ is a non-zero left-$\tilde{\scrH}_L$-submodule of $\V_L^{\lambda}$, which \textit{may or may not be proper}. By construction, $\V_L^{\lambda}$ is cyclic, and so $U$ is also generated by the maximal vector $\ket{\lambda}$, and hence in particular, also $\Z_{\geq 0}$-graded with the degree-$0$ component being $\bbC \ket{\lambda}$. Now, because $\tilde{\h}_L^-$ acts freely via left-multiplication by the elements of $\{ h_{i, m} \}_{(i, m) \in I \x \Z_{< 0}}$, one has that:
+                    $$\deg( h_{i, m} \cdot u ) = -m + \deg u$$
+                This implies that for $U$ to be a well-defined left-$\tilde{\scrH}_L$-module, we must have that:
                     $$U \cong \bigoplus_{n \in \Z_{\geq 0}} U_n$$
                 in which:
                     $$\forall n \in \Z_{\geq 0}: U_n \not = 0$$
                 Now, by the general theory of graded modules, we know that:
                     $$U_n = U \cap (\V_L^{\lambda})_n$$
-                We also know that the underlying vector space of $\V_L^{\lambda}$ is $\rmU(\h_L)[b_{-1}, b_{-2}, ...] \cdot v_{\lambda}$, the degree-$n$ components $(\V_L^{\lambda})_n$ are nothing but spans of all (commutative) monomials of the kind:
-                    $$h b_{m_r} ... b_{m_1}$$
-                wherein $h \in \rmU(\h_L)$ is some monomial and the indices $m_r \geq ... \geq m_1$ make up an ordered partition of $n$, i.e.:
+                We also know that the underlying vector space of $\V_L^{\lambda}$ is $\bbC[\{ h_{i, m} \}_{(i, m) \in I \x \Z_{< 0}}] \cdot \ket{\lambda}$, the degree-$n$ components $(\V_L^{\lambda})_n$ are nothing but spans of all (commutative) monomials of the kind:
+                    $$h_{i_r, m_r} ... h_{i_1, m_1}$$
+                wherein the indices $i_r, ..., i_1 \in I$ are arbitrary and the indices $m_r \geq ... \geq m_1$ make up an ordered partition of $n$, i.e.:
                     $$m_r + ... + m_1 = n$$
-                (note that these monomials are linearly independent from one another). Thus, we see that each $U_n$ is spanned by certain monomials of said kind. However, given any ordered partition $m_r + ... + m_1 = n$ of some $n \geq 0$ corresponding to some monomial $b_{m_r} ... b_{m_1}$ of degree $n$, one can always construct a new monomial $b_{m_{r + 1}} b_{m_r} ... b_{m_1}$ of degree $-m_{r + 1} + n$ for some $m_{r + 1} < 0$. This implies that for every $n \geq 0$, one actually have that:
+                (note that these monomials are linearly independent from one another). Thus, we see that each $U_n$ is spanned by certain monomials of said kind. However, given any ordered partition $m_r + ... + m_1 = n$ of some $n \geq 0$ corresponding to some monomial $h_{i_r, m_r} ... h_{i_1, m_1}$ of degree $n$, one can always construct a new monomial $h_{i_{r + 1}, m_{r + 1}} h_{i_r, m_r} ... h_{i_1, m_1}$ of degree $-m_{r + 1} + n$ for some $m_{r + 1} < 0$. This implies that for every $n \geq 0$, one actually have that:
                     $$U_n = (\V_L^{\lambda})_n$$
                 i.e. $U$ being a non-zero submodule automatically implies that it is the entirety of $\V_L^{\lambda}$. In other words, $\V_L^{\lambda}$ admits no non-zero proper submodule, and is therefore simple.
             \end{proof}
@@ -73,92 +81,137 @@
                 (with both statements holding for all $A, B \in \tilde{\h}_L$), we will clearly get a contradiction. Note the subtlety that $\trace(AB) = \trace(BA)$ is an identity depending crucially on the assumption that $\dim V < +\infty$.
             \end{proof}
         \begin{corollary}
-            $\tilde{\rmH}_L$-modules are necessarily infinite-dimensional. 
+            $\tilde{\scrH}_L$-modules are necessarily infinite-dimensional. 
         \end{corollary}
-        \begin{proposition}[Classification of $\Z_{\geq 0}$-graded simple left-$\tilde{\rmH}_L$-modules of countable dimensions] \label{prop: simple_lattice_weyl_modules_are_vacuum_modules}
-            Any $\Z_{\geq 0}$-graded simple left-$\tilde{\rmH}_L$-module of some countable dimension is isomorphic to some $\V_L^{\lambda}$, for some $\lambda \in \h_L^*$.
+        \begin{proposition}[Classification of $\Z_{\geq 0}$-graded simple left-$\tilde{\scrH}_L$-modules of countable dimensions] \label{prop: simple_lattice_weyl_modules_are_vacuum_modules}
+            Any $\Z_{\geq 0}$-graded simple left-$\tilde{\scrH}_L$-module of some countable dimension is isomorphic to some $\V_L^{\lambda}$, for some $\lambda \in \h_L^*$.
         \end{proposition}
             \begin{proof}
-                Since we know that $\tilde{\rmH}_L$-modules are necessarily infinite-dimensional, if $V := \bigoplus_{n \in \Z_{\geq 0}} V_n$ is a $\Z_{\geq 0}$-graded $\tilde{\rmH}_L$-module then because $\dim V$ is assumed to be countable, the graded components will be such that $V_n \not = 0$ for all $n \in \Z_{\geq 0}$. Without any loss of generality, we can pick the grading on $V$ so that $V_0$ is a $\tilde{\rmH}_L^0$-submodule of $V$. Furthermore, the assumption that $V$, as a $\tilde{\rmH}_L$-module, is only strictly $\Z_{\geq 0}$-graded instead of being $\Z$-graded, implies that $\tilde{\rmH}_L^+ \cdot V_0 = 0$.
+                Since we know that $\tilde{\scrH}_L$-modules are necessarily infinite-dimensional, if $V := \bigoplus_{n \in \Z_{\geq 0}} V_n$ is a $\Z_{\geq 0}$-graded $\tilde{\scrH}_L$-module then because $\dim V$ is assumed to be countable, the graded components will be such that $V_n \not = 0$ for all $n \in \Z_{\geq 0}$. Without any loss of generality, we can pick the grading on $V$ so that $V_0$ is a $\tilde{\scrH}_L^0$-submodule of $V$. Furthermore, the assumption that $V$, as a $\tilde{\scrH}_L$-module, is only strictly $\Z_{\geq 0}$-graded instead of being $\Z$-graded, implies that $\tilde{\scrH}_L^+ \cdot V_0 = 0$.
 
-                Let us now show that $\dim V_0 = 1$ if $V$ is furthermore simple to see that as a $\tilde{\rmH}_L$-module, $V$ is generated by a single highest-weight vector. To this end, suppose for the sake of deriving a contradiction that there exists a proper $\tilde{\rmH}_L^0$-submodule $U_0$ of $V_0$. This assumption, however, implies that $U := \tilde{\rmH}_L \cdot U_0$ shall be a proper $\tilde{\rmH}_L$-submodule of $V$. As $V$ is simple, we thus infer that $U = 0$, which in turn implies that the only proper $\tilde{\rmH}_L^0$-submodule of $V_0$ is $0$. $\tilde{\rmH}_L^0$, by construction, is a commutative algebra, so $\tilde{\rmH}_L^0$-submodules are nothing but vector subspaces, and hence the only proper vector subspace of $V_0$ is $0$. In other words, $\dim V_0 = 1$ necessarily, and hence we are done.
+                Let us now show that $\dim V_0 = 1$ if $V$ is furthermore simple to see that as a $\tilde{\scrH}_L$-module, $V$ is generated by a single highest-weight vector. To this end, suppose for the sake of deriving a contradiction that there exists a proper $\tilde{\scrH}_L^0$-submodule $U_0$ of $V_0$. This assumption, however, implies that $U := \tilde{\scrH}_L \cdot U_0$ shall be a proper $\tilde{\scrH}_L$-submodule of $V$. As $V$ is simple, we thus infer that $U = 0$, which in turn implies that the only proper $\tilde{\scrH}_L^0$-submodule of $V_0$ is $0$. $\tilde{\scrH}_L^0$, by construction, is a commutative algebra, so $\tilde{\scrH}_L^0$-submodules are nothing but vector subspaces, and hence the only proper vector subspace of $V_0$ is $0$. In other words, $\dim V_0 = 1$ necessarily, and hence we are done.
 
-                Now, denote the highest-weight vector of $V$ by $v_{\max}$, i.e. we set $V_0 := \bbC v_{\max}$. It remains to determine the eigenvalue(s) of $v_{\max}$ under actions of elements of $\h_L$. Because $V$ is simple as a $\tilde{\rmH}_L$-module, and because $\h_L$ is an abelian Lie algebra by definition - and hence $\rmU(\h_L)$ is a commutative subalgebra of $\tilde{\rmH}_L$ - its image under the composition:
-                    $$\rmU(\h_L) \to \tilde{\rmH}_L \to \End(V)$$
-                is necessarily $1$-dimensional, per Schur's Lemma (note that we need the ground field to be algebraically closed for this, which $\bbC$ is). Elements $h \in \h_L$ acting on $v_{\max}$ thus eigenvalues $\lambda(h)$, for some common $\lambda \in \h_L^*$. 
+                Now, denote the highest-weight vector of $V$ by $\ket{\lambda}$, i.e. we set $V_0 := \bbC \cdot \ket{\lambda}$. It remains to determine the eigenvalue(s) of $\ket{\lambda}$ under actions of elements of $\h_L$. Because $V$ is simple as a $\tilde{\scrH}_L$-module, and because $\h_L$ is an abelian Lie algebra by definition - and hence $\rmU(\h_L)$ is a commutative subalgebra of $\tilde{\scrH}_L$ - its image under the composition:
+                    $$\rmU(\h_L) \to \tilde{\scrH}_L \to \End(V)$$
+                is necessarily $1$-dimensional, per Schur's Lemma (note that we need the ground field to be algebraically closed for this, which $\bbC$ is). Elements $h \in \h_L$ acting on $\ket{\lambda}$ thus eigenvalues $\lambda(h)$, for some common $\lambda \in \h_L^*$. 
 
-                We have therefore proven that $V$ is a simple $\tilde{\rmH}_L$-module generated by a single vector $v_{\max}$, for which there exists some $\lambda \in \h_L^*$ such that:
-                    $$\tilde{\rmH}_L^+ \cdot v_{\max} = 0$$
-                    $$\forall h \in \h_L \cdot v_{\max} = \lambda(h) v_{\max}$$
+                We have therefore proven that $V$ is a simple $\tilde{\scrH}_L$-module generated by a single vector $\ket{\lambda}$, for which there exists some $\lambda \in \h_L^*$ such that:
+                    $$\tilde{\h}_L^+ \cdot \ket{\lambda} = 0$$
+                    $$\forall h \in \h_L \cdot \ket{\lambda} = \lambda(h) \ket{\lambda}$$
                 Thus, $V \cong \V_L^{\lambda}$ for some $\lambda \in \h_L^*$.
             \end{proof}
 
-            Even though proposition \ref{prop: simple_lattice_weyl_modules_are_vacuum_modules} does not give a complete classification of $\tilde{\rmH}_L$-modules, it is sufficiently useful for our purposes, as it guarantees that \textit{any $\tilde{\rmH}_L$-module with underlying vector space satisfying the assumptions of the Reconstruction Theorem is necessary some direct sums of the modules $\V_L^{\lambda}$.} We therefore begin our study of VOAs associated to lattices by studying the VOA structures on the modules $\V_L^{\lambda}$ granted to us by the Reconstruction Theorem. 
+            Even though proposition \ref{prop: simple_lattice_weyl_modules_are_vacuum_modules} does not give a complete classification of $\tilde{\scrH}_L$-modules, it is sufficiently useful for our purposes, as it guarantees that \textit{any $\tilde{\scrH}_L$-module with underlying vector space satisfying the assumptions of the Reconstruction Theorem is necessary some direct sums of the modules $\V_L^{\lambda}$.} We therefore begin our study of VOAs associated to lattices by studying the VOA structures on the modules $\V_L^{\lambda}$ granted to us by the Reconstruction Theorem. 
             \begin{example}[The bosonic Fock module] \label{example: bosonic_fock_modules}
-                A very important class of examples of countably dimensional $\Z_{\geq 0}$-graded simple left-$\tilde{\rmH}_L$-modules is that of \textbf{Fock modules} (or \textbf{Fock spaces}, to use the physicists' term) of highest weight $\lambda \in \h_L^*$. Before discussing the details surrounding these representations of $\tilde{\rmH}_L$, let us fix a (finite) $\Z$-linear basis $\{a_i\}_{i \in I}$ for $L$. This set is also a $\bbC$-linear basis for $\h_L := L \tensor_{\Z} \bbC$.
+                A very important class of examples of countably dimensional $\Z_{\geq 0}$-graded simple left-$\tilde{\scrH}_L$-modules is that of \textbf{(bosonic\footnote{We will return to this point later when we discuss the boson-fermion correspondence.}) Fock modules} (or \textbf{bosonic Fock spaces}, to use the physicists' term) of highest weight $\lambda \in \h_L^*$. Before discussing the details surrounding these representations of $\tilde{\scrH}_L$, let us fix a basis:
+                    $$\{\alpha_i\}_{i \in I}$$
+                for $L$. The corresponding basis for $\h_L := (L \tensor_{\Z} \bbC)^*$ shall then be denoted by:
+                    $$\{h_i\}_{i \in I}$$
                 
-                Let us denote said $\tilde{\rmH}_L$-modules by $\scrF_L^{\lambda}$. As vector spaces, they are isomorphic to:
-                    $$\rmU(\h_L)[b_{-1}, b_{-2}, ...]$$
-                much like the vacuum modules $\V_L^{\lambda}$ and in particular, this means that $\dim \scrF_L^{\lambda}$ is countable and that the underlying vector space of each $\scrF_L^{\lambda}$ is $\Z_{\geq 0}$-graded, in the same way that $\V_L^{\lambda}$ is $\Z_{\geq 0}$-graded. The $\tilde{\rmH}_L$-action is given by:
+                Let us denote said $\tilde{\scrH}_L$-modules by $\scrB_L^{\lambda}$ ($\scrB$ for \say{bosonic}). Firstly, let us define the underlying vector spaces of these modules to be:
+                    $$\bbC[ \{h_{i, m}\}_{(i, m) \in I \x \Z_{< 0}} ] \cdot \ket{\lambda}$$
+                much like the underlying vector spaces of the vacuum modules $\V_L^{\lambda}$. In particular, this means that $\dim \scrB_L^{\lambda}$ is countable and that the underlying vector space of each $\scrB_L^{\lambda}$ is $\Z_{\geq 0}$-graded, in the same way that $\V_L^{\lambda}$ is $\Z_{\geq 0}$-graded. The $\tilde{\scrH}_L$-action is given by:
                     $$
-                        a_i v^m \mapsto
+                        h_i^{(m)} := h_i v^m \mapsto
                         \begin{cases}
-                            \text{$b_{-m} \cdot \id_{\rmU(\h_L)[b_{-1}, b_{-2}, ...]}$ if $m > 0$}
+                            \text{$h_{i, -m} \cdot$ if $m > 0$}
                             \\
-                            \text{$-m \frac{\del}{\del b_m}$ if $m < 0$}
+                            \text{$-m \frac{\del}{\del h_{i, m}}$ if $m < 0$}
                             \\
-                            \text{$\lambda(a_i) \cdot \id_{\rmU(\h_L)[b_{-1}, b_{-2}, ...]}$ if $m = 0$}
+                            \text{$\lambda(\alpha_i) \cdot$ if $m = 0$}
                         \end{cases}
                     $$
-                for all $i \in I$, and clearly, this action is $\Z_{\geq 0}$-graded and of highest weight $\lambda \in \h_L^*$. Therefore, the only thing to prove in order to demonstrate that:
-                    $$\scrF_L^{\lambda} \cong \V_L^{\lambda}$$
-                as $\tilde{\rmH}_L$-modules, is that $\scrF_L^{\lambda}$ is simple.
-                \todo[inline]{Show that the Fock modules $\tilde{\rmH}_L^{\lambda}$ are simple.}
+                and clearly, this action is $\Z_{\geq 0}$-graded and of highest weight $\lambda \in \h_L^*$. Therefore, the only thing to prove in order to demonstrate that:
+                    $$\scrB_L^{\lambda} \cong \V_L^{\lambda}$$
+                as $\tilde{\scrH}_L$-modules, is that $\scrB_L^{\lambda}$ is simple. Suppose for the sake of deriving a contradiction that $\scrB_L^{\lambda}$ does admit a non-zero proper $\tilde{\scrH}_L$-submodule, say $U$. It is evident that $U$ is spanned by elements of the form:
+                    $$f \ket{\lambda}$$
+                for some:
+                    $$f \in \bbC[ \{h_{i, m}\}_{(i, m) \in I \x \Z_{< 0}} ]$$
+                If $f$ is a non-constant polynomial, one can then find some:
+                    $$\del := (-1)^r \prod_{m = 1}^r m \frac{\del}{\del h_{i, m}} \in \Diff(\bbC[ \{h_{i, m}\}_{(i, m) \in I \x \Z_{< 0}} ])$$
+                such that $\del f \in \bbC[ \{h_{i, m}\}_{(i, m) \in I \x \Z_{< 0}} ]$ is constant and \textit{non-zero}, and as such $(\del f) \cdot \ket{\lambda} \in (\scrB_L^{\lambda})_0$. But $U$ is $\tilde{\scrH}_L$-stable by assumption, and since $\scrB_L^{\lambda}$ is generated by degree-$0$ elements, the previous statement implies that $(\del f) \cdot \ket{\lambda} \in U$ actually generates all of $\scrB_L^{\lambda}$. We therefore have a contradiction, and hence $\scrB_L^{\lambda}$ is simple over $\tilde{\scrH}_L$. Per proposition \ref{prop: simple_lattice_weyl_modules_are_vacuum_modules}, we thus have that:
+                    $$\scrB_L^{\lambda} \cong \V_L^{\lambda}$$
             \end{example}
 
-            Due to the existence of the Fock modules, there is now a need for understanding algebras of differential operators in (countably) infinitely many variables. For this, vertex operators are useful.
+            The existence of the Fock module of $\tilde{\scrH}_L$ thus suggests to us that there ought to be a way to represent $\tilde{\scrH}_L$ on $\Diff(\bbC[ \{h_{i, m}\}_{(i, m) \in I \x \Z_{< 0}} ])$, the algebra of $\bbC$-linear differential operators in the variables $h_{i, m}$. However, to be able to realise this vision, we will have to understand how to explicitly write down products of such differential operators. Ideally, we would like to realise $\tilde{\scrH}_L$ as a Lie subalgebra of $\Diff(\bbC[ \{h_{i, m}\}_{(i, m) \in I \x \Z_{< 0}} ])$. This is the point at which it is natural to bring in the toolkit of vertex operators and VOAs. Doing so will simultaneous be an exercise in constructing a non-trivial VOA structure.
 
-            As an experiment in constructing VOA structures, let us fix some $N \in \Z_{> 0}$ and then consider, firstly, the rank-$1$ lattice:
+            Let us firstly tackle the case $L \cong \Z$, i.e. the rank-$1$ case, and let us say right away that even in this highly specialised case, one can already derive some very deep and interesting consequences from the construction of so-called \say{bosonic vertex operators} (see theorem \ref{theorem: rank_1_bosonic_vertex_operators}), e.g. the boson-fermion correspondence (see theorem \ref{theorem: boson_fermion_correspondence}).
+            
+            For what follows, let us fix some $N \in \Z_{> 0}$ and then consider, firstly, the rank-$1$ lattice:
                 $$L := \sqrt{N} \Z$$
             equipped with the non-degenerate $\Z$-bilinear form given by:
-                $$\<\lambda, \mu\> := \frac1N \lambda \mu$$
-            for all $\lambda, \mu \in \sqrt{N} \Z$. Note that in this case, we have that $\h_L := \sqrt{N}\Z \tensor_{\Z} \bbC \cong \bbC$, and therefore $\h_L^* \cong \bbC^* \cong \bbC$ as well.
+                $$(\lambda, \mu) := \frac1N \lambda \mu$$
+            for all $\lambda, \mu \in \sqrt{N} \Z$. Note that in this case, we have that $\h_L := (\sqrt{N}\Z \tensor_{\Z} \bbC)^* \cong \bbC$, and therefore $\h_L^* \cong \bbC^*$.
             \begin{remark}
-                Since the root lattice of $\sl_2$ is isomorphic to $\sqrt{N} \Z$ for some choice of $N \in \Z_{> 0}$ and since weights of $\sl_2$ are nothing but elements of $\bbC^* \cong \bbC$, the construction of a VOA structure on $\V_{\sqrt{N} \Z}^{\lambda}$ (for some $\lambda \in \bbC$) can be seen as a step towards constructing a VOA structure on the vacuum module of $\sl_2$ of highest weight $\lambda$ \textit{\`a la} Frenkel-Kac. When dealing with finite-dimensional simple Lie algebras $\g$, say with root space decomposition $\g \cong \h \oplus \bigoplus_{\alpha \in \Phi} \g_{\alpha}$, more general than $\sl_2$, different choices of $N$ will correspond to different choices of isomorphisms:
+                Since the root lattice of $\sl_2$ is isomorphic to $\sqrt{N} \Z$ for some choice of $N \in \Z_{> 0}$ and since weights of $\sl_2$ are nothing but elements of $\bbC^*$, the construction of a VOA structure on $\V_{\sqrt{N} \Z}^{\lambda}$ (for some $\lambda \in \bbC^*$) can be seen as a step towards constructing a VOA structure on the vacuum module of $\sl_2$ of highest weight $\lambda$ \textit{\`a la} Frenkel-Kac. When dealing with finite-dimensional simple Lie algebras $\g$, say with root space decomposition $\g \cong \h \oplus \bigoplus_{\alpha \in \Phi} \g_{\alpha}$, more general than $\sl_2$, different choices of $N$ will correspond to different choices of isomorphisms:
                     $$\sl_2 \xrightarrow[]{\cong} \bbC x_{-\alpha} \oplus \bbC \check{\alpha} \oplus \bbC x_{\alpha}$$
                 wherein:
                     $$\alpha \in \Phi^+, \height(\alpha) = N$$
                 and $x_{\pm \alpha} \in \g_{\pm \alpha}$ are root vectors such that $[x_{\alpha}, x_{-\alpha}] = \check{\alpha}$.
             \end{remark}
-            \begin{proposition}[Rank-$1$ lattice simple (super) VOAs] \label{prop: rank_1_lattice_(super)_VOAs}
-                Let $N \in \Z_{> 0}$ and fix some $\lambda \in \bbC$. Denote the highest-weight vector of the $\rmH_{\sqrt{N} \Z}$-module $\V_{\sqrt{N} \Z}^{\lambda}$ by $v_{\lambda}$.
+
+            \begin{remark}[Bosonic strings and bosonic vertex operators]
+                For the VOA structure on each $\V_{\sqrt{N} \Z}^{\lambda}$ that will be constructed in proposition \ref{prop: (super)_VOA_structures_on_weyl_vacuum_modules} to make sense, let us firstly discuss some bosonic string theory, from where these vertex operators originate. For a moment, let us for a moment return to the setting of a general lattice $L$ instead of focusing only on $L := \sqrt{N} \Z$. The rank of $L$ as a finite free $\Z$-module will be thought of as the dimension of the spacetime that our bosonic string theory shall be taking place in. 
+
+                The construction of the bosonic Fock modules $\scrB_L^{\lambda} \cong \V_L^{\lambda}$ as in example \ref{example: bosonic_fock_modules} suggests to us that (for every $i \in I$) when $m < 0$, the operator $h_i^{(m)} \in \End(\V_L^{\lambda})$ ought to be thought of as a \say{creation} operator, while when $m > 0$, $h_i^{(m)}$ ought to be thought of instead as an \say{annihilation operator}. The field:
+                    $$\bfH_i(z) := h_i(z) := \sum_{m \in \Z} h_i^{(m)} z^{-m - 1} \in \h_L[\![z^{\pm 1}]\!]$$
+                can then be thought of a field of momenta. We can subsequently define the following field of positions:
+                    $$
+                        \begin{aligned}
+                            \bfX_i(z) & := -\int \bfH_i(z) dz
+                            \\
+                            & = -\int h_i^{(0)} z^{-1} dz + \sum_{m \in \Z \setminus \{0\}} \frac1m h_i^{(m)} z^{-m}
+                            \\
+                            & = -h_i^{(0)} \log(z) + \sum_{m \in \Z \setminus \{0\}} \frac1m h_i^{(m)} z^{-m}
+                            \\
+                            & = -h_i \log(z) + \sum_{m \in \Z \setminus \{0\}} \frac1m h_i^{(m)} z^{-m} \in \h_L[\![z^{\pm 1}]\!]
+                        \end{aligned}
+                    $$
+                wherein both the integrals and the expression $\log(z)$ are understood in the formal sense. The field $\bfX_i(z)$ is to be interpreted as the field of positions of our bosonic string within our $\rank L$-dimensional spacetime, and these positions depend on coordinates $z$ of the worldsheet that the string sweeps out.
+                
+                Let us now also write:
+                    $$\bfH_i(z) := \sum_{m \in \Z} \bfH_i^{(m)} z^{-m - 1}, \bfX_i(z) := \sum_{m \in \Z} \bfX_i^{(m)} z^{-m - 1}$$
+                for the Fourier expansion of $\bfH_i(z)$ and $\bfX_i(z)$. We are then led to considering the following \textbf{vertex operator}, for each $\lambda \in \h_L^*$:
+                    $$\Gamma_{\lambda}(z) := \order{ \exp( \sqrt{-1} \lambda \cdot \bfX_i(z) ) } \in \End(\V_L^{\lambda})[\![z^{\pm 1}]\!]$$
+                wherein $\lambda \cdot \bfX_i(z) := \sum_{m \in \Z} (\lambda(\bfX_i^{(m)}) \tensor v^m) z^{-m - 1} \in \End(\V_L^{\lambda})[\![z^{\pm 1}]\!]$, which is modelled after the wave functions which are solutions to the Schr\"odinger's equations. The point here is that, in the even of string interactions - i.e. finite (normally ordered) products of the form, say:
+                    $$\order{ \Gamma_{\lambda_r}(z) \cdot ... \cdot \Gamma_{\lambda_1}(z) }$$
+                - one can extract correlation functions out as matrix elements:
+                    $$\bra{w} \order{ \Gamma_{\lambda_r}(z) \cdot ... \cdot \Gamma_{\lambda_1}(z) } \ket{v}$$
+                Finally, $\lambda$ is to be interpreted as a quantum number (e.g. mass, spin, charge, etc.) of the bosonic string in question.
+            \end{remark}
+
+            \begin{convention}
+                For convenience, we will also be writing:
+                    $$\bfX_i^{\pm}(z) := \sum_{m \in \pm \Z_{> 0}} \frac1m h_i^{(m)} z^{-m}, \bfX_i^0(z) := -h_i \log(z)$$
+            \end{convention}
+            
+            \begin{proposition}[(Super) VOA structures on Weyl vacuum modules] \label{prop: (super)_VOA_structures_on_weyl_vacuum_modules}
+                Let $N \in \Z_{> 0}$ and fix some $\lambda \in \bbC^*$. Denote the highest-weight vector of the $\tilde{\scrH}_{\sqrt{N} \Z}$-module $\V_{\sqrt{N} \Z}^{\lambda}$ by $\ket{\lambda}$. 
                 \begin{enumerate}
                     \item If $N$ is even, then on $\V_{\sqrt{N} \Z}^{\lambda}$, there will be a $\Z_{\geq 0}$-graded VOA structure:
-                        $$Y: \V_{\sqrt{N} \Z}^{\lambda} \to \End(\V_{\sqrt{N} \Z}^{\lambda})[\![z^{\pm 1}]\!]$$
-                    which is of conformal dimension $1$ and specified on the highest-weight vector $v_{\lambda}$ by:
-                        $$Y(v_{\lambda}, z) := $$
+                        $$Y_{\lambda}: \V_{\sqrt{N} \Z}^{\lambda} \to \End(\V_{\sqrt{N} \Z}^{\lambda})[\![z^{\pm 1}]\!]$$
+                    which is of conformal dimension $1$ and specified by:
+                        $$Y_{\lambda}(h_{1, -1} \cdot \ket{\lambda}, z) := \Gamma_{\lambda}(z) \cdot \ket{\lambda}$$
                     \item On the other hand, if $N$ is odd, then $\V_{\sqrt{N} \Z}^{\lambda}$ will admit a $\Z_{\geq 0}$-graded \textit{super} VOA structure of conformal dimension $1$ given by:
                 \end{enumerate}
             \end{proposition}
                 \begin{proof}
                     \begin{enumerate}
-                        \item Let us firstly explain why it is enough to only specify the VOA structure on the highest-weight vector $v_{\lambda}$. For this, set:
-                            $$\beta := \sqrt{N} \cdot 1$$
-                        so that:
-                            $$\sqrt{N} \Z \cong \Z \beta$$
-                        Firstly, $\V_{\sqrt{N} \Z}^{\lambda}$ is isomorphic to the left-$\rmH_{\sqrt{N} \Z}$-module:
-                            $$\rmH_{\sqrt{N} \Z}^- \cong \rmU(\h_{\sqrt{N} \Z})[b_{-1}, b_{-2}, ...] \cong \bbC[\beta][b_{-1}, b_{-2}, ...]$$
-                        generated by $b_{-1}$, which is mapped to $b_{\lambda}$ under the isomorphism. Secondly $\bbC[\beta, b_{-1}, b_{-2}, ...]$ is spanned by monomials of the form $b_{m_r} ... b_{m_1}$ (where $m_r \geq ... \geq m_1$), and since:
-                            $$Y(b_{m_r} ... b_{m_1}, z) = \: : Y(b_{m_r}, z) ... Y(b_{m_1}, z) :$$
+                        \item Let us firstly explain why it is enough to only specify the VOA structure on the highest-weight vector, which we denote by $\ket{\lambda}$.
+                        
+                        Firstly, $\V_{\sqrt{N} \Z}^{\lambda}$ is isomorphic to the left-$\tilde{\scrH}_{\sqrt{N} \Z}$-module:
+                            $$\tilde{\scrH}_{\sqrt{N} \Z}^- \cdot \ket{\lambda} \cong \bbC[ \{h_{1, m}\}_{m \x \Z_{< 0}} ] \cdot \ket{\lambda}$$
+                        generated by $b_{-1}$, which is mapped to $b_{\lambda}$ under the isomorphism. Secondly, since $\bbC[ \{h_{1, m}\}_{m \Z_{< 0}} ]$ is spanned by monomials of the form $h_{1, m_r} ... h_{1, m_1} \cdot \ket{\lambda}$ (where $m_r \geq ... \geq m_1$), and since:
+                            $$Y_{\lambda}(h_{1, m_r} ... h_{1, m_1} \cdot \ket{\lambda}, z) = \order{ Y_{\lambda}(h_{1, m_r} \cdot \ket{\lambda}, z) ... Y_{\lambda}(h_{1, m_1} \cdot \ket{\lambda}, z) }$$
                         it is enough to specify:
-                            $$Y(v_{\lambda}, z) := Y(b_{-1}, z)$$
+                            $$Y_{\lambda}(h_{1, -1} \cdot \ket{\lambda}, z) := Y(h_1^{(-1)}, z)$$
 
-                        Let us now describe $Y(b_{-1}, z)$. We would like $Y(-, z)$ to be a $\Z_{\geq 0}$-graded linear map, so because $\deg b_{-1} = -1$ (recall that $\deg b_m := -m$ for all $m < 0$), let us consider:
-                            $$Y(b_{-1}, z) := b(z) := \sum_{m \in \Z} b_m z^{-m - 1}$$
+                        Let us now describe $Y(h_{1, -1}, z)$. We would like $Y(-, z)$ to be a $\Z_{\geq 0}$-graded linear map, so because $\deg h_{1, -1} = 1$ (recall that $\deg h_{1, m} := -m$ for all $m < 0$), let us consider:
+                            $$Y_{\lambda}(h_{1, -1} \cdot \ket{\lambda}, z) := h_1(z) := \sum_{m \in \Z} h_i^{(m)} z^{-m - 1}$$
                         Let us then verify that, together with the translation operator $T \in \End(\V_{\sqrt{N}\Z}^{\lambda})$ given by:
-                            $$[T, \beta] := 0$$
-                            $$\forall m \in \Z_{< 0}: [T, b_m] := -m b_{m - 1}$$
-                        and $v_{\lambda}$ as the vacuum vector, the assignment $Y(-, z)$ forms a $\Z_{\geq 0}$-graded VOA whenever $N$ is even; that this is of conformal dimension $1$ is automatic from the construction. To this end, let us check the axioms defining VOAs in sequence:
+                            $$[T, \ket{\lambda}] := 0$$
+                            $$\forall (1, m) \in I \x \Z_{< 0}: [T, h_{1, m}] := -m h_{1, m - 1}$$
+                        and $\ket{\lambda}$ as the vacuum vector, the assignment $Y(-, z)$ forms a $\Z_{\geq 0}$-graded VOA whenever $N$ is even; that this is of conformal dimension $1$ is automatic from the construction. To this end, let us check the axioms defining VOAs in sequence:
                         \begin{enumerate}
                             \item 
                             \item 
@@ -167,17 +220,141 @@
                         \item 
                     \end{enumerate}
                 \end{proof}
-                
-            \begin{theorem}[Bosonic vertex operators] \label{theorem: bosonic_vertex_operators}
-                
+
+            \begin{convention}[The full rank-$1$ bosonic Fock space]
+                From now on, let us write:
+                    $$\scrB_{\sqrt{N}\Z} := \bigoplus_{\lambda \in \sqrt{N} \Z} \V_{\sqrt{N} \Z}^{\lambda}$$
+                Keeping the notations from example \ref{example: bosonic_fock_modules}, let us fix the basis:
+                    $$\sqrt{N} \Z := \Z \alpha_1$$
+                which induces:
+                    $$\h_{\sqrt{N} \Z} \cong \bbC h_1$$
+                Since the underlying vector space of each $\V_{\sqrt{N} \Z}^{\lambda}$ is isomorphic to $\bbC[\{h_{1, m}\}_{m \in \Z_{< 0}}] \cdot \ket{\lambda}$, we note that the underlying vector space of $\scrB_{\sqrt{N} \Z}$ is isomorphic to:
+                    $$\bigoplus_{\lambda \in \sqrt{N} \Z} \bbC[\{h_{1, m}\}_{m \in \Z_{< 0}}] \cdot \ket{\lambda} \cong \bbC[\{h_{1, m}\}_{m \in \Z_{< 0}}] \tensor_{\bbC} \bbC \sqrt{N} \Z$$
+                where $\bbC \sqrt{N} \Z$ is the group algebra of the rank-$1$ abelian group $\sqrt{N} \Z$. Some authors use the identification:
+                    $$\bbC[\{h_{1, m}\}_{m \in \Z_{< 0}}] \tensor_{\bbC} \bbC \sqrt{N} \Z \cong \bbC[\{h_{1, m}\}_{m \in \Z_{< 0}}, q^{\pm 1}]$$
+                where $q$ is some formal variable.
+            \end{convention}
+            \begin{convention}[Group algebras]
+                If $\Gamma$ is a group, say generated by a set $\{\gamma_i\}_{i \in I}$, then we will be denoting the basis elements of the group algebra $\bbC\Gamma$ by $\exp(\gamma_i)$.
+            \end{convention}
+            \begin{theorem}[Rank-$1$ bosonic vertex operators] \label{theorem: rank_1_bosonic_vertex_operators}
+                (Cf. \cite[Proposition 5.2.5]{frenkel_ben_zvi_vertex_algebras_and_algebraic_curves}) Let $N \in \Z_{> 0}$, and for each $\lambda \in \sqrt{N} \Z$, let $S_{\lambda} \in \End(\V_{\sqrt{N} \Z})$ be the operator given by:
+                    $$\forall \mu \in L: S_{\lambda} \ket{\mu} := \ket{\mu + \lambda}$$
+                and then let us set:
+                    $$V_{\lambda}(z) := S_{\lambda} \Gamma_{\lambda}(z)$$
+                (cf. \cite[Equation 5.2.8, p. 83]{frenkel_ben_zvi_vertex_algebras_and_algebraic_curves})
+                \begin{enumerate}
+                    \item If $N$ is even, there will be a VOA structure on $\scrB_{\sqrt{N} \Z}$:
+                        $$Y: \scrB_{\sqrt{N} \Z} \to \End(\scrB_{\sqrt{N} \Z})[\![z^{\pm 1}]\!]$$
+                    that is specified by:
+                        $$Y(\ket{\lambda}, z) := V_{\lambda}(z) \cdot \ket{\lambda}$$
+                    for each $\lambda \in \sqrt{N} \Z$.
+                    \item On the other hand, if $N$ is odd then $\phi$ as above will endow $\scrB_{\sqrt{N} \Z}$ with a super VOA structure.
+                \end{enumerate}
+            \end{theorem}
+                \begin{proof}
+                    \begin{enumerate}
+                        \item 
+                        \item 
+                    \end{enumerate}
+                \end{proof}
+
+            The physically-minded reader may now wonder as to why there are no \say{fermionic} counterparts to the vertex operators given in theorem \ref{theorem: bosonic_vertex_operators}. This is surely strange, because after all, bosons are the force carriers through which fermions interact with one another, meaning that the two types of particles must go hand-in-hand. Of course, we do know this to be experimentally true, so the mathematical task is to somehow capture this in the language of vertex operators and VOAs. The result is known as the \textbf{boson-fermion correspondence}, and it takes the form of a VOA isomorphism.
+
+            \begin{convention}
+                If $x, y$ are elements of an associative algebra, then we will be writing:
+                    $$\{x, y\} := xy + yx$$
+            \end{convention}
+
+            \todo[inline]{Fermions are described by super VOAs because of the Pauli Exclusion Principle, which postulates that half-integer spins, i.e. fermions, must be coupled.}
+
+            \begin{definition}[Even/odd lattices] \label{def: even_and_odd_lattices}
+                A lattice $(L, (-, -))$ is said to be \textbf{even} if and only if $(\lambda, \lambda) \in 2\Z$ for all $\lambda \in L$. Otherwise, it is said to be \textbf{odd}; note that this does \textit{not} mean that $(\lambda, \lambda) \not \in 2\Z$ for all $\lambda \in L$.
+            \end{definition}
+            \begin{definition}[The Clifford (super-)algebra associated to a lattice] \label{def: lattice_clifford_(super)_algebras}
+                 
+            \end{definition}
+            
+            \begin{theorem}[Boson-fermion correspondence (and fermionic vertex operators)]  \label{theorem: boson_fermion_correspondence}
+                When $N = 1$, there is a super VOA isomorphism:
+                    $$\scrF_{\Z} \cong \scrB_{\Z}$$
             \end{theorem}
                 \begin{proof}
                     
                 \end{proof}
 
-    \subsection{The Frenkel-Kac vertex realisation of basic representations of affine Lie algebras}
-        There is a construction, due to Frenkel-Kac, which extends the bosonic vertex operators from theorem \ref{theorem: bosonic_vertex_operators} from the Weyl algebra $\rmH_Q$ attached to the root lattice of the finite-dimensional simple Lie algebra $\g$ to the entirety of the completed enveloping algebra $\tilde{\rmU}_{\kappa}$ of the affine Lie algebra $\tilde{\g}_{\kappa}$ associated to $\g$ at level $\kappa$. In performing this construction, one yields an explicit description of the basic representation $\simple^{\omega_1}$, i.e. the finite-dimensional simple $\hat{\g}_{\kappa}$-module attached to the first fundamental weight $\varpi_1$, in terms of the bosonic vertex operators, as well as a VOA structure on the vacuum representation $\V_{\kappa}$ of $\tilde{\g}_{\kappa}$.
+    \subsection{General lattice VOAs and the Frenkel-Kac vertex realisation of basic representations of affine Lie algebras}
+        Let us now explain how the vertex operators constructed in theorem \ref{theorem: rank_1_bosonic_vertex_operators} can be adapted to the case of a general lattice $L$. We will then study the case where $L$ is the root lattice $Q$ of the finite-dimensional simple Lie algebra $\g$ in more details.
 
-    \subsection{The Virasoro VOAs and conformal modules}
+        \begin{convention}
+            Suppose now that $c_{\kappa}$ acts as $1$ on standard modules $\standard^{\lambda}(\hat{\g})$ (and hence also as $1$ on finite-dimensional simple modules and in particular, fundamental modules). In other words, we are stipulating that $\standard^{\lambda}(\hat{\g})$ carries also the structure of a left-module over $\bar{\scrU}_{\kappa} := \rmU(\tilde{\g}_{\kappa})/\rmU(\tilde{\g}_{\kappa}) \cdot (c_{\kappa} - 1)$.
+        \end{convention}
 
-    \subsection{Rational VOAs}
+        \begin{remark}[Smooth modules ?]
+            There exists also an analogue of $\tilde{\g}_{\kappa}$ constructed using $\bbC(\!(v)\!)$ in place of $\bbC[v^{\pm 1}]$. For a moment, let us denote the affine Kac-Moody algebra that we have been considering up until this point by $\tilde{\g}_{\kappa}^{\pol}$ and the other version by $\tilde{\g}_{\kappa}^{\loc}$. It can be easily shown that the categorry:
+                $$\tilde{\g}_{\kappa}^{\pol}\mod$$
+            is equivalent to the category:
+                $$\tilde{\g}_{\kappa}^{\loc}\mod^{\smooth}$$
+            of so-called \textbf{smooth modules} over $\tilde{\g}_{\kappa}^{\loc}$; said smooth modules are those $\tilde{\g}_{\kappa}^{\loc}$-modules on which the Lie subalgebra $\g[\![v]\!] \subset \tilde{\g}_{\kappa}^{\loc}$ acts locally nilpotently. Moreover, this equivalence maps standard modules to standard modules, and hence preserves simplicity of objects, etc. Furthermore, non-smooth modules will never be considered, so we will be using the same notation $\tilde{\g}_{\kappa}$ for both version. Clarifications will be provided if necessary.
+        \end{remark}
+
+        \begin{definition}
+            The completed universal enveloping algebra of $\tilde{\g}_{\kappa}$ is given by:
+                $$\tilde{\scrU}_{\kappa} := \projlim_{n \geq 1} \bar{\scrU}_{\kappa}/\bar{\scrU}_{\kappa} \cdot v^n$$
+            Should the need arise, we may also write $\tilde{\scrU}_{\kappa}(\g)$ instead of just $\tilde{\scrU}_{\kappa}$ to be explicit.
+        \end{definition}
+        \begin{remark}
+            Observe that:
+                $$\tilde{\scrU}_{\kappa}\mod$$
+            is equivalent to both the category of $\tilde{\g}_{\kappa}^{\pol}$-modules on which $c_{\kappa}$ acts as $1$, as well as the category of smooth $\tilde{\g}_{\kappa}^{\loc}$-modules on which $c_{\kappa}$ acts as $1$.
+        \end{remark}
+        There is a $\Z$-grading on the affine Lie algebra $\tilde{\g}_{\kappa}$ given by:
+            $$\deg x v^m := m, \deg c_{\kappa} := 0$$
+        for all $x \in \g$ and all $m \in \Z$ (for more details, see \cite{kassel_universal_central_extensions_of_lie_algebras} and \cite[Subsection 2.3.2]{msc_thesis_gamma_extended_toroidal_lie_algebras}), which induces the following triangular decomposition for $\tilde{\g}_{\kappa}$:
+            $$\tilde{\g}_{\kappa} := \tilde{\g}_{\kappa}^- \oplus \tilde{\g}_{\kappa}^0 \oplus \tilde{\g}_{\kappa}^+$$
+        wherein:
+            $$\tilde{\g}_{\kappa}^{\pm} := \bigoplus_{m \in \pm \Z_{> 0}} \g v^m, \tilde{\g}_{\kappa}^0 := \g \oplus \bbC c_{\kappa}$$
+        Let us then set:
+            $$\tilde{\g}_{\kappa}^{\geq 0} := \tilde{\g}_{\kappa}^0 \oplus \tilde{\g}_{\kappa}^+$$
+            $$\bar{\scrU}_{\kappa}^{\geq 0} := \rmU(\tilde{\g}_{\kappa}^{\geq 0})/\tilde{\g}_{\kappa}^{\geq 0} \cdot (c_{\kappa} - 1)$$
+        and then define:
+            $$\tilde{\scrU}_{\kappa}^{\geq 0} := \projlim_{n \geq 1} \bar{\scrU}_{\kappa}^{\geq 0}/\bar{\scrU}_{\kappa}^{\geq 0} \cdot v^n, \tilde{\scrU}_{\kappa}^- := \rmU(\tilde{\g}_{\kappa}^-)$$
+        \begin{definition}[Vacuum modules for $\tilde{\g}_{\kappa}$]
+            Like for the Weyl algebra (cf. definition \ref{def: lattice_weyl_algebras}), let us define the \textbf{vacuum module} of $\tilde{\g}_{\kappa}$ of highest weight $\lambda \in \hat{\h}_{\kappa}^*$ to be induced left-$\tilde{\scrU}_{\kappa}$-module:
+                $$\V_{\kappa} := \tilde{\scrU}_{\kappa} \tensor_{\tilde{\scrU}_{\kappa}^{\geq 0}} \bbC c_{\kappa}$$
+            The highest-weight vector is:
+                $$\ket{\lambda} := 1 \tensor c_{\kappa}$$
+            and the left-$\tilde{\scrU}_{\kappa}$-action on $\V_{\kappa}$ is given by:
+                $$\forall h \in \h: h \cdot \ket{\lambda} := \lambda(h) \ket{\lambda}$$
+                $$\tilde{\g}_{\kappa}^+ \cdot \ket{\lambda} := 0$$
+            
+            Sometimes, for clarity, we may write $\V_{\kappa}(\g)$.
+        \end{definition}
+        A standard argument shows that as a left-$\tilde{\scrU}_{\kappa}$-module, the vacuum module $\V_{\kappa}$ is identified with $\tilde{\scrU}_{\kappa}^-$. Using PBW, one can also explicitly compute the underlying vector space of $\tilde{\scrU}_{\kappa}^-$ to be spanned by ordered monomials of the form
+
+        \begin{theorem}[General bosonic vertex operators] \label{theorem: bosonic_vertex_operators}
+            
+        \end{theorem}
+            \begin{proof}
+                
+            \end{proof}
+    
+        There is a construction, due to Frenkel-Kac, which extends the bosonic vertex operators from theorem \ref{theorem: bosonic_vertex_operators} from the Weyl algebra $\tilde{\scrH}_Q$ attached to the root lattice of the finite-dimensional simple Lie algebra $\g$ to the entirety of the completed enveloping algebra $\tilde{\scrU}_{\kappa}$ of the affine Lie algebra $\tilde{\g}_{\kappa}$ associated to $\g$ at level $\kappa$. In performing this construction, one yields an explicit description of the basic representation $\simple^{\omega_1}(\hat{\g})$, i.e. the (infinite-dimensional) integrable simple $\hat{\g}_{\kappa}$-module attached to the first fundamental weight $\varpi_1$, in terms of the bosonic vertex operators, as well as a VOA structure on the vacuum representation $\V_{\kappa}$ of $\tilde{\g}_{\kappa}$.
+
+        Like in the previous subsection, it pays to examine first the case $\g \cong \sl_2$. In this case, recall that the Dynkin diagram is:
+            $$\underset{\alpha_1}{\bullet} \toto \underset{\alpha_0}{\bullet}$$
+        wherein $\alpha_1$ is the first simple root (also the unique simple root of $\sl_2$) and $\alpha_0 := \delta - \theta$ is the zeroth/affinising simple root (here, $\delta$ is the lowest positive imaginary root of $\hat{\sl}_2$ and $\theta$ is the highest root of $\sl_2$; cf. \cite[Chapters 6 and 7]{kac_infinite_dimensional_lie_algebras}). Per the definition of root systems, $\hat{\sl}_2$ has a unique simple coroot $\check{\alpha}_1$ such that $\alpha_1(\check{\alpha}_1) = 2$, and since the first fundamental weight $\varpi_1$ is defined by the property that $\varpi_1(\check{\alpha}_1) := 1$, we therefore have that $\varpi_1 = \frac12 \alpha_1$. It is a well-known fact that $\alpha_1 = 2$, so the above implies that $\varpi_1 = 1$.
+            
+        \begin{theorem}[The Frenkel-Kac realisation of $\simple^1(\hat{\sl}_2)$]
+            
+        \end{theorem}
+            \begin{proof}
+                
+            \end{proof}
+
+        \begin{theorem}[The Frenkel-Kac realisation of $\simple^{\varpi_1}(\hat{\g})$]
+            
+        \end{theorem}
+            \begin{proof}
+                
+            \end{proof}
