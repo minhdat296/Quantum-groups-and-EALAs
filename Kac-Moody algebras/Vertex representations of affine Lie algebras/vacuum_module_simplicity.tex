@@ -1,0 +1,73 @@
+\section{Simplicity of vacuum modules of affine Lie algebras}
+    \subsection{Primitive ideals}
+        Recall that, over a ring $R$, a \textbf{left/right-primitive $R$-ideal} $J$ is an $R$-ideal that is the annihilator of some left/right-$R$-module $M$, i.e. $J = \Ann_R(M)$. Also, three basic facts about primitive ideals are that:
+        \begin{enumerate}
+            \item firstly left/right-primitive ideals are always two-sided,
+            \item secondly, left/right-primitive ideals are prime,
+            \item thirdly, if $R$ is commutative then $J$ will be primitive if and only if it is maximal, and hence primitive ideals can be regarded as closed points of \say{noncommutative varieties} in a certain sense.
+        \end{enumerate}
+        \begin{remark}
+            There is certainly an injective map:
+                $$\{ \text{left/right-primitive $R$-ideals} \} \subseteq \{ \text{simple left/right-$R$-modules} \}$$
+            but there may be simple left/right-$R$-modules whose annihilators are equal (e.g. all torsion-free modules have trivial annihilators by definition). However, at least when $R := \rmU(\g)$, we do know by a theorem of Duflo \todo{Duflo's classification of primitive ideals of $\rmU(\g)$} that there are bijections:
+                $$\{ \text{left-primitive $\rmU(\g)$-ideals} \}$$
+                $$\cong$$
+                $$\{ \text{simple highest-weight left-$\rmU(\g)$-modules, i.e. modules of the form $\simple^{\lambda}(\g)$ for some $\lambda \in \h^*$} \}$$
+                $$\cong$$
+                $$\{ \text{weights $\lambda \in \h^* $} \}$$
+            with the latter one being given by the theory of highest-weight $\g$-modules. In other words, left-primitive ideals of $\rmU(\g)$ are parametrised by elements $\lambda \in \h^*$, and we know furthermore that the simple left-$\rmU(\g)$-modules without any highest weight do not correspond to any left-primitive ideal of $\rmU(\g)$.
+        \end{remark}
+
+        Recall also, that a $\Z_{\geq 0}$-filtered ring $R$ - say, with filtration $R_0 \subseteq R_1 \subseteq ...$ - is said to be \textbf{almost commutative} if and only if the associated graded ring $\gr R := \bigoplus_{n \geq 0} R_{n + 1}/R_n$ is commutative. For our purposes, an important class of examples are universal enveloping algebras of Lie algebras $\a$: if $\rmU(\a)$ is given the usual PBW filtration then $\gr \rmU(\a) \cong \Sym(\a)$. 
+
+        Finally, recall that a \textbf{Poisson algebra} is pair $(R, \{-, -\})$ consisting of an associative algebra $R$ and a Lie algebra structure $\{-, -\}: R \wedge R \to R$ such that for every $x \in R$, the operator $\{-, x\} \in \End(R)$ is a derivation. A \textbf{left/right-Poisson ideal} of a Poisson algebra $(R, \{-, -\})$ is a left/right-ideal $J$ such that $\{J, R\} \subseteq J$. Again, universal enveloping algebras of Lie algebras are examples, and so are their associated graded algebras.
+
+        Now, if $I \subset \rmU(\g)$ is a \textit{two-sided} ideal, then the PBW filtration will induce a $\Z_{\geq 0}$-filtration on $I$, thus making $\gr I$ a $\Z_{\geq 0}$-graded ideal of $\Sym(\g)$. Let us then define the \textbf{associated variety} of $I$ to be:
+            $$\calV(I) := \Spm( \Sym(\g)/\gr I )$$
+        Note that this is a variety in the classical sense, without any generic point.
+
+    \subsection{Varieties associated to vertex algebras}
+        For a finite-type $\bbC$-scheme $X$, let $J^{\infty}(X)$ denote the pro-scheme whose functor of points is given by:
+            $$J^{\infty}(X)(\Spec R) := \projlim_{m \geq 1} \Maps(\Spec R[z]/z^n, X) \cong \Maps( \Spf R[\![z]\!], X $$
+        This is usually called the pro-scheme of $\infty$-jets on $X$.
+
+        The following result is not new. It is, in fact, nothing but the assertion that there is a bijective correspondence between dominant integral weights $\lambda$ of an untwisted affine Kac-Moody algebra and its integrable simple modules of highest weights $\lambda$ (as a matter of fact, the theorem is even true for general symmetrisable Kac-Moody algebras). However, we would like to present it still, as an application of the idea of associated varieties.
+        \begin{proposition}
+            Fix a weight $\lambda \in \hat{\h}_{\kappa}$ and consider the vacuum module $\V_{\kappa}^{\lambda}(\g)$ endowed with its standard VOA structure. The following statements are equivalent:
+            \begin{enumerate}
+                \item $\simple^{\lambda}(\hat{\g}_{\kappa})$ is integrable as a $\hat{\g}_{\kappa}$-module.
+                \item $\simple^{\lambda}(\hat{\g}_{\kappa})$ is lisse as a vertex module over $\V_{\kappa}^{\lambda}(\g)$.
+                \item $\lambda$ is dominant integral.
+            \end{enumerate}
+        \end{proposition}
+            \begin{proof}
+                \begin{enumerate}
+                    \item Suppose firstly that 1. is true, i.e. that $\simple^{\lambda}(\hat{\g}_{\kappa})$ is integrable. Write:
+                        $$R := \V_{\kappa}^{\lambda}(\g)/C_2( \V_{\kappa}^{\lambda}(\g) )$$
+                    for the $C_2$-algebra of $\V_{\kappa}^{\lambda}(\g)$, and set:
+                        $$J := \Ann_R( \simple^{\lambda}(\hat{\g}_{\kappa})/C_2( \simple^{\lambda}(\hat{\g}_{\kappa}) ) )$$
+                    Additionally, pick a real root $\alpha \in \Re(\hat{\Phi}) = \Phi$ and a root vector $x_{\alpha} \in \g_{\alpha}$, and recall that as a $\hat{\g}_{\kappa}$-module, $\V_{\kappa}^{\lambda}(\g)$ is isomorphic to $\rmU(v^{-1} \g[v^{-1}]) \cdot \ket{\lambda}$, meaning that - by PBW - it is spanned by monomials of the form:
+                        $$x_{\alpha_r}^{(m_r)} ... x_{\alpha_1}^{(m_1)} \cdot \ket{\lambda}$$
+                    wherein $\alpha_1, ..., \alpha_r \in \Phi$, $x_{\alpha_1}, ..., x_{\alpha_r}$ are corresponding root vectors, and $m_1, ..., m_r \in \Z_{< 0}$. Set:
+                        $$Z := \supp_{\Spec R}( \simple^{\lambda}(\hat{\g}_{\kappa})/C_2( \simple^{\lambda}(\hat{\g}_{\kappa}) ) )$$
+                    We will be proving that $\simple^{\lambda}(\hat{\g}_{\kappa})$ is a lisse $\V_{\kappa}^{\lambda}(\g)$ by demonstrating that:
+                        $$\dim Z = 0$$
+                    as it is known \textit{a priori} that, for finitely strongly generated modules over conformal vertex algebras such as $\simple^{\lambda}(\hat{\g}_{\kappa})$, these two properties are equivalent to each other and to the modules being $C_2$-cofinite (i.e. $\dim J$ being finite).
+                    
+                    The integrability assumption on $\simple^{\lambda}(\hat{\g}_{\kappa})$ stipulates that $x_{\alpha}^{(-1)}$ acts locally nilpotently on $\simple^{\lambda}(\hat{\g}_{\kappa})$, and thus implies that the image of $x_{\alpha}^{(-1)} \in \V_{\kappa}^{\lambda}(\g)$ under the quotient map $\V_{\kappa}^{\lambda}(\g) \to R$ actually lands in $\sqrt{J}$. Next, recall that the $C_2$-algebra of any vertex algebra abstractly possesses a Poisson structure, and also that \textit{a priori}, $J \subset R$ is a Poisson ideal, and hence so is $\sqrt{J}$ \textit{a priori}. A basic algebraic fact which holds for all commutative rings $A$ is that $\sqrt{I}$ is prime (hence a point of $\Spec A$) and contains $I$, and since:
+                        $$\supp_{\Spec A}(M) := \{ \p \in \Spec A \mid \p \supseteq \Ann_A(M) \}$$
+                    we now have that:
+                        $$\sqrt{J} \in Z$$
+                    Now, we know \textit{a priori} that:
+                        $$R \cong \Sym(\g^*)$$
+                    as Poisson algebras - which in particular, implies that as a set, $\g$ generates $R$ - where the RHS is endowed with the Kirillov-Kostant Poisson structure, so $\sqrt{J} \subset R$ being a Poisson ideal thus implies that:
+                        $$\{ \sqrt{J}, \g \} \subseteq \sqrt{J}$$
+                    which in turn implies that $\sqrt{J}$ is identified with a Lie ideal of $\g$. The Lie algebra $\g$, however, is simple, i.e. it has no non-trivial Lie ideal other than itself, so the above implies that:
+                        $$\sqrt{J} = \g$$
+                    since $\sqrt{J} \not = 0$ (it contains at least $x_{\alpha}^{(-1)}$). $\sqrt{J}$ contains $J$ as a sub-ideal, so $\dim J$ is finite, and hence $\dim Z = 0$. 
+                    \item 
+                    \item That 3. implies 1. follows from the general theory of integrable highest-weight modules over symmetrisable Kac-Moody algebras (see \cite{kac_infinite_dimensional_lie_algebras}).
+                \end{enumerate}
+            \end{proof}
+
+    \subsection{Simplicity of vacuum modules}

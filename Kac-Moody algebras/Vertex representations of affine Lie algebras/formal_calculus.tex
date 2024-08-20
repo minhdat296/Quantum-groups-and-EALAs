@@ -1,0 +1,81 @@
+\section{Formal calculus}
+    \subsection{Formal distributions}
+        \begin{definition}[Formal distributions] \label{def: formal_distributions}
+            A \textbf{formal distribution} in $n$ variables $z_1, ..., z_n$ with coefficients in a vector space $R$ is an element of the vector space $R[\![z_1^{\pm}, ..., z_n^{\pm}]\!]$.
+        \end{definition}
+        It is very important to note that even when $R$ is an associative algebra, $R[\![z_1^{\pm}, ..., z_n^{\pm}]\!]$ is \textit{not} an algebra in general. This is because the coefficients of monomials in a product of the form:
+            $$\left( \sum_{(i_1, ..., i_n) \in \Z^n} a_{i_1, ..., i_n} z_1^{i_1} ... z_n^{i_n} \right) \left( \sum_{(j_1, ..., j_n) \in \Z^n} b_{j_1, ..., j_n} z_1^{j_1} ... z_n^{j_n} \right)$$
+        (wherein $a_{i_1, ..., i_n}, b_{j_1, ..., j_n} \in R$) are of the form:
+            $$\sum_{(i_1, ..., i_n) \in \Z^n} \sum_{(j_1, ..., j_n) \in \Z^n} a_{i_1, ..., i_n} b_{j_1, ..., j_n}$$
+        which, generally speaking, shall be an infinite sum.
+
+        \begin{definition}[Formal residues] \label{def: formal_residues}
+            Let $R$ be vector space. Given a formal distribution $a(z_1, ..., z_n) := \sum_{(i_1, ..., i_n) \in \Z^n} a_{i_1, ..., i_n} z_1^{i_1} ... z_n^{i_n} \in R[\![z_1^{\pm}, ..., z_n^{\pm}]\!]$, let us define its \textbf{formal residue} to be:
+                $$\Res_{z_1, ..., z_n} a(z_1, ..., z_n) := a_{-1, ..., -1}$$
+        \end{definition}
+        
+        \begin{convention}
+            As a shorthand, we will usually be writing:
+                $$\del a(z_1, ..., z_n) := \sum_{i = 1}^n \frac{\del a(z_1, ..., z_n)}{\del z_i} dz_i$$
+            for the total derivative of a formal distribution $a(z_1, ..., z_n)$.
+        \end{convention}
+        \begin{lemma}[Holomorphicity and integration by parts] \label{lemma: holomorphic_formal_distributions_and_integration_by_parts}
+            Let $R$ be a vector space.
+            \begin{enumerate}
+                \item If $a(z_1, ..., z_n) \in R[z_1^{\pm 1}, ..., z_n^{\pm 1}]$ is a formal distribution, then:
+                    $$\Res_{z_1, ..., z_n} \del a(z_1, ..., z_n) = 0$$
+                \item If $a(z_1, ..., z_n), b(z_1, ..., z_n) \in R[z_1^{\pm 1}, ..., z_n^{\pm 1}]$ are formal distribution, then we will also have the following \say{integration by parts} formula:
+                    $$\Res_{z_1, ..., z_n} (\del a(z_1, ..., z_n)) b(z_1, ..., z_n) = -\Res_{z_1, ..., z_n} (\del b(z_1, ..., z_n)) a(z_1, ..., z_n)$$
+            \end{enumerate}
+        \end{lemma}
+
+        Formal residues allow us to define a non-degenerate bilinear pairing:
+            $$\<-, -\>: R[\![z_1^{\pm}, ..., z_n^{\pm}]\!] \x \bbC[z_1^{\pm}, ..., z_n^{\pm}] \to R$$
+        given by:
+            $$\< a(z_1, ..., z_n), f(z_1, ..., z_n) \> := \Res_{z_1, ..., z_n} \left( a(z_1, ..., z_n) f(z_1, ..., z_n) \right)$$
+        As Laurent polynomials $f(z_1, ..., z_n) \in \bbC[z_1^{\pm 1}, ..., z_n^{\pm 1}]$ have only finitely many summands with non-zero coefficients, the bilinear form $\<-, -\>$ is indeed well-defined. Non-degeneracy follows from the fact $\bbC$, being a field, contains no non-zero annihilator of elements of $R$. In any event, this means that we can view Laurent polynomials $f(z_1, ..., z_n) \in \bbC[z_1^{\pm 1}, ..., z_n^{\pm 1}]$ as test functions for formal distributions. In particular, these test functions are very useful for dealing with \textbf{formal Dirac distribution} (also called \textbf{formal delta distributions}). These are two-variable formal distributions given by:
+            $$\1(w, z) := \sum_{m \in \Z} w^m z^{-m - 1} \in \bbC[w^{\pm 1}, z^{\pm 1}]$$
+        \begin{convention}
+            If $A$ is any operator, let us write:
+                $$A^{[m]} := \frac{1}{m!} A^m$$
+            for its \textbf{divided $m^{th}$ power}.
+        \end{convention}
+        \begin{lemma}[Basic properties of Dirac distributions] \label{lemma: basic_properties_of_dirac_distributions}
+            Dirac distributions enjoy some very important properties.
+            \begin{enumerate}
+                \item For any Laurent polynomial $f(z) \in \bbC[z^{\pm 1}]$ (regarded by its image under the canonical embedding $\bbC[z^{\pm 1}] \subset \bbC[w^{\pm 1}, z^{\pm 1}]$), we have that:
+                    $$\< \1(w, z), f(z) \> = f(w)$$.
+                \item $\1(w, z) = \1(z, w)$. Furthermore, for any vector space $R$ and any formal distribution $a(z) \in R[z^{\pm}]$ (regarded by its image under the canonical embedding $\bbC[\![z^{\pm 1}]]\!] \subset \bbC[\![w^{\pm 1}, z^{\pm 1}]\!]$), we have that:
+                    $$\1(w, z) a(z) = \1(z, w) a(w)$$
+                In particular, we have the following important special case:
+                    $$\1(w, z) \1(z, t) = \1(t, w) \1(w, z)$$
+                with identifications $\bbC[\![z^{\pm 1}, t^{\pm 1}]\!] \cong \bbC[\![t^{\pm 1}, w^{\pm 1}]\!] \cong \bbC[\![w^{\pm 1}, z^{\pm 1}]\!]$ being made.
+                \item The Dirac distribution has vanishing total derivative:
+                    $$\del \1(w, z) = 0$$
+                or, phrased differently, we have that:
+                    $$\del_w \1(w, z) = -\del_z \1(w, z)$$
+                \item Fix some $N \in \N$. Then:
+                    $$
+                        (z - w)^N \del_w^{[n]} \1(w, z) =
+                        \begin{cases}
+                            \text{$\del_w^{[n - N]} \1(w, z)$ if $N \leq n$}
+                            \\
+                            \text{$0$ if $N > n$}
+                        \end{cases}
+                    $$
+            \end{enumerate}
+        \end{lemma}
+
+        Often, we will identify certain ostensibly transcendental functions with their Laurent series expansions, so that they may be regarded as formal distributions. More specifically, given a rational function:
+            $$f(w, z) \in R(w, z)$$
+        with values in some vector space $R$ and a \say{formal} pole at $w$, let us identify:
+            $$f(w, z) = \sum_{m \in \Z_{\geq 0}} \del_w^{[m]} f(w, z) + \sum_{m \in \Z_{< 0}} \frac{1}{2\pi i} \oint_{\gamma_w} \frac{f(w, z)}{(z - w)^{m + 1}} dz$$
+        where $\gamma_w$ is a closed and positively oriented contour centered at $w$. For instance, we have:
+            $$\frac{1}{(z - w)^{j + 1}} = \sum_{m \in \Z} \frac{|m|}{m} \binom{m}{j} w^{m - j} z^{-m - 1}$$
+        as well as:
+            $$\del_w^{[j]} \1(w, z) = \sum_{m \in \Z} \binom{m}{j} w^{m - j} z^{-m - 1}$$
+
+    \subsection{OPEs and locality}
+        \begin{definition}[Locality] \label{def: locality}
+            
+        \end{definition}
