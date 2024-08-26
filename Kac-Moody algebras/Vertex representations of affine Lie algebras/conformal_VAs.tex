@@ -1,4 +1,214 @@
 \section{Conformal vertex algebras and conformal modules}
     \subsection{Conformal vertex algebras and conformal modules}
+        Let:
+            $$\frakw := \der( \bbC[v^{\pm 1}] )$$
+        denote the \textbf{Witt algebra}. This is the Lie algebra whose underlying vector space is the space of derivations on $\bbC[v^{\pm 1}]$ (i.e. algebraic vector fields on the algebraic circle $\Spec \bbC[v^{\pm 1}]$) and whose Lie bracket is given by commutators; it is to be thought of as a Lie algebra of infinitesimal conformal transformations in $2$ dimensions. This Lie algebra has a unique non-trivial central extension:
+            $$0 \to \bbC c_{\frakv} \to \frakv \to \frakw \to 0$$
+        (by a $1$-dimensional centre $\bbC c_{\frakv}$; the element $c_{\frakv}$ is called the \textbf{central charge}). This central extension is commonly referred to as the \textbf{Virasoro algebra}, and is to be thought of as a Lie algebra of infinitesimal conformal transformations in $2$ dimensions, but now with an extra \say{conformal anomaly}, encoded in the central charge.
+
+        It is customary to work with the following basis for $\frakw$:
+            $$\left\{ L_n := -v^{n + 1} \del_v \right\}$$
+        and it is trivial to see that the commutation relations are:
+            $$[L_m, L_n] = (m - n) L_{m + n}$$
+    
+        \begin{proposition}[A Virasoro $2$-coboundary] \label{prop: a_virasoro_coboundary}
+            Let:
+                $$\eta': \bigwedge^2 \der(\bbC[v^{\pm 1}]) \to \bbC c_{\frakv}$$
+            be the function given by:
+                $$\eta'(L_r, L_a) := \delta_{r + a, 0} r c_{\frakv}$$
+            This is a $2$-cocycle of $\der(\bbC[v^{\pm 1}])$ with values in $\bbC c_{\frakv}$. From this, one sees that:
+                $$\eta + \eta': \bigwedge^2 \der(\bbC[v^{\pm 1}]) \to \bbC c_{\frakv}$$
+            (which is given by $(\eta + \eta')(L_r, L_a) := \delta_{r + a, 0} r^3 c_{\frakv}$) is also a $2$-cocycle of $\der(\bbC[v^{\pm 1}])$ with values in $\bbC c_{\frakv}$. 
+    
+            Furthermore, we have that:
+                $$\eta' \in B^2_{\Lie}( \der(\bbC[v^{\pm 1}]), \bbC c_{\frakv} )$$
+        \end{proposition}
+            \begin{proof}
+                It is clear from the construction of $\eta'$ that it is linear and skew-symmetric; the only non-trivial thing to prove is that $\eta'$ satisfies the Jacobi identity. To this end, simply consider the following, for all $i, j, k \in \Z$:
+                    $$
+                        \begin{aligned}
+                            & \eta'([L_i, L_j], L_k) + \eta'([L_k, L_i], L_j) + \eta'([L_j, L_k], L_i)
+                            \\
+                            = & (i - j) \eta'(L_{i + j}, L_k) + (k - i) \eta'(L_{k + i}, L_j) + (j - k) \eta'(L_{j + k}, L_i)
+                            \\
+                            = & \delta_{i + j + k, 0} \left( (i - j) (i + j) + (k - i) (k + i) + (j - k) (j + k) \right) c_{\frakv}
+                            \\
+                            = & 0
+                        \end{aligned}
+                    $$
+                    
+                To show that $\eta'$ is a Lie $2$-coboundary, we must show that there exists a linear map:
+                    $$\tilde{\eta'}: \der(\bbC[v^{\pm 1}]) \to \bbC c_{\frakv}$$
+                which is merely a linear map, such that:
+                    $$\eta(L_i, L_j) = \tilde{\eta'}([L_i, L_j])$$
+                The RHS is nothing but:
+                    $$\tilde{\eta'}([L_i, L_j]) = (i - j) \tilde{\eta'}(L_{i + j}) c_{\frakv}$$
+                while by construction, the LHS is:
+                    $$\eta(L_i, L_j) := \delta_{i + j, 0} i c_{\frakv}$$
+                and hence:
+                    $$\delta_{i + j, 0} i = (i - j) \tilde{\eta'}(L_{i + j})$$
+                By setting $j = 0$, we then see that:
+                    $$i (\tilde{\eta'}(L_i) - \delta_{i, 0}) = 0$$
+                for all $i \in \Z$, which in turn implies that:
+                    $$\tilde{\eta'}(L_i) = \delta_{i, 0}$$
+                The sought-for linear map $\tilde{\eta}: \der(\bbC[v^{\pm 1}]) \to \bbC c_{\frakv}$ is thus defined, and hence exists.
+            \end{proof}
+        \begin{lemma}[$H^2_{\Lie}$ of the Witt algebra] \label{lemma: H^2_of_witt_algebra}
+            (Cf. \cite[Proposition 1.3]{kac_raina_rozhkovskaya_bombay_lectures_on_highest_weight_modules_of_infinite_dimensional_lie_algebras}) Fix some $c_{\frakv} \in \bbC^{\x}$ and let $\bbC c_{\frakv}$ be viewed as a trivial $\der(\bbC[v^{\pm 1}])$-module. Then:
+                $$\dim_{\bbC} H^2_{\Lie}( \der(\bbC[v^{\pm 1}]), \bbC c_{\frakv} ) = 1$$
+        \end{lemma}
+            \begin{proof}
+                Note first of all that any Lie $2$-cocycle of $\der(\bbC[v^{\pm 1}])$ with values in $\bbC c_{\frakv}$ is necessarily given on basis elements $L_i, L_j \in \der(\bbC[v^{\pm 1}])$ by:
+                    $$\tau(L_i, L_j) = N_{i, j}(\tau) c_{\frakv}$$
+                for some $N_{i, j}(\tau) \in \bbC$. By skew-symmetry, we have that:
+                    $$\tau(L_i, L_j) = -\tau(L_j, L_i)$$
+                for all $i, j \in \Z$, and hence:
+                    $$N_{i, j}(\tau) = -N_{j, i}(\tau)$$
+                By the Jacobi identity, we the following, for all $i, j, k \in \Z$:
+                    $$
+                        \begin{aligned}
+                            & 0
+                            \\
+                            = & \tau([L_i, L_j], L_k) + \tau([L_k, L_i], L_j) + \tau([L_j, L_k], L_i)
+                            \\
+                            = & (i - j) \tau(L_{i + j}, L_k) + (k - i) \tau(L_{k + i}, L_j) + (j - k) \tau(L_{j + k}, L_i)
+                            \\
+                            = & \left( (i - j) N_{i + j, k}(\tau) + (k - i) N_{k + i, j}(\tau) + (j - k) N_{j + k, i}(\tau) \right) c_{\frakv}
+                        \end{aligned}
+                    $$
+                which implies that:
+                    $$(i - j) N_{i + j, k}(\tau) + (k - i) N_{k + i, j}(\tau) + (j - k) N_{j + k, i}(\tau) = 0$$
+                If we let $k = 0$ then we will get:
+                    $$(i - j) N_{i + j, 0}(\tau) - i N_{i, j}(\tau) + j N_{j, i}(\tau) = 0$$
+                but since we have that $N_{j, i}(\tau) = -N_{i, j}(\tau)$, as shown above, the above becomes:
+                    $$(i - j) N_{i + j, 0}(\tau) = (i + j) N_{i, j}(\tau)$$
+                Using this, we thus get that:
+                    $$
+                        \begin{aligned}
+                            & [[L_i, L_j]_{\frakv}, L_0]_{\frakv} = (i - j) [L_{i + j}, L_0]_{\frakv}
+                            \\
+                            = & (i - j) \left( (i + j) L_{i + j} + N_{i, j, 0}(\tau) c_{\frakv} \right)
+                            \\
+                            = & (i + j) [L_i, L_j] + (i + j) N_{i, j}(\tau) c_{\frakv}
+                        \end{aligned}
+                    $$
+                At the same time, the Jacobi identity implies that:
+                    $$
+                        \begin{aligned}
+                            & 0
+                            \\
+                            = & [[L_i, L_j]_{\frakv}, L_0]_{\frakv} + [[L_0, L_i]_{\frakv}, L_j]_{\frakv} + [[L_j, L_0]_{\frakv}, L_i]_{\frakv}
+                            \\
+                            = & [[L_i, L_j]_{\frakv}, L_0]_{\frakv} - i [L_i, L_j]_{\frakv} + j [L_j, L_i]_{\frakv}
+                            \\
+                            = & [[L_i, L_j]_{\frakv}, L_0]_{\frakv} - (i + j) [L_i, L_j]_{\frakv}
+                        \end{aligned}
+                    $$
+                which implies that:
+                    $$[[L_i, L_j]_{\frakv}, L_0]_{\frakv} = (i + j) [L_i, L_j]_{\frakv}$$
+                Combining the two observations then yields:
+                    $$(i + j) N_{i, j}(\tau) = 0$$
+                from which one sees that:
+                    $$N_{i, j}(\tau) = \delta_{i + j, 0} N_{i, -i}(\tau)$$
+                Now, consider once more the Jacobi identity for $\tau$:
+                    $$
+                        \begin{aligned}
+                            & 0
+                            \\
+                            = & (i - j) N_{i + j, k}(\tau) + (k - i) N_{k + i, j}(\tau) + (j - k) N_{j + k, i}(\tau)
+                            \\
+                            = & \delta_{i + j + k, 0} \left( (i - j)  N_{i + j, -(i + j)}(\tau) + (k - i) N_{k + i, -(k + i)}(\tau) + (j - k) N_{j + k, -(j + k)}(\tau) \right)
+                            \\
+                            = & (i - j)  N_{i + j, -(i + j)}(\tau) + (-(i + j) - i) N_{-(i + j) + i, -(-(i + j) + i)}(\tau) + (j + (i + j)) N_{j - (i + j), -(j -(i + j))}(\tau)
+                            \\
+                            = & (i - j)  N_{i + j, -(i + j)}(\tau) - (2i + j) N_{-j, j}(\tau) + (i + 2j) N_{-i, i}(\tau)
+                        \end{aligned}
+                    $$
+                By setting $j = 1$ and each $f_r := N_{r, -r}(\tau)$ (for all $r \in \Z \geq 0$, assuming $\tau$ is fixed), we shall then get:
+                    $$(i - 1) f_{i + 1} - (i + 2) f_i = -(2i + 1) f_1$$
+                for all $i \in \Z_{\geq 2}$. This is a difference equation with initial condition:
+                    $$f_0 = N_{0, 0} = 0$$
+                coming from the skew-symmetry of $N_{i, j}$. We note also, that knowing $f_1$ and $f_2$ would help us determine $f_{i + 1}$ for all $i \in \Z_{\geq 2}$, so the equation is of order $2$. The vector space of solutions is therefore of dimension $\leq 2$, though in light of the fact that:
+                    $$\eta \not = \eta' \in Z^2_{\Lie}(\der(\bbC[v^{\pm 1}]), \bbC c_{\frakv})$$
+                we actually have that the solution space is $2$-dimensional, say:
+                    $$Z^2_{\Lie}(\der(\bbC[v^{\pm 1}]), \bbC c_{\frakv}) \cong \bbC \eta \oplus \bbC \eta'$$
+    
+                Now, let:
+                    $$\eta \in Z^2_{\Lie}(\der(\bbC[v^{\pm 1}], \bbC c_{\frakv}))$$
+                be given by:
+                    $$\eta(L_r, L_a) := \delta_{r + a, 0} (r^3 - r) c_{\frakv}$$
+                If we can show that $\eta$ is \textit{not} a Lie $2$-coboundary of $\der(\bbC[v^{\pm 1}])$ with values in $\bbC c_{\frakv}$, we will have that:
+                    $$B^2_{\Lie}(\der(\bbC[v^{\pm 1}]), \bbC c_{\frakv}) \cong \bbC \eta'$$
+                from propostion \ref{prop: a_virasoro_coboundary}, and hence that:
+                    $$H^2_{\Lie}(\der(\bbC[v^{\pm 1}]), \bbC c_{\frakv}) \cong \bbC \eta$$
+                which would give:
+                    $$\dim_{\bbC} H^2_{\Lie}(\der(\bbC[v^{\pm 1}]), \bbC c_{\frakv}) = 1$$
+                as desired. For this, we shall need to prove that there does \textit{not} exist a linear map $\tilde{\eta}: \der(\bbC[v^{\pm 1}]) \to \bbC c_{\frakv}$ such that:
+                    $$\eta(L_i, L_j) = \tilde{\eta}([L_i, L_j])$$
+                Suppose for the sake of deriving a contradiction, that there does exist such a linear map $\tilde{\eta}$. We would then have that:
+                    $$\delta_{i + j, 0} (i^3 - i) c_{\frakv} = \eta(L_i, L_j) = \tilde{\eta}([L_i, L_j]) = (i - j) \tilde{\eta}(L_{i + j}) c_{\frakv}$$
+                for all $i, j \in \Z$, which in turn implies that:
+                    $$i^3 - i = 2i \tilde{\eta}(L_0)$$
+                when $i + j = 0$. By re-arranging, we shall get:
+                    $$\tilde{\eta}(L_0) = \frac12(i^2 - 1)$$
+                whenever $i \not = 0$, but this implies that $\tilde{\eta}(L_0)$ depends on $i$, which is absurd. We thus have a contradiction, and the linear map $\tilde{\eta}$ therefore can not exist. $\eta$ is thus not $2$-coboundary.
+            \end{proof}
+        \begin{remark}
+            It is common for physicists to work instead with the $2$-cocycle $\frac{1}{12} \eta$, with the $\frac{1}{12}$ factor being due to something called the \say{critical dimension} in string theory. The difference does not matter too much to us, so we will stick with $\eta$. 
+        \end{remark}
+
+        \begin{definition}[Hamiltonian operators] \label{def: hamiltonians}
+            Let $(V, \ket{0}, Y, T)$ be a vertex algebra. An operator $H \in \End(V)$ is called a \textbf{Hamiltonian} if:
+            \begin{itemize}
+                \item it is diagonalisable, and
+                \item 
+                    $$H \cdot Y(\psi, z) = [ H, Y(\psi, z) ] = ( z\del_z + \Delta_\psi ) \cdot Y(\psi, z)$$
+                for any eigenvector $\psi$ of $H$ with eigenvalue $\Delta_\psi$, and
+            \end{itemize}
+        \end{definition}
+        \begin{remark}
+            Set:
+                $$Y(\psi, z) := \sum_{m \in \Z} \psi^{(m)} z^{-m - 1}, \psi^{(m)} \in \End(V)$$
+            Let us then also note that:
+                $$
+                    \begin{aligned}
+                        ( z\del_z + \Delta_\psi ) \cdot Y(\psi, z) & = ( z\del_z + \Delta_\psi ) \cdot \sum_{m \in \Z} \psi^{(m)} z^{-m - 1}
+                        \\
+                        & = \sum_{m \in \Z} ( z\del_z + \Delta_\psi ) \cdot \psi^{(m)} z^{-m - 1}
+                        \\
+                        & = \sum_{m \in \Z} ( -m - 1 + \Delta_\psi ) \cdot \psi^{(m)} z^{-m - 1}
+                    \end{aligned}
+                $$
+            For any $N \in \Z$, if we apply $\Res_z(z^N \cdot )$ to both sides, we will then obtain:
+                $$[H, \psi^{(N)}] = ( -N - 1 + \Delta_\psi ) \cdot \psi^{(N)}$$
+        \end{remark}
+        \begin{lemma}
+            Let $(V, \ket{0}, Y, T)$ be a vertex algebra and let $H \in \End(V)$ be a Hamiltonian. Then:
+            \begin{enumerate}
+                \item the vacuum vector $\ket{0}$ is an eigenvector of $H$ with eigenvalue $\Delta_{\ket{0}} = 0$. 
+                \item for any eigenvector $a$ of $H$, $T \cdot a$ will also be an eigenvector, and its eigenvalue is:
+                    $$\Delta_{T \cdot a} = \Delta_a + 1$$
+                \item 
+            \end{enumerate}
+        \end{lemma}
+            \begin{proof}
+                \begin{enumerate}
+                    \item 
+                    \item 
+                    \item 
+                \end{enumerate}
+            \end{proof}
+        
+        \begin{definition}[Conformal vectors and conformal vertex algebras] \label{def: conformal_vertex_algebras}
+            Let $(V, \ket{0}, Y, T)$ be a vertex algebra. A vector $\omega \in V$ is said to be \textbf{conformal} if the field:
+                $$Y(\omega, z) := \sum_{m \in \Z} \omega^{(m)} z^{-m - 1}$$
+            is such that:
+            \begin{itemize}
+                \item $[\omega^{(m)}, \omega^{(n)}] = (m - n) \omega^{(m + n)} + \eta(\omega^{(m)}, \omega^{(n)})$,
+                \item $\omega^{(0)} = T$, and
+                \item $\omega^{(1)}$ (usually called the \textbf{energy operator}) is a Hamiltonian.
+            \end{itemize}
+            Furthermore, the eigenvalues of $\omega^{(1)}$ are called \textbf{conformal weights}.
+        \end{definition}
 
     \subsection{Rationality}
