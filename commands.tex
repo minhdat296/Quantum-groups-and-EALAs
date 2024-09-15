@@ -6,6 +6,8 @@
 \renewcommand{\>}{\rangle}
 \newcommand\bra[2][]{#1\langle {#2} #1\rvert}
 \newcommand\ket[2][]{#1\lvert {#2} #1\rangle}
+\newcommand\abs[2][]{#1\left\lvert {#2} #1\right\rvert}
+\newcommand\norm[2][]{#1\left\| {#2} #1\right\|}
 \newcommand\order[2][]{#1\: \mathbf{:} \: {#2} #1 \: \mathbf{:} \:}
 \newcommand{\ndiv}{\hspace{-2pt}\not|\hspace{5pt}}
 \newcommand{\cond}{\blacktriangle}
@@ -88,6 +90,7 @@
 \newcommand{\sgn}{\operatorname{sgn}}
 \newcommand{\coad}{\operatorname{coad}}
 \newcommand{\ch}{\operatorname{ch}} %characters of representations
+\newcommand{\dist}{\operatorname{dist}} %distance
 
 \newcommand{\Ad}{\mathrm{Ad}}
 \newcommand{\GL}{\mathrm{GL}}
@@ -272,6 +275,7 @@
 \newcommand{\Poiss}{\mathrm{Poiss}}
 \newcommand{\Fact}{\mathrm{Fact}} %factorisation
 \newcommand{\Chr}{\mathrm{Chr}} %chiral
+\newcommand{\Smooth}{\mathrm{Sm}}
 
 \newcommand{\Aut}{\mathrm{Aut}}
 \newcommand{\Inn}{\mathrm{Inn}}
@@ -285,7 +289,6 @@
 \newcommand{\Cent}{\mathrm{Cent}}
 \newcommand{\Norm}{\mathrm{Norm}}
 \newcommand{\cent}{\mathfrak{cent}}
-\newcommand{\norm}{\mathfrak{norm}}
 \newcommand{\Rad}{\operatorname{Rad}}
 \newcommand{\Transporter}{\mathrm{Transp}} %transporter between two subsets of a group
 \newcommand{\Conj}{\mathrm{Conj}}
@@ -321,8 +324,8 @@
 
 \renewcommand{\projlim}{\varprojlim}
 \newcommand{\indlim}{\varinjlim}
-\newcommand{\colim}{\operatorname{colim}}
-\renewcommand{\lim}{\operatorname{lim}}
+%\newcommand{\colim}{\operatorname{colim}}
+%\renewcommand{\lim}{\operatorname{lim}}
 \newcommand{\toto}{\rightrightarrows}
 %\newcommand{\tensor}{\otimes}
 \NewDocumentCommand{\tensor}{e{_^}}{%

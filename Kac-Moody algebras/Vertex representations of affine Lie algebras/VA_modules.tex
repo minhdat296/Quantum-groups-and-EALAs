@@ -334,6 +334,30 @@
             \end{proof}
 
     \subsection{Universal affine vertex algebras and the Frenkel-Kac-Segal (FKS) construction}
+        All throughout, we work over the field of complex numbers $\bbC$, although any algebraically closed field of characteristic $0$ will suffice, as we only need this assumption so that certain operators will be diagonalisable. 
+
+        We fix once and for all a finite-dimensional simple Lie algebra $\g$. Its Cartan matrix will be denoted by $C$, and we will use standard notations (cf. e.g. \cite{humphreys_lie_algebras} and \cite{kac_infinite_dimensional_lie_algebras}) for all of the other data that usually accompanies $\g$, e.g. a choice of simple roots, a subsequently defined root system, etc. We note that to specify these data, we will have to choose a non-degenerate and invariant symmetric bilinear form on $\g$, which shall be denoted by $\kappa$.
+
+        The \textbf{affine Lie algebra} attached to the Lie $2$-cocycle $\kappa \in H^2_{\Lie}(\g[v^{\pm 1}], \bbC)$ shall be:
+            $$\tilde{\g}_{\kappa} := \uce(\g[v^{\pm 1}])$$
+        on which the Lie bracket is given by:
+            $$[xf, yg]_{\tilde{\g}_{\kappa}} := [x, y]_{\g} fg + \kappa(x, y) g df$$
+        Here, we have used a result by Kassel to identify:
+            $$\tilde{\g}_{\kappa} \cong \g[v^{\pm 1}] \oplus \Omega^1_{\bbC[v^{\pm 1}]/\bbC}/d\bbC[v^{\pm 1}] \cong \g[v^{\pm 1}] \oplus \bbC c_{\kappa}$$
+        (see \cite{kassel_universal_central_extensions_of_lie_algebras}). We also know, per a result of Garland (see \cite{garland_arithmetics_of_loop_groups}), that $\tilde{\g}_{\kappa}$ is - up to isomorphisms - the only central extension of $\g[v^{\pm 1}]$ (i.e. $H^2_{\Lie}(\g[v^{\pm 1}], \bbC)$); isomorphisms are given by rescaling $\kappa$. One also says that $\tilde{\g}_{\kappa}$ is the affine Lie algebra at \textbf{level} $\kappa$.
+
+        The \textbf{untwisted affine Kac-Moody algebra} at level $\kappa$ (as in \cite[Chapter 7]{kac_infinite_dimensional_lie_algebras}) will then be:
+            $$\hat{\g}_{\kappa} := \tilde{\g}_{\kappa} \rtimes \bbC D_{\kappa}$$
+        where $D_{\kappa} \in \der(\tilde{\g}_{\kappa})$ can be shown to be equal to $v\frac{d}{dv}$. This algebra will be endowed with the non-degenerate and invariant symmetric bilinear form given by:
+            $$(xf, yg)_{\hat{\g}_{\kappa}} := \kappa(x, y) \Res_v (g df)$$
+            $$(c_{\kappa}, D_{\kappa})_{\hat{\g}_{\kappa}} := 1$$
+        Using this bilinear form, one can construct the Cartan matrix $\hat{C}$ of $\hat{\g}_{\kappa}$ and related combinatorial data, like the affinisation of the root system of $\g$ and so on.
+            
+        Recall in particular that for $\hat{\g}$ (or indeed, for any Kac-Moody algebra) there is the \textbf{principal $\Z$-grading} of type $\vec{s} := (s_i)_{i \in \hat{\simpleroots}} \in \Z_{\geq 0} \cdot \hat{\simpleroots}$, given on the Chevalley-Serre generators by:
+            $$\deg x_i^{\pm} := \pm s_i$$
+            $$\deg h_i := 0$$
+        for all $i \in \hat{\simpleroots}$. When $\vec{s} := \vec{1} := (1, ..., 1)$, we recover the usual root height grading. 
+    
         \begin{convention}
             Suppose now that $c_{\kappa}$ acts as $1$ on standard modules $\standard^{\lambda}(\hat{\g})$ (and hence also as $1$ on finite-dimensional simple modules and in particular, fundamental modules). In other words, we are stipulating that $\standard^{\lambda}(\hat{\g})$ carries also the structure of a left-module over $\bar{\scrU}_{\kappa} := \rmU(\tilde{\g}_{\kappa})/\rmU(\tilde{\g}_{\kappa}) \cdot (c_{\kappa} - 1)$.
         \end{convention}
