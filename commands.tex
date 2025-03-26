@@ -1,5 +1,6 @@
 \renewcommand{\implies}{\Rightarrow}
 \renewcommand{\cong}{\simeq}
+\newcommand{\codim}{\operatorname{codim}}
 \newcommand{\ladjoint}{\dashv}
 \newcommand{\radjoint}{\vdash}
 \newcommand{\<}{\langle}
@@ -44,6 +45,7 @@
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbK}{\mathbb{K}}
 \NewDocumentCommand{\x}{e{_^}}{%
   \mathbin{\mathop{\times}\displaylimits
     \IfValueT{#1}{_{#1}}
@@ -56,7 +58,10 @@
     \IfValueT{#2}{^{#2}}
   }%
 }
+\newcommand{\simpleroots}{\mathbb{I}}
 \newcommand{\supp}{\operatorname{supp}}
+\newcommand{\domain}{\operatorname{dom}}
+\newcommand{\codomain}{\operatorname{codom}}
 \newcommand{\im}{\operatorname{im}}
 \newcommand{\coim}{\operatorname{coim}}
 \newcommand{\coker}{\operatorname{coker}}
@@ -65,6 +70,9 @@
 \newcommand{\trdeg}{\operatorname{trdeg}}
 \newcommand{\rank}{\operatorname{rank}}
 \newcommand{\trace}{\operatorname{tr}}
+\newcommand{\quantumdet}{\operatorname{qdet}}
+\newcommand{\skdet}{\operatorname{skdet}}
+\newcommand{\quasidet}{\operatorname{quasidet}}
 \newcommand{\length}{\operatorname{length}}
 \newcommand{\height}{\operatorname{ht}}
 \renewcommand{\span}{\operatorname{span}}
@@ -149,6 +157,7 @@
 
 \newcommand{\Ring}{\mathrm{Ring}}
 \newcommand{\Cring}{\mathrm{CRing}}
+\newcommand{\Bool}{\mathrm{Bool}} %boolean algebras
 \newcommand{\Alg}{\mathrm{Alg}}
 \newcommand{\Leib}{\mathrm{Leib}} %leibniz algebras
 \newcommand{\Fld}{\mathrm{Fld}}
@@ -288,7 +297,9 @@
 \newcommand{\Stab}{\mathrm{Stab}}
 \newcommand{\Cent}{\mathrm{Cent}}
 \newcommand{\Norm}{\mathrm{Norm}}
+\newcommand{\Core}{\mathrm{Core}}
 \newcommand{\cent}{\mathfrak{cent}}
+\newcommand{\core}{\mathfrak{core}}
 \newcommand{\Rad}{\operatorname{Rad}}
 \newcommand{\Transporter}{\mathrm{Transp}} %transporter between two subsets of a group
 \newcommand{\Conj}{\mathrm{Conj}}
@@ -541,6 +552,10 @@
 \newcommand{\costandard}{\nabla}
 \newcommand{\simple}{\bar{\Delta}}
 \newcommand{\cosimple}{\bar{\nabla}}
+\newcommand{\qsimple}{\bar{ \mathbf{ \Delta } }}
+\newcommand{\qcosimple}{\bar{ \mathbf{ \nabla } }}
+\newcommand{\qstandard}{\mathbf{ \Delta }}
+\newcommand{\qcostandard}{\mathbf{ \nabla }}
 \newcommand{\frakD}{\mathfrak{D}}
 \newcommand{\rmi}{\mathrm{i}}
 \newcommand{\bfH}{\mathbf{H}}
@@ -599,6 +614,7 @@
 \newcommand{\qis}{\mathrm{qis}} %quasi-isomorphism
 \newcommand{\ho}{\mathrm{ho}} %homotopy equivalence
 \newcommand{\sep}{\mathrm{sep}}
+\newcommand{\insep}{\mathrm{insep}}
 \newcommand{\unr}{\mathrm{unr}}
 \newcommand{\tame}{\mathrm{tame}}
 \newcommand{\wild}{\mathrm{wild}}
@@ -619,7 +635,8 @@
 %\newcommand{\stab}{\mathrm{stab}}
 \newcommand{\heart}{\heartsuit}
 \newcommand{\proj}{\mathrm{proj}}
-\newcommand{\qproj}{\mathrm{qproj}}
+\newcommand{\rot}{\mathrm{rot}}
+\newcommand{\qproj}{\mathrm{qproj}} %quasi-projective
 \newcommand{\pd}{\mathrm{pd}}
 \newcommand{\crys}{\mathrm{crys}}
 \newcommand{\prisma}{\mathrm{prisma}}
@@ -670,6 +687,8 @@
 \newcommand{\preproj}{\mathrm{preproj}}
 \newcommand{\preinj}{\mathrm{preinj}}
 \newcommand{\reg}{\mathrm{reg}}
+\newcommand{\sing}{\mathrm{sing}}
+\newcommand{\crit}{\mathrm{crit}}
 \newcommand{\semisimple}{\mathrm{ss}}
 \newcommand{\integrable}{\mathrm{int}}
 \newcommand{\s}{\mathfrak{s}}
