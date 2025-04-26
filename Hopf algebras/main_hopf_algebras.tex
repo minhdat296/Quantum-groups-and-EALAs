@@ -3,18 +3,16 @@
 \setcounter{section}{-1}
 
 \input{commands}
-\newcommand{\toroidal}{\t}
-\newcommand{\extendedtoroidal}{\hat{\t}}
 
 \begin{document}
 
-    \title{The Kassel realisation for universal central extensions of perfect Lie algebras}
+    \title{Hopf algebras}
     
     \author{Dat Minh Ha}
     \maketitle
     
     \begin{abstract}
-        
+    
     \end{abstract}
     
     {
@@ -25,13 +23,15 @@
 
     \listoftodos
 
-    \section{Introduction}
+    \input{Hopf algebras/introduction_hopf_algebras}
 
-    \input{EALAs/Kassel's realisation/perfect_lie_algebras}
+    \input{Hopf algebras/(co)algebras}
 
-    \input{EALAs/Kassel's realisation/kassel_uce_centres}
+    \begin{appendices}
+        \input{Hopf algebras/appendix_monoidal_categories}
 
-    \input{EALAs/Kassel's realisation/examples_of_kassel_uce_centre}
+        \input{Hopf algebras/appendix_gradings}
+    \end{appendices}
     
     \addcontentsline{toc}{section}{References}
     \printbibliography

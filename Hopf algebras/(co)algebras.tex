@@ -1,0 +1,194 @@
+\section{Algebras and coalgebras}
+    \subsection{Algebras}
+        Let us begin by giving a brief recollection of how the notion of algebras over rings is treated traditionally. Recall that for a fixed base commutative ring $k$ (usually a field or $\Z$), an algebra over $k$ is a pair:
+            $$(A, \rho_A)$$
+        consisting of a ring $A$ and a ring homomorphism with central image:
+            $$\rho_A: k \to A$$
+        \begin{question}
+            Give three non-trivial examples of noncommutative algebras.
+        \end{question}
+        A $k$-algebra homomorphism:
+            $$\varphi: (A, \rho_A) \to (B, \rho_B)$$
+        between two $k$-algebras $(A, \rho_A), (B, \rho_B)$ is a ring homomorphism $\varphi: A \to B$ fitting into the following commutative diagram:
+            $$
+                \begin{tikzcd}
+            	A & B \\
+            	k
+            	\arrow["\varphi", from=1-1, to=1-2]
+            	\arrow["{\rho_A}", from=2-1, to=1-1]
+            	\arrow["{\rho_B}"', from=2-1, to=1-2]
+                \end{tikzcd}
+            $$
+        \begin{question}
+            Prove that a ring homomorphism $\varphi: A \to B$ between two $k$-algebras $(A, \rho_A), (B, \rho_B)$ is a $k$-algebra homomorphism if and only if it is $k$-linear. Show that when $k \cong \Z$, we recover the usual notion of ring homomorphisms. Conclude, then, that $\Z$ is an initial object of $\Ring$ (the category of rings).
+        \end{question}
+        \begin{question}
+            Prove that, given a $k$-module $V$, the ring of $k$-linear endomorphisms $\End_k(V)$ (on which multiplication is given by compositions) is a $k$-algebra. Prove also, that any subring of $\End_k(V)$ is also a $k$-algebra and that conversely, given any $k$-algebra, there exist a $k$-module $V$ along with an injective $k$-algebra homomorphism $A \hookrightarrow \End_k(V)$ (i.e. a \say{faithful representation} of $A$). 
+        \end{question}
+        An $A$-module is a pair:
+            $$(V, \varrho_V)$$
+        consisting of a $k$-module $V$ along with a $k$-algebra homomorphism, usually called an \say{action} or \say{representation} of $A$ on $V$:
+            $$\varrho_V: A \to \End_k(V)$$
+        A homomorphism of $A$-modules:
+            $$\varphi: (V, \varrho_V) \to (W, \varrho_W)$$
+        consists of an underlying $k$-linear map $\varphi: V \to W$ which \say{intertwines} with the actions $\varrho_V$ and $\varrho_W$, which is to say that the following diagram commutes for any $x \in A$:
+            $$
+                \begin{tikzcd}
+            	V & W \\
+            	V & W
+            	\arrow["\varphi", from=1-1, to=1-2]
+            	\arrow["{\varrho_V(x)}"', from=1-1, to=2-1]
+            	\arrow["{\varrho_W(x)}", from=1-2, to=2-2]
+            	\arrow["\varphi", from=2-1, to=2-2]
+                \end{tikzcd}
+            $$
+        Since $A$ is not assumed to be commutative in general, we need to make a distinction between so-called \say{left} and \say{right-actions}. Recall that by the universal property of free modules, every module over any ring (hence over any algebra) admits a presentation\footnote{In the literature, sometimes people say \say{presentation} when they really mean \say{free presentation}, which is when the kernel of the quotient map is also free. We will refrain from conflating these two terms.}, which is to say that any module can be written as a quotient of a free module. For instance, for $(V, \rho)$ as above, there exists a set $I$ and a surjective $A$-module homomorphism:
+            $$\pi: A^{\oplus I} \to V$$
+        which allows us to regard elements of $V$ as $I$-tuples:
+            $$(x_i)_{i \in I}, x_i \in A$$
+        that vanish if and only if they lie in $\ker \pi$; elements of $\ker \pi$ are called the \say{relations} defining $V$. A left/right-action of $A$ on $V$ is then specified by whether elements of $A$ scalar-multiply into the tuples $(x_i)_{i \in I}$ from the left or the right. If both occurs simultaneously, we say that $V$ is a two-sided module or $(A, A)$-bimodule. Similarly, one can even define $(A, B)$-bimodules for two possibly different $k$-algebras $A, B$, with it being understood that $A$ acts from the left and $B$ acts from the right.
+        \begin{convention}
+            For an algebra $A$, the categories of left-$A$-modules (respectively, of right-$A$-modules) shall be denoted by:
+                $${}^lA\mod$$
+            (respectively, by ${}^rA\mod$).
+        \end{convention}
+        \begin{question}
+            Let $A$ be a $k$-algebra and $V, W$ be two left/right-$A$-modules. Prove that $\Mor_{ {}^lA\mod }(V, W)$, the set of left/right-$A$-module homomorphisms $V \to W$ is generally only a $k$-module, not a left/right-$A$-module, unless $A$ is commutative, in which case $\Mor_{ {}^lA\mod }(V, W)$ will automatically be a two-sided $A$-module.
+
+            We will usually write $\Mor_{ {}^lA\mod }$ instead of $\Hom_A$ when we need to put emphasis on this fact. 
+        \end{question}
+        \begin{question}
+            Let $A$ be a $k$-algebra and $(V, \varrho_V)$ be a left-$A$-module.
+            \begin{enumerate}
+                \item Prove that the full $k$-linear dual:
+                    $$V^* := \Hom_k(V, k)$$
+                has a natural right-$A$-module structure induced by $\varrho_V$ (and \textit{vice versa}).
+                \item Now, suppose that the underlying $k$-module $V$ is graded by some abelian group $\Gamma$, i.e. we can decompose $V$ into $k$-submodules as:
+                    $$V := \bigoplus_{\gamma \in \Gamma} V_{\gamma}$$
+                Prove that the graded dual:
+                    $$V^{\star} := \bigoplus_{\gamma \in \Gamma} V_{\gamma}^*$$
+                also has a natural right-$A$-module structure induced by $\varrho_V$ (and \textit{vice versa}). If, moreover, $A$ is a $\Gamma$-graded algebra - meaning that $A := \bigoplus_{\gamma} A_{\gamma}$ as a $k$-module and $A_{\gamma} A_{\gamma'} \subseteq A_{\gamma \gamma'}$ for all $\gamma, \gamma' \in \Gamma$ - and if $\varrho_V: A \to \End_k(V)$ is a $\Gamma$-graded action - meaning that $A_{\gamma} V_{\lambda} \subseteq V_{\gamma + \lambda}$ for all $\gamma, \lambda \in \Gamma$ - then the aforementioned right-$A$-module structure on $V^{\star}$ will also be $\Gamma$-graded.
+            \end{enumerate}
+        \end{question}
+        As such, we see that for any $k$-algebra $A$, there exists the (linear) duality and graded duality functors:
+            $$(-)^*, (-)^{\star}: {}^lA\mod \to {}^rA\mod$$
+        (and \textit{vice versa}, going from right-modules to left-modules), and it is usually a fruitful endeavour to investigate when these functors are equivalences of categories. The famous duality principle of Beilinson-Gel'fand-Gel'fand (BGG) is along these lines (see e.g. \cite[Chapter 3]{humphreys_category_O} and \cite[Sections 2.6 and 6.7]{moody_pianzola_lie_algebras_with_triangular_decompositions}). 
+        \begin{example}
+            Highest-weight modules over a finite-dimensional semi-simple Lie algebra $\g$ over an algebraically closed field of characteristic $0$ are left-modules. In fact, they are graded as left-$\g$-modules\footnote{Or, to not abuse terminologies, left-$\rmU(\g)$-modules, with $\rmU(\g)$ being the universal enveloping algebra of $\g$.} by the root lattice of $\g$ (or more crudely, by the underlying abelian group of the linear dual of \say{the} Cartan subalgebra of $\g$). As such, one usually considers graded duals of highest-weight $\g$-modules, as opposed to full linear duals.  
+        \end{example}
+        
+        Next, let us discuss the matter of tensor products over noncommutative rings, which is rather less straightforward than what happens over commutative rings. Given two $A$-modules $(V, \varrho_V), (W, \varrho_W)$, one can first of all form their \say{tensor product} over the previously fixed commutative ring $k$, $V \tensor_k W$, and by definition, this is the object of $k\mod$ that corepresents the functor:
+            $$\Bil_k(V \x W, -): k\mod \to \Sets$$
+        mapping $k$-modules $P \in \Ob(k\mod)$ to the set $\Bil_k(V \x W, P)$ of $k$-bilinear maps $V \x W \to P$, i.e. we have a natural isomorphism of functors $k\mod \to \Sets$:
+            $$\Bil_k(V \x W, -) \xrightarrow[]{\cong} \Hom_k(V \tensor_k W, -)$$
+        (cf. \cite[\href{https://stacks.math.columbia.edu/tag/00CX}{Tag 00CX}]{stacks-project}). If $A$ is a commutative algebra, then we can just repeat the construction above, replacing $k$ with $A$, but if $A$ is noncommutative, then we will need to be careful. If $(V, \varrho_V), (W, \varrho_W)$ are two left-$A$-modules, then on the $k$-module $V \tensor_k W$, there will be a naturally induced left-$A$-module structure:
+            $$\varrho_{V \tensor_k W}: A \to \End_k(V \tensor_k W)$$
+        given by:
+            $$\varrho_{V \tensor_k W}(x) \cdot (v \tensor w) := (\varrho_V(x) \cdot v) \tensor w = v \tensor (\varrho_W(x) \cdot w)$$
+        On the other hand, if we work with right-modules, then the action will be given by:
+            $$\varrho_{V \tensor_k W}(x) \cdot (v \tensor w) := v \tensor (w \cdot \varrho_W(x)) = (v \cdot \varrho_W(x)) \tensor w$$
+        When there is no ambiguity as to whether $V \tensor_k W$ is a left or right-$A$-module, we will write:
+            $$V \tensor_A W$$
+        to denote $(V \tensor_k W, \rho_{V \tensor_k W})$ defined as above. In either case, one crucial detail that distinguishes tensor products over noncommutative rings and over commutative is that when $A$ is non-commutative, we generally have:
+            $$V \tensor_A W \not \cong W \tensor_A V$$
+        This is an important example of an asymmetric monoidal structure, namely on the category of left/right-$A$-modules.
+        \begin{question}
+            Prove that the monoidal unit, as one would expect, is the algebra $A$ itself. Namely, prove that there are $A$-module isomorphisms:
+                $$V \cong V \tensor_A A \cong A \tensor_A V \cong V$$
+            for any $A$-module $V$.
+        \end{question}
+        \begin{question}
+            Let $A, B$ be two $k$-algebras and let $V$ be an $A$-module, while $W$ be a $B$-module. Prove that:
+            \begin{enumerate}
+                \item if $V$ is a left-$A$-module while $W$ is a right-$B$-module, then $V \tensor_k W$ will have a naturally induced $(A, B)$-bimodule structure, and
+                \item if $V$ is a right-$A$-module while $W$ is a left-$B$-module, then $V \tensor_k W$ will have a naturally induced $(B, A)$-bimodule structure.
+            \end{enumerate}
+            In these cases, we may write $V \tensor_{A, B} W$ and $V \tensor_{B, A} W$, respectively. Note that even when $A = B$, if $V, W$ do not have the same directionality then $V \tensor_A W \not \cong V \tensor_{A, A} W$, for the former may even be ill-defined (explain why).
+        \end{question}
+        One of the most important facts about tensor products is that they give rise to an adjunction, usually called the tensor-hom adjunction.
+        \begin{question}[Tensor-hom adjunction]
+            Let $A, B$ be two $k$-algebras and let $U$ be a left-$A$-module, $V$ be an $(A, B)$-bimodule, and $W$ be a left-$B$-module. Prove that there is a $k$-module isomorphism as follows, natural in $U, V, W$:
+                $$\Mor_{ {}^lB\mod }(U \tensor_A V, W) \cong \Mor_{ {}^lA\mod }(U, \Mor_{ {}^lB\mod }(V, W))$$
+            State and prove the version for right-modules.
+        \end{question}
+        This result allows us to give the following important diagrammatic descriptions of algebras and modules over them. 
+        \begin{question}
+            \begin{enumerate}
+                \item Prove that to give a $k$-algebra $A$ is the same as to give $k$-linear maps:
+                    $$\mu: A^{\tensor 2} \to A$$
+                    $$\eta: k \to A$$
+                called the \say{multiplication} and \say{unit} maps that fit into the following commutative diagrams in $k\mod$:
+                \begin{itemize}
+                    \item \textbf{(Associativity):}
+                        $$
+                            \begin{tikzcd}
+                        	{A^{\tensor 2} \tensor_k A} && {A \tensor_k A^{\tensor 2}} \\
+                        	{A^{\tensor 2}} && {A^{\tensor 2}} \\
+                        	& A
+                        	\arrow["{\alpha_{A, A, A}}", from=1-1, to=1-3]
+                        	\arrow["{\mu \tensor \id_A}"', from=1-1, to=2-1]
+                        	\arrow["{\id_A \tensor \mu}", from=1-3, to=2-3]
+                        	\arrow["\mu"', from=2-1, to=3-2]
+                        	\arrow["\mu", from=2-3, to=3-2]
+                            \end{tikzcd}
+                        $$
+                    wherein $\alpha_{A, A, A}: A \tensor_k A^{\tensor 2} \xrightarrow[]{\cong} A^{\tensor 2}$ is the canonical isomorphism arising from the associativity of tensor products, usually called the \say{associator} for the triple of objects $(A, A, A)$. 
+                    \item \textbf{(Left and right-unitality):}
+                        $$
+                            \begin{tikzcd}
+                        	{k \tensor_k A} & {A^{\tensor 2}} & {A \tensor_k k} \\
+                        	& A
+                        	\arrow["{\eta \tensor \id_A}", from=1-1, to=1-2]
+                        	\arrow["\cong"', from=1-1, to=2-2]
+                        	\arrow["\mu"{description}, from=1-2, to=2-2]
+                        	\arrow["{id_A \tensor \eta}"', from=1-3, to=1-2]
+                        	\arrow["\cong", from=1-3, to=2-2]
+                            \end{tikzcd}
+                        $$
+                    wherein the unlabelled isomorphisms are the canonical ones. 
+                \end{itemize}
+                If the algebra is commutative, then the following commutative diagram in $k\mod$ must also hold:
+                \item Prove that to give a left-action $A \to \End_k(V)$ of a $k$-algebra $A$ on a $k$-module $V$ is equivalent to giving a left-$A$-module homomorphism:
+                    $$\varrho_V: A \tensor_k V \to V$$
+                fitting into the following commutative diagrams in $k\mod$:
+                \begin{itemize}
+                    \item \textbf{(Left-associativity):} \todo[inline]{Associativity of module actions}
+                    \item \textbf{(Left and right-unitality):} \todo[inline]{Unitality of module actions}
+                \end{itemize}
+                    
+                State and prove the version for right-modules.
+            \end{enumerate}
+        \end{question}
+
+        This leads us to the following \textit{vast} abstraction of the notion of algebras over commutative rings, internal to any monoidal category.
+        \begin{definition}[Algebras] \label{def: algebras}
+            \todo[inline]{Algebras in monoidal categories}
+        \end{definition}
+
+    \subsection{Coalgebras and bialgebras}
+        \begin{definition}[Coalgebras] \label{def: coalgebras}
+            \todo[inline]{Coalgebras in monoidal categories}
+        \end{definition}
+        
+        \begin{definition}[Bialgebras] \label{def: bialgebras}
+            \todo[inline]{Bialgebras in monoidal categories}
+        \end{definition}
+
+        \begin{definition}[Hopf algebras] \label{def: hopf_algebras}
+            \todo[inline]{Hopf algebras in monoidal categories}
+        \end{definition}
+
+        \begin{lemma}[Tensor products of modules over Hopf algebras] \label{lemma: tensor_products_of_modules_over_hopf_algebras}
+            
+        \end{lemma}
+            \begin{proof}
+                
+            \end{proof}
+
+        \begin{example}[Cocommutative bialgebras from affine group schemes]
+            
+        \end{example}
+
+        \begin{example}[Quantum groups: non-cocommutative bialgebras]
+            
+        \end{example}
