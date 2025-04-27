@@ -1,0 +1,248 @@
+\section{Quantisation of Lie bialgebras}
+    \subsection{(Co-)Poisson algebras and deformation quantisation}
+        \begin{definition}[Deformations] \label{def: bialgebra_deformations}
+            Let $A$ be an associative $k$-algebra.
+            
+            A \textbf{$n^{th}$ order algebra/coalgebra/bialgebra/Hopf algebra deformation}\footnote{Algebraic geometers might call these \say{$n^{th}$ order thickenings}.} (for some $n \geq 1$) of $A$ is a \textit{flat} algebra/coalgebra/bialgebra/Hopf algebra $\tilde{A}$ over $k[\hbar]/\hbar^n$ such that there exist an isomorphism of algebra/coalgebra/bialgebra/Hopf algebra over $k$ as follows:
+                $$\tilde{A} \tensor_{k[\hbar]/\hbar^n} k \xrightarrow[]{\cong} A$$
+                
+            A \textbf{formal deformation} of $A$ is a flat algebra/coalgebra/bialgebra/Hopf algebra $\tilde{A}$ over $k[\![\hbar]\!]$ such that there eixst an isomorphism of algebra/coalgebra/bialgebra/Hopf algebra over $k$ as follows:
+                $$\tilde{A} \tensor_{k[\![\hbar]\!]} k \xrightarrow[]{\cong} A$$
+        \end{definition}
+        \begin{remark}
+            Definition \ref{def: bialgebra_deformations} actually works for $k$ being any commutative ring, provided that one requires that $A$ is flat as a $k$-module. 
+            
+            It is also clear that any cofiltered diagram of $n^{th}$ order deformations $\{A_n\}_{n \geq 1}$ of some (flat) $k$-algebra gives rise to a universal formal deformation:
+                $$A_{\infty} := \projlim_{n \geq 1} A_n$$
+            as a result of Lazard's Theorem, which tells us that cofiltered limits of flat modules are once more flat, as well as the fact that the categories of algebra/coalgebra/bialgebra/Hopf algebra over $k$ has all small cofiltered limits. 
+        \end{remark}
+        \begin{example}[Rees algebras as formal deformations] \label{example: rees_algebras_as_formal_flat_deformations}
+            Let $A := \{A_n\}_{n \geq 0}$ be an $\N$-filtered associative $k$-algebra recall that its associated \textbf{Rees algebra} is $\N$-graded associative $k[\![\hbar]\!]$-algebra given by:
+                $$\Rees(A) := \bigoplus_{n \geq 0} A_n \hbar^n$$
+            Since we have that:
+                $$\Rees(A)/\hbar \cong \gr(A)$$
+            and since $\Rees(A)$ is flat over $k[\![\hbar]\!]$ (if $k$ is replaced by a more general commutative ring, we can guarantee this flatness by assuming, e.g. that each $A_n$ is flat over each $k[\hbar]/\hbar^n$), the algebra $\Rees(A)$ can be thought of as a formal ($\N$-graded) deformation of $\gr(A)$ (which itself is $\N$-graded). 
+        \end{example}
+
+        Let us now introduce Poisson algebras, which in a sense are \say{dual} to Lie algebras; we will explain how this duality occurs momentarily. 
+        \begin{definition}[Poisson algebras] \label{def: poisson_algebras}
+            A \textbf{Poisson $k$-algebra} is a triple $(A, \cdot, \{-, -\})$ wherein the pair $(A, \cdot)$ is an associative $k$-algebra, and $\{-, -\}: A \tensor_k A \to A$ is a Lie bracket such that, for each $a \in A$, the map:
+                $$\{-, a\}: A \to A$$
+            is a derivation on $(A, \cdot)$, i.e. for all $f, g \in A$, one has that:
+                $$\{f \cdot g, a\} = f \cdot \{g, a\} + \{f, a\} \cdot g$$
+        \end{definition}
+        \begin{definition}[Deformation quantisations] \label{def: deformation_quantisation}
+            Let $(A, \cdot, \{-, -\})$ be a Poisson algebra over $k$. A \textbf{formal deformation quantisation} of $A$ is a formal deformation $\tilde{A}$ (over $k[\![\hbar]\!]$) of $A$, endowed with the Poisson structure given by the commutator $[-, -]_{\tilde{A}}$, such that:
+                $$\{f, g\} = \frac{1}{\hbar}[\tilde{f}, \tilde{g}]_{\tilde{A}} \pmod{\hbar}$$
+            for any lifts $\tilde{f}, \tilde{g} \in \tilde{A}$ of $f, g \in A$ (i.e. $\tilde{f} \equiv f, \tilde{g} \equiv g \pmod{\hbar}$).
+        \end{definition}
+        \begin{lemma}[Poisson brackets from formal deformations of commutative algebras] \label{lemma: poisson_brackets_from_formal_flat_deformations_of_commutative_algebras}
+            Let $(A, \cdot)$ be an associative $k$-algebra with a formal deformation $\tilde{A}$ (over $k[\![\hbar]\!]$). Then, the following - for all $f, g \in \rmZ(A)$ and all lifts $\tilde{f}, \tilde{g} \in \tilde{A}$ (i.e. $\tilde{f}, \tilde{g} \equiv f, g \pmod{\hbar}$) - makes the centre $\rmZ(A) \subseteq A$ a commutative Poisson $k$-algebra:
+                $$\{f, g\} := \frac{1}{\hbar}[\tilde{f}, \tilde{g}]_{\tilde{A}} \pmod{\hbar}$$
+        \end{lemma}
+            \begin{proof}
+                As $f, g \in \rmZ(A)$, we have that $[f, g]_A = 0$ and hence $[\tilde{f}, \tilde{g}]_{\tilde{A}} \in \hbar \tilde{A}$; we thus see firstly that the expression $\frac{1}{\hbar}[\tilde{f}, \tilde{g}]_{\tilde{A}} \in \tilde{A}$ is well-defined. It is well-known that the commutator $[-, -]_{\tilde{A}}$ is a Lie bracket on $\tilde{A}$, so $\{-, -\}$ given by $\{f, g\} := \frac{1}{\hbar}[\tilde{f}, \tilde{g}]_{\tilde{A}} \pmod{\hbar}$ for all $f, g \in \rmZ(A)$ is therefore a well-defined Lie bracket on $\rmZ(A)$. It is also easy to check that $\{f, g\}$ is depends not on the choices of lifts $\tilde{f}, \tilde{g}$. We also have that $\{f, -\}: \rmZ(A) \to \rmZ(A)$ is a derivation with respect to the multiplication $\cdot$ on $A$ for every $f \in \rmZ(A)$, owing to the fact that $[\varphi, -]_{\tilde{A}}$ is a derivation with respect to the multiplication on $\tilde{A}$, for any $\varphi \in \tilde{A}$ (one can then take $\varphi := \tilde{f}$ for any $\tilde{f} \equiv f \pmod{\hbar}$).
+            \end{proof}
+        \begin{corollary}[Deformation quantisations of commutative Poisson algebras induced by formal deformations] \label{coro: deformation_quantisation_of_poisson_algebras_from_formal_flat_deformations}
+            Let $(A, \cdot)$ be a \textit{commutative} $k$-algebra with a formal deformation $\tilde{A}$ (over $k[\![\hbar]\!]$). Then, the following - for all $f, g \in A$ and all lifts $\tilde{f}, \tilde{g} \in \tilde{A}$ (i.e. $\tilde{f}, \tilde{g} \equiv f, g \pmod{\hbar}$) - makes $A = \rmZ(A)$ a commutative Poisson $k$-algebra:
+                $$\{f, g\} := \frac{1}{\hbar}[\tilde{f}, \tilde{g}]_{\tilde{A}} \pmod{\hbar}$$
+            and thus making $\tilde{A}$ a deformation quantisation of $A$ in the sense of definition \ref{def: deformation_quantisation}.
+        \end{corollary}
+        \begin{example}[PBW deformations] \label{example: PBW_deformations}
+            Let $\a$ be an arbitrary Lie algebra over $k$ and denote the PBW filtration on the universal enveloping algebra of $\a$ by $\rmU(\a) := \{\rmU(\a)_n\}_{n \geq 0}$. The PBW Theorem tells us that there is a canonical isomorphism of $\N$-graded commutative $k$-algebras:
+                $$\Sym(\a) \xrightarrow[]{\cong} \gr \rmU(\a)$$
+            Using example \ref{example: rees_algebras_as_formal_flat_deformations}, we thus know that:
+                $$\Rees(\rmU(\a)) := \bigoplus_{n \geq 0} \rmU(\a)_n \hbar^n$$
+            is a formal $\N$-graded deformation over $k[\![\hbar]\!]$ of the $\N$-graded commutative $k$-algebra $\Sym(\a)$. Lemma \ref{lemma: poisson_brackets_from_formal_flat_deformations_of_commutative_algebras} then tells us that $\Sym(\a)$ carries a canonically defined Poisson structure $\{-, -\}$ given by:
+                $$\{x, y\} := \frac{1}{\hbar}[\tilde{x}, \tilde{y}]_{\Rees(\rmU(\a))} \pmod{\hbar}$$
+            for all $x, y \in \Sym(\a)$ and all lifts $\tilde{x}, \tilde{y} \in \Rees(\rmU(\a))$ thereof. 
+
+            Now, recall also that when $\a$ is finite-dimensional, the symmetric algebra $\Sym(\a)$ also has a natural bialgebra structure (cf. \cite[Chapter III]{kassel_quantum_groups}) which happens to be compatible with the one on $\gr \rmU(\a)$, and since both are Hopf algebras, the PBW isomorphism upgrades to an isomorphism of $\N$-graded Hopf $k$]
+            algebras:
+                $$\Sym(\a) \xrightarrow[\text{Hopf}]{\cong} \gr \rmU(\a)$$
+            In other words, when $\a$ is finite-dimensional over $k$, $\Rees(\rmU(\a))$ is actually a formal $\N$-graded Hopf algebra deformation of $\Sym(\a)$. 
+        \end{example}
+    
+        \begin{definition}[Formal QUEs] \label{def: formal_QUEs}
+            A \textbf{formal(ly) quantised universal enveloping algebra (QUE)} of a Lie algebra $\a$ is a formal Hopf algebra deformation of $\rmU(\a)$ in the sense of definition \ref{def: bialgebra_deformations}.
+        \end{definition}
+    
+        \begin{definition}[Lie co/bialgebras] \label{def: lie_co/bialgebras}
+            A \textbf{Lie coalgebra} over $k$ is a pair $(\c, \delta)$ consisting of a $k$-vector space $\c$ and a $k$-linear map:
+                $$\delta: \c \to \c \wedge \c$$
+            satisfying the following so-called \textbf{co-Jacobi identity}:
+                $$((123) + (231) + (312)) \circ (\delta \tensor_k \id_\c) \circ \delta = 0$$
+            Now, suppose that $(\a, [-, -])$ is a Lie algebra over $k$ that is also equipped with a Lie coalgebra structure $\delta: \a \to \a \wedge \a$. If the Lie and co-Lie structures $[-, -]$ and $\delta$ are compatible in the sense below, then we will refer to the triple $(\a, [-, -], \delta)$ as a \textbf{Lie bialgebra} over $k$:
+                $$\delta \circ [-, -] = (\ad \tensor_k \id_{\a} + \id_{\a} \tensor_k \ad) \circ (\id_{\a \tensor_k \a} + (12))$$
+        \end{definition}
+        \begin{definition}[Manin triples] \label{def: manin_triples}
+            A \textbf{Manin triple} consists of the datum of a triple of Lie algebras $(\a, \a^+, \a^-)$ along with an $\ad(\a)$-invariant symmetric and non-degenerate $k$-bilinear form $\kappa: \Sym^2(\a) \to \a$ such that:
+                \begin{itemize}
+                    \item $\a^{\pm}$ are Lie subalgebras of $\a$,
+                    \item $\a \cong \a^- \oplus \a^+$
+                    \item with respect to the inner product $\kappa$, the Lie subalgebras $\a^{\pm}$ are isotropic to one another, i.e. $\kappa(\a^-, \a^+) = 0$, i.e. they are orthogonal complements of one another with respect to $\kappa$.
+                \end{itemize}
+        \end{definition}
+        \begin{proposition}[Manin triples classify Lie bialgebras] \label{prop: manin_triples_classify_lie_bialgebras}
+            There is a bijection:
+                $$\left\{ \text{Finite-dimensional Lie bialgebras $(\a, [-, -], \delta)$} \right\}$$
+                $$\cong$$
+                $$\left\{ \text{Finite-dimensional Manin triples $(\a, \a^-, \a^+)$ with $\a^+ \cong \a$} \right\}$$
+        \end{proposition}
+            \begin{proof}
+                 
+            \end{proof}
+        \begin{example}[Kac-Moody bialgebras]
+            \todo[inline]{Kac-Moody bialgebras}
+        \end{example}
+        
+        For $\a$ a finite-dimensional Lie algebra over $k$, the process of taking the so-called \say{classical limit} in order to obtain a finite-dimensional Lie bialgebra from a quantisation $\widetilde{\rmU(\a)}$ of $\rmU(\a)$ amounts to constructing a \say{coproduct-like} map:
+            $$\delta: \rmU(\a) \to \rmU(\a) \tensor_k \rmU(\a)$$
+        whose job is to measure how non-cocommutative the comultiplication on $\widetilde{\rmU(\a)}$ is. It is thus natural to consider:
+            $$\delta := \frac1\hbar(\tilde{\Delta} - \tilde{\Delta}^{\cop}) \pmod{\hbar}$$
+        One readily checks that this map $\delta$ is well-defined up to a choice of representative $x \pmod{\hbar}$; this map is important, so we give it a name: the bi-Poisson structure (sometimes called the \say{co-Poisson-Hopf structure}) on $\rmU(\a)$. In order to study it, let us make the following definition for the sake of precision.
+        \begin{definition}[Co/bi-Poisson structures] \label{def: co/bi_poisson_structures}
+            Suppose that $(C, \Delta, \e)$ is a $k$-coalgebra. A \textbf{co-Poisson structure} (or \textbf{co-Poisson cobracket}) on this coalgebra is then a $k$-linear map:
+                $$\delta: C \to C \wedge C$$
+            that is a co-Lie structure on $(C, \Delta, \e)$, and simultaneously a coderivation on $(C, \Delta, \e)$ in the following sense:
+                $$(\Delta \tensor_k \id_C) \circ \delta = (\delta \tensor_k \id_C + (23) \circ \id_C \tensor_k \delta) \circ \Delta$$
+            Now, if $(H, \mu, \eta, \Delta, \e)$ is a $k$-bialgebra, then a co-Poisson structure thereon is a bi-Poisson structure if and only if it is compatible with the multiplication $\mu$ in the following manner:
+                $$\delta \circ \mu = (\mu \tensor_k \mu) \circ (\Delta \tensor_k \delta + \delta \tensor_k \Delta)$$
+        \end{definition}
+        What makes the co-Poisson structure on universal enveloping algebras $\rmU(\a)$ interesting and important is that they induce a Lie bialgebra structure on $\a$ (provided that quantisations of $\rmU(\a)$ existed in the first place). 
+        \begin{lemma}[Bi-Poisson structures from Hopf algebra deformations] \label{lemma: bi_poisson_structures_from_hopf_algebra_deformations}
+            Suppose that $(H, \mu, \eta, \Delta, \e)$ is a cocommutative Hopf algebra over $k$ with a formal Hopf algebra deformation $(\tilde{H}, \tilde{\mu}, \tilde{\eta}, \tilde{\Delta}, \tilde{\e})$ over $k[\![\hbar]\!]$. Then, there will be a bi-Poisson structure on $H$ given by:
+                $$\delta := \frac{1}{\hbar}(\tilde{\Delta} - \tilde{\Delta}^{\cop}) \pmod{\hbar}$$
+        \end{lemma}
+            \begin{proof}
+                Since $H$ is cocommutative, we have that $\Delta - \Delta^{\cop} = 0$ and hence $\tilde{\Delta}(y) - \tilde{\Delta}^{\cop}(y) \in \hbar \tilde{H}$ for all $y \in \tilde{H}$. The expression $\delta := \frac{1}{\hbar}(\tilde{\Delta} - \tilde{\Delta}^{\cop}) \pmod{\hbar}$ is therefore well-defined.
+
+                Let us now check the axioms in definition \ref{def: co/bi_poisson_structures}. Firstly, it is clear that $\delta$ is $k$-linear and co-alternating by construction. Secondly, let us check that the co-Jacobi identity holds. To this end, consider the following:
+                    $$
+                        \begin{aligned}
+                            & \hbar^2 (\delta \tensor_k \id_H) \circ \delta
+                            \\
+                            = & ( (\tilde{\Delta} - \tilde{\Delta}^{\cop}) \tensor_{k[\![\hbar]\!]} \id_{\tilde{H}} ) \circ (\tilde{\Delta} - \tilde{\Delta}^{\cop}) \pmod{\hbar}
+                            \\
+                            = & ( \tilde{\Delta} \tensor_{k[\![\hbar]\!]} \id_{\tilde{H}} - \tilde{\Delta}^{\cop} \tensor_{k[\![\hbar]\!]} \id_{\tilde{H}} ) \circ (\tilde{\Delta} - \tilde{\Delta}^{\cop}) \pmod{\hbar}
+                            \\
+                            = & (\tilde{\Delta} \tensor_{k[\![\hbar]\!]} \id_{\tilde{H}}) \circ \tilde{\Delta} - (\tilde{\Delta}^{\cop} \tensor_{k[\![\hbar]\!]} \id_{\tilde{H}}) \circ \tilde{\Delta} - (\tilde{\Delta}^{\cop} \tensor_{k[\![\hbar]\!]} \id_{\tilde{H}}) \circ \tilde{\Delta} + (\tilde{\Delta}^{\cop} \tensor_{k[\![\hbar]\!]} \id_{\tilde{H}}) \circ \tilde{\Delta}^{\cop} \pmod{\hbar}
+                        \end{aligned}
+                    $$
+                It is then clear than:
+                    $$((123) + (231) + (312)) \circ (\delta \tensor_k \id_H) \circ \delta = 0$$
+                Now, to check that $\delta$ is a co-derivation with respect to $\Delta$, consider the following:
+                    $$
+                        \begin{aligned}
+                            & \hbar (\Delta \tensor_k \id_H) \circ \delta 
+                            \\
+                            = & (\Delta \tensor_k \id_H) \circ (\tilde{\Delta} - \tilde{\Delta}^{\cop}) \pmod{\hbar} 
+                            \\
+                            = & 
+                        \end{aligned}
+                    $$
+                Finally, in order to check that $\delta$ is compatible with the multiplication $\mu$, we will be making use of the fact that $\mu$ is an algebra homomorphism and that $\Delta$ is a coalgebra homomorphism, boththanks to $H$ being a bialgebra:
+                    $$
+                        \begin{aligned}
+                            & \hbar( \delta \circ \mu )
+                            \\
+                            = & (\tilde{\Delta} - \tilde{\Delta}^{\cop}) \circ \tilde{\mu} \pmod{\hbar}
+                            \\
+                            = & 
+                        \end{aligned}
+                    $$
+            \end{proof}
+        \begin{theorem}[Lie bialgebra structures from bi-Poisson structures] \label{theorem: lie_bialgebra_structures_from_bi_poisson_structures}
+            Let $\a$ be a Lie algebra over $k$ and suppose that there exists a formal quantisation $U$ of $\rmU(\a)$. Then, the restriction:
+                $$\delta|_{\a}: \a \to \a \tensor_k \a$$
+            of the bi-Poisson structure on $\rmU(\a)$ given by:
+                $$\delta := \frac{1}{\hbar}(\Delta - \Delta^{\cop}) \pmod{\hbar}$$
+            down onto the coideal $\a = \prim(\rmU(\a))$ of primitive elements, determines a Lie bialgebra structure on $\a$.    
+        \end{theorem}
+            \begin{proof}
+                
+            \end{proof}
+        \begin{remark}
+            Our proof relied heavily on the fact that, by construction of the standard coalgebra structure on $\rmU(\a)$, $\a$ can be identified with the coideal $\prim(\rmU(\a))$ generated by primitive elements. However, we doubt that this is precisely why the theorem is true. In fact, we suspect that there is a more natural proof that somehow makes use of the identification of Hochschild cohomology and Hopf algebra cohomology; the idea here is that, $\HH^2$ ought to parametrise co/bi-Poisson structures, while $\HH^3$ parametrises obstructions to non-trivially deforming the Hopf algebra in question, and hence the existence of co/bi-Poisson structures on the classical limit can be checked via Hochschild cohomological computations. 
+        \end{remark}
+    
+    \subsection{Quantisation of finite-dimensional Lie bialgebras}
+        In the reverse direction, namely from finite-dimensional Lie bialgebras to formal quantisations of their universal enveloping algebras, we adopt a Tannakian perspective in order to construct these quantisations; as a bonus, this approach affords us a functorial description of quantisation. 
+        
+        \begin{convention}
+            If $\calA$ is a $k$-linear category then we shall write $\calA[\hbar]$ for the category whose objects are those of $\calA$ (i.e. $\Ob(\calA[\hbar]) := \Ob(\calA)$) and whose hom-sets are given by:
+                $$\Hom_{\calA[\hbar]}(V, V') := \Hom_{\calA}(V, V')[\hbar] := \Hom_{\calA}(V, V') \tensor_k k[\hbar]$$
+            for all $V, V' \in \Ob(\calA)$.
+        \end{convention}
+        
+        \begin{definition}[Drinfeld categories of bialgebras] \label{def: drinfeld_categories_of_finite_type_bialgebras}
+            Suppose that $H$ is a bialgebra over $k$, and consider the localisations:
+                $$H\mod[\hbar] \to H\mod[\hbar]/\hbar^n$$
+            at the thick subcategories of $H\mod[\hbar]$ spanned by $\hbar^n$-torsion $H$-modules (with $n \geq 1$); in other words, the categories $H\mod[\hbar]/\hbar^n$ are those whose objects are (left-)$H$-modules and whose hom-sets are given by:
+                $$\Hom_{H\mod[\hbar]/\hbar^n}(V, V') := \Hom_{H\mod}(V, V')[\hbar]/\hbar^n$$
+            for all $V, V' \in \Ob(H\mod)$. We shall also be equipping each of these categories $H\mod[\hbar]/\hbar^n$ with the fibre functor:
+                $$F_H[\hbar]/\hbar^n: H\mod[\hbar]/\hbar^n \to k[\hbar]/\hbar^n\mod^{\fr}$$
+            that is the forgetful functor; recall that this functor is corepresentable by $H$, i.e.:
+                $$F_H[\hbar]/\hbar^n \cong \Hom_{H\mod[\hbar]/\hbar^n}(H, -) := \Hom_{H\mod}(H, -)/\hbar^n$$
+                
+            The so-called \textbf{Drinfeld category} of $\a$, which we shall denote by $H\mod[\![\hbar]\!]$ is then the weak $2$-limit of the diagram $\{ ( H\mod[\hbar]/\hbar^n, F_H[\hbar]/\hbar^n ) \}_{n \geq 1} := \{ F_H[\hbar]/\hbar^n: H\mod[\hbar]/\hbar^n \to k[\hbar]/\hbar^n\mod^{\fr} \}_{n \geq 1}$, i.e.:
+                $$( H\mod[\![\hbar]\!], \hat{F}_H ) := 2\-\projlim_{n \geq 1} ( H\mod[\hbar]/\hbar^n, F_H[\hbar]/\hbar^n )$$
+        \end{definition}
+        \begin{remark}[Formal properties of Drinfeld categories] \label{remark: formal_properties_of_drinfeld_categories}
+            Firstly, we note that the Drinfeld category of any bialgebra $H$ is $k[\![\hbar]\!]$-linear.
+            
+            Furthermore (and as the notation suggests), the category $H\mod[\![\hbar]\!]$ comes equipped with a fibre functor:
+                $$\hat{F}_H: H\mod[\![\hbar]\!] \to k[\![\hbar]\!]\mod^{\tfr}$$
+            to the category of topologically free $k[\![\hbar]\!]$-modules (i.e. they are of the form $V[\![\hbar]\!]$ for some $k$-vector space $V$). It is also not hard to see, given the construction of the fibre functors $F_H[\hbar]/\hbar^n$, that:
+                $$\hat{F}_H \cong \projlim_{n \geq 1} F_H[\hbar]/\hbar^n \cong \Hom_{H\mod}(H, -)[\![\hbar]\!] \cong F_H[\hbar]^{\wedge}$$
+            wherein $F_H[\hbar]: H\mod[\hbar] \to k[\hbar]\mod^{\fr}$ is the forgetful functor to the category of free\footnote{... or equivalently, projective $k[\hbar]$-modules, since $k[\hbar]$ is a PID, owing to $k$ being a field.} $k[\hbar]$-modules, and by $(-)^{\wedge}$ we meant the object-wise $\hbar$-adic completion, i.e.:
+                $$F_H[\hbar]^{\wedge}(V) := \projlim_{n \geq 1} F_H[\hbar](V)/\hbar^n$$
+            
+            We thus have that:
+                $$\End_{\Mon\Nat}(\hat{F}_H) \cong \End_{\Mon\Nat}(F_H[\hbar]^{\wedge}(V))$$
+            and hence that there is an isomorphism of associative algebras:
+                $$\End_{\Mon\Nat}(\hat{F}_H) \cong \projlim_{n \geq 1} H[\hbar]/\hbar^n \cong H[\![\hbar]\!]$$
+        \end{remark}
+        Clearly, $H[\![\hbar]\!]$ is a formal deformation of $H$ (cf. definition \ref{def: bialgebra_deformations}), so let us now attempt to construct a (braided) monoidal structure on the category $H\mod[\![\hbar]\!]$ so as to be able to use reconstruction theory to identify $H[\![\hbar]\!]$, firstly as a $k$-bialgebra (or even has a Hopf $k$-algebra, in the event that $H$ was Hopf to begin with), and secondly as a quantisation of $H$ in the sense of definition \ref{def: deformation_quantisation}. It is not always the case that $H$ admits a quantisation, seeing how $H$ might not have been a bialgebra to begin with\todo{What is a counter-example ?}\footnote{In fact, we need $H$ to be a Hopf algebra so that the tensor bifunctor on $H\mod$ would be $H$-bilinear. Otherwise, one may only consider tensor products of two-sided $H$-modules.}; nevertheless, this is precisely why finite-dimensional Manin triples are important to us: the fact that they correspond to finite-dimensional Lie bialgebras ensures that, if $(\a, \a_+, \a_-)$ is such a triple, then the universal enveloping algebra $\rmU(\a)$ of the Lie bialgebra $\a$ will admit $\rmU(\a)[\![\hbar]\!]$ as a quantisation.
+
+    \subsection{Classical r-matrices and the RTT quantisation formalism for infinite-dimensional Lie bialgebras}
+        \begin{convention}
+            For this subsection we fix a smooth affine algebraic variety $\Sigma : = \Spec A$ over $k$.
+        \end{convention}
+    
+        \begin{definition}[Classical r-matrices] \label{def: classical_r_matrices}
+            A \textbf{classical r-matrix} on $\Sigma$ is then a vector field:
+                $$\sfr \in \Der_k(\Sigma^2)$$
+            satisfying the \textbf{classical Yang-Baxter equation}:
+                $$[\sfr_{1, 2}, \sfr_{1, 3}] + [\sfr_{1, 2}, \sfr_{2, 3}] + [\sfr_{1, 3}, \sfr_{2, 3}] = 0 \in \Der_k(\Sigma^3)$$
+            and the \textbf{unitarity condition}:
+                $$\sfr + \sfr_{2, 1} = 0 \in \Der_k(\Sigma^2)$$
+        \end{definition}
+
+        \begin{definition}[Formal diffeomorphisms] \label{def: formal_diffeomorphisms}
+            A \textbf{formal diffeomorphism} on $\Sigma$ is an element of $1 + \hbar \Hom_{k\-\Comm\Alg}(A, A[\![\hbar]\!])$.
+        \end{definition}
+        \begin{example}
+            If $\xi \in \Der_k(\Sigma)$ is any vector field on $\Sigma$ then we can associate to it the formal diffeomorphism:
+                $$\exp(\hbar \xi) := \sum_{n \geq 0} \frac{1}{n!} (\hbar \xi)^n$$
+        \end{example}
+        \begin{proposition}
+            If $\sfR$ is a formal diffeomorphism on $\Sigma^2$ such that:
+                $$\sfr := \frac{1}{\hbar}(\sfR - 1) \pmod{\hbar}$$
+            is a classical r-matrix on $\Sigma$, then $\sfR$ will be a quantum R-matrix in the sense of definition \ref{def: R_matrices}, and we shall say that $\sfR$ is a quantisation of $\sfr$. 
+        \end{proposition}
+            \begin{proof}
+                
+            \end{proof}
+            
+        \begin{example}[Yangians and dual Yangians]
+            
+        \end{example}
+
+        \begin{example}[Quantum affine algebras] \label{example: affine_QUEs}
+
+        \end{example}
+
+        \begin{example}[Quantum toroidal algebras] \label{example: toroidal_QUEs}
+
+        \end{example}

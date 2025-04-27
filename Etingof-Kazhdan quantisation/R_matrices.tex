@@ -1,0 +1,133 @@
+\section{The R-matrix formalism}
+    \subsection{Reconstructing bialgebras from their representation categories}
+        For the sake of fixing terminologies, let us recall a few relevant definitions.
+        \begin{definition}[Rigid monoidal categories] \label{def: rigid_monoidal_categories}
+            A monoidal category is said to be \textbf{rigid} if and only if every of its objects has two-sided duals. 
+        \end{definition}
+        \begin{definition}[(Multi-)ring categories] \label{def: ring_categories}
+            \cite[Definition 4.1.1]{EGNO_tensor_categories} A \textbf{(multi-)ring category} is a locally finite $k$-linear monoidal category $(\C, \tensor, \1)$ on which the tensor product bifunctor $\tensor: \C \x \C \to \C$ is $k$-bilinear on morphisms and biexact, i.e. for all $V, V', V'' \in \Ob(\C)$, the natural map:
+                $$\C(V, V') \tensor_k \C(V', V'') \to \C(V, V'')$$
+            is $k$-linear. Without the local finiteness condition, we shall say \say{infinite (multi-)ring categories}.
+        \end{definition}
+        \begin{definition}[Tensor functors] \label{def: tensor_functors}
+            Let $\C, \D$ be multi-ring categories over $k$ and $F: \C \to \D$ be a monoidal functor. One says that $F$ is a \textbf{tensor functor} if and only if there is a monoidal natural isomorphism:
+                $$J_{-, -}: F(- \tensor -) \xrightarrow[]{\cong} F(-) \tensor F(-)$$
+            along with an isomorphism:
+                $$F(\1_{\C}) \cong \1_{\D}$$
+        \end{definition}
+        \begin{definition}[(Multi-)tensor categories] \label{def: tensor_categories}
+            \cite[Definition 4.1.1]{EGNO_tensor_categories} A  \textbf{multi-tensor category} over a field $k$ is a locally finite $k$-linear abelian rigid monoidal category $(\C, \tensor, \1)$ on which the bifunctor:
+                $$\tensor: \C \x \C \to \C$$
+            is $k$-bilinear on morphisms. If, in addition, we have that $\C(\1, \1) \cong k$ then $\C$ will be called a \textbf{tensor category}. Without the local finiteness condition, we shall say \say{infinite (multi-)tensor categories}.
+        \end{definition}
+        \begin{proposition}[Biexactness of tensor products] \label{prop: biexactness_of_tensor_products}
+            \cite[Proposition 4.2.1]{EGNO_tensor_categories} Let $(\C, \tensor, \1)$ be a multi-tensor category. Then the bifunctor $\tensor: \C \x \C \to \C$ will always be biexact. 
+        \end{proposition}
+            \begin{proof}
+                This is a direct consequence of the fact that multi-tensor categories are rigid as monoidal categories. 
+            \end{proof}
+        \begin{corollary}
+            (Infinite) (multi-)tensor categories are special cases of (infinite) (multi-)ring categories.
+        \end{corollary}
+        
+        Now that all the etymological background materials have been put into place, let us actually begin discussing the so-called \say{Tannakian reconstruction theory}. 
+        \begin{convention}
+            From now on until the end of this subsection, let $(\C, \tensor, \1)$ be a ring category over $k$. 
+        \end{convention}
+        The following definition bears significant resemblances with the notion of fibre functors in Grothendieck's interpretation of Galois theory (cf. \cite[Expos\'e V]{SGA1}).
+        \begin{definition}[Fibre functors] \label{def: fibre_functors}
+            A \textbf{fibre functor} on $(\C, \tensor, \1)$ is an \textit{exact} tensor functor:
+                $$F: \C \to k\-\Vect$$
+            (wherein $k\-\Vect$ is a tensor category over $k$ in the usual manner). The associative $k$-algebra $\End_{\Mon\Nat}(F)$ is called the \textbf{Tannaka algebra} of $\C$.
+        \end{definition}
+        The following proposition, though very important, is more-or-less self-evident. 
+        \begin{proposition}[Fibre functors for representation categories of associative algebras] \label{prop: fibre_functors_for_representation_categories_of_associative_algebras}
+            Let $A$ be an associative $k$-algebra. Then, the forgetful functor:
+                $$A\mod \xrightarrow[]{F_A := \Hom_A(A, -)} k\-\Vect$$
+            is a fibre functor. Furthermore, we have that:
+                $$A \cong \End_{\Mon\Nat}(F_A)$$
+            as associative $k$-algebras. 
+        \end{proposition}
+        Let us see what happens when we consider $\C$ to be the representation category of a bialgebra over $k$. Again, the proposition is somewhat self-evident. For details, see the discussion immediately preceding \cite[Section 5.2]{EGNO_tensor_categories} as well as \cite[Section 5.3]{EGNO_tensor_categories}.
+        \begin{remark}[Tensor products of hom-sets]
+            One thing that we would like to remind the reader about is that, should $(H, \mu, \eta, \Delta, \e)$ be a $k$-bialgebra and if $V, W, V', W'$ are $H$-modules then the canonical map:
+                $$\Hom_H(V, W) \tensor_k \Hom_H(V', W') \to \Hom_H(V \tensor_k W, V' \tensor_k W')$$
+            is generally a monomorphism of $H \tensor_k H^{\op}$-modules, and is furthermore an isomorphism whenever $V, V'$ are \textit{free} over $H$. When $H$ is furthermore a Hopf algebra with (invertible) antipode $\sigma: H \to H^{\op}$ then the above becomes an monomorphism (respectively, isomorphism) of $H$-modules via the composite algebra homomorphism:
+                $$H \tensor_k H^{\op} \xrightarrow[\cong]{\id_H \tensor \sigma^{-1}} H \tensor_k H \xrightarrow[]{\mu} H$$
+        \end{remark}
+        
+        \begin{theorem}[Fibre functors for representation categories of bialgebras] \label{theorem: fibre_functors_for_representation_categories_of_bialgebras}
+            Let $(H, \mu, \eta, \Delta, \e)$ be a $k$-bialgebra and consider the forgetful functor:
+                $$H\mod \xrightarrow[]{F_H := \Hom_H(H, -)} k\-\Vect$$
+            which we know by proposition \ref{prop: fibre_functors_for_representation_categories_of_associative_algebras} above to be tensorial by virtue of being a fibre functor; denote this tensor structure on $F_H$ by:
+                $$F_H(- \tensor_H -) \xrightarrow[\cong]{J_{-, -}} F_H(-) \tensor_k F_H(-)$$
+            Then:
+                $$H \cong \End_{\Mon\Nat}(F_H)$$
+            not simply as $k$-algebras, but furthermore as $k$-bialgebras; the $k$-coalgebra structure on $\End_{\Mon\Nat}(F_H)$ is induced by that of $H$, via the Deligne tensor product $F_H \boxtimes F_H$, in the sense that there are the following $k$-algebra homomorphisms:
+                $$\End_{\Mon\Nat}(F_H) \xrightarrow[]{\cong} H \xrightarrow[]{\Delta} H \tensor_k H \xrightarrow[]{\cong} \End_{\Mon\Nat}(F_H) \tensor_k \End_{\Mon\Nat}(F_H) \xrightarrow[]{J_{-, -}^{-1}} \End_{\Mon\Nat}(F_H \boxtimes_k F_H)$$
+                $$\End_{\Mon\Nat}(F_H) \xrightarrow[]{\cong} H \xrightarrow[]{\e} k$$
+        \end{theorem}
+        \begin{corollary}[Fibre functors for representation categories of Hopf algebras] \label{coro: fibre_functors_for_representation_categories_of_hopf_algebras}
+            Let $(H, \mu, \eta, \Delta, \e, \sigma)$ be a Hopf $k$-algebra and consider the forgetful functor:
+                $$H\mod \xrightarrow[]{F_H := \Hom_H(H, -)} k\-\Vect$$
+            Then there will be an isomorphism of Hopf $k$-algebra isomorphism:
+                $$H \cong \End_{\Mon\Nat}(F_H)$$
+            Particularly, the antipode on $H$ is given by:
+                $$\End_{\Mon\Nat}(F_H) \xrightarrow[]{\cong} H \xrightarrow[]{\sigma} H^{\op} \xrightarrow[]{\cong} \End_{\Mon\Nat}(F_H)^{\op}$$
+        \end{corollary}
+            \begin{proof}
+                True because Hopf $k$-algebras form a full subcategory of that of $k$-bialgebras. 
+            \end{proof}
+    
+    \subsection{Braided monoidal categories and quasi-triangular bialgebras}
+
+    \subsection{R-matrices and bialgebra deformations}
+        Now, we move on to studying R-matrices, monoidal braidings that can be classified using Hochschild cohomology of bialgebras. Suppose that $H$ is a bialgebra therein. At first, $R$-matrices on $H$-modules, say $V$, shall appear as certain automorphisms of $V^{\tensor 2}$ satsifying equations following a certain \say{quantum Yang-Baxter} formula, originating from scattering theory in statistical mechanics. However, Drinfeld's key insight was that said quantum Yang-Baxter equations are precisely the equations describing bialgebra $2$-cocycles:
+            $$\sfR \in \HH^2(H, H^{\tensor 2})$$
+    
+        \begin{convention}
+            A convention that will be observed throughout is the following. Suppose that $\C$ is a monoidal category and that $V$ is an object in $\C$. If:
+                $$\sfR := \sum_{i_1 + i_2 = i} \sfR_{i_1} \tensor \sfR_{i_2} \in \End_{\C}(V^{\tensor 2})$$
+            then we will write:
+                $$\sfR_{1, 2} := \sum_{i_1 + i_2 = i} \sfR_{i_1} \tensor \sfR_{i_2} \tensor \id_V \in \End_{\C}(V^{\tensor 3})$$
+                $$\sfR_{2, 3} := \sum_{i_1 + i_2 = i} \id_V \tensor \sfR_{i_1} \tensor \sfR_{i_2} \in \End_{\C}(V^{\tensor 3})$$
+                $$\text{etc.}$$
+        \end{convention}
+
+        \begin{convention}
+            From now on, suppose that $(\C, \tensor, \1)$ is a ring category over $k$.
+        \end{convention}
+    
+        \begin{definition}[R-matrices] \label{def: R_matrices}
+            An \textbf{R-matrix} on an object $V \in \Ob(\C)$ is an automorphism $\sfR \in \Aut_{\C}(V \tensor V)$ satisfying the so-called \textbf{quantum Yang-Baxter equation}:
+                $$\sfR_{1, 2} \circ \sfR_{1, 3} \circ \sfR_{2, 3} = \sfR_{2, 3} \circ \sfR_{1, 3} \circ \sfR_{1, 2} \in \Aut_{\C}(V \tensor V \tensor V)$$
+            along with the \textbf{unitarity condition}:
+                $$\sfR \circ \sfR_{2, 1} = \id_V$$
+        \end{definition}
+        \begin{example}
+            For each object $V \in \Ob(\C)$, the swap map:
+                $$\tau_{V, V}: V \tensor V \xrightarrow[]{\cong} V \tensor V$$
+            is an example of an R-matrix. For a proof, consider the following Coxeter relation in the symmetric group $S_3 \cong \Aut_{\Sets}(\{1, 2, 3\})$:
+                $$(1 \: 2)(2 \: 3)(1 \: 2) = (2 \: 3)(1 \: 2)(2 \: 3)$$
+        \end{example}
+        \begin{remark}
+            Finding all solutions to the quantum Yang-Baxter equation is a very difficult task. To see why, specialise to the case $\C := k\-\Vect$ and write the equation out in terms of a fixed basis. 
+            
+            Nevertheless, it is known how one might generate new solutions from a previously known one (e.g. $\sfR = \tau_{V, V}$). In particular, if $V$ is a $k$-vector space and $\sfR \in \Aut_k(V \tensor V)$ is an R-matrix then the following automorphisms on $V \tensor V$ will also be R-matrices:
+                $$\sfR^{-1}, \lambda \sfR, \tau_{V, V} \circ \sfR \circ \tau_{V, V}$$
+            wherein $\lambda \in k$ is some scalar.
+        \end{remark}
+        \begin{example}[The quantum Yang-Baxter equation for finite-dimensional simple $\rmU_q(\sl_2)$-modules]
+            Let us write $\rmU_q := \rmU_q(\sl_2(k))$ and for any root lattice element $\lambda = \e q^n\in k$ (with $\e = \pm 1$), write $\qsimple^n = \qsimple^{\lambda}$ to mean the corresponding $(n + 1)$-dimensional simple $\rmU_q$-module of highest-weight $\lambda$. For details on the theory of highest-weight $\rmU_q$-modules, we refer the reader to \cite[Chapters VI and VII]{kassel_quantum_groups}. Also, for convenience, we shall also assume for this example that $k$ is algebraically closed and of characteristic $0$. 
+            
+            We now analyse certain R-matrices in the braided monoidal category of finite-dimensional $k$-linear $\rmU_q$-representations. We caution the reader that it is important to view these $\rmU_q$-representations as certain $\rmU_q$-modules, since R-matrices thereon are not simply certain $k$-linear automorphisms but $\rmU_q$-linear automorphisms. To that end, recall the quantum Clebsch-Gordon formula (cf. \cite[Theorem VII.7.1]{kassel_quantum_groups}), which tells us that the tensor product $\qsimple^n \tensor_k \qsimple^m$ is a semi-simple $\rmU_q$-module in the following manner:
+                $$\qsimple^n \tensor_k \qsimple^m \cong \bigoplus_{0 \leq p \leq m} \qsimple(n + m - 2p)$$
+            By specialising to the case wherein $m = n$, one gets that:
+                $$(\qsimple^n)^{\tensor 2} \cong \bigoplus_{0 \leq p \leq n} \qsimple(2(n - p))$$
+            and so $\rmU_q$-module automorphisms on $(\qsimple^n)^{\tensor 2} \in \Ob(\rmU_q\mod)$ are nothing but $\rmU_q$-module automorphisms on $\bigoplus_{0 \leq p \leq m} \qsimple(2(n - p))$. Such automorphisms can thus be computed via examining their actions on the generators $v^{\lambda}_0 \in \qsimple^{\lambda}$ of the simple (hence cyclic) $\rmU_q$-modules $\qsimple^{\lambda}$ (for $\lambda \in \{\pm q^{ 2(n - p) }\}_{0 \leq p \leq n}$). In particular, one sees that any $\rmU_q$-module automorphism on $\qsimple^n \tensor_k \qsimple^n$ is necessarily diagonalisable. 
+            
+            Now, let us use the quantum Clebsch-Gordon formula again to obtain the following direct sum decomposition of $(\qsimple^n)^{\tensor 3}$:
+                $$(\qsimple^n)^{\tensor 3} \cong \qsimple^n \tensor_k \left( \bigoplus_{0 \leq p \leq n} \qsimple^{2(n - p)} \right) \cong \bigoplus_{0 \leq p \leq n} ( \qsimple^n \tensor_k \qsimple^{2(n - p))} \cong \bigoplus_{0 \leq p \leq n} \bigoplus_{0 \leq j \leq 2(n - p)} \qsimple^{n + 2(n - p - j)}$$
+        \end{example}
+    
+    \subsection{Quantum doubles of bialgebras and Yetter-Drinfeld modules}
