@@ -1,5 +1,5 @@
 \section{Algebras and coalgebras}
-    \subsection{Algebras}
+    \subsection{Algebras and modules}
         Let us begin by giving a brief recollection of how the notion of algebras over rings is treated traditionally. Recall that for a fixed base commutative ring $k$ (usually a field or $\Z$), an algebra over $k$ is a pair:
             $$(A, \rho_A)$$
         consisting of a ring $A$ and a ring homomorphism with central image:
@@ -202,7 +202,7 @@
             equipped with morphisms:
                 $$\mu: A^{\tensor 2} \to A$$
                 $$\eta: \1 \to A$$
-            called the \textbf{multiplication} and \textbf{counit}, respectively, fitting into the following commutative diagrams:
+            called the \textbf{multiplication} and \textbf{unit}, respectively, fitting into the following commutative diagrams:
             \begin{itemize}
                 \item \textbf{(Associativity):}
                     $$
@@ -287,32 +287,161 @@
             Define right-modules over algebra objects in a general monoidal category, following definition \ref{def: modules_over_algebras_in_monoidal_categories}.
         \end{question}
 
-        \begin{lemma}[Tensor products of algebras] \label{lemma: tensor_products_of_algebras_in_symmetric_monoidal_categories}
-            \todo[inline]{Tensor products of algebras in symmetric monoidal categories}
+        \begin{question}[Tensor products of algebras] \label{question: tensor_products_of_algebras_in_symmetric_monoidal_categories}
+            \begin{enumerate}
+                \item Let $(\C, \tensor, \1, \alpha, \tau)$ be a symmetric monoidal category and let $(A, \mu_A, \eta_A), (B, \mu_B, \eta_B)$ be two algebra objects therein. Then $(A \tensor B, \mu_A \tensor \mu_B, \eta_A \tensor \eta_B)$ will also be an algebra object.
+                \item Now, let $(\C, \tensor, \1) := (k\mod, \tensor_k, k)$. Prove that in this case, if $(A, \mu_A, \eta_A), (B, \mu_B, \eta_B)$ are two $k$-algebras, then the tensor product $(A \tensor B, \mu_A \tensor \mu_B, \eta_A \tensor \eta_B)$ will satisfy the universal property of a pushout in $k\-\Assoc\Alg$. Prove also, that the full subcategory $k\-\Comm\Alg$ is closed under finite pushouts.
+            \end{enumerate}
+        \end{question}
+
+    \subsection{Coalgebras and bialgebras}
+        A coalgebra in a monoidal category $\C$ is a an object which is an algebra when regarded as an object of $\C^{\op}$. Explicitly, this means the following.
+        \begin{definition}[Coalgebras in monoidal categories] \label{def: coalgebras_in_monoidal_categories}
+            Let $(\C, \tensor, \1, \alpha)$ be a monoidal category. The subcategory:
+                $$\co\Assoc\co\Alg(\C)$$
+            (or $\co\Assoc\co\Alg(\C, \tensor, \1)$, to put emphasis on the monoidal structure) whose objects are \textbf{coalgebra objects} and whose morphisms are \textbf{coalgebra homomorphisms} is the category consisting of objects:
+                $$C \in \Ob(\C)$$
+            equipped with morphisms:
+                $$\Delta: C^{\tensor 2} \to C$$
+                $$\e: \1 \to C$$
+            called the \textbf{comultiplication} and \textbf{counit}, respectively, fitting into the following commutative diagrams:
+            \begin{itemize}
+                \item \textbf{(Coassociativity):}
+                    $$
+                        \begin{tikzcd}
+                        {C^{\tensor 2} \tensor C} && {C \tensor C^{\tensor 2}} \\
+                        {C^{\tensor 2}} && {C^{\tensor 2}} \\
+                        & C
+                        \arrow["{\alpha_{C, C, C}}"', from=1-3, to=1-1]
+                        \arrow["{\Delta \tensor \id_C}", from=2-1, to=1-1]
+                        \arrow["{\id_C \tensor \Delta}"', from=2-3, to=1-3]
+                        \arrow["\Delta", from=3-2, to=2-1]
+                        \arrow["\Delta"', from=3-2, to=2-3]
+                        \end{tikzcd}
+                    $$
+                wherein $\alpha_{C, C, C}: C \tensor C^{\tensor 2} \xrightarrow[]{\cong} C^{\tensor 2}$ is the canonical isomorphism arising from the associativity of tensor products, usually called the \say{associator} for the triple of objects $(C, C, C)$. 
+                \item \textbf{(Left and right-counitality):}
+                    $$
+                        \begin{tikzcd}
+                    	{\1 \tensor C} & {C^{\tensor 2}} & {C \tensor \1} \\
+                    	& C
+                    	\arrow["{\e \tensor \id_C}"', from=1-2, to=1-1]
+                    	\arrow["{\id_C \tensor \e}", from=1-2, to=1-3]
+                    	\arrow["\cong", from=2-2, to=1-1]
+                    	\arrow[from=2-2, to=1-2]
+                    	\arrow["\cong"', from=2-2, to=1-3]
+                        \end{tikzcd}
+                    $$
+                wherein the unlabelled isomorphisms are the canonical ones. 
+            \end{itemize}
+            If the monoidal structure on $\C$ is moreover symmetric, then we can also define \textbf{cocommutative coalgebra objects} by furthermore requiring that the following commutative diagram holds:
+                $$
+                    \begin{tikzcd}
+                        {C^{\tensor 2}} && {C^{\tensor 2}} \\
+                        & C
+                        \arrow["{\tau_{C, C}}"', from=1-3, to=1-1]
+                        \arrow["\Delta", from=2-2, to=1-1]
+                        \arrow["\Delta"', from=2-2, to=1-3]
+                    \end{tikzcd}
+                $$
+            wherein $\tau_{C, C}: C^{\tensor 2} \xrightarrow[]{\cong} C^{\tensor 2}$ is the symmetriser for the pair of objects $(C, AC$. The subcategorry of $\co\Assoc\co\Alg(\C)$ spanned by commutative algebra objects is denoted by:
+                $$\co\Comm\co\Alg(\C)$$
+        \end{definition}
+        \begin{remark}
+            It is easy to see that:
+                $$\co\Assoc\co\Alg(\C) \cong \Assoc\Alg(\C^{\op})$$
+                $$\co\Comm\co\Alg(\C) \cong \Comm\Alg(\C^{\op})$$
+            but in general, there is no straightforward duality between algebras and coalgebras.
+            
+            For instance, consider the case $(\C, \tensor, \1) := (k\mod, \tensor_k, k)$. If we are given a $k$-algebra $(A, \mu, \eta)$ then by applying the linear duality functor:
+                $$(-)^* := \Hom_k(-, k)$$
+            to the multiplication and unit maps, we will get:
+                $$\mu^*: A^* \to (A \tensor_k A)^*$$
+                $$\eta^*: \1 \to A^*$$
+            
+        \end{remark}
+        
+        \begin{definition}[Bialgebras in monoidal categories] \label{def: bialgebras_in_monoidal_categories}
+            A \textbf{bialgebra} in a monoidal category $(\C, \tensor, \1, \alpha)$ is an object that is simultaneously an algebra and a coalgebra. Given two bialgebras:
+                $$Y, Y' \in \Ob(\C)$$
+            a \textbf{bialgebra homomorphism} between them is then a morphism:
+                $$(Y \to Y') \in \Mor(\C)$$
+            that is simultaneously an algebra and a coalgebra homomorphism. The subcategory of $\C$ consisting of such objects and morphisms is denoted by:
+                $$\bi\Alg(\C)$$
+        \end{definition}
+        \begin{remark}
+            In a general monoidal category $(\C, \tensor, \1, \alpha)$, the subcategory of bialgebras $\bi\Alg(\C)$ is a subcategory of both $\Assoc\Alg(\C)$ and $\co\Assoc\co\Alg(\C)$, though the embeddings are not full in general.
+        \end{remark}
+        \begin{question}
+            Suppose that $(Y, \mu, \eta)$ is an algebra and that $(Y, \Delta, \e)$ is a coalgebra, both with the same underlying object $Y$ in some monoidal category $(\C, \tensor, \1, \alpha)$. Prove that the following statements are equivalent to one another:
+            \begin{enumerate}
+                \item The quintuple $(Y, \mu, \eta, \Delta, \e)$ is a bialgebra.
+                \item The morphisms $\mu: Y^{\tensor 2} \to Y, \eta: \1 \to Y$ are coalgebra homomorphisms.
+                \item The morphisms $\Delta: Y \to Y^{\tensor 2}, \e: Y \to \1$ are algebra homomorphisms.
+            \end{enumerate}
+        \end{question}
+
+        \begin{definition}[Hopf algebras in monoidal categories] \label{def: hopf_algebras_in_monoidal_categories}
+            Let $(\C, \tensor, \1, \alpha)$ be a monoidal category. The subcategory of \textbf{Hopf algebra objects} therein is then the full subcategory:
+                $$\Hopf\Alg(\C)$$
+            of $\bi\Alg(\C)$, whose objects are bialgebras $(Y, \mu, \eta, \Delta, \e)$ equipped with an \textbf{antipode}, which is a morphism:
+                $$S: Y \to Y$$
+            fitting into the following commutative diagram:
+                $$
+                    \begin{tikzcd}
+                	& {Y^{\tensor 2}} && {Y^{\tensor 2}} \\
+                	Y && \1 && Y \\
+                	& {Y^{\tensor 2}} && {Y^{\tensor 2}}
+                	\arrow["{\id_Y \tensor S}", from=1-2, to=1-4]
+                	\arrow["\mu", from=1-4, to=2-5]
+                	\arrow["\Delta", from=2-1, to=1-2]
+                	\arrow["\e", from=2-1, to=2-3]
+                	\arrow["\Delta"', from=2-1, to=3-2]
+                	\arrow["\eta", from=2-3, to=2-5]
+                	\arrow["{S \tensor \id_Y}"', from=3-2, to=3-4]
+                	\arrow["\mu"', from=3-4, to=2-5]
+                    \end{tikzcd}
+                $$
+        \end{definition}
+        \begin{convention}[Opposite (co)algebras]
+            Suppose that $(\C, \tensor, \1, \alpha, \tau)$ is a symmetric monoidal category. If $(A, \mu, \eta)$ is an algebra therein, then the opposite algebra, denoted by $(A^{\op}, \mu^{\op}, \eta^{\op})$ will be given by:
+                $$A^{\op} := A \: \text{(as objects of $\C$)}$$
+                $$\mu^{\op} := \mu \circ \tau_{A, A}$$
+                $$\eta^{\op} := \eta$$
+            Likewise, if $(C, \Delta, \e)$ is a coalgebra, then the (co-)opposite coalgebra, denoted by $(C^{\cop}, \Delta^{\cop}, \e^{\cop})$ will be given by:
+                $$C^{\cop} := C \: \text{(as objects of $\C$)}$$
+                $$\Delta^{\op} := \tau_{C, C} \circ \Delta$$
+                $$\e^{\cop} := \e$$
+        \end{convention}
+        \begin{lemma}[Antipodes are anti-homomorphisms] \label{lemma: antipodes_are_anti_homomorphisms}
+            
         \end{lemma}
             \begin{proof}
                 
             \end{proof}
+        \begin{question}[Tensor products of modules over Hopf algebras] \label{question: tensor_products_of_modules_over_hopf_algebras}
+            Suppose that $(\C, \tensor, \1, \alpha, \tau)$ is a symmetric monoidal category and let $Y \in \Ob( \Hopf\Alg(\C) )$. Let $V, W$ be two left/right-$Y$-modules. Then, $V \tensor W$ will not only be a $(Y, Y)$-bimodule, but also a left/right-$Y$-module too.
 
-    \subsection{Coalgebras and bialgebras}
-        \begin{definition}[Coalgebras in monoidal categories] \label{def: coalgebras_in_monoidal_categories}
-            \todo[inline]{Coalgebras in monoidal categories}
-        \end{definition}
+            When $(\C, \tensor, \1, \alpha, \tau)$ is monoidally closed (e.g. $k\mod$), the idea is usually to consider the composition:
+                $$
+                    \begin{tikzcd}
+                        Y & {Y^{\tensor 2}} & {Y \tensor Y^{\op}} & {\End_{\C}(V \tensor W)}
+                        \arrow["\Delta", from=1-1, to=1-2]
+                        \arrow["{\id_Y \tensor S}", from=1-2, to=1-3]
+                        \arrow[from=1-3, to=1-4]
+                    \end{tikzcd}
+                $$
+            However the results holds true in a general symmetric monoidal category, and it is important to consider the result in this generality, as many monoidal categories that appear naturally in the process of using Hopf algebras to study group schemes are actually not monoidally closed.
+        \end{question}
+        \begin{example}[Universal enveloping algebras]
+            Let $\a$ be a Lie algebra and $\rmU(\a)$ be its universal enveloping algebra. This algebra has a natural Hopf algebra structure, with comultiplication, counit, and antipode respectively given by:
+                $$\Delta(x) := x \tensor 1 + 1 \tensor x$$
+                $$\e(x) := 0$$
+                $$S(x) := -x$$
+            for all $x \in \a$. For this reason, given two left/right-$\rmU(\a)$-modules $V, W$ (i.e. representations of $\a$), the tensor product $V \tensor_k W$ also has a structure of a left/right-$\rmU(\a)$-module.
+        \end{example}
+
+    \subsection{Comodules and Hopf modules; (co)module-(co)algebras}
         \begin{definition}[Comodules over coalgebras in monoidal categories] \label{def: comodules_over_coalgebras_in_monoidal_categories}
             
         \end{definition}
-        
-        \begin{definition}[Bialgebras in monoidal categories] \label{def: bialgebras_in_monoidal_categories}
-            \todo[inline]{Bialgebras in monoidal categories}
-        \end{definition}
-
-        \begin{definition}[Hopf algebras in monoidal categories] \label{def: hopf_algebras_in_monoidal_categories}
-            \todo[inline]{Hopf algebras in monoidal categories}
-        \end{definition}
-
-        \begin{lemma}[Tensor products of modules over Hopf algebras] \label{lemma: tensor_products_of_modules_over_hopf_algebras}
-            
-        \end{lemma}
-            \begin{proof}
-                
-            \end{proof}

@@ -1,0 +1,46 @@
+\section{Group schemes and equivariance}
+    A good introduction to the theory schemes are the set of notes \cite{scholze_scheme_theory_notes_1} and \cite{scholze_scheme_theory_notes_2} (particularly for its emphasis on the language of so-called \say{functors of points}), probably best read alongside \cite{mumford_red_book} and \cite{eisenbud_harris_geometry_of_schemes}, which contain many examples and illustrations. \cite{stacks-project} is also a good dictionary for basic algebraic geometry, containing English translations of many results that to this day can still otherwise only be found in \cite{ega1} and \cite{SGA1} and their sequels.
+    
+    The reader ought to also be familiar with some rudimentary category theory, especially Yoneda's Lemma (see e.g. \cite[\href{https://stacks.math.columbia.edu/tag/001P}{Tag 001P}]{stacks-project}). In essence, this stipulates that given any (locally small\footnote{This is a set-theoretic subtlety that won't be bothering us.}) category $\C$, there is a full faithful and limit-preserving embedding:
+        $$y_{\C}: \C \hookrightarrow \Psh(\C)$$
+    of said category $\C$ into the category $\Psh(\C) := \Mor_{1\-\Cat}(\C^{\op}, \Sets)$ of \say{presheaves of sets} on $\C$, i.e. functors $\C^{\op} \to \Sets$. On objects $X \in \Ob(\C)$, this functor is given by:
+        $$y_{\C}(X) := \Mor_{\C}(-, X)$$
+    and on morphisms $(X \to Y) \in \Mor(\C)$, it is given by:
+        $$y_{\C}(X \to Y) := \left( \Mor_{\C}(-, X) \Rightarrow \Mor_{\C}(-, Y) \right)$$
+    wherein by $\Rightarrow$ we mean a natural transformation between two functors $\C^{\op} \to \Sets$. Because of Yoneda's Lemma, we will very often conflate an object $X \in \Ob(\C)$ with the presheaf that it represents, namely:
+        $$h_X := \Mor_{\C}(-, X)$$
+    The latter is usually called the \say{functor of points} of $X$.
+
+    \begin{convention}
+        We fix once and for all a base scheme $S$. The category of $S$-schemes (also known as \say{schemes over $S$}, i.e. morphisms $X \to S$) shall be denoted by:
+            $$\Sch_{/S}$$
+        When this category is equipped with a Grothendieck topology, say $\tau$, the resulting site will be denoted by:
+            $$S_{\tau}$$
+        Often, $\tau$ will either be the fppf or \'etale topology, though one can get away with just the latter (which is easier to work with) when over characteristic $0$.
+    \end{convention}
+    See \cite{vistoli_descent} and \cite[\href{https://stacks.math.columbia.edu/tag/00UZ}{Tag 00UZ}]{stacks-project} for more on Grothendieck topologies. An important fact to keep in mind is that, given any $S$-scheme $X \in \Ob(\Sch_{/S})$, the corresponding representable presheaf $h_X := \Mor_{\Sch_{/S}}(-, X)$ is a sheaf on $S_{\fppf}$ (and hence also on $S_{\et}$ and $S_{\Zar}$, for the fppf topology is finer than the \'etale topology, which in turn is finer than the Zariski topology); see \cite[\href{https://stacks.math.columbia.edu/tag/01JF}{Tag 01JF}]{stacks-project}, \cite[\href{https://stacks.math.columbia.edu/tag/020K}{Tag 020K}]{stacks-project}, and \cite[\href{https://stacks.math.columbia.edu/tag/0238}{Tag 0238}]{stacks-project}. 
+
+    \subsection{Group schemes}
+        \begin{definition}[Group schemes] \label{def: group_schemes}
+            An $S$-scheme $G$ is a \textbf{group $S$-scheme} if and only if its functor of points $h_G: \Sch_{/S}^{\op} \to \Sets$ actually takes values in the subcategory $\Grp \subset \Sets$ of groups, i.e. if and only if $h_G$ is a presheaf of groups, not merely of sets.
+
+            In particular, group schemes are usually given via their functors of points.
+        \end{definition}
+        \begin{question}
+            Prove that there is a subcategory $\Grp\Sch_{/S} \subset \Sch_{/S}$ whose objects are group schemes (what are the morphisms ?)\footnote{Hint: This is equivalent to the category $\Sch_{/S} \cap \Mor_{1\-\Cat}(\Sch_{/S}^{\op}, \Grp)$.}.
+        \end{question}
+        \begin{remark}
+            In \cite{jantzen_representations_of_algebraic_groups}, there is an abuse of terminologies, whereby affine group schemes are referred to as \say{group schemes}. To avoid confusion, we will refrain from committing such sins.
+        \end{remark}
+        \begin{question}
+            Mimicking definition \ref{def: algebras_in_monoidal_categories}, draw the commutative diagrams that define group $S$-schemes as group objects and homomorphisms between them in $\Sch_{/S}$. Then, prove that the category:
+                $$\Grp(\Sch_{/S})$$
+            consisting of group objects and group homomorphisms between them in $\Sch_{/S}$ is equivalent to:
+                $$\Grp\Sch_{/S}$$
+        \end{question}
+        \begin{question}
+            Write down two equivalent definitions of what it means to be an commutative group scheme (the term \say{abelian scheme} has a meaning of its own, so we will refrain from saying \say{abelian group schemes} to minimise confusion).
+        \end{question}
+        
+    \subsection{Actions of groups schemes; equivariant sheaves}
+        
