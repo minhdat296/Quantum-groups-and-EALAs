@@ -1,0 +1,52 @@
+\input{article preambles}
+
+\setcounter{section}{-1}
+
+\input{commands}
+\newcommand{\scattering}{\mathrm{B_{sc}}} %scaterring reflection algebras
+\newcommand{\symmetric}{\mathrm{B_{sym}}} %symmetric reflection algebras
+
+\begin{document}
+
+    \title{Reflection algebras and twisted Yangians}
+    
+    \author{Dat Minh Ha}
+    \maketitle
+    
+    \begin{abstract}
+        We compare two constructions of so-called \say{reflection algebras}, due to Sklyanin and Guay-Regelskis-Wendlandt and study the effects of the differences towards their representation theories.
+    \end{abstract}
+    
+    {
+    \hypersetup{} 
+    %\dominitoc
+    \tableofcontents %sort sections alphabetically
+    }
+
+    \section{Introduction}
+        \subsection{Outline}
+
+        \subsection{Notations}
+            A \textbf{formal distribution} in $n$ variables $z_1, ..., z_n$ with coefficients in a vector space $U$ is an element of the vector space $U[\![z_1^{\pm}, ..., z_n^{\pm}]\!]$. It is very important to note that even when $U$ is an associative algebra, $U[\![z_1^{\pm}, ..., z_n^{\pm}]\!]$ is \textit{not} an algebra in general. This is because the coefficients of monomials in a product of the form:
+                $$\left( \sum_{(i_1, ..., i_n) \in \Z^n} a_{i_1, ..., i_n} z_1^{i_1} ... z_n^{i_n} \right) \left( \sum_{(j_1, ..., j_n) \in \Z^n} b_{j_1, ..., j_n} z_1^{j_1} ... z_n^{j_n} \right)$$
+            (wherein $a_{i_1, ..., i_n}, b_{j_1, ..., j_n} \in U$) are of the form:
+                $$\sum_{(i_1, ..., i_n) \in \Z^n} \sum_{(j_1, ..., j_n) \in \Z^n} a_{i_1, ..., i_n} b_{j_1, ..., j_n}$$
+            which, generally speaking, shall be an infinite sum.
+
+            In the single-variable case, we have the following additional notations. Given any formal distribution:
+                $$a(z) := \sum_{m \in \Z} a_m z^{-m - 1}$$
+            let us write:
+                $$a(z)^- := \sum_{m \in \Z_{\geq 0}} a_m z^{-m - 1}, a(z)^+ := \sum_{m \in \Z_{< 0}} a_m z^{-m - 1}$$
+            This is mostly to conform with notational conventions from mathematical physics, but as a side bonus, we also get:
+                $$(\del a(z))^{\pm} = \del( a(z)^{\pm} )$$
+
+            All throughout, $\g_N \subset \gl_N$ will be used to denote a classical Lie algebra of one of the types $\sfB, \sfC, \sfD$ in the Cartan-Killing classification.
+
+    \input{Reflection algebras/reflection_algebras}
+
+    \input{Reflection algebras/highest_weight_modules_of_reflection_algebras}
+    
+    \addcontentsline{toc}{section}{References}
+    \printbibliography
+
+\end{document}
