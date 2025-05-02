@@ -23,11 +23,13 @@
     \tableofcontents %sort sections alphabetically
     }
 
+    \listoftodos
+
     \section{Introduction}
         \subsection{Outline}
 
         \subsection{Notations}
-            A \textbf{formal distribution} in $n$ variables $z_1, ..., z_n$ with coefficients in a vector space $U$ is an element of the vector space $U[\![z_1^{\pm}, ..., z_n^{\pm}]\!]$. It is very important to note that even when $U$ is an associative algebra, $U[\![z_1^{\pm}, ..., z_n^{\pm}]\!]$ is \textit{not} an algebra in general. This is because the coefficients of monomials in a product of the form:
+            A \say{formal distribution} in $n$ variables $z_1, ..., z_n$ with coefficients in a vector space $U$ is an element of the vector space $U[\![z_1^{\pm}, ..., z_n^{\pm}]\!]$. It is very important to note that even when $U$ is an associative algebra, $U[\![z_1^{\pm}, ..., z_n^{\pm}]\!]$ is \textit{not} an algebra in general. This is because the coefficients of monomials in a product of the form:
                 $$\left( \sum_{(i_1, ..., i_n) \in \Z^n} a_{i_1, ..., i_n} z_1^{i_1} ... z_n^{i_n} \right) \left( \sum_{(j_1, ..., j_n) \in \Z^n} b_{j_1, ..., j_n} z_1^{j_1} ... z_n^{j_n} \right)$$
             (wherein $a_{i_1, ..., i_n}, b_{j_1, ..., j_n} \in U$) are of the form:
                 $$\sum_{(i_1, ..., i_n) \in \Z^n} \sum_{(j_1, ..., j_n) \in \Z^n} a_{i_1, ..., i_n} b_{j_1, ..., j_n}$$
@@ -40,7 +42,17 @@
             This is mostly to conform with notational conventions from mathematical physics, but as a side bonus, we also get:
                 $$(\del a(z))^{\pm} = \del( a(z)^{\pm} )$$
 
-            All throughout, $\g_N \subset \gl_N$ will be used to denote a classical Lie algebra of one of the types $\sfB, \sfC, \sfD$ in the Cartan-Killing classification.
+            All throughout:
+                $$\g_N \subset \gl_N$$
+            will be used to denote a finite-dimensional simple Lie algebra over $\bbC$, often of one of the types $\sfB, \sfC, \sfD$ in the Cartan-Killing classification. This Lie algebra has a natural action on $U := \bbC^{\oplus N}$ (the so-called \say{vector representation}), which shall always be equipped with the standard basis:
+                $$\{e_i\}_{1 \leq i \leq N}$$
+            consisting of vectors with $1$ in the $i^{th}$ entry and $0$ elsewhere. By finite-dimensionality, we identify:
+                $$U^{\tensor 2} \xrightarrow[]{\cong} \End_{\bbC}(U)$$
+            and then write:
+                $$E_{i, j}$$
+            for the image of $e_i \tensor e_j$ under the identification above; explicitly, $E_{i, j}$ is the $N \x N$ matrix with $1$ in the $(i, j)^{th}$ entry and $0$ elsewhere.
+
+    \input{Reflection algebras/RTT_presentations_from_wilson_lines}
 
     \input{Reflection algebras/reflection_algebras}
 
