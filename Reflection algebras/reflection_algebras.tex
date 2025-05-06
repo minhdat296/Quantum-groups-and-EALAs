@@ -1,28 +1,81 @@
 \section{Reflection algebras}
     Our task for the section is to compare the reflection algebra constructions of Sklyanin and of Guay-Regelskis-Wendlandt. We do this in preparation for studying modules over these algebras, and we would like to know how the discrepancies between the two constructions - should there be any - impacts the respective representation theories.
 
-    \subsection{The scattering reflection algebras of Sklyanin}
-        What we propose to called the  \say{scattering reflection algebras} appeared for the first time in the work \cite{sklyanin_boundary_conditions_for_integrable_quantum_systems}, wherein these algebras appear as quantum symmetries that describe scattering phenomena. Later on, they received interests from Molev and Ragoucy in \cite{molev_ragoucy_representations_of_reflection_algebras}, wherein the authors classified the finite-dimensional simple modules over these algebras. These reflection algebras also made an appearance in \cite{isaev_molev_ogievetsky_fusion_for_brauer_algebras_2} (see also \cite{isaev_molev_fusion_for_brauer_algebras_1}) due to the fact that they admit a kind of evaluation homomorphism to the universal enveloping algebras of classical Lie algebras of types $\sfB, \sfC, \sfD$, and thus helped alleviate a technical difficulty in the representation theory of Drinfeld Yangians of these types.
+    \subsection{Transfer matrices and the RTT presentation for Drinfeld Yangians}
+        We begin by quickly recalling the untwisted RTT formalism (see e.g. \cite[Proposition 11.3]{etingof_schiffmann_lectures_on_quantum_groups}), insofar as it applies to the case of Drinfeld's Yangian from \cite{drinfeld_original_yangian_paper}.
+        
+        Again, let $U := \bbC^{\oplus N}$ be the vector representation of $\g_N$, equipped with the standard basis $\{e_i\}_{1 \leq i \leq N}$, inducing a basis $\{E_{i, j}\}_{1 \leq i, j \leq N}$ for $\End(U)$; fix also an auxiliary $\g_N$-module $V$.
+        
+        Next, suppose that:
+            $$\calR(z) \in \End(U) \tensor \End(V)[\![z^{-1}]\!]$$
+        is the Yangian R-matrix, attached to the \textbf{Drinfeld Yangian}:
+            $$\calY(\g_N)$$
+        i.e. the PBW quantisation of the canonical bialgebra structure on the current algebra $\g_N[t]$. Elements:
+            $$T(z) \in \End(U) \tensor \End(V)[\![z^{-1}]\!]$$
+        are spanned by pure tensors of the form:
+            $$T_{i, j}(z) := E_{i, j} \tensor t(z)$$
+        with $t(z) \in \End(V)[\![z^{-1}]\!]$, which shall be referred as the \say{$(i, j)$-entries/components} of the \say{operator} $T(z)$. In particular, when $T(z) = \calR(z)$, the $(i, j)$-entries will be referred to as the \textbf{transfer matrices} arising from the R-matrix $\calR(z)$. In principle, the formal power series expansion of $T_{i, j}(z)$ reads $T_{i, j}(z) = \sum_{r \geq 1} T_{i, j}^{(r)} z^{-r - 1}$, though in our particular case, because we are considering the Yangian R-matrix, we actually have:
+            $$T_{i, j}^{(0)} := \delta_{i, j} \cdot \id_V$$
+        turning the power series expansion into:
+            \begin{equation} \label{equation: untwisted_yangian_transfer_matrices}
+                T_{i, j}(z) = \delta_{i, j} \cdot \id_V + \sum_{r \geq 0} T_{i, j}^{(r)} z^{-r - 1} \in \End(V)[\![z^{-1}]\!]
+            \end{equation}
+        (cf. \cite[Subsection 11.3.1]{etingof_schiffmann_lectures_on_quantum_groups}).
 
-        \begin{definition}[Scattering reflection algebras] \label{def: scatteering_reflection_algebras}
+    \subsection{The boundary reflection algebras of Sklyanin}
+        What we propose to called the \say{boundary reflection algebras} appeared for the first time in the work \cite{sklyanin_boundary_conditions_for_integrable_quantum_systems}, wherein these algebras appear as quantum symmetries that describe scattering phenomena with boundary conditions (hence the name). Later on, they received interests from Molev and Ragoucy in \cite{molev_ragoucy_representations_of_reflection_algebras}, wherein the authors classified the finite-dimensional simple modules over these algebras. These reflection algebras also made an appearance in \cite{isaev_molev_ogievetsky_fusion_for_brauer_algebras_2} (see also \cite{isaev_molev_fusion_for_brauer_algebras_1}) due to the fact that they admit a kind of evaluation homomorphism to the universal enveloping algebras of classical Lie algebras of types $\sfB, \sfC, \sfD$, and thus helped alleviate a technical difficulty in the representation theory of Drinfeld Yangians of these types.
+
+        Instead of starting with the Yangian R-matrix, we now start with a K-matrix:
+            $$\calK(z) \in \End(U) \tensor \End(V)[\![z^{-1}]\!]$$
+        still with $U$ the vector representation of $\g_N$ and $V$ an auxiliary $\g_N$-module.
+
+        \begin{definition}[Boundary reflection algebras] \label{def: boundary_reflection_algebras}
             
         \end{definition}
 
-        \begin{lemma}[Mapping $\scattering(\g_N)$ to the extended Yangian of $\g_N$] \label{lemma: embedding_scattering_reflection_algebras_into_extended_yangians}
+        \begin{lemma}[Mapping $\calB_b(\g_N, \theta)$ to the extended Yangian of $\g_N$] \label{lemma: embedding_boundary_reflection_algebras_into_extended_yangians}
             
         \end{lemma}
             \begin{proof}
                 
             \end{proof}
-        \begin{theorem}[Evaluation homomorphism for $\scattering(\g_N)$] \label{theorem: evaluation_homomorphism_for_scattering_reflection_algebras}
+        \begin{theorem}[Evaluation homomorphism for $\calB_b(\g_N, \theta)$] \label{theorem: evaluation_homomorphism_for_scattering_reflection_algebras}
             
         \end{theorem}
             \begin{proof}
                 
             \end{proof}
 
-    \subsection{The symmetric reflection algebras of Guay-Regelskis-Wendlandt}
+    \subsection{The reflection algebras of Guay-Regelskis-Wendlandt}
         \todo[inline]{The main difference is the symmetry relation in \cite{guay_regelskis_wendlandt_representations_of_twisted_yangians_for_symmetric_pairs_of_types_BCD_1}.}
 
     \subsection{Comparisons}
-        Let us now compare the two types of reflection algebras with one another, by bridging through the twisted Yangian construction from \cite{guay_regelskis_wendlandt_representations_of_twisted_yangians_for_symmetric_pairs_of_types_BCD_1}.
+        Let us now compare the two types of reflection algebras with one another, by bridging through the twisted Yangian construction. Since both constructions share the same reflection and unitarity relations, it remains to see why the transfer matrices $B_{i, j}(z)$ in the Sklyanin boundary reflection algebra are not required to satisfy the symmetry relation. Those transfer matrices, however, do satisfy:
+            $$\skdet B_{i, j}(z) = 1$$
+        so we claim that this is actually equivalent to the symmetry relation for the GRW reflection algebra, which we recall to be:
+            \begin{equation} \label{equation: GRW_symmetry_relation}
+                B(z)^t = \sgn(\theta) B(-z + \kappa) \pm \frac{B(z) - B(-z + \kappa)}{2z - \kappa} + \frac{\trace( \calK(z) ) \cdot B(-z + \kappa) - \trace(B(z))}{2(z - \kappa)}
+            \end{equation}
+        with:
+            $$
+                \sgn(\theta) =
+                \begin{cases}
+                    \text{$-1$ if $\theta$ is of type $\sfC_{N - 1} I$ or $\sfD_{N - 1} III$}
+                    \\
+                    \text{$1$ otherwise}
+                \end{cases}
+            $$
+        and:
+            $$\kappa := \mp 1 + \frac{\sfh^{\vee}}{2}$$
+        Here, $\sfh^{\vee}$ is the dual Coxeter number of $\g_N$; in \cite{guay_regelskis_wendlandt_representations_of_twisted_yangians_for_symmetric_pairs_of_types_BCD_1}, the authors worked with $\sfh^{\vee} = N$ since their reflection algebras $\calB_{GRW}(\g_N)$ and twisted Yangians $\calY^{\tw}(\g_N)$ are thought of as coideal subalgebras of the Drinfeld Yangian $\calY(\gl_N)$.
+
+        In \cite[Proposition 4.3]{molev_ragoucy_representations_of_reflection_algebras}, it was already established that for $N = 2$ and $\theta$ is either of type $\sfC_1 I$ or $\sfD_1 III$, the following relation holds in $\calB_b(\sl_2, \theta)$:
+            $$B(z)^t = -B(-z + \kappa) \pm \frac{B(z) - B(-z + \kappa)}{2z - \kappa}$$
+        This leads us to making the following proposition.
+        \begin{proposition}
+            When $N = 2$ and $\theta$ is either of type $\sfC_1 I$ or $\sfD_1 III$, we have:
+                $$\frac{\trace( \calK(z) ) \cdot B(-z + \kappa) - \trace(B(z))}{2(z - \kappa)} = 0$$
+        \end{proposition}
+            \begin{proof}
+                
+            \end{proof}

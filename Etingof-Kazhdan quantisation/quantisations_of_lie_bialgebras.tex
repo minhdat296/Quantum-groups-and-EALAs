@@ -49,22 +49,22 @@
             and thus making $\tilde{A}$ a deformation quantisation of $A$ in the sense of definition \ref{def: deformation_quantisation}.
         \end{corollary}
         \begin{example}[PBW deformations] \label{example: PBW_deformations}
-            Let $\a$ be an arbitrary Lie algebra over $k$ and denote the PBW filtration on the universal enveloping algebra of $\a$ by $\rmU(\a) := \{\rmU(\a)_n\}_{n \geq 0}$. The PBW Theorem tells us that there is a canonical isomorphism of $\N$-graded commutative $k$-algebras:
-                $$\Sym(\a) \xrightarrow[]{\cong} \gr \rmU(\a)$$
+            Let $\a$ be an arbitrary Lie algebra over $k$ and denote the PBW filtration on the universal enveloping algebra of $\a$ by $\calU(\a) := \{\calU(\a)_n\}_{n \geq 0}$. The PBW Theorem tells us that there is a canonical isomorphism of $\N$-graded commutative $k$-algebras:
+                $$\Sym(\a) \xrightarrow[]{\cong} \gr \calU(\a)$$
             Using example \ref{example: rees_algebras_as_formal_flat_deformations}, we thus know that:
-                $$\Rees(\rmU(\a)) := \bigoplus_{n \geq 0} \rmU(\a)_n \hbar^n$$
+                $$\Rees(\calU(\a)) := \bigoplus_{n \geq 0} \calU(\a)_n \hbar^n$$
             is a formal $\N$-graded deformation over $k[\![\hbar]\!]$ of the $\N$-graded commutative $k$-algebra $\Sym(\a)$. Lemma \ref{lemma: poisson_brackets_from_formal_flat_deformations_of_commutative_algebras} then tells us that $\Sym(\a)$ carries a canonically defined Poisson structure $\{-, -\}$ given by:
-                $$\{x, y\} := \frac{1}{\hbar}[\tilde{x}, \tilde{y}]_{\Rees(\rmU(\a))} \pmod{\hbar}$$
-            for all $x, y \in \Sym(\a)$ and all lifts $\tilde{x}, \tilde{y} \in \Rees(\rmU(\a))$ thereof. 
+                $$\{x, y\} := \frac{1}{\hbar}[\tilde{x}, \tilde{y}]_{\Rees(\calU(\a))} \pmod{\hbar}$$
+            for all $x, y \in \Sym(\a)$ and all lifts $\tilde{x}, \tilde{y} \in \Rees(\calU(\a))$ thereof. 
 
-            Now, recall also that when $\a$ is finite-dimensional, the symmetric algebra $\Sym(\a)$ also has a natural bialgebra structure (cf. \cite[Chapter III]{kassel_quantum_groups}) which happens to be compatible with the one on $\gr \rmU(\a)$, and since both are Hopf algebras, the PBW isomorphism upgrades to an isomorphism of $\N$-graded Hopf $k$]
+            Now, recall also that when $\a$ is finite-dimensional, the symmetric algebra $\Sym(\a)$ also has a natural bialgebra structure (cf. \cite[Chapter III]{kassel_quantum_groups}) which happens to be compatible with the one on $\gr \calU(\a)$, and since both are Hopf algebras, the PBW isomorphism upgrades to an isomorphism of $\N$-graded Hopf $k$]
             algebras:
-                $$\Sym(\a) \xrightarrow[\text{Hopf}]{\cong} \gr \rmU(\a)$$
-            In other words, when $\a$ is finite-dimensional over $k$, $\Rees(\rmU(\a))$ is actually a formal $\N$-graded Hopf algebra deformation of $\Sym(\a)$. 
+                $$\Sym(\a) \xrightarrow[\text{Hopf}]{\cong} \gr \calU(\a)$$
+            In other words, when $\a$ is finite-dimensional over $k$, $\Rees(\calU(\a))$ is actually a formal $\N$-graded Hopf algebra deformation of $\Sym(\a)$. 
         \end{example}
     
         \begin{definition}[Formal QUEs] \label{def: formal_QUEs}
-            A \textbf{formal(ly) quantised universal enveloping algebra (QUE)} of a Lie algebra $\a$ is a formal Hopf algebra deformation of $\rmU(\a)$ in the sense of definition \ref{def: bialgebra_deformations}.
+            A \textbf{formal(ly) quantised universal enveloping algebra (QUE)} of a Lie algebra $\a$ is a formal Hopf algebra deformation of $\calU(\a)$ in the sense of definition \ref{def: bialgebra_deformations}.
         \end{definition}
     
         \begin{definition}[Lie co/bialgebras] \label{def: lie_co/bialgebras}
@@ -96,11 +96,11 @@
             \todo[inline]{Kac-Moody bialgebras}
         \end{example}
         
-        For $\a$ a finite-dimensional Lie algebra over $k$, the process of taking the so-called \say{classical limit} in order to obtain a finite-dimensional Lie bialgebra from a quantisation $\widetilde{\rmU(\a)}$ of $\rmU(\a)$ amounts to constructing a \say{coproduct-like} map:
-            $$\delta: \rmU(\a) \to \rmU(\a) \tensor_k \rmU(\a)$$
-        whose job is to measure how non-cocommutative the comultiplication on $\widetilde{\rmU(\a)}$ is. It is thus natural to consider:
+        For $\a$ a finite-dimensional Lie algebra over $k$, the process of taking the so-called \say{classical limit} in order to obtain a finite-dimensional Lie bialgebra from a quantisation $\widetilde{\calU(\a)}$ of $\calU(\a)$ amounts to constructing a \say{coproduct-like} map:
+            $$\delta: \calU(\a) \to \calU(\a) \tensor_k \calU(\a)$$
+        whose job is to measure how non-cocommutative the comultiplication on $\widetilde{\calU(\a)}$ is. It is thus natural to consider:
             $$\delta := \frac1\hbar(\tilde{\Delta} - \tilde{\Delta}^{\cop}) \pmod{\hbar}$$
-        One readily checks that this map $\delta$ is well-defined up to a choice of representative $x \pmod{\hbar}$; this map is important, so we give it a name: the bi-Poisson structure (sometimes called the \say{co-Poisson-Hopf structure}) on $\rmU(\a)$. In order to study it, let us make the following definition for the sake of precision.
+        One readily checks that this map $\delta$ is well-defined up to a choice of representative $x \pmod{\hbar}$; this map is important, so we give it a name: the bi-Poisson structure (sometimes called the \say{co-Poisson-Hopf structure}) on $\calU(\a)$. In order to study it, let us make the following definition for the sake of precision.
         \begin{definition}[Co/bi-Poisson structures] \label{def: co/bi_poisson_structures}
             Suppose that $(C, \Delta, \e)$ is a $k$-coalgebra. A \textbf{co-Poisson structure} (or \textbf{co-Poisson cobracket}) on this coalgebra is then a $k$-linear map:
                 $$\delta: C \to C \wedge C$$
@@ -109,7 +109,7 @@
             Now, if $(H, \mu, \eta, \Delta, \e)$ is a $k$-bialgebra, then a co-Poisson structure thereon is a bi-Poisson structure if and only if it is compatible with the multiplication $\mu$ in the following manner:
                 $$\delta \circ \mu = (\mu \tensor_k \mu) \circ (\Delta \tensor_k \delta + \delta \tensor_k \Delta)$$
         \end{definition}
-        What makes the co-Poisson structure on universal enveloping algebras $\rmU(\a)$ interesting and important is that they induce a Lie bialgebra structure on $\a$ (provided that quantisations of $\rmU(\a)$ existed in the first place). 
+        What makes the co-Poisson structure on universal enveloping algebras $\calU(\a)$ interesting and important is that they induce a Lie bialgebra structure on $\a$ (provided that quantisations of $\calU(\a)$ existed in the first place). 
         \begin{lemma}[Bi-Poisson structures from Hopf algebra deformations] \label{lemma: bi_poisson_structures_from_hopf_algebra_deformations}
             Suppose that $(H, \mu, \eta, \Delta, \e)$ is a cocommutative Hopf algebra over $k$ with a formal Hopf algebra deformation $(\tilde{H}, \tilde{\mu}, \tilde{\eta}, \tilde{\Delta}, \tilde{\e})$ over $k[\![\hbar]\!]$. Then, there will be a bi-Poisson structure on $H$ given by:
                 $$\delta := \frac{1}{\hbar}(\tilde{\Delta} - \tilde{\Delta}^{\cop}) \pmod{\hbar}$$
@@ -153,17 +153,17 @@
                     $$
             \end{proof}
         \begin{theorem}[Lie bialgebra structures from bi-Poisson structures] \label{theorem: lie_bialgebra_structures_from_bi_poisson_structures}
-            Let $\a$ be a Lie algebra over $k$ and suppose that there exists a formal quantisation $U$ of $\rmU(\a)$. Then, the restriction:
+            Let $\a$ be a Lie algebra over $k$ and suppose that there exists a formal quantisation $U$ of $\calU(\a)$. Then, the restriction:
                 $$\delta|_{\a}: \a \to \a \tensor_k \a$$
-            of the bi-Poisson structure on $\rmU(\a)$ given by:
+            of the bi-Poisson structure on $\calU(\a)$ given by:
                 $$\delta := \frac{1}{\hbar}(\Delta - \Delta^{\cop}) \pmod{\hbar}$$
-            down onto the coideal $\a = \prim(\rmU(\a))$ of primitive elements, determines a Lie bialgebra structure on $\a$.    
+            down onto the coideal $\a = \prim(\calU(\a))$ of primitive elements, determines a Lie bialgebra structure on $\a$.    
         \end{theorem}
             \begin{proof}
                 
             \end{proof}
         \begin{remark}
-            Our proof relied heavily on the fact that, by construction of the standard coalgebra structure on $\rmU(\a)$, $\a$ can be identified with the coideal $\prim(\rmU(\a))$ generated by primitive elements. However, we doubt that this is precisely why the theorem is true. In fact, we suspect that there is a more natural proof that somehow makes use of the identification of Hochschild cohomology and Hopf algebra cohomology; the idea here is that, $\HH^2$ ought to parametrise co/bi-Poisson structures, while $\HH^3$ parametrises obstructions to non-trivially deforming the Hopf algebra in question, and hence the existence of co/bi-Poisson structures on the classical limit can be checked via Hochschild cohomological computations. 
+            Our proof relied heavily on the fact that, by construction of the standard coalgebra structure on $\calU(\a)$, $\a$ can be identified with the coideal $\prim(\calU(\a))$ generated by primitive elements. However, we doubt that this is precisely why the theorem is true. In fact, we suspect that there is a more natural proof that somehow makes use of the identification of Hochschild cohomology and Hopf algebra cohomology; the idea here is that, $\HH^2$ ought to parametrise co/bi-Poisson structures, while $\HH^3$ parametrises obstructions to non-trivially deforming the Hopf algebra in question, and hence the existence of co/bi-Poisson structures on the classical limit can be checked via Hochschild cohomological computations. 
         \end{remark}
     
     \subsection{Quantisation of finite-dimensional Lie bialgebras}
@@ -203,7 +203,7 @@
             and hence that there is an isomorphism of associative algebras:
                 $$\End_{\Mon\Nat}(\hat{F}_H) \cong \projlim_{n \geq 1} H[\hbar]/\hbar^n \cong H[\![\hbar]\!]$$
         \end{remark}
-        Clearly, $H[\![\hbar]\!]$ is a formal deformation of $H$ (cf. definition \ref{def: bialgebra_deformations}), so let us now attempt to construct a (braided) monoidal structure on the category $H\mod[\![\hbar]\!]$ so as to be able to use reconstruction theory to identify $H[\![\hbar]\!]$, firstly as a $k$-bialgebra (or even has a Hopf $k$-algebra, in the event that $H$ was Hopf to begin with), and secondly as a quantisation of $H$ in the sense of definition \ref{def: deformation_quantisation}. It is not always the case that $H$ admits a quantisation, seeing how $H$ might not have been a bialgebra to begin with\todo{What is a counter-example ?}\footnote{In fact, we need $H$ to be a Hopf algebra so that the tensor bifunctor on $H\mod$ would be $H$-bilinear. Otherwise, one may only consider tensor products of two-sided $H$-modules.}; nevertheless, this is precisely why finite-dimensional Manin triples are important to us: the fact that they correspond to finite-dimensional Lie bialgebras ensures that, if $(\a, \a_+, \a_-)$ is such a triple, then the universal enveloping algebra $\rmU(\a)$ of the Lie bialgebra $\a$ will admit $\rmU(\a)[\![\hbar]\!]$ as a quantisation.
+        Clearly, $H[\![\hbar]\!]$ is a formal deformation of $H$ (cf. definition \ref{def: bialgebra_deformations}), so let us now attempt to construct a (braided) monoidal structure on the category $H\mod[\![\hbar]\!]$ so as to be able to use reconstruction theory to identify $H[\![\hbar]\!]$, firstly as a $k$-bialgebra (or even has a Hopf $k$-algebra, in the event that $H$ was Hopf to begin with), and secondly as a quantisation of $H$ in the sense of definition \ref{def: deformation_quantisation}. It is not always the case that $H$ admits a quantisation, seeing how $H$ might not have been a bialgebra to begin with\todo{What is a counter-example ?}\footnote{In fact, we need $H$ to be a Hopf algebra so that the tensor bifunctor on $H\mod$ would be $H$-bilinear. Otherwise, one may only consider tensor products of two-sided $H$-modules.}; nevertheless, this is precisely why finite-dimensional Manin triples are important to us: the fact that they correspond to finite-dimensional Lie bialgebras ensures that, if $(\a, \a_+, \a_-)$ is such a triple, then the universal enveloping algebra $\calU(\a)$ of the Lie bialgebra $\a$ will admit $\calU(\a)[\![\hbar]\!]$ as a quantisation.
 
     \subsection{Classical r-matrices and the RTT quantisation formalism for infinite-dimensional Lie bialgebras}
         \begin{convention}

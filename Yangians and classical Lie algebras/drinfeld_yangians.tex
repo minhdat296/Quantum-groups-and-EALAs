@@ -1,4 +1,4 @@
-\section{Generalities on finite (twisted) Yangians}
+\section{Drinfeld's Yangians}
     \begin{convention} \label{conv: a_fixed_semi_simple_lie_algebra}
         We fix once and for all a finite-dimensional simple Lie algebra $\g$ over $\bbC$ (or for that matter, any algebraically closed field of characteristic $0$) along with a \textit{non-degenerate} invariant symmetric $\bbC$-bilinear form $(-, -)_{\g}$. Set:
             $$n := \dim \g$$
@@ -13,27 +13,27 @@
             $$(x_i^-, x_i^+)_{\g} = 1$$
     \end{convention}
 
-    There is an $\Z_{\geq 0}$-graded Hopf algebra over $\bbC[\hbar]$, often denoted by $\rmY_{\hbar}(\g)$, is a quantisation of a certain Lie bialgebra structure on the so-called \textbf{current algebra}:
+    There is an $\Z_{\geq 0}$-graded Hopf algebra over $\bbC[\hbar]$, often denoted by $\calY_{\hbar}(\g)$, is a quantisation of a certain Lie bialgebra structure on the so-called \textbf{current algebra}:
         $$\g[t] := \g \tensor_{\bbC} \bbC[t]$$
-    We shall refer to $\rmY_{\hbar}(\g)$ as the \textbf{formal Yangian} in order to distinguish it from its \say{special fibre} at any $\hbar_0 \in \bbC^{\x}$ (and we might as well set $\hbar_0 := 1$):
-        $$\rmY(\g) := \rmY_{\hbar}(\g)/(\hbar - \hbar_0)\rmY_{\hbar}(\g)$$
+    We shall refer to $\calY_{\hbar}(\g)$ as the \textbf{formal Yangian} in order to distinguish it from its \say{special fibre} at any $\hbar_0 \in \bbC^{\x}$ (and we might as well set $\hbar_0 := 1$):
+        $$\calY(\g) := \calY_{\hbar}(\g)/(\hbar - \hbar_0)\calY_{\hbar}(\g)$$
     which shall be known to us as \say{the} \textbf{Yangian}. The former shall turn out to be the Rees algebra of the latter, with respect to a natural $\Z_{\geq 0}$-grading thereon. Furthermore, it will turn out to be the case that:
-        $$\rmU( \g[t] ) \cong \gr \rmY(\g) \cong \rmY_{\hbar}(\g)/\hbar\rmY_{\hbar}(\g)$$
-    The last isomorphism is just a general property of the Rees algebra construction, though it is worth keeping in mind as it implies to us - in conjunction with other evidences - that not only is $\rmY_{\hbar}(\g)$ a deformation of $\rmU( \g[t] )$ but also, via the first isomorphism, that $\rmY(\g)$ is actually a PBW deformation of $\rmU( \g[t] )$, while $\rmY_{\hbar}(\g)$ is a graded deformation, both in the sense of definition \ref{def: graded_and_PBW_deformations}. We caution the reader that, at this point in our discussion, both $\rmY_{\hbar}(\g)$ and $\rmY(\g)$ are merely deformations of associative algebras, not yet quantisations. 
+        $$\calU( \g[t] ) \cong \gr \calY(\g) \cong \calY_{\hbar}(\g)/\hbar\calY_{\hbar}(\g)$$
+    The last isomorphism is just a general property of the Rees algebra construction, though it is worth keeping in mind as it implies to us - in conjunction with other evidences - that not only is $\calY_{\hbar}(\g)$ a deformation of $\calU( \g[t] )$ but also, via the first isomorphism, that $\calY(\g)$ is actually a PBW deformation of $\calU( \g[t] )$, while $\calY_{\hbar}(\g)$ is a graded deformation, both in the sense of definition \ref{def: graded_and_PBW_deformations}. We caution the reader that, at this point in our discussion, both $\calY_{\hbar}(\g)$ and $\calY(\g)$ are merely deformations of associative algebras, not yet quantisations. 
 
-    Now, there are two equivalent presentations for $\rmY_{\hbar}(\g)$ as an associative, each serving different practical purposes. The first, commonly referred to as \say{Drinfeld's first presentation}, makes it easy (or indeed, possible!) to explicitly write down what the Hopf structure on $\rmY_{\hbar}(\g)$ that quantises the aforementioned Lie bialgebra structure on $\g[t]$ is; $\g[t]$ is then realisable as the classical limit as $\hbar \to 0$ of this quantisation by virtue of being the bi-ideal of primitive elements of this Hopf algebra. At the same time, there is a second presentation in terms of generators $X_{i, r}^{\pm}, H_{i, r}$ that very much resemble the Chevalley-Serre generators of $\g$. Naturally, this second presentation is very useful for studying $\rmY_{\hbar}(\g)$-modules and in particular, it was by using a slight modification of this presentation that Levendorskii was able to construct a PBW basis for $\rmY_{\hbar}(\g)$, which is essential for defining notions such as highest-weight modules and Verma modules. At the same time, one major drawback with working with it is that as of right now, it is still not known how one might explicitly compute comultiplication formulae in terms of the generators $X_{i, r}^{\pm}, H_{i, r}$. 
+    Now, there are two equivalent presentations for $\calY_{\hbar}(\g)$ as an associative, each serving different practical purposes. The first, commonly referred to as \say{Drinfeld's first presentation}, makes it easy (or indeed, possible!) to explicitly write down what the Hopf structure on $\calY_{\hbar}(\g)$ that quantises the aforementioned Lie bialgebra structure on $\g[t]$ is; $\g[t]$ is then realisable as the classical limit as $\hbar \to 0$ of this quantisation by virtue of being the bi-ideal of primitive elements of this Hopf algebra. At the same time, there is a second presentation in terms of generators $X_{i, r}^{\pm}, H_{i, r}$ that very much resemble the Chevalley-Serre generators of $\g$. Naturally, this second presentation is very useful for studying $\calY_{\hbar}(\g)$-modules and in particular, it was by using a slight modification of this presentation that Levendorskii was able to construct a PBW basis for $\calY_{\hbar}(\g)$, which is essential for defining notions such as highest-weight modules and Verma modules. At the same time, one major drawback with working with it is that as of right now, it is still not known how one might explicitly compute comultiplication formulae in terms of the generators $X_{i, r}^{\pm}, H_{i, r}$. 
 
     There is another presentation, the so-called \say{RTT presentation}, that is rather explicit and easy to work with. Originally, this presentation was only known to hold for $\g \cong \sl_{l + 1}$, but has now been shown to hold for all finite-dimensional simple Lie algebras $\g$. This presentation is almost exclusively for the purpose of representation theory, so we will defer discussing it until subsection \ref{subsection: universal_R_matrices_of_finite_untwisted_yangians}. This presentation also historically preceded the other ones.
 
     \subsection{Yangians as PBW deformations}
-        Contrary to our description of the formal Yangian $\rmY_{\hbar}(\g)$ in the introductory segment, where we were thinking of it as a quantisation of a Lie bialgebra structure on $\g[t]$, let us begin by taking the following to be our working definition of $\rmY_{\hbar}(\g)$, merely as an associative $\bbC[\hbar]$-algebra for now.
+        Contrary to our description of the formal Yangian $\calY_{\hbar}(\g)$ in the introductory segment, where we were thinking of it as a quantisation of a Lie bialgebra structure on $\g[t]$, let us begin by taking the following to be our working definition of $\calY_{\hbar}(\g)$, merely as an associative $\bbC[\hbar]$-algebra for now.
 
         \begin{convention}
             We shall be using the following shorthand:
                 $$\{ X_1, ..., X_n \} := \sum_{\sigma \in S_n} X_{\sigma(1)} \cdot ... \cdot X_{\sigma(n)}$$
         \end{convention}
         \begin{definition}[Formal finite-type Yangians] \label{def: formal_finite_type_yangians}
-            (Cf. \cite[Definition 2.1]{guay_nakajima_wendlandt_affine_yangian_coproduct}) The \textbf{formal Yangian} of $\g$, denoted by $\rmY_{\hbar}(\g)$, is the associative $\bbC[\hbar]$ generated by the set:
+            (Cf. \cite[Definition 2.1]{guay_nakajima_wendlandt_affine_yangian_coproduct}) The \textbf{formal Yangian} of $\g$, denoted by $\calY_{\hbar}(\g)$, is the associative $\bbC[\hbar]$ generated by the set:
                 $$\{ H_{i, r}, X_{i, r}^{\pm} \}_{(i, r) \in \simpleroots \x \Z_{\geq 0}}$$
             whose elements are subjected to the following relations\footnote{Note the similarities with the Chevalley-Serre presentation of $\g$ in terms of the generating set $\{ h_i, x_i^{\pm} \}_{i \in \simpleroots}$.}, given for all $(i, r), (j, s) \in \simpleroots \x \Z_{\geq 0}$:
                 $$[ H_{i, r}, H_{j, s} ] = 0$$
@@ -46,24 +46,24 @@
             We will be referring to this presentation as the \textbf{Chevalley-Serre presentation} due to its similarity to the presentation of the same name for $\g$ (cf. \cite[Section 8]{humphreys_lie_algebras}). 
         \end{definition}
         \begin{definition}[Yangians] \label{def: finite_type_yangians}
-            The \textbf{Yangian} of $\g$, denoted by $\rmY(\g)$, is given by:
-                $$\rmY(\g) := \rmY_{\hbar}(\g)/\rmY_{\hbar}(\g) \cdot (\hbar - 1)$$
+            The \textbf{Yangian} of $\g$, denoted by $\calY(\g)$, is given by:
+                $$\calY(\g) := \calY_{\hbar}(\g)/\calY_{\hbar}(\g) \cdot (\hbar - 1)$$
         \end{definition}
-        \begin{remark}[The degree grading/filtration on $\rmY_{\hbar}(\g)$ and $\rmY(\g)$] \label{remark: the_degree_grading_on_finite_type_yangians}
-            There is a natural $\Z_{\geq 0}$-grading on $\rmY_{\hbar}(\g)$ (and likewise, on $\rmY(\g)$) given by:
+        \begin{remark}[The degree grading/filtration on $\calY_{\hbar}(\g)$ and $\calY(\g)$] \label{remark: the_degree_grading_on_finite_type_yangians}
+            There is a natural $\Z_{\geq 0}$-grading on $\calY_{\hbar}(\g)$ (and likewise, on $\calY(\g)$) given by:
                 $$\deg \hbar := 1$$
                 $$\deg X_{i, r}^{\pm} = \deg H_{i, r} := r$$
-            The vector subspace of $\rmY_{\hbar}(\g)$ (respectively, of $\rmY(\g)$) consisting of degree-$r$ elements, i.e. the degree-$r$ graded component, shall be:
-                $$\rmY_{\hbar}(\g)_r := \span_{\bbC} \{ X \in \rmY_{\hbar}(\g) \mid \deg X = r \}$$
-            (and respectively, filtrants $\rmY(\g)_r := \span_{\bbC} \{ X \in \rmY(\g) \mid \deg X = r \}$) and one checks that, indeed:
-                $$\rmY_{\hbar}(\g)_r \rmY_{\hbar}(\g)_s \subseteq \rmY_{\hbar}(\g)_{r + s}$$
-            (and likewise, $\rmY(\g)_r \rmY(\g)_s \subseteq \rmY(\g)_{r + s}$). It is easy to see that $\rmU(\g)$ is isomorphic to the subalgebra $\rmY_{\hbar}(\g)_0$ of $\rmY(\g)$ generated by the set:
+            The vector subspace of $\calY_{\hbar}(\g)$ (respectively, of $\calY(\g)$) consisting of degree-$r$ elements, i.e. the degree-$r$ graded component, shall be:
+                $$\calY_{\hbar}(\g)_r := \span_{\bbC} \{ X \in \calY_{\hbar}(\g) \mid \deg X = r \}$$
+            (and respectively, filtrants $\calY(\g)_r := \span_{\bbC} \{ X \in \calY(\g) \mid \deg X = r \}$) and one checks that, indeed:
+                $$\calY_{\hbar}(\g)_r \calY_{\hbar}(\g)_s \subseteq \calY_{\hbar}(\g)_{r + s}$$
+            (and likewise, $\calY(\g)_r \calY(\g)_s \subseteq \calY(\g)_{r + s}$). It is easy to see that $\calU(\g)$ is isomorphic to the subalgebra $\calY_{\hbar}(\g)_0$ of $\calY(\g)$ generated by the set:
                 $$\{ H_{i, 0}, X_{i, 0}^{\pm} \}_{i \in \simpleroots}$$
         \end{remark}
 
-        It turns out that one can give a more minimalistic presentation for $\rmY_{\hbar}(\g)$ mostly in terms of the low-degree generators $H_{i, 0}, X_{i, 0}^{\pm}$. This was originally due to Levendorskii and is useful for explicitly writing down Yangians of specific instances of $\g$ (e.g. $\g \cong \sl_2$; see example \ref{example: Y(sl_2)}).
+        It turns out that one can give a more minimalistic presentation for $\calY_{\hbar}(\g)$ mostly in terms of the low-degree generators $H_{i, 0}, X_{i, 0}^{\pm}$. This was originally due to Levendorskii and is useful for explicitly writing down Yangians of specific instances of $\g$ (e.g. $\g \cong \sl_2$; see example \ref{example: Y(sl_2)}).
         \begin{theorem}[Levendorskii's presentation] \label{theorem: levendorskii_presentation}
-            \cite[Theorem 1.2]{levendorskii_finite_type_yangians_presentation} The formal Yangian $\rmY_{\hbar}(\g)$ of $\g$ will be isomorphic to the associative $\bbC$-algebra generated by the set:
+            \cite[Theorem 1.2]{levendorskii_finite_type_yangians_presentation} The formal Yangian $\calY_{\hbar}(\g)$ of $\g$ will be isomorphic to the associative $\bbC$-algebra generated by the set:
                 $$\{ H_{i, r}, X_{i, r}^{\pm} \}_{(i, r) \in \simpleroots \x \Z_{\geq 0}}$$
             whose elements are subjected to the following relations:
                 $$H_{i, 0} = h_i, X_{i, 0}^{\pm} = x_i^{\pm}$$
@@ -76,14 +76,14 @@
         \begin{remark}
             An interesting merit of Levendorskii's presentation is that, in contrast with the presentation given in definition \ref{def: formal_finite_type_yangians}, the final three relations are given only for $r, s = 0$. Also, thanks to the relations:
                 $$H_{i, 0} = h_i, X_{i, 0}^{\pm} = x_i^{\pm}$$
-            (given for all $i \in \simpleroots$), it is no longer necessary to impose Serre relations (e.g. the last relation in the definition of $\rmY_{\hbar}(\g')$ as in \ref{def: formal_finite_type_yangians}), since this has already been guaranteed by the Serre relations of $\g$, namely:
+            (given for all $i \in \simpleroots$), it is no longer necessary to impose Serre relations (e.g. the last relation in the definition of $\calY_{\hbar}(\g')$ as in \ref{def: formal_finite_type_yangians}), since this has already been guaranteed by the Serre relations of $\g$, namely:
                 $$\ad(x_i^{\pm})^{1 - C_{ij}}( x_j^{\pm} ) = 0$$
             (cf. \cite{humphreys_lie_algebras}).
         \end{remark}
-        \begin{example}[$\rmY_{\hbar}(\sl_2)$] \label{example: Y(sl_2)}
+        \begin{example}[$\calY_{\hbar}(\sl_2)$] \label{example: Y(sl_2)}
             Consider, for example, the case:
                 $$\g \cong \sl_2$$
-            and let us write $h, x^{\pm}$ for the $\sl_2$-triple. In this case, $\rmY_{\hbar}(\sl_2)$ shall be isomorphic to the associative $\bbC$-algebra generated by the set:
+            and let us write $h, x^{\pm}$ for the $\sl_2$-triple. In this case, $\calY_{\hbar}(\sl_2)$ shall be isomorphic to the associative $\bbC$-algebra generated by the set:
                 $$\{ H_r, X_r^{\pm} \}_{r \in \Z_{\geq 0}}$$
             whose elements satisfy the following relations\footnote{In this case, there isn't even any Serre relation for $\sl_2$ in the background!}, given for all $r, s \in \Z_{\geq 0}$:
                 $$H_0 = h, X_0^{\pm} = x^{\pm}$$
@@ -113,23 +113,23 @@
         \begin{theorem}[PBW bases for formal Yangians] \label{theorem: PBW_bases_for_formal_yangians}
             Fix a total ordering on the set:
                 $$\Sigma := \{X_{\alpha, r}^{\pm}\}_{(\alpha, r) \in \Phi^+ \x \Z_{\geq 0}} \cup \{H_{i, r}\}_{(i, r) \in \simpleroots \x \Z_{\geq 0}}$$
-            Then, the set of all \textit{ordered} monomials in elements of $\Sigma$ forms a basis for $\rmY_{\hbar}(\g)$ as a $\bbC[\hbar]$-module; we refer to such a basis as a \textbf{PBW basis} of $\rmY_{\hbar}(\g)$. 
+            Then, the set of all \textit{ordered} monomials in elements of $\Sigma$ forms a basis for $\calY_{\hbar}(\g)$ as a $\bbC[\hbar]$-module; we refer to such a basis as a \textbf{PBW basis} of $\calY_{\hbar}(\g)$. 
         \end{theorem}
         \begin{corollary}[Formal Yangians as graded deformations] \label{coro: formal_yangians_as_graded_deformations}
-            $\rmY_{\hbar}(\g)$ is a free $\bbC[\hbar]$-module on the set of ordered monomials in elements of $\Sigma$. Also, there is an isomorphism of $\Z_{\geq 0}$-graded $\bbC[\hbar]$-algebras:
-                $$\Rees_{\hbar} \rmY(\g) \cong \rmY_{\hbar}(\g)$$
+            $\calY_{\hbar}(\g)$ is a free $\bbC[\hbar]$-module on the set of ordered monomials in elements of $\Sigma$. Also, there is an isomorphism of $\Z_{\geq 0}$-graded $\bbC[\hbar]$-algebras:
+                $$\Rees_{\hbar} \calY(\g) \cong \calY_{\hbar}(\g)$$
         \end{corollary}
 
         What follows can hold independently of theorem \ref{theorem: PBW_bases_for_formal_yangians}. 
         \begin{lemma}[Finite-type Yangians as PBW deformations] \label{lemma: finite_type_yangians_as_PBW_deformations}
-            (Cf. \cite[Proposition 12.1.6]{chari_pressley_quantum_groups}) Define an $\Z_{\geq 0}$-grading on $\rmU(\g[t])$ by setting:
+            (Cf. \cite[Proposition 12.1.6]{chari_pressley_quantum_groups}) Define an $\Z_{\geq 0}$-grading on $\calU(\g[t])$ by setting:
                 $$\deg x t^r := r$$
-            for any $x \in \g$ and any $r \in \Z_{\geq 0}$. With respect to the $\Z_{\geq 0}$-grading on $\rmY(\g)$ from remark \ref{remark: the_degree_grading_on_finite_type_yangians}, one has an isomorphism of associative $\bbC$-algebras:
-                $$\rmU( \g[t] ) \to \gr \rmY(\g)$$
-            As such, $\rmY(\g)$ is a PBW deformation of $\rmU(\g[t])$ in the sense of definition \ref{def: graded_and_PBW_deformations}.
+            for any $x \in \g$ and any $r \in \Z_{\geq 0}$. With respect to the $\Z_{\geq 0}$-grading on $\calY(\g)$ from remark \ref{remark: the_degree_grading_on_finite_type_yangians}, one has an isomorphism of associative $\bbC$-algebras:
+                $$\calU( \g[t] ) \to \gr \calY(\g)$$
+            As such, $\calY(\g)$ is a PBW deformation of $\calU(\g[t])$ in the sense of definition \ref{def: graded_and_PBW_deformations}.
         \end{lemma}
             \begin{proof}
-                Using definition \ref{def: formal_finite_type_yangians}, we see that the associative $\bbC$-algebra $\gr \rmY(\g)$ is generated by the set:
+                Using definition \ref{def: formal_finite_type_yangians}, we see that the associative $\bbC$-algebra $\gr \calY(\g)$ is generated by the set:
                     $$\{ H_{i, r}, X_{i, r}^{\pm} \}_{(i ,r) \in \simpleroots \x \Z_{\geq 0}}$$
                 whose elements are subjected to the following relations, given for all $(i, r), (j, s) \in \simpleroots \x \Z_{\geq 0}$:
                     $$[ H_{i, r}, H_{j, s} ] = 0$$
@@ -138,16 +138,16 @@
                     $$[ H_{i, r + 1}, X_{j, s}^{\pm} ] - [ H_{i, r}, X_{j, s + 1}^{\pm} ] = 0$$
                     $$[ X_{i, r + 1}, X_{j, s}^{\pm} ] - [ X_{i, r}, X_{j, s + 1}^{\pm} ] = 0$$
                     $$\sum_{\sigma \in S_{N_{ij}}} \ad(X_{i, r_{\sigma(1)}}^{\pm}) \cdot ... \cdot \ad(X_{i, r_{\sigma(N_{ij})}}^{\pm}) \cdot X_{j, s}^{\pm} = 0, N_{ij} := 1 - A_{ij}$$
-                These are nothing but the relations defining $\rmU( \g[t] )$ (if one identifies $H_{i, r} \mapsto h_i t^r$ and $X_{i, r}^{\pm} \mapsto x_i^{\pm} t^r$), and so we have an isomorphism of associative $\bbC$-algebras:
-                    $$\rmU( \g[t] ) \cong \gr \rmY(\g)$$ 
+                These are nothing but the relations defining $\calU( \g[t] )$ (if one identifies $H_{i, r} \mapsto h_i t^r$ and $X_{i, r}^{\pm} \mapsto x_i^{\pm} t^r$), and so we have an isomorphism of associative $\bbC$-algebras:
+                    $$\calU( \g[t] ) \cong \gr \calY(\g)$$ 
             \end{proof}
         \begin{corollary}[Centres of finite-type Yangians] \label{coro: centres_of_finite_type_yangians}
-            The centre of the Yangian $\rmY(\g)$ consists of scalar multiples of the multiplicative identity $1$, i.e.:
-                $$\rmZ( \rmY(\g) ) \cong \bbC 1$$
+            The centre of the Yangian $\calY(\g)$ consists of scalar multiples of the multiplicative identity $1$, i.e.:
+                $$\rmZ( \calY(\g) ) \cong \bbC 1$$
         \end{corollary}
             \begin{proof}
-                Set $\rmY^{-1}(\g) := 0$ and consider an arbitrary element $z \in \rmY^r(\g) \setminus \rmY^{r - 1}(\g)$ for any $r \in \Z_{\geq 0}$. Per lemma \ref{lemma: finite_type_yangians_as_PBW_deformations}, one sees that the image of $z$ under the canonical morphism $\rmY(\g) \to \gr \rmY(\g)$ is a central element of $\rmU(\g[t])$. It now remains to show that in fact:
-                    $$\rmZ( \rmU(\g[t]) ) \cong \bbC 1$$
+                Set $\calY^{-1}(\g) := 0$ and consider an arbitrary element $z \in \calY^r(\g) \setminus \calY^{r - 1}(\g)$ for any $r \in \Z_{\geq 0}$. Per lemma \ref{lemma: finite_type_yangians_as_PBW_deformations}, one sees that the image of $z$ under the canonical morphism $\calY(\g) \to \gr \calY(\g)$ is a central element of $\calU(\g[t])$. It now remains to show that in fact:
+                    $$\rmZ( \calU(\g[t]) ) \cong \bbC 1$$
                 \todo{Give a citation for this. Perhaps \cite{chari_pressley_quantum_groups} ?}
             \end{proof}
 
@@ -155,7 +155,7 @@
         \begin{theorem}[PBW bases for finite-type Yangians] \label{theorem: PBW_bases_for_finite_type_yangians}
             \cite[Proposition 12.1.8]{chari_pressley_quantum_groups} Fix a total ordering on the set:
                 $$\Sigma := \{X_{\alpha, r}^{\pm}\}_{(\alpha, r) \in \Phi^+ \x \Z_{\geq 0}} \cup \{H_{i, r}\}_{(i, r) \in \simpleroots \x \Z_{\geq 0}}$$
-            Then, the set of all \textit{ordered} monomials in elements of $\Sigma$ forms a basis for $\rmY(\g)$ as a $\bbC$-vector space; we refer to such a basis as a \textbf{PBW basis} of $\rmY(\g)$. 
+            Then, the set of all \textit{ordered} monomials in elements of $\Sigma$ forms a basis for $\calY(\g)$ as a $\bbC$-vector space; we refer to such a basis as a \textbf{PBW basis} of $\calY(\g)$. 
         \end{theorem}
         \begin{corollary}[Triangular decompositions of finite-type Yangians] \label{coro: triangular_decompositions_of_finite_type_yangians}
             Fix a total ordering on the set:
@@ -164,18 +164,18 @@
                 $$\Sigma^{\pm} := \{X_{\alpha, r}^{\pm}\}_{(\alpha, r) \in \Phi^+ \x \Z_{\geq 0}}$$
             and in:
                 $$\Sigma^0 := \{H_{i, r}\}_{(i, r) \in \simpleroots \x \Z_{\geq 0}}$$
-            respectively, form bases for $\rmY(\g)^{\pm}$ and for $\rmY(\g)^0$ as $\bbC$-vector spaces. As such, one obtains a triangular decomposition:
-                $$\rmY(\g) \cong \rmY(\g)^- \tensor_{\bbC} \rmY(\g)^0 \tensor_{\bbC} \rmY(\g)^+$$
-            The associative $\bbC$-subalgebras $\rmY(\g)^{\pm}, \rmY(\g)^0$ of $\rmY(\g)$ are therefore PBW deformations of the universal enveloping algebras $\rmU(\n^{\pm}[t]), \rmU(\h[t])$ respectively. 
+            respectively, form bases for $\calY(\g)^{\pm}$ and for $\calY(\g)^0$ as $\bbC$-vector spaces. As such, one obtains a triangular decomposition:
+                $$\calY(\g) \cong \calY(\g)^- \tensor_{\bbC} \calY(\g)^0 \tensor_{\bbC} \calY(\g)^+$$
+            The associative $\bbC$-subalgebras $\calY(\g)^{\pm}, \calY(\g)^0$ of $\calY(\g)$ are therefore PBW deformations of the universal enveloping algebras $\calU(\n^{\pm}[t]), \calU(\h[t])$ respectively. 
         \end{corollary}
         \begin{remark}
             Since $\h$ is abelian, we actually have that:
-                $$\rmY(\g)^0 \cong \rmU(\h[t]) \cong \Sym(\h[t])$$
+                $$\calY(\g)^0 \cong \calU(\h[t]) \cong \Sym(\h[t])$$
             See the discussion at the beginning of subsection \ref{subsection: yangians_of_reductive_lie_algebras} for more details on this phenomenon. 
         \end{remark}
 
     \subsection{Yangians as quantisations}
-        Let us now move on towards the discussion surrounding Drinfeld's original presentation, given for both the formal Yangian $\rmY_{\hbar}(\g)$ and for $\rmY(\g)$. To begin, let us give a description of the Lie bialgebra structure on $\g[t]$ of which the formal Yangian $\rmY_{\hbar}(\g)$ is a quantisation. We assume that the reader is familiar with the relationship between Manin triples and Lie bialgebras.
+        Let us now move on towards the discussion surrounding Drinfeld's original presentation, given for both the formal Yangian $\calY_{\hbar}(\g)$ and for $\calY(\g)$. To begin, let us give a description of the Lie bialgebra structure on $\g[t]$ of which the formal Yangian $\calY_{\hbar}(\g)$ is a quantisation. We assume that the reader is familiar with the relationship between Manin triples and Lie bialgebras.
 
         \begin{convention}
             Fix an orthonormal basis $\{x_{\lambda}\}_{1 \leq \lambda \leq n}$ for $\g$, with respect to the inner product $(-, -)_{\g}$. Additionally, we shall be needing the Casimir element:
@@ -203,7 +203,7 @@
             for all $X(t) \in \g[t]$, wherein $\scrR_{\g[t]} := \sfr_{\g} \frac{1}{t' - t} \in \g[t] \hattensor_{\bbC} \g[t']$, with $\frac{1}{t' - t}$ being understood as a shorthand for a geometric series.
         \end{proposition}
         \begin{theorem}[Drinfeld's first presentation] \label{theorem: drinfeld_current_presentation}
-            (Cf. \cite[Theorem 12.1.3]{chari_pressley_quantum_groups}) The formal Yangian $\rmY_{\hbar}(\g)$ is isomorphic, as an $\Z_{\geq 0}$-graded associative $\bbC[\hbar]$-algebra to the $\bbC[\hbar]$-algebra $Y$ generated by the set:
+            (Cf. \cite[Theorem 12.1.3]{chari_pressley_quantum_groups}) The formal Yangian $\calY_{\hbar}(\g)$ is isomorphic, as an $\Z_{\geq 0}$-graded associative $\bbC[\hbar]$-algebra to the $\bbC[\hbar]$-algebra $Y$ generated by the set:
                 $$\{ x_{\lambda}, y_{\lambda} \}_{1 \leq \lambda \leq n}$$
             whose elements subjected to the following relations:
                 $$[ x_{\lambda}, x_{\mu} ] = \sum_{1 \leq \lambda \leq n} c_{\lambda \mu \nu} x_{\nu}, [ x_{\lambda}, y_{\mu} ] = \sum_{1 \leq \lambda \leq n} c_{\lambda \mu \nu} y_{\nu}$$
@@ -215,7 +215,7 @@
                 $$\deg x_{\lambda} := 0, \deg y_{\lambda} := 1$$
             for all $1 \leq \lambda \leq n$.
             
-            Denote the isomorphism in question by $\varphi: Y \to \rmY_{\hbar}(\g)$. It is given by:
+            Denote the isomorphism in question by $\varphi: Y \to \calY_{\hbar}(\g)$. It is given by:
                 $$\varphi(h_i) = D_{ii}^{-1} H_{i, 0}, \varphi(h_i t) = D_{ii}^{-1} H_{i, 0} + \varphi(v_i)$$
                 $$\varphi(x_i^{\pm}) = D_{ii}^{-1} X_{i, 0}^{\pm}, \varphi(h_i t) = D_{ii}^{-1} H_{i, 0} + \varphi(w_i^{\pm})$$
             wherein:
@@ -225,19 +225,19 @@
         \end{theorem}
 
         \begin{theorem}[Yangian Hopf structure] \label{theorem: yangian_hopf_structure}
-            There is an $\Z_{\geq 0}$-graded Hopf $\bbC[\hbar]$-algebra structure $(\Delta_{\hbar}, S_{\hbar}, \e_{\hbar})$ on $\rmY_{\hbar}(\g)$ given by:
+            There is an $\Z_{\geq 0}$-graded Hopf $\bbC[\hbar]$-algebra structure $(\Delta_{\hbar}, S_{\hbar}, \e_{\hbar})$ on $\calY_{\hbar}(\g)$ given by:
                 $$\Delta_{\hbar}(x_{\lambda}) := x_{\lambda} \tensor 1 + 1 \tensor x_{\lambda}$$
                 $$\Delta_{\hbar}(y_{\lambda}) := y_{\lambda} \tensor 1 + 1 \tensor y_{\lambda} + \frac12 \hbar [x_{\lambda} \tensor 1, \sfr_{\g}]$$
                 $$S_{\hbar}(x_{\lambda}) = -x_{\lambda}, S_{\hbar}(y_{\lambda}) = -y_{\lambda} + \frac14 c_{} x_{\lambda}$$
                 $$\e_{\hbar}(x_{\lambda}) = \e_{\hbar}(y_{\lambda}) = 0$$
-            with $c$ being the eigenvalue of $\ad(\sfr_{\g})$. This induces an $\Z_{\geq 0}$-graded Hopf $\bbC$-algebra structure $(\Delta_1, S_1, \e_1)$ on $\rmY(\g)$.
+            with $c$ being the eigenvalue of $\ad(\sfr_{\g})$. This induces an $\Z_{\geq 0}$-graded Hopf $\bbC$-algebra structure $(\Delta_1, S_1, \e_1)$ on $\calY(\g)$.
         \end{theorem}
         \begin{corollary}[Yangians as quantisations] \label{coro: yangians_as_quantisations}
-            $\rmY_{\hbar}(\g)$ is a quantisation of the Lie bialgebra structure $\delta$ on $\g[t]$ as in proposition \ref{prop: the_yangian_manin_triple}.
+            $\calY_{\hbar}(\g)$ is a quantisation of the Lie bialgebra structure $\delta$ on $\g[t]$ as in proposition \ref{prop: the_yangian_manin_triple}.
         \end{corollary}
             \begin{proof}
                 From lemma \ref{coro: formal_yangians_as_graded_deformations}, we know that:
-                    $$\rmY_{\hbar}/\hbar\rmY_{\hbar}(\g) \cong \rmU(\g[t])$$
+                    $$\calY_{\hbar}/\hbar\calY_{\hbar}(\g) \cong \calU(\g[t])$$
                 so it only remains to show that:
                     $$\frac{1}{\hbar}( \Delta_{\hbar} - \Delta_{\hbar}^{\cop} ) \equiv \delta \pmod{\hbar}$$
                 This is easy to check on the generators $x_{\lambda}$, so we focus on the generators $y_{\lambda}$. Since $\deg x_{\lambda} = 0$ while $\deg y_{\lambda} = 1$, we can take:
@@ -255,37 +255,37 @@
                 which is as desired. 
             \end{proof}
         \begin{remark}
-            In the terminologies of \cite{wendlandt_restricted_quantum_doubles_of_yangians}, $\rmY_{\hbar}(\g)$ is therefore a \textbf{homogeneous quantisation} (over $\bbC[\hbar]$) of the $\Z_{\geq 0}$-graded Lie bialgebra structure on $\g[t]$ (cf. proposition \ref{prop: the_yangian_manin_triple}). This is a consequence of a combination of lemma \ref{coro: formal_yangians_as_graded_deformations}, which states that $\rmY_{\hbar}(\g)$ is an $\Z_{\geq 0}$-graded deformation of the $\bbC$-algebra $\rmU(\g[t])$ and theorem \ref{theorem: yangian_hopf_structure}, which tells us that the Hopf structure on $\rmY_{\hbar}(\g)$ respects the $\Z_{\geq 0}$-grading thereon. 
+            In the terminologies of \cite{wendlandt_restricted_quantum_doubles_of_yangians}, $\calY_{\hbar}(\g)$ is therefore a \textbf{homogeneous quantisation} (over $\bbC[\hbar]$) of the $\Z_{\geq 0}$-graded Lie bialgebra structure on $\g[t]$ (cf. proposition \ref{prop: the_yangian_manin_triple}). This is a consequence of a combination of lemma \ref{coro: formal_yangians_as_graded_deformations}, which states that $\calY_{\hbar}(\g)$ is an $\Z_{\geq 0}$-graded deformation of the $\bbC$-algebra $\calU(\g[t])$ and theorem \ref{theorem: yangian_hopf_structure}, which tells us that the Hopf structure on $\calY_{\hbar}(\g)$ respects the $\Z_{\geq 0}$-grading thereon. 
         \end{remark}
         \begin{question}
-            How does on demonstrate \textit{explicitly} that $(\Delta_{\hbar}, S_{\hbar}, \e_{\hbar}) \pmod{\hbar}$ as in theorem \ref{theorem: yangian_hopf_structure} coincides with the usual Hopf structure on the universal enveloping algebra $\rmU(\g[t])$ ?
+            How does on demonstrate \textit{explicitly} that $(\Delta_{\hbar}, S_{\hbar}, \e_{\hbar}) \pmod{\hbar}$ as in theorem \ref{theorem: yangian_hopf_structure} coincides with the usual Hopf structure on the universal enveloping algebra $\calU(\g[t])$ ?
         \end{question}
-        Interestingly, the Hopf structure $(\Delta_1, \e_1, S_1)$ of $\rmY(\g)$ can also be described \textit{explicitly} in terms of Levendorskii's presentation. This is yet another merit of this presentation. 
+        Interestingly, the Hopf structure $(\Delta_1, \e_1, S_1)$ of $\calY(\g)$ can also be described \textit{explicitly} in terms of Levendorskii's presentation. This is yet another merit of this presentation. 
         \begin{proposition}[Yangian Hopf structure in terms of Levendorskii's presentation] \label{prop: yangian_hopf_structure_via_levendorskii_presentation}
-            (Cf. \cite[Definition 4.6, Theorem 4.9, and Proposition 5.18]{guay_nakajima_wendlandt_affine_yangian_coproduct}) Fix two $\rmY(\g)$-modules $(V, \rho_V), (W, \rho_W)$ in the category $\calO(\rmY(\g))$. Also, let us write:
-                $$\Box: \rmY(\g) \to \rmY(\g) \tensor_{\bbC} \rmY(\g)$$
+            (Cf. \cite[Definition 4.6, Theorem 4.9, and Proposition 5.18]{guay_nakajima_wendlandt_affine_yangian_coproduct}) Fix two $\calY(\g)$-modules $(V, \rho_V), (W, \rho_W)$ in the category $\calO(\calY(\g))$. Also, let us write:
+                $$\Box: \calY(\g) \to \calY(\g) \tensor_{\bbC} \calY(\g)$$
             for the map given by:
                 $$\Box(X): X \tensor 1 + 1 \tensor X$$
             and note while it fails to be a $\bbC$-algebra homomorphism, it does satisfy:
                 $$[ \Box(X), \Box(Y) ] = \Box( [X, Y] )$$
             There is a $\bbC$-algebra homomorphism:
-                $$\Delta_{V, W}: \rmY(\g) \to \End_{\bbC}(V \tensor_{\bbC} W)$$
+                $$\Delta_{V, W}: \calY(\g) \to \End_{\bbC}(V \tensor_{\bbC} W)$$
             given on the Levendorskii generators $H_{i, 0}, X_{i, 0}^{\pm}, H_{i, 1}$ as follows
                 $$\Delta_{V, V'}(H_{i, 0}) := \Box(H_{i, 0}), \Delta_{V, V'}(X_{i, 0}^{\pm}) := \Box(X_{i, 0}^{\pm})$$
                 $$\Delta_{V, V'}(H_{i, 1}) := \Box(H_{i, 1}) + H_{i, 0} \tensor H_{i, 0} + [H_{i, 0} \tensor 1, \sfr_{\g}^+]$$
             wherein:
                 $$\sfr_{\g}^+ := \sum_{1 \leq i \leq l} h_i \tensor h_i^* + \sum_{\alpha \in \Phi^+} e_{\alpha}^+ \tensor ( e_{\alpha}^+ )^*$$
             Moreover, $\Delta_{V, W}$ factorises into the following composition:
-                $$\rmY(\g) \xrightarrow[]{\Delta_1} \rmY(\g) \tensor_{\bbC} \rmY(\g) \xrightarrow[]{\rho_V \tensor \rho_W} \End_{\bbC}(V) \tensor_{\bbC} \End_{\bbC}(W) \to \End_{\bbC}(V \tensor_{\bbC} W)$$
+                $$\calY(\g) \xrightarrow[]{\Delta_1} \calY(\g) \tensor_{\bbC} \calY(\g) \xrightarrow[]{\rho_V \tensor \rho_W} \End_{\bbC}(V) \tensor_{\bbC} \End_{\bbC}(W) \to \End_{\bbC}(V \tensor_{\bbC} W)$$
             wherein the last map is the canonical one; because of this, we know how the Yangian coproduct $\Delta_1$ is given on the Levendorskii generators $H_{i, 0}, X_{i, 0}^{\pm}, H_{i, 1}$, at least as operators on $V \tensor_{\bbC} W$. 
         \end{proposition}
         \begin{remark}
             Even though the result above holds for all $\g$, the proof methods from \cite[Theorem 4.9]{guay_nakajima_wendlandt_affine_yangian_coproduct} can not handle the case $\g \cong \sl_2$. That said, modifications of these methods that can accommodate the case $\g \cong \sl_2$ are known. 
         \end{remark}
 
-        We conclude this subsection with an example of how the different presentations for $\rmY(\g)$ interplay with one another. The so-called \say{shift automorphisms} that we are about to present are to be thought of as quantum analogues of the translation automorphisms $t \mapsto t - a$.
+        We conclude this subsection with an example of how the different presentations for $\calY(\g)$ interplay with one another. The so-called \say{shift automorphisms} that we are about to present are to be thought of as quantum analogues of the translation automorphisms $t \mapsto t - a$.
         \begin{proposition}[The shift automorphisms] \label{prop: finite_type_yangians_shift_automorphisms}
-            \cite[Proposition 12.1.5]{chari_pressley_quantum_groups} The additive abelian group $\G_a$ acts on $\rmY(\g)$ via the so-called \textbf{shift automorphisms} $\tau_a$ ($a \in \G_a$), which are given by:
+            \cite[Proposition 12.1.5]{chari_pressley_quantum_groups} The additive abelian group $\G_a$ acts on $\calY(\g)$ via the so-called \textbf{shift automorphisms} $\tau_a$ ($a \in \G_a$), which are given by:
                 $$\tau_a(H_{i, r}) := \sum_{s = 0}^r \binom{r}{s} a^{r - s} H_{i, s}$$
                 $$\tau_a(X_{i, r}) := \sum_{s = 0}^r \binom{r}{s} a^{r - s} X_{i, s}$$
             Furthermore, one can verify that:
@@ -295,7 +295,7 @@
             \begin{proof}[Proof sketch]
                 Using Drinfeld's first presentation from theorem \ref{theorem: drinfeld_current_presentation}, one sees that:
                     $$\tau_a(x_{\lambda}) = x_{\lambda}, \tau_a(y_{\lambda}) = y_{\lambda} + a x_{\lambda}$$
-                From this, it is trivial to check that for any $a \in \G_a$, the map $\tau_a$ is a Hopf $\bbC$-algebra automorphism on $\rmY(\g)$. One can also check that the formula:
+                From this, it is trivial to check that for any $a \in \G_a$, the map $\tau_a$ is a Hopf $\bbC$-algebra automorphism on $\calY(\g)$. One can also check that the formula:
                     $$S_1^2 = \tau_{c/2}$$
                 holds by checking on the generators $x_{\lambda}, y_{\lambda}$. 
 
@@ -308,9 +308,9 @@
         One can also package the Yangian generators $X_{i, r}^{\pm}, H_{i, r}$ from definition \ref{def: formal_finite_type_yangians} into \textbf{generating  series}:
             $$X_i^{\pm}(u) := 1 + \hbar \sum_{r \in \Z_{\geq 0}} X_{i, r}^{\pm} u^{-r - 1} \in 1 + u^{-1} \bbC[\![u^{-1}]\!]$$
             $$H_i(u) := 1 + \hbar \sum_{r \in \Z_{\geq 0}} H_{i, r} u^{-r - 1} \in 1 + u^{-1} \bbC[\![u^{-1}]\!]$$
-        for yet another presentation of $\rmY_{\hbar}(\g)$. Doing this yields a nicer description of the shift automorphisms, which makes it clearer what these maps \say{shift}. 
+        for yet another presentation of $\calY_{\hbar}(\g)$. Doing this yields a nicer description of the shift automorphisms, which makes it clearer what these maps \say{shift}. 
         \begin{proposition}[Generating series for formal Yangians] \label{prop: generating_series_for_finite_untwisted_yangians}
-            (Cf. \cite[Proposition 2.3]{gautam_and_toledano_laredo_yangians_quantum_loop_algebras_and_abelian_difference_equations}) The formal Yangian $\rmY_{\hbar}(\g)$ from definition \ref{def: formal_finite_type_yangians} can be recovered from the following presentation for $\rmY_{\hbar}(\g)(\!(u^{-1}, v^{-1})\!)$ as the $\bbC[\![u^{-1}, v^{-1}]\!]$-algebra generated by the set:
+            (Cf. \cite[Proposition 2.3]{gautam_and_toledano_laredo_yangians_quantum_loop_algebras_and_abelian_difference_equations}) The formal Yangian $\calY_{\hbar}(\g)$ from definition \ref{def: formal_finite_type_yangians} can be recovered from the following presentation for $\calY_{\hbar}(\g)(\!(u^{-1}, v^{-1})\!)$ as the $\bbC[\![u^{-1}, v^{-1}]\!]$-algebra generated by the set:
                 $$\{X_i^{\pm}(u), X_i^{\pm}(v), H_i(u), H_i(v)\}_{i \in \simpleroots}$$
             whose elements are constrained by the following relations, given for all $i, j \in \simpleroots$ and all $h, h' \in \h$:
                 $$[H_i(u), H_j(v)] = 0, [h, H_i(u)] = 0$$
@@ -342,21 +342,21 @@
         wherein $\g$ is a finite-dimensional semi-simple Lie algebras and $\z := \z(\s)$; for instance, we have:
             $$\gl_n \cong \sl_n \oplus \gl_1$$
 
-        Let us observe also that the Yangian construction (as in definitions \ref{def: formal_finite_type_yangians} and \ref{def: finite_type_yangians}) works also for abelian Lie algebras, say $\z$. As there are no non-trivial relations between the generators of such Lie algebras, their current algebras $\z[t]$ are also abelian, and hence any non-trivial relation between generators of $\rmY_{\hbar}(\z)$ (and hence of $\rmY(\z) := \rmY_{\hbar}(\z)/\rmY_{\hbar}(\z) \cdot (\hbar - 1)$) can only come from the deformation of the currents. More specifically, if $\z$ is generated by:
+        Let us observe also that the Yangian construction (as in definitions \ref{def: formal_finite_type_yangians} and \ref{def: finite_type_yangians}) works also for abelian Lie algebras, say $\z$. As there are no non-trivial relations between the generators of such Lie algebras, their current algebras $\z[t]$ are also abelian, and hence any non-trivial relation between generators of $\calY_{\hbar}(\z)$ (and hence of $\calY(\z) := \calY_{\hbar}(\z)/\calY_{\hbar}(\z) \cdot (\hbar - 1)$) can only come from the deformation of the currents. More specifically, if $\z$ is generated by:
             $$\{z_i\}_{i \in I}$$
-        wherein $I$ is some set, then by mimicking definition \ref{def: formal_finite_type_yangians}, one sees that the associated formal Yangian $\rmY_{\hbar}(\z)$ shall be the associative algebra generated by the set:
+        wherein $I$ is some set, then by mimicking definition \ref{def: formal_finite_type_yangians}, one sees that the associated formal Yangian $\calY_{\hbar}(\z)$ shall be the associative algebra generated by the set:
             $$\{Z_{i, r}\}_{(i, r) \in I \x \Z_{\geq 0}}$$
         whose elements satisfy the following relations:
             $$[ Z_{i, r}, Z_{j, s} ] = 0$$
         given for all $(i, r), (j, s) \in I \x \Z_{\geq 0}$. We see then that the left-ideal generated by $\hbar - 1$ is actually just zero, and hence:
-            $$\rmY_{\hbar}(\z) \cong \rmY(\z) \cong \rmU(\z[t]) \cong \Sym(\z[t])$$
+            $$\calY_{\hbar}(\z) \cong \calY(\z) \cong \calU(\z[t]) \cong \Sym(\z[t])$$
 
         Now, another observation to make is that if $\g_1, \g_2$ are two Lie algebras which are either finite-dimensional simple or abelian, then:
-            $$\rmY_{\hbar}(\g_1 \oplus \g_2) \cong \rmY_{\hbar}(\g_1) \tensor_{\bbC} \rmY_{\hbar}(\g_2)$$
+            $$\calY_{\hbar}(\g_1 \oplus \g_2) \cong \calY_{\hbar}(\g_1) \tensor_{\bbC} \calY_{\hbar}(\g_2)$$
         and this can be proven simply by noticing that the set of generators of $\g_1 \oplus \g_2$ is nothing but the union of those of $\g_1$ and $\g_2$. From this, we see that the Yangian of a reductive Lie algebra $\s := \g \oplus \z$ can be given by:
-            $$\rmY_{\hbar}(\s) := \rmY_{\hbar}(\g) \tensor_{\bbC} \Sym(\z[t])$$
+            $$\calY_{\hbar}(\s) := \calY_{\hbar}(\g) \tensor_{\bbC} \Sym(\z[t])$$
 
-        In corollary \ref{coro: centres_of_finite_type_yangians}, we saw that the centre of $\rmY(\g)$ is actually only $1$-dimensional, but in light of the construction of Yangians for reductive Lie algebras $\s$, it is possible for such algebras to have larger centres when $\s$ is not semi-simple.
+        In corollary \ref{coro: centres_of_finite_type_yangians}, we saw that the centre of $\calY(\g)$ is actually only $1$-dimensional, but in light of the construction of Yangians for reductive Lie algebras $\s$, it is possible for such algebras to have larger centres when $\s$ is not semi-simple.
 
         \begin{lemma}[Centres of tensor products of associative algebras] \label{lemma: centres_of_tensor_products_of_algebras}
             Over a field $k$, if $A, B$ are associative algebras, then:
@@ -379,11 +379,9 @@
             \end{proof}
         \begin{corollary}
             For any reductive Lie algebra $\s := \g \oplus \z$, we have that:
-                $$\rmZ( \rmY(\s) ) \cong \Sym(\z[t])$$
+                $$\rmZ( \calY(\s) ) \cong \Sym(\z[t])$$
         \end{corollary}
             
         \begin{definition}[Quantum determinants] \label{def: quantum_determinants}
             In the case where $\s = \gl_n$, central characters are called \textbf{quantum determinants}.
         \end{definition}
-
-    \subsection{Some coideal subalgebras: twisted Yangians}

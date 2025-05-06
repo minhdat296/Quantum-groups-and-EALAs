@@ -3,8 +3,6 @@
 \setcounter{section}{-1}
 
 \input{commands}
-\newcommand{\scattering}{\mathrm{B_{sc}}} %scaterring reflection algebras
-\newcommand{\symmetric}{\mathrm{B_{sym}}} %symmetric reflection algebras
 
 \begin{document}
 
@@ -30,15 +28,15 @@
 
         \subsection{Notations}
             A \say{formal distribution} in $n$ variables $z_1, ..., z_n$ with coefficients in a vector space $U$ is an element of the vector space $U[\![z_1^{\pm}, ..., z_n^{\pm}]\!]$. It is very important to note that even when $U$ is an associative algebra, $U[\![z_1^{\pm}, ..., z_n^{\pm}]\!]$ is \textit{not} an algebra in general. This is because the coefficients of monomials in a product of the form:
-                $$\left( \sum_{(i_1, ..., i_n) \in \Z^n} a_{i_1, ..., i_n} z_1^{i_1} ... z_n^{i_n} \right) \left( \sum_{(j_1, ..., j_n) \in \Z^n} b_{j_1, ..., j_n} z_1^{j_1} ... z_n^{j_n} \right)$$
-            (wherein $a_{i_1, ..., i_n}, b_{j_1, ..., j_n} \in U$) are of the form:
-                $$\sum_{(i_1, ..., i_n) \in \Z^n} \sum_{(j_1, ..., j_n) \in \Z^n} a_{i_1, ..., i_n} b_{j_1, ..., j_n}$$
+                $$\left( \sum_{(i_1, ..., i_n) \in \Z^n} a^{(i_1), ..., (i_n)} z_1^{i_1} ... z_n^{i_n} \right) \left( \sum_{(j_1, ..., j_n) \in \Z^n} b^{(j_1), ..., (j_n)} z_1^{j_1} ... z_n^{j_n} \right)$$
+            (wherein $a^{(i_1), ..., (i_n)}, b^{(j_1), ..., (j_n)} \in U$) are of the form:
+                $$\sum_{(i_1, ..., i_n) \in \Z^n} \sum_{(j_1, ..., j_n) \in \Z^n} a^{(i_1), ..., (i_n)} b^{(j_1), ..., (j_n)}$$
             which, generally speaking, shall be an infinite sum.
 
             In the single-variable case, we have the following additional notations. Given any formal distribution:
-                $$a(z) := \sum_{m \in \Z} a_m z^{-m - 1}$$
+                $$a(z) := \sum_{m \in \Z} a^{(m)} z^{-m - 1}$$
             let us write:
-                $$a(z)^- := \sum_{m \in \Z_{\geq 0}} a_m z^{-m - 1}, a(z)^+ := \sum_{m \in \Z_{< 0}} a_m z^{-m - 1}$$
+                $$a(z)^- := \sum_{m \in \Z_{\geq 0}} a^{(m)} z^{-m - 1}, a(z)^+ := \sum_{m \in \Z_{< 0}} a^{(m)} z^{-m - 1}$$
             This is mostly to conform with notational conventions from mathematical physics, but as a side bonus, we also get:
                 $$(\del a(z))^{\pm} = \del( a(z)^{\pm} )$$
 
@@ -47,16 +45,18 @@
             will be used to denote a finite-dimensional simple Lie algebra over $\bbC$, often of one of the types $\sfB, \sfC, \sfD$ in the Cartan-Killing classification. This Lie algebra has a natural action on $U := \bbC^{\oplus N}$ (the so-called \say{vector representation}), which shall always be equipped with the standard basis:
                 $$\{e_i\}_{1 \leq i \leq N}$$
             consisting of vectors with $1$ in the $i^{th}$ entry and $0$ elsewhere. By finite-dimensionality, we identify:
-                $$U^{\tensor 2} \xrightarrow[]{\cong} \End_{\bbC}(U)$$
+                $$U^{\tensor 2} \xrightarrow[]{\cong} \End(U)$$
             and then write:
                 $$E_{i, j}$$
             for the image of $e_i \tensor e_j$ under the identification above; explicitly, $E_{i, j}$ is the $N \x N$ matrix with $1$ in the $(i, j)^{th}$ entry and $0$ elsewhere.
 
-    \input{Reflection algebras/RTT_presentations_from_wilson_lines}
-
     \input{Reflection algebras/reflection_algebras}
 
     \input{Reflection algebras/highest_weight_modules_of_reflection_algebras}
+
+    \begin{appendices}
+        \input{Reflection algebras/appendix_symmetric_pairs}
+    \end{appendices}
     
     \addcontentsline{toc}{section}{References}
     \printbibliography
