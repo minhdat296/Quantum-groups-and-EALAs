@@ -1,0 +1,296 @@
+\input{article preambles}
+
+\setcounter{section}{-1}
+
+\input{commands}
+\renewcommand{\simpleroots}{\mathbb{I}}
+\newcommand{\romanzero}{\mathsf{0}}
+\newcommand{\romanone}{\mathsf{I}}
+\newcommand{\romantwo}{\mathsf{II}}
+\newcommand{\romanthree}{\mathsf{III}}
+\newcommand{\BCDzero}{\sfB\sfC\sfD\romanzero}
+\newcommand{\UB}{\mathcal{UB}}
+\newcommand{\XB}{\mathcal{XB}}
+\newcommand{\ZB}{\mathcal{ZB}}
+
+\begin{document}
+
+    \title{Isaev-Molev-Ogievetsky reflection algebras vs. $\BCDzero$ twisted Yangians}
+    
+    \author{Dat Minh Ha}
+    \maketitle
+    
+    \begin{abstract}
+        We compare the constructions of the reflection algebras of Isaev-Molev-Ogievetsky (IMO) with the twisted Yangian - in the sense of Guay-Regelskis - of type $\BCDzero$.
+    \end{abstract}
+    
+    {
+    \hypersetup{} 
+    %\dominitoc
+    \tableofcontents %sort sections alphabetically
+    }
+
+    \section{Notations}
+        \subsection{Generating series}
+
+        \subsection{Symmetric pairs of classical Lie algebras}
+            All throughout:
+                $$\g_N \subset \gl_N$$
+            will be used to denote a finite-dimensional simple Lie algebra over $\bbC$. This Lie algebra has a natural action on $U := \bbC^{\oplus N}$ (the so-called \say{vector representation}), which shall always be equipped with the standard basis:
+                $$\{e_i\}_{1 \leq i \leq N}$$
+            consisting of vectors with $1$ in the $i^{th}$ entry and $0$ elsewhere. By finite-dimensionality, we identify:
+                $$U^{\tensor 2} \xrightarrow[]{\cong} \End(U)$$
+            and then write:
+                $$E_{i, j}$$
+            for the image of $e_i \tensor e_j$ under the identification above; explicitly, $E_{i, j}$ is the $N \x N$ matrix with $1$ in the $(i, j)^{th}$ entry and $0$ elsewhere.
+
+    \section{Recollections about Yangians}
+        \subsection{Transfer matrices in the absence of boundary conditions}
+            Let:
+                $$\calR(u) \in \End(U)^{\tensor 2}(\!(u)\!)$$
+            be a spectral solution to the quantum Yang-Baxter equation (QYBE) on $U(\!(u_1)\!) \tensor U(\!(u_2)\!) \tensor U(\!(u_3)\!)$, which reads:
+                \begin{equation} \label{equation: QYBE}
+                    \calR_{1, 2}(u_1 - u_2) \calR_{1, 3}(u_1 - u_3) \calR_{2, 3}(u_2 - u_3) = \calR_{2, 3}(u_2 - u_3) \calR_{1, 3}(u_1 - u_3) \calR_{1, 2}(u_1 - u_2)
+                \end{equation}
+            wherein the subscript pairs indicate the pair of tensor copies that $\calR(u)$ is acting on. From such a solution, one can extract the so-called \textbf{transfer matrix}:
+                $$T(u) \in $$
+
+        \subsection{Extended untwisted Yangians}
+            Following \cite[Definition 2.1]{guay_regelskis_twisted_yangians_for_symmetric_pairs_of_types_BCD}, we work with the following definition of extended untwisted Yangians associated to a spectral rational solution $\calR(u)$ to the QYBE on $U^{\tensor 3}$.
+            \begin{definition}[Extended untwisted Yangians] \label{def: extended_untwisted_yangians}
+                
+            \end{definition}
+            \begin{definition}[Untwisted Yangians] \label{def: untwisted_yangians}
+                
+            \end{definition}
+
+            From now on, assume that $\g_N$ is of one of the types $\sfB, \sfC, \sfD$. We will be fixing once and for all a solution:
+                $$\calR(u) = 1 + \frac{P}{u} + \frac{Q}{u - \kappa}$$
+            for $\kappa := \sgn(\g_N) 1 + \frac{N}{2}$, with:
+                \begin{equation} \label{equation: BCD_signature}
+                    \sgn(\g_N) =
+                    \begin{cases}
+                        \text{$1$ if $\g_N$ is of type $\sfC$}
+                        \\
+                        \text{$-1$ if $\g_N$ is of either type $\sfB$ or $\sfD$}
+                    \end{cases}
+                \end{equation}
+            As such, we can abbreviate:
+                $$\calX(\g_N) := \calX(\g_N, \calR)$$
+                $$\calY(\g_N) := \calY(\g_N, \calR)$$
+
+            \begin{lemma}[Automorphisms of extended untwisted Yangians] \label{lemma: automorphisms_of_extended_untwisted_yangians}
+                \begin{enumerate}
+                    \item Let $f(u) \in \bbC[\![u^{-1}]\!]^{\x}$ be an invertible formal power series in $u^{-1}$; recall that, because $\bbC[\![u^{-1}]\!]$ is a local commutative ring with (unique) maximal ideal $u^{-1}\bbC[\![u^{-1}]\!]$, $f(u)$ must be of the form $1 + \sum_{r \geq 0} f^{(r)} u^{-r - 1}$. Then, the map:
+                        $$\mu_f: \calX(\g_N)[\![u^{-1}]\!] \to \Mat_N(\calX(\g_N)[\![u^{-1}]\!])$$
+                    given by:
+                        $$\mu_f( T(u) ) := f(u) T(u)$$
+                    defines an algebra automorphism of $\calX(\g_N)$.
+                    \item Let $a \in \bbC$. Then, the map:
+                        $$\tau_a: \Mat_N(\calX(\g_N)[\![u^{-1}]\!]) \to \Mat_N(\calX(\g_N)[\![u^{-1}]\!])$$
+                    given by:
+                        $$\tau_a( T(u) ) := T(u - a)$$
+                    defines an algebra automorphism of $\calX(\g_N)$.
+                    \item Let $A \in \gl_N$ be such that $AA^t = 1$. Then, the map:
+                        $$\alpha_A: \Mat_N(\calX(\g_N)[\![u^{-1}]\!]) \to \Mat_N(\calX(\g_N)[\![u^{-1}]\!])$$
+                    given by:
+                        $$\alpha_A( T(u) ) := A T(u) A^t$$
+                    defines an algebra automorphism of $\calX(\g_N)$.
+                \end{enumerate}
+            \end{lemma}
+                \begin{proof}
+                    
+                \end{proof}
+
+            \begin{lemma}[Quantum contractions] \label{lemma: quantum_contractions}
+                There is a distinguished invertible series:
+                    $$z(u) \in \calX(\g_N)[\![u^{-1}]\!]^{\x}$$
+                called the \textbf{quantum contraction} of the transfer matrix $T(u)$, which is such that:
+                    \begin{equation} \label{equation: quantum_contraction}
+                        T(u + \kappa)^t T(u) = T(u) T(u + \kappa)^t = z(u)
+                    \end{equation}
+                Moreover, the coefficients of $z(u)$ generated the centre $\calZ(\g_N) := \rmZ( \calX(\g_N) )$.
+            \end{lemma}
+                \begin{proof}
+                    
+                \end{proof}
+            \begin{corollary}
+                There is an algebra isomorphism:
+                    $$\calX(\g_N) \cong \calY(\g_N) \tensor \calZ(\g_N)$$
+                thereby giving us the realisation:
+                    $$\calY(\g_N) \cong \calX(\g_N)/\<z(u) - 1\>$$
+            \end{corollary}
+
+    \section{The two algebras}
+        \subsection{Transfer matrices with boundary conditions}
+    
+        \subsection{Twisted Yangians of type \texorpdfstring{$\BCDzero$}{}}
+            \begin{definition}[Twisted Yangians associated to symmetric pairs] \label{def: twisted_yangians_associated_to_symmetric_pairs}
+                
+            \end{definition}
+    
+        \subsection{The IMO reflection algebras}
+            In this subsection, let $\g_N$ be of one of the types $\sfB, \sfC, \sfD$ in the Cartan-Killing Classification, and let $\vartheta := \id$.
+        
+            \begin{definition}[IMO reflection algebras] \label{def: IMO_reflection_algebras}
+                The \textbf{reflection algebra} of Isaev-Molev-Ogievetsky, associated to the symmetric pair $(\g_N, \id)$ of type $\BCDzero$, is the associative algebra:
+                    $$\calB(\g_N, \id)$$
+                generated by the coefficients of the entries of the boundary transfer matrix $B(u) \in \End(U \tensor U)[\![u^{-1}]\!]$. These generators are subjected to the following so-called \textbf{reflection equation}:
+                    \todo[inline]{Reflection equation}
+                In \cite{isaev_molev_ogievetsky_fusion_for_brauer_algebras_2} imposed also the following version of unitarity:
+                    $$B(u) B(-u) = 1$$
+                In order to stay consistent with the notations from \cite{guay_regelskis_twisted_yangians_for_symmetric_pairs_of_types_BCD}, let us denote the resulting algebra by:
+                    $$\UB(\g_N, \id)$$
+                and refer to it as the \textbf{unitary reflection algebra}.
+            \end{definition}
+            \begin{remark}
+                This is not quite the same as the reflection algebra of Molev-Ragoucy from \cite{molev_ragoucy_representations_of_reflection_algebras}, which should correspond to the twisted Yangian of type $\sfA \romanthree$.
+            \end{remark}
+
+            \begin{proposition}[A homomorphism $\UB(\g_N, \id) \to \calX(\g_N)$] \label{prop: mapping_IMO_reflection_algebras_to_extended_yangians}
+                There is an algebra homomorphism:
+                    \begin{equation} \label{equation: mapping_IMO_reflection_algebras_to_extended_yangians}
+                        \varphi: \UB(\g_N, \id) \to \calX(\g_N)
+                    \end{equation}
+                given by:
+                    $$\varphi(B(u)) := T\left(u - \frac12 \kappa\right) T\left(-u + \frac12 \kappa\right)^{-1}$$
+                Moreover, this homomorphism is not injective in general.
+            \end{proposition}
+                \begin{proof}
+                    For a proof that the given map is a well-defined algebra homomorphism, we refer the reader to \cite[Proposition 3.2]{isaev_molev_ogievetsky_fusion_for_brauer_algebras_2}. 
+                \end{proof}
+
+        \subsection{Comparison}
+            We would now like to see if the algebra homomorphism:
+                $$\varphi: \UB(\g_N, \id) \to \calX(\g_N)$$
+            from proposition \ref{prop: mapping_IMO_reflection_algebras_to_extended_yangians} factors in the following manner:
+                \begin{equation} \label{equation: mapping_IMO_reflection_algebras_to_extended_untwisted_yangians_via_extended_twisted_yangians}
+                    \begin{tikzcd}
+                	{\UB(\g_N, \id)} & {\calX^{\tw}(\g_N, \id)} \\
+                	& {\calX(\g_N)}
+                	\arrow["{\exists ? \varphi^{\tw}}", dashed, from=1-1, to=1-2]
+                	\arrow["\varphi"', from=1-1, to=2-2]
+                	\arrow[hook, from=1-2, to=2-2]
+                    \end{tikzcd}
+                \end{equation}
+            wherein the unlabelled arrow is the canonical algebra embedding. To this end, recall first of all that the boundary transfer matrix $S(u) \in \Mat_N(\calX^{\tw}(\g_N, \id)[\![u^{-1}]\!])$ are realisable as the following element of $\Mat_N(\calX(\g_N)[\![u^{-1}]\!])$:
+                $$S(u) = T\left(u - \frac12 \kappa\right) T\left(-u + \frac12 \kappa\right)^t$$
+            At the same time, we know from proposition \ref{prop: mapping_IMO_reflection_algebras_to_extended_yangians} that the image of the generators $B(u) \in \UB(\g_N, \id)[\![u^{-1}]\!]$ in $\calX(\g_N)$ is:
+                $$\varphi( B(u) ) = T\left(u - \frac12 \kappa\right) T\left(-u + \frac12 \kappa\right)^{-1}$$
+            As generators are mapped to generators by homomorphisms, in order for there to be an algebra homomorphism:
+                $$\varphi^{\tw}: \UB(\g_N, \id) \to \calX^{\tw}(\g_N, \id)$$
+            there must exist an algebra automorphism:
+                $$b(u) \in \Aut_{\Assoc\Alg}( \Mat_N(\calX^{\tw}(\g_N, \id)[\![u^{-1}]\!]) )$$
+            such that the following holds in $\Mat_N(\calX^{\tw}(\g_N, \id)[\![u^{-1}]\!])$:
+                $$
+                    \begin{aligned}
+                        \varphi(B(u)) & = T\left(u - \frac12 \kappa\right) T\left(-u + \frac12 \kappa\right)^{-1}
+                        \\
+                        & = b(u) \cdot T\left(u - \frac12 \kappa\right) T\left(-u + \frac12 \kappa\right)^t
+                        \\
+                        & = b(u) \cdot S(u)
+                    \end{aligned}
+                $$
+            wherein $b(u) \cdot$ means the application of the automorphism.
+            
+            To check if this is true, we begin by recalling that, as a result of equation \eqref{equation: quantum_contraction}, we have the following version of quantum contraction for the boundary transfer matrix:
+                $$S(u) S(-u) = z^{\tw}(u)$$
+            for some even and invertible central series $z^{\tw}(u) \in \calZ^{\tw}(\g_N, \id)[\![u^{-1}]\!]^{\x}$.
+            
+            Consider now the case when $b(u)$ is an inner automorphism, particularly when there exists some invertible central series:
+                $$b(u) \in \calZ^{\tw}(\g_N, \id)[\![u^{-1}]\!]^{\x}$$
+            that acts on elements of $\Mat_N(\calX^{\tw}(\g_N, \id)[\![u^{-1}]\!])$ by left-multiplication (equivalently, right-multiplication), we must require that:
+                $$
+                    \begin{aligned}
+                        \varphi( B(u) B(-u) ) & = T\left(u - \frac12 \kappa\right) T\left(-u + \frac12 \kappa\right)^{-1} \cdot T\left(-u - \frac12 \kappa\right) T\left(u + \frac12 \kappa\right)^{-1}
+                        \\
+                        & = b(u) S(u) \cdot b(-u) S(-u)
+                        \\
+                        & = b(u) b(-u) \cdot S(u) S(-u)
+                        \\
+                        & = b(u) b(-u) \cdot z^{\tw}(u)
+                    \end{aligned}
+                $$
+            At the same time, the construction of the unitary reflection algebra $\UB(\g_N, \id)$ stipulates that:
+                $$B(u) B(-u) = 1$$
+            so in fact, we have:
+                $$\varphi( B(u) B(-u) ) = 1 = b(u) b(-u) \cdot z^{\tw}(u)$$
+            Therefore, we see that when $b(u)$ is an inner automorphism, the existence of $\varphi^{\tw}$ as in diagram \eqref{equation: mapping_IMO_reflection_algebras_to_extended_untwisted_yangians_via_extended_twisted_yangians} is equivalent to the following.
+            \begin{question} \label{question: boundary_quantum_contraction_factorisation}
+                Is it possible to factor:
+                    \begin{equation} \label{equation: boundary_quantum_contraction_factorisation}
+                        z^{\tw}(u)^{-1} = b(u) b(-u) \in \calZ^{\tw}(\g_N, \id)[\![u^{-1}]\!]^{\x}
+                    \end{equation}
+                for some $b(u) \in \calZ^{\tw}(\g_N, \id)[\![u^{-1}]\!]^{\x}$ ?
+            \end{question}
+            \begin{remark}
+                This is consistent with the fact that $z^{\tw}(u)$ is an even formal power series \textit{a priori}.
+            \end{remark}
+            
+            To this end, note that because $S(u) = T\left(u - \frac12 \kappa\right) T\left(-u + \frac12 \kappa\right)^t$ and because we have the quantum contraction formula \eqref{equation: quantum_contraction}, we can expand the quantum contraction of the boundary transfer matrix $S(u)$ as:
+                $$
+                    \begin{aligned}
+                        z^{\tw}(u) & = S(u) S(-u)
+                        \\
+                        & = T\left(u - \frac12 \kappa\right) T\left(-u + \frac12 \kappa\right)^t \cdot T\left(-u - \frac12 \kappa\right) T\left(u + \frac12 \kappa\right)^t
+                        \\
+                        & = T\left(u - \frac12 \kappa\right) \cdot z\left(-u - \frac12 \kappa\right) \cdot T\left(u + \frac12 \kappa\right)^t
+                        \\
+                        & = z\left(-u - \frac12 \kappa\right) \cdot T\left(u - \frac12 \kappa\right) T\left(u + \frac12 \kappa\right)^t
+                        \\
+                        & = z\left(-u - \frac12 \kappa\right) z\left(u - \frac12 \kappa\right)
+                    \end{aligned}
+                $$
+            Next, recall from \cite[Section 2, p. 8]{arnaudon_molev_ragoucy_R_matrix_presentation_for_yangians} that applying the antipode $\sigma: \calX(\g_N) \to \calX(\g_N)^{\op, \cop}$ of the canonical Hopf algebra structure on $\calX(\g_N)$ to the transfer matrix $T(u)$ yields\footnote{It is understood that the antipode is applied matrix entry-wise.}:
+                $$\sigma( T(u) ) = z(u)^{-1} T(u + \kappa)^t$$
+            or equivalently, the following:
+                $$\sigma\left( T\left( \pm u - \frac12\kappa \right) \right) = z\left( \pm u - \frac12\kappa \right)^{-1} T\left( \pm u + \frac12\kappa \right)^t$$
+                $$\sigma\left( T\left( \pm u + \frac12\kappa \right) \right) = z\left( \pm u + \frac12\kappa \right)^{-1} T\left( \pm u + \frac32\kappa \right)^t$$
+            The two facts then imply together that the following holds in $\Mat_N(\calX^{\tw}(\g_N, \id)[\![u^{-1}]\!])$:
+                $$
+                    \begin{aligned}
+                        \sigma( S(u) ) & = \sigma\left( T\left(u - \frac12 \kappa\right) T\left(-u + \frac12 \kappa\right)^t \right)
+                        \\
+                        & = \sigma\left( T\left(-u + \frac12 \kappa\right)^t \right) \sigma\left( T\left(u - \frac12 \kappa\right) \right)
+                        \\
+                        & = z\left( -u + \frac12\kappa \right)^{-1} T\left( -u + \frac32\kappa \right) \cdot z\left( u + \frac12\kappa \right)^{-1} T\left( u + \frac12\kappa \right)^t
+                        \\
+                        & = z\left( -u + \frac12\kappa \right)^{-1} z\left( u + \frac12\kappa \right)^{-1} \cdot \left( T\left( u + \frac12\kappa \right) T\left( -u + \frac32\kappa \right)^t \right)^t
+                        \\
+                        & = z^{\tw}(u + \kappa)^{-1} \cdot S(u + \kappa)^t
+                    \end{aligned}
+                $$
+            with the last equality holding because $z^{\tw}(u)$ is an even series. Through this, we infer that in order for question \ref{question: boundary_quantum_contraction_factorisation} to have an answer in the positive, we must require that:
+                \begin{equation} \label{equation: applying_antipode_to_boundary_transfer_matrix}
+                    \sigma( S(u) ) = b(u + \kappa)b(-u + \kappa) \cdot S(u + \kappa)^t
+                \end{equation}
+            At the same time, the following holds in $\Mat_N(\calX(\g_N)[\![u^{-1}]\!])$:
+                $$\sigma(T(u)) = T(u)^{-1}$$
+            so we also have:
+                $$\sigma( S(u) ) = S(u)^{-1}$$
+            and thus:
+                $$b(u + \kappa)b(-u + \kappa) \cdot S(u + \kappa)^t = S(u)^{-1}$$
+            This is equivalent to:
+                $$( b(-u + \kappa) S(u + \kappa)^t )^{-1} = b(u + \kappa) S(u)$$
+
+            \begin{proposition}[A homomorphism $\UB(\g_N, \id) \to \calX^{\tw}(\g_N, \id)$] \label{prop: mapping_IMO_reflection_algebras_to_extended_untwisted_yangians_via_extended_twisted_yangians}
+                
+            \end{proposition}
+                \begin{proof}
+                    
+                \end{proof}
+
+            Let us conclude the subsection by considering whether the composition:
+                $$
+                    \begin{tikzcd}
+                    {\UB(\g_N, \id)} & {\calX^{\tw}(\g_N, \id)} & {\calY^{\tw}(\g_N, \id)}
+                    \arrow["{\varphi^{\tw}}", dashed, from=1-1, to=1-2]
+                    \arrow[two heads, from=1-2, to=1-3]
+                    \end{tikzcd}
+                $$
+            wherein the unlabelled arrow is the canonical quotient map, is an isomorphism of algebras. 
+    
+    \addcontentsline{toc}{section}{References}
+    \printbibliography
+
+\end{document}
