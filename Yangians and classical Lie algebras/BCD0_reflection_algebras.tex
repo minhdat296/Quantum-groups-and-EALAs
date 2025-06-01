@@ -4,15 +4,6 @@
 
 \input{commands}
 \renewcommand{\simpleroots}{\mathbb{I}}
-\newcommand{\romanzero}{\mathsf{0}}
-\newcommand{\romanone}{\mathsf{I}}
-\newcommand{\romantwo}{\mathsf{II}}
-\newcommand{\romanthree}{\mathsf{III}}
-\newcommand{\BCDzero}{\sfB\sfC\sfD\romanzero}
-\newcommand{\XB}{\mathcal{XB}} %reflection equation
-\newcommand{\UXB}{\mathcal{UXB}} %reflection equation and unitary condition
-\newcommand{\UB}{\mathcal{UB}} %reflection equation, unitary condition, and symmetry relation
-\newcommand{\ZB}{\mathcal{ZB}} 
 
 \begin{document}
 
@@ -58,25 +49,59 @@
                 $$\eta$$
             This form is symmetric for the orthogonal types $\sfB, \sfD$ and skew-symmetric for the symplectic type $\sfC$.
 
+        \subsection{Opposite (co)algebras}
+            If $A$ is an algebra (not even necessarily associative or unital) with multiplication $\mu: A \tensor A \to A$, then its \textbf{opposite algebra} shall be denoted by $A^{\op}$. This object has the same underlying vector space, but the opposite multiplication is now given by $\mu^{\op} := \mu \circ \tau_{1, 2}$, wherein $\tau_{1, 2}: A \tensor A \xrightarrow[]{\cong} A \tensor A$ is the isomorphism given by $\tau_{1, 2}(x \tensor y) := y \tensor x$. Likewise, if $C$ is a coalgebra with comultiplication $\Delta: C \to C \tensor C$, then its \textbf{(co-)opposite} shall be denoted by $C^{\cop}$; the co-opposite multiplication is given by $\Delta^{\cop} := \tau_{1, 2} \circ \Delta$. These notions generalise in a straightforward manner to the setting of topological (co)algebras.
+
     \section{Recollections about (extended) Yangians}
         \subsection{Transfer matrices}
-            Let us quickly recall some general features of the RTT formalism, mostly so that we can set up some notations. Begin with the \textbf{current algebra}:
-                $$\g_N[t] := \g_N \tensor \bbC[t]$$
-            which shall be equipped with the standard topological Lie cobracket $\delta: \g_N[t] \to \g_N[t_1] \hattensor \g_N[t_2]$ given by:
-                $$\delta( x ) := \left[ x \tensor 1 + 1 \tensor x, \frac{\calr_{\g_N}}{t_1 - t_2} \right]$$
-            wherein $\calr_{\g_N}$ is the Casimir tensor. \textit{A priori}, the \textbf{classical Yangian r-matrix} $\calr := \frac{\calr_{\g_N}}{t_1 - t_2}$ is a rational\footnote{Within the Belavin-Drinfeld Classificaton of solutions to the CYBE.} solution to the \textbf{classical Yang-Baxter equation (CYBE)}, and thus gives rise to a formal quantisation:
+            Let us quickly recall some general features of the RTT formalism, mostly so that we can set up and justify some key notations. For a moment, let $\g$ be a general finite-dimensional simple Lie algebra.
+            
+            Begin with the \textbf{formal loop algebra}:
+                $$\g(\!(t^{-1})\!) := \g \tensor \bbC(\!(t^{-1})\!)$$
+            which shall always be equipped with the canonical $\Z$-grading given by $\deg xt^m := m$ for all $x \in \g$ and all $m \in \Z$. This Lie algebra can be endowed with the non-degenerate, invariant, and symmetric bilinear form given for all $x, y \in \g$ and $m, n \in \Z$ by:
+                $$(xt^m, yt^n) := (x, y)_{\g} \delta_{m + n, -1}$$
+            wherein $(-, -)_{\g}$ is a non-degenerate, invariant, and symmetric bilinear form on $\g$ (\textit{a priori}, a $\bbC^{\x}$-multiple of the Killing form). Using this bilinear form, one can then construct the following $\Z$-graded Manin triple:
+                $$\left( \g(\!(t^{-1})\!), \g[t], \g[\![t^{-1}]\!] \right)$$
+            This then defines a Lie cobracket $\delta: \g[t] \to \g[t_1] \tensor \g[t_2]$ given by:
+                $$\delta( X ) := [\Box(X), \calr(t_1 - t_2)]$$
+            for all $X \in \g[t]$ and for:
+                $$\calr(u) := \frac{\calr_{\g}}{u} + O(1)$$
+            (with $u$ a formal variable), which we call the Yangian \textbf{classical r-matrix}. Here, $\Box(X) := X \tensor 1 + 1 \tensor X$ is the \say{standard} classical coproduct, and $\calr_{\g} \in \g \tensor \g$ is the Casimir tensor\footnote{To be more precise, we have $\calr_{\g} \in \Sym^2(\g)^{\g}$. By viewing $(-, -)_{\g}$ as an element of $\Hom( \Sym^2(\g)^{\g}, \bbC )$, we can then regard $\calr_{\g}$ as the pre-image of $(-, -)_{\g}$ under the canonical map $\g \tensor \g \to \Hom(\g \tensor \g, \bbC)$. Since $(-, -)_{\g}$ is non-degenerate, symmetric, and invariant, the pre-image is unique and lies in the subspace $\Sym^2(\g)^{\g} \subset \g \tensor \g$.}.
+            
+            \textit{A priori}, the r-matrix $\calr$ is a solution to the \textbf{classical Yang-Baxter equation (CYBE)}:
+                \begin{equation} \label{equation: CYBE}
+                    [\calr_{1, 2}(u), \calr_{1, 3}(u + v)] + [\calr_{1, 2}(u), \calr_{2, 3}(v)] + [\calr_{1, 3}(u + v), \calr_{2, 3}(v)] = 0
+                \end{equation}
+            Note also that:
+                \begin{equation} \label{equation: classical_unitarity}
+                    \calr(u) = -\calr(-u)
+                \end{equation}
+            and because of this, we characterise the Yangian classical r-matrix as being \textbf{unitary}.
+            
+            A general result of Etingof-Kazhdan tells us that the graded Lie bialgebra $(\g[t], \delta)$ admits a \say{graded quantisation}:
+                $$\calY_{\hbar}(\g)$$
+            of the aforementioned Lie bialgebra structure on $\g[t]$; in particular, this means that there is isomorphism of $\Z$-graded \textit{Hopf algebras}:
+                $$\calU(\g[t]) \cong \calY_{\hbar}(\g)/\hbar$$
+            with the comultiplication on $\calU(\g[t])$ being given by $\Box(X)$ for all $X \in \g[t]$. This graded quantisation is we call the \textbf{formal Yangian}, and by specialising $\hbar$ to any $\hbar_0 \in \bbC \setminus \{0\}$, one obtains the \textbf{Yangian}:
+                $$\calY(\g)$$
+            It turns out that, up to isomorphisms, the Yangian does not depend on the choice of $\hbar_0$ (hence why we do not specify this choice in the notation), and this is because the Yangian $\calY(\g)$ carries a natural $\Z$-filtration such that $\calY_{\hbar}(\g) \cong \bigoplus_{n \geq 0} \calY(\g) \hbar^n$ and $\gr \calY(\g) \cong \calU(\g[t]) \cong \calY_{\hbar}(\g)/\hbar$ (cf. \cite{drinfeld_original_yangian_paper}); as such, we refer to the Yangian as a \say{filtered quantisation} of $\calU(\g[t])$.
+
+            Let:
+                $$\calY_{\hbar}(\g)'$$
+            be the $\bbC[\![\hbar]\!]$-submodule of $\Hom_{\bbC[\![\hbar]\!]}( \calY_{\hbar}(\g), \bbC[\![\hbar]\!] )$ spanned by so-called \say{tempered} $\bbC[\![\hbar]\!]$-linear functionals, which are elements $f := \sum_{m \geq 0} f_m$ such that $\lim_{m \to +\infty} \deg f_m = +\infty$.
                 
-                
-            Such an element satisfies the \textbf{quantum Yang-Baxter equation (QYBE)} on $\End( \calY(\g_N) )^{\tensor 3}(\!(u^{-1})\!)$:
+            Such an element satisfies the \textbf{quantum Yang-Baxter equation (QYBE)}:
                 \begin{equation} \label{equation: QYBE}
                     \calR_{1, 2}(u) \calR_{1, 3}(u + v) \calR_{2, 3}(v) = \calR_{2, 3}(v) \calR_{1, 3}(u + v) \calR_{1, 2}(u)
                 \end{equation}
             wherein the subscript pairs indicate the pair of tensor copies that $\calR(u)$ is acting on.
 
-            
+            Finally, by letting 
                 \begin{equation} \label{equation: RTT_relation}
                     \calR(u - v) T_1(u) T_2(v) = T_2(v) T_1(u) \calR(u - v)
                 \end{equation}
+            obtaining the so-called \textbf{transfer matrix}.
+                $$T(u) \in \Mat_N( \calY(\g) )[\![u^{-1}]\!]$$
 
         \subsection{(Extended) untwisted Yangians}
             Following \cite[Definition 2.1]{guay_regelskis_twisted_yangians_for_symmetric_pairs_of_types_BCD}, we work with the following definition of extended untwisted Yangians associated to a rational solution $\calR(u)$ to the QYBE on $U^{\tensor 3}$.
@@ -178,47 +203,13 @@
                 \begin{proof}
                     
                 \end{proof}
-    
-        \subsection{Reflection algebras of type \texorpdfstring{$\sfB, \sfC, \sfD$}{}}
-            The following notions are due to Guay-Regelskis (see \cite{guay_regelskis_twisted_yangians_for_symmetric_pairs_of_types_BCD}).
-            \begin{definition}[(Extended) reflection algebras] \label{def: (extended)_reflection_algebras} 
-                \begin{enumerate}
-                    \item 
-                    \item 
-                    \item 
-                \end{enumerate}
-            \end{definition}
-            \begin{convention}[IMO reflection algebras] \label{conv: IMO_reflection_algebras}
-                In \cite{isaev_molev_ogievetsky_fusion_for_brauer_algebras_2}, a notion of reflection algebra was also given. In the present document, it shall be denoted by:
-                    $$\UXB(\g_N, \id)$$
-                as it is obtained as the associative algebra generated by the coefficients of the matrix entries of $S(u)$, subjected to the $\BCDzero$ reflection equation and the unitary condition, but \textit{without} the symmetry relation (cf. \cite[Definition 3.1]{isaev_molev_ogievetsky_fusion_for_brauer_algebras_2}). Also, as proposition \ref{prop: mapping_IMO_reflection_algebras_to_extended_yangians} will point out, its generating matrix - which shall also be denoted by $B(u)$ - admits a somewhat different image when mapped to the extended Yangian $\calX(\g_N)$ from that of the Guay-Regelskis $\BCDzero$ unitary reflection algebra. So that we do not confuse it with the various kinds of reflection algebras (of type $\BCDzero$) in the sense of Guay-Regelskis that were mentioned above (particularly, with the unitary reflection algebra $\UB(\g_N, \id)$), we shall refer to $\UXB(\g_N, \id)$ as the \textbf{Isaev-Molev-Ogievetsky (IMO) reflection algebra}.
-            \end{convention}
-            \begin{remark}
-                The IMO reflection algebra is not quite the same as the reflection algebra of Molev-Ragoucy from \cite{molev_ragoucy_representations_of_reflection_algebras}, which should correspond to the twisted Yangian of type $\sfA \romanthree$.
-            \end{remark}
-            From now on, let $\g_N$ be of one of the types $\sfB, \sfC, \sfD$ in the Cartan-Killing Classification, and let $\vartheta := \id$.
-
-            \begin{proposition}[A homomorphism $\UXB(\g_N, \id) \to \calX(\g_N)$] \label{prop: mapping_IMO_reflection_algebras_to_extended_yangians}
-                There is an algebra homomorphism:
-                    \begin{equation} \label{equation: mapping_IMO_reflection_algebras_to_extended_yangians}
-                        \Phi: \UXB(\g_N, \id) \to \calX(\g_N)
-                    \end{equation}
-                given by:
-                    $$\Phi(B(u)) := T\left(u - \frac12 \kappa\right) T\left(-u + \frac12 \kappa\right)^{-1}$$
-            \end{proposition}
-                \begin{proof}
-                    See \cite[Proposition 3.2]{isaev_molev_ogievetsky_fusion_for_brauer_algebras_2}
-                \end{proof}
-            \begin{remark}
-                Later on, we will see that the homomorphism \eqref{equation: mapping_IMO_reflection_algebras_to_extended_yangians} is neither injective nor surjective in general. See theorem \ref{theorem: IMO_reflection_algebras_vs_BCD0_twisted_yangians} and corollary \ref{coro: IMO_reflection_algebras_vs_BCD0_twisted_yangians} for more details.
-            \end{remark}
 
         \subsection{(Extended) twisted Yangians of type \texorpdfstring{$\sfB, \sfC, \sfD$}{}}
             \begin{definition}[(Extended) twisted Yangians associated to symmetric pairs] \label{def: (extended)_twisted_yangians}
                 
             \end{definition}
 
-            \begin{lemma}[Twisted quantum contractions] \label{lemma: twsited_quantum_contractions}
+            \begin{lemma}[Twisted quantum contractions] \label{lemma: twisted_quantum_contractions}
                 The boundary transfer matrix:
                     $$S(u) \in \Mat_N( \calX^{\tw}(\g_N, \vartheta) )[\![u^{-1}]\!]$$
                 satisfies the following so-called \textbf{twisted quantum contraction} formula:
@@ -243,89 +234,149 @@
                         \item See \cite[Corollary 3.6]{guay_regelskis_twisted_yangians_for_symmetric_pairs_of_types_BCD}.
                     \end{enumerate}
                 \end{proof}
+    
+        \subsection{Reflection algebras of type \texorpdfstring{$\sfB, \sfC, \sfD$}{}}
+            The following notions are due to Guay-Regelskis (see \cite{guay_regelskis_twisted_yangians_for_symmetric_pairs_of_types_BCD}).
+            \begin{definition}[(Extended) reflection algebras] \label{def: (extended)_reflection_algebras} 
+                \begin{enumerate}
+                    \item 
+                    \item 
+                    \item 
+                \end{enumerate}
+            \end{definition}
+            \begin{convention}[IMO reflection algebras] \label{conv: IMO_reflection_algebras}
+                In \cite{isaev_molev_ogievetsky_fusion_for_brauer_algebras_2}, a notion of reflection algebra was also given. In the present document, it shall be denoted by:
+                    $$\UXB(\g_N, \id)$$
+                as it is obtained as the associative algebra generated by the coefficients of the matrix entries of $S(u)$, subjected to the $\BCDzero$ reflection equation and the unitary condition, but \textit{without} the symmetry relation (cf. \cite[Definition 3.1]{isaev_molev_ogievetsky_fusion_for_brauer_algebras_2}). Also, as proposition \ref{prop: mapping_IMO_reflection_algebras_to_extended_yangians} will point out, its generating matrix - which shall also be denoted by $B(u)$ - admits a somewhat different image when mapped to the extended Yangian $\calX(\g_N)$ from that of the Guay-Regelskis $\BCDzero$ unitary reflection algebra. So that we do not confuse it with the various kinds of reflection algebras (of type $\BCDzero$) in the sense of Guay-Regelskis that were mentioned above (particularly, with the unitary reflection algebra $\UB(\g_N, \id)$), we shall refer to $\UXB(\g_N, \id)$ as the \textbf{Isaev-Molev-Ogievetsky (IMO) reflection algebra}.
+            \end{convention}
+            \begin{remark}
+                The IMO reflection algebra is not quite the same as the reflection algebra of Molev-Ragoucy from \cite{molev_ragoucy_representations_of_reflection_algebras}, which should correspond to the twisted Yangian of type $\sfA \romanthree$.
+            \end{remark}
+            From now on, let $\g_N$ be of one of the types $\sfB, \sfC, \sfD$ in the Cartan-Killing Classification, and let $\vartheta := \id$.
+
+            \begin{proposition}[A homomorphism $\UXB(\g_N, \id) \to \calX(\g_N)$] \label{prop: mapping_IMO_reflection_algebras_to_extended_yangians}
+                There is an algebra homomorphism:
+                    \begin{equation} \label{equation: mapping_IMO_reflection_algebras_to_extended_yangians}
+                        \Phi: \UXB(\g_N, \id)[\![u^{-1}]\!] \to \calX(\g_N)[\![u^{-1}]\!]
+                    \end{equation}
+                determined by:
+                    $$\Phi(B(u)) := T\left(u - \frac12 \kappa\right) T\left(-u + \frac12 \kappa\right)^{-1}$$
+                thus defining an algebra homomorphism $\UXB(\g_N, \id) \to \calX(\g_N)$.
+            \end{proposition}
+                \begin{proof}
+                    See \cite[Proposition 3.2]{isaev_molev_ogievetsky_fusion_for_brauer_algebras_2}
+                \end{proof}
+            \begin{remark}
+                Later on, we will see that the homomorphism \eqref{equation: mapping_IMO_reflection_algebras_to_extended_yangians} is neither injective nor surjective in general. See theorem \ref{theorem: IMO_reflection_algebras_vs_BCD0_twisted_yangians} and corollary \ref{coro: IMO_reflection_algebras_vs_BCD0_twisted_yangians} for more details.
+            \end{remark}
 
         \subsection{IMO reflection algebras vs. twisted Yangians of type \texorpdfstring{$\BCDzero$}{}}
             In this subsection, we work only with the $\BCDzero$ symmetric pair:
                 $$(\g_N, \vartheta) = (\g_N, \id)$$
-        
-            We would now like to see if the algebra homomorphism:
-                $$\Phi: \UXB(\g_N, \id) \to \calX(\g_N)$$
-            from proposition \ref{prop: mapping_IMO_reflection_algebras_to_extended_yangians} factors in the following manner:
-                \begin{equation} \label{equation: mapping_IMO_reflection_algebras_to_extended_untwisted_yangians_via_extended_twisted_yangians}
-                    \begin{tikzcd}
-                	{\UXB(\g_N, \id)} & {\calX^{\tw}(\g_N, \id)} \\
-                	& {\calX(\g_N)}
-                	\arrow["{\exists ? \Phi^{\tw}}", dashed, from=1-1, to=1-2]
-                	\arrow["\Phi"', from=1-1, to=2-2]
-                	\arrow[hook, from=1-2, to=2-2]
-                    \end{tikzcd}
-                \end{equation}
-            wherein the unlabelled arrow is the canonical algebra embedding. To this end, recall first of all that the boundary transfer matrix $S(u) \in \Mat_N(\calX^{\tw}(\g_N, \id)[\![u^{-1}]\!])$ are realisable as the following element of $\Mat_N(\calX(\g_N)[\![u^{-1}]\!])$:
-                $$S(u) = T\left(u - \frac12 \kappa\right) T\left(-u + \frac12 \kappa\right)^t$$
-            At the same time, we know from proposition \ref{prop: mapping_IMO_reflection_algebras_to_extended_yangians} that the image of the generators $B(u) \in \UXB(\g_N, \id)[\![u^{-1}]\!]$ in $\calX(\g_N)$ is:
-                $$\Phi( B(u) ) = T\left(u - \frac12 \kappa\right) T\left(-u + \frac12 \kappa\right)^{-1}$$
-            As generators are mapped to generators by homomorphisms, in order for there to be an algebra homomorphism:
-                $$\Phi^{\tw}: \UXB(\g_N, \id) \to \calX^{\tw}(\g_N, \id)$$
-            there must exist an algebra automorphism:
-                $$b(u) \in \Aut_{\Assoc\Alg}( \Mat_N(\calX^{\tw}(\g_N, \id)[\![u^{-1}]\!]) )$$
-            such that the following holds in $\Mat_N(\calX^{\tw}(\g_N, \id)[\![u^{-1}]\!])$:
-                $$
-                    \begin{aligned}
-                        \Phi(B(u)) & = T\left(u - \frac12 \kappa\right) T\left(-u + \frac12 \kappa\right)^{-1}
-                        \\
-                        & = b(u) \cdot T\left(u - \frac12 \kappa\right) T\left(-u + \frac12 \kappa\right)^t
-                        \\
-                        & = b(u) \cdot S(u)
-                    \end{aligned}
-                $$
-            wherein $b(u) \cdot$ means the application of the automorphism.
-            
-            To check if this is true, we begin by recalling that, as a result of equation \eqref{equation: quantum_contraction}, we have the following version of quantum contraction for the boundary transfer matrix:
-                $$S(u) S(-u) = z^{\tw}(u)$$
-            for some even and invertible central series $z^{\tw}(u) \in \calZ^{\tw}(\g_N, \id)[\![u^{-1}]\!]^{\x}$.
-            
-            Consider now the case when $b(u)$ is a scalar inner automorphism, particularly when there exists some invertible central series:
-                $$b(u) \in \calZ^{\tw}(\g_N, \id)[\![u^{-1}]\!]^{\x}$$
-            that acts on elements of $\Mat_N(\calX^{\tw}(\g_N, \id)[\![u^{-1}]\!])$ by left-multiplication (equivalently, right-multiplication), we must require that:
-                $$
-                    \begin{aligned}
-                        \Phi( B(u) B(-u) ) & = T\left(u - \frac12 \kappa\right) T\left(-u + \frac12 \kappa\right)^{-1} \cdot T\left(-u - \frac12 \kappa\right) T\left(u + \frac12 \kappa\right)^{-1}
-                        \\
-                        & = b(u) S(u) \cdot b(-u) S(-u)
-                        \\
-                        & = b(u) b(-u) \cdot S(u) S(-u)
-                        \\
-                        & = b(u) b(-u) \cdot z^{\tw}(u)
-                    \end{aligned}
-                $$
-            At the same time, the construction of the unitary reflection algebra $\UXB(\g_N, \id)$ stipulates that:
-                $$B(u) B(-u) = 1$$
-            so in fact, we have:
-                $$1 = \Phi( B(u) B(-u) ) = b(u) b(-u) \cdot z^{\tw}(u)$$
-            This leads us to posing the following question, which gives a criterion for the homomorphism $\Phi^{\tw}$ as in diagram \eqref{equation: mapping_IMO_reflection_algebras_to_extended_untwisted_yangians_via_extended_twisted_yangians} to exist. Also, we do \textit{not} claim that this is the only manner whereby $\Phi^{\tw}$ can arise, and it would be interesting to know exactly which algebra automorphism of $\Mat_N( \calX^{\tw}(\g_N, \id)[\![u^{-1}]\!] )$ would give rise to $\Phi^{\tw}$. 
-            \begin{question} \label{question: square_roots_of_quantum_contractions}
-                Is it possible to factor:
-                    \begin{equation} \label{equation: square_roots_of_quantum_contractions}
-                        \frac{1}{z^{\tw}(u)} = b(u) b(-u) \in \calZ^{\tw}(\g_N, \id)[\![u^{-1}]\!]^{\x}
+
+            The central question that we would like to spend the subsection to answer is as follows.
+            \begin{question}
+                Does the algebra homomorphism \eqref{equation: mapping_IMO_reflection_algebras_to_extended_yangians} factor in the following manner:
+                    \begin{equation} \label{diagram: mapping_IMO_reflection_algebras_to_extended_twisted_yangians}
+                        \begin{tikzcd}
+                            {\UXB(\g_N, \id)[\![u^{-1}]\!]} & {\calX^{\tw}(\g_N, \id)[\![u^{-1}]\!]} \\
+                            & {\calX(\g_N)[\![u^{-1}]\!]}
+                            \arrow["{\exists ? \Phi^{\tw}}", dashed, from=1-1, to=1-2]
+                            \arrow["\Phi"', from=1-1, to=2-2]
+                            \arrow[hook, from=1-2, to=2-2]
+                        \end{tikzcd}
                     \end{equation}
-                for some $b(u) \in \calZ^{\tw}(\g_N, \id)[\![u^{-1}]\!]^{\x}$ ?
+                wherein the unlabelled arrow is the canonical algebra embedding; in other words, do matrix entries of:
+                    $$\Phi(B(u)) := T\left(u - \frac12 \kappa\right) T\left(-u + \frac12 \kappa\right)^{-1}$$
+                actually lie inside the subalgebra $\calX^{\tw}(\g_N, \id)[\![u^{-1}]\!] \subset \calX(\g_N)[\![u^{-1}]\!]$ ?
+            \end{question}
+        
+            Homomorphisms map generators to generators, so let us first of all consider if and how the expression for $\Phi( B(u) )$ as above differs from that for the transfer matrix $S(u)$, whose entries generate $\calX^{\tw}(\g_N, \id)$. To this end, recall from definition \ref{def: (extended)_twisted_yangians} that:
+                $$S(u) = T\left(u - \frac12 \kappa\right) T\left(-u + \frac12 \kappa\right)^t$$
+            Indeed, this is different from the expression for $\Phi(B(u))$ from proposition \ref{prop: mapping_IMO_reflection_algebras_to_extended_yangians}, so one way for an algebra homomorphism $\Phi^{\tw}$ as in diagram \eqref{diagram: mapping_IMO_reflection_algebras_to_extended_twisted_yangians} to exist is for there to be an algebra automorphism $\beta^{\tw} \in \Aut_{\Assoc\Alg}( \calX^{\tw}(\g_N, \id)[\![u^{-1}]\!] )$ such that the equation $(\beta^{\tw} \circ \Phi)( B(u) ) = S(u)$ holds in $\Mat_N(\calX^{\tw}(\g_N, \id)[\![u^{-1}]\!])$. For this to hold, though, one must already have that $\im \Phi \subset \calX^{\tw}( \g_N, \id )[\![u^{-1}]\!]$, which is the very thing we are trying to verify, so instead, let us instead search for an algebra automorphism:
+                $$\beta \in \Aut_{\Assoc\Alg}( \calX(\g_N)[\![u^{-1}]\!] )$$
+            such that:
+                \begin{equation} \label{equation: B_matrix_S_matrix_compatibility}
+                    (\beta \circ \Phi)( B(u) ) = S(u)
+                \end{equation}
+            and then afterwards, we would take $\beta^{\tw} = \beta|_{ \calX^{\tw}( \g_N, \id )[\![u^{-1}]\!] }$ to get an automorphism of the subalgebra $\calX^{\tw}(\g_N, \id)[\![u^{-1}]\!] \subset \calX(\g_N)[\![u^{-1}]\!]$. The original question can now be rephrased in the following manner.
+            \begin{question}
+                Does there exist an algebra automorphism $\beta \in \Aut_{\Assoc\Alg}( \calX(\g_N)[\![u^{-1}]\!] )$ fitting into the following commutative diagram ?
+                    \begin{equation} \label{diagram: mapping_IMO_reflection_algebras_to_extended_twisted_yangians_via_untwisted_automorphisms}
+                        \begin{tikzcd}
+                    	{\UXB(\g_N, \id)[\![u^{-1}]\!]} & {\calX^{\tw}(\g_N, \id)[\![u^{-1}]\!]} \\
+                    	{\calX(\g_N)[\![u^{-1}]\!]} & {\calX(\g_N)[\![u^{-1}]\!]}
+                    	\arrow["{\exists ? \Phi^{\tw}}", dashed, from=1-1, to=1-2]
+                    	\arrow["\Phi"', from=1-1, to=2-1]
+                    	\arrow[hook, from=1-2, to=2-2]
+                    	\arrow["\beta", from=2-1, to=2-2]
+                        \end{tikzcd}
+                    \end{equation}
+            \end{question}
+            
+            A natural case to consider is when $\beta$ is the inner automorphism defined on the transfer matrix $T(u) \in \Mat_N( \calX(\g_N)[\![u^{-1}]\!] )$ by:
+                $$\beta( T(u) ) := b(u) \cdot T(u)$$
+            for some invertible central scalar series:
+                $$b(u) \in \calZ(\g_N)[\![u^{-1}]\!]^{\x}$$
+            In this case, we have:
+                $$
+                    \begin{aligned}
+                        (\beta \circ \Phi)( B(u) ) & = \beta\left( T\left(u - \frac12 \kappa\right) T\left(-u + \frac12 \kappa\right)^{-1} \right)
+                        \\
+                        & = \beta\left( T\left(u - \frac12 \kappa\right) \right) \beta\left( T\left(-u + \frac12 \kappa\right) \right)^{-1}
+                        \\
+                        & = b\left(u - \frac12 \kappa\right) T\left(u - \frac12 \kappa\right) \cdot T\left(-u + \frac12 \kappa\right)^{-1} b\left(-u + \frac12 \kappa\right)^{-1}
+                        \\
+                        & = b\left(u - \frac12 \kappa\right) b\left(-u + \frac12 \kappa\right)^{-1} \cdot T\left(u - \frac12 \kappa\right) T\left(-u + \frac12 \kappa\right)^{-1}
+                        \\
+                        & = b\left(u - \frac12 \kappa\right) b\left(-u + \frac12 \kappa\right)^{-1} \cdot \Phi( B(u) )
+                    \end{aligned}
+                $$
+            For brevity, let:
+                $$b^{\tw}(u) := b\left(u - \frac12 \kappa\right) b\left(-u + \frac12 \kappa\right)^{-1}$$
+            and then equation \eqref{equation: B_matrix_S_matrix_compatibility} thus reads:
+                $$S(u) = (\beta \circ \Phi)( B(u) ) = b^{\tw}(u) \cdot \Phi( B(u) )$$
+            We must now check if this is compatible with the unitary condition:
+                $$B(u) B(-u) = 1$$
+            coming from the definition of $\UXB(\g_N, \id)$, as well as the twisted quantum contraction formula (see lemma \ref{lemma: twisted_quantum_contractions}):
+                $$S(u) S(-u) = z^{\tw}(u)$$
+            To this end, consider the following:
+                $$
+                    \begin{aligned}
+                        z^{\tw}(u) & = S(u) S(-u)
+                        \\
+                        & = \left( b^{\tw}(u) \cdot \Phi( B(u) ) \right) \cdot \left( b^{\tw}(-u) \cdot \Phi( B(-u) ) \right)
+                        \\
+                        & = b^{\tw}(u) b^{\tw}(-u) \cdot \Phi( B(u) B(-u) )
+                        \\
+                        & = b^{\tw}(u) b^{\tw}(-u) \cdot \Phi(1)
+                        \\
+                        & = b^{\tw}(u) b^{\tw}(-u)
+                    \end{aligned}
+                $$
+            This is to hold if the homomorphism $\Phi^{\tw}$ is to exist, and thus we are led to the following question.
+            \begin{question} \label{question: square_roots_of_twsited_quantum_contractions}
+                Is it possible to factorise:
+                    \begin{equation} \label{equation: square_roots_of_twisted_quantum_contractions}
+                        z^{\tw}(u) = b^{\tw}(u) b^{\tw}(-u)
+                    \end{equation}
+                for some $b^{\tw}(u) \in \calZ(\g_N)[\![u^{-1}]\!]^{\x}$, or better yet, for some $b^{\tw}(u) \in \calZ^{\tw}(\g_N, \id)[\![u^{-1}]\!]^{\x}$ ?
             \end{question}
             \begin{remark}
                 This is consistent with the fact that $z^{\tw}(u)$ is an even formal power series \textit{a priori}.
             \end{remark}
 
-            \begin{lemma}[Quantum Pfaffians] \label{lemma: quantum_pfaffians}
-                Fix an invertible formal power series $f(u) \in \bbC[\![u^{-1}]\!]^{\x}$. For such a choice, there exists a unique element:
-                    $$\qpfaff( T(u) ) \in \calZ(\g_N)[\![u^{-1}]\!]$$
-                called the \textbf{quantum Pfaffian} of the transfer matrix $T(u)$, such that the quantum contraction $z(u) \in \calZ(\g_N)[\![u^{-1}]\!]^{\x}$ as in lemma \ref{lemma: quantum_contractions} satisfies:
+            The following was noted already at the end of \cite[Section 2]{guay_regelskis_twisted_yangians_for_symmetric_pairs_of_types_BCD}, but no proof was provided, so we supply one here.
+            \begin{lemma} \label{lemma: quantum_pfaffians}
+                There exists an element:
+                    $$y(u) \in \calZ(\g_N)[\![u^{-1}]\!]$$
+                so that the quantum contraction $z(u) \in \calZ(\g_N)[\![u^{-1}]\!]^{\x}$ as in lemma \ref{lemma: quantum_contractions} factorises in the following manner:
                     \begin{equation} \label{equation: quantum_pfaffians}
-                        z(u) = f(u) \cdot \qpfaff( T(u) ) \qpfaff( T(u + \kappa) )
+                        z(u) = y(u) y(u + \kappa)
                     \end{equation}
             \end{lemma}
                 \begin{proof}
-                    Let us firstly prove existence. To this end, we begin by showing that there exists $y(u) \in \calX(\g_N)[\![u^{-1}]\!]$ such that\footnote{This was noted already at the end of \cite[Section 2]{guay_regelskis_twisted_yangians_for_symmetric_pairs_of_types_BCD} that such a series $y(u)$ exists, but no proof was provided, so we supply one here.}:
-                        $$z(u) = y(u) y(u + \kappa)$$
-                    Actually, since $z(u) \in \calX(\g_N)[\![u^{-1}]\!]^{\x}$ and since $\calX(\g_N)[\![u^{-1}]\!]^{\x}$ is multiplicatively closed, we can take $y(u) \in \calX(\g_N)[\![u^{-1}]\!]^{\x}$ too. Such a series is of the form:
+                    First of all, since $z(u) \in \calX(\g_N)[\![u^{-1}]\!]^{\x}$ and since $\calX(\g_N)[\![u^{-1}]\!]^{\x}$ is multiplicatively closed, we can take $y(u) \in \calX(\g_N)[\![u^{-1}]\!]^{\x}$ too. Such a series is of the form:
                         $$y(u) = 1 + \sum_{r \geq 0} y^{(r)} u^{-r - 1}$$
                     \textit{a priori}, and thus:
                         $$z(u) = y(u) y(u + \kappa) = \left( 1 + \sum_{m \geq 0} y^{(m)} u^{-m - 1} \right) \left( 1 + \sum_{m \geq 0} y^{(m)} (u + \kappa)^{-m - 1} \right)$$
@@ -384,6 +435,8 @@
                     Since $z(u) \in \calZ(\g_N)[\![u^{-1}]\!]^{\x}$, it can be written as:
                         $$z(u) = 1 + \sum_{m \geq 0} z^{(m)} u^{-m - 1}$$
                     with $z^{(m)} \in \calZ(\g_N)$, and since these coefficients are algebraically independent from one another and generate the centre $\calZ(\g_N)$. Through homogeneity, we then infer that:
+                        $$z^{(0)} = 2y^{(0)}$$
+                        $$\vdots$$
                         $$
                             z^{(m)} =
                             \begin{aligned}
@@ -392,61 +445,156 @@
                                 & \quad + \left( \sum_{l \geq 0} \sum_{m \geq 0} y^{(l)} y^{(m)} \cdot \sum_{k = 0}^{m + 1} \binom{m + 1}{k} \kappa^k u^{m - l - k} \right)^{(m)} 
                             \end{aligned}
                         $$
-                    wherein $(-)^{(m)}$ means the degree $-m - 1$ coefficient. This determines $y(u)$, so we have existence. In fact, we have uniqueness as well, as the coefficients $y^{(m)}$ are given inductively, and we have:
-                        $$z^{(0)} = 2y^{(0)}$$
+                    wherein $(-)^{(m)}$ means the degree $-m - 1$ coefficient. This determines $y(u)$, so we have existence.
 
-                    We also know from lemma \ref{lemma: centres_of_extended_untwisted_yangians} that the coefficients $z^{(m)} \in \calZ(\g_N)$, so by induction, one can show that $y^{(m)} \in \calZ(\g_N)$ necessarily as well. \todo{I'm still thinking about how to best phrase this part of the argument.}
-                        
-                    One can now take:
-                        $$\qpfaff( T(u) ) := \frac{1}{y(u)}$$
-                    and we complete the proof by recalling from lemma \ref{lemma: automorphisms_of_extended_untwisted_yangians} that multiplication elements of $\calX(\g_N)[\![u^{-1}]\!]$ by invertible series $f(u) \in \bbC[\![u^{-1}]\!]^{\x}$ induces algebra automorphism of $\calX(\g_N)$. 
+                    We also know from lemma \ref{lemma: centres_of_extended_untwisted_yangians} that the coefficients $z^{(m)} \in \calZ(\g_N)$, so by induction, one can show that $y^{(m)} \in \calZ(\g_N)$ necessarily as well, by arguing in the following manner. To this end, recall that $\frac{1}{u + \kappa} = \sum_{n \geq 0} (-\kappa)^n u^{-n - 1}$, which then gives us:
+                        $$y(u + \kappa) = 1 + \sum_{m \geq 0} y^{(m)} \left( \sum_{n \geq 0} (-\kappa)^n u^{-n - 1} \right)^{-m - 1}$$
+                    With this in mind, along with the fact that $z(u) \in \calZ(\g_N)[\![u^{-1}]\!]$, let us then consider the following for all $X(u) \in \calX(\g_N)[\![u^{-1}]\!]$:
+                        $$
+                            \begin{aligned}
+                                0 & = [z(u), X(u)]
+                                \\
+                                & = [y(u) y(u + \kappa), X(u)]
+                                \\
+                                & =
+                                \begin{aligned}
+                                    & y(u) \cdot [y(u + \kappa), X(u)]
+                                    \\
+                                    & \quad + [y(u), X(u)] \cdot y(u + \kappa)
+                                \end{aligned}
+                                \\
+                                & =
+                                \begin{aligned}
+                                    & \left( 1 + \sum_{l \geq 0} y^{(l)} u^{-l - 1} \right) \cdot \left[ 1 + \sum_{m \geq 0} y^{(m)} \left( \sum_{n \geq 0} (-\kappa)^n u^{-n - 1} \right)^{-m - 1}, X(u) \right]
+                                    \\
+                                    & \quad + \left[ 1 + \sum_{l \geq 0} y^{(l)} u^{-l - 1}, X(u) \right] \cdot \left( 1 + \sum_{m \geq 0} y^{(m)} \left( \sum_{n \geq 0} (-\kappa)^n u^{-n - 1} \right)^{-m - 1} \right) 
+                                \end{aligned}
+                                \\
+                                & =
+                                \begin{aligned}
+                                    & \left( 1 + \sum_{l \geq 0} y^{(l)} u^{-l - 1} \right) \cdot \sum_{m \geq 0} \left[ y^{(m)} \left( \sum_{n \geq 0} (-\kappa)^n u^{-n - 1} \right)^{-m - 1}, X(u) \right]
+                                    \\
+                                    & \quad + \sum_{l \geq 0} \left[ y^{(l)} u^{-l - 1}, X(u) \right] \cdot \left( 1 + \sum_{m \geq 0} y^{(m)} \left( \sum_{n \geq 0} (-\kappa)^n u^{-n - 1} \right)^{-m - 1} \right) 
+                                \end{aligned}
+                            \end{aligned}
+                        $$
+                    From this, we see that we must have:
+                        $$[y^{(m)}, X(u)] = 0$$
+                    for all $m \geq 0$ and all $X(u) \in \calX(\g_N)[\![u^{-1}]\!]$, thus proving that:
+                        $$y(u) \in \calZ(\g_N)[\![u^{-1}]\!]$$
                 \end{proof}
-            \begin{corollary}[Twisted quantum Pfaffians] \label{coro: twisted_quantum_pfaffians}
-                There exists a unique element:
-                    $$\sklyaninpfaff( S(u) ) \in \calZ^{\tw}(\g_N, \id)[\![u^{-1}]\!]$$
-                called the \textbf{twisted quantum Pfaffian} of the boundary transfer matrix $S(u)$, such that the twisted quantum contraction $z^{\tw}(u) \in \calZ^{\tw}(\g_N, \id)[\![u^{-1}]\!]^{\x}$ as in lemma \ref{lemma: twsited_quantum_contractions} satisfies:
+            Once again, the following was already noted in \cite{guay_regelskis_twisted_yangians_for_symmetric_pairs_of_types_BCD}, particular at the beginning of Theorem 3.1, wherein the authors used the notations $w(u) = z^{\tw}(u)$ and $q(u) = y^{\tw}(u)$.
+            \begin{lemma} \label{lemma: twisted_quantum_pfaffians}
+                The twisted quantum contraction $z^{\tw}(u) \in \calZ^{\tw}(\g_N, \id)[\![u^{-1}]\!]^{\x}$ from lemma \ref{lemma: twisted_quantum_contractions} factorises in the following manner:
                     \begin{equation} \label{equation: twisted_quantum_pfaffians}
-                        z^{\tw}(u) = f^{\tw}\left( u - \frac12 \kappa \right) \cdot \sklyaninpfaff( S(u) ) \sklyaninpfaff( S(u + \kappa) )
+                        z^{\tw}(u) = y^{\tw}(u) y^{\tw}(u + \kappa)
                     \end{equation}
                 wherein:
-                    $$f^{\tw}\left( u - \frac12 \kappa \right) := f(u) f(-u)$$
-                    $$\sklyaninpfaff( S(u) ) := \qpfaff\left( T\left( u - \frac12 \kappa \right) \right) \qpfaff\left( T\left( -u + \frac12 \kappa \right) \right)$$
-            \end{corollary}
+                    $$y^{\tw}(u) := y\left( u - \frac12 \kappa \right) y\left( -u + \frac12 \kappa \right)$$
+                and $y(u) \in \calZ(\g_N)[\![u^{-1}]\!]^{\x}$ is as in lemma \ref{lemma: quantum_pfaffians}. Moreover, we have:
+                    $$y^{\tw}(u) \in \calZ^{\tw}(\g_N, \id)[\![u^{-1}]\!]$$
+            \end{lemma}
+                \begin{proof}
+                    From lemma \ref{lemma: twisted_quantum_contractions}, we know that $z^{\tw}(u) = z\left( u - \frac12 \kappa \right) z\left( -u + \frac12 \kappa \right)$. By combining this with equation \eqref{equation: quantum_pfaffians}, we then get:
+                        $$
+                            \begin{aligned}
+                                z^{\tw}(u) & = z\left( u - \frac12 \kappa \right) z\left( -u + \frac12 \kappa \right)
+                                \\
+                                & = y\left( u - \frac12 \kappa \right) y\left( u + \frac12 \kappa \right) \cdot y\left( -u + \frac12 \kappa \right) y\left( -u + \frac32 \kappa \right)
+                                \\
+                                & = y\left( u - \frac12 \kappa \right) y\left( -u + \frac12 \kappa \right) \cdot y\left( u + \frac12 \kappa \right) y\left( -u + \frac32 \kappa \right)
+                            \end{aligned}
+                        $$
+                    Setting $y^{\tw}(u) := y\left( u - \frac12 \kappa \right) y\left( -u + \frac12 \kappa \right)$ then yields us equation \eqref{equation: twisted_quantum_pfaffians}.
+
+                    Then, by arguing as in the proof of lemma \ref{lemma: quantum_pfaffians}, one sees furthermore that $y^{\tw}(u) \in \calZ^{\tw}(\g_N, \id)[\![u^{-1}]\!]$.
+                \end{proof}
             \begin{remark}
-                We can rewrite equation \eqref{equation: twisted_quantum_pfaffians} into the following form, which is more symmetric:
-                    \begin{equation} \label{equation: }
-                        z^{\tw}(u) = f^{\tw}\left( u - \frac12 \kappa \right) \cdot \sklyaninpfaff(  S(u) ) \sklyaninpfaff( S(-u) )
+                We can rewrite equation \eqref{equation: twisted_quantum_pfaffians} into the following form, which has the advantage of being more symmetric and more clearly consistent with the evenness of $z^{\tw}(u)$:
+                    \begin{equation} \label{equation: symmetrised_twisted_quantum_pfaffians}
+                        z^{\tw}(u) = y^{\tw}(u) y^{\tw}(-u)
                     \end{equation}
-                This version has the advantage of being clearly consistent with the evenness of $z^{\tw}(u)$.
-
-                We can thus answer question \ref{question: square_roots_of_quantum_contractions} in the affirmative by taking:
-                    $$b(u) := \frac{ 1 }{ f(u) \sklyaninpfaff( S(u) ) }$$
             \end{remark}
-            \begin{remark}
-                Before moving on, we would like to briefly comment on the choice of terminologies and notations in lemma \ref{lemma: quantum_pfaffians} and corollary \ref{coro: twisted_quantum_pfaffians}. First of all, let us recall from \cite[Section 2.5]{molev_yangians_and_classical_lie_algebras} that for the twisted Yangian of Olshanskii\footnote{... corresponding to Guay-Regelskis twisted Yangians associated to the symmetric pairs of type $\sfA$.}, the centre is generated by the coefficients of the so-called \say{Sklyanin determinant} (see \cite[Definition 2.5.2]{molev_yangians_and_classical_lie_algebras}). Since the coefficients of the twisted quantum contraction $z^{\tw}(u)$ from lemma \ref{lemma: twsited_quantum_contractions} generates the centre of twisted Yangians in general, we are inclined to think of them as generalising the notion of Sklyanin determinants. As such, we can view question \ref{question: square_roots_of_quantum_contractions} as, more or less, asking for the existence of square roots of $z^{\tw}(u)$. Now, recall that if $A$ is a skew-symmetric matrix, then the Pfaffian of $A$, denoted by, is defined to satisfy:
-                    $$\pfaff(A)^2 = \det(A)$$
-                Therefore, we call $\sklyaninpfaff( S(u) )$ the \say{twisted quantum Pfaffian} by analogy.
-
-                The untwisted quantum Pfaffian has a similar justification for its name; to this end, we recall from \cite[Section 1.6]{molev_yangians_and_classical_lie_algebras} that the so-called \say{quantum determinant} generates the centre of a $\calY(\gl_N)$.
-
-                We would also like to remark that the choice of notation for the (twisted) quantum Pfaffians is meant to put emphasis on the fact that they depend only on the (boundary) transfer matrices $T(u)$ and $S(u)$.
-            \end{remark}
+            We can now answer question \ref{question: square_roots_of_twsited_quantum_contractions} in the affirmative by taking:
+                $$b^{\tw}(u) := y^{\tw}(u)$$
+            Let us now compute $b(u) \in \calZ(\g_N)[\![u^{-1}]\!]^{\x}$ in terms of $y(u) \in \calZ(\g_N)[\![u^{-1}]\!]^{\x}$; as these are invertible series, they can be written in the form:
+                $$b(u) := 1 + \sum_{m \geq 0} b^{(m)} u^{-m - 1}$$
+                $$y(u) := 1 + \sum_{m \geq 0} y^{(m)} u^{-m - 1}$$
+            for some $b^{(m)}, y^{(m)} \in \calZ(\g_N)$. By convention, we have $b^{\tw}(u) := b\left( u - \frac12 \kappa \right) b\left( -u + \frac12 \kappa \right)^{-1}$ and $y^{\tw}(u) := y\left( u - \frac12 \kappa \right) y\left( -u + \frac12 \kappa \right)$, which are respectively equivalent to:
+                $$b^{\tw}\left( -u - \frac12 \kappa \right) = b(-u) b(u)^{-1}$$
+                $$y^{\tw}\left( -u - \frac12 \kappa \right) = y(-u) y(u)$$
+            Next, let us compute $b(u)^{-1}$; to this end, set:
+                $$b(u)^{-1} := 1 + \sum_{n \geq 0} c^{(n)} u^{-n - 1}$$
+            for some $c^{(n)} \in \calZ(\g_N)$ (again, the $0^{th}$ degree term is $1$ as the series is invertible) and then consider the following:
+                $$
+                    \begin{aligned}
+                        1 & = b(u) b(u)^{-1}
+                        \\
+                        & = \left( 1 + \sum_{m \geq 0} b^{(m)} u^{-m - 1} \right) \left( 1 + \sum_{n \geq 0} c^{(n)} u^{-n - 1} \right)
+                        \\
+                        & = 1 + \sum_{m \geq 0} b^{(m)} u^{-m - 1} + \sum_{n \geq 0} c^{(n)} u^{-m - 1} + \left( \sum_{m \geq 0} b^{(m)} u^{-m - 1} \right) \left( \sum_{n \geq 0} c^{(n)} u^{-n - 1} \right)
+                        \\
+                        & = 1 + \sum_{m \geq 0} ( b^{(m)} + c^{(m)} ) u^{-m - 1} + \sum_{m \geq 0} \sum_{n \geq 0} b^{(m)} c^{(n)} u^{-m - n - 2}
+                        \\
+                        & = 1 + \sum_{l \geq 0} \left( b^{(l)} + c^{(l)} + \sum_{ \substack{m, n \geq 0 \\ m + n = l} } b^{(m)} c^{(n)} \right) u^{-l - 1}
+                    \end{aligned}
+                $$
+            By homogeneity, we then have for all $l \geq 0$ that $b^{(l)} + c^{(l)} + \sum_{ \substack{m, n \geq 0 \\ m + n = l} } b^{(m)} c^{(n)} = 0$, or equivalently, the following recursive formula for the coefficients $c^{(l)}$ of $b(u)^{-1}$:
+                $$c^{(l)} = -b^{(l)} - \sum_{m = 0}^l b^{(m)} c^{(l - m)}$$
+            This then allows us to compute:
+                $$
+                    \begin{aligned}
+                        b(-u) b(u)^{-1} & = \left( 1 + \sum_{m \geq 0} b^{(m)} (-u)^{-m - 1} \right) \left( 1 + \sum_{n \geq 0} c^{(n)} u^{-n - 1} \right)
+                        \\
+                        & = \left( 1 + \sum_{m \geq 0} b^{(m)} (-u)^{-m - 1} \right) \left( 1 + \sum_{n \geq 0} c^{(n)} u^{-n - 1} \right)
+                        \\
+                        & = 1 + \sum_{m \geq 0} b^{(m)} (-u)^{-m - 1} + \sum_{n \geq 0} c^{(n)} u^{-n - 1} + \left( \sum_{m \geq 0} b^{(m)} (-u)^{-m - 1} \right) \left( \sum_{n \geq 0} c^{(n)} u^{-n - 1} \right)
+                        \\
+                        & = 1 + \sum_{m \geq 0} ( (-1)^{-m - 1} b^{(m)} + c^{(n)} ) u^{-m - 1} + \sum_{m \geq 0} \sum_{n \geq 0} (-1)^{-m - 1} b^{(m)} c^{(n)} u^{-m - n - 2}
+                        \\
+                        & = 1 + \sum_{l \geq 0} \left( (-1)^{-l - 1} b^{(l)} + c^{(l)} + \sum_{ \substack{m, n \geq 0\\m + n = l} } (-1)^{-m - 1} b^{(m)} c^{(n)} \right) u^{-l - 1}
+                        \\
+                        & = 1 + \sum_{l \geq 0} \left( (-1)^{-l - 1} b^{(l)} + \left( -b^{(l)} - \sum_{m = 0}^l b^{(m)} c^{(l - m)} \right) + \sum_{m = 0}^l (-1)^{-m - 1} b^{(m)} c^{(l - m)} \right) u^{-l - 1}
+                        \\
+                        & = 1 + \sum_{l \geq 0} \left( 2b^{(2l + 1)} - \sum_{ \substack{ 0 \leq m \leq l \\ \text{$m$ even} } } b^{(m)} c^{(l - m)} \right) u^{-l - 1}
+                    \end{aligned}
+                $$
+            At the same time, we have:
+                $$
+                    \begin{aligned}
+                        y(-u) y(u) & = \left( 1 + \sum_{m \geq 0} y^{(m)} (-u)^{-m - 1} \right) \left( 1 + \sum_{n \geq 0} y^{(n)} u^{-n - 1} \right)
+                        \\
+                        & = 1 + \sum_{m \geq 0} y^{(m)} (-u)^{-m - 1} + \sum_{n \geq 0} y^{(n)} u^{-n - 1} + \left( \sum_{m \geq 0} y^{(m)} (-u)^{-m - 1} \right) \left( \sum_{n \geq 0} y^{(n)} u^{-n - 1} \right)
+                        \\
+                        & = 1 + \sum_{m \geq 0} ( (-1)^{-m - 1} y^{(m)} + y^{(m)} ) u^{-m - 1} + \sum_{m \geq 0} \sum_{n \geq 0} (-1)^{-m - 1} y^{(m)} y^{(n)} u^{-m - n - 2}
+                        \\
+                        & = 1 + \sum_{l \geq 0} \left( (-1)^{-l - 1} y^{(l)} + y^{(l)} + \sum_{ \substack{m, n \geq 0\\m + n = l} } (-1)^{-m - 1} y^{(m)} y^{(n)} \right) u^{-l - 1}
+                        \\
+                        & = 1 + \sum_{l \geq 0} \left( 2y^{(2l + 1)} + \sum_{0 \leq m \leq l} (-1)^{-m - 1} y^{(m)} y^{(l - m)} \right) u^{-l - 1}
+                    \end{aligned}
+                $$
+            As we are supposed to have:
+                $$b(-u) b(u)^{-1} = y(-u) y(u)$$
+            we now see - via homogeneity - that the coefficients of $b(u)$ are determined by those of $y(u)$ by:
+                \begin{equation} \label{equation: b_cofficients_in_terms_of_y_coefficients}
+                    2b^{(2l + 1)} - \sum_{ \substack{ 0 \leq m \leq l \\ \text{$m$ even} } } b^{(m)} c^{(l - m)} = 2y^{(2l + 1)} + \sum_{0 \leq m \leq l} (-1)^{-m - 1} y^{(m)} y^{(l - m)}
+                \end{equation}
                 
             \begin{proposition}[A homomorphism $\UXB(\g_N, \id) \to \calX^{\tw}(\g_N, \id)$] \label{prop: mapping_IMO_reflection_algebras_to_extended_untwisted_yangians_via_extended_twisted_yangians}
-                Let $\Phi$ be the algebra homomorphism from proposition \ref{prop: mapping_IMO_reflection_algebras_to_extended_yangians}. Then, up to a choice of an invertible formal power series $f(u) \in \bbC[\![u^{-1}]\!]^{\x}$, there is the following induced algebra homomorphism:
-                    $$\Phi^{\tw}: \UXB(\g_N, \id) \to \calX^{\tw}(\g_N, \id)$$
+                The algebra homomorphism $\Phi$ from proposition \ref{prop: mapping_IMO_reflection_algebras_to_extended_yangians} induces an algebra homomorphism:
+                    $$\Phi^{\tw}: \UXB(\g_N, \id)[\![u^{-1}]\!] \to \calX^{\tw}(\g_N, \id)[\![u^{-1}]\!]$$
                 given by:
-                    $$\Phi^{\tw}( B(u) ) := b(u) \cdot S(u) = \frac{ S(u) }{ f(u) \cdot \sklyaninpfaff\left( S(u) \right) }$$
-                and fitting into the commutative diagram \eqref{equation: mapping_IMO_reflection_algebras_to_extended_untwisted_yangians_via_extended_twisted_yangians}.
+                    $$\Phi^{\tw}( B(u) ) = S(u)$$
+                and fitting into the commutative diagram \eqref{diagram: mapping_IMO_reflection_algebras_to_extended_twisted_yangians_via_untwisted_automorphisms} (and thus also diagram \eqref{diagram: mapping_IMO_reflection_algebras_to_extended_twisted_yangians}).
             \end{proposition}
                 \begin{proof}
-                    This is a direct consequence of corollary \ref{coro: twisted_quantum_pfaffians}. See the discussion above.
+                    This is a direct consequence of lemma \ref{lemma: twisted_quantum_pfaffians}. See the discussion above.
                 \end{proof}
 
             Let us conclude the subsection by considering whether the composition:
-                \begin{equation} \label{equation: mapping_IMO_reflection_algebras_to_BCD0_twisted_yangians}
+                \begin{equation} \label{diagram: mapping_IMO_reflection_algebras_to_BCD0_twisted_yangians}
                     \begin{tikzcd}
-                        {\UXB(\g_N, \id)} & {\calX^{\tw}(\g_N, \id)} & {\calY^{\tw}(\g_N, \id)}
+                        {\UXB(\g_N, \id)[\![u^{-1}]\!]} & {\calX^{\tw}(\g_N, \id)[\![u^{-1}]\!]} & {\calY^{\tw}(\g_N, \id)[\![u^{-1}]\!]}
                         \arrow["{\Phi^{\tw}}", dashed, from=1-1, to=1-2]
                         \arrow[two heads, from=1-2, to=1-3]
                     \end{tikzcd}
@@ -455,35 +603,29 @@
 
             Now, in the process of proving \cite[Theorem 4.1]{guay_regelskis_twisted_yangians_for_symmetric_pairs_of_types_BCD}, the authors proved Lemma 4.3, which states that the boundary transfer matrices $S(u) \in \Mat_N( \calX^{\tw}(\g_N, \id)[\![u^{-1}]\!] )$ satisfy the symmetry relation \eqref{equation: symmetry_relation}. This leads us to make the following claim.
             \begin{theorem} \label{theorem: IMO_reflection_algebras_vs_BCD0_twisted_yangians}
-                Fix some $f(u) \in \bbC[\![u^{-1}]\!]^{\x}$ and then let $\Phi^{\tw}$ be the resulting algebra homomorphism from proposition \ref{prop: mapping_IMO_reflection_algebras_to_extended_untwisted_yangians_via_extended_twisted_yangians}. There exists an induced algebra homomorphism:
+                The algebra homomorphism $\Phi^{\tw}$ from proposition \ref{prop: mapping_IMO_reflection_algebras_to_extended_untwisted_yangians_via_extended_twisted_yangians} fits into the following commutative diagram:
                     $$
                         \begin{tikzcd}
-                    	{\UXB(\g_N, \id)} & {\calX^{\tw}(\g_N, \id)} \\
-                    	{\UB(\g_N, \id)} & {\calY^{\tw}(\g_N, \id)}
+                    	{\UXB(\g_N, \id)[\![u^{-1}]\!]} & {\calX^{\tw}(\g_N, \id)[\![u^{-1}]\!]} \\
+                    	{\UB(\g_N, \id)[\![u^{-1}]\!]} & {\calY^{\tw}(\g_N, \id)[\![u^{-1}]\!]}
                     	\arrow["{{\Phi^{\tw}}}", from=1-1, to=1-2]
                     	\arrow[two heads, from=1-1, to=2-1]
                     	\arrow[two heads, from=1-2, to=2-2]
-                    	\arrow["{{\overline{\Phi}^{\tw}}}", dashed, from=2-1, to=1-2]
-                    	\arrow["\varphi^{\tw}", from=2-1, to=2-2]
+                    	\arrow["\phi^{\tw}", from=2-1, to=2-2]
                         \end{tikzcd}
                     $$
                 wherein:
                 \begin{itemize}
                     \item the left vertical arrow is the canonical quotient map by the ideal generated by the symmetry relation \eqref{equation: symmetry_relation},
                     \item the right vertical arrow is the canonical quotient map by the ideal generated by the unitarity relation, and
-                    \item the bottom arrow is given by:
-                        $$\varphi^{\tw}( B(u) ) := \frac{ \phi^{\tw}( B(u) ) }{ f(u) \sklyaninpfaff( S(u) ) }$$
-                    with $\phi^{\tw}: \UB(\g_N, \id) \xrightarrow[]{\cong} \calY^{\tw}(\g_N, \id)$ the isomorphism from \cite[Theorem 4.1]{guay_regelskis_twisted_yangians_for_symmetric_pairs_of_types_BCD} (see also \cite[Equation 4.32]{guay_regelskis_twisted_yangians_for_symmetric_pairs_of_types_BCD}), which is given by $\phi^{\tw}( B(u) ) := S(u)$. 
+                    \item the bottom arrow $\phi^{\tw}: \UB(\g_N, \id)[\![u^{-1}]\!] \xrightarrow[]{\cong} \calY^{\tw}(\g_N, \id)[\![u^{-1}]\!]$ is the isomorphism from \cite[Theorem 4.1]{guay_regelskis_twisted_yangians_for_symmetric_pairs_of_types_BCD} (see also \cite[Equation 4.32]{guay_regelskis_twisted_yangians_for_symmetric_pairs_of_types_BCD}), which we recall to be given by $\phi^{\tw}( B(u) ) := S(u)$. 
                 \end{itemize}
             \end{theorem}
                 \begin{proof}
-                    The construction of the map $\Phi^{\tw}$ as in proposition \ref{prop: mapping_IMO_reflection_algebras_to_extended_untwisted_yangians_via_extended_twisted_yangians} stipulates that left-multiplication by $f^{\tw}\left( u - \frac12 \kappa \right) \cdot \sklyaninpfaff( S(u) ) \in \calZ^{\tw}(\g_N, \id)[\![u^{-1}]\!]$ defines an (inner) automorphism of $\calX^{\tw}(\g_N, \id)$. Therefore, the image $\Phi^{\tw}( B(u) ) \in \Mat_N( \calX^{\tw}(\g_N, \id)[\![u^{-1}]\!] )$ satisfies the symmetry relation \eqref{equation: symmetry_relation} if and only if the boundary transfer matrix $S(u) \in \Mat_N( \calX^{\tw}(\g_N, \id)[\![u^{-1}]\!] )$ satisfies said relation as well. This is indeed true, according to \cite[Lemma 4.3]{guay_regelskis_twisted_yangians_for_symmetric_pairs_of_types_BCD}, so we are done.
+                    This is a straightforward diagram chase.
                 \end{proof}
             \begin{corollary}[IMO reflection algebras vs. $\BCDzero$ twisted Yangians] \label{coro: IMO_reflection_algebras_vs_BCD0_twisted_yangians}
-                The composite homomorphism \eqref{equation: mapping_IMO_reflection_algebras_to_BCD0_twisted_yangians} is surjective, with kernel equal to the ideal of $\UXB(\g_N, \id)$ generated by the following version of the symmetry relation \eqref{equation: symmetry_relation}, wherein $S(u)$ is replaced by:
-                    $$q(u) \cdot B(u)$$
-                for any:
-                    $$q(u) \in (\Phi^{\tw})^{-1}( f(u) \sklyaninpfaff( S(u) ) )$$
+                The composite homomorphism \eqref{diagram: mapping_IMO_reflection_algebras_to_BCD0_twisted_yangians} is surjective, with kernel equal to the ideal of $\UXB(\g_N, \id)$ generated by the following version of the symmetry relation \eqref{equation: symmetry_relation}:
             \end{corollary}
     
     \addcontentsline{toc}{section}{References}

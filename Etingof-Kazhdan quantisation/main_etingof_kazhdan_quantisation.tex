@@ -6,7 +6,7 @@
 
 \begin{document}
 
-    \title{Etingof-Kazhdan quantisation}
+    \title{Quantisation of Lie bialgebras, after Etingof-Kazhdan}
     
     \author{Dat Minh Ha}
     \maketitle
@@ -21,14 +21,18 @@
     \tableofcontents %sort sections alphabetically
     }
 
+    \listoftodos
+
     \section{Introduction}
         \begin{convention}
-            We fix once and for all a field $k$. All Hopf algebras will be assumed to have invertible antipodes. All modules will be left-modules unless mentioned explicitly to be otherwise.
+            We fix once and for all a field $k$ of any characteristic other than $2$ and $3$ (this is so that various skew-symmetric and Jacobi-type expressions would not require modifications). All Hopf algebras will be assumed to have invertible antipodes. All modules will implicitly be assumed to be left-modules.
         \end{convention}
 
     \input{Etingof-Kazhdan quantisation/R_matrices}
-    
-    \input{Etingof-Kazhdan quantisation/quantisations_of_lie_bialgebras}
+
+    \input{Etingof-Kazhdan quantisation/quantisations_of_finite_dimensional_lie_bialgebras}
+
+    \input{Etingof-Kazhdan quantisation/quantisations_of_infinite_dimensional_lie_bialgebras.tex}
 
     \input{Etingof-Kazhdan quantisation/twisted_quantisation}
 

@@ -1,0 +1,26 @@
+\section{Introduction}
+    \begin{convention}
+        We work over $\bbC$, though any algebraically closed field of characteristic $0$ suffices. All vector spaces, (Lie) algebras, etc. shall be assumed to be over $\bbC$ by default.
+    \end{convention}
+
+    \subsection{Affine Kac-Moody Lie algebras}
+        We fix once and for all a finite-dimensional simple Lie algebra $\g$, a Cartan subalgebra $\h \subset \g$ with $\ell := \dim \h$. Choose a symmetric, non-degenerate, and invariant bilinear form $(-, -)_{\g}$ thereon, let $\rootsystem \subset \h^*$ be the resulting root system, and then choose a subset $\simpleroots := \{\alpha_i\}_{1 \leq i \leq \ell} \subset \rootsystem$ of simple roots therein; often, we will identify $\simpleroots \cong \{1, ..., \ell\}$. Let $\rootlattice$ denote the root lattice. Let $\weightlattice$ denote the weight lattice, and write $\{\varpi_i\}_{1 \leq i \leq \ell}$ for the fundamental weights.
+
+        Let $\hat{\g}$ be the affine Kac-Moody algebra associated to $\g$. One obtains this Lie algebra by firstly affinising the Cartan matrix of $\g$, then using this affine Cartan matrix as input for the Kac-Moody algebra construction as in \cite[Chapter 1]{kac_infinite_dimensional_lie_algebras}. By \cite[Chapter 7]{kac_infinite_dimensional_lie_algebras}, affine Kac-Moody algebras admit a so-called \say{loop realisation}. Specifically, this means that:
+            $$\hat{\g} \cong (\g[t^{\pm 1}] \oplus \bbC c_{\aff}) \rtimes \bbC D_{\aff}$$
+        for some $c_{\aff} \in \bbC \setminus \{0\}$ and $D_{\aff} \in \der( \g[t^{\pm 1}] \oplus \bbC c_{\aff} )$ acting by:
+            $$[D_{\aff}, x f(t)]_{\hat{\g}} := x t \frac{d ft}{dt}$$
+            $$[D_{\aff}, c_{\aff}] = 0$$
+        for all $x \in \g$ and $f \in \bbC[t^{\pm 1}]$. From this realisation, one can extract the so-called affine Lie algebra associated to $\g$, given by:
+            $$\tilde{\g} := \hat{\g}'$$
+        From \cite[Chapter 7]{kac_infinite_dimensional_lie_algebras}, we know that $\tilde{\g} \cong \g[t^{\pm 1}] \oplus \bbC c_{\aff}$, and a general result about universal central extensions of current algebras from \cite{kassel_universal_central_extensions_of_lie_algebras} then tells us that $\tilde{\g} \cong \uce(\g[t^{\pm 1}])$. Note also, that because $\tilde{\g} \subset \hat{\g}$ is a Lie subalgebra by construction, any $\hat{\g}$-module is automatically a $\tilde{\g}$-modules too.
+
+        If $V$ is a weight module over a Lie algebra with a root space decomposition of some kind ($\g$ or $\hat{\g}$ in particular), then the set of weights with non-zero corresponding weight spaces will be denoted by $\weight(V)$. 
+
+    \subsection{Quantum groups}
+        By \say{QUE}, we mean \say{quantised universal enveloping algebras}, and by \say{QSP} we mean \say{quantum symmetric pairs}. When we say \say{Yangian}, we mean the (untwisted) Yangian of Drinfeld, in the sense of \cite{drinfeld_original_yangian_paper}, while when we say \say{twisted Yangians}, we will be referring to the notion from \cite{guay_regelskis_twisted_yangians_for_symmetric_pairs_of_types_BCD} (which subsumes Olshanskii's notion of twisted Yangians from \cite{olshanski_twisted_yangians_and_infinite_dimensional_classical_lie_algebras}\footnote{Olshanskii's twisted Yangians can be thought of as twisted Yangians associated to symmetric pairs of type $\sfA$.}.); if necessary, we will specify.
+
+    \subsection{\texorpdfstring{$q$-characters in the absence of boundary conditions}{}}
+
+    \subsection{\texorpdfstring{$q$-characters in the presence of boundary conditions}{}}
+        \todo[inline]{It seems that it may be easier to establish $q$-characters for twisted Yangians than for QSPs, since the K-matrices of the former are more well-understood. This may be a good thing for us, because the loop/current Cartan generators $H_i^{(r)}$ of twisted Yangians are somewhat less understood than the same ones for QSPs.}

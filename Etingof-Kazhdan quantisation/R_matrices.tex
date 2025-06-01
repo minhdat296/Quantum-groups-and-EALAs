@@ -1,4 +1,4 @@
-\section{The R-matrix formalism}
+\section{R-matrices as braidings}
     \subsection{Reconstructing bialgebras from their representation categories}
         For the sake of fixing terminologies, let us recall a few relevant definitions.
         \begin{definition}[Rigid monoidal categories] \label{def: rigid_monoidal_categories}
@@ -83,14 +83,14 @@
 
     \subsection{R-matrices and bialgebra deformations}
         Now, we move on to studying R-matrices, monoidal braidings that can be classified using Hochschild cohomology of bialgebras. Suppose that $H$ is a bialgebra therein. At first, $R$-matrices on $H$-modules, say $V$, shall appear as certain automorphisms of $V^{\tensor 2}$ satsifying equations following a certain \say{quantum Yang-Baxter} formula, originating from scattering theory in statistical mechanics. However, Drinfeld's key insight was that said quantum Yang-Baxter equations are precisely the equations describing bialgebra $2$-cocycles:
-            $$\sfR \in \HH^2(H, H^{\tensor 2})$$
+            $$\calR \in \HH^2(H, H^{\tensor 2})$$
     
         \begin{convention}
             A convention that will be observed throughout is the following. Suppose that $\C$ is a monoidal category and that $V$ is an object in $\C$. If:
-                $$\sfR := \sum_{i_1 + i_2 = i} \sfR_{i_1} \tensor \sfR_{i_2} \in \End_{\C}(V^{\tensor 2})$$
+                $$\calR := \sum_{i_1 + i_2 = i} \calR_{i_1} \tensor \calR_{i_2} \in \End_{\C}(V^{\tensor 2})$$
             then we will write:
-                $$\sfR_{1, 2} := \sum_{i_1 + i_2 = i} \sfR_{i_1} \tensor \sfR_{i_2} \tensor \id_V \in \End_{\C}(V^{\tensor 3})$$
-                $$\sfR_{2, 3} := \sum_{i_1 + i_2 = i} \id_V \tensor \sfR_{i_1} \tensor \sfR_{i_2} \in \End_{\C}(V^{\tensor 3})$$
+                $$\calR_{1, 2} := \sum_{i_1 + i_2 = i} \calR_{i_1} \tensor \calR_{i_2} \tensor \id_V \in \End_{\C}(V^{\tensor 3})$$
+                $$\calR_{2, 3} := \sum_{i_1 + i_2 = i} \id_V \tensor \calR_{i_1} \tensor \calR_{i_2} \in \End_{\C}(V^{\tensor 3})$$
                 $$\text{etc.}$$
         \end{convention}
 
@@ -99,10 +99,10 @@
         \end{convention}
     
         \begin{definition}[R-matrices] \label{def: R_matrices}
-            An \textbf{R-matrix} on an object $V \in \Ob(\C)$ is an automorphism $\sfR \in \Aut_{\C}(V \tensor V)$ satisfying the so-called \textbf{quantum Yang-Baxter equation}:
-                $$\sfR_{1, 2} \circ \sfR_{1, 3} \circ \sfR_{2, 3} = \sfR_{2, 3} \circ \sfR_{1, 3} \circ \sfR_{1, 2} \in \Aut_{\C}(V \tensor V \tensor V)$$
+            An \textbf{R-matrix} on an object $V \in \Ob(\C)$ is an automorphism $\calR \in \Aut_{\C}(V \tensor V)$ satisfying the so-called \textbf{quantum Yang-Baxter equation}:
+                $$\calR_{1, 2} \circ \calR_{1, 3} \circ \calR_{2, 3} = \calR_{2, 3} \circ \calR_{1, 3} \circ \calR_{1, 2} \in \Aut_{\C}(V \tensor V \tensor V)$$
             along with the \textbf{unitarity condition}:
-                $$\sfR \circ \sfR_{2, 1} = \id_V$$
+                $$\calR \circ \calR_{2, 1} = \id_V$$
         \end{definition}
         \begin{example}
             For each object $V \in \Ob(\C)$, the swap map:
@@ -113,8 +113,8 @@
         \begin{remark}
             Finding all solutions to the quantum Yang-Baxter equation is a very difficult task. To see why, specialise to the case $\C := k\-\Vect$ and write the equation out in terms of a fixed basis. 
             
-            Nevertheless, it is known how one might generate new solutions from a previously known one (e.g. $\sfR = \tau_{V, V}$). In particular, if $V$ is a $k$-vector space and $\sfR \in \Aut_k(V \tensor V)$ is an R-matrix then the following automorphisms on $V \tensor V$ will also be R-matrices:
-                $$\sfR^{-1}, \lambda \sfR, \tau_{V, V} \circ \sfR \circ \tau_{V, V}$$
+            Nevertheless, it is known how one might generate new solutions from a previously known one (e.g. $\calR = \tau_{V, V}$). In particular, if $V$ is a $k$-vector space and $\calR \in \Aut_k(V \tensor V)$ is an R-matrix then the following automorphisms on $V \tensor V$ will also be R-matrices:
+                $$\calR^{-1}, \lambda \calR, \tau_{V, V} \circ \calR \circ \tau_{V, V}$$
             wherein $\lambda \in k$ is some scalar.
         \end{remark}
         \begin{example}[The quantum Yang-Baxter equation for finite-dimensional simple $\calU_q(\sl_2)$-modules]
@@ -131,3 +131,5 @@
         \end{example}
     
     \subsection{Quantum doubles of bialgebras and Yetter-Drinfeld modules}
+
+    \subsection{Meromorphic tensor structures}

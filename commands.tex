@@ -58,8 +58,11 @@
     \IfValueT{#2}{^{#2}}
   }%
 }
-\newcommand{\simpleroots}{\mathsf{\Pi}}
-\newcommand{\rootsystem}{\mathsf{\Delta}}
+\newcommand{\simpleroots}{\mathsf{\Delta}}
+\newcommand{\rootsystem}{\mathsf{\Phi}}
+\newcommand{\rootlattice}{\mathsf{Q}}
+\newcommand{\weight}{\mathsf{\Pi}}
+\newcommand{\weightlattice}{\mathsf{\Lambda}}
 \newcommand{\Weyl}{\mathscr{W}}
 \newcommand{\supp}{\operatorname{supp}}
 \newcommand{\domain}{\operatorname{dom}}
@@ -502,12 +505,13 @@
 \newcommand{\calJ}{\mathcal{J}}
 \newcommand{\scrI}{\mathscr{I}}
 \newcommand{\scrJ}{\mathscr{J}}
+\newcommand{\scrH}{\mathscr{H}}
+\newcommand{\calH}{\mathcal{H}}
 \newcommand{\scrK}{\mathscr{K}}
 \newcommand{\calK}{\mathcal{K}}
 \newcommand{\scrV}{\mathscr{V}}
 \newcommand{\scrW}{\mathscr{W}}
 \newcommand{\bbS}{\mathbb{S}}
-\newcommand{\scrH}{\mathscr{H}}
 \newcommand{\bfA}{\mathbf{A}}
 \newcommand{\bfB}{\mathbf{B}}
 \newcommand{\bfC}{\mathbf{C}}
@@ -720,3 +724,16 @@
 \DeclareSymbolFontAlphabet{\mathbb}{AMSb} %to ensure that the meaning of \mathbb does not change
 \DeclareSymbolFontAlphabet{\mathbbl}{bbold}
 \newcommand{\prism}{{\mathlarger{\mathbbl{\Delta}}}}
+
+%symmetric pairs; twisted yangians and reflection algebras
+\newcommand{\romanzero}{\mathsf{0}}
+\newcommand{\romanone}{\mathsf{I}}
+\newcommand{\romantwo}{\mathsf{II}}
+\newcommand{\romanthree}{\mathsf{III}}
+\newcommand{\Aone}{\sfA\romanone}
+\newcommand{\BCDzero}{\sfB\sfC\sfD\romanzero}
+\newcommand{\BCDone}{\sfB\sfC\sfD\romanone}
+\newcommand{\XB}{\mathcal{XB}} %reflection equation
+\newcommand{\UXB}{\mathcal{UXB}} %reflection equation and unitary condition
+\newcommand{\UB}{\mathcal{UB}} %reflection equation, unitary condition, and symmetry relation
+\newcommand{\ZB}{\mathcal{ZB}} 
