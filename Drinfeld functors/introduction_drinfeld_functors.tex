@@ -1,0 +1,72 @@
+\section{Introduction}
+    \subsection{Morita functors}
+        We begin by giving a very brief overview of a result of Morita, concerning the comparison of associative algebras via equivalences between their module categories. Unless stated otherwise, all modules will be assumed to be left-modules; we do not lose any generality in making this assumption, since most statements work more or less \textit{verbatim} for right-modules, and thus there is no need to restate the results.
+        
+        Firstly, we recall that given an abelian category $\calA$, an object $M \in \Ob(\calA)$ is said to be \textbf{compact} if and only if the functor $\Mor_{\calA}(M, -): \calA \to \Z\mod$ preserves arbitrary direct sums, i.e. $\Mor_{\calA}\left(M, \bigoplus_{i \in I} N_i\right) \cong \bigoplus_{i \in I} \Mor_{\calA}(M, N_i)$ for all sets of objects $\{N_i\}_{i \in I} \subset \Ob(\calA)$. It is worth keeping the following result in mind.
+        \begin{lemma} \label{lemma: finitely_generated_modules_are_compact}
+            Let $R$ be a ring and $P \in \Ob(R\mod)$.
+            \begin{enumerate}
+                \item If $P$ is finitely generated, then $P$ will be compact.
+                \item If $P$ is compact and moreover, projective, then $P$ will be finitely generated.
+            \end{enumerate}
+        \end{lemma}
+            \begin{proof}
+                See \cite[Lemma 2.1.6]{ginzburg_lectures_on_noncommutative_geometry}.
+            \end{proof}
+        
+        Secondly, recall that objects belonging to a set $\{P_i\}_{i \in I} \subset \Ob(\calA)$ are called \textbf{generators} if every object of $\calA$ can be written as the colimit of a diagram whose vertices belong to $\{P_i\}_{i \in I}$; since we are working in an abelian category, this is equivalent to requiring that every object $M \in \Ob(\calA)$ can be written as a quotient of some (possibly self) direct sum of the elements of $\{P_i\}_{i \in I}$.
+        \begin{lemma} \label{lemma: endomorphism_algebras_of_compact_projective_generators}
+            Let $\calA$ be an abelian category with all direct sums (equivalently, a cocomplete abelian category). Let $P \in \Ob(\calA)$ be a compact and projective generator and set:
+                $$R := \End_{\calA}(P)^{\op}$$
+            Then, the functor:
+                $$\Mor_{\calA}(P, -): \calA \to R\mod$$
+            will be an equivalence of categories.
+        \end{lemma}
+            \begin{proof}
+                See \cite[Proposition 2.1.7]{ginzburg_lectures_on_noncommutative_geometry}.
+            \end{proof}
+
+        We say that two rings $R$ and $S$ are \textbf{Morita-equivalent}, written:
+            $$R \approx S$$
+        if there is an equivalence of categories:
+            $$R\mod \cong S\mod$$
+        \begin{proposition}[Morita functors] \label{prop: additive_right_exact_functors_between_module_categories}
+            Let $R, S$ be two rings, and let:
+                $$F: R\mod \to S\mod$$
+            be an additive and right-exact functor, which from now on will be referred to as \textbf{Morita functors}. Then, there exists an $(R, S)$-bimodule $P$, unique up to isomorphisms, for which there is a natural isomorphism:
+                $$F \cong - \tensor_A P$$
+        \end{proposition}
+            \begin{proof}
+                See \cite[Theorem 2.3.1]{ginzburg_lectures_on_noncommutative_geometry}.
+            \end{proof}
+        \begin{corollary}[Reconstruction via projective generators]
+            Let $R, S$ be two rings.
+            \begin{enumerate}
+                \item $R \approx S$ if and only if there exist projective objects:
+                    $$P \in \Ob( (R, S)\bimod ), Q \in \Ob( (S, R)\bimod )$$
+                such that:
+                    $$P \tensor_S Q \cong R, Q \tensor_R P \cong S$$
+                in $(R, R)\bimod$ and $(S, S)\bimod$ respectively, thus giving rise to an adjoint equivalence:
+                    \begin{equation} \label{diagram: morita_adjoint_equivalences}
+                        - \tensor_R P: R\mod \leftrightarrows S\mod: - \tensor_S Q
+                    \end{equation}
+                \item Moreover, when $R \approx S$, we have the following isomorphisms of rings:
+                    $$\End_R(P)^{\op} \cong B, \End_S(Q)^{\op} \cong A$$
+                \item If $P, Q$ are also compact, then the adjoint equivalence \eqref{diagram: morita_adjoint_equivalences} can be restricted down to an adjoint equivalence between the subcategories of finitely generated modules:
+                    $$
+                        - \tensor_R P: R\mod^{\ft} \leftrightarrows S\mod^{\ft}: - \tensor_S Q
+                    $$
+            \end{enumerate}
+        \end{corollary}
+        \begin{corollary}
+            
+        \end{corollary}
+            \begin{proof}
+                See \cite[Corollary 2.3.4]{ginzburg_lectures_on_noncommutative_geometry}.
+            \end{proof}
+
+    \subsection{\texorpdfstring{Arakawa-Suzuki duality and Drinfeld functors in type $\sfA$}{}}
+
+    \subsection{Projective objects in parabolic BGG categories for untwisted Yangians}
+
+    \subsection{\texorpdfstring{Ehrig-Stroppel duality and Drinfeld functors in types $\sfB, \sfC, \sfD$}{}}

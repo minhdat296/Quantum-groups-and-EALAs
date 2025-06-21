@@ -60,10 +60,12 @@
 
         We will be fixing once and for all a solution:
             $$\calR(u) = 1 + \frac{P}{u} + \frac{Q}{u - \kappa}$$
-        for $\kappa := \sgn(\g_N) 1 + \frac{N}{2}$, with:
+        for $\kappa := \sgn(\g_N) + \frac{N}{2}$, with $Q = -2P$ for type $\sfA$, and:
             \begin{equation} \label{equation: BCD_signature}
                 \sgn(\g_N) =
                 \begin{cases}
+                    \text{$0$ if $\g_N$ is of type $\sfA$}
+                    \\
                     \text{$-1$ if $\g_N$ is of either type $\sfB$ or $\sfD$}
                     \\
                     \text{$1$ if $\g_N$ is of type $\sfC$}
@@ -149,7 +151,7 @@
             $$E_{i, j}$$
         for the image of $e_i \tensor e_j$ under the identification above; explicitly, $E_{i, j}$ is the $N \x N$ matrix with $1$ in the $(i, j)^{th}$ entry and $0$ elsewhere. Moreover, recall that $U$ comes equipped with a natural $\g_N$-invariant and non-degenerate bilinear form that we shall denote by:
             $$\eta$$
-        This form is symmetric for the orthogonal types $\sfB, \sfD$ and skew-symmetric for the symplectic type $\sfC$.
+        This form is symmetric for the linear type $\sfA$ and orthogonal types $\sfB, \sfD$, while skew-symmetric for the symplectic type $\sfC$.
     
         \begin{definition}[Rational K-matrices] \label{def: boundary_quantum_yang_baxter_equations}
             Given a rational solution $\calR(u)$ to the QYBE, the resulting boundary quantum Yang-Baxter equation (bQYBE) with (meromorphic) solution $\calK(u)$ reads:
